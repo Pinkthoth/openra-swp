@@ -1,0 +1,1599 @@
+rubble:
+	Defaults:
+		ZOffset: -8000
+	idle:
+		Start: 0
+	scratched-idle:
+		Start: 1
+	damaged-idle:
+		Start: 2
+	critical-idle:
+		Start: 3
+	idle2:
+		Start: 4
+	scratched-idle2:
+		Start: 5
+	damaged-idle2:
+		Start: 6
+	critical-idle2:
+		Start: 7
+	idle3:
+		Start: 8
+	scratched-idle3:
+		Start: 9
+	damaged-idle3:
+		Start: 10
+	critical-idle3:
+		Start: 11
+
+fact:
+	idle:
+	make: factmake
+		Length: *
+	build:
+		Start: 1
+		Length: 25
+	pdox: factpdox
+		Length: 80
+	damaged-idle:
+		Start: 26
+	damaged-build:
+		Start: 27
+		Length: 25
+	damaged-pdox: factpdox
+		Start: 80
+		Length: 80
+	dead: factdead
+		Tick: 800
+	bib: bib2
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	icon: facticon
+	fake-icon: facficon
+
+silo:
+	idle: silo2
+		Offset: 0,-1
+	damaged-idle: silo2
+		Start: 9
+		Offset: 0,-1
+	stages: silo2
+		Length: 9
+		Offset: 0,-1
+	damaged-stages: silo2
+		Start: 9
+		Length: 9
+		Offset: 0,-1
+	make: silomake
+		Length: *
+		Offset: 0,-1
+	bib: mbSILO
+		Length: *
+		UseTilesetExtension: true
+	icon: siloicon
+
+powr:
+	idle:
+	damaged-idle:
+		Start: 1
+	make: powrmake
+		Length: *
+	dead: powrdead
+		Tick: 800
+	bib: bib3
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	icon: powricon
+	fake-icon: fpwricon
+
+apwr:
+	idle:
+		Offset: 0,-10
+	damaged-idle:
+		Start: 1
+		Offset: 0,-10
+	make: apwrmake
+		Length: *
+		Offset: 0,-10
+	dead: apwrdead
+		Tick: 800
+		Offset: 0,-10
+	bib: bib2
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	icon: apwricon
+	fake-icon: fapwicon
+
+barr:
+	idle:
+		Length: 10
+		Offset: 0,-6
+	damaged-idle:
+		Start: 10
+		Length: 10
+		Offset: 0,-6
+	make: barrmake
+		Length: *
+		Offset: 0,-6
+	bib: bib3
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	icon: barricon
+
+tent:
+	Defaults:
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	idle:
+		Length: 10
+	damaged-idle:
+		Start: 10
+		Length: 10
+	make: tentmake
+		Length: *
+	bib: bib3
+		Length: *
+	icon: tenticon
+		UseTilesetExtension: false
+	fake-icon: tenficon
+		UseTilesetExtension: false
+
+kenn:
+	idle:
+	damaged-idle:
+		Start: 1
+	make: kennmake
+		Length: *
+	bib: mbSILO
+		Length: *
+		UseTilesetExtension: true
+	icon: kennicon
+
+dome:
+	idle:
+		Offset: 0,-4
+	damaged-idle:
+		Start: 1
+		Offset: 0,-4
+	make: domemake
+		Length: *
+		Offset: 0,-4
+	bib: bib3
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	icon: domeicon
+	fake-icon: domficon
+
+atek:
+	idle:
+	damaged-idle:
+		Start: 1
+	make: atekmake
+		Length: *
+	active: sputdoor
+		Length: *
+		Offset: -4,0
+	bib: bib3
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	icon: atekicon
+	fake-icon: ateficon
+
+stek:
+	idle:
+	damaged-idle:
+		Start: 1
+	make: stekmake
+		Length: *
+	bib: bib2
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	icon: stekicon
+
+weap:
+	idle:
+	damaged-idle:
+		Start: 1
+	place: weapmake
+		Start: 14
+	make: weapmake
+		Length: *
+	build-top: weap3
+		Length: 10
+	damaged-build-top: weap2
+		Start: 4
+		Length: 4
+	bib: bib2
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	icon: weapicon
+	fake-icon: weaficon
+
+hpad:
+	idle:
+		ZOffset: -1023
+	damaged-idle:
+		Start: 7
+		ZOffset: -1023
+	active:
+		Start: 1
+		Length: 6
+		Tick: 100
+		ZOffset: -1023
+	damaged-active:
+		Start: 8
+		Length: 6
+		Tick: 100
+		ZOffset: -1023
+	make: hpadmake
+		Length: *
+	bib: bib3
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	icon: hpadicon
+
+afld:
+	idle: afldidle
+		Length: 8
+		Tick: 160
+		ZOffset: -1023
+		Offset: 0,-4
+	damaged-idle: afldidle
+		Start: 8
+		Length: 8
+		Tick: 160
+		ZOffset: -1023
+		Offset: 0,-4
+	active:
+		Length: 8
+		Tick: 160
+		ZOffset: -1023
+		Offset: 0,-4
+	damaged-active:
+		Start: 8
+		Length: 8
+		Tick: 160
+		ZOffset: -1023
+		Offset: 0,-4
+	make: afldmake
+		Length: *
+		Offset: 0,-4
+	icon: afldicon
+
+spen:
+	idle:
+		Offset: 0,2
+	damaged-idle:
+		Start: 1
+		Offset: 0,2
+	make: spenmake
+		Length: *
+		Offset: 0,2
+	icon: spenicon
+	fake-icon: speficon
+
+syrd:
+	idle:
+	damaged-idle:
+		Start: 1
+	make: syrdmake
+		Length: *
+	icon: syrdicon
+	fake-icon: syrficon
+
+fix:
+	idle:
+		Offset: 0,1
+		ZOffset: -1c511
+	damaged-idle:
+		Start: 7
+		Offset: 0,1
+		ZOffset: -1c511
+	active:
+		Start: 1
+		Length: 6
+		Offset: 0,1
+		ZOffset: -1c511
+	damaged-active:
+		Start: 8
+		Length: 6
+		Offset: 0,1
+		ZOffset: -1c511
+	make: fixmake
+		Length: *
+		Offset: 0,1
+	bib: mbFIX
+		Length: *
+		ZOffset: -1c511
+		Offset: 0,-4
+		UseTilesetExtension: true
+	icon: fixicon
+	fake-icon: fixficon
+
+gun:
+	idle: gunmake # Empty first frame. We need WithSpriteBody for the make anim, and WSB needs at least a placeholder default sequence to work
+	make: gunmake
+		Length: *
+	turret:
+		Facings: 32
+		UseClassicFacings: True
+	recoil:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	damaged-turret:
+		Start: 64
+		Facings: 32
+		UseClassicFacings: True
+	damaged-recoil:
+		Start: 96
+		Facings: 32
+		UseClassicFacings: True
+	muzzle: gunfire2
+		Length: 5
+	bib: mbGUN
+		Length: *
+		Offset: -1,-1
+		UseTilesetExtension: true
+	icon: gunicon
+
+gatlinggun:
+	idle: gunmake # Empty first frame. We need WithSpriteBody for the make anim, and WSB needs at least a placeholder default sequence to work
+	make: gatlinggunmake
+		Length: *
+	turret:
+		Facings: 32
+		UseClassicFacings: True
+	damaged-turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	muzzle: minigun
+		Length: 6
+		Facings: 8
+	bib: mbGUN
+		Length: *
+		Offset: -1,-1
+		UseTilesetExtension: true
+	icon: gatlinggunicon
+
+mameluk:
+	idle: gunmake # Empty first frame. We need WithSpriteBody for the make anim, and WSB needs at least a placeholder default sequence to work
+		Start: 0
+		Length: 1
+	make: mamelukmake
+		Length: *
+	turret:
+		Facings: 32
+		UseClassicFacings: True
+	damaged-turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	muzzle: gunfire2
+		Length: 5
+	bib: mbIRON
+		Length: *
+		Offset: -1,-1
+		UseTilesetExtension: true
+	icon: mamelukicon
+
+agun:
+	idle: gunmake # Empty first frame (agunmake has no empty frames). We need WithSpriteBody for the make anim, and WSB needs at least a placeholder default sequence to work
+	make: agunmake
+		Length: *
+		Offset: 0,-13
+	turret:
+		Facings: 32
+		UseClassicFacings: True
+		Offset: 0,-13
+	recoil:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+		Offset: 0,-13
+	damaged-turret:
+		Start: 64
+		Facings: 32
+		UseClassicFacings: True
+		Offset: 0,-13
+	damaged-recoil:
+		Start: 96
+		Facings: 32
+		UseClassicFacings: True
+		Offset: 0,-13
+	muzzle: gunfire2
+		Start: 1
+		Length: 4
+	bib: mbAGUN
+		Length: *
+		UseTilesetExtension: true
+	icon: agunicon
+
+sam:
+	idle: gunmake # Empty first frame (sammake has no empty frames). We need WithSpriteBody for the make anim, and WSB needs at least a placeholder default sequence to work
+	turret: sam2
+		Facings: 32
+		UseClassicFacings: True
+		Offset: -1,-2
+	damaged-turret: sam2
+		Start: 34
+		Facings: 32
+		UseClassicFacings: True
+		Offset: -1,-2
+	make: sammake
+		Length: *
+		Offset: -1,-2
+	muzzle: samfire
+		Length: 18
+		Facings: 8
+		Offset: -1,6
+	bib: mbSAM
+		Length: *
+		Offset: 0,1
+		UseTilesetExtension: true
+	icon: samicon
+
+ftur:
+	idle:
+		Offset: 0,-2
+	damaged-idle:
+		Start: 1
+		Offset: 0,-2
+	make: fturmake
+		Length: *
+		Offset: 0,-2
+	bib: mbFTUR
+		Length: *
+		UseTilesetExtension: true
+	icon: fturicon
+
+tsla:
+	idle:
+		Offset: 0,-13
+	damaged-idle:
+		Start: 10
+		Offset: 0,-13
+	make: tslamake
+		Length: *
+		Offset: 0,-13
+	active:
+		Start: 1
+		Length: 9
+		Tick: 100
+		Offset: 0,-13
+	damaged-active:
+		Start: 11
+		Length: 9
+		Tick: 100
+		Offset: 0,-13
+	bib: mbTSLA
+		Length: *
+		UseTilesetExtension: true
+	icon: tslaicon
+
+pbox:
+	idle:
+	damaged-idle:
+		Start: 1
+	make: pboxmake
+		Length: *
+	muzzle: minigun
+		Length: 6
+		Facings: 8
+	bib: mbPBOX
+		Length: *
+		Offset: 0,-2
+		UseTilesetExtension: true
+	icon: pboxicon
+
+hbox:
+	Defaults:
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	idle:
+	damaged-idle:
+		Start: 2
+	make: hboxmake
+		Length: *
+	muzzle: minigun
+		Length: 6
+		Facings: 8
+		UseTilesetExtension: false
+	icon: hboxicon
+		UseTilesetExtension: false
+
+gap:
+	idle:
+		Length: 32
+		Offset: 0,-14
+	damaged-idle:
+		Start: 32
+		Length: 32
+		Offset: 0,-14
+	make: gapmake
+		Length: *
+		Offset: 0,-14
+	bib: mbGAP
+		Length: *
+		UseTilesetExtension: true
+	icon: gapicon
+
+iron:
+	idle:
+		Offset: 0,-12
+	active:
+		Length: 11
+		Offset: 0,-12
+	damaged-idle:
+		Start: 11
+		Offset: 0,-12
+	damaged-active:
+		Start: 11
+		Length: 11
+		Offset: 0,-12
+	make: ironmake
+		Length: *
+		Offset: 0,-12
+	bib: mbIRON
+		Length: *
+		Offset: 0,2
+		UseTilesetExtension: true
+	icon: ironicon
+
+pdox:
+	idle:
+	damaged-idle:
+		Start: 29
+	active:
+		Length: 29
+	damaged-active:
+		Start: 29
+		Length: 29
+	make: pdoxmake
+		Length: *
+	bib: mbPDOX
+		Length: *
+		Offset: 0,-4
+		UseTilesetExtension: true
+	icon: pdoxicon
+	fake-icon: pdoficon
+
+mslo:
+	Defaults:
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	idle:
+	damaged-idle:
+		Start: 8
+	make: mslomake
+		Length: *
+	active:
+		Start: 1
+		Length: 7
+		Tick: 80
+	damaged-active:
+		Start: 9
+		Length: 7
+	icon: msloicon2
+		UseTilesetExtension: false
+	fake-icon: mslficon
+		UseTilesetExtension: false
+
+miss:
+	idle:
+	damaged-idle:
+		Start: 1
+	dead:
+		Start: 2
+		Tick: 800
+	make: missmake
+		Length: *
+	bib: bib2
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+
+mpowr:
+	idle: mpowr
+		Start: 0
+	damaged-idle: mpowr
+		Start: 1
+	make: mpowrmake
+		Length: *
+	dead: mpowr
+		Start: 1
+		Tick: 800
+	bib: bib3
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	icon: powricon
+	fake-icon: fpwricon
+	
+epowr:
+	idle: epowr
+	damaged-idle: epowr
+		Start: 1
+	make: epowrmake
+		Length: *
+	dead: powrdead
+		Tick: 800
+	bib: bib3
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	icon: powricon
+	fake-icon: fpwricon
+	
+barr:
+	fake-icon: fbarricon
+	
+stek:
+	fake-icon: fstekicon
+	
+erax:
+	idle: erax
+		Start: 0
+		Length: 10
+	damaged-idle: erax
+		Start: 10
+		Length: 10
+	make: eraxmake
+		Length: *
+	bib: bib3
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	icon: barricon
+	fake-icon: fbarricon
+	
+mrax:
+	idle: mrax
+		Start: 0
+		Length: 10
+	damaged-idle: mrax
+		Start: 10
+		Length: 10
+	dead: mrax
+		Start: 20
+		Tick: 800
+	make: mraxmake
+		Length: *
+	bib: bib3
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	icon: barricon
+	fake-icon: fbarricon
+	
+proc:
+	idle: ref-bot
+		Offset: 2, 3
+		ZOffset: -1c511
+	damaged-idle:
+		Offset: 2, 3
+		ZOffset: -1c511
+		Start: 1
+	topsolid: ref-top
+		Offset: 2, 3
+		ZOffset: 0c912
+		Start: 0
+	damaged-topsolid: ref-top
+		Offset: 2, 3
+		ZOffset: 0c912
+		Start: 2
+	opaquetop: ref-top
+		Offset: 2, 3
+		ZOffset: 0c912
+		Start: 1
+	damaged-opaquetop: ref-top
+		Offset: 2, 3
+		ZOffset: 0c912
+		Start: 3
+	make: ref-anim
+		Offset: 5, -1
+		Length: *
+	dead: procdead
+		Tick: 800
+	bib: bib2
+		Offset: 2, 8
+		ZOffset: -1c612
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	icon: procicon
+	fake-icon: fprocicon
+
+eproc:
+	idle:
+		ZOffset: -1c511
+	damaged-idle:
+		Start: 2
+		ZOffset: -1c511
+	make: eprocmake
+		Length: *
+		ZOffset: -1c511
+	dead: eproc
+		Start: 2
+		Tick: 800
+	topsolid: 
+		Start: 1
+		ZOffset: 0c912
+	damaged-topsolid:
+		Start: 3
+		ZOffset: 0c912
+	opaquetop: 
+		Start: 1
+		ZOffset: 0c912
+	damaged-opaquetop: 
+		Start: 3
+		ZOffset: 0c912
+	bib: bib2
+		Offset: 2, 8
+		ZOffset: -1c612
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	icon: procicon
+	fake-icon: fprocicon
+	
+mproc:
+	idle:
+		ZOffset: -1c511
+	damaged-idle:
+		Start: 1
+		ZOffset: -1c511
+	make: mprocmake
+		Length: *
+	dead: 
+		Start: 1
+		Tick: 800
+	topsolid: 
+		ZOffset: 0c912
+		Start: 2
+	damaged-topsolid: 
+		ZOffset: 0c912
+		Start: 3
+	opaquetop: 
+		ZOffset: 0c912
+		Start: 2
+	damaged-opaquetop: 
+		ZOffset: 0c912
+		Start: 3
+	bib: bib2
+		Offset: 2, 8
+		ZOffset: -1c612
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	icon: procicon
+	fake-icon: fprocicon
+	
+eweap:
+	idle: eweap
+		Start: 1
+	damaged-idle: eweap
+		Start: 2
+	place: eweap
+		Start: 0
+	make: eweapmake
+		Length: *
+	build-top: eweap
+		Start: 3
+		Length: 10
+	damaged-build-top: eweap
+		Start: 14
+		Length: 10
+	bib: bib2
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	icon: weapicon
+	fake-icon: weaficon
+	
+mweap:
+	idle: mweap
+		Start: 1
+	damaged-idle: mweap
+		Start: 2
+	place: mweap
+		Start: 0
+	make: mweapmake
+		Length: *
+	build-top: mweap
+		Start: 3
+		Length: 10
+	damaged-build-top: mweap
+		Start: 13
+		Length: 10
+	bib: bib2
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	icon: weapicon
+	fake-icon: weaficon
+	
+eapwr:
+	idle: eapwr
+		Start: 0
+		Offset: 0,-10
+	damaged-idle: eapwr
+		Start: 1
+		Offset: 0,-10
+	make: eapwrmake
+		Length: *
+		Offset: 0,-10
+	dead: eapwr
+		Start: 1
+		Tick: 800
+		Offset: 0,-10
+	bib: bib2
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	icon: apwricon
+	fake-icon: fapwicon
+
+mapwr:
+	idle: mapwr
+		Start: 0
+		Offset: 0,-10
+	damaged-idle: mapwr
+		Start: 1
+		Offset: 0,-10
+	make: mapwrmake
+		Length: *
+		Offset: 0,-10
+	dead: mapwr
+		Start: 1
+		Tick: 800
+		Offset: 0,-10
+	bib: bib2
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	icon: apwricon
+	fake-icon: fapwicon
+	
+mdome:
+	idle: mdome
+		Start: 0
+	damaged-idle: mdome
+		Start: 1
+	make: mdomemake
+		Length: *
+	bib: bib3
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	icon: domeicon
+	fake-icon: domficon
+	
+kdome:
+	idle: kdome
+		Start: 0
+	damaged-idle: kdome
+		Start: 1
+	make: kdomemake
+		Length: *
+	bib: bib3
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	icon: domeicon
+	fake-icon: domficon
+	
+mtek:
+	idle: 
+		Start: 0
+	damaged-idle: 
+		Start: 1
+	dead:
+		Start: 2
+		Tick: 800
+	make: mtekmake
+		Length: *
+	bib: bib2
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	icon: mtekicon
+	
+mafld:
+	idle: 
+		Start: 0
+		Length: 8
+		Tick: 100
+	damaged-idle: 
+		Start: 8
+		Length: 8
+		Tick: 100
+	dead:
+		Start: 8
+		Tick: 800
+	make: mafldmake
+		Length: *
+	active:
+		Start: 0
+		Length: 8
+		Tick: 100
+	damaged-active:
+		Start: 8
+		Length: 8
+		Tick: 100
+	icon: afldicon
+
+eafld:
+	idle: 
+		Start: 0
+		Length: 8
+		Tick: 100
+	damaged-idle: 
+		Start: 8
+		Length: 8
+		Tick: 100
+	dead:
+		Start: 8
+		Tick: 800
+	make: eafldmake
+		Length: *
+	active:
+		Start: 0
+		Length: 8
+		Tick: 100
+	damaged-active:
+		Start: 8
+		Length: 8
+		Tick: 100
+	icon: afldicon
+
+adept:
+	idle:
+		Start: 25
+	damaged-idle:
+		Start: 26
+	dead:
+		Start: 27
+		Tick: 800
+	make:
+		Start: 0
+		Length: 25
+	bib: bib2
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	icon: adepticon
+	
+madept:
+	idle:
+		Start: 0
+	damaged-idle:
+		Start: 1
+	dead:
+		Start: 1
+		Tick: 800
+	make: madeptmake
+		Start: 0
+		Length: *
+	bib: bib2
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	icon: adepticon
+	
+eadept:
+	idle:
+		Start: 0
+	damaged-idle:
+		Start: 1
+	dead:
+		Start: 1
+		Tick: 800
+	make: eadeptmake
+		Start: 0
+		Length: *
+	bib: bib2
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	icon: adepticon
+	
+mcom:
+	idle: 
+		Start: 0
+	damaged-idle: 
+		Start: 1
+	dead:
+		Start: 2
+		Tick: 800
+	make: mcommake
+		Length: *
+	bib: bib3
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	icon: mcomicon
+	
+ecom:
+	idle: 
+		Start: 0
+	damaged-idle: 
+		Start: 1
+	dead:
+		Start: 2
+		Tick: 800
+	make: ecommake
+		Length: *
+	bib: bib3
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	icon: mcomicon
+	
+kcom:
+	idle: 
+	damaged-idle:
+		Start: 1
+	make: kcommake
+		Length: *
+	dead:
+		Start: 1
+	bib: bib3
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	icon: mcomicon
+	
+flkgun:
+	idle: gunmake # Empty first frame (agunmake has no empty frames). We need WithSpriteBody for the make anim, and WSB needs at least a placeholder default sequence to work
+	make: 
+		Start: 256
+		Length: 25
+		Offset: 0,4
+	turret:
+		Facings: 32
+		UseClassicFacings: True
+		Offset: 0,4
+	recoil:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+		Length: 3
+		Offset: 0,4
+	damaged-turret:
+		Start: 128
+		Facings: 32
+		UseClassicFacings: True
+		Offset: 0,4
+	damaged-recoil:
+		Start: 160
+		Facings: 32
+		UseClassicFacings: True
+		Length: 3
+		Offset: 0,4
+	muzzle: gunfire2
+		Start: 1
+		Length: 4
+	bib: mbAGUN
+		Length: *
+		UseTilesetExtension: true
+	icon: flkicon
+	
+uplink:
+	idle: 
+		Start: 0
+		Length: 32
+		Tick: 120
+	damaged-idle: 
+		Start: 32
+		Length: 32
+		Tick: 120
+	dead: 
+		Start: 64
+	make: uplinkmake
+		Length: *
+	bib: mbPDOX
+		Length: *
+		Offset: 0,-4
+		UseTilesetExtension: true
+	icon: uplinkicon
+	
+sthgen:
+	idle: 
+		Start: 0
+	active: 
+		Start: 0
+		Length: 25
+		Tick: 80
+	damaged-active: 
+		Start: 25
+		Length: 25
+		Tick: 80
+	damaged-idle: 
+		Start: 25
+	dead: 
+		Start: 50
+	make: sthgenmake
+		Length: *
+	bib: mbPDOX
+		Length: *
+		Offset: 0,-4
+		UseTilesetExtension: true
+	icon: sthgenicon
+	
+empgun:
+	idle: gunmake
+		Start: 0
+	damaged-idle: gunmake
+		Start: 0
+	dead: gunmake
+	turret:
+		Start: 0
+		Facings: 32
+	damaged-turret:
+		Start: 32
+		Facings: 32
+	make: empgunmake
+		Length: *
+	icon: empgunicon
+	
+railgun:
+	idle: gunmake # Empty first frame. We need WithSpriteBody for the make anim, and WSB needs at least a placeholder default sequence to work
+	make: railgunmake
+		Length: *
+	turret:
+		Facings: 32
+		UseClassicFacings: True
+	recoil:
+		Start: 32
+		Facings: 32
+		Length: 5
+		UseClassicFacings: True
+	damaged-turret:
+		Start: 192
+		Facings: 32
+		UseClassicFacings: True
+	damaged-recoil:
+		Start: 224
+		Facings: 32
+		Length: 5
+		UseClassicFacings: True
+	muzzle: gunfire2
+		Length: 5
+	bib: mbGUN
+		Length: *
+		Offset: -1,-1
+		UseTilesetExtension: true
+	icon: railgunicon
+	
+efact:
+	idle: 
+		Start: 0
+	make: efactmake
+		Length: *
+	build: 
+		Start: 0
+		Length: 1
+	pdox: factpdox
+		Length: 80
+	damaged-idle: 
+		Start: 1
+	damaged-build: 
+		Start: 1
+		Length: 1
+	damaged-pdox: factpdox
+		Start: 80
+		Length: 80
+	dead: 
+		Start: 1
+		Tick: 800
+	bib: bib2
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	icon: facticon
+	fake-icon: facficon
+
+mfact:
+	idle: 
+		Start: 0
+	make: mfactmake
+		Length: *
+	build: 
+		Start: 0
+		Length: 1
+	pdox: factpdox
+		Length: 80
+	damaged-idle: 
+		Start: 1
+	damaged-build: 
+		Start: 1
+		Length: 1
+	damaged-pdox: factpdox
+		Start: 80
+		Length: 80
+	dead: 
+		Start: 1
+		Tick: 800
+	bib: bib2
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	icon: facticon
+	fake-icon: facficon
+	
+kfact:
+	idle: 
+		Start: 0
+	make: kfactmake
+		Length: *
+	build: 
+		Start: 0
+		Length: 1
+	pdox: factpdox
+		Length: 80
+	damaged-idle: 
+		Start: 1
+	damaged-build: 
+		Start: 1
+		Length: 1
+	damaged-pdox: factpdox
+		Start: 80
+		Length: 80
+	dead: 
+		Start: 1
+		Tick: 800
+	bib: bib2
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	icon: facticon
+	fake-icon: facficon
+	
+efix:
+	idle:
+		Offset: 0,1
+		ZOffset: -1c511
+	damaged-idle:
+		Start: 6
+		Offset: 0,1
+		ZOffset: -1c511
+	active:
+		Start: 0
+		Length: 6
+		Offset: 0,1
+		ZOffset: -1c511
+	damaged-active:
+		Start: 6
+		Length: 6
+		Offset: 0,1
+		ZOffset: -1c511
+	make: efixmake
+		Length: *
+		Offset: 0,1
+	bib: mbFIX
+		Length: *
+		ZOffset: -1c511
+		Offset: 0,-4
+		UseTilesetExtension: true
+	icon: fixicon
+	fake-icon: fixficon
+	
+mfix:
+	idle:
+		Offset: 0,1
+		ZOffset: -1c511
+	damaged-idle:
+		Start: 6
+		Offset: 0,1
+		ZOffset: -1c511
+	active:
+		Start: 0
+		Length: 6
+		Offset: 0,1
+		ZOffset: -1c511
+	damaged-active:
+		Start: 6
+		Length: 6
+		Offset: 0,1
+		ZOffset: -1c511
+	make: mfixmake
+		Length: *
+		Offset: 0,1
+	bib: mbFIX
+		Length: *
+		ZOffset: -1c511
+		Offset: 0,-4
+		UseTilesetExtension: true
+	icon: fixicon
+	fake-icon: fixficon
+	
+srimp:
+	idle:
+		Start: 0
+		Offset: 0,-9
+	damaged-idle: srimpbrk
+		Start: 0
+		Offset: 0,-9
+	dead: srimpbrk
+		Start: 0
+		Offset: 0,-9
+	active: srimp
+		Start: 1
+		Length: 149
+		Tick: 175
+		Offset: 0,-9
+	damaged-active: srimpbrk
+		Start: 1
+		Length: 149
+		Tick: 125
+		Offset: 0,-9
+	make: srimpmake
+		Length: *
+		Offset: 0,-9
+	bib: mbPDOX
+		Length: * 
+		Offset: 0,0
+		UseTilesetExtension: true
+	icon: srimpicon
+		Start: 0
+	sp-icon: shrimplosion
+		Start: 0
+		
+trench:
+	idle:
+		Length: 16
+	scratched-idle:
+		Start: 0
+		Length: 16
+	damaged-idle:
+		Start: 32
+		Length: 16
+	icon: trenchicon
+	
+shpad:
+	idle: heliport
+		ZOffset: -1023
+	damaged-idle: heliport
+		Start: 2
+		ZOffset: -1023
+	active: heliport
+		Start: 0
+		Length: 2
+		Tick: 450
+		ZOffset: -1023
+	damaged-active: heliport
+		Start: 2
+		Length: 2
+		Tick: 450
+		ZOffset: -1023
+	make: heliportmake
+		Length: *
+	bib: bib3
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	icon: hpadicon
+	
+mhpad:
+	idle: 
+		Start: 15
+		ZOffset: -1023
+	damaged-idle: 
+		Start: 24
+		ZOffset: -1023
+	active: 
+		Start: 15
+		Length: 9
+		Tick: 100
+		ZOffset: -1023
+	damaged-active: 
+		Start: 24
+		Length: 9
+		Tick: 100
+		ZOffset: -1023
+	make: 
+		Start: 0
+		Length: 15
+	bib: bib3
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	icon: hpadicon
+	
+sbunker:
+	idle:
+	damaged-idle: 
+		Start: 1
+	make: 
+		Start: 2
+		Length: 25
+	muzzle: minigun
+		Length: 6
+		Facings: 8
+	bib: mbPBOX
+		Length: *
+		Offset: 0,-2
+		UseTilesetExtension: true
+	icon: sbunkericon
+	
+pbox:
+	idle:
+	damaged-idle:
+		Start: 1
+	make: pboxmake
+		Length: *
+	muzzle: minigun
+		Length: 6
+		Facings: 8
+	bib: mbPBOX
+		Length: *
+		Offset: 0,-2
+		UseTilesetExtension: true
+	icon: pboxicon
+	
+hbox:
+	Defaults:
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	idle:
+	damaged-idle:
+		Start: 2
+	make: hboxmake
+		Length: *
+	muzzle: minigun
+		Length: 6
+		Facings: 8
+		UseTilesetExtension: false
+	icon: hboxicon
+		UseTilesetExtension: false
+		
+atek:
+	idle:
+	damaged-idle:
+		Start: 1
+	make: atekmake
+		Length: *
+	active: sputdoor
+		Length: *
+		Offset: -4,0
+	bib: bib2
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	icon: atekicon
+	fake-icon: ateficon
+
+#Neutral
+fcom:
+	idle:
+	damaged-idle:
+		Start: 1
+	make: fcommake
+		Length: *
+	bib: bib3
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+
+hosp:
+	idle:
+		Length: 4
+	damaged-idle:
+		Start: 4
+		Length: 4
+	dead:
+		Start: 8
+		Tick: 800
+	make: hospmake
+		Length: *
+	bib: mbHOSP
+		Length: *
+		Offset: 0,1
+		UseTilesetExtension: true
+	icon: hospicon
+
+bio:
+	idle:
+	damaged-idle:
+		Start: 1
+	dead:
+		Start: 2
+		Tick: 800
+	make: biomake
+		Length: *
+
+oilb:
+	Defaults:
+		Offset: 0,-6
+	idle:
+	damaged-idle:
+		Start: 1
+		Length: *
+	make:
+	bib: bib3
+		Length: *
+		Offset: 0,0
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+
+brik:
+	idle:
+		Length: 16
+	scratched-idle:
+		Start: 16
+		Length: 16
+	damaged-idle:
+		Start: 32
+		Length: 16
+	icon: brikicon
+
+sbag:
+	idle:
+		Length: 16
+	icon: sbagicon
+
+fenc:
+	idle:
+		Length: 16
+	icon: fencicon
+
+cycl:
+	idle:
+		Length: 16
+	damaged-idle:
+		Start: 16
+		Length: 16
+	icon: cyclicon

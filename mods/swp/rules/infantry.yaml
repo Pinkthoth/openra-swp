@@ -1,0 +1,2144 @@
+DOG:
+	Inherits: ^Soldier
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Dog
+		BuildPaletteOrder: 42
+		Prerequisites: ~infantry.zentrum, ~techlevel.infonly
+		Description: Anti-infantry unit.\nCan detect spies.\n  Strong vs Infantry\n	 Weak vs Vehicles, Aircraft
+	Valued:
+		Cost: 200
+	Tooltip:
+		Name: Attack Dog
+		GenericName: Dog
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Selectable:
+		Bounds: 12,17,-1,-4
+		DecorationBounds: 12,17,-1,-4
+	Health:
+		HP: 1800
+	Mobile:
+		Speed: 99
+		Voice: Move
+		PauseOnCondition: attack-cooldown || eating
+	Guard:
+		Voice: Move
+	Passenger:
+		Voice: Move
+	RevealsShroud:
+		Range: 5c512
+	Armament:
+		Weapon: DogJaw
+		ReloadingCondition: attack-cooldown
+	-AttackFrontal:
+	AttackLeap:
+		Voice: Attack
+		PauseOnCondition: attacking || attack-cooldown
+	AttackMove:
+		Voice: Move
+	GrantConditionOnAttack:
+		Condition: eating
+		RevokeDelay: 45
+	GrantConditionWhileAiming:
+		Condition: run
+	AutoTarget:
+		InitialStance: AttackAnything
+	AutoTargetPriority@DEFAULT:
+		ValidTargets: Infantry
+	Targetable:
+		TargetTypes: GroundActor, Infantry
+	WithInfantryBody:
+		MoveSequence: walk
+		StandSequences: stand
+		DefaultAttackSequence: eat
+		RequiresCondition: !run
+	WithInfantryBody@RUN:
+		MoveSequence: run
+		RequiresCondition: run
+	SpeedMultiplier:
+		Modifier: 150
+		RequiresCondition: run
+	IgnoresDisguise:
+	Voiced:
+		VoiceSet: DogVoice
+	-TakeCover:
+
+E1:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 10
+		Prerequisites: ~barracks, ~techlevel.infonly
+		Description: General-purpose infantry.\n  Strong vs Infantry\n	Weak vs Vehicles, Aircraft
+	Selectable:
+		Class: E1
+	Valued:
+		Cost: 100
+	Tooltip:
+		Name: Rifle Infantry
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 5000
+	Armament@PRIMARY:
+		Weapon: M1Carbine
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: M1Carbine
+		MuzzleSequence: garrison-muzzle
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+		RequiresCondition: !parachute
+	WithInfantryBody@PARACHUTE:
+		StandSequences: parachute
+		RequiresCondition: parachute
+	ProducibleWithLevel:
+		Prerequisites: barracks.upgraded
+	SpawnActorOnDeath@BulletDeath:
+		Actor: E1.Husk
+		DeathType: BulletDeath
+	SpawnActorOnDeath@DefaultDeath:
+		Actor: E1.Husk
+		DeathType: DefaultDeath
+	SpawnActorOnDeath@SmallExplosionDeath:
+		Actor: E1.Husk
+		DeathType: SmallExplosionDeath
+		
+E1.Husk:
+	Inherits: ^InfantryCorpse
+	Tooltip:
+		Name: Corpse (Rifle Infantry)
+	SpawnActorOnDeath:
+		Actor: E1
+
+E11:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 95
+		Prerequisites: ~barracks, adept, ~infantry.entente, ~techlevel.infonly
+		Description: General-purpose infantry.\nSuppresses a group of infantry.\n  Strong vs Infantry\n	Weak vs Vehicles, Aircraft
+	Valued:
+		Cost: 300
+	Mobile:
+		Speed: 50
+	Tooltip:
+		Name: Light Machine Gunner
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 5000
+	Armament@PRIMARY:
+		Weapon: LightMachineGun
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: LightMachineGun
+		MuzzleSequence: garrison-muzzle
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+		RequiresCondition: !parachute
+	WithInfantryBody@PARACHUTE:
+		StandSequences: parachute
+		RequiresCondition: parachute
+	ProducibleWithLevel:
+		Prerequisites: barracks.upgraded
+	SpawnActorOnDeath@BulletDeath:
+		Actor: E11.Husk
+		DeathType: BulletDeath
+	SpawnActorOnDeath@DefaultDeath:
+		Actor: E11.Husk
+		DeathType: DefaultDeath
+	SpawnActorOnDeath@SmallExplosionDeath:
+		Actor: E11.Husk
+		DeathType: SmallExplosionDeath
+		
+E11.Husk:
+	Inherits: ^InfantryCorpse
+	Tooltip:
+		Name: Corpse (Light Machine Gunner)
+	SpawnActorOnDeath:
+		Actor: E11
+
+KULAK:
+	Inherits: ^Soldier
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 45
+		Prerequisites: ~barr, ~infantry.kazakhstan, ~techlevel.infonly
+		Description: Can pick up any weapon or tool from a corpse.\n  Unarmed.
+	Valued:
+		Cost: 40
+	RenderSprites:
+		Image: kulak
+	Tooltip:
+		Name: Kulak
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 6000
+	Mobile:
+		Speed: 50
+	RevealsShroud:
+		Range: 3c0
+	Passenger:
+		CustomPipType: blue
+	Armament:
+		Weapon: PickUpWeapon
+		Cursor: heal
+		OutsideRangeCursor: heal
+		TargetRelationships: Ally, Enemy, Neutral
+		ForceTargetRelationships: None
+		ReloadingCondition: pickuploading
+	-AttackFrontal:
+	AttackLeap:
+		Speed: 0c080
+	WithInfantryBody:
+		IdleSequences: idle
+		StandSequences: stand
+		DefaultAttackSequence: heal
+	AutoTarget:
+	AutoTargetPriority@DEFAULT:
+		ValidTargets: Corpse
+	KillsSelf:
+		RequiresCondition: pickuploading
+		RemoveInstead: True
+	-TakeCover:
+	DamageMultiplier@running
+		RequiresCondition: attacking
+		Modifier: 50
+
+MLTVTHRWR:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 35
+		Prerequisites: ~infantry.turkey, ~techlevel.infonly
+		Description: Infantry armed with molotovs.\n  Strong vs Buildings, Infantry\n  Weak vs Vehicles, Aircraft
+	Valued:
+		Cost: 160
+	Tooltip:
+		Name: Molotov Thrower
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 5000
+	Mobile:
+		Speed: 71
+	Armament@PRIMARY:
+		Weapon: Molotov
+		LocalOffset: 0,0,555
+		FireDelay: 15
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: Molotov
+		FireDelay: 15
+	TakeCover:
+		ProneOffset: 256,64,-331
+	WithInfantryBody:
+		DefaultAttackSequence: throw
+		RequiresCondition: !parachute
+	WithInfantryBody@PARACHUTE:
+		StandSequences: parachute
+		RequiresCondition: parachute
+	Explodes:
+		Weapon: IfritAreaFire
+		EmptyWeapon: IfritAreaFire
+		DamageSource: Killer
+	ProducibleWithLevel:
+		Prerequisites: barracks.upgraded
+
+ARZ:
+	Inherits: ^Soldier
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 101
+		Prerequisites: dome, ~infantry.germany, ~techlevel.medium
+		Description: Resurrects nearby dead infantry.\n	Unarmed
+	Valued:
+		Cost: 350
+	Tooltip:
+		Name: Field Surgeon
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 6000
+	Mobile:
+		Speed: 50
+	RevealsShroud:
+		Range: 3c0
+	Passenger:
+		CustomPipType: blue
+	AttackFrontal:
+	Armament@Resurrect:
+		Weapon: Resurrect
+		Cursor: heal
+		OutsideRangeCursor: heal
+		TargetRelationships: Ally
+		ForceTargetRelationships: None
+		FireDelay: 65
+	WithInfantryBody:
+		IdleSequences: idle
+		StandSequences: stand
+		DefaultAttackSequence:
+		AttackSequences: 
+			primary: heal
+	Voiced:
+		VoiceSet: MedicVoice
+	AutoTarget:
+	AutoTargetPriority@DEFAULT:
+		ValidTargets: Corpse
+	SpawnActorOnDeath@BulletDeath:
+		Actor: ARZ.Husk
+		DeathType: BulletDeath
+	SpawnActorOnDeath@DefaultDeath:
+		Actor: ARZ.Husk
+		DeathType: DefaultDeath
+	SpawnActorOnDeath@SmallExplosionDeath:
+		Actor: ARZ.Husk
+		DeathType: SmallExplosionDeath
+		
+ARZ.Husk:
+	Inherits: ^InfantryCorpse
+	Tooltip:
+		Name: Corpse (Field Surgeon)
+	SpawnActorOnDeath:
+		Actor: ARZ
+
+E2:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 35
+		Prerequisites: ~infantry.komintern, ~techlevel.infonly
+		Description: Infantry armed with grenades.\n  Strong vs Buildings, Infantry\n  Weak vs Vehicles, Aircraft
+	Valued:
+		Cost: 160
+	Tooltip:
+		Name: Grenadier
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 5000
+	Mobile:
+		Speed: 71
+	Armament@PRIMARY:
+		Weapon: Grenade
+		LocalOffset: 0,0,555
+		FireDelay: 15
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: Grenade
+		FireDelay: 15
+	TakeCover:
+		ProneOffset: 256,64,-331
+	WithInfantryBody:
+		DefaultAttackSequence: throw
+		RequiresCondition: !parachute
+	WithInfantryBody@PARACHUTE:
+		StandSequences: parachute
+		RequiresCondition: parachute
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+		DamageSource: Killer
+	ProducibleWithLevel:
+		Prerequisites: barracks.upgraded
+	SpawnActorOnDeath@BulletDeath:
+		Actor: E2.Husk
+		DeathType: BulletDeath
+	SpawnActorOnDeath@DefaultDeath:
+		Actor: E2.Husk
+		DeathType: DefaultDeath
+	SpawnActorOnDeath@SmallExplosionDeath:
+		Actor: E2.Husk
+		DeathType: SmallExplosionDeath
+		
+E2.Husk:
+	Inherits: ^InfantryCorpse
+	Tooltip:
+		Name: Corpse (Grenadier)
+	SpawnActorOnDeath:
+		Actor: E2
+
+E3:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 30
+		Prerequisites: ~barracks, ~techlevel.infonly
+		Description: Anti-tank/Anti-aircraft infantry.\n  Strong vs Vehicles, Aircraft\n  Weak vs Infantry
+	Selectable:
+		Class: E3
+	Valued:
+		Cost: 300
+	Tooltip:
+		Name: Rocket Soldier
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 4500
+	Armament@PRIMARY:
+		Weapon: RedEye
+		LocalOffset: 0,0,555
+		ReloadingCondition: primary-reloading
+		PauseOnCondition: secondary-reloading
+	Armament@SECONDARY:
+		Name: secondary
+		Weapon: Dragon
+		LocalOffset: 0,0,555
+		ReloadingCondition: secondary-reloading
+		PauseOnCondition: primary-reloading
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: Dragon
+	TakeCover:
+		ProneOffset: 384,0,-395
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+		RequiresCondition: !parachute
+	WithInfantryBody@PARACHUTE:
+		StandSequences: parachute
+		RequiresCondition: parachute
+	ProducibleWithLevel:
+		Prerequisites: barracks.upgraded
+	AutoTarget:
+		ScanRadius: 5
+	SpawnActorOnDeath@BulletDeath:
+		Actor: E3.Husk
+		DeathType: BulletDeath
+	SpawnActorOnDeath@DefaultDeath:
+		Actor: E3.Husk
+		DeathType: DefaultDeath
+	SpawnActorOnDeath@SmallExplosionDeath:
+		Actor: E3.Husk
+		DeathType: SmallExplosionDeath
+		
+E3.Husk:
+	Inherits: ^InfantryCorpse
+	Tooltip:
+		Name: Corpse (Rocket Soldier)
+	SpawnActorOnDeath:
+		Actor: E3
+
+E6:
+	Inherits: ^Soldier
+	Inherits@selection: ^SelectableSupportUnit
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 40
+		Prerequisites: ~barracks, ~techlevel.infonly
+		Description: Infiltrates and captures\nenemy structures.\n	Unarmed
+	Valued:
+		Cost: 400
+	Tooltip:
+		Name: Engineer
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	WithInfantryBody:
+		RequiresCondition: !parachute
+	WithInfantryBody@PARACHUTE:
+		StandSequences: parachute
+		RequiresCondition: parachute
+	Passenger:
+		CustomPipType: yellow
+	EngineerRepair:
+	RepairsBridges:
+	CaptureManager:
+	GrantConditionOnPrerequisite@GLOBALREUSABLEENGINEER:
+		Condition: global-reusable-engineers
+		Prerequisites: global-reusable-engineers
+	Captures@Buildings:
+		RequiresCondition: !global-reusable-engineers && !deployed
+		CaptureTypes: building
+		PlayerExperience: 25
+		CaptureDelay: 200
+	Captures@REUSABLE:
+		RequiresCondition: global-reusable-engineers && !deployed
+		CaptureTypes: building
+		PlayerExperience: 25
+		CaptureDelay: 375
+		ConsumedByCapture: False
+		EnterCursor: ability
+		EnterBlockedCursor: move-blocked
+	Voiced:
+		VoiceSet: EngineerVoice
+	-AttackFrontal:
+	DetectCloaked:
+		Range: 5c0
+		CloakTypes: Mine
+		RequiresCondition: deployed
+	GrantConditionOnDeploy:
+		DeployedCondition: deployed
+	SpeedMultiplier:
+		RequiresCondition: deployed
+		Modifier: 50
+	Captures@Husks:
+		CaptureTypes: huskengie
+		PlayerExperience: 25
+		CaptureDelay: 200
+		EnterCursor: goldwrench
+	CaptureProgressBar:
+	SpawnActorOnDeath@BulletDeath:
+		Actor: E6.Husk
+		DeathType: BulletDeath
+	SpawnActorOnDeath@DefaultDeath:
+		Actor: E6.Husk
+		DeathType: DefaultDeath
+	SpawnActorOnDeath@SmallExplosionDeath:
+		Actor: E6.Husk
+		DeathType: SmallExplosionDeath
+		
+E6.Husk:
+	Inherits: ^InfantryCorpse
+	Tooltip:
+		Name: Corpse (Engineer)
+	SpawnActorOnDeath:
+		Actor: E6
+
+SPY:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 100
+		Prerequisites: ~infantry.entente, dome, ~barracks, ~techlevel.medium
+		Description: Infiltrates enemy structures for intel or\nsabotage. Exact effect depends on the\nbuilding infiltrated.\nLoses disguise when attacking.\nCan detect spies.\n  Strong vs Infantry\n	 Weak vs Vehicles, Aircraft\n  Special Ability: Disguised
+	Valued:
+		Cost: 500
+	-Tooltip:
+	DisguiseTooltip:
+		Name: Spy
+		GenericName: Soldier
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	-Guard:
+	Mobile:
+		Voice: Move
+	RevealsShroud:
+		Range: 5c0
+	Passenger:
+		CustomPipType: blue
+		Voice: Move
+	Disguise:
+		DisguisedCondition: disguise
+	Infiltrates:
+		Types: SpyInfiltrate
+		Notification: BuildingInfiltrated
+		PlayerExperience: 50
+	AutoTarget:
+		InitialStance: HoldFire
+		InitialStanceAI: HoldFire
+		ScanRadius: 5
+	-WithInfantryBody:
+	WithDisguisingInfantryBody:
+		DefaultAttackSequence: shoot
+		IdleSequences: idle1,idle2
+		StandSequences: stand,stand2
+	WithDecoration@disguise:
+		Position: Top
+		Margin: 0, -6
+		Image: pips
+		Sequence: tag-spy
+		Palette: effect
+		RequiresCondition: disguise
+	IgnoresDisguise:
+	Armament:
+		Weapon: SilencedPPK
+	AttackMove:
+		Voice: Move
+	Voiced:
+		VoiceSet: SpyVoice
+	SpawnActorOnDeath@BulletDeath:
+		Actor: SPY.Husk
+		DeathType: BulletDeath
+	SpawnActorOnDeath@DefaultDeath:
+		Actor: SPY.Husk
+		DeathType: DefaultDeath
+	SpawnActorOnDeath@SmallExplosionDeath:
+		Actor: SPY.Husk
+		DeathType: SmallExplosionDeath
+		
+SPY.Husk:
+	Inherits: ^InfantryCorpse
+	Tooltip:
+		Name: Corpse (Spy)
+	SpawnActorOnDeath:
+		Actor: SPY
+
+SABOTEUR:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 100
+		Prerequisites: ~infantry.zentrum, dome, ~barracks, ~techlevel.medium
+		Description: Infiltrates enemy structures for sabotage. Exact effect depends on the\nbuilding infiltrated.\nCan detect spies.\n  Strong vs Infantry\n	 Weak vs Vehicles, Aircraft
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Saboteur
+		GenericName: Soldier
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	-Guard:
+	Mobile:
+	RevealsShroud:
+		Range: 5c0
+	Passenger:
+		CustomPipType: blue
+	Infiltrates:
+		Types: SaboteurInfiltration
+		Notification: BuildingInfiltrated
+		PlayerExperience: 50
+	AutoTarget:
+		InitialStance: HoldFire
+		InitialStanceAI: HoldFire
+		ScanRadius: 5
+	WithInfantryBody:
+	IgnoresDisguise:
+	Armament:
+		Weapon: Uzi
+	AttackMove:
+	SpawnActorOnDeath@BulletDeath:
+		Actor: SABOTEUR.Husk
+		DeathType: BulletDeath
+	SpawnActorOnDeath@DefaultDeath:
+		Actor: SABOTEUR.Husk
+		DeathType: DefaultDeath
+	SpawnActorOnDeath@SmallExplosionDeath:
+		Actor: SABOTEUR.Husk
+		DeathType: SmallExplosionDeath
+		
+SABOTEUR.Husk:
+	Inherits: ^InfantryCorpse
+	Tooltip:
+		Name: Corpse (Saboteur)
+	SpawnActorOnDeath:
+		Actor: SABOTEUR
+
+MEDI:
+	Inherits: ^Soldier
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 30
+		Prerequisites: ~barr, ~infantry.entente, ~techlevel.infonly
+		Description: Heals nearby infantry.\n  Unarmed
+	Valued:
+		Cost: 200
+	Tooltip:
+		Name: Medic
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 6000
+	Mobile:
+		Speed: 50
+	RevealsShroud:
+		Range: 3c0
+	Passenger:
+		CustomPipType: blue
+	Armament:
+		Weapon: Heal
+		Cursor: heal
+		OutsideRangeCursor: heal
+		TargetRelationships: Ally
+		ForceTargetRelationships: None
+	WithInfantryBody:
+		IdleSequences: idle
+		StandSequences: stand
+		DefaultAttackSequence: heal
+	Voiced:
+		VoiceSet: MedicVoice
+	AutoTarget:
+	AutoTargetPriority@DEFAULT:
+		ValidTargets: Infantry
+	SpawnActorOnDeath@BulletDeath:
+		Actor: MEDI.Husk
+		DeathType: BulletDeath
+	SpawnActorOnDeath@DefaultDeath:
+		Actor: MEDI.Husk
+		DeathType: DefaultDeath
+	SpawnActorOnDeath@SmallExplosionDeath:
+		Actor: MEDI.Husk
+		DeathType: SmallExplosionDeath
+		
+MEDI.Husk:
+	Inherits: ^InfantryCorpse
+	Tooltip:
+		Name: Corpse (Medic)
+	SpawnActorOnDeath:
+		Actor: MEDI
+
+MECH:
+	Inherits: ^Soldier
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 90
+		Prerequisites: ~barr, adept, ~infantry.entente, ~techlevel.medium
+		Description: Repairs nearby vehicles and restores\nhusks to working condition by capturing them.\n	Unarmed
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Mechanic
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 8000
+	Mobile:
+		Speed: 50
+		Voice: Move
+	RevealsShroud:
+		Range: 3c0
+	Passenger:
+		CustomPipType: blue
+		Voice: Move
+	Armament:
+		Weapon: Repair
+		Cursor: repair
+		OutsideRangeCursor: repair
+		TargetRelationships: Ally
+		ForceTargetRelationships: None
+	AttackFrontal:
+		Voice: Action
+	CaptureManager:
+	Captures:
+		CaptureTypes: huskmech
+		PlayerExperience: 25
+	Infiltrates:
+		Types: Husk
+		ValidRelationships: Ally
+		EnterCursor: goldwrench
+		PlayerExperience: 25
+	WithInfantryBody:
+		IdleSequences: idle
+		DefaultAttackSequence: repair
+		StandSequences: stand
+	Voiced:
+		VoiceSet: MechanicVoice
+	AutoTarget:
+	AutoTargetPriority@DEFAULT:
+		ValidTargets: Vehicle, Ship
+	SpawnActorOnDeath@BulletDeath:
+		Actor: MECH.Husk
+		DeathType: BulletDeath
+	SpawnActorOnDeath@DefaultDeath:
+		Actor: MECH.Husk
+		DeathType: DefaultDeath
+	SpawnActorOnDeath@SmallExplosionDeath:
+		Actor: MECH.Husk
+		DeathType: SmallExplosionDeath
+		
+MECH.Husk:
+	Inherits: ^InfantryCorpse
+	Tooltip:
+		Name: Corpse (Mechanic)
+	SpawnActorOnDeath:
+		Actor: MECH
+
+THF:
+	Inherits: ^Soldier
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 89
+		Prerequisites: ~barr, dome, ~infantry.komintern, ~techlevel.medium
+		Description: Steals enemy credits.\nHijacks enemy vehicles.\n  Unarmed
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Thief
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 5000
+	RevealsShroud:
+		Range: 5c0
+	Passenger:
+		CustomPipType: blue
+	CaptureManager:
+	Captures:
+		CaptureTypes: vehicle, aircraft
+		PlayerExperience: 50
+	Infiltrates:
+		Types: ThiefInfiltrate
+		Notification: BuildingInfiltrated
+		PlayerExperience: 50
+	Voiced:
+		VoiceSet: ThiefVoice
+	-TakeCover:
+	WithInfantryBody:
+		IdleSequences: idle
+		StandSequences: stand
+	Crushable:
+		WarnProbability: 95
+	Cloak:
+		InitialDelay: 250
+		CloakDelay: 120
+		UncloakOn: Attack, Unload, Infiltrate, Demolish, Move
+		CloakTypes: Cloak
+		IsPlayerPalette: true
+		PauseOnCondition: cloak-force-disabled
+	GrantConditionOnDamageState@UNCLOAK:
+		Condition: cloak-force-disabled
+		ValidDamageStates: Critical
+	Mobile:
+		Speed: 71
+	-AttackFrontal:
+	SpawnActorOnDeath@BulletDeath:
+		Actor: THF.Husk
+		DeathType: BulletDeath
+	SpawnActorOnDeath@DefaultDeath:
+		Actor: THF.Husk
+		DeathType: DefaultDeath
+	SpawnActorOnDeath@SmallExplosionDeath:
+		Actor: THF.Husk
+		DeathType: SmallExplosionDeath
+		
+THF.Husk:
+	Inherits: ^InfantryCorpse
+	Tooltip:
+		Name: Corpse (Thief)
+	SpawnActorOnDeath:
+		Actor: THF
+
+TNKCMNDR:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	-ExperienceTrickler@OfficerNearby:
+	-GainsExperienceMultiplier@OfficerNearby:
+	-ExternalCondition@OfficerNearby:
+	-GainsExperience:
+	GainsExperience:
+		LevelUpNotification: LevelUp
+		Conditions:
+			50: rank-veteran
+			100: rank-veteran
+			150: rank-veteran
+		LevelUpImage: crate-effects
+	-DamageMultiplier@RANK-4:
+	-DamageMultiplier@RANK-5:
+	-DamageMultiplier@RANK-6:
+	-DamageMultiplier@RANK-7:
+	-FirepowerMultiplier@RANK-4:
+	-FirepowerMultiplier@RANK-5:
+	-FirepowerMultiplier@RANK-6:
+	-FirepowerMultiplier@RANK-7:
+	-ReloadDelayMultiplier@RANK-4:
+	-ReloadDelayMultiplier@RANK-5:
+	-ReloadDelayMultiplier@RANK-6:
+	-ReloadDelayMultiplier@RANK-7:
+	ChangesHealth@ELITE:
+		Step: 0
+		PercentageStep: 5
+		Delay: 100
+		StartIfBelow: 100
+		DamageCooldown: 125
+		RequiresCondition: rank-veteran > 2
+	WithDecoration@RANK-1:
+		Image: rank
+		Sequence: rank-veteran-8
+		Palette: effect
+		Position: BottomRight
+		Margin: 5, 6
+		ValidRelationships: Ally, Enemy, Neutral
+		RequiresCondition: rank-veteran == 1
+	WithDecoration@RANK-2:
+		Image: rank
+		Sequence: rank-veteran-9
+		Palette: effect
+		Position: BottomRight
+		Margin: 5, 6
+		ValidRelationships: Ally, Enemy, Neutral
+		RequiresCondition: rank-veteran == 2
+	WithDecoration@RANK-3:
+		Image: rank
+		Sequence: rank-veteran-10
+		Palette: effect
+		Position: BottomRight
+		Margin: 5, 6
+		ValidRelationships: Ally, Enemy, Neutral
+		RequiresCondition: rank-veteran == 3
+	-WithDecoration@RANK-4:
+	-WithDecoration@RANK-5:
+	-WithDecoration@RANK-6:
+	-WithDecoration@RANK-7:
+	Tooltip:
+		Name: Tank Commander
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 90
+		Prerequisites: ~barracks, adept, ~infantry.germany, ~techlevel.infonly
+		Description: Crack tank commander. Can enter vehicles\nto enhance fighting capabilities.\n  Weak vs Everything
+	Valued:
+		Cost: 300
+	Health:
+		HP: 7000
+	RevealsShroud:
+		Range: 4c768
+	AutoTarget:
+		ScanRadius: 7
+		InitialStance: HoldFire
+		InitialStanceAI: ReturnFire
+	Armament@PRIMARY:
+		Weapon: 9mmPistol
+	AttackFrontal:
+	TakeCover:
+		DamageModifiers:
+			Prone50Percent: 50
+		DamageTriggers: TriggerProne
+	WithInfantryBody:
+		IdleSequences: idle1
+		DefaultAttackSequence: shoot
+	SpawnActorOnDeath@BulletDeath:
+		Actor: TNKCMNDR.Husk
+		DeathType: BulletDeath
+	SpawnActorOnDeath@DefaultDeath:
+		Actor: TNKCMNDR.Husk
+		DeathType: DefaultDeath
+	SpawnActorOnDeath@SmallExplosionDeath:
+		Actor: TNKCMNDR.Husk
+		DeathType: SmallExplosionDeath
+	-Passenger:
+	Passenger@TakeCommand:
+		CargoType: commander
+		CargoCondition: disable-experience
+		
+TNKCMNDR.Husk:
+	Inherits: ^InfantryCorpse
+	Tooltip:
+		Name: Corpse (Tank Commander)
+	SpawnActorOnDeath:
+		Actor: TNKCMNDR
+
+POLITRUK:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	-ExperienceTrickler@OfficerNearby:
+	-GainsExperienceMultiplier@OfficerNearby:
+	-ExternalCondition@OfficerNearby:
+	-GainsExperience:
+	GainsExperience:
+		LevelUpNotification: LevelUp
+		Conditions:
+			50: rank-veteran
+			100: rank-veteran
+			150: rank-veteran
+		LevelUpImage: crate-effects
+	-DamageMultiplier@RANK-4:
+	-DamageMultiplier@RANK-5:
+	-DamageMultiplier@RANK-6:
+	-DamageMultiplier@RANK-7:
+	-FirepowerMultiplier@RANK-4:
+	-FirepowerMultiplier@RANK-5:
+	-FirepowerMultiplier@RANK-6:
+	-FirepowerMultiplier@RANK-7:
+	-ReloadDelayMultiplier@RANK-4:
+	-ReloadDelayMultiplier@RANK-5:
+	-ReloadDelayMultiplier@RANK-6:
+	-ReloadDelayMultiplier@RANK-7:
+	ChangesHealth@ELITE:
+		Step: 0
+		PercentageStep: 5
+		Delay: 100
+		StartIfBelow: 100
+		DamageCooldown: 125
+		RequiresCondition: rank-veteran > 2
+	WithDecoration@RANK-1:
+		Image: rank
+		Sequence: rank-veteran-8
+		Palette: effect
+		Position: BottomRight
+		Margin: 5, 6
+		ValidRelationships: Ally, Enemy, Neutral
+		RequiresCondition: rank-veteran == 1
+	WithDecoration@RANK-2:
+		Image: rank
+		Sequence: rank-veteran-9
+		Palette: effect
+		Position: BottomRight
+		Margin: 5, 6
+		ValidRelationships: Ally, Enemy, Neutral
+		RequiresCondition: rank-veteran == 2
+	WithDecoration@RANK-3:
+		Image: rank
+		Sequence: rank-veteran-10
+		Palette: effect
+		Position: BottomRight
+		Margin: 5, 6
+		ValidRelationships: Ally, Enemy, Neutral
+		RequiresCondition: rank-veteran == 3
+	-WithDecoration@RANK-4:
+	-WithDecoration@RANK-5:
+	-WithDecoration@RANK-6:
+	-WithDecoration@RANK-7:
+	Tooltip:
+		Name: Politruk
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 101
+		Prerequisites: ~barracks, dome, ~infantry.komintern, ~techlevel.infonly
+		Description: Political comissar, that increases\nthe fighting capabilities of infantry.\n  Weak vs Everything
+	Valued:
+		Cost: 800
+	Health:
+		HP: 7000
+	RevealsShroud:
+		Range: 4c768
+	AutoTarget:
+		ScanRadius: 7
+		InitialStance: HoldFire
+		InitialStanceAI: ReturnFire
+	Armament@PRIMARY:
+		Weapon: 9mmPistol
+	Selectable:
+		Class: KOMISSAAR
+	Mobile:
+		Voice: Move
+	AttackFrontal:
+		Voice: Attack
+	AttackMove:
+		Voice: Move
+	Passenger:
+		Voice: Move
+	Guard:
+		Voice: Move
+	Voiced:
+		VoiceSet: StavrosVoice
+	TakeCover:
+		DamageModifiers:
+			Prone50Percent: 50
+		DamageTriggers: TriggerProne
+	WithInfantryBody:
+		IdleSequences: idle1
+		DefaultAttackSequence: shoot
+	ProximityExternalCondition@KOMMISSABLE:
+		Range: 4c0
+		ValidRelationships: Ally
+		Condition: kommissable
+	WithRangeCircle@KOMMISSABLE:
+		Type: jammer
+		Range: 4c0
+		Color: FF5432
+	SpawnActorOnDeath@BulletDeath:
+		Actor: POLITRUK.Husk
+		DeathType: BulletDeath
+	SpawnActorOnDeath@DefaultDeath:
+		Actor: POLITRUK.Husk
+		DeathType: DefaultDeath
+	SpawnActorOnDeath@SmallExplosionDeath:
+		Actor: POLITRUK.Husk
+		DeathType: SmallExplosionDeath
+	RenderSprites:
+		Image: politruk
+		
+POLITRUK.Husk:
+	Inherits: ^InfantryCorpse
+	Tooltip:
+		Name: Corpse (Politruk)
+	SpawnActorOnDeath:
+		Actor: POLITRUK
+
+OFFICER:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	-ExperienceTrickler@OfficerNearby:
+	-GainsExperienceMultiplier@OfficerNearby:
+	-ExternalCondition@OfficerNearby:
+	-GainsExperience:
+	GainsExperience:
+		LevelUpNotification: LevelUp
+		Conditions:
+			50: rank-veteran
+			100: rank-veteran
+			150: rank-veteran
+		LevelUpImage: crate-effects
+	-DamageMultiplier@RANK-4:
+	-DamageMultiplier@RANK-5:
+	-DamageMultiplier@RANK-6:
+	-DamageMultiplier@RANK-7:
+	-FirepowerMultiplier@RANK-4:
+	-FirepowerMultiplier@RANK-5:
+	-FirepowerMultiplier@RANK-6:
+	-FirepowerMultiplier@RANK-7:
+	-ReloadDelayMultiplier@RANK-4:
+	-ReloadDelayMultiplier@RANK-5:
+	-ReloadDelayMultiplier@RANK-6:
+	-ReloadDelayMultiplier@RANK-7:
+	ChangesHealth@ELITE:
+		Step: 0
+		PercentageStep: 5
+		Delay: 100
+		StartIfBelow: 100
+		DamageCooldown: 125
+		RequiresCondition: rank-veteran > 2
+	WithDecoration@RANK-1:
+		Image: rank
+		Sequence: rank-veteran-8
+		Palette: effect
+		Position: BottomRight
+		Margin: 5, 6
+		ValidRelationships: Ally, Enemy, Neutral
+		RequiresCondition: rank-veteran == 1
+	WithDecoration@RANK-2:
+		Image: rank
+		Sequence: rank-veteran-9
+		Palette: effect
+		Position: BottomRight
+		Margin: 5, 6
+		ValidRelationships: Ally, Enemy, Neutral
+		RequiresCondition: rank-veteran == 2
+	WithDecoration@RANK-3:
+		Image: rank
+		Sequence: rank-veteran-10
+		Palette: effect
+		Position: BottomRight
+		Margin: 5, 6
+		ValidRelationships: Ally, Enemy, Neutral
+		RequiresCondition: rank-veteran == 3
+	-WithDecoration@RANK-4:
+	-WithDecoration@RANK-5:
+	-WithDecoration@RANK-6:
+	-WithDecoration@RANK-7:
+	Tooltip:
+		Name: Officer
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 101
+		Prerequisites: ~barracks, dome, ~infantry.komintern, ~techlevel.infonly
+		Description: Commissioned officer. Increases the\n.experience gain of nearby units.\n  Weak vs Everything
+	Valued:
+		Cost: 800
+	Health:
+		HP: 7000
+	RevealsShroud:
+		Range: 4c768
+	AutoTarget:
+		ScanRadius: 7
+		InitialStance: HoldFire
+		InitialStanceAI: ReturnFire
+	Armament@PRIMARY:
+		Weapon: 9mmPistol
+	Mobile:
+		Voice: Move
+	AttackFrontal:
+		Voice: Attack
+	AttackMove:
+		Voice: Move
+	Passenger:
+		Voice: Move
+	Guard:
+		Voice: Move
+	Voiced:
+		VoiceSet: StavrosVoice
+	TakeCover:
+		DamageModifiers:
+			Prone50Percent: 50
+		DamageTriggers: TriggerProne
+	WithInfantryBody:
+		IdleSequences: idle1
+		DefaultAttackSequence: shoot
+	ProximityExternalCondition@OfficerNearby:
+		Range: 4c0
+		ValidRelationships: Ally
+		Condition: officer-nearby
+	WithRangeCircle@OFFICER:
+		Type: jammer
+		Range: 4c0
+		Color: FFD700
+	SpawnActorOnDeath@BulletDeath:
+		Actor: OFFICER.Husk
+		DeathType: BulletDeath
+	SpawnActorOnDeath@DefaultDeath:
+		Actor: OFFICER.Husk
+		DeathType: DefaultDeath
+	SpawnActorOnDeath@SmallExplosionDeath:
+		Actor: OFFICER.Husk
+		DeathType: SmallExplosionDeath
+		
+OFFICER.Husk:
+	Inherits: ^InfantryCorpse
+	Tooltip:
+		Name: Corpse (Officer)
+	SpawnActorOnDeath:
+		Actor: OFFICER
+
+SCVN:
+	Inherits: ^Soldier
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 90
+		Prerequisites: ~barr, adept, ~infantry.kazakhstan, ~techlevel.medium
+		Description: Extracts resources from\ndestroyed husks.\n	Unarmed
+	Valued:
+		Cost: 350
+	Tooltip:
+		Name: Scavenger
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 8000
+	Mobile:
+		Speed: 40
+		Voice: Move
+	RevealsShroud:
+		Range: 3c0
+	Passenger:
+		CustomPipType: blue
+		Voice: Move
+	Armament:
+		Weapon: HuskBreaker
+		Cursor: repair
+		OutsideRangeCursor: repair
+		TargetRelationships: Ally, Neutral, Enemy
+		ReloadingCondition: reloading-wrench
+	CashTrickler:
+		Interval: 80
+		InitialDelay: 0
+		Amount: 25
+		RequiresCondition: reloading-wrench
+	WithInfantryBody:
+		IdleSequences: idle
+		DefaultAttackSequence: repair
+		StandSequences: stand
+	Voiced:
+		VoiceSet: MechanicVoice
+	AutoTarget:
+		AllowMovement: True
+	AutoTargetPriority@DEFAULT:
+		ValidTargets: Husk, Rubble
+		ValidRelationships: Enemy, Neutral, Ally
+	Selectable:
+		Priority: 6
+		PriorityModifiers: Ctrl, Alt
+	SpawnActorOnDeath@BulletDeath:
+		Actor: SCVN.Husk
+		DeathType: BulletDeath
+	SpawnActorOnDeath@DefaultDeath:
+		Actor: SCVN.Husk
+		DeathType: DefaultDeath
+	SpawnActorOnDeath@SmallExplosionDeath:
+		Actor: SCVN.Husk
+		DeathType: SmallExplosionDeath
+		
+SCVN.Husk:
+	Inherits: ^InfantryCorpse
+	Tooltip:
+		Name: Corpse (Scavenger)
+	SpawnActorOnDeath:
+		Actor: SCVN
+
+STRMTRPR:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 130
+		Prerequisites: mtek, ~infantry.austria, ~techlevel.high
+		Description: Elite infantry with a hand-held\ndirect energy weapon.\n  Strong vs Infantry, Vehicles\n  Weak vs Aircraft
+	Valued:
+		Cost: 350
+	Tooltip:
+		Name: Prism Guardian
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 5000
+	Mobile:
+	RevealsShroud:
+		Range: 5c0
+	Armament@PRIMARY:
+		Weapon: PrismHandHeld
+		LocalOffset: 427,0,341
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: PrismHandHeld
+	TakeCover:
+		ProneOffset: 227,0,-245
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+		RequiresCondition: !parachute
+	WithInfantryBody@PARACHUTE:
+		StandSequences: parachute
+		RequiresCondition: parachute
+		IsPlayerPalette: true
+	ProducibleWithLevel:
+		Prerequisites: barracks.upgraded
+	SpawnActorOnDeath@BulletDeath:
+		Actor: STRMTRPR.Corpse
+		DeathType: BulletDeath
+	SpawnActorOnDeath@DefaultDeath:
+		Actor: STRMTRPR.Corpse
+		DeathType: DefaultDeath
+	SpawnActorOnDeath@SmallExplosionDeath:
+		Actor: STRMTRPR.Corpse
+		DeathType: SmallExplosionDeath
+		
+STRMTRPR.Corpse:
+	Inherits: ^InfantryCorpse
+	Tooltip:
+		Name: Corpse (Stormtrooper)
+	SpawnActorOnDeath:
+		Actor: STRMTRPR
+		
+SPECOP:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 80
+		Prerequisites: ~techlevel.medium, ~infantry.england, dome, ~barr
+		Description: Elite rifleman armed with\na rifle and grenades.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft
+	Valued:
+		Cost: 200
+	Tooltip:
+		Name: Commando
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 5000
+	Mobile:
+	RevealsShroud:
+		Range: 6c0
+	Armament@PRIMARY:
+		Name: primary
+		Weapon: M1Carbine2
+	Armament@SECONDARY:
+		Name: secondary
+		Weapon: BuildingGrenade
+		LocalOffset: 0,0,555
+		FireDelay: 15
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: M1Carbine
+		MuzzleSequence: garrison-muzzle
+	WithInfantryBody:
+		AttackSequences:
+			primary: shoot
+			secondary: throw
+		RequiresCondition: !parachute
+	WithInfantryBody@PARACHUTE:
+		StandSequences: parachute
+		RequiresCondition: parachute
+	WithInfantryBody:
+		IdleSequences: idle1,idle2,idle3
+	ProducibleWithLevel:
+		Prerequisites: barracks.upgraded
+	SpawnActorOnDeath@BulletDeath:
+		Actor: SPECOP.Corpse
+		DeathType: BulletDeath
+	SpawnActorOnDeath@DefaultDeath:
+		Actor: SPECOP.Corpse
+		DeathType: DefaultDeath
+	SpawnActorOnDeath@SmallExplosionDeath:
+		Actor: SPECOP.Corpse
+		DeathType: SmallExplosionDeath
+		
+SPECOP.Corpse:
+	Inherits: ^InfantryCorpse
+	Tooltip:
+		Name: Corpse (Commando)
+	SpawnActorOnDeath:
+		Actor: SPECOP
+
+E4:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 70
+		Prerequisites: adept, ~infantry.zentrum, ~techlevel.infonly
+		Description: Advanced anti-infantry and structure unit.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft
+	Valued:
+		Cost: 300
+	Tooltip:
+		Name: Flamethrower
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 4000
+	Armament@PRIMARY:
+		Weapon: Flamer
+		LocalOffset: 700,0,500
+		FireDelay: 8
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: Flamer
+	TakeCover:
+		ProneOffset: 160,0,-288
+	Explodes:
+		Weapon: VisualExplode
+		EmptyWeapon: VisualExplode
+		Chance: 50
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+		RequiresCondition: !parachute
+	WithInfantryBody@PARACHUTE:
+		StandSequences: parachute
+		RequiresCondition: parachute
+		IsPlayerPalette: true
+	ProducibleWithLevel:
+		Prerequisites: barracks.upgraded
+	SpawnActorOnDeath@BulletDeath:
+		Actor: E4.Corpse
+		DeathType: BulletDeath
+	SpawnActorOnDeath@DefaultDeath:
+		Actor: E4.Corpse
+		DeathType: DefaultDeath
+	SpawnActorOnDeath@SmallExplosionDeath:
+		Actor: E4.Corpse
+		DeathType: SmallExplosionDeath
+		
+E4.Corpse:
+	Inherits: ^InfantryCorpse
+	Tooltip:
+		Name: Corpse (Flamethrower)
+	SpawnActorOnDeath:
+		Actor: E4
+
+ATGUNNER:
+	Inherits: ^TrackedVehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 49
+		Prerequisites: ~barr, ~infantry.serbia, ~techlevel.infonly
+		Description: Infantry operated anti-tank gun.\n  Strong vs Heavy armor.\n  Weak vs Infantry, Aircraft
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Anti-Tank Gun Crew
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 25000
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 45
+		TurnSpeed: 10
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 5c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	Armament:
+		Weapon: 76mmOrdinanceQF
+		LocalOffset: 675,0,175
+		MuzzleSequence: muzzle
+		FireDelay: 15
+	AttackFrontal:
+		FacingTolerance: 75
+	WithMuzzleOverlay:
+	ProducibleWithLevel:
+		Prerequisites: infantry.upgraded
+	WithMoveAnimation:
+	WithAttackAnimation:
+		Sequence: attack
+	WithMoveAnimation@turn:
+		MoveSequence: turn
+		ValidMovementTypes: Turn
+		RequiresCondition: !not-in-place
+	GrantConditionOnMovement@horizontal
+		Condition: not-in-place
+	GrantConditionOnMovement@vertical
+		Condition: not-in-place
+
+MORTARCREW:
+	Inherits: ^TrackedVehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 49
+		Prerequisites: ~barr, ~infantry.bulgaria, adept, ~techlevel.infonly
+		Description: Infantry operated mortar.\n  Strong vs Infantry.\n  Weak vs Vehicles, Aircraft
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Mortar Crew
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 20000
+	Armor:
+		Type: None
+	Mobile:
+		Speed: 55
+		TurnSpeed: 19
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 5c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	Armament:
+		Weapon: Mortar
+		LocalOffset: 0,0,190
+		MuzzleSequence: muzzle
+		FireDelay: 15
+	AttackFrontal:
+		FacingTolerance: 75
+	ProducibleWithLevel:
+		Prerequisites: infantry.upgraded
+	WithMoveAnimation:
+	WithAttackAnimation:
+		Sequence: attack
+	WithMoveAnimation@turn:
+		MoveSequence: turn
+		ValidMovementTypes: Turn
+		RequiresCondition: !not-in-place
+	GrantConditionOnMovement@horizontal
+		Condition: not-in-place
+	GrantConditionOnMovement@vertical
+		Condition: not-in-place
+
+GATLINGGUNNER:
+	Inherits: ^TrackedVehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 49
+		Prerequisites: ~barr, ~infantry.komintern, ~techlevel.low
+		Description: Tough infantry transport.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+	Valued:
+		Cost: 450
+	Tooltip:
+		Name: Gatling Crew
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 25000
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 55
+		TurnSpeed: 15
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 5c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	Armament@ag-0:
+		Weapon: AGGatling
+		LocalOffset: 510,0,220
+		MuzzleSequence: muzzle
+		RequiresCondition: !gatling
+	Armament@ag-1:
+		Weapon: AGGatling2
+		LocalOffset: 544,0,200
+		MuzzleSequence: muzzle
+		RequiresCondition: gatling == 1
+	Armament@ag-2:
+		Weapon: AGGatling3
+		LocalOffset: 544,0,200
+		MuzzleSequence: muzzle
+		RequiresCondition: gatling == 2
+	Armament@ag-3:
+		Weapon: AGGatling4
+		LocalOffset: 544,0,200
+		MuzzleSequence: muzzle
+		RequiresCondition: gatling >= 3
+	GrantConditionOnAttack:
+		Condition: gatling
+		RequiredShotsPerInstance: 12, 24
+		MaximumInstances: 2
+		RevokeDelay: 25
+		RevokeAll: true
+		IsCyclic: false
+		RevokeOnNewTarget: false
+	AttackFrontal:
+		FacingTolerance: 75
+	WithMuzzleOverlay:
+	ProducibleWithLevel:
+		Prerequisites: infantry.upgraded
+	WithMoveAnimation:
+	WithMoveAnimation@turn:
+		MoveSequence: turn
+		ValidMovementTypes: Turn
+		RequiresCondition: !not-in-place
+	GrantConditionOnMovement@horizontal
+		Condition: not-in-place
+	GrantConditionOnMovement@vertical
+		Condition: not-in-place
+
+MILITIA:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 41
+		Prerequisites: ~barr, ~infantry.china, ~techlevel.infonly
+		Description: Light general-purpose infantry.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
+	Selectable:
+	Valued:
+		Cost: 75
+	Tooltip:
+		Name: Militia
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 4000
+	Armament@PRIMARY:
+		Weapon: MosinNagant44
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: MosinNagant44
+		MuzzleSequence: garrison-muzzle
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+		RequiresCondition: !parachute
+	WithInfantryBody@PARACHUTE:
+		StandSequences: parachute
+		RequiresCondition: parachute
+	ProducibleWithLevel:
+		Prerequisites: barracks.upgraded
+	SpawnActorOnDeath@BulletDeath:
+		Actor: MILITIA.Corpse
+		DeathType: BulletDeath
+	SpawnActorOnDeath@DefaultDeath:
+		Actor: MILITIA.Corpse
+		DeathType: DefaultDeath
+	SpawnActorOnDeath@SmallExplosionDeath:
+		Actor: MILITIA.Corpse
+		DeathType: SmallExplosionDeath
+		
+MILITIA.Corpse:
+	Inherits: ^InfantryCorpse
+	Tooltip:
+		Name: Corpse (Militia)
+	SpawnActorOnDeath:
+		Actor: MILITIA
+
+FLKTRP:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 10
+		Prerequisites: ~barr, ~infantry.china, ~techlevel.infonly
+		Description: General-purpose infantry.\n  Strong vs Infantry\n	Weak vs Vehicles, Aircraft
+	Valued:
+		Cost: 200
+	Tooltip:
+		Name: Flak Trooper
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 5000
+	Armament@AA:
+		Weapon: FLAK-23-AA-Inf
+	Armament@AG:
+		Weapon: FLAK-23-AG-Inf
+	Armament@AA-Garrisoned:
+		Name: garrisoned
+		Weapon: FLAK-23-AA-Inf
+	Armament@AG-Garrisoned:
+		Name: garrisoned
+		Weapon: FLAK-23-AG-Inf
+		Recoil: 85
+		LocalOffset: 512,0,192
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+		RequiresCondition: !parachute
+	WithInfantryBody@PARACHUTE:
+		StandSequences: parachute
+		RequiresCondition: parachute
+	ProducibleWithLevel:
+		Prerequisites: barracks.upgraded
+	SpawnActorOnDeath@BulletDeath:
+		Actor: FLKTRP.Husk
+		DeathType: BulletDeath
+	SpawnActorOnDeath@DefaultDeath:
+		Actor: FLKTRP.Husk
+		DeathType: DefaultDeath
+	SpawnActorOnDeath@SmallExplosionDeath:
+		Actor: FLKTRP.Husk
+		DeathType: SmallExplosionDeath
+		
+FLKTRP.Husk:
+	Inherits: ^InfantryCorpse
+	Tooltip:
+		Name: Corpse (Flak Trooper)
+	SpawnActorOnDeath:
+		Actor: FLKTRP
+
+SHKTRP:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 130
+		Prerequisites: stek, ~infantry.russia, ~techlevel.high
+		Description: Elite infantry with a portable Tesla coil.\n  Strong vs Infantry, Vehicles\n  Weak vs Aircraft
+	Valued:
+		Cost: 350
+	Tooltip:
+		Name: Tesla Trooper
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 5000
+	Mobile:
+		Voice: Move
+		Speed: 49
+	RevealsShroud:
+		Range: 5c0
+	Armament@PRIMARY:
+		Weapon: PortaTesla
+		LocalOffset: 427,0,341
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: PortaTesla
+	TakeCover:
+		ProneOffset: 227,0,-245
+	AttackFrontal:
+		Voice: Attack
+	AttackMove:
+		Voice: Move
+	Passenger:
+		Voice: Move
+	Guard:
+		Voice: Move
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+		RequiresCondition: !parachute
+	WithInfantryBody@PARACHUTE:
+		StandSequences: parachute
+		RequiresCondition: parachute
+		IsPlayerPalette: true
+	Voiced:
+		VoiceSet: ShokVoice
+	ProducibleWithLevel:
+		Prerequisites: barracks.upgraded
+	SpawnActorOnDeath@BulletDeath:
+		Actor: SHKTRP.Corpse
+		DeathType: BulletDeath
+	SpawnActorOnDeath@DefaultDeath:
+		Actor: SHKTRP.Corpse
+		DeathType: DefaultDeath
+	SpawnActorOnDeath@SmallExplosionDeath:
+		Actor: SHKTRP.Corpse
+		DeathType: SmallExplosionDeath
+	RenderSprites:
+		Image: cyborg
+		
+SHKTRP.Corpse:
+	Inherits: ^InfantryCorpse
+	Tooltip:
+		Name: Corpse (Cyborg)
+	SpawnActorOnDeath:
+		Actor: SHKTRP
+
+NIGHTWITCH:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 130
+		Prerequisites: stek, ~infantry.ukraine, ~techlevel.high
+		Description: Elite infantry with a portable Tesla coil.\n  Strong vs Infantry, Vehicles\n  Weak vs Aircraft
+	Valued:
+		Cost: 350
+	Tooltip:
+		Name: Nightwitch
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 5000
+	Mobile:
+		Voice: Move
+		Speed: 49
+	RevealsShroud:
+		Range: 5c0
+	Armament@PRIMARY:
+		Weapon: ATGun
+		LocalOffset: 427,0,341
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: ATGun
+	TakeCover:
+		ProneOffset: 227,0,-245
+	AttackFrontal:
+	AttackMove:
+	Passenger:
+	Guard:
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+		RequiresCondition: !parachute
+	WithInfantryBody@PARACHUTE:
+		StandSequences: parachute
+		RequiresCondition: parachute
+		IsPlayerPalette: true
+	ProducibleWithLevel:
+		Prerequisites: barracks.upgraded
+	SpawnActorOnDeath@BulletDeath:
+		Actor: NIGHTWITCH.Corpse
+		DeathType: BulletDeath
+	SpawnActorOnDeath@DefaultDeath:
+		Actor: NIGHTWITCH.Corpse
+		DeathType: DefaultDeath
+	SpawnActorOnDeath@SmallExplosionDeath:
+		Actor: NIGHTWITCH.Corpse
+		DeathType: SmallExplosionDeath
+	Transforms:
+		IntoActor: nightwitchair
+		Offset: 0,0
+		Facing: 384
+		TransformSounds: electr.aud, electr.aud
+		NoTransformNotification: BuildingCannotPlaceAudio
+
+NIGHTWITCH.Corpse:
+	Inherits: ^InfantryCorpse
+	Tooltip:
+		Name: Corpse (Nightwitch)
+	SpawnActorOnDeath:
+		Actor: NIGHTWITCH
+
+NIGHTWITCHAIR:
+	Inherits: ^Helicopter
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	RenderSprites:
+		Image: nightwitch
+	Valued:
+		Cost: 350
+	Tooltip:
+		Name: Nightwitch
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 5000
+	Aircraft:
+		TurnSpeed: 20
+		Speed: 90
+		AltitudeVelocity: 0c58
+		AirborneCondition: airborne
+		IdealSeparation: 0c512
+	RevealsShroud:
+		Range: 5c0
+		Type: CenterPosition
+	Armament@PRIMARY:
+		Weapon: ATGun
+		LocalOffset: 427,0,341
+	-EjectOnDeath:
+	AttackFrontal:
+	AttackMove:
+	Guard:
+	WithMoveAnimation:
+		MoveSequence: move
+	WithAttackAnimation:
+		Sequence: attack
+	ProducibleWithLevel:
+		Prerequisites: barracks.upgraded
+	SpawnActorOnDeath:
+		Actor: NIGHTWITCH.Corpse
+	Transforms:
+		IntoActor: nightwitch
+		Offset: 0,0
+		Facing: 384
+		TransformSounds: electr.aud, electr.aud
+		NoTransformNotification: BuildingCannotPlaceAudio
+	InstantTransforms:
+		IntoActor: nightwitch
+		RequiresCondition: !airborne
+	TransformOnCondition:
+		IntoActor: nightwitch
+		RequiresCondition: !airborne
+	Selectable:
+		Bounds: 18,20,0,-6
+		DecorationBounds: 12,18,0,-10
+
+PNEER:
+	Inherits: ^Soldier
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 76
+		Prerequisites: adept, ~infantry.italy, ~techlevel.medium
+		Description: Lays anti-infantry mines.\n	Unarmed
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Pioneer
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	RenderSprites:
+	Health:
+		HP: 8000
+	Mobile:
+		Speed: 49
+		Voice: Move
+	RevealsShroud:
+		Range: 3c0
+	Passenger:
+		CustomPipType: blue
+		Voice: Move
+	WithInfantryBody:
+		IdleSequences: idle
+		DefaultAttackSequence: repair
+		StandSequences: stand
+		RequiresCondition: !parachute
+	WithInfantryBody@PARACHUTE:
+		RequiresCondition: parachute
+		IsPlayerPalette: true
+	Minelayer:
+		Mine: SMINE
+		TileUnknownName: build-valid
+		TerrainTypes: Clear, Road, Beach, Ore, Gems, Rough, Bridge
+	MineImmune:
+	AmmoPool:
+		Ammo: 2
+		RearmSound: minelay1.aud
+	DetectCloaked:
+		Range: 5c0
+		CloakTypes: Mine
+	Rearmable:
+		RearmActors: adeptcharger
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		Margin: 4, 3
+		RequiresSelection: true
+
+CAVALRY:
+	Inherits: ^Vehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	-WithColoredOverlay@EMPDISABLE:
+	-TimedConditionBar@EMPDISABLE:
+	-PowerMultiplier@EMPDISABLE:
+	-WithIdleOverlay@EMPDISABLED:
+	-ExternalCondition@empdisable:
+	-SpeedMultiplier@InstantStop:
+	-Chronoshiftable:
+	-Targetable@REPAIR:
+	-Repairable:
+	-CaptureManager:
+	-Capturable:
+	-CaptureNotification:
+	-GrantConditionOnDamageState@DAMAGED:
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 46
+		Prerequisites: ~infantry.mongolia, ~techlevel.low
+		Description: General purpose infantry\non horseback.\n	Strong vs Infantry\n	Weak vs Tanks, Aircraft
+	Valued:
+		Cost: 250
+	Tooltip:
+		Name: Cavalry
+		GenericName: Cavalry
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Selectable:
+		Bounds: 24,24
+		DecorationBounds: 28,28,0,-4
+	Health:
+		HP: 12000
+	Armor:
+		Type: None
+	-Mobile:
+	Mobile:
+		TurnSpeed: 80
+		Speed: 85
+		Locomotor: foot
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 4c512
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	WithMoveAnimation:
+		MoveSequence: run
+		ValidMovementTypes: Horizontal, Turn
+	Turreted:
+		TurnSpeed: 40
+		Offset: 50,0,125
+	Voiced:
+		VoiceSet: GenericVoice
+	Armament:
+		Weapon: MosinNagant44
+		Recoil: 128
+		RecoilRecovery: 38
+		LocalOffset: 720,0,80
+	AttackTurreted:
+	WithTurretAttackAnimation:
+		Sequence: turret-fire
+	WithDeathAnimation:
+		DeathTypes:
+			DefaultDeath: 1
+			BulletDeath: 1
+			SmallExplosionDeath: 1
+			ExplosionDeath: 1
+			FireDeath: 2
+			ElectricityDeath: 2
+	WithDeathAnimation@second:
+		DeathTypes:
+			DefaultDeath: 8
+			BulletDeath: 8
+			SmallExplosionDeath: 8
+			ExplosionDeath: 8
+			FireDeath: 7
+			ElectricityDeath: 7
+	WithMuzzleOverlay:
+	WithSpriteTurret:
+	ProducibleWithLevel:
+		Prerequisites: infanry.upgraded
+	-Explodes:
+	-WithDamageOverlay:
+	Targetable:
+		TargetTypes: GroundActor, Infantry, Heal
+
+EMPROCKETEER:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 131
+		Prerequisites: atek, ~infantry.usa, ~techlevel.high
+		Description: Anti-tank infantry with EMP capabilities.\n  Strong vs Vehicles, Aircraft\n  Weak vs Infantry
+	Selectable:
+		Class: E3
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: EMP Rocketeer
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 4500
+	Armament@primary:
+		Name: primary
+		Weapon: EMPDragon
+		LocalOffset: 0,0,555
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: EMPDragon
+	TakeCover:
+		ProneOffset: 384,0,-395
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+		RequiresCondition: !parachute
+	WithInfantryBody@PARACHUTE:
+		StandSequences: parachute
+		RequiresCondition: parachute
+	ProducibleWithLevel:
+		Prerequisites: barracks.upgraded
+	AutoTarget:
+		ScanRadius: 5
+	SpawnActorOnDeath@BulletDeath:
+		Actor: EMPROCKETEER.Corpse
+		DeathType: BulletDeath
+	SpawnActorOnDeath@DefaultDeath:
+		Actor: EMPROCKETEER.Corpse
+		DeathType: DefaultDeath
+	SpawnActorOnDeath@SmallExplosionDeath:
+		Actor: EMPROCKETEER.Corpse
+		DeathType: SmallExplosionDeath
+		
+EMPROCKETEER.Corpse:
+	Inherits: ^InfantryCorpse
+	Tooltip:
+		Name: Corpse (Rocket Soldier)
+	SpawnActorOnDeath:
+		Actor: EMPROCKETEER
+		
+NINJA:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 110
+		Prerequisites: atek, ~infantry.japan, ~techlevel.high
+		Description: Spying infantry capable of becoming invisible.\nLays invisible spy cameras.\n  Weak vs Everything
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Shinobi
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 5000
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+		RequiresCondition: !parachute
+	WithInfantryBody@PARACHUTE:
+		StandSequences: parachute
+		RequiresCondition: parachute
+		IsPlayerPalette: true
+	ProducibleWithLevel:
+		Prerequisites: barracks.upgraded
+	Targetable:
+		RequiresCondition: !parachute
+		TargetTypes: GroundActor, Infantry, Disguise, Sabotager
+	Cloak:
+		Palette: newcloak
+		InitialDelay: 90
+		CloakDelay: 90
+		CloakSound: appear1td.aud
+		UncloakSound: trans1td.aud
+		IsPlayerPalette: true
+		PauseOnCondition: cloak-force-disabled
+	GrantConditionOnDamageState@UNCLOAK:
+		Condition: cloak-force-disabled
+		ValidDamageStates: Critical
+	RevealsShroud:
+		Range: 6c512
+	DetectCloaked:
+		Range: 5c0
+	IgnoresDisguise:
+	Minelayer:
+		Mine: SPYCAMERA
+		TileUnknownName: build-valid
+		TerrainTypes: Clear, Road, Beach, Ore, Gems, Rough, Bridge
+	MineImmune:
+	AmmoPool:
+		Ammo: 2
+		RearmSound: minelay1.aud
+	DetectCloaked:
+		Range: 5c0
+		CloakTypes: Mine
+	Rearmable:
+		RearmActors: adeptcharger
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		Margin: 4, 3
+		RequiresSelection: true

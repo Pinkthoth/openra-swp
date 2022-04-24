@@ -1,0 +1,415 @@
+ParaBomb:
+	ReloadDelay: 8
+	Range: 3c0
+	Report: chute1.aud
+	ValidTargets: Ground, Water, GroundActor, WaterActor
+	Projectile: GravityBomb
+		Image: PARABOMB
+		OpenSequence: open
+		Velocity: 0, 0, -40
+		Acceleration: 0, 0, 0
+		Shadow: False
+	Warhead@1Dam: SpreadDamage
+		Spread: 512
+		Falloff: 100, 80, 60, 50, 40, 10, 5
+		Damage: 20000
+		ValidTargets: GroundActor, WaterActor
+		Versus:
+			None: 25
+			Wood: 30
+			Light: 60
+			Medium: 50
+			Heavy: 43
+			Concrete: 25
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Crater
+		ValidTargets: Ground, Infantry
+	Warhead@3Eff: CreateEffect
+		Explosions: artillery_explosion
+		ImpactSounds: kaboom15.aud
+		ValidTargets: Ground, GroundActor, WaterActor, Trees
+	Warhead@4EffWater: CreateEffect
+		Explosions: small_splash
+		ImpactSounds: splash9.aud
+		ValidTargets: Water, Underwater
+
+Atomic:
+	ValidTargets: Ground, Water, GroundActor, WaterActor, Underwater, AirborneActor, Trees
+	Warhead@1Dam_impact: SpreadDamage
+		Spread: 1c0
+		Damage: 15000
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		ValidTargets: GroundActor, WaterActor, Underwater, AirborneActor, Trees
+		Versus:
+			Wood: 25
+			Concrete: 25
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@2Res_impact: DestroyResource
+		Size: 1
+	Warhead@3Smu_impact: LeaveSmudge
+		SmudgeType: Scorch
+		ValidTargets: Ground, Infantry
+		Size: 1
+	Warhead@4Eff_impact: CreateEffect
+		Explosions: nuke
+		ImpactSounds: kaboom1.aud
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air
+	Warhead@5Dam_areanuke1: SpreadDamage
+		Spread: 2c0
+		Damage: 6000
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		Delay: 5
+		ValidTargets: GroundActor, WaterActor, Underwater, AirborneActor, Trees
+		Versus:
+			Wood: 25
+			Concrete: 25
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@6Res_areanuke1: DestroyResource
+		Size: 2
+		Delay: 5
+	Warhead@7Smu_areanuke1: LeaveSmudge
+		SmudgeType: Scorch
+		ValidTargets: Ground, Infantry
+		Size: 2
+		Delay: 5
+	Warhead@8Eff_areanuke1: CreateEffect
+		ImpactSounds: kaboom22.aud
+		Delay: 5
+		ImpactActors: false
+	Warhead@9Dam_areanuke2: SpreadDamage
+		Spread: 3c0
+		Damage: 6000
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		Delay: 10
+		ValidTargets: GroundActor, Trees, WaterActor, Underwater, AirborneActor
+		Versus:
+			Wood: 50
+			Tree: 200
+			Concrete: 25
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@11Res_areanuke2: DestroyResource
+		Size: 3
+		Delay: 10
+	Warhead@12Smu_areanuke2: LeaveSmudge
+		SmudgeType: Scorch
+		ValidTargets: Ground, Infantry
+		Size: 3
+		Delay: 10
+	Warhead@13Dam_areanuke3: SpreadDamage
+		Spread: 4c0
+		Damage: 6000
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		Delay: 15
+		ValidTargets: GroundActor, Trees, WaterActor, Underwater, AirborneActor
+		Versus:
+			Tree: 200
+			Concrete: 25
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@15Res_areanuke3: DestroyResource
+		Size: 4
+		Delay: 15
+	Warhead@16Smu_areanuke3: LeaveSmudge
+		SmudgeType: Scorch
+		ValidTargets: Ground, Infantry
+		Size: 4
+		Delay: 15
+	Warhead@17Dam_areanuke4: SpreadDamage
+		Spread: 5c0
+		Damage: 6000
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		Delay: 20
+		ValidTargets: GroundActor, Trees, WaterActor, Underwater, AirborneActor
+		Versus:
+			Tree: 200
+			Concrete: 25
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@19Res_areanuke4: DestroyResource
+		Size: 5
+		Delay: 20
+	Warhead@20Smu_areanuke4: LeaveSmudge
+		SmudgeType: Scorch
+		ValidTargets: Ground, Infantry
+		Size: 5
+		Delay: 20
+	Warhead@21Shake: ShakeScreen
+		Duration: 20
+		Intensity: 5
+		Multiplier: 1,1
+	Warhead@22FlashEffect: FlashPaletteEffect
+		Duration: 20
+		FlashType: Nuke
+		
+EMPulseCannon:
+	ReloadDelay: 100
+	Range: 40c0
+	Report: plsecan2.aud
+	ValidTargets: Ground, GroundActor, Water, WaterActor
+	Projectile: Bullet
+		Speed: 425
+		Blockable: false
+		Shadow: true
+		LaunchAngle: 96
+		Image: pulsball
+		Palette: tseffects
+	Warhead@1Eff: CreateEffect
+		Explosions: pulse_explosion
+		ExplosionPalette: tseffects
+		ImpactActors: false
+		ImpactSounds: empexpl1.wav
+	Warhead@emp: GrantExternalCondition
+		Range: 6c0
+		Duration: 250
+		Condition: empdisable
+		ValidTargets: Ground, GroundActor, WaterActor, Water, Air
+	Warhead@1Dam: SpreadDamage
+		Spread: 3c0
+		Damage: 100
+		Versus:
+			None: 90
+			Wood: 40
+			Light: 60
+			Medium: 40
+			Heavy: 25
+		DamageTypes: Prone50Percent, TriggerProne
+		ValidTargets: Ground, GroundActor, WaterActor, Water, Air
+
+StukaBomb:
+	ReloadDelay: 4
+	Range: 2c5
+	Burst: 2
+	BurstDelays: 4
+	Report: chute1.aud
+	ValidTargets: Ground, Water, GroundActor, WaterActor
+	Projectile: GravityBomb
+		Image: PARABOMB
+		OpenSequence: open
+		Velocity: 0, 0, -200
+		Acceleration: 0, 0, -100
+		Shadow: False
+	Warhead@1Dam: SpreadDamage
+		Spread: 1068
+		Damage: 20000
+		ValidTargets: GroundActor, WaterActor
+		Versus:
+			None: 10
+			Wood: 30
+			Light: 75
+			Heavy: 65
+			Concrete: 25
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Crater
+		ValidTargets: Ground, Infantry
+	Warhead@3Eff: CreateEffect
+		Explosions: large_napalm
+		ImpactSounds: kaboom15.aud
+		ValidTargets: Ground, GroundActor, WaterActor, Trees
+	Warhead@4EffWater: CreateEffect
+		Explosions: small_splash
+		ImpactSounds: splash9.aud
+		ValidTargets: Water, Underwater
+
+EMSurge:
+	ValidTargets: Ground, Water, Air
+	Warhead@1Eff: CreateEffect
+		Explosions: emsurgexpld
+		ValidTargets: Ground, GroundActor, WaterActor, Water, Air
+		ImpactSounds: chargepwr1.aud
+	Warhead@emp: GrantExternalCondition
+		Range: 6c0
+		Duration: 250
+		Condition: emsurged
+		ValidTargets: Ground, GroundActor, WaterActor, Water, Air
+
+ArtilleryBarrage:
+	ValidTargets: Ground, Water, Air
+	Warhead@SoundEffect: CreateEffect
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air
+	Warhead@Cluster2nd: FireCluster
+		Weapon: ArtilleryBarrageSecondary
+		RandomClusterCount: 25
+		Dimensions: 15,7
+		Footprint:  ___________x___ __________xxx__ _________xxxxxx_ ________xxxxxxx _________xxxxxx_ __________xxx__ ___________x___
+		
+ArtilleryBarrageSecondary:
+	Inherits: ^Artillery
+	ValidTargets: Ground, Water, Air
+	-Report:
+	Projectile: Bullet
+		Speed: 0c20, 0c30
+		AirburstAltitude: 25c0
+		Image: empty
+		LaunchAngle: 0
+		Inaccuracy: 0c0
+	-Warhead@1Dam:
+	Warhead@Cluster1: FireCluster
+		Weapon: ArtilleryBarrageShell
+		Dimensions: 9,1
+		Footprint: x________
+	-Warhead@2Smu:
+	-Warhead@3Eff:
+	-Warhead@4EffWater:
+		
+ArtilleryBarrageShell:
+	Inherits: ^Artillery
+	-Report:
+	ValidTargets: Ground, Water, Air
+	Projectile: Bullet
+		Speed: 500
+		Image: artshll
+		Inaccuracy: 0c216
+		ContrailLength: 10
+	Warhead@3Eff: CreateEffect
+		Explosions: large_explosion
+		ImpactSounds: kaboom15.aud
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c512
+		Falloff: 100, 70, 60, 50, 30, 5
+		Damage: 6000
+		ValidTargets: GroundActor, WaterActor
+		Versus:
+			None: 50
+			Wood: 65
+			Light: 100
+			Medium: 85
+			Heavy: 80
+			Concrete: 50
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@2Dam: SpreadDamage
+		Spread: 0c512
+		Falloff: 100, 100, 25
+		Damage: 4500
+		ValidTargets: GroundActor, WaterActor
+		Versus:
+			None: 10
+			Wood: 10
+			Light: 70
+			Medium: 80
+			Heavy: 100
+			Concrete: 50
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@4EffWater: CreateEffect
+		Explosions: large_splash
+
+V3Missile:
+	ValidTargets: Ground, Water, Air, Trees, GroundActor, WaterActor
+	Report: expnew19.aud
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c512
+		Falloff: 100, 100, 80, 80, 50, 25, 10, 5
+		Damage: 15000
+		ValidTargets: Ground, Water, Air, Trees, GroundActor, WaterActor
+		Versus:
+			None: 70
+			Wood: 10
+			Light: 125
+			Medium: 150
+			Heavy: 300
+			Concrete: 100
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@2Dam: SpreadDamage
+		Spread: 0c400
+		Falloff: 105, 90, 80, 70, 60, 50, 40, 35, 30, 20, 25, 10, 5, 0
+		Damage: 20000
+		ValidTargets: Ground, Water, Air, Trees, GroundActor, WaterActor
+		Versus:
+			None: 100
+			Wood: 150
+			Light: 100
+			Medium: 100
+			Heavy: 100
+			Concrete: 100
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@SoundEffect: CreateEffect
+		Explosions: large_twlt
+		ExplosionPalette: tseffects
+		ImpactSounds: kaboom22.aud
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air, GroundActor, WaterActor
+	Warhead@Cluster: FireCluster
+		Weapon: IfritAreaFire
+		RandomClusterCount: 20
+		Dimensions: 9,9
+		Footprint: ____x____ ___xxx___ __xxxxx__ _xxx_xxx_ _xx___xx_ _xxx_xxx_ __xxxxx__ ___xxx___ ____x____
+	Warhead@Cluster2: FireCluster
+		Weapon: IfritAreaFire
+		RandomClusterCount: -1
+		Dimensions: 3,3
+		Footprint: _X_ XXX _X_
+	Warhead@Shake: ShakeScreen
+		Duration: 20
+		Intensity: 5
+		Multiplier: 1,1
+
+SmokeBarrage:
+	ValidTargets: Ground, Water, Air
+	Warhead@SoundEffect: CreateEffect
+		ImpactActors: false
+		ValidTargets: Ground, Water, Air
+	Warhead@Cluster2nd: FireCluster
+		Weapon: SmokeBarrageSecondary
+		RandomClusterCount: 6
+		Dimensions: 13,5
+		Footprint:  __________x__ _________xxx_ ________xxxxx _________xxx_ __________x__
+		
+SmokeBarrageSecondary:
+	Inherits: ^Artillery
+	ValidTargets: Ground, Water, Air
+	-Report:
+	Projectile: Bullet
+		Speed: 0c20, 0c50
+		AirburstAltitude: 25c0
+		Image: empty
+		LaunchAngle: 0
+	-Warhead@1Dam:
+	Warhead@Cluster1: FireCluster
+		Weapon: SmokeBarrageShell
+		Dimensions: 9,1
+		Footprint: x________
+	-Warhead@2Smu:
+	-Warhead@3Eff:
+	-Warhead@4EffWater:
+		
+SmokeBarrageShell:
+	Inherits: ^Artillery
+	-Report:
+	ValidTargets: Ground, Water, Air
+	Projectile: Bullet
+		Speed: 404
+		Image: artshll
+		Inaccuracy: 0c0
+		ContrailLength: 10
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c512
+		Falloff: 100, 70, 60, 50, 30, 5
+		Damage: 2000
+		ValidTargets: GroundActor, WaterActor
+		Versus:
+			None: 50
+			Wood: 65
+			Light: 100
+			Medium: 85
+			Heavy: 80
+			Concrete: 50
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@Cluster: FireCluster
+		Weapon: SpawnSmoke
+		RandomClusterCount: -1
+		Dimensions: 3,3
+		Footprint: _X_ XXX _X_
+	Warhead@3Eff: CreateEffect
+		ImpactSounds: kaboom15.aud
+		Explosions: smokeexp
+		ExplosionPalette: swpeffects-alpha
+		ValidTargets: Ground, GroundActor, WaterActor, Trees
+
+SpawnSmoke:
+	Projectile: InstantHit
+	ValidTargets: Ground, GroundActor, Water, WaterActor
+	Warhead@spawn: SpawnActor
+		Delay: 20
+		Actors: smokecloud
+		ValidTargets: Ground, GroundActor, Water, WaterActor

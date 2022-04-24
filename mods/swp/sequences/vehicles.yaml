@@ -1,0 +1,1036 @@
+mcv:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	icon: mcvicon
+
+mcvhusk:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+		ZOffset: -1023
+
+4tnk:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	muzzle: gunfire2
+		Length: 5
+	icon: 4tnkicon
+
+4tnk.destroyed:
+	idle: 4tnk
+		Facings: 32
+		UseClassicFacings: True
+		ZOffset: -512
+	turret: 4tnk
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+		ZOffset: -512
+
+truk:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	icon: trukicon
+
+harv:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	harvest:
+		Start: 32
+		Length: 8
+		Facings: 8
+	dock: harv
+		Start: 96
+		Length: 8
+	dock-loop: harv
+		Start: 104
+		Length: 7
+	icon: harvicon
+		Start: 0
+
+harvempty:
+	Inherits: harv
+
+harvhalf:
+	Inherits: harv
+
+hhusk:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+		ZOffset: -1023
+
+hhusk2:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+		ZOffset: -1023
+
+v2rl:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	empty-idle:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	icon: v2rlicon
+
+ifrit:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	icon: ifriticon
+
+arty:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	muzzle: gunfire2
+		Length: 5
+	icon: artyicon
+
+jeep:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	muzzle: minigun
+		Length: 6
+		Facings: 8
+	icon: jeepicon
+
+telekite:
+	idle: empty32
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Facings: 32
+		Length: 4
+	muzzle: minigun
+		Length: 6
+		Facings: 8
+	icon: telekiteicon
+
+tnkgnr:
+	idle: empty32
+		Facings: 32
+		UseClassicFacings: True
+	turret-attached: jeep
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+		ZOffset: 100
+	turret: jeep
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+		ZOffset: 100
+	muzzle: minigun
+		Length: 6
+		Facings: 8
+		ZOffset: 100
+
+mnly:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	icon: mnlyicon
+
+miragelayer:
+	idle:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	idle-empty:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	idle-full:
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+	icon: mnlyicon
+
+mrj:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	spinner:
+		Start: 32
+		Length: 32
+	icon: mrjicon
+
+mgg:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	spinner:
+		Start: 32
+		Length: 8
+	spinner-idle:
+		Start: 32
+		Length: 1
+	icon: mggicon
+
+mgg.destroyed:
+	idle: mgg
+		Facings: 32
+		UseClassicFacings: True
+		ZOffset: -512
+	spinner: mgg
+		Start: 32
+		Length: 8
+		ZOffset: -512
+	spinner-idle: mgg
+		Start: 32
+
+ttnk:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	spinner:
+		Start: 32
+		Length: 32
+	icon: ttnkicon
+
+ftrk:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	muzzle: gunfire2
+		Length: 2
+	icon: ftrkicon
+
+ententeaa:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	turret-aa:
+		Start: 64
+		Facings: 32
+		UseClassicFacings: True
+	muzzle: minigun
+		Length: 6
+		Facings: 8
+	icon: ententeaaicon
+
+sonique:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	icon: ententeaaicon
+
+qtnk:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	piston:
+		Start: 32
+		Facings: 8
+		Length: 8
+	icon: qtnkicon
+
+apc:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	muzzle: minigun
+		Length: 6
+		Facings: 8
+	open:
+		Start: 32
+		Length: 3
+	unload:
+		Start: 32
+	icon: apcicon
+
+ctnk:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	muzzle: gunfire2
+		Length: 5
+	icon: ctnkicon
+
+grinder:
+	idle:
+		Facings: 32
+		Stride: 4
+		UseClassicFacings: True
+	move:
+		Facings: 32
+		Length: 4
+		UseClassicFacings: True
+	icon: grindericon
+
+emcv:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	icon: mcvicon
+
+mmcv:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	icon: mcvicon
+	
+kmcv:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	icon: mcvicon
+
+hlftrk:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 33
+		Facings: 32
+		UseClassicFacings: True
+	muzzle: minigun
+		Length: 6
+		Facings: 8
+	icon: hlftrkicon
+		
+puma:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 33
+		Facings: 32
+		UseClassicFacings: True
+	muzzle: gunfire2
+		Length: 2
+	icon: pumaicon
+
+btr:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 33
+		Facings: 32
+		UseClassicFacings: True
+	muzzle: gunfire2
+		Length: 2
+	icon: btricon
+
+armcr:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	muzzle: minigun
+		Length: 6
+		Facings: 8
+	icon: armcricon
+
+mortarcrew:
+	idle:
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+	move:
+		Start: 33
+		Facings: 32
+		Length: 6
+		UseClassicFacings: True
+		Tick: 80
+	attack:
+		Start: 231
+		Facings: 32
+		Length: 6
+		UseClassicFacings: True
+		Tick: 140
+	turn:
+		Start: 429
+		Facings: 32
+		Length: 1
+		UseClassicFacings: True
+		Tick: 80
+	muzzle: gunfire2
+		Length: 2
+	icon: mortarcrewicon
+
+atgunner:
+	idle:
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+	move:
+		Start: 33
+		Facings: 32
+		Length: 6
+		UseClassicFacings: True
+		Tick: 80
+	attack:
+		Start: 231
+		Facings: 32
+		Length: 6
+		UseClassicFacings: True
+		Tick: 140
+	turn:
+		Start: 429
+		Facings: 32
+		Length: 1
+		UseClassicFacings: True
+		Tick: 80
+	muzzle: gunfire2
+		Length: 2
+	icon: atgunnericon
+
+gatlinggunner:
+	idle:
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+	move:
+		Start: 33
+		Facings: 32
+		Length: 6
+		UseClassicFacings: True
+		Tick: 80
+	attack:
+		Start: 231
+		Facings: 32
+		Length: 6
+		UseClassicFacings: True
+		Tick: 120
+	turn:
+		Start: 429
+		Facings: 32
+		Length: 1
+		UseClassicFacings: True
+		Tick: 80
+	muzzle: minigun
+		Length: 6
+		Facings: 8
+	icon: gatlinggunnericon
+
+sipahi:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	idle-medic: sipahimed
+		Facings: 32
+		UseClassicFacings: True
+	idle-mech: sipahimech
+		Facings: 32
+		UseClassicFacings: True
+	turret-rifle: armcr
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	turret-flame: sipahiflm
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+	turret-missile: khanlauncher
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+	turret-flak: ftrk
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	turret-mortar: sipahimortar
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+	turret-sniper: sipahisniper
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+	turret-lmg: sipahilmg
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+	spinner-ttnk: ttnk
+		Start: 32
+		Length: 1
+	spinner-mrj: mrj
+		Start: 32
+		Length: 32
+	muzzle: minigun
+		Length: 6
+		Facings: 8
+	icon: sipahiicon
+
+hvtnk:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 33
+		Facings: 32
+		UseClassicFacings: True
+	muzzle: gunfire2
+		Length: 5
+	muzzle-mg: minigun
+		Length: 6
+		Facings: 8
+	icon: hvtnkicon
+	
+msam:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	turret1:
+		Start: 64
+		Facings: 32
+		UseClassicFacings: True
+	turret0:
+		Start: 96
+		Facings: 32
+		UseClassicFacings: True
+	icon: msamicon
+	
+#Komintern
+trnsprt:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+		Offset: 0,2
+	icon: trnsprticon
+
+tnkt:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	muzzle: minigun
+		Length: 6
+		Facings: 8
+	open:
+		Start: 1
+		Length: 3
+	unload:
+		Start: 1
+	icon: tnkticon
+		
+ftrk:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	muzzle: gunfire2
+		Length: 2
+	icon: ftrkicon
+	
+mtnk:
+	idle: 2tnk
+		Facings: 32
+		UseClassicFacings: True
+	turret: mtnktr
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+	muzzle: gunfire2
+		Length: 5
+	muzzle-mg: minigun
+		Length: 6
+		Facings: 8
+	icon: cossackicon
+		
+katya:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	empty-aim:
+		Start: 64
+		Facings: 32
+		UseClassicFacings: True
+	aim:
+		Start: 64
+		Facings: 32
+		UseClassicFacings: True
+	icon: katyushkaicon
+	
+mgg:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	spinner:
+		Start: 32
+		Length: 8
+	spinner-idle:
+		Start: 32
+		Length: 1
+	icon: mggicon
+	
+t100:
+	idle: 4tnk
+		Facings: 32
+		UseClassicFacings: True
+	turret: 4tnk
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	muzzle: gunfire2
+		Length: 5
+	icon: 4tnkicon
+	
+#Entente units
+jeep:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	muzzle: minigun
+		Length: 6
+		Facings: 8
+	icon: jeepicon
+
+apc:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	muzzle: minigun
+		Length: 6
+		Facings: 8
+	open:
+		Start: 32
+		Length: 3
+	unload:
+		Start: 32
+	icon: apcicon
+
+ifv:
+	idle: ifv
+		Facings: 32
+		UseClassicFacings: True
+	turret: newapc
+		Start: 33
+		Facings: 32
+	turret-air: newapc
+		Start: 66
+		Facings: 32
+	muzzle: minigun
+		Length: 6
+		Facings: 8
+	muzzle-air: minigun
+		Length: 3
+		Stride: 6
+		Facings: 8
+	close: apc
+		Start: 32
+		Length: 3
+	unload: apc
+		Start: 32
+	icon: warthogicon
+	
+rtnk:
+	idle: 1tnk
+		Facings: 32
+		UseClassicFacings: True
+	turret: lgttur
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+	muzzle: gunfire2
+		Length: 2
+	icon: rtnkicon
+	
+ltnk:
+	idle: 2tnk
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	muzzle: gunfire2
+		Length: 2
+	muzzle-mg: minigun
+		Length: 6
+		Facings: 8
+	icon: ltnkicon
+
+teletnk:
+	idle: 2tnk
+		Facings: 32
+		UseClassicFacings: True
+	turret: teleturret
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+	muzzle: gunfire2
+		Length: 2
+	muzzle-mg: minigun
+		Length: 6
+		Facings: 8
+	icon: teletankicon
+
+traktor:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	icon: teletankicon
+
+stnk:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 38
+		Facings: 32
+		UseClassicFacings: True
+	icon: stnkicon
+
+arty:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	muzzle: gunfire2
+		Length: 5
+	icon: artyicon
+
+prismcannon:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	muzzle: gunfire2
+		Length: 5
+	icon: prismcannonicon
+
+spempcannon:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	muzzle: gunfire2
+		Length: 5
+	icon: tsqtnkicon
+	
+archer:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+		Offset: 0,4
+	muzzle: gunfire2
+		Length: 5
+	icon: archericon
+
+maus:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+		Offset: 0,4
+	muzzle: gunfire2
+		Length: 5
+	icon: mouseicon
+
+mrj:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	spinner:
+		Start: 32
+		Length: 32
+	icon: mrjicon
+	
+hvrtnktnk:
+	Defaults: hvrtnk
+	idle: 
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	muzzle: gunfire2
+		Length: 2
+	icon: hvrtnkicon
+
+hvrtnkhvr:
+	Defaults: hvrtnk
+	idle:
+		Start: 77
+		Facings: 32
+	muzzle: minigun
+		Length: 6
+		Facings: 8
+	make:
+		Start: 65
+		Length: 12
+	icon: placeholder
+    
+hvrtnkhvrhusk:
+	Defaults: hvrtnk
+	idle:
+		Facings: 32
+	make:
+		Start: 65
+		Length: 12
+	icon: placeholder
+	
+ttnk:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	spinner:
+		Start: 32
+		Length: 1
+	icon: ttnkicon
+	
+flmtnk:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	icon: flmtnkicon
+
+firelancer:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	muzzle: flameall
+		Length: 19
+		Facings: -8
+		Tick: 30
+		ZOffset: 1023
+		Offset: 0, 0, 24
+	icon: firelancericon
+
+marksman:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	turret-aa:
+		Start: 63
+		Facings: 32
+		UseClassicFacigns: True
+	muzzle: minigun
+		Length: 6
+		Facings: 8
+	icon: marksmanicon
+
+tsqtnk:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	piston:
+		Start: 32
+		Facings: 8
+		Length: 8
+	icon: tsqtnkicon
+	
+ectnk:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	icon: ectnkicon
+	
+sthtnk:
+	idle:
+		Facings: 32
+		UseClassicFacingFudge: True
+	icon: sthtnkicon
+	
+bigbertha:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	muzzle: minigun
+		Length: 6
+		Facings: 8
+	open:
+		Start: 32
+		Length: 3
+	unload:
+		Start: 32
+	make: bigbertha
+		Start: 32
+		Length: 20
+		Tick: 80
+	turret: bigbertha
+		Start: 52
+		Facings: 32
+	icon: bigberthaicon
+
+testudo:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	idle-ground:
+		Start: 70
+	muzzle-mg1: minigun
+		Length: 6
+		Facings: 8
+	muzzle-mg2: minigun
+		Length: 6
+		Facings: 8
+	muzzle1: gunfire2
+		Length: 5
+	muzzle2: gunfire2
+		Length: 5
+	make:
+		Start: 64
+		Length: 6
+		Tick: 80
+		ZOffset: 100
+	turret:
+		Start: 32
+		Facings: 32
+	bib: mbSILO
+		Length: *
+		UseTilesetExtension: true
+		ZOffset: -9000
+		Offset: 2,-2
+	crumble-overlay: dig
+		Length: *
+		ZOffset: 511
+		Offset: 0, 0, 24
+	icon: testudoicon
+
+bigberthagun:
+	idle: gunmake
+	damaged-idle: gunmake
+	turret: bigbertha
+		Start: 52
+		Facings: 32
+	damaged-turret: 52
+		Start: 52
+		Facings: 32
+	make: bigbertha
+		Start: 32
+		Length: 20
+		Tick: 80
+	recoil: bigbertha
+		Start: 52
+		Facings: 32
+		UseClassicFacings: True
+	damaged-turret: bigbertha
+		Start: 52
+		Facings: 32
+		UseClassicFacings: True
+	damaged-recoil: bigbertha
+		Start: 52
+		Facings: 32
+		UseClassicFacings: True
+	muzzle: gunfire2
+		Length: 5
+
+racer:
+	idle:
+		Start: 99
+		Facings: 32
+		UseClassicFacings: True
+	move:
+		Start: 0
+		Facings: 32
+		Length: 3
+		UseClassicFacings: True
+		Tick: 40
+	icon: racericon
+
+khan:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret: khanlauncher
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+	icon: khanicon
+
+mobilearray:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	icon: mobilearrayicon
+	
+mobilearraydeployed:
+	idle: mobilearray
+		Start: 48
+		Length: 15
+		Tick: 60
+	make: mobilearray
+		Start: 33
+		Length: 16
+	icon: mobilearrayicon
+	
+orda:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	icon: ordaicon
+	
+ordadeployed:
+	Defaults:
+		Offset: 0,-12
+	idle: orda
+		Start: 56
+		Length: 1
+	make: orda
+		Start: 33
+		Length: 23
+		Tick: 150
+	bib: bib2
+		Offset: 2, 8
+		ZOffset: -1c612
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	icon: ordaicon
+	
+louchuan:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	icon: louchuanicon

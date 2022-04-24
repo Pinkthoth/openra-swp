@@ -1,0 +1,6 @@
+user.config
+engine
+bin
+obj
+.DS_Store
+.idea

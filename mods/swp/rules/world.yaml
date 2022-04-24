@@ -1,0 +1,347 @@
+^BaseWorld:
+	Inherits: ^Palettes
+	AlwaysVisible:
+	ActorMap:
+	ScreenMap:
+	Selection:
+	MusicPlaylist:
+		VictoryMusic: score
+		DefeatMusic: map
+	TerrainGeometryOverlay:
+	DebugVisualizations:
+	Locomotor@FOOT:
+		Name: foot
+		Crushes: mine, crate
+		SharesCell: true
+		TerrainSpeeds:
+			Clear: 90
+			Rough: 80
+			Road: 100
+			Bridge: 100
+			Ore: 80
+			Gems: 80
+			Beach: 80
+	Locomotor@BIGFOOT:
+		Name: bigfoot
+		Crushes: mine, crate
+		TerrainSpeeds:
+			Clear: 90
+			Rough: 80
+			Road: 100
+			Bridge: 100
+			Ore: 80
+			Gems: 80
+			Beach: 80
+	Locomotor@WHEELED:
+		Name: wheeled
+		Crushes: mine, crate
+		TerrainSpeeds:
+			Clear: 80
+			Rough: 40
+			Road: 100
+			Bridge: 100
+			Ore: 70
+			Gems: 70
+			Beach: 40
+	Locomotor@HEAVYWHEELED:
+		Name: heavywheeled
+		Crushes: wall, mine, crate, infantry
+		TerrainSpeeds:
+			Clear: 80
+			Rough: 40
+			Road: 100
+			Bridge: 100
+			Ore: 70
+			Gems: 70
+			Beach: 40
+	Locomotor@LIGHTTRACKED:
+		Name: lighttracked
+		Crushes: wall, mine, crate
+		TerrainSpeeds:
+			Clear: 80
+			Rough: 70
+			Road: 100
+			Bridge: 100
+			Ore: 70
+			Gems: 70
+			Beach: 70
+	Locomotor@TRACKED:
+		Name: tracked
+		Crushes: wall, infantry, mine, crate
+		TerrainSpeeds:
+			Clear: 80
+			Rough: 70
+			Road: 100
+			Bridge: 100
+			Ore: 70
+			Gems: 70
+			Beach: 70
+	Locomotor@HEAVYTRACKED:
+		Name: heavytracked
+		Crushes: wall, infantry, mine, crate, heavywall
+		TerrainSpeeds:
+			Clear: 80
+			Rough: 70
+			Road: 100
+			Bridge: 100
+			Ore: 70
+			Gems: 70
+			Beach: 70
+	Locomotor@NAVAL:
+		Name: naval
+		Crushes: crate
+		TerrainSpeeds:
+			Water: 100
+	Locomotor@LANDINGCRAFT:
+		Name: lcraft
+		Crushes: crate
+		TerrainSpeeds:
+			Water: 100
+			Beach: 70
+	Locomotor@IMMOBILE:
+		Name: immobile
+		TerrainSpeeds:
+	Locomotor@superlighttracked:
+		Name: superlighttracked
+		Crushes: mine, crate
+		TerrainSpeeds:
+			Clear: 80
+			Rough: 70
+			Road: 100
+			Bridge: 100
+			Ore: 70
+			Gems: 70
+			Beach: 70
+	TerrainRenderer:
+	ShroudRenderer:
+		FogVariants: shroud
+		Index: 255, 16, 32, 48, 64, 80, 96, 112, 128, 144, 160, 176, 192, 208, 224, 240, 20, 40, 56, 65, 97, 130, 148, 194, 24, 33, 66, 132, 28, 41, 67, 134, 1, 2, 4, 8, 3, 6, 12, 9, 7, 14, 13, 11, 5, 10, 15, 255
+		UseExtendedIndex: true
+	Faction@0:
+		Name: Entente
+		InternalName: allies
+		Side: Entente
+		Selectable: False
+	Faction@1:
+		Name: Britain
+		InternalName: england
+		Side: Entente
+		Description: Kingdom of Great Britain\nFocus: Special Operatives and Intelligence\nSpecial Unit: Commando\nSpecial Unit: Warthog\nSpecial Ability: Radar Scan
+	Faction@2:
+		Name: France
+		InternalName: france
+		Side: Entente
+		Description: Republic of France\nFocus: Misdirection and Deception\nSpecial Unit: Fake structures\nSpecial Unit: Mobile Radar Jammer\nSpecial Ability: Smokescreen
+	Faction@3:
+		Name: Germany
+		InternalName: germany
+		Side: Zentrum
+		Description: German Empire\nFocus: Specialists and Chrono Technology\nSpecial Unit: Field Surgeon\nSpecial unit: Tank Commander\nSpecial Unit: Chrono Tank
+	Faction@4:
+		Name: Komintern
+		InternalName: soviet
+		Side: Komintern
+		Selectable: False
+	Faction@5:
+		Name: Russia
+		InternalName: russia
+		Side: Komintern
+		Description: Russian Soviet Republic\nFocus: Tesla and Curtain Technology\nSpecial Unit: Tesla Trooper\nSpecial Unit: Tesla Tank\nSpecial Unit: Grinder
+	Faction@6:
+		Name: Ukraine
+		InternalName: ukraine
+		Side: Komintern
+		Description: Ukrainian Soviet Republic\nFocus: Magnetic and Veil Technology\nSpecial Unit: Nightwitch\nSpecial Unit: Maglev Tank\nSpecial Unit: Mobile Veil Generator\nSpecial Unit: Veil Generator
+	Faction@7:
+		Name: Japan
+		InternalName: japan
+		Side: Entente
+		Description: Empire of Japan\nFocus: Phase Technology\nSpecial Unit: Shinobi\nSpecial Unit: Phase Tank\nSpecial Unit: Phase APC
+	Faction@8:
+		Name: USA
+		InternalName: usa
+		Side: Entente
+		Description: United States of America\nFocus: Electromagnetism\nSpecial Unit: EMP Rocketeer\nSpecial Unit: Tele EMP Device\nSpecial Unit: Tele-Tank
+	Faction@17:
+		Name: Serbia
+		InternalName: serbia
+		Side: Entente
+		Description: Kingdom of Serbia\nFocus: Heavy Weaponry\nSpecial Units: Anti-Tank Crew\nSpecial Unit: Vitez\nSpecial Unit: Knez Cannon
+	Faction@9:
+		Name: China
+		InternalName: china
+		Side: Komintern
+		Description: People's Republic of China\nFocus: Infantry Focus\nSpecial Unit: Militia\nSpecial Unit: Louchuan\nSpecial Unit: Flaktrooper
+	Faction@16:
+		Name: Alash Orda
+		InternalName: kazakhstan
+		Side: Komintern
+		Description: Soviet Federation of Alash Autonomy\nFocus: Explosives & Scavenging\nSpecial Unit: Kulak\nSpecial Unit: Scavenger\nSpecial Unit: MAD Tank
+	Faction@10:
+		Name: Italy
+		InternalName: italy
+		Side: Zentrum
+		Description: Kingdom of Italy\nFocus: Trench Warfare\nSpecial Unit: Pioneer\nSpecial Unit: Trench\nSpecial Unit: Testudo
+	Faction@11:
+		Name: Mongolia
+		InternalName: mongolia
+		Side: Komintern
+		Description: People's Republic of Mongolia\nFocus: Hit & Run\nSpecial Unit: Cavalry\nSpecial Unit: Raider\nSpecial Unit: Orda
+	Faction@12:
+		Name: Austria
+		InternalName: austria
+		Side: Zentrum
+		Description: Austro-Hungarian Empire\nFocus: Refractor Technology\nSpecial Unit: Refractor Guard\nSpecial Unit: Mobile Refractor\nSpecial Unit: Wasp
+	Faction@13:
+		Name: Ottomans
+		InternalName: turkey
+		Side: Zentrum
+		Description: Ottoman Empire\nFocus: Thermal Technology\nSpecial Unit: Molotov Thrower\nSpecial Unit: Flame Tank\nSpecial Unit: Ifrit
+	Faction@15:
+		Name: Bulgaria
+		InternalName: bulgaria
+		Side: Zentrum
+		Description: Tsardom of Bulgaria\nFocus: Indirect Fire\nSpecial Unit: Mortar\nSpecial Unit: Czar\nSpecial Unit: Zeppelin
+	Faction@14:
+		Name: Zentrum
+		InternalName: zentrum
+		Side: Zentrum
+		Selectable: False
+	Faction@random:
+		Name: Any
+		InternalName: Random
+		RandomFactionMembers: RandomAllies, RandomSoviet
+		Side: Random
+		Description: Random Country\nA random country will be chosen when the game starts.
+	Faction@randomallies:
+		Name: Entente
+		InternalName: RandomAllies
+		RandomFactionMembers: england, france, usa, japan, serbia
+		Side: Random
+		Description: Random Entente Country\nA random Allied country will be chosen when the game starts.
+	Faction@randomsoviet:
+		Name: Komintern
+		InternalName: RandomSoviet
+		RandomFactionMembers: russia, ukraine, china, mongolia, kazakhstan
+		Side: Random
+		Description: Random Komintern Country\nA random Soviet country will be chosen when the game starts.
+	Faction@randomzentrum:
+		Name: Zentrum
+		InternalName: Randomzentrum
+		RandomFactionMembers: germany, austria, turkey, italy, bulgaria
+		Side: Random
+		Description: Random Zentrum Country\nA random Zentrum country will be chosen when the game starts.
+	ResourceType@ore:
+		Type: Ore
+		Name: Valuable Minerals
+		ResourceType: 1
+		TerrainType: Ore
+		Palette: player
+		Sequences: gold01,gold02,gold03,gold04
+		MaxDensity: 12
+		ValuePerUnit: 25
+		AllowedTerrainTypes: Clear,Road
+		AllowUnderActors: true
+	ResourceType@gem:
+		Type: Gems
+		Name: Valuable Minerals
+		ResourceType: 2
+		TerrainType: Gems
+		Palette: player
+		Sequences: gem01,gem02,gem03,gem04
+		MaxDensity: 3
+		ValuePerUnit: 50
+		AllowedTerrainTypes: Clear,Road
+		AllowUnderActors: true
+	ResourceRenderer:
+		RenderTypes: Ore, Gems
+
+World:
+	Inherits: ^BaseWorld
+	ChatCommands:
+	DevCommands:
+	DebugVisualizationCommands:
+	PlayerCommands:
+	HelpCommand:
+	ScreenShaker:
+	BuildingInfluence:
+	ProductionQueueFromSelection:
+		ProductionPaletteWidget: PRODUCTION_PALETTE
+	LegacyBridgeLayer:
+		Bridges: bridge1, bridge2, bridge3, bridge4, br1, br2, br3, sbridge1, sbridge2, sbridge3, sbridge4
+	CustomTerrainDebugOverlay:
+	JumpjetActorLayer:
+	CrateSpawner:
+		DeliveryAircraft: badr
+		QuantizedFacings: 16
+		Minimum: 1
+		Maximum: 3
+		SpawnInterval: 3000
+		WaterChance: 20
+		InitialSpawnDelay: 1500
+		CheckboxDisplayOrder: 1
+	DomainIndex:
+	SmudgeLayer@SCORCH:
+		Type: Scorch
+		Sequence: scorches
+		SmokeChance: 50
+		SmokeImage: smoke_m
+		SmokeSequences: idle
+	SmudgeLayer@CRATER:
+		Type: Crater
+		Sequence: craters
+		SmokeChance: 25
+		SmokeImage: smoke_m
+		SmokeSequences: idle
+	ResourceLayer:
+	ResourceClaimLayer:
+	WarheadDebugOverlay:
+	SpawnMapActors:
+	MapBuildRadius:
+		AllyBuildRadiusCheckboxDisplayOrder: 4
+		BuildRadiusCheckboxDisplayOrder: 5
+	MapOptions:
+		ShortGameCheckboxDisplayOrder: 2
+		TechLevelDropdownDisplayOrder: 2
+		GameSpeedDropdownDisplayOrder: 3
+	CreateMPPlayers:
+	MPStartUnits@mcvonly:
+		Class: none
+		ClassName: MCV Only
+		Factions: allies, england, france, germany, soviet, russia, ukraine, china, mongolia, usa, japan, austria, italy, turkey, serbia, bulgaria, kazakhstan
+		BaseActor: mcv
+	MPStartLocations:
+		SeparateTeamSpawnsCheckboxDisplayOrder: 6
+	SpawnMPUnits:
+		DropdownDisplayOrder: 1
+	PathFinder:
+	ValidateOrder:
+	DebugPauseState:
+	RadarPings:
+	StartGameNotification:
+	ObjectivesPanel:
+		PanelName: SKIRMISH_STATS
+	LoadWidgetAtGameStart:
+	ScriptTriggers:
+	TimeLimitManager:
+		TimeLimitWarnings:
+			40: FourtyMinutesRemaining
+			30: ThirtyMinutesRemaining
+			20: TwentyMinutesRemaining
+			10: TenMinutesRemaining
+			5: WarningFiveMinutesRemaining
+			4: WarningFourMinutesRemaining
+			3: WarningThreeMinutesRemaining
+			2: WarningTwoMinutesRemaining
+			1: WarningOneMinuteRemaining
+	TerrainLighting:
+
+EditorWorld:
+	Inherits: ^BaseWorld
+	EditorActorLayer:
+	EditorCursorLayer:
+	EditorResourceLayer:
+	EditorSelectionLayer:
+	LoadWidgetAtGameStart:
+	EditorActionManager:
+	TerrainLighting:
