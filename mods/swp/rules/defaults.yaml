@@ -335,14 +335,14 @@
 
 ^OfficerNearby:
 	ExperienceTrickler@OfficerNearby:
-		Interval: 15
-		Amount: 5
+		Interval: 1
+		Amount: 10
 		RequiresCondition: officer-nearby
 	ExternalCondition@OfficerNearby:
 		Condition: officer-nearby
 	GainsExperienceMultiplier@OfficerNearby:
 		RequiresCondition: officer-nearby
-		Modifier: 125
+		Modifier: 200
 
 ^Kommissable:
 	ExternalCondition@IamKommissable:
@@ -474,26 +474,22 @@
 		RequiresCondition: empdisable
 	ExternalCondition@empdisable:
 		Condition: empdisable
-		
-^EmSurgeable:
-	WithColoredOverlay@EMSURGED:
-		RequiresCondition: emsurged
-		Palette: disabled
-	TimedConditionBar@EMSURGED:
-		Condition: emsurged
-		Color: FFFFFF
-	PowerMultiplier@EMSURGED:
-		RequiresCondition: emsurged
-		Modifier: 0
-	WithIdleOverlay@EMSURGED:
+
+^EMDamaged:
+	ExternalCondition@emdamaged:
+		Condition: emdamaged
+	WithIdleOverlay@EMDamaged:
 		Image: empsparks
 		Sequence: emp-overlay
 		Palette: tseffects
-		RequiresCondition: emsurged
-	ExternalCondition@EMSURGED:
-		Condition: emsurged
-	Power:
-		RequiresCondition: !emsurged
+		RequiresCondition: emdamaged
+	ChangesHealth@EMDamage:
+		Step: -5
+		StartIfBelow: 101
+		RequiresCondition: emdamaged
+	SpeedMultiplier@EMDamaged:
+		Modifier: 85
+		RequiresCondition: emdamaged
 
 ^AutoTargetGround:
 	AutoTarget:
@@ -576,31 +572,61 @@
 		RequiresCondition: global-bounty
 
 ^Commanderable:
-	Cargo:
-		MaxWeight: 1
-		Types: commander
-		EjectOnDeath: True
-		PassengerConditions:
-			tnkcmndr: commandered
-	DamageMultiplier@commandered:
-		Modifier: 95
-		RequiresCondition: commandered
-	FirepowerMultiplier@commandered:
-		Modifier: 105
-		RequiresCondition: commandered
-	ReloadDelayMultiplier@commandered:
-		Modifier: 95
-		RequiresCondition: commandered
-	WithCargoPipsDecoration@commander:
-		PipCount: 1
+	InfiltrateToAttach@COMMANDER:
+		Actor: tnkcmndr.attached
+		Types: TankCommanderAttachable
+	Targetable@COMMANDER:
+		TargetTypes: TankCommanderAttachable
+		RequiresCondition: !tnkcmndr-attached
+	ExternalCondition@COMMANDER:
+		Condition: tnkcmndr-attached
+	AttachableTo:
+		Limits:
+			tnkcmndr: 1
+		LimitConditions:
+			tnkcmndr: tnkcmndr-attached
+	WithDecoration@commander:
 		Image: pips
-		EmptySequence: pip-none
-		FullSequence: pip-commander
+		Sequence: pip-commander
 		Position: TopRight
 		ValidRelationships: Ally, Neutral
-		RequiresSelection: False
-		Margin: 12,0
-		RequiresCondition: commandered
+		RequiresCondition: tnkcmndr-attached
+	DamageMultiplier@commander:
+		Modifier: 95
+		RequiresCondition: tnkcmndr-attached
+	FirepowerMultiplier@commandered:
+		Modifier: 115
+		RequiresCondition: tnkcmndr-attached
+	ReloadDelayMultiplier@commandered:
+		Modifier: 90
+		RequiresCondition: tnkcmndr-attached
+
+^ShinobiHideout:
+	InfiltrateToAttach@shinobi:
+		Actor: shinobi.attached
+		Types: ShinobiAttachable
+	Targetable@shinobi:
+		TargetTypes: ShinobiAttachable
+		RequiresCondition: !shinobi-attached
+	ExternalCondition@shinobi:
+		Condition: shinobi-attached
+	AttachableTo:
+		Limits:
+			shinobi: 1
+		LimitConditions:
+			shinobi: shinobi-attached
+	WithDecoration@commander:
+		Image: pips
+		Sequence: pip-commander
+		Position: TopRight
+		ValidRelationships: Ally, Neutral
+		RequiresCondition: shinobi-attached
+	WithDecoration@shinobi:
+		Image: pips
+		Sequence: pip-eye
+		Position: TopLeft
+		ValidRelationships: Ally, Neutral
+		RequiresCondition: shinobi-attached
 
 ^Vehicle:
 	Inherits@1: ^ExistsInWorld
@@ -616,6 +642,8 @@
 	Inherits@Confusable: ^Confusable
 	Inherits@Smoked: ^Smoked
 	Inherits@OfficerNearby: ^OfficerNearby
+	Inherits@emdamaged: ^EMDamaged
+	Inherits@magnetictrap: ^MagneticTrap
 	Carryable:
 	Huntable:
 	OwnerLostAction:
@@ -726,7 +754,7 @@
 	Armor:
 		Type: None
 	RevealsShroud:
-		Range: 4c0
+		Range: 5c0
 	Mobile:
 		Speed: 56
 		AlwaysTurnInPlace: true
@@ -896,6 +924,7 @@
 	Inherits@selection: ^SelectableCombatUnit
 	Inherits@handicaps: ^PlayerHandicaps
 	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@emdamaged: ^EMDamaged
 	Huntable:
 	OwnerLostAction:
 		Action: Kill
@@ -951,9 +980,8 @@
 	Inherits@bounty: ^GlobalBounty
 	Inherits@selection: ^SelectableCombatUnit
 	Inherits@handicaps: ^PlayerHandicaps
-	ExternalCondition@empdisable:
-		Condition: empdisable
-	KillsSelf:
+	Inherits@EMPDISABLE: ^EmpDisable
+	RejectsOrders:
 		RequiresCondition: empdisable
 	Huntable:
 	OwnerLostAction:
@@ -1027,6 +1055,9 @@
 	Inherits@2: ^GainsExperience
 	Repairable:
 		RepairActors: fix
+	Targetable@AIRBORNE:
+		RequiresCondition: airborne
+		TargetTypes: AirborneBomber
 
 ^Helicopter:
 	Inherits: ^Plane
@@ -1047,6 +1078,9 @@
 		RequiresCondition: cruising
 	-BodyOrientation:
 	ClassicFacingBodyOrientation:
+	Targetable@AIRBORNE:
+		RequiresCondition: airborne
+		TargetTypes: AirborneActor
 
 ^BasicBuilding:
 	Inherits@1: ^ExistsInWorld
@@ -1058,6 +1092,7 @@
 	Inherits@bounty: ^GlobalBounty
 	Inherits@selection: ^SelectableBuilding
 	Inherits@handicaps: ^PlayerHandicaps
+	Inherits@shinobihideout: ^ShinobiHideout
 	Targetable:
 		TargetTypes: GroundActor, C4, DetonateAttack, Structure
 	Building:
@@ -1708,6 +1743,15 @@
 	WithColoredOverlay@IDISABLE:
 		RequiresCondition: disabled
 		Palette: disabled
+
+^MagneticTrap:
+	ExternalCondition@MagneticTrap:
+		Condition: magnetic-trap
+	WithColoredOverlay@MAGNETICTRAP:
+		RequiresCondition: magnetic-trap
+	SpeedMultiplier@magnetitrap:
+		RequiresCondition: magnetic-trap
+		Modifier: 25
 
 ^DisabledByPowerOutage:
 	WithColoredOverlay@IDISABLE:

@@ -72,7 +72,7 @@
 	Range: 7c0
 	Burst: 2
 	BurstDelays: 8
-	Report: gatling1.aud, gatling2.aud, gatling3.aud
+	Report: bgatweaa.wav, bgatweab.wav, bgatweac.wav, bgatwead.wav
 	Projectile: InstantHit
 		Blockable: true
 	Warhead@1Dam: SpreadDamage
@@ -151,6 +151,13 @@ FLAK-23-AG:
 		Blockable: true
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: AirborneActor, GroundActor, WaterActor, AirborneBomber
+		Versus:
+			None: 45
+			Wood: 10
+			Light: 60
+			Medium: 40
+			Heavy: 10
+			Concrete: 20
 	Warhead@2Eff: CreateEffect
 		Explosions: flak_explosion_ground
 		ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees, AirborneBomber
@@ -187,10 +194,10 @@ Archer-AG:
 		Versus:
 			None: 100
 			Wood: 20
-			Light: 45
-			Medium: 35
-			Heavy: 20
-			Concrete: 50
+			Light: 70
+			Medium: 50
+			Heavy: 30
+			Concrete: 20
 		ValidTargets: Ground, GroundActor, Water, WaterActor
 	Warhead@2Eff: CreateEffect
 		Explosions: piff
@@ -358,49 +365,23 @@ ChainGun:
 	Inherits: ^HeavyMG
 	ReloadDelay: 10
 	Range: 5c0
-	MinRange: 0c768
+	MinRange: 0c128
 	Projectile: InstantHit
 		Blockable: false
 	Warhead@1Dam: SpreadDamage
 		Versus:
-			None: 105
+			None: 115
 			Wood: 50
 			Light: 62
 			Medium: 50
 			Heavy: 22
 			Concrete: 25
 
-ChainGun.Yak.AG:
-	Inherits: ^HeavyMG
-	MinRange: 1c0
-	ReloadDelay: 10
-	Range: 5c0
-	MinRange: 1c0
-	Burst: 3
-	FirstBurstTargetOffset: -768,0,0
-	FollowingBurstTargetOffset: 512,0,0
-	BurstDelays: 6
-	ValidTargets: Ground, GroundActor, Water, WaterActor
-	Projectile: InstantHit
-		Blockable: false
-	Warhead@1Dam: SpreadDamage
-		Spread: 0c128
-		Falloff: 100, 85, 50, 25, 0
-		Damage: 4000
-		Versus:
-			None: 150
-			Wood: 50
-			Light: 60
-			Medium: 40
-			Heavy: 25
-			Concrete: 25
-	ValidTargets: Ground, GroundActor, Water, WaterActor
-
 ChainGun.Yak.AA:
 	Inherits: ^HeavyMG
 	ReloadDelay: 6
 	Range: 6c0
-	MinRange: 3c0
+	MinRange: 0c128
 	ValidTargets: AirborneActor, AirborneBomber
 	Projectile: InstantHit
 		Blockable: false
@@ -418,32 +399,35 @@ ChainGun.Yak.AA:
 		ValidTargets: Air, AirborneActor, AirborneBomber
 		Inaccuracy: 0c512
 
-ChainGun.Spitfire.AG:
-	Inherits: ChainGun.Yak.AG
-	Report: mg1.aud
-	MinRange: 1c0
-	ReloadDelay: 10
-	Range: 5c0
-	MinRange: 1c0
-	Burst: 4
+ChainGun.HVF.AA:
+	Inherits: ^HeavyMG
+	ReloadDelay: 6
+	Range: 6c0
+	MinRange: 0c128
+	Report: gatling1.aud, gatling2.aud, gatling3.aud
+	ValidTargets: AirborneActor, AirborneBomber
+	Projectile: InstantHit
+		Blockable: false
 	Warhead@1Dam: SpreadDamage
-		Spread: 0c128
-		Falloff: 100, 85, 50, 25, 0
-		Damage: 2500
+		Damage: 1000
 		Versus:
-			None: 150
+			None: 100
 			Wood: 50
 			Light: 60
-			Medium: 40
 			Heavy: 25
 			Concrete: 25
+		ValidTargets: AirborneActor, AirborneBomber
+	Warhead@1EffAir: CreateEffect
+		Explosions: small_explosion_air
+		ValidTargets: Air, AirborneActor, AirborneBomber
+		Inaccuracy: 0c512
 
 ChainGun.Spitfire.AA:
 	Inherits: ChainGun.Yak.AA
 	Report: mg1.aud
 	ReloadDelay: 4
 	Range: 6c0
-	MinRange: 3c0
+	MinRange: 0c128
 	Warhead@1Dam: SpreadDamage
 		Damage: 750
 		Versus:
@@ -459,54 +443,13 @@ ChainGun.Spitfire.AA:
 MesserschmittAutocannon.AA:
 	Inherits: ChainGun.Yak.AA
 	Range: 6c00
+	MinRange: 0c128
 	Report: 20MMGUN2.aud
 	Warhead@1EffAir: CreateEffect
 		Explosions: small_explosion_air
 
-MesserschmittAutocannon:
-	Inherits: ChainGun.Yak.AG
-	Range: 6c512
-	Burst: 3
-	BurstDelays: 6
-	Report: 20MMGUN2.aud
-	ValidTargets: Ground, GroundActor, Water, WaterActor
-	Projectile: InstantHit
-	Warhead@1Dam: SpreadDamage
-		Damage: 2500
-		Spread: 0c50
-		Versus:
-			None: 32
-			Wood: 60
-			Light: 116
-			Heavy: 48
-			Concrete: 32
-	ValidTargets: Ground, GroundActor, Water, WaterActor
-	Warhead@2Dam: SpreadDamage
-		Damage: 1000
-		Spread: 1c00
-		Versus:
-			None: 32
-			Wood: 60
-			Light: 116
-			Heavy: 48
-			Concrete: 32
-		ValidTargets: Ground, GroundActor, Water, WaterActor
-	Warhead@3Dam: SpreadDamage
-		Damage: 500
-		Spread: 1c50
-		Versus:
-			None: 32
-			Wood: 60
-			Light: 116
-			Heavy: 48
-			Concrete: 32
-		ValidTargets: Ground, GroundActor, Water, WaterActor
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
-	Warhead@3Eff: CreateEffect
-		ValidTargets: Ground, GroundActor, Water, WaterActor
-
 ChainGun.A10:
-	Inherits: ChainGun.Yak.AG
+	Inherits: ChainGun.Yak.AA
 	Range: 6c512
 	Burst: 6
 	BurstDelays: 6
@@ -523,6 +466,7 @@ ChainGun.A10:
 			Medium: 80
 			Heavy: 60
 			Concrete: 32
+		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 	ValidTargets: Ground, GroundActor, Water, WaterActor
 	Warhead@2Dam: SpreadDamage
 		Damage: 1000
@@ -547,25 +491,6 @@ ChainGun.A10:
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@3Eff: CreateEffect
 		ValidTargets: Ground, GroundActor, Water, WaterActor
-
-ChainGun.Stuka:
-	Inherits: ^HeavyMG
-	Range: 8c0
-	Burst: 9
-	BurstDelays: 2
-	FirstBurstTargetOffset: -2984,0,0
-	FollowingBurstTargetOffset: 746,0,0
-	ReloadDelay: 125
-	Report: mg1.aud
-	Warhead@1Dam: SpreadDamage
-		Spread: 826
-		Damage: 3000
-		Versus:
-			None: 90
-			Wood: 35
-			Light: 45
-			Medium: 30
-			Heavy: 35
 
 Pistol:
 	Inherits: ^LightMG
@@ -611,11 +536,6 @@ M1Carbine:
 		InvalidTargets: Bridge
 		Explosions: water_piff
 		Inaccuracy: 171
-
-DualM1Carbine:
-	Inherits: M1Carbine
-	Burst: 2
-	BurstDelays: 10
 
 Uzi:
 	Inherits: ^LightMG
@@ -903,7 +823,7 @@ TNKT:
 		Explosions: piffs
 		ValidTargets: Water
 		Delay: 8
-		
+
 APCGun:
 	Inherits: ^HeavyMG
 	ReloadDelay: 9
@@ -941,106 +861,6 @@ APCGun.AA:
 			Medium: 25
 			Heavy: 20
 			Concrete: 50
-	Warhead@2Eff: CreateEffect
-		ValidTargets: Ground, Water, Air, GroundActor
-		ImpactActors: false
-		Explosions: piffs
-	
-GATLING1:
-	Inherits: ^HeavyMG
-	ReloadDelay: 100
-	BurstDelays: 10
-	Burst: 20
-	Range: 5c0
-	Report: gun20.aud
-	Projectile: Bullet
-		Speed: 900
-	Warhead@1Dam: SpreadDamage
-		Spread: 128
-		Damage: 1000
-		Versus:
-			None: 120
-			Concrete: 20
-			Wood: 35
-			Light: 45
-			Medium: 35
-			Heavy: 20
-		DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
-	Warhead@2Eff: CreateEffect
-		ValidTargets: Ground, Water, Air, GroundActor
-		ImpactActors: false
-		Explosions: piffs
-		
-GATLING2:
-	Inherits: ^HeavyMG
-	ReloadDelay: 100
-	BurstDelays: 6
-	Burst: 25
-	Range: 5c0
-	Report: gun20.aud
-	Projectile: Bullet
-		Speed: 900
-	Warhead@1Dam: SpreadDamage
-		Spread: 128
-		Damage: 1000
-		Versus:
-			None: 120
-			Concrete: 20
-			Wood: 35
-			Light: 45
-			Medium: 35
-			Heavy: 20
-		DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
-	Warhead@2Eff: CreateEffect
-		ValidTargets: Ground, Water, Air, GroundActor
-		ImpactActors: false
-		Explosions: piffs
-		
-GATLING3:
-	Inherits: ^HeavyMG
-	ReloadDelay: 100
-	BurstDelays: 4
-	Burst: 50
-	Range: 5c0
-	Report: gun20.aud
-	Projectile: Bullet
-		Speed: 900
-	Warhead@1Dam: SpreadDamage
-		Spread: 128
-		Damage: 1000
-		Versus:
-			None: 120
-			Concrete: 20
-			Wood: 35
-			Light: 45
-			Medium: 35
-			Heavy: 20
-		DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
-	Warhead@2Eff: CreateEffect
-		ValidTargets: Ground, Water, Air, GroundActor
-		ImpactActors: false
-		Explosions: piffs
-		
-GATLING4:
-	Inherits: ^HeavyMG
-	ReloadDelay: 100
-	BurstDelays: 2
-	Burst: 100000
-	Range: 5c0
-	Report: gun20.aud
-	Projectile: Bullet
-		Speed: 900
-	Warhead@1Dam: SpreadDamage
-		Spread: 128
-		Damage: 1000
-		Versus:
-			None: 120
-			Concrete: 20
-			Wood: 35
-			Light: 45
-			Medium: 35
-			Heavy: 20
-		DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
 	Warhead@2Eff: CreateEffect
 		ValidTargets: Ground, Water, Air, GroundActor
 		ImpactActors: false
@@ -1119,31 +939,6 @@ MosinNagant44:
 		Damage: 900
 		Versus:
 			Wood: 20
-	Warhead@2Eff2: CreateEffect
-		Delay: 2
-		Explosions: piff
-		ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
-		Inaccuracy: 171
-	Warhead@2Eff3: CreateEffect
-		Delay: 4
-		Explosions: piff
-		ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
-		Inaccuracy: 171
-
-ATGun:
-	Inherits: ^LightMG
-	ReloadDelay: 30
-	Range: 5c0
-	Report: atgun.aud
-	Warhead@1Dam: SpreadDamage
-		Damage: 3500
-		Versus:
-			Wood: 30
-			None: 80
-			Light: 100
-			Medium: 80
-			Heavy: 60
-			Concrete: 15
 	Warhead@2Eff2: CreateEffect
 		Delay: 2
 		Explosions: piff

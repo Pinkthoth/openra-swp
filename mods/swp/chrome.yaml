@@ -134,26 +134,26 @@ sidebar-zentrum:
 	Regions:
 		radar: 290, 513, 222, 222
 		background-top: 0, 185, 238, 262
-		background-moneybin: 0, 85, 238, 28
-		background-iconbg: 12, 227, 190, 47
+		background-moneybin: 0, 514, 238, 28
+		background-iconbg: 5, 547, 190, 47
 		background-iconrow: 0, 116, 238, 47
 		background-bottom: 0, 166, 238, 8
-		background-supportoverlay: 12, 324, 64, 48
+		background-supportoverlay: 143, 324, 64, 48
 
 sidebar-button-zentrum:
 	Inherits: ^Sidebar
-	PanelRegion: 260, 281, 5, 5, 18, 18, 5, 5
+	PanelRegion: 260, 542, 5, 5, 18, 18, 5, 5
 sidebar-button-zentrum-hover:
 	Inherits: ^Sidebar
-	PanelRegion: 260, 252, 5, 5, 18, 18, 5, 5
+	PanelRegion: 260, 513, 5, 5, 18, 18, 5, 5
 sidebar-button-zentrum-pressed:
 	Inherits: sidebar-button-zentrum
 sidebar-button-zentrum-highlighted:
 	Inherits: ^Sidebar
-	PanelRegion: 260, 339, 5, 5, 18, 18, 5, 5
+	PanelRegion: 260, 600, 5, 5, 18, 18, 5, 5
 sidebar-button-zentrum-highlighted-hover:
 	Inherits: ^Sidebar
-	PanelRegion: 260, 310, 5, 5, 18, 18, 5, 5
+	PanelRegion: 260, 571, 5, 5, 18, 18, 5, 5
 sidebar-button-zentrum-highlighted-pressed:
 	Inherits: sidebar-button-zentrum-highlighted
 sidebar-button-zentrum-disabled:
@@ -221,6 +221,9 @@ production-icons:
 		ship: 187, 68, 16, 16
 		ship-disabled: 187, 85, 16, 16
 		ship-alert: 187, 102, 16, 16
+		helicopter: 70, 144, 16, 16
+		helicopter-disabled: 88, 144, 16, 16
+		helicopter-alert: 106, 144, 16, 16
 
 order-icons:
 	Inherits: ^Glyphs

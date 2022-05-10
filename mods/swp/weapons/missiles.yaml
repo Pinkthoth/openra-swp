@@ -86,14 +86,14 @@ Maverick:
 	Report: missile7.aud
 	Burst: 2
 	BurstDelays: 7
-	ValidTargets: Ground, GroundActor, Water, WaterActor, AirborneActor, AirborneBomber
+	ValidTargets: Ground, GroundActor, Water, WaterActor
 	Projectile: Missile
-		Speed: 256
+		Speed: 400
 		Inaccuracy: 316
 		CruiseAltitude: 2c0
 		RangeLimit: 14c410
 	Warhead@1Dam: SpreadDamage
-		ValidTargets: Ground, GroundActor, Water, WaterActor, Air, AirborneActor, AirborneBomber
+		ValidTargets: Ground, GroundActor, Water, WaterActor
 		Damage: 7000
 		Versus:
 			None: 30
@@ -110,6 +110,31 @@ MaverickAA:
 	Burst: 2
 	BurstDelays: 4
 	Report: missile7.aud
+	ValidTargets: AirborneBomber, AirborneActor
+	Projectile: Missile
+		Speed: 600
+		Inaccuracy: 128
+		HorizontalRateOfTurn: 100
+		RangeLimit: 13c0
+		CloseEnough: 0c600
+	Warhead@1Dam: SpreadDamage
+		Damage: 4000
+		ValidTargets: AirborneBomber, AirborneActor
+		Versus:
+			Wood: 75
+			Light: 75
+	Warhead@3Eff: CreateEffect
+		Explosions: med_explosion_air
+		ValidTargets: Air, AirborneBomber, AirborneActor
+
+SturmvogelAA:
+	Inherits: ^AntiAirMissile
+	ReloadDelay: 30
+	MinRange: 1c256
+	Range: 9c512
+	Burst: 2
+	BurstDelays: 4
+	ValidTargets: AirborneBomber, AirborneActor
 	Projectile: Missile
 		Speed: 492
 		Inaccuracy: 128
@@ -117,18 +142,50 @@ MaverickAA:
 		RangeLimit: 13c0
 		CloseEnough: 0c600
 	Warhead@1Dam: SpreadDamage
-		Damage: 4000
-		ValidTargets: AirborneActor
+		Damage: 5500
 		Versus:
 			Wood: 75
 			Light: 75
+		ValidTargets: AirborneBomber, AirborneActor
 	Warhead@3Eff: CreateEffect
 		Explosions: med_explosion_air
+		ValidTargets: Air, AirborneBomber, AirborneActor
 
 Dragon:
 	Inherits: ^AntiGroundMissile
+	ReloadDelay: 50
 	Projectile: Missile
 		TrailImage: smokey
+
+LegionMissile:
+	Inherits: ^AntiGroundMissile
+	ReloadDelay: 200
+	ValidTargets: Vehicle, Structure, Wall, AirborneActor, AirborneBomber
+	Projectile: Missile
+		TrailImage: smokey
+		Inaccuracy: 0
+		HorizontalRateOfTurn: 80
+		Speed: 298
+	Warhead@1Dam: SpreadDamage
+		Damage: 4000
+		ValidTargets: AirborneBomber, AirborneActor, Ground, Water, WaterActor, GroundActor
+		Versus:
+			Light: 60
+
+BeetleMissile:
+	Inherits: ^AntiGroundMissile
+	ReloadDelay: 125
+	ValidTargets: Vehicle, Structure, Wall, AirborneActor, AirborneBomber
+	Projectile: Missile
+		TrailImage: smokey
+		Inaccuracy: 0
+		HorizontalRateOfTurn: 80
+		Speed: 298
+	Warhead@1Dam: SpreadDamage
+		Damage: 4000
+		ValidTargets: AirborneBomber, AirborneActor, Ground, Water, WaterActor, GroundActor
+		Versus:
+			Light: 60
 
 HellfireAG:
 	Inherits: ^AntiGroundMissile
@@ -206,7 +263,7 @@ Nike:
 	Report: missile1.aud
 	ValidTargets: AirborneActor, AirborneBomber
 	Projectile: Missile
-		Arm: 3
+		Arm: 1
 		Inaccuracy: 0
 		Image: MISSILE
 		HorizontalRateOfTurn: 100
@@ -221,6 +278,14 @@ Nike:
 		Explosions: med_explosion_air
 		ImpactSounds: kaboom25.aud
 		ValidTargets: AirborneActor, AirborneBomber, Air
+
+NikeSam:
+	Inherits: Nike
+	ReloadDelay: 40
+	Burst: 2
+	BurstDelays: 15
+	Projectile: Missile
+		Speed: 460
 
 RedEye:
 	Inherits: Nike
@@ -405,8 +470,9 @@ SCUD:
 			Wood: 75
 			Tree: 75
 			Light: 70
+			Medium: 60
 			Heavy: 40
-			Concrete: 100
+			Concrete: 55
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath, Incendiary
 	Warhead@3Eff: CreateEffect
 		Explosions: napalm
@@ -418,8 +484,6 @@ SCUD:
 
 IfritMissile:
 	Inherits: ^AntiGroundMissile
-	FirstBurstTargetOffset: 0,-512,0
-	FollowingBurstTargetOffset: 0,512,0
 	ReloadDelay: 150
 	Range: 10c0
 	MinRange: 4c0
@@ -461,11 +525,6 @@ IfritMissile:
 	Warhead@Fire: CreateEffect
 		Image: Fire
 		Explosions: 1
-	Warhead: FireCluster
-		Dimensions: 5,5
-		Footprint: __x__ _x_x_ xx___xx _x_x_ __x__
-		Weapon: IfritAreaFire
-		RandomClusterCount: 6
 	Warhead@2: FireCluster
 		Dimensions: 3,3
 		Footprint: _X_ XXX _X_
@@ -474,7 +533,7 @@ IfritMissile:
 
 IfritAreaFire:
 	Projectile: InstantHit
-	Report: burning.aud
+	Report: burninglong1.aud, burninglong2.aud, burninglong3.aud
 	ValidTargets: Ground, GroundActor, WaterActor, Trees
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c256
@@ -655,10 +714,10 @@ IfritAreaFire:
 
 227mm:
 	Inherits: ^AntiGroundMissile
-	ReloadDelay: 150
+	ReloadDelay: 175
 	Range: 11c5
 	MinRange: 3c0
-	Burst: 6
+	Burst: 8
 	BurstDelays: 4
 	Report: katyarocket.aud
 	ValidTargets: Ground, Water, GroundActor, WaterActor
@@ -674,9 +733,9 @@ IfritAreaFire:
 		ContrailLength: 10
 		Speed: 341
 	Warhead@1Dam: SpreadDamage
-		Spread: 0c512
+		Spread: 0c256
 		Damage: 1250
-		Falloff: 150, 100, 50, 25, 10, 5, 0
+		Falloff: 150, 110, 75, 50, 15, 5, 0
 		ValidTargets: GroundActor, WaterActor, AirborneActor
 		Versus:
 			None: 80
@@ -690,49 +749,47 @@ IfritAreaFire:
 		Explosions: med_explosion
 		ImpactSounds: xplobig4.aud
 
+Hind227mm:
+	Inherits: ^AntiGroundMissile
+	ReloadDelay: 50
+	Range: 7c0
+	MinRange: 2c0
+	Burst: 6
+	BurstDelays: 4
+	Report: rketinf1.aud
+	ValidTargets: Ground, Water, GroundActor, WaterActor
+	TargetActorCenter: true
+	-Projectile:
+	Projectile: Bullet
+		Blockable: false
+		Image: DRAGON
+		Shadow: True
+		TrailImage: smokey
+		Inaccuracy: 1053
+		LaunchAngle: 62
+		ContrailLength: 10
+		Speed: 341
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c256
+		Damage: 1200
+		Falloff: 250, 200, 150, 80, 60, 15, 5, 0
+		ValidTargets: GroundActor, WaterActor, AirborneActor
+		Versus:
+			None: 45
+			Wood: 40
+			Light: 90
+			Medium: 80
+			Heavy: 70
+			Concrete: 30
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@3Eff: CreateEffect
+		Explosions: med_explosion
+		ImpactSounds: expnew12.aud
+
 227mm-Khan:
 	Inherits: 227mm
 	Burst: 4
 
-SturmvogelAA:
-	Inherits: ^AntiAirMissile
-	ReloadDelay: 30
-	MinRange: 1c256
-	Range: 9c512
-	Burst: 2
-	BurstDelays: 4
-	ValidTargets: AirborneBomber, AirborneActor
-	Projectile: Missile
-		Speed: 492
-		Inaccuracy: 128
-		HorizontalRateOfTurn: 100
-		RangeLimit: 13c0
-		CloseEnough: 0c600
-	Warhead@1Dam: SpreadDamage
-		Damage: 4000
-		Versus:
-			Wood: 75
-			Light: 75
-		ValidTargets: Air, AirborneBomber, AirborneActor
-	Warhead@3Eff: CreateEffect
-		Explosions: med_explosion_air
-		ValidTargets: Air, AirborneBomber, AirborneActor
-
-APTuskECTNK:
-	Inherits: ^AntiGroundMissile
-	ReloadDelay: 50
-	Range: 6c0
-	Burst: 4
-	BurstDelays: 7
-	Projectile: Missile
-		Speed: 298
-		TrailImage: smokey
-		HorizontalRateOfTurn: 40
-		RangeLimit: 7c204
-	Warhead@1Dam: SpreadDamage
-		Spread: 128
-		Damage: 2975
-		
 Drake:
 	Inherits: ^AntiGroundMissile
 	ReloadDelay: 55
@@ -757,25 +814,29 @@ Drake:
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
 		Damage: 1850
-		
-EMPDragon:
-	Inherits: Dragon
-	TargetActorCenter: true
+
+RoninDrake:
+	Inherits: ^AntiGroundMissile
+	ReloadDelay: 80
+	Range: 5c0
+	Burst: 2
+	BurstDelays: 10
+	MinRange: 0c512
+	Report: missile6.aud
+	Report: bazook1.aud
+	ValidTargets: Ground, Water, GroundActor, WaterActor, AirborneActor, AirborneBomber
 	Projectile: Missile
-		ContrailColor: 92B5CC
+		TrailImage: smokey
+		Speed: 290
+		Arm: 2
+		Blockable: false
+		ContrailLength: 10
+		Inaccuracy: 0
+		Image: DRAGON
+		Shadow: True
+		HorizontalRateOfTurn: 20
+		RangeLimit: 6c0
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
-		Damage: 3500
-	Warhead@emp: GrantExternalCondition
-		Range: 1c5
-		Duration: 35
-		Condition: empdisable
-		ValidTargets: Ground, GroundActor, WaterActor, Water, Air
-	Warhead@3Eff: CreateEffect
-		Explosions: empxpld
-		ExplosionPalette: swpeffects
-		ImpactSounds: kaboom25.aud
-		ValidTargets: Ground, Air, GroundActor, AirborneActor, WaterActor, Trees
-	Warhead@ExtraSound: CreateEffect
-		ImpactSounds: emprocketboom.aud
-		ValidTargets: Ground, Air, GroundActor, AirborneActor, WaterActor, Trees
+		Damage: 1850
+		ValidTargets: Ground, Water, GroundActor, WaterActor, AirborneActor, AirborneBomber

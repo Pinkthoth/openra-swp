@@ -61,7 +61,7 @@ Atomic:
 		Damage: 6000
 		Falloff: 1000, 368, 135, 50, 18, 7, 0
 		Delay: 5
-		ValidTargets: GroundActor, WaterActor, Underwater, AirborneActor, Trees
+		ValidTargets: GroundActor, WaterActor, Underwater, AirborneActor, Trees, AirborneBomber
 		Versus:
 			Wood: 25
 			Concrete: 25
@@ -83,7 +83,7 @@ Atomic:
 		Damage: 6000
 		Falloff: 1000, 368, 135, 50, 18, 7, 0
 		Delay: 10
-		ValidTargets: GroundActor, Trees, WaterActor, Underwater, AirborneActor
+		ValidTargets: GroundActor, Trees, WaterActor, Underwater, AirborneActor, AirborneBomber
 		Versus:
 			Wood: 50
 			Tree: 200
@@ -102,7 +102,7 @@ Atomic:
 		Damage: 6000
 		Falloff: 1000, 368, 135, 50, 18, 7, 0
 		Delay: 15
-		ValidTargets: GroundActor, Trees, WaterActor, Underwater, AirborneActor
+		ValidTargets: GroundActor, Trees, WaterActor, Underwater, AirborneActor, AirborneBomber
 		Versus:
 			Tree: 200
 			Concrete: 25
@@ -120,7 +120,7 @@ Atomic:
 		Damage: 6000
 		Falloff: 1000, 368, 135, 50, 18, 7, 0
 		Delay: 20
-		ValidTargets: GroundActor, Trees, WaterActor, Underwater, AirborneActor
+		ValidTargets: GroundActor, Trees, WaterActor, Underwater, AirborneActor, AirborneBomber
 		Versus:
 			Tree: 200
 			Concrete: 25
@@ -145,7 +145,6 @@ EMPulseCannon:
 	ReloadDelay: 100
 	Range: 40c0
 	Report: plsecan2.aud
-	ValidTargets: Ground, GroundActor, Water, WaterActor
 	Projectile: Bullet
 		Speed: 425
 		Blockable: false
@@ -162,18 +161,7 @@ EMPulseCannon:
 		Range: 6c0
 		Duration: 250
 		Condition: empdisable
-		ValidTargets: Ground, GroundActor, WaterActor, Water, Air
-	Warhead@1Dam: SpreadDamage
-		Spread: 3c0
-		Damage: 100
-		Versus:
-			None: 90
-			Wood: 40
-			Light: 60
-			Medium: 40
-			Heavy: 25
-		DamageTypes: Prone50Percent, TriggerProne
-		ValidTargets: Ground, GroundActor, WaterActor, Water, Air
+		ValidTargets: Ground, GroundActor, WaterActor, Water, Air, AirborneBomber, AirborneActor
 
 StukaBomb:
 	ReloadDelay: 4
@@ -210,18 +198,6 @@ StukaBomb:
 		Explosions: small_splash
 		ImpactSounds: splash9.aud
 		ValidTargets: Water, Underwater
-
-EMSurge:
-	ValidTargets: Ground, Water, Air
-	Warhead@1Eff: CreateEffect
-		Explosions: emsurgexpld
-		ValidTargets: Ground, GroundActor, WaterActor, Water, Air
-		ImpactSounds: chargepwr1.aud
-	Warhead@emp: GrantExternalCondition
-		Range: 6c0
-		Duration: 250
-		Condition: emsurged
-		ValidTargets: Ground, GroundActor, WaterActor, Water, Air
 
 ArtilleryBarrage:
 	ValidTargets: Ground, Water, Air
@@ -350,28 +326,11 @@ SmokeBarrage:
 		ImpactActors: false
 		ValidTargets: Ground, Water, Air
 	Warhead@Cluster2nd: FireCluster
-		Weapon: SmokeBarrageSecondary
-		RandomClusterCount: 6
-		Dimensions: 13,5
-		Footprint:  __________x__ _________xxx_ ________xxxxx _________xxx_ __________x__
-		
-SmokeBarrageSecondary:
-	Inherits: ^Artillery
-	ValidTargets: Ground, Water, Air
-	-Report:
-	Projectile: Bullet
-		Speed: 0c20, 0c50
-		AirburstAltitude: 25c0
-		Image: empty
-		LaunchAngle: 0
-	-Warhead@1Dam:
-	Warhead@Cluster1: FireCluster
 		Weapon: SmokeBarrageShell
-		Dimensions: 9,1
-		Footprint: x________
-	-Warhead@2Smu:
-	-Warhead@3Eff:
-	-Warhead@4EffWater:
+		RandomClusterCount: 5
+		Dimensions: 5,5
+		Footprint:  __X__ _____ X_X_X _____ __X__
+		
 		
 SmokeBarrageShell:
 	Inherits: ^Artillery
@@ -379,21 +338,21 @@ SmokeBarrageShell:
 	ValidTargets: Ground, Water, Air
 	Projectile: Bullet
 		Speed: 404
-		Image: artshll
+		Image: empty
 		Inaccuracy: 0c0
-		ContrailLength: 10
+		ContrailLength: 0
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c512
 		Falloff: 100, 70, 60, 50, 30, 5
 		Damage: 2000
 		ValidTargets: GroundActor, WaterActor
 		Versus:
-			None: 50
-			Wood: 65
-			Light: 100
-			Medium: 85
-			Heavy: 80
-			Concrete: 50
+			None: 0
+			Wood: 0
+			Light: 0
+			Medium: 0
+			Heavy: 0
+			Concrete: 0
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@Cluster: FireCluster
 		Weapon: SpawnSmoke

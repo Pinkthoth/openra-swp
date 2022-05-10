@@ -49,6 +49,7 @@
 			Light: 60
 			Medium: 40
 			Heavy: 25
+			Concrete: 40
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@3Eff: CreateEffect
 		Explosions: artillery_explosion
@@ -58,7 +59,7 @@
 
 25mm:
 	Inherits: ^Cannon
-	ReloadDelay: 30
+	ReloadDelay: 35
 	Range: 4c768
 	Report: tnkfire3.aud
 	Projectile: Bullet
@@ -69,8 +70,8 @@
 		Versus:
 			None: 32
 			Wood: 52
-			Light: 116
-			Medium: 80
+			Light: 118
+			Medium: 82
 			Heavy: 48
 			Concrete: 32
 	-Warhead@2Smu:
@@ -80,28 +81,38 @@
 		-ImpactSounds:
 
 25mm-btr:
-	Inherits: 25mm
+	Inherits: ^Cannon
+	ReloadDelay: 35
+	Range: 4c768
 	Report: MEDTANK20.aud
+	Projectile: Bullet
+		Speed: 853
+		Image: 50CAL
 	Warhead@1Dam: SpreadDamage
 		Damage: 2100
 		Versus:
 			None: 32
 			Wood: 52
-			Light: 116
-			Medium: 80
-			Heavy: 48
-			Concrete: 32
+			Light: 120
+			Medium: 75
+			Heavy: 45
+			Concrete: 15
+	-Warhead@2Smu:
+	Warhead@3Eff: CreateEffect
+		-ImpactSounds:
+	Warhead@4EffWater: CreateEffect
+		-ImpactSounds:
 
 25mm-recon:
 	Inherits: ^Cannon
 	ReloadDelay: 30
 	Range: 4c768
 	Burst: 3
-	BurstDelays: 8
+	BurstDelays: 6
 	Report: autocannon.aud
 	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
-		Damage: 950
+		Damage: 1000
 		Versus:
 			None: 32
 			Wood: 42
@@ -368,19 +379,21 @@ ltnkfire:
 	ReloadDelay: 75
 	Report: tnkfire11.aud
 	Projectile: Bullet
-		Speed: 1065
+		Speed: 1365
 		ContrailLength: 8
 		ContrailColor: FFD800
 		ContrailWidth: 0c40
 		ContrailDelay: 5
 	Warhead@1Dam: SpreadDamage
 		Damage: 8000
+		Spread: 0c256
+		Falloff: 100, 75, 50, 25, 5
 		Versus:
 			None: 30
 			Wood: 75
 			Light: 75
 			Medium: 95
-			Heavy: 115
+			Heavy: 135
 			Concrete: 50
 
 		
@@ -399,10 +412,10 @@ MausCannon:
 		Damage: 10000
 		Versus:
 			None: 30
-			Wood: 75
-			Light: 75
-			Medium: 95
-			Heavy: 125
+			Wood: 60
+			Light: 70
+			Medium: 90
+			Heavy: 140
 			Concrete: 50
 
 BuildingGrenade:
@@ -423,7 +436,7 @@ BuildingGrenade:
 			Wood: 100
 			Light: 25
 			Heavy: 25
-			Concrete: 100
+			Concrete: 80
 	Warhead@3Eff: CreateEffect
 		Explosions: med_explosion
 		ImpactSounds: kaboom25.aud
@@ -443,16 +456,16 @@ Mortar:
 		ContrailLength: 30
 		ContrailWidth: 0c50
 	Warhead@1Dam: SpreadDamage
-		Falloff: 150, 100, 55, 40, 20, 5
+		Falloff: 140, 100, 55, 40, 20, 5
 		Spread: 0c512
-		Damage: 5500
+		Damage: 5000
 		Versus:
 			None: 60
-			Wood: 40
-			Light: 25
-			Medium: 20
-			Heavy: 15
-			Concrete: 20
+			Wood: 45
+			Light: 30
+			Medium: 25
+			Heavy: 20
+			Concrete: 35
 	Warhead@3Eff: CreateEffect
 		Explosions: med_explosion
 		ImpactSounds: kaboom25.aud

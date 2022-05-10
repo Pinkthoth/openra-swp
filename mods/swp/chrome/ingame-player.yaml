@@ -481,7 +481,7 @@ Container@PLAYER_WIDGETS:
 									ImageCollection: production-icons
 						ProductionTypeButton@DEFENSE:
 							Logic: AddFactionSuffixLogic
-							Y: 31
+							Y: 27
 							Width: 28
 							Height: 28
 							VisualHeight: 0
@@ -497,7 +497,7 @@ Container@PLAYER_WIDGETS:
 									ImageCollection: production-icons
 						ProductionTypeButton@INFANTRY:
 							Logic: AddFactionSuffixLogic
-							Y: 62
+							Y: 54
 							Width: 28
 							Height: 28
 							VisualHeight: 0
@@ -513,7 +513,7 @@ Container@PLAYER_WIDGETS:
 									ImageCollection: production-icons
 						ProductionTypeButton@VEHICLE:
 							Logic: AddFactionSuffixLogic
-							Y: 93
+							Y: 81
 							Width: 28
 							Height: 28
 							VisualHeight: 0
@@ -529,7 +529,7 @@ Container@PLAYER_WIDGETS:
 									ImageCollection: production-icons
 						ProductionTypeButton@AIRCRAFT:
 							Logic: AddFactionSuffixLogic
-							Y: 124
+							Y: 135
 							Width: 28
 							Height: 28
 							VisualHeight: 0
@@ -545,7 +545,7 @@ Container@PLAYER_WIDGETS:
 									ImageCollection: production-icons
 						ProductionTypeButton@NAVAL:
 							Logic: AddFactionSuffixLogic
-							Y: 155
+							Y: 162
 							Width: 28
 							Height: 28
 							VisualHeight: 0
@@ -554,6 +554,22 @@ Container@PLAYER_WIDGETS:
 							TooltipContainer: TOOLTIP_CONTAINER
 							ProductionGroup: Ship
 							Key: ProductionTypeNaval
+							Children:
+								Image@ICON:
+									X: 6
+									Y: 6
+									ImageCollection: production-icons
+						ProductionTypeButton@HELICOPTER:
+							Logic: AddFactionSuffixLogic
+							Y: 108
+							Width: 28
+							Height: 28
+							VisualHeight: 0
+							Background: sidebar-button
+							TooltipText: Helicopter
+							TooltipContainer: TOOLTIP_CONTAINER
+							ProductionGroup: Helicopter
+							Key: ProductionTypeHelicopter
 							Children:
 								Image@ICON:
 									X: 6

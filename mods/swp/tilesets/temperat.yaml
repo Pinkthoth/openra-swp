@@ -6,6 +6,9 @@ General:
 	HeightDebugColors: AA0000
 
 Terrain:
+	TerrainType@Subterranean:
+		Type: Subterranean
+		Color: B09C78
 	TerrainType@Beach:
 		Type: Beach
 		TargetTypes: Ground

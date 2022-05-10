@@ -7,7 +7,7 @@ MSLO:
 	Selectable:
 		Bounds: 48,24
 	Valued:
-		Cost: 2500
+		Cost: 2600
 	Tooltip:
 		Name: Missile Silo
 	Buildable:
@@ -60,7 +60,7 @@ MSLO:
 		SupportPowerPaletteOrder: 70
 	SupportPowerChargeBar:
 	InfiltrateForSupportPowerReset:
-		Types: SpyInfiltrate
+		Types: SpyInfiltrate, SaboteurInfiltration
 	Targetable:
 		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
 	Power:
@@ -75,7 +75,7 @@ GAP:
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@rubbles: ^1x1Rubbles
 	Valued:
-		Cost: 800
+		Cost: 900
 	Tooltip:
 		Name: Veil Generator
 	Buildable:
@@ -126,13 +126,13 @@ SPEN:
 		Proxy: powerproxy.sonarpulse
 		Types: SpyInfiltrate
 	Valued:
-		Cost: 800
+		Cost: 900
 	Tooltip:
 		Name: Sub Pen
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 50
-		Prerequisites: anypower, ~structures.komintern, ~techlevel.low
+		Prerequisites: anypower, ~disabled, ~techlevel.low
 		Description: Produces and repairs\nsubmarines and transports.
 	Targetable:
 		TargetTypes: WaterActor, Structure, C4, DetonateAttack, SpyInfiltrate
@@ -265,13 +265,8 @@ SYRD:
 	InfiltrateForSupportPower:
 		Proxy: powerproxy.sonarpulse
 		Types: SpyInfiltrate
-	Buildable:
-		Queue: Building
-		BuildPaletteOrder: 40
-		Prerequisites: anypower, ~structures.entente, ~techlevel.low
-		Description: Produces and repairs\nships and transports.
 	Valued:
-		Cost: 1000
+		Cost: 900
 	Tooltip:
 		Name: Naval Yard
 	Targetable:
@@ -392,7 +387,7 @@ IRON:
 		BuildLimit: 1
 		Description: Makes a group of units invulnerable\nfor a short time.\nRequires power to operate.\nMaximum 1 can be built.\n  Special Ability: Invulnerability
 	Valued:
-		Cost: 1500
+		Cost: 1600
 	Tooltip:
 		Name: Iron Curtain
 	Building:
@@ -437,7 +432,7 @@ IRON:
 		Footprint: xx xx
 	SupportPowerChargeBar:
 	InfiltrateForSupportPowerReset:
-		Types: SpyInfiltrate
+		Types: SpyInfiltrate, SaboteurInfiltration
 	Targetable:
 		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
 	Power:
@@ -460,7 +455,7 @@ PDOX:
 		BuildLimit: 1
 		Description: Teleports a group of units across the\nmap for a short time.\nRequires power to operate.\nMaximum 1 can be built.\n  Special Ability: Chronoshift
 	Valued:
-		Cost: 1500
+		Cost: 1600
 	Tooltip:
 		Name: Chronosphere
 	Building:
@@ -503,7 +498,7 @@ PDOX:
 		Footprint: xxx xxx xxx
 	SupportPowerChargeBar:
 	InfiltrateForSupportPowerReset:
-		Types: SpyInfiltrate
+		Types: SpyInfiltrate, SaboteurInfiltration
 	Targetable:
 		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
 	Power:
@@ -519,11 +514,11 @@ TSLA:
 	Inherits@rubbles: ^1x1Rubbles
 	Buildable:
 		Queue: Defense
-		BuildPaletteOrder: 45
+		BuildPaletteOrder: 43
 		Prerequisites: weap, ~structures.komintern, ~techlevel.medium
 		Description: Advanced base defense.\nRequires power to operate.\nCan detect cloaked units.\n  Strong vs Vehicles, Infantry\n  Weak vs Aircraft
 	Valued:
-		Cost: 1300
+		Cost: 1400
 	Tooltip:
 		Name: Tesla Coil
 	Selectable:
@@ -532,7 +527,7 @@ TSLA:
 	Health:
 		HP: 40000
 	Armor:
-		Type: Heavy
+		Type: Concrete
 	RevealsShroud:
 		MinRange: 6c0
 		Range: 7c0
@@ -569,7 +564,7 @@ AGUN:
 		Prerequisites: dome, ~structures.entente, ~techlevel.medium
 		Description: Anti-Air base defense.\nRequires power to operate.\n  Strong vs Aircraft\n  Weak vs Ground units
 	Valued:
-		Cost: 800
+		Cost: 900
 	Tooltip:
 		Name: AA Gun
 	Selectable:
@@ -578,7 +573,7 @@ AGUN:
 	Health:
 		HP: 40000
 	Armor:
-		Type: Heavy
+		Type: Concrete
 	RevealsShroud:
 		MinRange: 5c0
 		Range: 6c0
@@ -691,9 +686,9 @@ DOME:
 	ProvidesPrerequisite@zentrum:
 		Factions: germany, austria, italy, turkey, bulgaria
 		Prerequisite: support.zentrum
-	ProvidesPrerequisite@france:
-		Factions: france
-		Prerequisite: support.france
+	ProvidesPrerequisite@bulgaria:
+		Factions: bulgaria
+		Prerequisite: support.bulgaria
 	SpawnActorPower@RadarScan:
 		Actor: RADARSCAN
 		LifeTime: 255
@@ -811,12 +806,12 @@ DOME:
 		DisplayTimerRelationships: None
 		DisplayBeacon: False
 		DisplayRadarPing: False
-		DetonationAltitude: 22c0
+		DetonationAltitude: 1c0
 		BeaconPoster:
 		CameraRange: 10c0
 		FlightVelocity: 0c512
 		SkipAscent: True
-		Prerequisites: support.france
+		Prerequisites: support.bulgaria
 
 RADARSCAN:
 	Interactable:
@@ -859,13 +854,13 @@ PBOX:
 		Prerequisites: barr, ~structures.entente, ~techlevel.low
 		Description: Static defense with a fireport for\na garrisoned soldier.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
 	Valued:
-		Cost: 700
+		Cost: 800
 	CustomSellValue:
 		Value: 400
 	Health:
 		HP: 40000
 	Armor:
-		Type: Heavy
+		Type: Concrete
 	RevealsShroud:
 		MinRange: 5c0
 		Range: 6c0
@@ -884,7 +879,7 @@ PBOX:
 	GrantConditionOnDamageState@DAMAGED:
 		Condition: damaged
 		ValidDamageStates: Light, Medium, Heavy, Critical
-	-SpawnActorsOnSell:
+	SpawnActorsOnSell:
 	AttackTurreted:
 		RequiresCondition: !build-incomplete
 	Armament:
@@ -910,7 +905,7 @@ HBOX:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 65
-		Prerequisites: barr, ~structures.entente, ~techlevel.medium
+		Prerequisites: barr, ~structures.france, ~techlevel.medium
 		Description: Camouflaged static defense with a fireport\nfor a garrisoned soldier.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
 	Valued:
 		Cost: 850
@@ -919,7 +914,7 @@ HBOX:
 	Health:
 		HP: 40000
 	Armor:
-		Type: Heavy
+		Type: Concrete
 	RevealsShroud:
 		MinRange: 5c0
 		Range: 6c0
@@ -944,7 +939,7 @@ HBOX:
 	GrantConditionOnDamageState@DAMAGED:
 		Condition: damaged
 		ValidDamageStates: Light, Medium, Heavy, Critical
-	-SpawnActorsOnSell:
+	SpawnActorsOnSell:
 	DetectCloaked:
 		Range: 6c0
 	RenderRangeCircle:
@@ -971,14 +966,14 @@ GUN:
 		Prerequisites: weap, ~structures.entente, ~techlevel.medium
 		Description: Anti-Armor base defense.\nCan detect cloaked units.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
 	Valued:
-		Cost: 800
+		Cost: 900
 	Tooltip:
 		Name: Turret
 	Building:
 	Health:
 		HP: 40000
 	Armor:
-		Type: Heavy
+		Type: Concrete
 	RevealsShroud:
 		MinRange: 5c0
 		Range: 6c512
@@ -1011,24 +1006,78 @@ GUN:
 	-BodyOrientation:
 	ClassicFacingBodyOrientation:
 
-GATLINGGUN:
+CAMOGUN:
 	Inherits: ^Defense
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@rubbles: ^1x1Rubbles
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 70
+		Prerequisites: weap, ~structures.france, ~techlevel.medium
+		Description: Anti-Armor base defense.\nCan detect cloaked units.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
+	Valued:
+		Cost: 950
+	Tooltip:
+		Name: Camo Turret
+	Building:
+	Health:
+		HP: 40000
+	Armor:
+		Type: Concrete
+	RevealsShroud:
+		MinRange: 5c0
+		Range: 6c512
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 5c0
+	WithBuildingBib:
+		HasMinibib: true
+	Turreted:
+		TurnSpeed: 48
+		InitialFacing: 400
+		RealignDelay: -1
+		RequiresCondition: !build-incomplete
+	WithSpriteTurret:
+		RequiresCondition: !build-incomplete
+		Recoils: false
+	WithTurretAttackAnimation:
+		Sequence: recoil
+	Armament:
+		Weapon: TurretGun
+		LocalOffset: 512,0,112
+		MuzzleSequence: muzzle
+	AttackTurreted:
+		RequiresCondition: !build-incomplete
+	WithMuzzleOverlay:
+	Power:
+		Amount: -40
+	DetectCloaked:
+		Range: 6c0
+	-BodyOrientation:
+	ClassicFacingBodyOrientation:
+	Cloak:
+		InitialDelay: 125
+		CloakDelay: 60
+		IsPlayerPalette: true
+
+GATLINGGUN:
+	Inherits: ^Defense
+	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@rubbles: ^1x1Rubbles
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 40
 		Prerequisites: weap, ~structures.komintern, ~techlevel.medium
 		Description: Anti-Armor base defense.\nCan detect cloaked units.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
 	Valued:
-		Cost: 800
+		Cost: 900
 	Tooltip:
 		Name: Gatling Tower
 	Building:
 	Health:
 		HP: 40000
 	Armor:
-		Type: Heavy
+		Type: Concrete
 	RevealsShroud:
 		MinRange: 5c0
 		Range: 6c512
@@ -1047,46 +1096,46 @@ GATLINGGUN:
 		Recoils: false
 	Armament@ag-0:
 		Weapon: AGGatling
-		LocalOffset: 510,-150,300
+		LocalOffset: 480,-300,200
 		MuzzleSequence: muzzle
 		RequiresCondition: !gatling
 	Armament@ag-1:
 		Weapon: AGGatling2
-		LocalOffset: 510,-150,300
+		LocalOffset: 480,-300,200
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling == 1
 	Armament@ag-2:
 		Weapon: AGGatling3
-		LocalOffset: 510,-150,300
+		LocalOffset: 480,-300,200
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling == 2
 	Armament@ag-3:
 		Weapon: AGGatling4
-		LocalOffset: 510,-150,300
+		LocalOffset: 480,-300,200
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling >= 3
 	Armament@ag-0s:
 		Name: secondary
 		Weapon: AGGatling
-		LocalOffset:510,150,300
+		LocalOffset: 480,300,200
 		MuzzleSequence: muzzle
 		RequiresCondition: !gatling
 	Armament@ag-1s:
 		Name: secondary
 		Weapon: AGGatling2
-		LocalOffset: 510,150,300
+		LocalOffset: 480,300,200
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling == 1
 	Armament@ag-2s:
 		Name: secondary
 		Weapon: AGGatling3
-		LocalOffset: 510,150,300
+		LocalOffset: 480,300,200
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling == 2
 	Armament@ag-3s:
 		Name: secondary
 		Weapon: AGGatling4
-		LocalOffset: 510,150,300
+		LocalOffset: 480,300,200
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling >= 3
 	GrantConditionOnAttack:
@@ -1113,13 +1162,13 @@ MAMELUK:
 	Inherits@rubbles: ^1x1Rubbles
 	Buildable:
 		Queue: Defense
-		BuildPaletteOrder: 70
+		BuildPaletteOrder: 76
 		Prerequisites: dome, ~structures.serbia, ~techlevel.medium
 		Description: Extra long ranged stationary artillery.\nCan detect cloaked units.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
 	Valued:
-		Cost: 1500
+		Cost: 1600
 	Tooltip:
-		Name: Knez Cannon
+		Name: Grand Cannon
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -1156,6 +1205,8 @@ MAMELUK:
 		Range: 6c0
 	-BodyOrientation:
 	ClassicFacingBodyOrientation:
+	Selectable:
+		Bounds: 60,60,0,-2
 
 FTUR:
 	Inherits: ^Defense
@@ -1167,14 +1218,14 @@ FTUR:
 		Prerequisites: barr, ~structures.zentrum, ~techlevel.low
 		Description: Anti-Infantry base defense.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
 	Valued:
-		Cost: 700
+		Cost: 900
 	Tooltip:
 		Name: Flame Tower
 	Building:
 	Health:
 		HP: 40000
 	Armor:
-		Type: Heavy
+		Type: Concrete
 	RevealsShroud:
 		MinRange: 5c0
 		Range: 6c0
@@ -1184,11 +1235,15 @@ FTUR:
 	WithBuildingBib:
 		HasMinibib: true
 	Turreted:
-		TurnSpeed: 512
-		Offset: 0,0,112
+		TurnSpeed: 48
+		InitialFacing: 360
+		RealignDelay: -1
+	WithSpriteTurret:
+		RequiresCondition: !build-incomplete
+		Recoils: false
 	Armament:
 		Weapon: FireballLauncher
-		LocalOffset: 512,0,0
+		LocalOffset: 752,150,150, 752,-150,150
 	AttackTurreted:
 		RequiresCondition: !build-incomplete
 	-QuantizeFacingsFromSequence:
@@ -1221,7 +1276,7 @@ SAM:
 		Prerequisites: dome, ~structures.zentrum, ~techlevel.medium
 		Description: Anti-Air base defense.\nRequires power to operate.\n  Strong vs Aircraft\n  Weak vs Ground units
 	Valued:
-		Cost: 700
+		Cost: 800
 	Tooltip:
 		Name: SAM Site
 	Building:
@@ -1230,7 +1285,7 @@ SAM:
 	Health:
 		HP: 40000
 	Armor:
-		Type: Heavy
+		Type: Concrete
 	RevealsShroud:
 		MinRange: 5c0
 		Range: 8c0
@@ -1248,7 +1303,7 @@ SAM:
 		RequiresCondition: !build-incomplete
 		Recoils: false
 	Armament:
-		Weapon: Nike
+		Weapon: NikeSam
 		LocalOffset: 0,0,320
 		MuzzleSequence: muzzle
 	AttackTurreted:
@@ -1267,7 +1322,7 @@ ADEPT:
 	Inherits@shape: ^3x2Shape
 	Inherits@rubbles: ^AdeptRubbles
 	Valued:
-		Cost: 1500
+		Cost: 1600
 	Tooltip:
 		Name: Arms Depot
 	Selectable:
@@ -1334,7 +1389,7 @@ ADEPT:
 ADEPTCHARGER:
 	Interactable: 
 	EditorOnlyTooltip:
-		Name: (GPS Power Dummy)
+		Name: (Dummy Charger)
 	AlwaysVisible: 
 	Building:
 		Footprint: _
@@ -1368,7 +1423,7 @@ MTEK:
 		Prerequisites: dome, ~structures.zentrum, ~techlevel.high
 		Description: Provides Mittel advanced technologies.
 	Valued:
-		Cost: 1500
+		Cost: 1600
 	Tooltip:
 		Name: Mittel Tech Center
 	ProvidesPrerequisite:
@@ -1394,10 +1449,12 @@ MTEK:
 		Amount: -200
 	ProvidesPrerequisite@buildingname:
 		Prerequisite: mtek
+	InfiltrateForSupportPower@mtektech:
+		Types: SpyInfiltrate
+		Proxy: proxy.mtektech
 
 ATEK:
 	Inherits: ^ScienceBuilding
-	Inherits@IDISABLE: ^DisableOnLowPower
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^3x3Rubbles
 	Selectable:
@@ -1408,7 +1465,7 @@ ATEK:
 		Prerequisites: dome, ~structures.entente, ~techlevel.high
 		Description: Provides Entente advanced technologies.
 	Valued:
-		Cost: 1500
+		Cost: 1600
 	Tooltip:
 		Name: Entente Tech Center
 	ProvidesPrerequisite:
@@ -1433,6 +1490,9 @@ ATEK:
 	Power:
 		Amount: -200
 	ProvidesPrerequisite@buildingname:
+	InfiltrateForSupportPower@atektech:
+		Types: SpyInfiltrate
+		Proxy: proxy.atektech
 
 WEAP:
 	Inherits: ^Building
@@ -1448,7 +1508,7 @@ WEAP:
 		Prerequisites: proc, ~techlevel.low
 		Description: Produces vehicles.
 	Valued:
-		Cost: 1850
+		Cost: 1950
 	Tooltip:
 		Name: War Factory
 	Building:
@@ -1566,6 +1626,9 @@ WEAP:
 			england: eweap
 			france: eweap
 			serbia: eweap
+	GrantExternalConditionToProduced@spawned:
+		Duration: 100
+		Condition: spawned
 
 FACT:
 	Inherits: ^Building
@@ -1640,7 +1703,7 @@ FACT:
 		Factions: bulgaria
 		Prerequisite: structures.bulgaria
 	Health:
-		HP: 150000
+		HP: 175000
 	Armor:
 		Type: Wood
 	RevealsShroud:
@@ -1653,7 +1716,7 @@ FACT:
 		Produces: Building, Defense
 		PauseOnCondition: being-captured || empdisable
 	Valued:
-		Cost: 2000
+		Cost: 2100
 	Tooltip:
 		Name: Construction Yard
 	SpawnActorsOnSell:
@@ -1740,7 +1803,7 @@ PROC:
 		Prerequisites: anypower, ~techlevel.infonly
 		Description: Refines Ore and Gems\ninto credits.
 	Valued:
-		Cost: 1500
+		Cost: 1600
 	Tooltip:
 		Name: Ore Refinery
 	Building:
@@ -1847,7 +1910,7 @@ SILO:
 		Prerequisites: proc, ~techlevel.infonly
 		Description: Stores excess refined\nOre and Gems.
 	Valued:
-		Cost: 150
+		Cost: 200
 	Targetable:
 		TargetTypes: GroundActor, Structure, C4, DetonateAttack, ThiefInfiltrate
 	Tooltip:
@@ -1901,7 +1964,7 @@ HPAD:
 		Prerequisites: dome, ~techlevel.medium
 		Description: Produces and reloads\nhelicopters.
 	Valued:
-		Cost: 500
+		Cost: 700
 	Tooltip:
 		Name: Helipad
 	Building:
@@ -1928,7 +1991,7 @@ HPAD:
 		Facing: 896
 	RallyPoint:
 	Production:
-		Produces: Aircraft, Helicopter
+		Produces: Helicopter
 		PauseOnCondition: being-captured || empdisable
 	Reservable:
 	ProductionBar:
@@ -1989,6 +2052,9 @@ HPAD:
 	ProvidesPrerequisite@italy:
 		Factions: italy
 		Prerequisite: helicopter.italy
+	ProvidesPrerequisite@china:
+		Factions: china
+		Prerequisite: hpad.support.china
 	ProvidesPrerequisite@buildingname:
 	Targetable:
 		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
@@ -2007,6 +2073,32 @@ HPAD:
 			ukraine: shpad
 			china: shpad
 			mongolia: shpad
+	ParatroopersPower@entparatroopers:
+		PauseOnCondition: empdisable
+		OrderName: Guerilla Drop
+		UnitType: transupport
+		Icon: guerilladropicon
+		ChargeInterval: 7500
+		Description: Paratroopers
+		LongDesc: A Halo transport helicopter drops a squad\nof guerilla anywhere on the map.
+		DropItems: GUERILLA, GUERILLA, GUERILLA, GUERILLA
+		ReinforcementsArrivedSpeechNotification: ReinforcementsArrived
+		SelectTargetSpeechNotification: SelectTarget
+		AllowImpassableCells: false
+		QuantizedFacings: 8
+		CameraActor: camera.paradrop
+		DisplayBeacon: true
+		BeaconPoster: guerillabeacon
+		ArrowSequence: arrow
+		ClockSequence: clock
+		CircleSequence: circles
+		UseDirectionalTarget: True
+		DirectionArrowAnimation: paradirection
+		SupportPowerPaletteOrder: 50
+		IncomingSpeechNotification: EnemyReinforcementsApproaching
+		EndChargeSpeechNotification: ParatroopersReady
+		BeginChargeSpeechNotification: ParatroopersPreparing
+		Prerequisites: hpad.support.china
 
 AFLD:
 	Inherits: ^Building
@@ -2022,7 +2114,7 @@ AFLD:
 		Prerequisites: dome, ~techlevel.medium
 		Description: Produces and reloads aircraft.\n  Special Ability: Spy Plane\n  Special Ability: Paratroopers
 	Valued:
-		Cost: 500
+		Cost: 700
 	Tooltip:
 		Name: Airfield
 	Selectable:
@@ -2168,7 +2260,6 @@ AFLD:
 POWR:
 	Inherits: ^Building
 	Inherits@POWER_OUTAGE: ^DisabledByPowerOutage
-	Inherits@EMSURGEABLE: ^EmSurgeable
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
 	Selectable:
@@ -2182,7 +2273,7 @@ POWR:
 		Prerequisites: ~techlevel.infonly
 		Description: Provides power for other structures.
 	Valued:
-		Cost: 500
+		Cost: 550
 	Tooltip:
 		Name: Power Plant
 	ProvidesPrerequisite:
@@ -2192,7 +2283,7 @@ POWR:
 		Dimensions: 2,3
 		LocalCenterOffset: 0,-512,0
 	Health:
-		HP: 40000
+		HP: 45000
 	Armor:
 		Type: Wood
 	RevealsShroud:
@@ -2222,7 +2313,6 @@ POWR:
 APWR:
 	Inherits: ^Building
 	Inherits@POWER_OUTAGE: ^DisabledByPowerOutage
-	Inherits@EMSURGEABLE: ^EmSurgeable
 	Inherits@shape: ^3x2Shape
 	Inherits@rubbles: ^3x2Rubbles
 	HitShape:
@@ -2233,7 +2323,7 @@ APWR:
 		Prerequisites: dome, ~techlevel.medium
 		Description: Provides double the power of\na standard Power Plant.
 	Valued:
-		Cost: 700
+		Cost: 850
 	Tooltip:
 		Name: Advanced Power Plant
 	ProvidesPrerequisite:
@@ -2246,7 +2336,7 @@ APWR:
 		Bounds: 72,48
 		DecorationBounds: 72,68,0,-10
 	Health:
-		HP: 70000
+		HP: 75000
 	Armor:
 		Type: Wood
 	RevealsShroud:
@@ -2287,7 +2377,7 @@ STEK:
 		Prerequisites: dome, ~structures.komintern, ~techlevel.high
 		Description: Provides Soviet advanced technologies.
 	Valued:
-		Cost: 1500
+		Cost: 1600
 	Tooltip:
 		Name: Komintern Tech Center
 	ProvidesPrerequisite:
@@ -2309,7 +2399,12 @@ STEK:
 	WithBuildingBib:
 	Power:
 		Amount: -100
+	Targetable:
+		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
 	ProvidesPrerequisite@buildingname:
+	InfiltrateForSupportPower@stektech:
+		Types: SpyInfiltrate
+		Proxy: proxy.stektech
 
 BARR:
 	Inherits: ^Building
@@ -2328,7 +2423,7 @@ BARR:
 		Prerequisites: anypower, ~techlevel.infonly
 		Description: Trains infantry.
 	Valued:
-		Cost: 650
+		Cost: 700
 	Tooltip:
 		Name: Barracks
 	Building:
@@ -2460,7 +2555,7 @@ FIX:
 		Prerequisites: weap, ~techlevel.medium
 		Description: Repairs vehicles for credits.
 	Valued:
-		Cost: 1200
+		Cost: 1500
 	Tooltip:
 		Name: Service Depot
 	Building:
@@ -2519,6 +2614,8 @@ FLKGUN:
 		InitialFacing: 780
 	WithTurretAttackAnimation:
 		Sequence: recoil
+	Armor: 
+		Type: Concrete
 	Armament:
 		Weapon: FLAK-23-AA-Static
 		LocalOffset: 712,0,700
@@ -2527,7 +2624,7 @@ FLKGUN:
 		Name: Flak Cannon
 	Buildable:
 		Queue: Defense
-		BuildPaletteOrder: 58
+		BuildPaletteOrder: 44
 		Prerequisites: dome, ~structures.komintern, ~techlevel.medium
 		Description: Anti-Air base defense.\nRequires power to operate.\n  Strong vs Aircraft\n  Weak vs Ground units
 		
@@ -2545,7 +2642,7 @@ UPLINK:
 		BuildLimit: 1
 		Description: Reveals the map and enemy positions..\nMaximum 1 can be built.\n  Special Ability: GPS Satellite
 	Valued:
-		Cost: 1500
+		Cost: 1600
 	Tooltip:
 		Name: Satellite Uplink
 	Building:
@@ -2576,9 +2673,9 @@ UPLINK:
 		Prerequisite: pdox.germany
 	SupportPowerChargeBar:
 	InfiltrateForSupportPowerReset:
-		Types: SpyInfiltrate
+		Types: SpyInfiltrate, SaboteurInfiltration
 	Targetable:
-		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate
+		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
 	Power:
 		Amount: -200
 	MustBeDestroyed:
@@ -2684,7 +2781,7 @@ STHGEN:
 		BuildLimit: 1
 		Description: Makes vehicles invisible for a short time.\nRequires power to operate.\nMaximum 1 can be built.\n  Special Ability: Stealth Shield
 	Valued:
-		Cost: 1500
+		Cost: 1600
 	Tooltip:
 		Name: Phase Generator
 	Building:
@@ -2727,9 +2824,9 @@ STHGEN:
 		Footprint: xxx xxx xxx
 	SupportPowerChargeBar:
 	InfiltrateForSupportPowerReset:
-		Types: SpyInfiltrate
+		Types: SpyInfiltrate, SaboteurInfiltration
 	Targetable:
-		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate
+		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
 	Power:
 		Amount: -200
 	MustBeDestroyed:
@@ -2737,13 +2834,13 @@ STHGEN:
 	ProvidesPrerequisite@buildingname:
 	
 EMPGUN:
-	Inherits: ^Building
+	Inherits: ^Defense
 	Inherits@shape: ^2x2Shape
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@rubbles: ^2x2Rubbles
 	Inherits@sabotable: ^Sabotable
 	Valued:
-		Cost: 1500
+		Cost: 1600
 	Selectable:
 		Bounds: 45, 45
 	Tooltip:
@@ -2777,8 +2874,6 @@ EMPGUN:
 	Power:
 		Amount: -150
 	RenderSprites:
-	ProvidesPrerequisite@gdi:
-		ResetOnOwnerChange: true
 	AttackOrderPower:
 		PauseOnCondition: empdisable || disabled
 		Icon: empicon
@@ -2789,10 +2884,10 @@ EMPGUN:
 		EndChargeSpeechNotification: EMPulseReady
 		BeginChargeSpeechNotification: EMPulseCharging
 	InfiltrateForSupportPowerReset:
-		Types: SpyInfiltrate
+		Types: SpyInfiltrate, SaboteurInfiltration
 	Targetable:
-		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate
-		
+		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
+
 RAILGUN:
 	Inherits: ^Defense
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
@@ -2804,14 +2899,14 @@ RAILGUN:
 		Prerequisites: weap, ~structures.zentrum, ~techlevel.medium
 		Description: Anti-ground defensive structure\nthat uses a direct energy weapon.\nCan detect cloaked units.\n	Strong vs Vehicles\n  Weak vs Infantry, Aircraft
 	Valued:
-		Cost: 1300
+		Cost: 1400
 	Tooltip:
-		Name: Prism Cannon
+		Name: Refractor Cannon
 	Building:
 	Health:
 		HP: 47500
 	Armor:
-		Type: Heavy
+		Type: Concrete
 	RevealsShroud:
 		MinRange: 5c0
 		Range: 6c512
@@ -2835,7 +2930,7 @@ RAILGUN:
 		LocalOffset: 740,0,530
 		FireDelay: 8
 	AttackTurreted:
-		PauseOnCondition: build-incomplete
+		PauseOnCondition: build-incomplete || disabled
 		PersistentTargeting: True
 	WithTurretAttackAnimation:
 		Armament: primary
@@ -2860,7 +2955,7 @@ SRIMP:
 	Armor:
 		Type: Wood
 	Valued:
-		Cost: 1500
+		Cost: 1600
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 170
@@ -2880,8 +2975,10 @@ SRIMP:
 		RequiresCondition: !disabled
 	MustBeDestroyed:
 		RequiredForShortGame: false
+	InfiltrateForSupportPowerReset:
+		Types: SpyInfiltrate, SaboteurInfiltration
 	Targetable:
-		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate
+		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
 	Selectable:
 		Bounds: 48,48
 	SpawnActorPower:
@@ -2908,8 +3005,6 @@ SRIMP:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
-	InfiltrateForSupportPowerReset:
-		Types: SpyInfiltrate
 	Power:
 		Amount: -200
 	GrantConditionOnHealth:
@@ -2953,7 +3048,7 @@ SBAG:
 		Prerequisites: fact, ~structures.entente, ~techlevel.low
 		Description: Stops infantry and light vehicles.\nCan be crushed by tanks.
 	Valued:
-		Cost: 30
+		Cost: 50
 	CustomSellValue:
 		Value: 0
 	Tooltip:
@@ -2977,7 +3072,7 @@ FENC:
 		Prerequisites: fact, ~structures.komintern, ~techlevel.low
 		Description: Stops infantry and light vehicles.\nCan be crushed by tanks.
 	Valued:
-		Cost: 30
+		Cost: 50
 	CustomSellValue:
 		Value: 0
 	Tooltip:
@@ -3001,7 +3096,7 @@ BRIK:
 		Prerequisites: fact, ~techlevel.medium
 		Description: Stop units and blocks enemy fire.
 	Valued:
-		Cost: 200
+		Cost: 225
 	CustomSellValue:
 		Value: 0
 	Tooltip:
@@ -3028,10 +3123,10 @@ CYCL:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 10
-		Prerequisites: fact, ~structures.entente, ~techlevel.low
+		Prerequisites: fact, ~structures.zentrum, ~techlevel.low
 		Description: Stops infantry and light vehicles.\nCan be crushed by tanks.
 	Valued:
-		Cost: 30
+		Cost: 50
 	CustomSellValue:
 		Value: 0
 	Tooltip:

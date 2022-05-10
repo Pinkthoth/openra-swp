@@ -5,6 +5,9 @@ General:
 	HeightDebugColors: 880000
 
 Terrain:
+	TerrainType@Subterranean:
+		Type: Subterranean
+		Color: B09C78
 	TerrainType@Clear:
 		Type: Clear
 		TargetTypes: Ground

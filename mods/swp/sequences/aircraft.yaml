@@ -24,10 +24,37 @@ yak:
 		Facings: 8
 	icon: yakicon
 
-zero:
+teslahind:
+	idle: empty32
+		Start: 0
+		Facings: 32
+	turret:
+		Facings: 32
+		UseClassicFacings: True
+	rotor: lrotorlg
+		Length: 4
+		ZOffset: 5
+	slow-rotor: lrotorlg
+		Start: 4
+		Length: 8
+		ZOffset: 5
+	muzzle: minigun
+		Length: 6
+		Facings: 8
+	icon: teslahindicon
+
+heavyfighter:
 	idle:
 		Facings: 32
-	icon: zeroicon
+	muzzle: minigun
+		Length: 6
+		Facings: 8
+	icon: heavyfightericon
+
+hospitaller:
+	idle:
+		Facings: 32
+	icon: hospitallericon
 
 ant40:
 	idle:
@@ -139,6 +166,22 @@ mh60:
 		Length: 6
 		Facings: 8
 	icon: mh60icon
+
+teuton:
+	idle: empty32
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Facings: 32
+		UseClassicFacings: True
+	rotor: yrotorlg
+		Length: 4
+		ZOffset: 5
+	slow-rotor: yrotorlg
+		Start: 4
+		Length: 8
+		ZOffset: 5
+	icon: teutonicon
 
 wasp:
 	idle: empty32

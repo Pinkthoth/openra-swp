@@ -37,6 +37,22 @@ laserfire:
 	idle:
 		ZOffset: 1023
 
+electrobolt:
+	idle:
+		Facings: 32
+		Length: 4
+		Tick: 100
+
+electroball:
+	idle:
+		Length: *
+		Tick: 30
+
+sm_electroball:
+	idle:
+		Length: *
+		Tick: 30
+
 dig:
 	idle:
 		Length: *
@@ -73,6 +89,7 @@ explosion:
 	large_explosion: frag1
 		Offset: -2,0
 	small_napalm: napalm1
+	small_tox: tox1
 	offset_napalm: napalm1 # Used for E4 Explosion
 		Offset: 0, -6
 	large_napalm: napalm3
@@ -112,18 +129,14 @@ explosion:
 		Offset: 0, 0, 36
 	smokeexp: smokeexp
 		ZOffset: 100
+	thunderstruck: thunderstruck
+		Length: *
+	thunderstruck2: thunderstruck2
+		Length: *
 
 cloud:
 	idle:
 		Length: *
-
-flameall:
-	idle:
-		Length: 19
-		Facings: -8
-		Tick: 160
-		ZOffset: 1023
-		Offset: 0, 0, 24
 
 v3missile:
 	Defaults: v3missile
@@ -131,23 +144,6 @@ v3missile:
 		Length: *
 	down:
 		Length: *
-
-emsurge:
-	idle: pulsball
-		Length: *
-		BlendMode: Additive
-		ZOffset: 1023
-		Offset: 0, 0, 24
-	up: pulsball
-		Length: *
-		BlendMode: Additive
-		ZOffset: 1023
-		Offset: 0, 0, 24
-	down: pulsball
-		Length: *
-		BlendMode: Additive
-		ZOffset: 1023
-		Offset: 0, 0, 24
 
 burn-l:
 	idle:
@@ -188,16 +184,6 @@ burn-s:
 		Length: 5
 		ZOffset: 512
 
-chemall:
-	idle:
-		Length: 19
-		Facings: -8
-		Tick: 160
-		ZOffset: 1023
-		Offset: 0, 0, 24
-		IgnoreWorldTint: True
-		Alpha: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1
-
 pips:
 	groups:
 		Start: 8
@@ -235,10 +221,17 @@ pips:
 	pip-commander: pip-commander
 	pip-question: pip-question
 	pip-none: empty
-
-sonicblast:
-	idle:
-		Facings: 32
+	pip-eye: pip-eye
+	pip-emptyammo: pip-ammos
+		Start: 0
+	pip-bullet: pip-ammos
+		Start: 1
+	pip-missile: pip-ammos
+		Start: 2
+	pip-tech: pip-ammos
+		Start: 3
+	pip-bomb: pip-ammos
+		Start: 4
 
 v2:
 	idle:
@@ -292,6 +285,9 @@ beacon:
 		Length: *
 		Offset: 0,-42
 	specopdropbeacon: specopdropbeacon
+		Length: *
+		Offset: 0,-42
+	guerillabeacon: guerillabeacon
 		Length: *
 		Offset: 0,-42
 
@@ -418,6 +414,16 @@ fb3:
 		ZOffset: 1023
 
 fb4:
+	idle:
+		Length: *
+		ZOffset: 1023
+
+toxb3:
+	idle:
+		Facings: 32
+		ZOffset: 1023
+
+toxb4:
 	idle:
 		Length: *
 		ZOffset: 1023
@@ -676,6 +682,7 @@ icon:
 	gpsactive: gpssactiveicon
 	radarscanicon: radarscanicon
 	smokescreenicon: smokescreenicon
+	guerilladropicon: guerilladropicon
 
 smokebarrage:
 	idle: empty
@@ -879,6 +886,10 @@ empty:
 		Tick: 20
 	
 smine:
+	idle:
+		Start: 0
+
+scam:
 	idle:
 		Start: 0
 

@@ -80,6 +80,12 @@
 		G: 0
 		B: 0
 		A: 128
+	PaletteFromRGBA@magnet:
+		Name: magnet
+		R: 219
+		G: 43
+		B: 255
+		A: 128
 	PaletteFromRGBA@smoked:
 		Name: smoked
 		R: 100
@@ -180,6 +186,9 @@
 	PaletteFromFile@TSEFFECTS:
 		Name: tseffects
 		Filename: anim.pal
+	PaletteFromFile@POISONPAL:
+		Name: poisonpal
+		Filename: poisonpal.pal
 	PaletteFromPaletteWithAlpha@chronopal:
 		Name: chronopal
 		BasePalette: player

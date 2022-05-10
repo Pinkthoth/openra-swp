@@ -42,6 +42,32 @@ RUBBLE:
 		Sequence: idle3
 		RequiresCondition: rubble3
 
+HOSPITALLER.Husk:
+	Inherits: ^PlaneHusk
+	Tooltip:
+		Name: Hospitaller
+	Contrail@1:
+		Offset: -500,-483,0
+	Contrail@2:
+		Offset: -500,483,0
+	Aircraft:
+		TurnSpeed: 20
+		Speed: 186
+	SmokeTrailWhenDamaged:
+		Offset: -853,0,171
+		Interval: 2
+		MinDamage: Undamaged
+	RevealsShroud:
+		MinRange: 11c0
+		Range: 13c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 11c0
+		Type: GroundPosition
+	RenderSprites:
+		Image: hospitaller
+
 HARV.FullHusk:
 	Inherits: ^Husk
 	Tooltip:
@@ -301,6 +327,30 @@ YAK.Husk:
 		Type: GroundPosition
 	RenderSprites:
 		Image: yak
+
+HEAVYFIGHTER.Husk:
+	Inherits: ^PlaneHusk
+	Tooltip:
+		Name: Heavy Fighter
+	Contrail:
+		Offset: -853,0,0
+	Aircraft:
+		TurnSpeed: 20
+		Speed: 149
+	SmokeTrailWhenDamaged:
+		Offset: -853,0,0
+		Interval: 2
+		MinDamage: Undamaged
+	RevealsShroud:
+		MinRange: 9c0
+		Range: 11c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 9c0
+		Type: GroundPosition
+	RenderSprites:
+		Image: heavyfighter
 
 HELI.Husk:
 	Inherits: ^HelicopterHusk
@@ -597,6 +647,58 @@ MH60.Husk:
 		Type: GroundPosition
 	RenderSprites:
 		Image: MH60
+	WithFacingSpriteBody:
+		Sequence: turret
+
+TESLAHIND.Husk:
+	Inherits: ^HelicopterHusk
+	Tooltip:
+		Name: Hind
+	Aircraft:
+		TurnSpeed: 16
+		Speed: 112
+	WithIdleOverlay:
+		Sequence: rotor
+		Offset: 50,0,200
+	SmokeTrailWhenDamaged:
+		Offset: -427,0,0
+		MinDamage: Undamaged
+	RevealsShroud:
+		MinRange: 8c0
+		Range: 10c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 8c0
+		Type: GroundPosition
+	RenderSprites:
+		Image: teslahind
+	WithFacingSpriteBody:
+		Sequence: turret
+
+TEUTON.Husk:
+	Inherits: ^HelicopterHusk
+	Tooltip:
+		Name: Teuton
+	Aircraft:
+		TurnSpeed: 16
+		Speed: 112
+	WithIdleOverlay:
+		Sequence: rotor
+		Offset: 40,0,230
+	SmokeTrailWhenDamaged:
+		Offset: -427,0,0
+		MinDamage: Undamaged
+	RevealsShroud:
+		MinRange: 8c0
+		Range: 10c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 8c0
+		Type: GroundPosition
+	RenderSprites:
+		Image: teuton
 	WithFacingSpriteBody:
 		Sequence: turret
 

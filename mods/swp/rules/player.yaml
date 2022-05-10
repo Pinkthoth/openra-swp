@@ -19,6 +19,8 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: True
+		BuildTimeSpeedReduction: 1000, 850, 700, 550, 460, 413, 406, 403
+		BuildDurationModifier: 10
 	ClassicProductionQueue@Defense:
 		Type: Defense
 		DisplayOrder: 1
@@ -30,6 +32,8 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: True
+		BuildTimeSpeedReduction: 1000, 850, 700, 550, 460, 413, 406, 403
+		BuildDurationModifier: 10
 	ClassicProductionQueue@Vehicle:
 		Type: Vehicle
 		DisplayOrder: 3
@@ -41,7 +45,8 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: True
-		BuildTimeSpeedReduction: 100, 75, 60, 50
+		BuildTimeSpeedReduction: 1000, 850, 700, 550, 460, 413, 406, 403
+		BuildDurationModifier: 10
 	ClassicProductionQueue@Infantry:
 		Type: Infantry
 		DisplayOrder: 2
@@ -53,8 +58,23 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: True
+		BuildTimeSpeedReduction: 1000, 850, 700, 550, 460, 413, 406, 403
+		BuildDurationModifier: 10
 	ClassicProductionQueue@Ship:
 		Type: Ship
+		DisplayOrder: 6
+		LowPowerModifier: 300
+		ReadyAudio: UnitReady
+		BlockedAudio: NoBuild
+		LimitedAudio: BuildingInProgress
+		QueuedAudio: Building
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+		SpeedUp: True
+		BuildTimeSpeedReduction: 1000, 850, 700, 550, 460, 413, 406, 403
+		BuildDurationModifier: 10
+	ClassicProductionQueue@Aircraft:
+		Type: Aircraft
 		DisplayOrder: 5
 		LowPowerModifier: 300
 		ReadyAudio: UnitReady
@@ -64,8 +84,10 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: True
-	ClassicProductionQueue@Aircraft:
-		Type: Aircraft
+		BuildTimeSpeedReduction: 1000, 850, 700, 550, 460, 413, 406, 403
+		BuildDurationModifier: 10
+	ClassicProductionQueue@Helicopter:
+		Type: Helicopter
 		DisplayOrder: 4
 		LowPowerModifier: 300
 		ReadyAudio: UnitReady
@@ -75,6 +97,8 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: True
+		BuildTimeSpeedReduction: 1000, 850, 700, 550, 460, 413, 406, 403
+		BuildDurationModifier: 10
 	PlaceBuilding:
 		NewOptionsNotification: NewOptions
 		CannotPlaceNotification: BuildingCannotPlaceAudio
@@ -92,6 +116,8 @@ Player:
 		InsufficientFundsNotification: InsufficientFunds
 		CashTickUpNotification: CashTickUp
 		CashTickDownNotification: CashTickDown
+		SelectableCash: 4000, 6500, 11500, 21500
+		DefaultCash: 6500
 	DeveloperMode:
 		CheckboxDisplayOrder: 10
 	GpsWatcher:

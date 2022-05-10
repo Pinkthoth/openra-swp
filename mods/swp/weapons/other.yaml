@@ -2,7 +2,6 @@
 	ValidTargets: Ground, Water, GroundActor, WaterActor, Trees
 	ReloadDelay: 65
 	Range: 5c0
-	Report: flamtnk1.aud
 	Warhead@1Dam: SpreadDamage
 		Spread: 213
 		Damage: 15000
@@ -38,10 +37,218 @@
 			None: 1000
 		DamageTypes: Prone50Percent, TriggerProne, ElectricityDeath
 
+^ElectricBoltWeapon:
+	ReloadDelay: 3
+	Range: 7c0
+	Report: scrin5b.aud
+	Projectile: Bullet
+	ValidTargets: Ground, Water, GroundActor, WaterActor
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c512
+		Damage: 10000
+		ValidTargets: GroundActor, WaterActor
+		Versus:
+			None: 100
+			Light: 80
+			Medium: 70
+			Heavy: 50
+			Woood: 40
+			Concrete: 20
+		DamageTypes: Prone50Percent, TriggerProne, ElectricityDeath
+
+^MagneticWeapon:
+	ValidTargets: Ground, Water, GroundActor, WaterActor
+	ReloadDelay: 8
+	Range: 10c0
+	Report: obelray1.aud
+	Projectile: Railgun
+		BeamColor: E60000
+		BeamWidth: 0c0
+		HelixColor: DB2BFF
+		HelixThickness: 0c32
+		HelixRadius: 0c64
+		HelixPitch: 0c512
+		HelixAngleDeltaPerTick: 30
+		Duration: 30
+	Warhead@1: SpreadDamage
+		Damage: 1000
+		Spread: 0c126
+		Versus:
+			None: 10
+			Light: 70
+			Medium: 85
+			Heavy: 100
+			Wood: 40
+			Concrete: 40
+		ValidTargets: GroundActor, WaterActor
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+
+TraktorBeam:
+	Inherits: ^MagneticWeapon
+	Warhead@1: SpreadDamage
+		Damage: 300
+	Warhead@2: GrantExternalCondition
+		Range: 0c63
+		Condition: magnetic-trap
+		Duration: 10
+		ValidTargets: GroundActor, WaterActor
+
+MagneticBolt:
+	Inherits: ^MagneticWeapon
+	ReloadDelay: 100
+	Range: 6c0
+	Projectile: Railgun
+		Inaccuracy: 0c256
+		BeamWidth: 0c30
+		BeamColor: DB2BFF
+		HelixAngleDeltaPerTick: 60
+		HelixAlphaDeltaPerTick: -15
+		HelixPitch: 0c126
+		HelixRadius: 0c25
+		QuantizationCount: 5
+		Duration: 20
+	Warhead@1: SpreadDamage
+		Damage: 7500
+		Versus:
+			None: 30
+
+NightWitchBolt:
+	Inherits: ^MagneticWeapon
+	ReloadDelay: 100
+	Range: 6c0
+	Projectile: Railgun
+		BeamWidth: 0c30
+		BeamColor: DB2BFF
+		HelixAngleDeltaPerTick: 60
+		HelixAlphaDeltaPerTick: -15
+		HelixPitch: 0c126
+		HelixRadius: 0c25
+		QuantizationCount: 5
+		Duration: 20
+	Warhead@1: SpreadDamage
+		Damage: 6000
+		Versus:
+			None: 35
+
+ElectricBolt:
+	Inherits: ^ElectricBoltWeapon
+	ReloadDelay: 90
+	Burst: 2
+	BurstDelays: 20
+	Projectile: Missile
+		Image: electroball
+		Palette: tseffects
+		Speed: 400
+		TrailImage: electrobolt
+		TrailSequences: idle
+		TrailPalette: tseffects
+		TrailInterval: 1
+		MaximumLaunchSpeed: 96
+		Blockable: false
+		Shadow: false
+		Inaccuracy: 0
+		HorizontalRateOfTurn: 100
+		RangeLimit: 15c0
+		MinimumLaunchSpeed: 75
+		Speed: 216
+		Acceleration: 96
+		MinimumLaunchAngle: 128
+		MaximumLaunchAngle: 192
+		VerticalRateOfTurn: 100
+		HorizontalRateOfTurn: 100
+		CruiseAltitude: 1c512
+		AllowSnapping: true
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c256
+		Falloff: 100, 50, 25, 5
+		Versus:
+			None: 80
+		Damage: 9000
+	Warhead@3Eff: CreateEffect
+		Explosions: thunderstruck, thunderstruck2
+		ExplosionPalette: tseffects
+		ImpactSounds: chrge1.aud
+		ValidTargets: Ground, Water, GroundActor, WaterActor
+	Warhead@EMDamage: GrantExternalCondition
+		Range: 0c511
+		Duration: 200
+		Condition: emdamaged
+		ValidTargets: WaterActor, GroundActor
+
+PlaneElectricBolt:
+	Inherits: ^ElectricBoltWeapon
+	ReloadDelay: 50
+	Burst: 3
+	BurstDelays: 6
+	Projectile: Missile
+		Image: electroball
+		Palette: tseffects
+		Speed: 400
+		TrailImage: electrobolt
+		TrailSequences: idle
+		TrailPalette: tseffects
+		TrailInterval: 1
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c256
+		Falloff: 100, 50, 25, 5
+		Damage: 6000
+	Warhead@3Eff: CreateEffect
+		Explosions: thunderstruck, thunderstruck2
+		ExplosionPalette: tseffects
+		ImpactSounds: chrge1.aud
+		ValidTargets: Ground, Water, GroundActor, WaterActor
+	Warhead@EMDamage: GrantExternalCondition
+		Range: 0c511
+		Duration: 200
+		Condition: emdamaged
+		ValidTargets: WaterActor, GroundActor
+
+SM_ElectricBolt:
+	Inherits: ^ElectricBoltWeapon
+	ReloadDelay: 50
+	Burst: 1
+	Projectile: Missile
+		Image: sm_electroball
+		Palette: tseffects
+		Speed: 400
+		MaximumLaunchSpeed: 96
+		Blockable: false
+		Shadow: false
+		Inaccuracy: 0
+		HorizontalRateOfTurn: 100
+		RangeLimit: 15c0
+		MinimumLaunchSpeed: 75
+		Speed: 216
+		Acceleration: 96
+		MinimumLaunchAngle: 128
+		MaximumLaunchAngle: 192
+		VerticalRateOfTurn: 100
+		HorizontalRateOfTurn: 100
+		CruiseAltitude: 1c512
+		AllowSnapping: true
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c256
+		Falloff: 100, 50, 25, 5
+		Damage: 6000
+		Versus:
+			None: 80
+		ValidTargets: GroundActor, WaterActor
+		DamageTypes: Prone50Percent, TriggerProne, ElectricityDeath
+	Warhead@3Eff: CreateEffect
+		Explosions: thunderstruck, thunderstruck2
+		ExplosionPalette: tseffects
+		ImpactSounds: chrge1.aud
+		ValidTargets: Ground, Water, GroundActor, WaterActor
+	Warhead@EMDamage: GrantExternalCondition
+		Range: 0c511
+		Duration: 200
+		Condition: emdamaged
+		ValidTargets: WaterActor, GroundActor
+
 FireballLauncher:
 	Inherits: ^FireWeapon
 	Burst: 2
-	Report: flamer2.aud
+	Report: flamethrower2.aud
 	BurstDelays: 20
 	Projectile: Bullet
 		Speed: 250
@@ -56,6 +263,7 @@ Flamer:
 	ReloadDelay: 50
 	Burst: 15
 	BurstDelays: 1
+	Report: flamer1.aud, flamer2.aud, flamer3.aud, flamer4.aud
 	Projectile: Bullet
 		Speed: 170
 		TrailImage: fb4
@@ -70,6 +278,7 @@ Flamer:
 			Wood: 80
 			Tree: 80
 			Light: 40
+			Medium: 30
 			Heavy: 20
 			Concrete: 10
 	Warhead@3Eff: CreateEffect
@@ -90,22 +299,59 @@ Napalm:
 			Wood: 100
 			Concrete: 50
 
+Toxxer:
+	ValidTargets: Ground, Water, GroundActor, WaterActor, Trees
+	FirstBurstTargetOffset: -0c256,0,0
+	FollowingBurstTargetOffset: 0c128,0,0
+	ReloadDelay: 50
+	Report: flamer1.aud, flamer2.aud, flamer3.aud, flamer4.aud
+	Range: 5c0
+	Burst: 15
+	BurstDelays: 1
+	Projectile: Bullet
+		Speed: 170
+		TrailImage: toxb4
+		TrailPalette: poisonpal
+		Image: toxb3
+		Palette: poisonpal
+		LaunchAngle: 62
+		Inaccuracy: 853
+	Warhead@1Dam: SpreadDamage
+		Spread: 341
+		Damage: 1500
+		Versus:
+			None: 70
+			Wood: 60
+			Tree: 80
+			Light: 45
+			Medium: 42
+			Heavy: 40
+			Concrete: 10
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
+		ValidTargets: Ground, Water, GroundActor, WaterActor, Trees
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+		InvalidTargets: Structure, Wall
+	Warhead@3Eff: CreateEffect
+		Explosions: small_tox
+		ExplosionPalette: poisonpal
+		ImpactSounds: acid1.aud, acid2.aud, acid3.aud
+		ImpactActors: false
+		ValidTargets: Ground, Water, GroundActor, WaterActor, Trees
+
+TruckToxxer:
+	Inherits: Toxxer
+	Warhead@1Dam: SpreadDamage
+		Damage: 2000
+		Falloff: 100, 50, 25
+		Versus:
+			None: 50
+
 TeslaZap:
 	Inherits: ^TeslaWeapon
 	Warhead@1Dam: SpreadDamage
 		Versus:
 			Wood: 60
-
-ZapHolo:
-	Inherits: ^TeslaWeapon
-	ReloadDelay: 300
-	ValidTargets: Holo, GroundActor
-	Warhead@1Dam: SpreadDamage
-		Damage: 0
-		Versus:
-			Wood: 60
-		ValidRelationships: Ally
-		ValidTargets: Holo
 
 PortaTesla:
 	Inherits: ^TeslaWeapon
@@ -128,6 +374,31 @@ TTankZap:
 	Inherits: ^TeslaWeapon
 	ReloadDelay: 120
 	Range: 7c0
+	Warhead@Arc: FireShrapnel
+		Weapon: ChainLightning1
+		Amount: 1
+		AimChance: 90
+		ThrowWithoutTarget: false
+
+ChainLightning1:
+	Inherits: TTankZap
+	Range: 2c0
+	ValidTargets: GroundActor, Vehicle, Ship
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: GroundActor, Vehicle, Ship
+		ValidRelationships: Enemy, Neutral
+	Warhead@Arc: FireShrapnel
+		Weapon: ChainLightning2
+		ValidTargets: GroundActor, Vehicle, Ship
+		AimChance: 65
+
+ChainLightning2:
+	Inherits: TTankZap
+	Range: 2c0
+	ValidTargets: GroundActor, Vehicle, Ship
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: GroundActor, Vehicle, Ship
+		ValidRelationships: Enemy, Neutral
 
 DogJaw:
 	ValidTargets: Infantry
@@ -439,26 +710,17 @@ DropBombs:
 		Image: dropbombs
 		Shadow: True
 	Warhead@1Dam: SpreadDamage
-		Spread: 1000
-		Damage: 15000
+		Spread: 0c512
+		Damage: 7500
+		Falloff: 110, 100, 50, 25, 5, 0
 		ValidTargets: GroundActor, WaterActor
 		Versus:
 			None: 30
-			Wood: 40
-			Light: 65
-			Heavy: 55
-			Concrete: 50
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
-	Warhead@15Dam: SpreadDamage
-		Spread: 1c0
-		Damage: 7500
-		ValidTargets: GroundActor, WaterActor
-		Versus:
-			None: 100
-			Wood: 100
-			Light: 100
-			Heavy: 100
-			Concrete: 100
+			Wood: 70
+			Light: 70
+			Medium: 80
+			Heavy: 140
+			Concrete: 65
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Crater
@@ -486,26 +748,17 @@ Firebombs:
 		Acceleration: 0, 0, 0
 		Shadow: true
 	Warhead@1Dam: SpreadDamage
-		Spread: 1c5
-		Damage: 8000
+		Spread: 0c512
+		Falloff: 100, 75, 25, 5, 0
+		Damage: 6000
 		ValidTargets: GroundActor, WaterActor
 		Versus:
-			None: 30
-			Wood: 50
+			None: 55
+			Wood: 110
 			Light: 30
+			Medium: 25
 			Heavy: 20
-			Concrete: 30
-		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
-	Warhead@15Dam: SpreadDamage
-		Spread: 1c0
-		Damage: 2200
-		ValidTargets: GroundActor, WaterActor
-		Versus:
-			None: 50
-			Wood: 70
-			Light: 50
-			Heavy: 30
-			Concrete: 60
+			Concrete: 80
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Scorch
@@ -679,22 +932,47 @@ PrismHandHeld:
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Scorch
 
+TeutonPrism:
+	ReloadDelay: 20
+	Range: 6c0
+	Burst: 2
+	BurstDelays: 10
+	Report: prisray.aud
+	ValidTargets: Ground, GroundActor, Water, WaterActor
+	Projectile: LaserZap
+		Width: 85
+		HitAnim: laserfire
+		ZOffset: 2047
+		Color: 0094FF
+	Warhead@1Dam: SpreadDamage
+		Spread: 42
+		Damage: 8000
+		Versus:
+			Wood: 50
+			Light: 90
+			Medium: 85
+			Heavy: 80
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+		ValidTargets: Ground, GroundActor, Water, WaterActor
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+
 NapalmBomb:
 	Inherits: ^FireWeapon
 	ReloadDelay: 4
 	Range: 2c0
 	Burst: 2
 	BurstDelays: 2
-	Report: flamer2.aud
+	Report: flamethrower2.aud
 	Projectile: GravityBomb
 		Image: dropbombs
 		Shadow: true
 		Velocity: 40, 0, -74
 		Acceleration: 0, 0, 0
 	Warhead@1Dam: SpreadDamage
-		Spread: 341
+		Spread: 0c256
 		Damage: 3000
-		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		Falloff: 300, 200, 100, 50, 18, 7, 0
 		Versus:
 			Wood: 35
 			Heavy: 80
@@ -715,6 +993,7 @@ Firelance:
 		Falloff: 100,50,25,5
 		Versus:
 			None: 90
+			Wood: 80
 			Light: 60
 			Medium: 50
 			Heavy: 25
@@ -734,73 +1013,23 @@ Firelance:
 		ImpactSounds: firebl3.aud
 		ValidTargets: Ground, GroundActor, WaterActor, Trees
 
-SonicZapCondition:
-	ReloadDelay: 1
-	Range: 7c0
-	ValidTargets: GroundActor, WaterActor, Ground, Water
-	Projectile: LinearPulse
-		Speed: 768
-		ImpactInterval: 1
-		MinimumImpactDistance: 768
-	Warhead@Confusion: GrantExternalCondition
-		Condition: confusion
-		Duration: 200
-		Range: 1c0
-		ValidTargets: GroundActor, WaterActor, Ground, Water
-		Delay: 5
-
-SonicZap:
-	ReloadDelay: 180
-	Range: 7c0
-	Report: sonic4.aud
-	ValidTargets: Ground, Trees, GroundActor, Water, WaterActor
-	Projectile: AreaBeam
-		Speed: 0c512
-		Duration: 90
-		DamageInterval: 5 # Roughly 18 impacts.
-		Width: 384
-		Shape: Cylindrical
-		ZOffset: 2047
-		BeyondTargetRange: 0c256
-		Blockable: true
-		TrackTarget: true
-		Color: 50F5FF45
-	Warhead@1Dam: SpreadDamage
-		Spread: 0c512
-		Falloff: 200, 100, 50, 25, 5, 0
-		Damage: 150
-		AffectsParent: false
-		Versus:
-			None: 60
-			Wood: 10
-			Light: 15
-			Medium: 10
-			Heavy: 5
-			Concrete: 5
-		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
-		ValidTargets: Ground, Trees, GroundActor, Water, WaterActor
-
-TraktorWeapon:
-	Range: 7c0
+Drill:
 	ReloadDelay: 5
-	ValidTargets: Vehicle, Structure
-	Projectile: LaserZap
-		Color: E500FF
-		SecondaryBeam: True
-		SecondaryBeamColor: 690075
-	Warhead@Condition: GrantExternalCondition
-		Condition: empdisable
-		Duration: 10
-		ValidTargets: Vehicle, Structure
-	Warhead: SpreadDamage
-		Damage: 1
+	Range: 1c600
+	Burst: 50
+	BurstDelays: 5
+	Report: subdril1.aud
+	ValidTargets: GroundActor, WaterActor, Ground, Water
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Damage: 500
+		Spread: 0c256
+		Falloff: 100, 50, 25, 5
 		Versus:
-			None: 0
-			Wood: 0
-			Light: 0
-			Medium: 0
-			Heavy: 0
-			Concrete: 0
-		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
-		ValidTargets: Vehicle, Structure
-	
+			None: 100
+			Light: 100
+			Medium: 100
+			Heavy: 100
+			Concrete: 100
+		ValidTargets: GroundActor, WaterActor, Ground, Water
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath

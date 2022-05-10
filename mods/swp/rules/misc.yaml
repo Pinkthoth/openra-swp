@@ -324,6 +324,21 @@ powerproxy.parabombs:
 		ClockSequence: clock
 		CircleSequence: circles
 
+proxy.atektech:
+	AlwaysVisible:
+	ProvidesPrerequisite:
+		Prerequisite: atektech
+
+proxy.mtektech:
+	AlwaysVisible:
+	ProvidesPrerequisite:
+		Prerequisite: mtektech
+
+proxy.stektech:
+	AlwaysVisible:
+	ProvidesPrerequisite:
+		Prerequisite: stektech
+
 powerproxy.sonarpulse:
 	AlwaysVisible:
 	SpawnActorPower:
@@ -435,12 +450,32 @@ SMINE:
 
 SPYCAMERA:
 	Inherits: ^Mine
-	Tooltip:
-		Name: Spy Camera
 	RenderSprites:
-		Image: smine
+		Image: scam
 	RevealsShroud:
 		Range: 5c0
+	Mine:
+		CrushClasses: spycam
+		DetonateClasses: spycam
+		AvoidFriendly: false
+		BlockFriendly: false
+	Health:
+		HP: 10000
+		NotifyAppliedDamage: false
+	Armor:
+		Type: Light
+	-Cloak:
+	Tooltip:
+		Name: Spy Camera
+	Targetable:
+		TargetTypes: GroundActor, Mine
+	Cloak:
+		Palette: newcloak
+		InitialDelay: 90
+		CloakDelay: 90
+		CloakSound: appear1td.aud
+		UncloakSound: trans1td.aud
+		IsPlayerPalette: true
 
 SMOKECLOUD:
 	Inherits@helicopter: ^Helicopter

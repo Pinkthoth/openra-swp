@@ -9,6 +9,20 @@
 		DefeatMusic: map
 	TerrainGeometryOverlay:
 	DebugVisualizations:
+	SubterraneanLocomotor@SUBTERRANEAN:
+		Name: subterranean
+		Crushes: wall, crate, infantry
+		TerrainSpeeds:
+			Clear: 55
+			Rough: 45
+			Road: 75
+			Bridge: 75
+			Ore: 45
+			Gems: 45
+			Beach: 45
+			Subterranean: 60
+		SubterraneanTransitionTerrainTypes: Clear, Rough
+		SubterraneanTransitionCost: 200
 	Locomotor@FOOT:
 		Name: foot
 		Crushes: mine, crate
@@ -113,6 +127,7 @@
 			Gems: 70
 			Beach: 70
 	TerrainRenderer:
+	SubterraneanActorLayer:
 	ShroudRenderer:
 		FogVariants: shroud
 		Index: 255, 16, 32, 48, 64, 80, 96, 112, 128, 144, 160, 176, 192, 208, 224, 240, 20, 40, 56, 65, 97, 130, 148, 194, 24, 33, 66, 132, 28, 41, 67, 134, 1, 2, 4, 8, 3, 6, 12, 9, 7, 14, 13, 11, 5, 10, 15, 255
@@ -126,17 +141,17 @@
 		Name: Britain
 		InternalName: england
 		Side: Entente
-		Description: Kingdom of Great Britain\nFocus: Special Operatives and Intelligence\nSpecial Unit: Commando\nSpecial Unit: Warthog\nSpecial Ability: Radar Scan
+		Description: Kingdom of Great Britain\nFocus: Special Operatives and Intelligence\n\nSpecial Infantry: Commando\nSpecial Vehicle: Warthog\nSpecial Infantry: Sniper\nSpecial Ability: Radar Scan
 	Faction@2:
 		Name: France
 		InternalName: france
 		Side: Entente
-		Description: Republic of France\nFocus: Misdirection and Deception\nSpecial Unit: Fake structures\nSpecial Unit: Mobile Radar Jammer\nSpecial Ability: Smokescreen
+		Description: Republic of France\nFocus: Misdirection and Deception\n\nSpecial Infantry: Legionaire\nSpecial Building: Fake structures\nSpecial Vehicle: Mobile Radar Jammer\nSpecial Building: Camo Pillbox\nSpecial Building: Camo Turret
 	Faction@3:
 		Name: Germany
 		InternalName: germany
 		Side: Zentrum
-		Description: German Empire\nFocus: Specialists and Chrono Technology\nSpecial Unit: Field Surgeon\nSpecial unit: Tank Commander\nSpecial Unit: Chrono Tank
+		Description: German Empire\nFocus: Blitzkrieg and Chrono Technology\n\nSpecial Infantry: Tank Commander\nSpecial Vehicle: Recon Bike\nSpecial Vehicle: Chrono Tortoise\nSpecial Vehicle: Chrono Tank
 	Faction@4:
 		Name: Komintern
 		InternalName: soviet
@@ -146,62 +161,62 @@
 		Name: Russia
 		InternalName: russia
 		Side: Komintern
-		Description: Russian Soviet Republic\nFocus: Tesla and Curtain Technology\nSpecial Unit: Tesla Trooper\nSpecial Unit: Tesla Tank\nSpecial Unit: Grinder
+		Description: Russian Soviet Republic\nFocus: Tesla and Curtain Technology\n\nSpecial Infantry: Tesla Trooper\nSpecial Vehicle: Tesla Tank\nSpecial Helicopter: Tesla Hind\nSpecial Vehicle: Grinder
 	Faction@6:
 		Name: Ukraine
 		InternalName: ukraine
 		Side: Komintern
-		Description: Ukrainian Soviet Republic\nFocus: Magnetic and Veil Technology\nSpecial Unit: Nightwitch\nSpecial Unit: Maglev Tank\nSpecial Unit: Mobile Veil Generator\nSpecial Unit: Veil Generator
+		Description: Ukrainian Soviet Republic\nFocus: Magnetic and Veil Technology\n\nSpecial Infantry: Nightwitch\nSpecial Vehicle: Maglev Tank\nSpecial Vehicle: Traktor\nSpecial Vehicle: Mobile Veil Generator\nSpecial Building: Veil Generator
 	Faction@7:
 		Name: Japan
 		InternalName: japan
 		Side: Entente
-		Description: Empire of Japan\nFocus: Phase Technology\nSpecial Unit: Shinobi\nSpecial Unit: Phase Tank\nSpecial Unit: Phase APC
+		Description: Empire of Japan\nFocus: Phase Technology\n\nSpecial Infantry: Shinobi\nSpecial Vehicle: Ronin\nSpecial Vehicle: Ebi\nSpecial Vehicle: Kitsune
 	Faction@8:
 		Name: USA
 		InternalName: usa
 		Side: Entente
-		Description: United States of America\nFocus: Electromagnetism\nSpecial Unit: EMP Rocketeer\nSpecial Unit: Tele EMP Device\nSpecial Unit: Tele-Tank
+		Description: United States of America\nFocus: Electromagnetism\n\nSpecial Infantry: Arc Blaster\nSpecial Vehicle: Arc Thrower\nSpecial Vehicle: EMP Device\nSpecial Vehicle: Beetle
 	Faction@17:
-		Name: Serbia
+		Name: Spain
 		InternalName: serbia
 		Side: Entente
-		Description: Kingdom of Serbia\nFocus: Heavy Weaponry\nSpecial Units: Anti-Tank Crew\nSpecial Unit: Vitez\nSpecial Unit: Knez Cannon
+		Description: Spanish Republic\nFocus: Heavy Weaponry\n\nSpecial Infantry: Anti-Tank Crew\nSpecial Vehicle: Caballero\nSpecial Building: Grand Cannon\nSpecial Plane: Aguila
 	Faction@9:
 		Name: China
 		InternalName: china
 		Side: Komintern
-		Description: People's Republic of China\nFocus: Infantry Focus\nSpecial Unit: Militia\nSpecial Unit: Louchuan\nSpecial Unit: Flaktrooper
+		Description: People's Republic of China\nFocus: Infantry Focus\n\nSpecial Infantry: Militia\nSpecial Vehicle: Louchuan\nSpecial Infantry: Flaktrooper\nSpecial Ability: Guerilla Drop
 	Faction@16:
-		Name: Alash Orda
+		Name: Turkmenia
 		InternalName: kazakhstan
 		Side: Komintern
-		Description: Soviet Federation of Alash Autonomy\nFocus: Explosives & Scavenging\nSpecial Unit: Kulak\nSpecial Unit: Scavenger\nSpecial Unit: MAD Tank
+		Description: Federation of Turkic Soviets\nFocus: Explosives & Salvaging\n\nSpecial Infantry: Kulak\nSpecial Vehicle: Waste Tanker\nSpecial Infantry: Waste Warrior\nSpecial Infantry: Salvager
 	Faction@10:
 		Name: Italy
 		InternalName: italy
 		Side: Zentrum
-		Description: Kingdom of Italy\nFocus: Trench Warfare\nSpecial Unit: Pioneer\nSpecial Unit: Trench\nSpecial Unit: Testudo
+		Description: Kingdom of Italy\nFocus: Trench Warfare\n\nSpecial Infantry: Pioneer\nSpecial Vehicle: Testudo\nSpecial Building: Trench\nSpecial Vehicle: Sapper
 	Faction@11:
 		Name: Mongolia
 		InternalName: mongolia
 		Side: Komintern
-		Description: People's Republic of Mongolia\nFocus: Hit & Run\nSpecial Unit: Cavalry\nSpecial Unit: Raider\nSpecial Unit: Orda
+		Description: People's Republic of Mongolia\nFocus: Hit & Run Tactics\n\nSpecial Infantry: Cavalry\nSpecial Vehicle: Raider\nSpecial Vehicle: Khan\nSpecial Vehicle: Orda
 	Faction@12:
 		Name: Austria
 		InternalName: austria
 		Side: Zentrum
-		Description: Austro-Hungarian Empire\nFocus: Refractor Technology\nSpecial Unit: Refractor Guard\nSpecial Unit: Mobile Refractor\nSpecial Unit: Wasp
+		Description: Austro-Hungarian Empire\nFocus: Refractor and Lazarus Technology\n\nSpecial Infantry: Refractor Guard\nSpecial Vehicle: Refractor Cannon\nSpecial Helicopter: Wasp\nSpecial Infantry: Lazarus Operator
 	Faction@13:
 		Name: Ottomans
 		InternalName: turkey
 		Side: Zentrum
-		Description: Ottoman Empire\nFocus: Thermal Technology\nSpecial Unit: Molotov Thrower\nSpecial Unit: Flame Tank\nSpecial Unit: Ifrit
+		Description: Ottoman Empire\nFocus: Thermal Technology\n\nSpecial Infantry: Molotov Thrower\nSpecial Vehicle: Flame Tank\nSpecial Vehicle: Thermal Missile Launcher\nSpecial Vehicle: Ifrit
 	Faction@15:
 		Name: Bulgaria
 		InternalName: bulgaria
 		Side: Zentrum
-		Description: Tsardom of Bulgaria\nFocus: Indirect Fire\nSpecial Unit: Mortar\nSpecial Unit: Czar\nSpecial Unit: Zeppelin
+		Description: Tsardom of Bulgaria\nFocus: Indirect Fire\n\nSpecial Infantry: Mortar\nSpecial Vehicle: Czar\nSpecial Aircraft: Zeppelin\nSpecial Ability: Smokescreen
 	Faction@14:
 		Name: Zentrum
 		InternalName: zentrum
