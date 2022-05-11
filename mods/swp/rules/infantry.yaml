@@ -1925,9 +1925,15 @@ FLKTRP:
 	Health:
 		HP: 5000
 	Armament@AA:
+		Name: primary
 		Weapon: FLAK-23-AA-Inf
+		ReloadingCondition: primary-reloading
+		PauseOnCondition: secondary-reloading
 	Armament@AG:
+		Name: secondary
 		Weapon: FLAK-23-AG-Inf
+		ReloadingCondition: secondary-reloading
+		PauseOnCondition: primary-reloading
 	Armament@AA-Garrisoned:
 		Name: garrisoned
 		Weapon: FLAK-23-AA-Inf
@@ -2134,8 +2140,6 @@ NIGHTWITCHAIR:
 		Sequence: attack
 	ProducibleWithLevel:
 		Prerequisites: barracks.upgraded
-	SpawnActorOnDeath:
-		Actor: NIGHTWITCH.Corpse
 	Transforms:
 		IntoActor: nightwitch
 		Offset: 0,0
@@ -2152,6 +2156,30 @@ NIGHTWITCHAIR:
 		Bounds: 18,20,0,-6
 		DecorationBounds: 12,18,0,-10
 		Class: NIGHTWITCH
+	SpawnActorOnDeath:
+		Actor: NIGHTWITCHAIR.Husk
+
+NIGHTWITCHAIR.Husk:
+	Inherits: ^HelicopterHusk
+	Tooltip:
+		Name: Nightwitch
+	Aircraft:
+		TurnSpeed: 16
+		Speed: 112
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 6c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 6c0
+		Type: GroundPosition
+	RenderSprites:
+		Image: nightwitchhusk
+	-WithFacingSpriteBody:
+	WithSpriteBody:
+	SpawnActorOnDeath:
+		Actor: NIGHTWITCH.Corpse
 
 PNEER:
 	Inherits: ^Soldier

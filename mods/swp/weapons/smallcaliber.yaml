@@ -125,7 +125,8 @@ ZSU-23:
 			None: 25
 			Wood: 75
 			Light: 75
-			Heavy: 100
+			Medium: 65
+			Heavy: 55
 			Concrete: 50
 
 FLAK-23-AA:
@@ -142,6 +143,13 @@ FLAK-23-AA-Static:
 	Warhead@1Dam: SpreadDamage
 		Spread: 213
 		Damage: 3000
+		Versus:
+			None: 25
+			Wood: 75
+			Light: 75
+			Medium: 65
+			Heavy: 55
+			Concrete: 50
 
 FLAK-23-AG:
 	Inherits: ^AACannon
@@ -179,7 +187,7 @@ FLAK-23-AA-Inf:
 	ReloadDelay: 20
 	Warhead@1Dam: SpreadDamage
 		Spread: 213
-		Damage: 1000
+		Damage: 500
 
 Archer-AG:
 	Inherits: ZSU-23
@@ -824,6 +832,73 @@ TNKT:
 		ValidTargets: Water
 		Delay: 8
 
+TESTUDOGUN:
+	Inherits: ^HeavyMG
+	ReloadDelay: 30
+	Range: 4c512
+	Report: 20MMGUN2.aud
+	Burst: 1
+	Warhead@1Dam: SpreadDamage
+		Damage: 1150
+		Versus:
+			None: 100
+			Wood: 35
+			Light: 35
+			Medium: 25
+			Heavy: 10
+			Concrete: 20
+	Warhead@2Dam_2: SpreadDamage
+		Spread: 128
+		Damage: 1150
+		Delay: 2
+		ValidTargets: GroundActor, WaterActor
+		Versus:
+			None: 100
+			Wood: 35
+			Light: 35
+			Medium: 25
+			Heavy: 10
+			Concrete: 20
+		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+	Warhead@3Dam_2: SpreadDamage
+		Spread: 128
+		Damage: 1150
+		Delay: 4
+		ValidTargets: GroundActor, WaterActor
+		Versus:
+			None: 100
+			Wood: 35
+			Light: 35
+			Medium: 25
+			Heavy: 10
+			Concrete: 20
+		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+	Warhead@4Dam_2: SpreadDamage
+		Spread: 128
+		Damage: 1150
+		Delay: 6
+		ValidTargets: GroundActor, WaterActor
+		Versus:
+			None: 100
+			Wood: 35
+			Light: 35
+			Medium: 25
+			Heavy: 10
+			Concrete: 20
+		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+	Warhead@2Eff: CreateEffect
+		Inaccuracy: 213
+	Warhead@3EffWater: CreateEffect
+		Inaccuracy: 213
+	Warhead@10Eff_5: CreateEffect
+		Explosions: piffs
+		ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
+		Delay: 4
+	Warhead@10Eff_5_water: CreateEffect
+		Explosions: piffs
+		ValidTargets: Water
+		Delay: 8
+
 APCGun:
 	Inherits: ^HeavyMG
 	ReloadDelay: 9
@@ -864,7 +939,7 @@ APCGun.AA:
 	Warhead@2Eff: CreateEffect
 		ValidTargets: Ground, Water, Air, GroundActor
 		ImpactActors: false
-		Explosions: piffs
+		Explosions: small_explosion_air
 
 GuerillaCarbine:
 	Inherits: ^LightMG

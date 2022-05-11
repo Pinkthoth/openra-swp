@@ -387,7 +387,7 @@ ltnkfire:
 	Warhead@1Dam: SpreadDamage
 		Damage: 8000
 		Spread: 0c256
-		Falloff: 100, 75, 50, 25, 5
+		Falloff: 100, 75, 50, 25
 		Versus:
 			None: 30
 			Wood: 75

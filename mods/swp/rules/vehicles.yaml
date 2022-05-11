@@ -174,6 +174,21 @@ MNLY:
 		Position: BottomLeft
 		Margin: 4, 3
 		RequiresSelection: true
+	SpawnActorOnDeath:
+		Actor: MNLY.Husk
+
+MNLY.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Minelayer)
+	TransformOnCapture@Mechanic:
+		IntoActor: MNLY
+	TransformOnCapture@Engineer:
+		IntoActor: MNLY
+	InfiltrateForTransform:
+		IntoActor: MNLY
+	RenderSprites:
+		Image: mnly
 
 TRUK:
 	Inherits: ^Vehicle
@@ -247,6 +262,21 @@ ARMCR:
 	WithSpriteTurret:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
+	SpawnActorOnDeath:
+		Actor: ARMCR.Husk
+
+ARMCR.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Bobcat)
+	TransformOnCapture@Mechanic:
+		IntoActor: ARMCR
+	TransformOnCapture@Engineer:
+		IntoActor: ARMCR
+	InfiltrateForTransform:
+		IntoActor: ARMCR
+	RenderSprites:
+		Image: armcr
 
 HLFTRK:
 	Inherits: ^TrackedVehicle
@@ -296,7 +326,22 @@ HLFTRK:
 		LoadingCondition: notmobile
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
-		
+	SpawnActorOnDeath:
+		Actor: HLFTRK.Husk
+
+HLFTRK.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Halftrack)
+	TransformOnCapture@Mechanic:
+		IntoActor: HLFTRK
+	TransformOnCapture@Engineer:
+		IntoActor: HLFTRK
+	InfiltrateForTransform:
+		IntoActor: HLFTRK
+	RenderSprites:
+		Image: hlftrk
+
 PUMA:
 	Inherits: ^Vehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
@@ -340,6 +385,21 @@ PUMA:
 	WithSpriteTurret:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
+	SpawnActorOnDeath:
+		Actor: PUMA.Husk
+
+PUMA.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Puma)
+	TransformOnCapture@Mechanic:
+		IntoActor: PUMA
+	TransformOnCapture@Engineer:
+		IntoActor: PUMA
+	InfiltrateForTransform:
+		IntoActor: PUMA
+	RenderSprites:
+		Image: puma
 
 PRISMCANNON:
 	Inherits: ^TrackedVehicle
@@ -357,13 +417,13 @@ PRISMCANNON:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 40000
+		HP: 30000
 	Armor:
 		Type: Medium
 	Mobile:
 		Speed: 65
 		TurnSpeed: 10
-		PauseOnCondition: being-captured
+		PauseOnCondition: being-captured || empdisable
 	RevealsShroud:
 		MinRange: 4c0
 		Range: 5c0
@@ -606,6 +666,21 @@ MSAM:
 	ReloadAmmoPool:
 		Delay: 80
 		Count: 1
+	SpawnActorOnDeath:
+		Actor: MSAM.Husk
+
+MSAM.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Mobile S.A.M)
+	TransformOnCapture@Mechanic:
+		IntoActor: MSAM
+	TransformOnCapture@Engineer:
+		IntoActor: MSAM
+	InfiltrateForTransform:
+		IntoActor: MSAM
+	RenderSprites:
+		Image: msam
 
 ECTNK:
 	Inherits: ^Vehicle
@@ -638,8 +713,13 @@ ECTNK:
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 4c0
+	Armament:
+		Weapon: M60mg-apc
+		LocalOffset: 450,0,151
+		MuzzleSequence: muzzle
 	AttackFrontal:
 		PauseOnCondition: empdisable
+	WithMuzzleOverlay:
 	PortableChrono:
 		ChargeDelay: 250
 		KillCargo: False
@@ -651,6 +731,21 @@ ECTNK:
 		Types: Infantry
 		MaxWeight: 5
 		LoadingCondition: notmobile
+	SpawnActorOnDeath:
+		Actor: ECTNK.Husk
+
+ECTNK.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Chrono Tortoise)
+	TransformOnCapture@Mechanic:
+		IntoActor: ECTNK
+	TransformOnCapture@Engineer:
+		IntoActor: ECTNK
+	InfiltrateForTransform:
+		IntoActor: ECTNK
+	RenderSprites:
+		Image: ectnk
 
 CTNK:
 	Inherits: ^Vehicle
@@ -697,6 +792,21 @@ CTNK:
 		Prerequisites: vehicles.upgraded
 	Selectable:
 		DecorationBounds: 30, 30
+	SpawnActorOnDeath:
+		Actor: CTNK.Husk
+
+CTNK.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Chrono Tank)
+	TransformOnCapture@Mechanic:
+		IntoActor: CTNK
+	TransformOnCapture@Engineer:
+		IntoActor: CTNK
+	InfiltrateForTransform:
+		IntoActor: CTNK
+	RenderSprites:
+		Image: ctnk
 
 MAUS:
 	Inherits: ^TrackedVehicle
@@ -798,6 +908,21 @@ MRJ:
 		DeflectionRelationships: Neutral, Enemy
 		RequiresCondition: !empdisable
 	RenderJammerCircle:
+	SpawnActorOnDeath:
+		Actor: MRJ.Husk
+
+MRJ.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Mobile Radar Jammer)
+	TransformOnCapture@Mechanic:
+		IntoActor: MRJ
+	TransformOnCapture@Engineer:
+		IntoActor: MRJ
+	InfiltrateForTransform:
+		IntoActor: MRJ
+	RenderSprites:
+		Image: mrj
 
 #Komintern units
 TRNSPRT:
@@ -828,6 +953,21 @@ TRNSPRT:
 		Types: Infantry
 		MaxWeight: 7
 		LoadingCondition: notmobile
+	SpawnActorOnDeath:
+		Actor: TRNSPRT.Husk
+
+TRNSPRT.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Transport Truck)
+	TransformOnCapture@Mechanic:
+		IntoActor: TRNSPRT
+	TransformOnCapture@Engineer:
+		IntoActor: TRNSPRT
+	InfiltrateForTransform:
+		IntoActor: TRNSPRT
+	RenderSprites:
+		Image: trnsprt
 
 FTRK:
 	Inherits: ^Vehicle
@@ -881,6 +1021,22 @@ FTRK:
 		Prerequisites: vehicles.upgraded
 	Selectable:
 		DecorationBounds: 28,28
+	SpawnActorOnDeath:
+		Actor: FTRK.Husk
+
+FTRK.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Mobile Flak)
+	TransformOnCapture@Mechanic:
+		IntoActor: FTRK
+	TransformOnCapture@Engineer:
+		IntoActor: FTRK
+	InfiltrateForTransform:
+		IntoActor: FTRK
+	RenderSprites:
+		Image: ftrk
+		Scale: 0.9
 
 TNKT:
 	Inherits: ^TrackedVehicle
@@ -977,6 +1133,7 @@ BTR:
 		Offset: 120,0,250
 		TurnSpeed: 28
 	AttackTurreted:
+		PauseOnCondition: empdisable
 	WithSpriteTurret:
 	WithMuzzleOverlay:
 	Cargo:
@@ -985,6 +1142,21 @@ BTR:
 		LoadingCondition: notmobile
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
+	SpawnActorOnDeath:
+		Actor: BTR.Husk
+
+BTR.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Bronetransporter)
+	TransformOnCapture@Mechanic:
+		IntoActor: BTR
+	TransformOnCapture@Engineer:
+		IntoActor: BTR
+	InfiltrateForTransform:
+		IntoActor: BTR
+	RenderSprites:
+		Image: btr
 
 MTNK:
 	Inherits: ^TrackedVehicle
@@ -1207,6 +1379,21 @@ MGG:
 	RevealsShroud@GAPGEN:
 		Range: 4c0
 	RenderShroudCircle:
+	SpawnActorOnDeath:
+		Actor: MGG.Husk
+
+MGG.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Mobile Veil Generator)
+	TransformOnCapture@Mechanic:
+		IntoActor: MGG
+	TransformOnCapture@Engineer:
+		IntoActor: MGG
+	InfiltrateForTransform:
+		IntoActor: MGG
+	RenderSprites:
+		Image: mgg
 
 T100:
 	Inherits: ^TrackedVehicle
@@ -1316,6 +1503,22 @@ JEEP:
 	WithSpriteTurret:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
+	SpawnActorOnDeath:
+		Actor: JEEP.Husk
+
+JEEP.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Ranger)
+	TransformOnCapture@Mechanic:
+		IntoActor: JEEP
+	TransformOnCapture@Engineer:
+		IntoActor: JEEP
+	InfiltrateForTransform:
+		IntoActor: JEEP
+	RenderSprites:
+		Image: jeep
+		Scale: 0.9
 
 APC:
 	Inherits: ^TrackedVehicle
@@ -1351,6 +1554,7 @@ APC:
 		LocalOffset: 85,0,171
 		MuzzleSequence: muzzle
 	AttackFrontal:
+		PauseOnCondition: empdisable
 	WithMuzzleOverlay:
 	Cargo:
 		Types: Infantry
@@ -1359,6 +1563,22 @@ APC:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	RenderSprites:
+		Scale: 0.9
+	SpawnActorOnDeath:
+		Actor: APC.Husk
+
+APC.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Armored Personnel Carrier)
+	TransformOnCapture@Mechanic:
+		IntoActor: APC
+	TransformOnCapture@Engineer:
+		IntoActor: APC
+	InfiltrateForTransform:
+		IntoActor: APC
+	RenderSprites:
+		Image: apc
 		Scale: 0.9
 
 TRAKTOR:
@@ -1393,8 +1613,24 @@ TRAKTOR:
 		Weapon: TraktorBeam
 		LocalOffset: 500,0,290
 	AttackFrontal:
+		PauseOnCondition: empdisable
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
+	SpawnActorOnDeath:
+		Actor: TRAKTOR.Husk
+
+TRAKTOR.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Traktor)
+	TransformOnCapture@Mechanic:
+		IntoActor: TRAKTOR
+	TransformOnCapture@Engineer:
+		IntoActor: TRAKTOR
+	InfiltrateForTransform:
+		IntoActor: TRAKTOR
+	RenderSprites:
+		Image: traktor
 
 WASTETANKER:
 	Inherits: ^TrackedVehicle
@@ -1428,8 +1664,24 @@ WASTETANKER:
 		Weapon: TruckToxxer
 		LocalOffset: 700,0,340
 	AttackFrontal:
+		PauseOnCondition: empdisable
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
+	SpawnActorOnDeath:
+		Actor: WASTETANKER.Husk
+
+WASTETANKER.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Waste Tanker)
+	TransformOnCapture@Mechanic:
+		IntoActor: WASTETANKER
+	TransformOnCapture@Engineer:
+		IntoActor: WASTETANKER
+	InfiltrateForTransform:
+		IntoActor: WASTETANKER
+	RenderSprites:
+		Image: wastetanker
 
 IFV:
 	Inherits: ^TrackedVehicle
@@ -1505,6 +1757,21 @@ IFV:
 		Types: Infantry
 		MaxWeight: 3
 		LoadingCondition: notmobile
+	SpawnActorOnDeath:
+		Actor: IFV.Husk
+
+IFV.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Warthog)
+	TransformOnCapture@Mechanic:
+		IntoActor: IFV
+	TransformOnCapture@Engineer:
+		IntoActor: IFV
+	InfiltrateForTransform:
+		IntoActor: IFV
+	RenderSprites:
+		Image: ifv
 
 SIPAHI:
 	Inherits: ^Vehicle
@@ -1750,6 +2017,21 @@ SIPAHI:
 		Range: 4c0
 		Color: FF5432
 		RequiresCondition: paspolitruk
+	SpawnActorOnDeath:
+		Actor: SIPAHI.Husk
+
+SIPAHI.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Caballero)
+	TransformOnCapture@Mechanic:
+		IntoActor: SIPAHI
+	TransformOnCapture@Engineer:
+		IntoActor: SIPAHI
+	InfiltrateForTransform:
+		IntoActor: SIPAHI
+	RenderSprites:
+		Image: sipahi
 
 RTNK:
 	Inherits: ^TrackedVehicle
@@ -1795,6 +2077,21 @@ RTNK:
 	WithSpriteTurret:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
+	SpawnActorOnDeath:
+		Actor: RTNK.Husk
+
+RTNK.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Squire)
+	TransformOnCapture@Mechanic:
+		IntoActor: RTNK
+	TransformOnCapture@Engineer:
+		IntoActor: RTNK
+	InfiltrateForTransform:
+		IntoActor: RTNK
+	RenderSprites:
+		Image: rtnk
 
 RONIN:
 	Inherits: ^TrackedVehicle
@@ -1845,6 +2142,21 @@ RONIN:
 	WithSpriteTurret:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
+	SpawnActorOnDeath:
+		Actor: RONIN.Husk
+
+RONIN.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Ronin)
+	TransformOnCapture@Mechanic:
+		IntoActor: RONIN
+	TransformOnCapture@Engineer:
+		IntoActor: RONIN
+	InfiltrateForTransform:
+		IntoActor: RONIN
+	RenderSprites:
+		Image: ronin
 
 PAPC:
 	Inherits: ^TrackedVehicle
@@ -1880,6 +2192,7 @@ PAPC:
 		LocalOffset: 190,0,270
 		MuzzleSequence: muzzle
 	AttackFrontal:
+		PauseOnCondition: empdisable
 	WithMuzzleOverlay:
 	Cargo:
 		Types: Infantry
@@ -1899,6 +2212,21 @@ PAPC:
 	GrantConditionOnDamageState@UNCLOAK:
 		Condition: cloak-force-disabled
 		ValidDamageStates: Critical
+	SpawnActorOnDeath:
+		Actor: PAPC.Husk
+
+PAPC.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Ebi)
+	TransformOnCapture@Mechanic:
+		IntoActor: PAPC
+	TransformOnCapture@Engineer:
+		IntoActor: PAPC
+	InfiltrateForTransform:
+		IntoActor: PAPC
+	RenderSprites:
+		Image: papc
 
 PTNK:
 	Inherits: ^TrackedVehicle
@@ -1954,6 +2282,21 @@ PTNK:
 	GrantConditionOnDamageState@UNCLOAK:
 		Condition: cloak-force-disabled
 		ValidDamageStates: Critical
+	SpawnActorOnDeath:
+		Actor: PTNK.Husk
+
+PTNK.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Kitsune)
+	TransformOnCapture@Mechanic:
+		IntoActor: PTNK
+	TransformOnCapture@Engineer:
+		IntoActor: PTNK
+	InfiltrateForTransform:
+		IntoActor: PTNK
+	RenderSprites:
+		Image: ptnk
 
 LTNK:
 	Inherits: ^TrackedVehicle
@@ -2057,6 +2400,7 @@ TELEDRONE:
 		LocalOffset: 0,0,0
 	AttackMove:
 	AttackTurreted:
+		PauseOnCondition: empdisable
 	WithSpriteTurret:
 	GrantConditionOnPrerequisite@radaronline:
 		Condition: tobedisabled
@@ -2162,15 +2506,16 @@ EMPDEVICE:
 	RevealsShroud@GAPGEN:
 		Range: 4c0
 	GrantConditionOnDeploy:
-		DeployedCondition: iexplode
+		DeployedCondition: deployed
+		UndeployedCondition: undeployed
 		PauseOnCondition: empdisable
 	KillsSelf:
-		RequiresCondition: iexplode
+		RequiresCondition: deployed && !undeployed
 		Delay: 1
 	Explodes@EMPExplode:
 		Weapon: EMPulseCannon
 		EmptyWeapon: EMPulseCannon
-		RequiresCondition: iexplode
+		RequiresCondition: deployed
 	WithRangeCircle:
 		Color: FFFF0080
 		Range: 7c0
@@ -2242,7 +2587,7 @@ ARCHER:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 240
+		BuildPaletteOrder: 261
 		Prerequisites: dome, ~vehicles.entente, ~techlevel.high
 		Description: Long range tank destroyer.\n  Strong vs Vehicles, Defenses\n  Weak vs Infantry, Aircraft
 	Valued:
@@ -2252,7 +2597,7 @@ ARCHER:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 38000
+		HP: 30000
 	Armor:
 		Type: Heavy
 	Mobile:
@@ -2310,7 +2655,7 @@ ENTENTEAA:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 55000
+		HP: 52500
 	Armor:
 		Type: Heavy
 	Mobile:
@@ -2353,6 +2698,21 @@ ENTENTEAA:
 		DecorationBounds: 28,28
 	RenderSprites:
 		Image: marksman
+	SpawnActorOnDeath:
+		Actor: ENTENTEAA.Husk
+
+ENTENTEAA.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Marksman)
+	TransformOnCapture@Mechanic:
+		IntoActor: ENTENTEAA
+	TransformOnCapture@Engineer:
+		IntoActor: ENTENTEAA
+	InfiltrateForTransform:
+		IntoActor: ENTENTEAA
+	RenderSprites:
+		Image: ententeaa
 	
 HVRTNKTNK:
 	Inherits: ^TrackedVehicle
@@ -2391,6 +2751,7 @@ HVRTNKTNK:
 		RecoilRecovery: 25
 		LocalOffset: 468,0,100
 	AttackTurreted:
+		PauseOnCondition: empdisable
 	WithSpriteTurret:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
@@ -2484,6 +2845,8 @@ HVRTNKHVR.Husk:
 		Type: GroundPosition
 	RenderSprites:
 		Image: hvrtnkhvrhusk
+	SpawnActorOnDeath:
+		Actor: HVRTNKTNK.Husk
 
 GRINDER:
 	Inherits: ^TrackedVehicle
@@ -2579,6 +2942,7 @@ TTNK:
 		Weapon: TTankZap
 		LocalOffset: 0,0,213
 	AttackTurreted:
+		PauseOnCondition: empdisable
 	Turreted:
 	WithIdleOverlay@SPINNER:
 		Sequence: spinner
@@ -2586,7 +2950,22 @@ TTNK:
 		Prerequisites: vehicles.upgraded
 	Selectable:
 		DecorationBounds: 30,30
-		
+	SpawnActorOnDeath:
+		Actor: TTNK.Husk
+
+TTNK.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Tesla Tank)
+	TransformOnCapture@Mechanic:
+		IntoActor: TTNK
+	TransformOnCapture@Engineer:
+		IntoActor: TTNK
+	InfiltrateForTransform:
+		IntoActor: TTNK
+	RenderSprites:
+		Image: ttnk
+
 FLMTNK:
 	Inherits: ^TrackedVehicle
 	Inherits@EXPERIENCE: ^GainsExperience
@@ -2620,11 +2999,27 @@ FLMTNK:
 		Offset: -50,0,130
 		TurnSpeed: 8
 	AttackTurreted:
+		PauseOnCondition: empdisable
 	WithSpriteTurret:
 	Explodes:
 		Weapon: V2Explode
 	Selectable:
 		DecorationBounds: 32,32
+	SpawnActorOnDeath:
+		Actor: FLMTNK.Husk
+
+FLMTNK.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Flame Tank)
+	TransformOnCapture@Mechanic:
+		IntoActor: FLMTNK
+	TransformOnCapture@Engineer:
+		IntoActor: FLMTNK
+	InfiltrateForTransform:
+		IntoActor: FLMTNK
+	RenderSprites:
+		Image: flmtnk
 
 FIRELANCER:
 	Inherits: ^TrackedVehicle
@@ -2658,11 +3053,27 @@ FIRELANCER:
 		MuzzleSequence: muzzle
 		MuzzlePalette: tseffects
 	AttackFrontal:
+		PauseOnCondition: empdisable
 	Explodes:
 		Weapon: V2Explode
 	Selectable:
 		DecorationBounds: 32,32
 	WithMuzzleOverlay:
+	SpawnActorOnDeath:
+		Actor: FIRELANCER.Husk
+
+FIRELANCER.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Ifrit)
+	TransformOnCapture@Mechanic:
+		IntoActor: FIRELANCER
+	TransformOnCapture@Engineer:
+		IntoActor: FIRELANCER
+	InfiltrateForTransform:
+		IntoActor: FIRELANCER
+	RenderSprites:
+		Image: firelancer
 
 IFRIT:
 	Inherits: ^Vehicle
@@ -2795,6 +3206,21 @@ HELGA:
 		Type: armament
 		RequiresCondition: deployed
 		Range: 13c512
+	SpawnActorOnDeath:
+		Actor: HELGA.Husk
+
+HELGA.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Czar)
+	TransformOnCapture@Mechanic:
+		IntoActor: HELGA
+	TransformOnCapture@Engineer:
+		IntoActor: HELGA
+	InfiltrateForTransform:
+		IntoActor: HELGA
+	RenderSprites:
+		Image: bigbertha
 
 SAPPER:
 	Inherits: ^TrackedVehicle
@@ -2835,6 +3261,8 @@ SAPPER:
 		SubterraneanTransitionSequence: idle
 		SubterraneanTransitionSound: subdril1.aud
 	AttackFrontal:
+		FacingTolerance: 45
+		PauseOnCondition: empdisable
 	Armament:
 		Weapon: drill
 	WithAttackAnimation:
@@ -2852,6 +3280,21 @@ SAPPER:
 		Palette: player
 		Position: Center
 		IsPlayerPalette: True
+	SpawnActorOnDeath:
+		Actor: SAPPER.Husk
+
+SAPPER.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Sapper)
+	TransformOnCapture@Mechanic:
+		IntoActor: SAPPER
+	TransformOnCapture@Engineer:
+		IntoActor: SAPPER
+	InfiltrateForTransform:
+		IntoActor: SAPPER
+	RenderSprites:
+		Image: sapper
 
 TESTUDO.Husk:
 	Inherits: ^Husk
@@ -2939,17 +3382,18 @@ TESTUDO:
 	AttackTurreted:
 		Turrets: undeployed-turret, deployed-turret
 		Armaments: primary, secondary, tertiary, quarternary
+		PauseOnCondition: empdisable
 	Armament@undeployed:
 		Name: primary
 		Turret: undeployed-turret
-		Weapon: tnkt
+		Weapon: testudogun
 		LocalOffset: 180,120,100
 		MuzzleSequence: muzzle-mg1
 		RequiresCondition: undeployed
 		PauseOnCondition: !undeployed
 	Armament@MG-undeployed:
 		Turret: undeployed-turret
-		Weapon: tnkt
+		Weapon: testudogun
 		Name: secondary
 		LocalOffset: 180,-120,100
 		MuzzleSequence: muzzle-mg1
@@ -2958,7 +3402,7 @@ TESTUDO:
 	Armament@deployed:
 		Name: tertiary
 		Turret: deployed-turret
-		Weapon: tnkt
+		Weapon: testudogun
 		LocalOffset: 260,120,400
 		MuzzleSequence: muzzle-mg1
 		RequiresCondition: deployed
@@ -2966,7 +3410,7 @@ TESTUDO:
 	Armament@MG-deployed:
 		Name: quarternary
 		Turret: deployed-turret
-		Weapon: tnkt
+		Weapon: testudogun
 		LocalOffset: 260,-120,400
 		MuzzleSequence: muzzle-mg1
 		RequiresCondition: deployed
@@ -2975,7 +3419,7 @@ TESTUDO:
 	RevealOnFire:
 		ArmamentNames: deployed
 	DamageMultiplier@deployed:
-		Modifier: 85
+		Modifier: 80
 		RequiresCondition: deployed
 	WithIdleOverlay@bib:
 		Sequence: bib
@@ -3019,7 +3463,23 @@ KHAN:
 		LocalOffset: 171,0,43
 	AttackMove:
 	AttackTurreted:
+		PauseOnCondition: empdisable
 	WithSpriteTurret:
+	SpawnActorOnDeath:
+		Actor: KHAN.Husk
+
+KHAN.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Khan)
+	TransformOnCapture@Mechanic:
+		IntoActor: KHAN
+	TransformOnCapture@Engineer:
+		IntoActor: KHAN
+	InfiltrateForTransform:
+		IntoActor: KHAN
+	RenderSprites:
+		Image: khan
 
 RACER:
 	Inherits: ^TrackedVehicle
@@ -3054,12 +3514,29 @@ RACER:
 		Weapon: Drake
 		LocalOffset: 120,150,155, 120,-150,155
 	AttackFrontal:
+		PauseOnCondition: empdisable
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	WithMoveAnimation:
 		MoveSequence: move
 		ValidMovementTypes: Horizontal, Turn
 	RenderSprites:
+		Scale: 0.9
+	SpawnActorOnDeath:
+		Actor: RACER.Husk
+
+RACER.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Raider)
+	TransformOnCapture@Mechanic:
+		IntoActor: RACER
+	TransformOnCapture@Engineer:
+		IntoActor: RACER
+	InfiltrateForTransform:
+		IntoActor: RACER
+	RenderSprites:
+		Image: racer
 		Scale: 0.9
 
 ORDA:

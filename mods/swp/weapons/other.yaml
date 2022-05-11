@@ -374,31 +374,6 @@ TTankZap:
 	Inherits: ^TeslaWeapon
 	ReloadDelay: 120
 	Range: 7c0
-	Warhead@Arc: FireShrapnel
-		Weapon: ChainLightning1
-		Amount: 1
-		AimChance: 90
-		ThrowWithoutTarget: false
-
-ChainLightning1:
-	Inherits: TTankZap
-	Range: 2c0
-	ValidTargets: GroundActor, Vehicle, Ship
-	Warhead@1Dam: SpreadDamage
-		ValidTargets: GroundActor, Vehicle, Ship
-		ValidRelationships: Enemy, Neutral
-	Warhead@Arc: FireShrapnel
-		Weapon: ChainLightning2
-		ValidTargets: GroundActor, Vehicle, Ship
-		AimChance: 65
-
-ChainLightning2:
-	Inherits: TTankZap
-	Range: 2c0
-	ValidTargets: GroundActor, Vehicle, Ship
-	Warhead@1Dam: SpreadDamage
-		ValidTargets: GroundActor, Vehicle, Ship
-		ValidRelationships: Enemy, Neutral
 
 DogJaw:
 	ValidTargets: Infantry
@@ -710,9 +685,9 @@ DropBombs:
 		Image: dropbombs
 		Shadow: True
 	Warhead@1Dam: SpreadDamage
-		Spread: 0c512
+		Spread: 0c256
 		Damage: 7500
-		Falloff: 110, 100, 50, 25, 5, 0
+		Falloff: 180, 150, 100, 75, 50, 25, 15, 5, 0
 		ValidTargets: GroundActor, WaterActor
 		Versus:
 			None: 30
@@ -755,9 +730,9 @@ Firebombs:
 		Versus:
 			None: 55
 			Wood: 110
-			Light: 30
-			Medium: 25
-			Heavy: 20
+			Light: 50
+			Medium: 45
+			Heavy: 35
 			Concrete: 80
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@2Smu: LeaveSmudge
@@ -957,13 +932,13 @@ TeutonPrism:
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Scorch
 
-NapalmBomb:
+A10Bomb:
 	Inherits: ^FireWeapon
 	ReloadDelay: 4
 	Range: 2c0
 	Burst: 2
 	BurstDelays: 2
-	Report: flamethrower2.aud
+	Report: chute1.aud
 	Projectile: GravityBomb
 		Image: dropbombs
 		Shadow: true
@@ -975,8 +950,15 @@ NapalmBomb:
 		Falloff: 300, 200, 100, 50, 18, 7, 0
 		Versus:
 			Wood: 35
-			Heavy: 80
+			Concrete: 20
+			None: 50
+			Light: 70
+			Medium: 60
+			Heavy: 50
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@3Eff: CreateEffect
+		Explosions: artillery_explosion
+		ImpactSounds: kaboom15.aud
 
 Firelance:
 	ReloadDelay: 150
@@ -1026,9 +1008,9 @@ Drill:
 		Spread: 0c256
 		Falloff: 100, 50, 25, 5
 		Versus:
-			None: 100
-			Light: 100
-			Medium: 100
+			None: 300
+			Light: 150
+			Medium: 125
 			Heavy: 100
 			Concrete: 100
 		ValidTargets: GroundActor, WaterActor, Ground, Water

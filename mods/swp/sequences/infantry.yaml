@@ -105,7 +105,7 @@ legionaire:
 		Start: 0
 		Length: 6
 		Facings: 8
-		Tick: 95
+		Tick: 100
 	prone-stand:
 		Start: 16
 		Facings: 8
@@ -131,7 +131,7 @@ legionaire:
 		Start: 48
 		Length: 6
 		Facings: 8
-		Tick: 95
+		Tick: 100
 	idle1:
 		Start: 249
 		Length: 12
@@ -312,7 +312,7 @@ cyborg:
 		Start: 120
 		Length: 6
 		Facings: 8
-		Tick: 40
+		Tick: 80
 	prone-stand:
 		Start: 16
 		Facings: 8
@@ -334,7 +334,7 @@ cyborg:
 		Start: 168
 		Length: 6
 		Facings: 8
-		Tick: 40
+		Tick: 80
 	idle1:
 		Start: 224
 		Length: 24
@@ -1040,6 +1040,11 @@ nightwitch:
 			INTERIOR: TEMPERAT
 	icon: nightwitchicon
 
+nightwitchhusk:
+	idle:
+		Length: *
+		Tick: 60
+
 politruk:
 	stand:
 		Start: 0
@@ -1229,8 +1234,7 @@ tnkcmndr:
 		Length: 4
 		Facings: 8
 	prone-stand:
-		Start: 104
-		Stride: 4
+		Start: 264
 		Facings: 8
 	prone-run:
 		Start: 104

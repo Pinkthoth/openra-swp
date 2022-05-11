@@ -197,14 +197,14 @@ ANT40:
 	AttackAircraft:
 		Armaments: primary, secondary
 	AmmoPool:
-		Ammo: 16
+		Ammo: 24
 		ReloadDelay: 11
 		AmmoCondition: ammo
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		Margin: 4, 3
 		RequiresSelection: true
-		PipCount: 8
+		PipCount: 3
 		EmptySequence: pip-emptyammo
 		FullSequence: pip-bomb
 	Aircraft:
@@ -222,6 +222,7 @@ ANT40:
 	Contrail:
 		Offset: 0,-553,0
 	Contrail@2:
+		Offset: 0,553,0
 	Buildable:
 		Prerequisites: ~afld, stek, ~aircraft.komintern, ~techlevel.high
 		Description: Drops incendiary bombs.\nHigh altitude aircraft.\n  Strong vs Infantry, Light armor\n  Weak vs Aircraft
@@ -658,7 +659,7 @@ HELI:
 		Sequence: slow-rotor
 		RequiresCondition: !airborne
 	AmmoPool:
-		Ammo: 8
+		Ammo: 10
 		AmmoCondition: ammo
 	SpawnActorOnDeath:
 		Actor: HELI.Husk
@@ -673,6 +674,7 @@ HELI:
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		Margin: 4, 3
+		PipCount: 5
 		RequiresSelection: true
 		EmptySequence: pip-emptyammo
 		FullSequence: pip-missile
@@ -1253,7 +1255,7 @@ A10:
 		PauseOnCondition: !ammo
 	Armament@SECONDARY:
 		Name: secondary
-		Weapon: NapalmBomb
+		Weapon: A10Bomb
 		LocalOffset: 0,0,0
 		MuzzleSequence: muzzle
 		PauseOnCondition: !ammo2

@@ -670,7 +670,7 @@ DOME:
 			kazakhstan: kdome
 	ProvidesPrerequisite@RadarOnline:
 		Prerequisite: radaronline
-		RequiresCondition: !disabled
+		RequiresCondition: !disabled && !empdisable
 	ProvidesPrerequisite@usa:
 		Factions: usa
 		Prerequisite: support.usa
@@ -3172,6 +3172,7 @@ TRENCH:
 	Inherits: ^Defense
 	Inherits@AUTOTARGET: ^AutoTargetAll
 	Inherits@CARGOPIPS: ^CargoPips
+	Inherits@rubbles: ^1x1Rubbles
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 30
@@ -3219,6 +3220,9 @@ TRENCH:
 		FallbackRange: 6c0
 	Power:
 		Amount: -10
+	Explodes:
+		Weapon: SmallBuildingExplode
+		EmptyWeapon: SmallBuildingExplode
 
 BARRACKS:
 	AlwaysVisible:
