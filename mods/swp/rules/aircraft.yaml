@@ -396,7 +396,7 @@ TESLAHIND:
 		Prerequisites: hpad, ~helicopter.russia, ~techlevel.high
 		Description: Helicopter gunship armed with\nsmall dual tesla coils.\nRecharges ammo automatically.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
 	Valued:
-		Cost: 2250
+		Cost: 2000
 	Tooltip:
 		Name: Tesla Hind
 	UpdatesPlayerStatistics:

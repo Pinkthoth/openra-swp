@@ -693,7 +693,7 @@ ECTNK:
 		Prerequisites: mtek, ~vehicles.germany, ~techlevel.high
 		Description: Specially insulated chrono APC.\nKeeps the cargoed infantry alive.\nTeleports to areas within range.\n  Weak vs Everything\n  Special ability: Can teleport
 	Valued:
-		Cost: 1350
+		Cost: 1000
 	Tooltip:
 		Name: Chrono Tortoise
 		GenericName: Tank
@@ -1642,7 +1642,7 @@ WASTETANKER:
 		Prerequisites: stek, ~vehicles.kazakhstan, ~techlevel.high
 		Description: Tough tank that shoots toxic materials.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
 	Valued:
-		Cost: 2000
+		Cost: 1800
 	Tooltip:
 		Name: Waste Tanker
 	UpdatesPlayerStatistics:
@@ -2423,7 +2423,7 @@ ARC:
 		Prerequisites: atek, ~vehicles.usa, ~techlevel.low
 		Description: Entente main battle tank. \n Fast tank, good for fast manouvers.\n	Strong vs Light armor, Tanks\n	Weak vs Infantry, Aircraft
 	Valued:
-		Cost: 900
+		Cost: 1100
 	Tooltip:
 		Name: Arc Thrower
 		GenericName: Tank
@@ -3140,7 +3140,7 @@ HELGA:
 		Prerequisites: mtek, ~vehicles.bulgaria, ~techlevel.high
 		Description: Huge extra long range\ndeployable artillery.\n  Strong vs Infantry, Defences\n  Weak vs Tanks, Aircraft
 	Valued:
-		Cost: 2000
+		Cost: 1800
 	Health:
 		HP: 50000
 	Armor:
@@ -3434,7 +3434,7 @@ KHAN:
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Valued:
-		Cost: 500
+		Cost: 800
 	Tooltip:
 		Name: Khan
 	UpdatesPlayerStatistics:

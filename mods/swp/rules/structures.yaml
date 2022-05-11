@@ -1508,7 +1508,7 @@ WEAP:
 		Prerequisites: proc, ~techlevel.low
 		Description: Produces vehicles.
 	Valued:
-		Cost: 1950
+		Cost: 1900
 	Tooltip:
 		Name: War Factory
 	Building:
@@ -2273,7 +2273,7 @@ POWR:
 		Prerequisites: ~techlevel.infonly
 		Description: Provides power for other structures.
 	Valued:
-		Cost: 550
+		Cost: 500
 	Tooltip:
 		Name: Power Plant
 	ProvidesPrerequisite:

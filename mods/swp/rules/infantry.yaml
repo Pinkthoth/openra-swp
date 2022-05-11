@@ -1143,7 +1143,7 @@ POLITRUK:
 		Prerequisites: ~barracks, adept, ~infantry.komintern, ~techlevel.infonly
 		Description: Increases the fighting capabilities of infantry.\n  Weak vs Everything
 	Valued:
-		Cost: 800
+		Cost: 400
 	Health:
 		HP: 7000
 	RevealsShroud:
@@ -1274,7 +1274,7 @@ OFFICER:
 		Prerequisites: ~barracks, adept, ~infantry.zentrum, ~techlevel.infonly
 		Description: Increases the experience gained by\nnearby units. Slowly increases experience.\n  Weak vs Everything
 	Valued:
-		Cost: 800
+		Cost: 300
 	Health:
 		HP: 7000
 	RevealsShroud:
@@ -1338,7 +1338,7 @@ SCVN:
 		Prerequisites: ~barr, adept, ~infantry.kazakhstan, ~techlevel.medium
 		Description: Extracts resources from\ndestroyed husks and rubble.\n	Unarmed
 	Valued:
-		Cost: 250
+		Cost: 200
 	Tooltip:
 		Name: Salvager
 	UpdatesPlayerStatistics:
