@@ -10,10 +10,10 @@
 
 using System.Linq;
 using OpenRA.GameRules;
-using OpenRA.Mods.Swp.Activities;
 using OpenRA.Mods.Common.Activities;
 using OpenRA.Mods.Common.Effects;
 using OpenRA.Mods.Common.Traits;
+using OpenRA.Mods.Swp.Activities;
 using OpenRA.Primitives;
 using OpenRA.Traits;
 
