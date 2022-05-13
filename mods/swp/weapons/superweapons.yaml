@@ -185,7 +185,7 @@ StukaBomb:
 			Wood: 30
 			Light: 75
 			Heavy: 65
-			Concrete: 25
+			Concrete: 40
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Crater
@@ -280,11 +280,11 @@ V3Missile:
 		ValidTargets: Ground, Water, Air, Trees, GroundActor, WaterActor
 		Versus:
 			None: 70
-			Wood: 10
+			Wood: 100
 			Light: 125
 			Medium: 150
 			Heavy: 300
-			Concrete: 100
+			Concrete: 80
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@2Dam: SpreadDamage
 		Spread: 0c400
@@ -297,7 +297,7 @@ V3Missile:
 			Light: 100
 			Medium: 100
 			Heavy: 100
-			Concrete: 100
+			Concrete: 80
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@SoundEffect: CreateEffect
 		Explosions: large_twlt

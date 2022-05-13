@@ -60,7 +60,7 @@ Stinger:
 			Wood: 88
 			Light: 88
 			Heavy: 120
-			Concrete: 60
+			Concrete: 75
 
 StingerAA:
 	Inherits: Stinger
@@ -734,16 +734,16 @@ IfritAreaFire:
 		Speed: 341
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c256
-		Damage: 1250
+		Damage: 1000
 		Falloff: 150, 110, 75, 50, 15, 5, 0
 		ValidTargets: GroundActor, WaterActor, AirborneActor
 		Versus:
 			None: 80
-			Wood: 90
+			Wood: 75
 			Light: 60
 			Medium: 50
 			Heavy: 40
-			Concrete: 60
+			Concrete: 55
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@3Eff: CreateEffect
 		Explosions: med_explosion

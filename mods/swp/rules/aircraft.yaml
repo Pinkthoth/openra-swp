@@ -1005,7 +1005,7 @@ TEUTON:
 		Type: GroundPosition
 	Armament@PRIMARY:
 		Weapon: TeutonPrism
-		LocalOffset: 85,-273,-85, 85,273,-85
+		LocalOffset: 85,-273,50, 85,273,50
 		PauseOnCondition: !ammo
 	AttackTurreted:
 	WithSpriteTurret:

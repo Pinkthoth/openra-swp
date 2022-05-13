@@ -1728,7 +1728,7 @@ ATGUNNER:
 		Range: 4c0
 	Armament:
 		Weapon: 76mmOrdinanceQF
-		LocalOffset: 675,0,240
+		LocalOffset: 675,0,360
 		MuzzleSequence: muzzle
 		FireDelay: 15
 	AttackFrontal:
@@ -2062,7 +2062,7 @@ NIGHTWITCH:
 		Range: 5c0
 	Armament@PRIMARY:
 		Weapon: NightWitchBolt
-		LocalOffset: 427,0,341
+		LocalOffset: 427,0,400
 		FireDelay: 5
 	Armament@GARRISONED:
 		Name: garrisoned

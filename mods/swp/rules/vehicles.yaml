@@ -255,7 +255,7 @@ ARMCR:
 	Armament:
 		Weapon: M60mg
 		MuzzleSequence: muzzle
-		LocalOffset: 210,0,190
+		LocalOffset: 220,0,140
 	AttackTurreted:
 		PauseOnCondition: empdisable
 	WithMuzzleOverlay:
@@ -315,7 +315,7 @@ HLFTRK:
 	Armament:
 		Weapon: HLFTRKGUN
 		MuzzleSequence: muzzle
-		LocalOffset: 230,0,60
+		LocalOffset: 220,0,100
 	AttackTurreted:
 		PauseOnCondition: empdisable
 	WithMuzzleOverlay:
@@ -377,7 +377,7 @@ PUMA:
 		Weapon: 25mm
 		Recoil: 85
 		RecoilRecovery: 25
-		LocalOffset: 750,0,180
+		LocalOffset: 750,0,150
 		MuzzleSequence: muzzle
 	AttackTurreted:
 		PauseOnCondition: empdisable
@@ -434,7 +434,7 @@ PRISMCANNON:
 		Weapon: Prism
 		Recoil: 128
 		RecoilRecovery: 38
-		LocalOffset: 800,0,220
+		LocalOffset: 800,0,240
 		MuzzleSequence: muzzle
 	AttackFrontal:
 		PauseOnCondition: empdisable
@@ -841,7 +841,7 @@ MAUS:
 		Weapon: MausCannon
 		Recoil: 128
 		RecoilRecovery: 38
-		LocalOffset: 1100,60,220
+		LocalOffset: 1100,60,200
 		MuzzleSequence: muzzle
 	AttackFrontal:
 		PauseOnCondition: empdisable
@@ -1193,7 +1193,7 @@ MTNK:
 		Weapon: 90mm
 		Recoil: 128
 		RecoilRecovery: 38
-		LocalOffset: 720,0,80
+		LocalOffset: 750,0,80
 		MuzzleSequence: muzzle
 	Armament@MG:
 		Weapon: TNKMG
@@ -1261,7 +1261,7 @@ TEMPLAR:
 	Armament:
 		Weapon: TTankZap
 		RecoilRecovery: 38
-		LocalOffset: 720,0,80
+		LocalOffset: 820,0,120
 	AttackTurreted:
 		PauseOnCondition: empdisable
 	WithSpriteTurret:
@@ -1323,11 +1323,11 @@ KATYA:
 		Offset: -360,0,150
 	Armament@PRIMARY:
 		Weapon: 227mm
-		LocalOffset: 213,128,0, 213,-128,0
+		LocalOffset: 213,128,50, 213,-128,50
 	Armament@SECONDARY:
 		Name: secondary
 		Weapon: 227mm
-		LocalOffset: 213,-128,0, 213,128,0
+		LocalOffset: 213,-128,50, 213,128,50
 	AttackFrontal:
 		TargetFrozenActors: True
 		ForceFireIgnoresActors: True
@@ -1496,7 +1496,7 @@ JEEP:
 	Armament:
 		Weapon: M60mg
 		MuzzleSequence: muzzle
-		LocalOffset: 128,0,43
+		LocalOffset: 145,0,43
 	AttackTurreted:
 		PauseOnCondition: empdisable
 	WithMuzzleOverlay:
@@ -1662,7 +1662,7 @@ WASTETANKER:
 		Range: 4c0
 	Armament:
 		Weapon: TruckToxxer
-		LocalOffset: 700,0,340
+		LocalOffset: 710,0,350
 	AttackFrontal:
 		PauseOnCondition: empdisable
 	ProducibleWithLevel:
@@ -1726,7 +1726,7 @@ IFV:
 		Weapon: APCGun
 		Recoil: 48
 		RecoilRecovery: 18
-		LocalOffset: 255,100,50, 255,-100,50
+		LocalOffset: 270,100,50, 270,-100,50
 		MuzzleSequence: muzzle
 		PauseOnCondition: reload-air
 		ReloadingCondition: reload-ground
@@ -2069,7 +2069,7 @@ RTNK:
 		Weapon: 25mm-recon
 		Recoil: 85
 		RecoilRecovery: 25
-		LocalOffset: 768,0,90
+		LocalOffset: 680,0,90
 		MuzzleSequence: muzzle
 	AttackTurreted:
 		PauseOnCondition: empdisable
@@ -2134,7 +2134,7 @@ RONIN:
 		Name: secondary
 		Weapon: M60mg
 		RecoilRecovery: 25
-		LocalOffset: 568,-30,90
+		LocalOffset: 538,-30,110
 		MuzzleSequence: muzzle
 	AttackTurreted:
 		PauseOnCondition: empdisable
@@ -2263,7 +2263,7 @@ PTNK:
 	Armament:
 		Weapon: Drake
 		RecoilRecovery: 25
-		LocalOffset: 730,30,90
+		LocalOffset: 690,30,90
 	AttackTurreted:
 		PauseOnCondition: empdisable
 	WithMuzzleOverlay:
@@ -2397,7 +2397,7 @@ TELEDRONE:
 		Offset: 50,0,200
 	Armament@PRIMARY:
 		Weapon: BeetleMissile
-		LocalOffset: 0,0,0
+		LocalOffset: 40,0,30
 	AttackMove:
 	AttackTurreted:
 		PauseOnCondition: empdisable
@@ -2614,7 +2614,7 @@ ARCHER:
 		Weapon: 76mmOrdinanceQF
 		Recoil: 128
 		RecoilRecovery: 38
-		LocalOffset: 800,0,220
+		LocalOffset: 820,0,210
 		MuzzleSequence: muzzle
 	AttackFrontal:
 		PauseOnCondition: empdisable
@@ -2744,7 +2744,7 @@ HVRTNKTNK:
 		Range: 4c0
 	Turreted:
 		TurnSpeed: 28
-		Offset: -200,50,200
+		Offset: -200,0,200
 	Armament:
 		Weapon: MagneticBolt
 		Recoil: 85
@@ -2997,7 +2997,7 @@ FLMTNK:
 		LocalOffset: 900,180,180, 900,-180,180
 	Turreted:
 		Offset: -50,0,130
-		TurnSpeed: 8
+		TurnSpeed: 13
 	AttackTurreted:
 		PauseOnCondition: empdisable
 	WithSpriteTurret:
@@ -3148,8 +3148,8 @@ HELGA:
 	Selectable:
 		DecorationBounds: 44,38,0,-4
 	Mobile:
-		Speed: 40
-		TurnSpeed: 6
+		Speed: 50
+		TurnSpeed: 8
 		ImmovableCondition: !undeployed
 		RequireForceMoveCondition: !undeployed
 	RevealsShroud:
@@ -3387,7 +3387,7 @@ TESTUDO:
 		Name: primary
 		Turret: undeployed-turret
 		Weapon: testudogun
-		LocalOffset: 180,120,100
+		LocalOffset: 200,120,100
 		MuzzleSequence: muzzle-mg1
 		RequiresCondition: undeployed
 		PauseOnCondition: !undeployed
@@ -3395,7 +3395,7 @@ TESTUDO:
 		Turret: undeployed-turret
 		Weapon: testudogun
 		Name: secondary
-		LocalOffset: 180,-120,100
+		LocalOffset: 200,-120,100
 		MuzzleSequence: muzzle-mg1
 		RequiresCondition: undeployed
 		PauseOnCondition: !undeployed
@@ -3403,7 +3403,7 @@ TESTUDO:
 		Name: tertiary
 		Turret: deployed-turret
 		Weapon: testudogun
-		LocalOffset: 260,120,400
+		LocalOffset: 260,120,420
 		MuzzleSequence: muzzle-mg1
 		RequiresCondition: deployed
 		PauseOnCondition: !deployed
@@ -3411,7 +3411,7 @@ TESTUDO:
 		Name: quarternary
 		Turret: deployed-turret
 		Weapon: testudogun
-		LocalOffset: 260,-120,400
+		LocalOffset: 260,-120,420
 		MuzzleSequence: muzzle-mg1
 		RequiresCondition: deployed
 		PauseOnCondition: !deployed
@@ -3512,7 +3512,7 @@ RACER:
 		Range: 4c0
 	Armament:
 		Weapon: Drake
-		LocalOffset: 120,150,155, 120,-150,155
+		LocalOffset: 120,150,200, 120,-150,200
 	AttackFrontal:
 		PauseOnCondition: empdisable
 	ProducibleWithLevel:

@@ -26,8 +26,8 @@ Player:
 	SupportPowerBotModule:
 		RequiresCondition: enable-rush-ai || enable-normal-ai || enable-turtle-ai || enable-naval-ai
 		Decisions:
-			spyplane:
-				OrderName: SovietSpyPlane
+			radarscan:
+				OrderName: RadarScanOrder
 				MinimumAttractiveness: 1
 				Consideration@1:
 					Against: Enemy
@@ -36,7 +36,22 @@ Player:
 					TargetMetric: None
 					CheckRadius: 5c0
 			paratroopers:
-				OrderName: SovietParatroopers
+				OrderName: Paratroopers
+				MinimumAttractiveness: 5
+				Consideration@1:
+					Against: Enemy
+					Types: Structure
+					Attractiveness: 1
+					TargetMetric: None
+					CheckRadius: 8c0
+				Consideration@2:
+					Against: Enemy
+					Types: Water
+					Attractiveness: -5
+					TargetMetric: None
+					CheckRadius: 8c0
+			guerilla:
+				OrderName: GuerillaDrop
 				MinimumAttractiveness: 5
 				Consideration@1:
 					Against: Enemy
@@ -51,7 +66,7 @@ Player:
 					TargetMetric: None
 					CheckRadius: 8c0
 			parabombs:
-				OrderName: UkraineParabombs
+				OrderName: Parabombs
 				MinimumAttractiveness: 1
 				Consideration@1:
 					Against: Enemy
@@ -74,6 +89,95 @@ Player:
 					Attractiveness: -10
 					TargetMetric: Value
 					CheckRadius: 7c0
+			v3missile:
+				OrderName: V3Missile
+				MinimumAttractiveness: 3000
+				Consideration@1:
+					Against: Enemy
+					Types: Structure
+					Attractiveness: 1
+					TargetMetric: Value
+					CheckRadius: 5c0
+				Consideration@2:
+					Against: Ally
+					Types: Air, Ground, Water
+					Attractiveness: -10
+					TargetMetric: Value
+					CheckRadius: 7c0
+			artillerybarrage:
+				OrderName: ArtilleryBarrage
+				MinimumAttractiveness: 3000
+				Consideration@1:
+					Against: Enemy
+					Types: Structure
+					Attractiveness: 1
+					TargetMetric: Value
+					CheckRadius: 5c0
+				Consideration@2:
+					Against: Ally
+					Types: Air, Ground, Water
+					Attractiveness: -10
+					TargetMetric: Value
+					CheckRadius: 7c0
+			empulse:
+				OrderName: EMPulse
+				MinimumAttractiveness: 3000
+				Consideration@1:
+					Against: Enemy
+					Types: Structure
+					Attractiveness: 1
+					TargetMetric: Value
+					CheckRadius: 5c0
+				Consideration@2:
+					Against: Ally
+					Types: Air, Ground, Water
+					Attractiveness: -10
+					TargetMetric: Value
+					CheckRadius: 7c0
+			ironcurtain:
+				OrderName: IronCurtain
+				MinimumAttractiveness: 1000
+				FineScanRadius: 2
+				Consideration@2:
+					Against: Enemy
+					Types: Infantry
+					Attractiveness: 2
+					TargetMetric: Value
+					CheckRadius: 2c0
+				Consideration@3:
+					Against: Ally
+					Types: Vehicle, Tank
+					Attractiveness: 5
+					TargetMetric: Value
+					CheckRadius: 3c0
+				Consideration@4:
+					Against: Ally
+					Types: Infantry
+					Attractiveness: -2
+					TargetMetric: Value
+					CheckRadius: 2c0
+			phase:
+				OrderName: Phase
+				MinimumAttractiveness: 1000
+				FineScanRadius: 2
+				Consideration@2:
+					Against: Enemy
+					Types: Infantry
+					Attractiveness: 2
+					TargetMetric: Value
+					CheckRadius: 2c0
+				Consideration@3:
+					Against: Ally
+					Types: Vehicle, Tank
+					Attractiveness: 5
+					TargetMetric: Value
+					CheckRadius: 3c0
+				Consideration@4:
+					Against: Ally
+					Types: Infantry
+					Attractiveness: -2
+					TargetMetric: Value
+					CheckRadius: 2c0
 	HarvesterBotModule:
 		RequiresCondition: enable-rush-ai || enable-normal-ai || enable-turtle-ai || enable-naval-ai
 		HarvesterTypes: harv

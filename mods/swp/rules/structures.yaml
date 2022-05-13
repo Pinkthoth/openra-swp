@@ -415,6 +415,7 @@ IRON:
 		HasMinibib: true
 	GrantExternalConditionPower@IRONCURTAIN:
 		PauseOnCondition: disabled
+		OrderName: IronCurtain
 		Icon: invuln
 		ChargeInterval: 3000
 		Description: Invulnerability
@@ -736,7 +737,7 @@ DOME:
 		BeginChargeSpeechNotification: ArtbrgPrepping
 	AirstrikePower@parabombs:
 		PauseOnCondition: empdisable || disabled
-		OrderName: UkraineParabombs
+		OrderName: Parabombs
 		Icon: parabombs
 		Prerequisites: support.komintern
 		ChargeInterval: 8500
@@ -761,7 +762,7 @@ DOME:
 		EndChargeSpeechNotification: AirstrikeReady
 		BeginChargeSpeechNotification: AirstrikePrepping
 	NukePower@v3missile:
-		OrderName: v3missile
+		OrderName: V3Missile
 		PauseOnCondition: empdisable || disabled
 		Cursor: ability
 		Icon: v3icon
@@ -1044,7 +1045,7 @@ CAMOGUN:
 		Sequence: recoil
 	Armament:
 		Weapon: TurretGun
-		LocalOffset: 512,0,112
+		LocalOffset: 530,0,90
 		MuzzleSequence: muzzle
 	AttackTurreted:
 		RequiresCondition: !build-incomplete
@@ -2073,13 +2074,13 @@ HPAD:
 			ukraine: shpad
 			china: shpad
 			mongolia: shpad
-	ParatroopersPower@entparatroopers:
+	ParatroopersPower@guerilla:
 		PauseOnCondition: empdisable
-		OrderName: Guerilla Drop
+		OrderName: GuerillaDrop
 		UnitType: transupport
 		Icon: guerilladropicon
 		ChargeInterval: 7500
-		Description: Paratroopers
+		Description: Guerilla Drop
 		LongDesc: A Halo transport helicopter drops a squad\nof guerilla anywhere on the map.
 		DropItems: GUERILLA, GUERILLA, GUERILLA, GUERILLA
 		ReinforcementsArrivedSpeechNotification: ReinforcementsArrived
@@ -2805,7 +2806,7 @@ STHGEN:
 	WithBuildingBib:
 		HasMinibib: true
 	GrantExternalConditionPower@STEALTH:
-		OrderName: GrantExternalConditionPowerStealth
+		OrderName: Phase
 		PauseOnCondition: empdisable || disabled
 		Icon: cloakicon
 		ChargeInterval: 3000
@@ -2877,6 +2878,7 @@ EMPGUN:
 	AttackOrderPower:
 		PauseOnCondition: empdisable || disabled
 		Icon: empicon
+		OrderName: EMPulse
 		ChargeInterval: 3375
 		Description: EM Pulse
 		LongDesc: Fires a pulse blast which disables\nall mechanical units in the area.

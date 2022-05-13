@@ -13,7 +13,7 @@
 			Light: 60
 			Medium: 40
 			Heavy: 25
-			Concrete: 20
+			Concrete: 35
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Scorch
@@ -275,12 +275,12 @@ Flamer:
 		Damage: 1000
 		Versus:
 			None: 70
-			Wood: 80
+			Wood: 70
 			Tree: 80
 			Light: 40
 			Medium: 30
 			Heavy: 20
-			Concrete: 10
+			Concrete: 30
 	Warhead@3Eff: CreateEffect
 		Explosions: small_napalm
 
@@ -326,7 +326,7 @@ Toxxer:
 			Light: 45
 			Medium: 42
 			Heavy: 40
-			Concrete: 10
+			Concrete: 30
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
 		ValidTargets: Ground, Water, GroundActor, WaterActor, Trees
 	Warhead@2Smu: LeaveSmudge
@@ -365,7 +365,8 @@ PortaTesla:
 
 HindPortaTesla:
 	Inherits: PortaTesla
-	BurstDelays: 4
+	ReloadDelay: 45
+	BurstDelays: 10
 	Burst: 2
 	Warhead@1Dam: SpreadDamage
 		Damage: 8000
@@ -419,106 +420,6 @@ Demolish:
 		Explosions: building
 		ImpactSounds: kaboom25.aud
 
-Claw:
-	ReloadDelay: 30
-	Range: 1c512
-	ValidTargets: Ground, Water, GroundActor, WaterActor
-	Projectile: Bullet
-		Speed: 1c682
-	Warhead@1Dam: SpreadDamage
-		Spread: 213
-		Damage: 3000
-		ValidTargets: GroundActor, WaterActor
-		Versus:
-			None: 97
-			Wood: 10
-			Light: 30
-			Heavy: 10
-			Concrete: 10
-		DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
-
-Mandible:
-	Inherits: Claw
-	ReloadDelay: 10
-	Burst: 2
-	BurstDelays: 14
-	StartBurstReport: antbite.aud
-	Warhead@1Dam: SpreadDamage
-		Damage: 6000
-		Versus:
-			None: 90
-		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
-
-MandibleHeavy:
-	Inherits: Claw
-	ReloadDelay: 15
-	Burst: 2
-	BurstDelays: 20
-	StartBurstReport: antbite.aud
-	Warhead@1Dam: SpreadDamage
-		Damage: 10000
-		Versus:
-			None: 100
-			Light: 90
-			Heavy: 35
-			Concrete: 20
-		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
-
-AntFireball:
-	Inherits: FireballLauncher
-	Report: antbite.aud
-	ReloadDelay: 50
-	Burst: 2
-	BurstDelays: 20
-	Range: 4c0
-	Projectile: Bullet
-		Speed: 200
-	Warhead@1Dam: SpreadDamage
-		Spread: 213
-		Damage: 4000
-		Versus:
-			None: 80
-			Wood: 85
-			Light: 45
-			Heavy: 20
-			Concrete: 15
-
-DemoTruckTargeting:
-	ValidTargets: DetonateAttack
-	Range: 2c0
-	Projectile: InstantHit
-	Warhead@1Dam: TargetDamage
-		ValidTargets: DetonateAttack
-
-MADTankThump:
-	ValidTargets: GroundActor, WaterActor
-	InvalidTargets: MADTank, Infantry
-	Warhead@1Dam: HealthPercentageDamage
-		Spread: 7c0
-		Damage: 1
-		ValidTargets: GroundActor, WaterActor
-		InvalidTargets: MADTank, Infantry
-	Warhead@Shake: ShakeScreen
-		Duration: 10
-		Intensity: 3
-		Multiplier: 1,0
-
-MADTankDetonate:
-	ValidTargets: GroundActor, WaterActor
-	InvalidTargets: MADTank, Infantry
-	Warhead@1Dam: HealthPercentageDamage
-		Spread: 7c0
-		Damage: 19
-		ValidTargets: GroundActor, WaterActor
-		InvalidTargets: MADTank, Infantry
-	Warhead@2Smu: LeaveSmudge
-		SmudgeType: Crater
-		Size: 7,6
-	Warhead@3Eff: CreateEffect
-		Explosions: med_explosion
-		ImpactSounds: mineblo1.aud
-		ImpactActors: false
-
 HuskBreaker:
 	ReloadDelay: 80
 	Range: 1c0
@@ -559,32 +460,6 @@ PickUpWeapon:
 		InvalidTargets: Ant
 		DamageTypes: ResurrectionDeath
 		ValidRelationships: Ally, Enemy, Neutral
-		
-TSMADTankThump:
-	Inherits: MADTankThump
-	Warhead@1Dam: HealthPercentageDamage
-		ValidTargets: GroundActor, WaterActor, AirborneActor
-	Warhead@Shake: ShakeScreen
-		Intensity: 1
-		
-TSMADTankDetonate:
-	Inherits: MADTankDetonate
-	Warhead@1Dam: HealthPercentageDamage
-		Spread: 11c0
-	Warhead@2Smu: LeaveSmudge
-		SmudgeType: Scorch
-		Size: 8,7
-	Warhead@3Eff: CreateEffect
-		ExplosionPalette: tseffects
-		Explosions: pulse_explosion
-		ImpactSounds: mineblo1.aud
-		ImpactActors: false
-	Warhead@4: GrantExternalCondition
-		Range: 11c0
-		Duration: 750
-		Condition: empdisable
-		ValidTargets: GroundActor, WaterActor, AirborneActor
-		InvalidTargets: MADTank, Infantry
 
 Knife:
 	ReloadDelay: 40
@@ -602,7 +477,7 @@ Knife:
 			Light: 15
 			Medium: 10
 			Heavy: 5
-			Concrete: 28
+			Concrete: 10
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 		
 BomberParaBomb:
@@ -660,7 +535,7 @@ BlimpParaBomb:
 			Light: 75
 			Medium: 60
 			Heavy: 50
-			Concrete: 25
+			Concrete: 30
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Crater
@@ -695,7 +570,7 @@ DropBombs:
 			Light: 70
 			Medium: 80
 			Heavy: 140
-			Concrete: 65
+			Concrete: 60
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Crater
@@ -733,7 +608,7 @@ Firebombs:
 			Light: 50
 			Medium: 45
 			Heavy: 35
-			Concrete: 80
+			Concrete: 75
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Scorch
@@ -952,9 +827,9 @@ A10Bomb:
 			Wood: 35
 			Concrete: 20
 			None: 50
-			Light: 70
-			Medium: 60
-			Heavy: 50
+			Light: 65
+			Medium: 55
+			Heavy: 45
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@3Eff: CreateEffect
 		Explosions: artillery_explosion
@@ -979,7 +854,7 @@ Firelance:
 			Light: 60
 			Medium: 50
 			Heavy: 25
-			Concrete: 15
+			Concrete: 25
 		ValidTargets: GroundActor, WaterActor, Ground, Water
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@BurnArea: FireCluster
@@ -1009,6 +884,7 @@ Drill:
 		Falloff: 100, 50, 25, 5
 		Versus:
 			None: 300
+			Wood: 120
 			Light: 150
 			Medium: 125
 			Heavy: 100

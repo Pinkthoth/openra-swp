@@ -37,7 +37,7 @@
 			Light: 72
 			Medium: 60
 			Heavy: 28
-			Concrete: 28
+			Concrete: 30
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: piffs
@@ -53,7 +53,7 @@
 		Damage: 1000
 		Versus:
 			None: 150
-			Wood: 10
+			Wood: 15
 			Light: 40
 			Medium: 25
 			Heavy: 10
@@ -161,11 +161,11 @@ FLAK-23-AG:
 		ValidTargets: AirborneActor, GroundActor, WaterActor, AirborneBomber
 		Versus:
 			None: 45
-			Wood: 10
+			Wood: 20
 			Light: 60
 			Medium: 40
 			Heavy: 10
-			Concrete: 20
+			Concrete: 10
 	Warhead@2Eff: CreateEffect
 		Explosions: flak_explosion_ground
 		ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees, AirborneBomber
@@ -550,7 +550,6 @@ Uzi:
 	ReloadDelay: 25
 	Range: 5c0
 	Report: uzi_sound.aud
-	InvalidTargets: Structure
 	Warhead@1Dam: SpreadDamage
 		Damage: 750
 		Versus:
@@ -592,7 +591,7 @@ M60mg:
 			Light: 25
 			Medium: 20
 			Heavy: 10
-			Concrete: 10
+			Concrete: 15
 	Warhead@2Dam_2: SpreadDamage
 		Spread: 128
 		Damage: 2250
@@ -604,7 +603,7 @@ M60mg:
 			Light: 25
 			Medium: 20
 			Heavy: 10
-			Concrete: 10
+			Concrete: 15
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 	Warhead@3Dam_2: SpreadDamage
 		Spread: 128
@@ -617,7 +616,7 @@ M60mg:
 			Light: 25
 			Medium: 20
 			Heavy: 10
-			Concrete: 10
+			Concrete: 15
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 	Warhead@4Dam_2: SpreadDamage
 		Spread: 128
@@ -630,7 +629,7 @@ M60mg:
 			Light: 25
 			Medium: 20
 			Heavy: 10
-			Concrete: 10
+			Concrete: 15
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		Inaccuracy: 213
