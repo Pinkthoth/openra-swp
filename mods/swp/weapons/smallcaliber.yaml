@@ -52,7 +52,7 @@
 	Warhead@1Dam: SpreadDamage
 		Damage: 1000
 		Versus:
-			None: 150
+			None: 140
 			Wood: 15
 			Light: 40
 			Medium: 25
