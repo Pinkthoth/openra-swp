@@ -352,7 +352,7 @@ PUMA:
 		Prerequisites: ~vehicles.zentrum, ~techlevel.low
 		Description: Strong armoured car,\good against light armour.\n	Strong vs Light armor\n	 Weak vs Infantry, Tanks, Aircraft
 	Valued:
-		Cost: 750
+		Cost: 700
 	Tooltip:
 		Name: Puma
 		GenericName: Tank
@@ -535,9 +535,9 @@ BIKE:
 	Armor:
 		Type: Light
 	Mobile:
-		Speed: 170
+		Speed: 160
 		TurnSpeed: 25
-		Locomotor: foot
+		Locomotor: smallwheels
 		PauseOnCondition: being-captured
 	RevealsShroud:
 		MinRange: 4c0
@@ -561,6 +561,9 @@ BIKE:
 	WithMuzzleOverlay:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
+	Explodes:
+		EmptyWeapon: SmallUnitExplode
+		Weapon: SmallUnitExplode
 
 V2RL:
 	Inherits: ^Vehicle
@@ -715,7 +718,7 @@ ECTNK:
 		Range: 4c0
 	Armament:
 		Weapon: M60mg-apc
-		LocalOffset: 450,0,151
+		LocalOffset: 620,0,151
 		MuzzleSequence: muzzle
 	AttackFrontal:
 		PauseOnCondition: empdisable
@@ -818,7 +821,7 @@ MAUS:
 		Prerequisites: mtek, adept, ~vehicles.zentrum, ~techlevel.high
 		Description: Tough tank destroyer.\n  Strong vs Vehicles, Defenses\n  Weak vs Infantry, Aircraft
 	Valued:
-		Cost: 2000
+		Cost: 1850
 	Tooltip:
 		Name: Mouse
 	UpdatesPlayerStatistics:
@@ -865,6 +868,58 @@ MAUS.Husk:
 		IntoActor: MAUS
 	RenderSprites:
 		Image: maus
+
+SONIQUE:
+	Inherits: ^TrackedVehicle
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Valued:
+		Cost: 1750
+	Tooltip:
+		Name: Sonique
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 340
+		Prerequisites: dome, ~vehicles.turkey, ~techlevel.medium
+		Description: Shoots a long cone of flame\nand leaves the ground burning.\n Strong vs. Infantry, Buildings.\n Weak vs. Tanks, Aircraft.
+	Mobile:
+		TurnSpeed: 20
+		Speed: 56
+	Health:
+		HP: 47000
+	Repairable:
+		HpPerStep: 2046
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 6c0
+	Armament:
+		Weapon: soniczap
+		LocalOffset: 330,0,150
+	AttackFrontal:
+		PauseOnCondition: empdisable
+	Explodes:
+		Weapon: V2Explode
+	Selectable:
+		DecorationBounds: 32,32
+	WithMuzzleOverlay:
+	SpawnActorOnDeath:
+		Actor: SONIQUE.Husk
+
+SONIQUE.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Sonique)
+	TransformOnCapture@Mechanic:
+		IntoActor: SONIQUE
+	TransformOnCapture@Engineer:
+		IntoActor: SONIQUE
+	InfiltrateForTransform:
+		IntoActor: SONIQUE
+	RenderSprites:
+		Image: sonique
 
 MRJ:
 	Inherits: ^Vehicle
@@ -1104,7 +1159,7 @@ BTR:
 		Prerequisites: ~vehicles.komintern, adept, ~techlevel.low
 		Description: Tough infantry transport.\n  Strong vs Light armor\n  Weak vs Infantry, Tanks, Aircraft
 	Valued:
-		Cost: 800
+		Cost: 750
 	Tooltip:
 		Name: Bronetransporter
 	UpdatesPlayerStatistics:
@@ -1482,7 +1537,7 @@ JEEP:
 		Type: Light
 	Mobile:
 		TurnSpeed: 40
-		Speed: 160
+		Speed: 150
 		PauseOnCondition: being-captured
 	RevealsShroud:
 		MinRange: 4c0
@@ -1531,7 +1586,7 @@ APC:
 		Prerequisites: ~vehicles.entente, ~techlevel.low
 		Description: Tough infantry transport.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
 	Valued:
-		Cost: 800
+		Cost: 750
 	Tooltip:
 		Name: Armored Personnel Carrier
 	UpdatesPlayerStatistics:
@@ -2093,6 +2148,59 @@ RTNK.Husk:
 	RenderSprites:
 		Image: rtnk
 
+KAMIKAZEKITER:
+	Inherits: ^Vehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 230
+		Prerequisites: dome, ~vehicles.zentrum, ~techlevel.medium
+		Description: Long-range rocket artillery.\n	 Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: Kamikaze
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	RenderSprites:
+		Image: kamikazekiter
+	Health:
+		HP: 20000
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 72
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 5c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	Armament:
+		Weapon: KamikazeKite
+		ReloadingCondition: reloading
+		LocalOffset: 80,0,400
+	AutoTarget:
+		ScanRadius: 10
+	AttackFrontal:
+		TargetFrozenActors: True
+		ForceFireIgnoresActors: False
+		PauseOnCondition: empdisable
+	WithFacingSpriteBody:
+		RequiresCondition: !reloading
+		Name: loaded
+	WithFacingSpriteBody@EMPTY:
+		RequiresCondition: reloading
+		Sequence: empty-idle
+		Name: reloading
+	Explodes:
+		Weapon: V2Explode
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
+	Selectable:
+		DecorationBounds: 20, 20
+
 RONIN:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
@@ -2103,7 +2211,7 @@ RONIN:
 		Prerequisites: adept, ~vehicles.japan, ~techlevel.low
 		Description: Multipurpose tank, jack of all trades, master of none.\n  Strong vs Light armor\n  Weak vs Infantry, Tanks, Aircraft
 	Valued:
-		Cost: 1050
+		Cost: 850
 	Tooltip:
 		Name: Ronin
 		GenericName: Tank
@@ -2129,7 +2237,7 @@ RONIN:
 	Armament:
 		Weapon: RoninDrake
 		RecoilRecovery: 25
-		LocalOffset: 730,60,90
+		LocalOffset: 730,60,-90
 	Armament@secondary:
 		Name: secondary
 		Weapon: M60mg
@@ -2369,7 +2477,7 @@ LTNK.Husk:
 TELEDRONE:
 	Inherits: ^Vehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMovePlusBombers
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -2747,7 +2855,7 @@ HVRTNKTNK:
 		Offset: -200,0,200
 	Armament:
 		Weapon: MagneticBolt
-		Recoil: 85
+		Recoil: 0
 		RecoilRecovery: 25
 		LocalOffset: 468,0,100
 	AttackTurreted:
@@ -2985,7 +3093,7 @@ FLMTNK:
 		TurnSpeed: 28
 		Speed: 85
 	Health:
-		HP: 30000
+		HP: 35000
 	Repairable:
 		HpPerStep: 2046
 	Armor:
@@ -3037,7 +3145,7 @@ FIRELANCER:
 		Prerequisites: dome, ~vehicles.turkey, ~techlevel.medium
 		Description: Shoots a long cone of flame\nand leaves the ground burning.\n Strong vs. Infantry, Buildings.\n Weak vs. Tanks, Aircraft.
 	Mobile:
-		TurnSpeed: 28
+		TurnSpeed: 20
 		Speed: 56
 	Health:
 		HP: 47000
@@ -3387,7 +3495,7 @@ TESTUDO:
 		Name: primary
 		Turret: undeployed-turret
 		Weapon: testudogun
-		LocalOffset: 200,120,100
+		LocalOffset: 230,120,100
 		MuzzleSequence: muzzle-mg1
 		RequiresCondition: undeployed
 		PauseOnCondition: !undeployed
@@ -3395,7 +3503,7 @@ TESTUDO:
 		Turret: undeployed-turret
 		Weapon: testudogun
 		Name: secondary
-		LocalOffset: 200,-120,100
+		LocalOffset: 230,-120,100
 		MuzzleSequence: muzzle-mg1
 		RequiresCondition: undeployed
 		PauseOnCondition: !undeployed
@@ -3403,7 +3511,7 @@ TESTUDO:
 		Name: tertiary
 		Turret: deployed-turret
 		Weapon: testudogun
-		LocalOffset: 260,120,420
+		LocalOffset: 290,120,420
 		MuzzleSequence: muzzle-mg1
 		RequiresCondition: deployed
 		PauseOnCondition: !deployed
@@ -3411,7 +3519,7 @@ TESTUDO:
 		Name: quarternary
 		Turret: deployed-turret
 		Weapon: testudogun
-		LocalOffset: 260,-120,420
+		LocalOffset: 290,-120,420
 		MuzzleSequence: muzzle-mg1
 		RequiresCondition: deployed
 		PauseOnCondition: !deployed
@@ -3427,7 +3535,7 @@ TESTUDO:
 	WithMoveAnimation:
 		MoveSequence: move
 	Selectable:
-		Bounds: 24,24
+		Bounds: 28,28
 
 KHAN:
 	Inherits: ^Vehicle
@@ -3497,9 +3605,9 @@ RACER:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 24000
+		HP: 26000
 	Armor:
-		Type: Medium
+		Type: Light
 	Mobile:
 		Speed: 135
 		TurnSpeed: 19
@@ -3520,8 +3628,6 @@ RACER:
 	WithMoveAnimation:
 		MoveSequence: move
 		ValidMovementTypes: Horizontal, Turn
-	RenderSprites:
-		Scale: 0.9
 	SpawnActorOnDeath:
 		Actor: RACER.Husk
 

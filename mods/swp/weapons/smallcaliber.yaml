@@ -76,13 +76,13 @@
 	Projectile: InstantHit
 		Blockable: true
 	Warhead@1Dam: SpreadDamage
-		Damage: 1500
+		Damage: 900
 		Versus:
-			None: 100
-			Light: 40
-			Medium: 20
-			Heavy: 20
-			Wood: 20
+			None: 65
+			Light: 20
+			Medium: 17
+			Heavy: 15
+			Wood: 15
 			Concrete: 15
 	Warhead@2Eff: CreateEffect
 		Explosions: piff
@@ -95,8 +95,6 @@ AGGatling:
 	BurstDelays: 4
 	Range: 5c0
 	Burst: 2
-	Warhead@1Dam: SpreadDamage
-		Damage: 1000
 
 AGGatling2:
 	Inherits: AGGatling
@@ -237,7 +235,7 @@ Vulcan:
 			Light: 40
 			Medium: 30
 			Heavy: 20
-			Concrete: 20
+			Concrete: 35
 	Warhead@4Dam_2: SpreadDamage
 		Spread: 128
 		Damage: 500
@@ -249,7 +247,7 @@ Vulcan:
 			Light: 50
 			Medium: 30
 			Heavy: 20
-			Concrete: 20
+			Concrete: 35
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 	Warhead@4Eff_2: CreateEffect
 		Explosions: piffs
@@ -271,7 +269,7 @@ Vulcan:
 			Light: 50
 			Medium: 30
 			Heavy: 20
-			Concrete: 20
+			Concrete: 35
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 	Warhead@6Eff_3: CreateEffect
 		Explosions: piffs
@@ -293,7 +291,7 @@ Vulcan:
 			Light: 50
 			Medium: 30
 			Heavy: 20
-			Concrete: 20
+			Concrete: 35
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 	Warhead@8Eff_4: CreateEffect
 		Explosions: piffs
@@ -315,7 +313,7 @@ Vulcan:
 			Light: 50
 			Medium: 30
 			Heavy: 20
-			Concrete: 20
+			Concrete: 35
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 	Warhead@10Eff_5: CreateEffect
 		Explosions: piffs
@@ -337,7 +335,7 @@ Vulcan:
 			Light: 50
 			Medium: 30
 			Heavy: 20
-			Concrete: 20
+			Concrete: 35
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 	Warhead@12Eff_6: CreateEffect
 		Explosions: piffs
@@ -486,6 +484,7 @@ ChainGun.A10:
 			Heavy: 48
 			Concrete: 32
 		ValidTargets: Ground, GroundActor, Water, WaterActor
+		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 	Warhead@3Dam: SpreadDamage
 		Damage: 500
 		Spread: 1c50
@@ -496,7 +495,7 @@ ChainGun.A10:
 			Heavy: 48
 			Concrete: 32
 		ValidTargets: Ground, GroundActor, Water, WaterActor
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 	Warhead@3Eff: CreateEffect
 		ValidTargets: Ground, GroundActor, Water, WaterActor
 
@@ -522,6 +521,43 @@ M1Carbine:
 	Warhead@1Dam: SpreadDamage
 		Versus:
 			Wood: 30
+	Warhead@2Eff2: CreateEffect
+		Delay: 2
+		Explosions: piff
+		ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
+		Inaccuracy: 171
+	Warhead@3EffWater2: CreateEffect
+		Delay: 2
+		ValidTargets: Water, Underwater
+		InvalidTargets: Bridge
+		Explosions: water_piff
+		Inaccuracy: 171
+	Warhead@2Eff3: CreateEffect
+		Delay: 4
+		Explosions: piff
+		ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
+		Inaccuracy: 171
+	Warhead@3EffWater3: CreateEffect
+		Delay: 4
+		ValidTargets: Water, Underwater
+		InvalidTargets: Bridge
+		Explosions: water_piff
+		Inaccuracy: 171
+
+WitchMG:
+	Inherits: ^LightMG
+	ReloadDelay: 30
+	Range: 5c0
+	Report: mgun3_204.aud
+	Warhead@1Dam: SpreadDamage
+		Damage: 1500
+		Versus:
+			None: 200
+			Concrete: 25
+			Wood: 30
+			Light: 90
+			Medium: 60
+			Heavy: 40
 	Warhead@2Eff2: CreateEffect
 		Delay: 2
 		Explosions: piff

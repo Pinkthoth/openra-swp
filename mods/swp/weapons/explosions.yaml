@@ -60,6 +60,11 @@ UnitExplode:
 	Warhead@1Dam: SpreadDamage
 		Falloff: 1000, 368, 135, 50, 18, 7, 0
 
+SmallUnitExplode:
+	Inherits: ^Explosion
+	Warhead@1Dam: SpreadDamage
+		Damage: 0
+
 UnitExplodePlane:
 	Inherits: UnitExplode
 	Warhead@2Eff: CreateEffect
@@ -343,3 +348,59 @@ MiniNuke:
 	Warhead@14FlashEffect: FlashPaletteEffect
 		Duration: 20
 		FlashType: Nuke
+
+NerveGas:
+	Inherits: ^Explosion
+	ValidTargets: Ground, GroundActor, WaterActor, Trees
+	Warhead@1Dam: SpreadDamage
+		Spread: 170
+		Damage: 0
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		ValidTargets: GroundActor, WaterActor, Trees
+		Versus:
+			Wood: 100
+			Concrete: 50
+		AffectsParent: true
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@2Eff: CreateEffect
+		Explosions: poison1
+		ExplosionPalette: alphapoisons
+		ImpactSounds: gasleak.aud
+		ValidTargets: Ground, Water, Air, GroundActor, AirborneActor, WaterActor, Trees
+	-Warhead@3EffWater:
+	Warhead@10: GrantExternalCondition
+		Condition: nervegas
+		Duration: 300
+		Range: 2c516
+		ValidTargets: GroundActor, WaterActor
+	-Warhead@Smu: LeaveSmudge
+
+SaucerSlicer:
+	Inherits: ^Explosion
+	ValidTargets: Ground, Water, Air, GroundActor, WaterActor, AirborneActor
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c512
+		Falloff: 100,75,50,25
+		Damage: 800
+		ValidTargets: GroundActor, WaterActor
+		Versus:
+			None: 75
+			Wood: 40
+			Light: 50
+			Medium: 40
+			Heavy: 30
+			Concrete: 30
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+		InvalidTargets: Saucer
+	Warhead@Smu: LeaveSmudge
+		SmudgeType: Crater
+		ValidTargets: Ground, Vehicle, Infantry
+	Warhead@2Eff: CreateEffect
+		Explosions: emptyexplosion
+		ImpactSounds: none.aud
+		ValidTargets: Ground, Air, GroundActor, AirborneActor, WaterActor, Trees
+	Warhead@3EffWater: CreateEffect
+		Explosions: emptyexplosion
+		ImpactSounds: none.aud
+		ValidTargets: Water, Underwater
+		InvalidTargets: Bridge

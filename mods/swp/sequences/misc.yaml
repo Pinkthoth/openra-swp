@@ -133,10 +133,22 @@ explosion:
 		Length: *
 	thunderstruck2: thunderstruck2
 		Length: *
+	poison1: poison1
+		Length: *
+		Tick: 20
+	emptyexplosion: empty
 
 cloud:
 	idle:
 		Length: *
+	make: cloudmakedie
+		Start: 0
+		Length: 25
+		Tick: 50
+	die: cloudmakedie
+		Start: 25
+		Length: 25
+		Tick: 50
 
 v3missile:
 	Defaults: v3missile
@@ -234,6 +246,11 @@ pips:
 		Start: 4
 
 v2:
+	idle:
+		Facings: 32
+		ZOffset: 1023
+
+kamikazekite:
 	idle:
 		Facings: 32
 		ZOffset: 1023

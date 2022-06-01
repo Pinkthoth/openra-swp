@@ -70,8 +70,8 @@
 		Versus:
 			None: 32
 			Wood: 52
-			Light: 118
-			Medium: 82
+			Light: 75
+			Medium: 100
 			Heavy: 48
 			Concrete: 32
 	-Warhead@2Smu:
@@ -93,8 +93,8 @@
 		Versus:
 			None: 32
 			Wood: 52
-			Light: 120
-			Medium: 75
+			Light: 75
+			Medium: 110
 			Heavy: 45
 			Concrete: 30
 	-Warhead@2Smu:
@@ -116,8 +116,8 @@
 		Versus:
 			None: 32
 			Wood: 42
-			Light: 80
-			Medium: 65
+			Light: 70
+			Medium: 90
 			Heavy: 33
 			Concrete: 25
 	-Warhead@2Smu:
@@ -171,6 +171,7 @@ TurretGun:
 155mm:
 	Inherits: ^Artillery
 	MinRange: 4c0
+	Range: 10c0
 	Report: tank5.aud
 	TargetActorCenter: true
 	Projectile: Bullet
@@ -181,6 +182,31 @@ TurretGun:
 		Falloff: 100, 55, 20, 5
 		Versus:
 			None: 60
+
+PortaCannon:
+	Inherits: ^Artillery
+	MinRange: 1c0
+	Range: 7c0
+	Report: misl1.aud
+	TargetActorCenter: true
+	Projectile: Bullet
+		ContrailLength: 30
+		Speed: 170
+		Inaccuracy: 1c138
+		Image: DRAGON
+		Shadow: True
+		TrailImage: smokey
+	Warhead@1Dam: SpreadDamage
+		Falloff: 100, 55, 20, 5
+		Spread: 256
+		Damage: 10000
+		Versus:
+			None: 45
+			Wood: 30
+			Light: 65
+			Medium: 60
+			Heavy: 50
+			Concrete: 30
 
 8Inch:
 	Inherits: ^Artillery
@@ -395,7 +421,7 @@ ltnkfire:
 			Wood: 75
 			Light: 75
 			Medium: 95
-			Heavy: 135
+			Heavy: 145
 			Concrete: 65
 
 MausCannon:
@@ -416,7 +442,7 @@ MausCannon:
 			Wood: 60
 			Light: 70
 			Medium: 90
-			Heavy: 140
+			Heavy: 135
 			Concrete: 60
 
 BuildingGrenade:

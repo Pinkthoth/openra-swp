@@ -289,32 +289,32 @@ SYRD:
 	RevealsShroud@GAPGEN:
 		Range: 4c0
 	Exit@1:
-		RequiresCondition: !being-captured || !empdisable
+		RequiresCondition: !being-captured || !empdisable || !sabotaged
 		SpawnOffset: -1024,1024,0
 		Facing: 640
 		ExitCell: 0,2
 		ProductionTypes: Ship, Boat
 	Exit@2:
-		RequiresCondition: !being-captured || !empdisable
+		RequiresCondition: !being-captured || !empdisable || !sabotaged
 		SpawnOffset: 1024,1024,0
 		Facing: 896
 		ExitCell: 2,2
 		ProductionTypes: Ship, Boat
 	Exit@3:
-		RequiresCondition: !being-captured || !empdisable
+		RequiresCondition: !being-captured || !empdisable || !sabotaged
 		SpawnOffset: -1024,-1024,0
 		Facing: 384
 		ExitCell: 0,0
 		ProductionTypes: Ship, Boat
 	Exit@4:
-		RequiresCondition: !being-captured || !empdisable
+		RequiresCondition: !being-captured || !empdisable || !sabotaged
 		SpawnOffset: 1024,-1024,0
 		Facing: 128
 		ExitCell: 2,0
 		ProductionTypes: Ship, Boat
 	Production:
 		Produces: Ship, Boat
-		PauseOnCondition: being-captured || empdisable
+		PauseOnCondition: being-captured || empdisable || sabotaged
 	-SpawnActorsOnSell:
 	RepairsUnits:
 		HpPerStep: 1000
@@ -703,7 +703,7 @@ DOME:
 		OrderName: RadarScanOrder
 		PauseOnCondition: disabled || empdisable
 		EndChargeSpeechNotification: RadarscanReady
-		BeginChargeSpeechNotification: RadarscanPreparing
+		LaunchSound: xradar.aud
 		EffectImage: radarscananim
 		EffectSequence: idle
 		EffectPalette: player
@@ -734,7 +734,6 @@ DOME:
 		LaunchSpeechNotification: ArtbrgNotification
 		IncomingSpeechNotification: ArtbrgDetected
 		EndChargeSpeechNotification: ArtbrgReady
-		BeginChargeSpeechNotification: ArtbrgPrepping
 	AirstrikePower@parabombs:
 		PauseOnCondition: empdisable || disabled
 		OrderName: Parabombs
@@ -760,7 +759,6 @@ DOME:
 		SupportPowerPaletteOrder: 75
 		IncomingSpeechNotification: AirstrikeDetected
 		EndChargeSpeechNotification: AirstrikeReady
-		BeginChargeSpeechNotification: AirstrikePrepping
 	NukePower@v3missile:
 		OrderName: V3Missile
 		PauseOnCondition: empdisable || disabled
@@ -772,7 +770,6 @@ DOME:
 		SelectTargetSpeechNotification: SelectTarget
 		IncomingSpeechNotification: V3Detected
 		EndChargeSpeechNotification: V3Ready
-		BeginChargeSpeechNotification: V3Prepping
 		MissileWeapon: V3Missile
 		MissileDelay: 1
 		FlightDelay: 180
@@ -797,7 +794,6 @@ DOME:
 		ChargeInterval: 8500
 		Description: Smokescreen
 		EndChargeSpeechNotification: SmokescreenReady
-		BeginChargeSpeechNotification: SmokescreenPreparing
 		LongDesc: Fires a small artillery barrage\nthat creates a smokescreen.
 		SelectTargetSpeechNotification: SelectTarget
 		MissileWeapon: SmokeBarrage
@@ -905,7 +901,7 @@ HBOX:
 	Building:
 	Buildable:
 		Queue: Defense
-		BuildPaletteOrder: 65
+		BuildPaletteOrder: 71
 		Prerequisites: barr, ~structures.france, ~techlevel.medium
 		Description: Camouflaged static defense with a fireport\nfor a garrisoned soldier.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
 	Valued:
@@ -1013,7 +1009,7 @@ CAMOGUN:
 	Inherits@rubbles: ^1x1Rubbles
 	Buildable:
 		Queue: Defense
-		BuildPaletteOrder: 70
+		BuildPaletteOrder: 72
 		Prerequisites: weap, ~structures.france, ~techlevel.medium
 		Description: Anti-Armor base defense.\nCan detect cloaked units.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
 	Valued:
@@ -1532,12 +1528,12 @@ WEAP:
 		Sequence: build-top
 	RallyPoint:
 	Exit@1:
-		RequiresCondition: !being-captured || !empdisable
+		RequiresCondition: !being-captured || !empdisable || !sabotaged
 		SpawnOffset: 213,-128,0
 		ExitCell: 1,2
 	Production:
 		Produces: Vehicle
-		PauseOnCondition: being-captured || empdisable
+		PauseOnCondition: being-captured || empdisable || sabotaged
 	ProvidesPrerequisite@allies:
 		Factions: allies, england, france, usa, japan, serbia
 		Prerequisite: vehicles.entente
@@ -1715,7 +1711,7 @@ FACT:
 		Range: 4c0
 	Production:
 		Produces: Building, Defense
-		PauseOnCondition: being-captured || empdisable
+		PauseOnCondition: being-captured || empdisable || sabotaged
 	Valued:
 		Cost: 2100
 	Tooltip:
@@ -1725,7 +1721,7 @@ FACT:
 	BaseBuilding:
 	Transforms:
 		RequiresCondition: factundeploy
-		PauseOnCondition: chrono-vortex || being-captured || being-demolished || build-incomplete
+		PauseOnCondition: chrono-vortex || being-captured || being-demolished || build-incomplete || sabotaged
 		IntoActor: mcv
 		Offset: 1,1
 		Facing: 384
@@ -1744,7 +1740,7 @@ FACT:
 	TransformsIntoTransforms:
 		RequiresCondition: factundeploy && build-incomplete
 	Sellable:
-		RequiresCondition: !build-incomplete && !chrono-vortex && !being-captured && !being-demolished
+		RequiresCondition: !build-incomplete && !chrono-vortex && !being-captured && !being-demolished && !sabotaged
 	GrantConditionOnPrerequisite@GLOBALFACTUNDEPLOY:
 		Condition: factundeploy
 		Prerequisites: global-factundeploy
@@ -1888,6 +1884,7 @@ PROC:
 		IsPlayerPalette: true
 		RequiresCondition:  !build-incomplete
 	RenderSprites:
+		Image: proc
 		FactionImages:
 			austria: mproc
 			germany: mproc
@@ -1899,6 +1896,26 @@ PROC:
 			japan: eproc
 			england: eproc
 			france: eproc
+	TransformOnCondition:
+		IntoActor: proc.disabled
+		RequiresCondition: sabotaged
+
+PROC.disabled:
+	Inherits: PROC
+	GrantTimedCondition:
+		Condition: sabotaged
+		Duration: 1500
+	TransformOnCondition:
+		IntoActor: proc.resumed
+		RequiresCondition: !sabotaged
+	-Refinery:
+	-Buildable:
+	-FreeActor:
+
+PROC.resumed:
+	Inherits: PROC
+	-FreeActor:
+	-Buildable:
 
 SILO:
 	Inherits: ^Building
@@ -1986,14 +2003,14 @@ HPAD:
 	WithResupplyAnimation:
 		RequiresCondition: !build-incomplete
 	Exit@1:
-		RequiresCondition: !being-captured || !empdisable
+		RequiresCondition: !being-captured || !empdisable || !sabotaged
 		SpawnOffset: 0,-256,0
 		ExitCell: 0,0
 		Facing: 896
 	RallyPoint:
 	Production:
 		Produces: Helicopter
-		PauseOnCondition: being-captured || empdisable
+		PauseOnCondition: being-captured || empdisable || sabotaged
 	Reservable:
 	ProductionBar:
 		ProductionType: Aircraft
@@ -2135,13 +2152,13 @@ AFLD:
 	RevealsShroud@GAPGEN:
 		Range: 4c0
 	Exit@1:
-		RequiresCondition: !being-captured || !empdisable
+		RequiresCondition: !being-captured || !empdisable || !sabotaged
 		ExitCell: 1,1
 		Facing: 768
 	RallyPoint:
 	Production:
 		Produces: Aircraft, Plane
-		PauseOnCondition: being-captured || empdisable
+		PauseOnCondition: being-captured || empdisable || sabotaged
 	Reservable:
 	ProvidesPrerequisite@soviet:
 		Factions: soviet, russia, ukraine, china, mongolia, kazakhstan
@@ -2444,18 +2461,18 @@ BARR:
 	WithBuildingBib:
 	RallyPoint:
 	Exit@1:
-		RequiresCondition: !being-captured || !empdisable || !disabled
+		RequiresCondition: !being-captured || !empdisable || !sabotaged
 		SpawnOffset: -170,810,0
 		ExitCell: 1,2
 		ProductionTypes: Soldier, Infantry
 	Exit@2:
-		RequiresCondition: !being-captured || !empdisable || !disabled
+		RequiresCondition: !being-captured || !empdisable || !sabotaged
 		SpawnOffset: -725,640,0
 		ExitCell: 0,2
 		ProductionTypes: Soldier, Infantry
 	Production:
 		Produces: Infantry, Soldier
-		PauseOnCondition: being-captured || empdisable || disabled
+		PauseOnCondition: being-captured || empdisable || sabotaged
 	GrantExternalConditionToProduced:
 		Condition: produced
 	ProductionBar:
@@ -2583,6 +2600,7 @@ FIX:
 		StartRepairingNotification: Repairing
 		FinishRepairingNotification: UnitRepaired
 		PlayerExperience: 15
+		PauseOnCondition: sabotaged
 	WithBuildingBib:
 		HasMinibib: true
 	WithResupplyAnimation:
@@ -2890,7 +2908,7 @@ EMPGUN:
 	Targetable:
 		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
 
-RAILGUN:
+REFGUN:
 	Inherits: ^Defense
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@AUTOTARGET: ^AutoTargetGround
@@ -2945,6 +2963,8 @@ RAILGUN:
 	ClassicFacingBodyOrientation:
 	Selectable:
 		DecorationBounds: 40, 40, 0, -10
+	RenderSprites:
+		Image: railgun
 		
 SRIMP:
 	Inherits: ^ScienceBuilding

@@ -48,11 +48,11 @@
 		Damage: 10000
 		ValidTargets: GroundActor, WaterActor
 		Versus:
-			None: 100
-			Light: 80
-			Medium: 70
-			Heavy: 50
-			Woood: 40
+			None: 30
+			Light: 50
+			Medium: 60
+			Heavy: 40
+			Wood: 30
 			Concrete: 20
 		DamageTypes: Prone50Percent, TriggerProne, ElectricityDeath
 
@@ -85,6 +85,7 @@
 
 TraktorBeam:
 	Inherits: ^MagneticWeapon
+	Report: magnet1.aud,magnet2.aud,magnet3.aud,magnet4.aud,magnet5.aud
 	Warhead@1: SpreadDamage
 		Damage: 300
 	Warhead@2: GrantExternalCondition
@@ -97,6 +98,7 @@ MagneticBolt:
 	Inherits: ^MagneticWeapon
 	ReloadDelay: 100
 	Range: 6c0
+	Report: magray.aud
 	Projectile: Railgun
 		Inaccuracy: 0c256
 		BeamWidth: 0c30
@@ -110,12 +112,13 @@ MagneticBolt:
 	Warhead@1: SpreadDamage
 		Damage: 7500
 		Versus:
-			None: 30
+			None: 70
 
 NightWitchBolt:
 	Inherits: ^MagneticWeapon
 	ReloadDelay: 100
 	Range: 6c0
+	Report: magray.aud
 	Projectile: Railgun
 		BeamWidth: 0c30
 		BeamColor: DB2BFF
@@ -162,7 +165,7 @@ ElectricBolt:
 		Spread: 0c256
 		Falloff: 100, 50, 25, 5
 		Versus:
-			None: 80
+			None: 40
 		Damage: 9000
 	Warhead@3Eff: CreateEffect
 		Explosions: thunderstruck, thunderstruck2
@@ -191,7 +194,7 @@ PlaneElectricBolt:
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c256
 		Falloff: 100, 50, 25, 5
-		Damage: 6000
+		Damage: 6500
 	Warhead@3Eff: CreateEffect
 		Explosions: thunderstruck, thunderstruck2
 		ExplosionPalette: tseffects
@@ -231,7 +234,7 @@ SM_ElectricBolt:
 		Falloff: 100, 50, 25, 5
 		Damage: 6000
 		Versus:
-			None: 80
+			None: 40
 		ValidTargets: GroundActor, WaterActor
 		DamageTypes: Prone50Percent, TriggerProne, ElectricityDeath
 	Warhead@3Eff: CreateEffect
@@ -317,15 +320,16 @@ Toxxer:
 		LaunchAngle: 62
 		Inaccuracy: 853
 	Warhead@1Dam: SpreadDamage
-		Spread: 341
+		Spread: 0c126
+		Falloff: 120, 80, 50, 25, 10, 5
 		Damage: 1500
 		Versus:
-			None: 70
-			Wood: 60
+			None: 50
+			Wood: 30
 			Tree: 80
 			Light: 45
-			Medium: 42
-			Heavy: 40
+			Medium: 45
+			Heavy: 45
 			Concrete: 30
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
 		ValidTargets: Ground, Water, GroundActor, WaterActor, Trees
@@ -343,9 +347,15 @@ TruckToxxer:
 	Inherits: Toxxer
 	Warhead@1Dam: SpreadDamage
 		Damage: 2000
-		Falloff: 100, 50, 25
+		Falloff: 200, 100, 150, 100, 50, 25, 10, 5
 		Versus:
 			None: 50
+			Wood: 30
+			Tree: 80
+			Light: 65
+			Medium: 50
+			Heavy: 45
+			Concrete: 30
 
 TeslaZap:
 	Inherits: ^TeslaWeapon
@@ -604,7 +614,7 @@ Firebombs:
 		ValidTargets: GroundActor, WaterActor
 		Versus:
 			None: 55
-			Wood: 110
+			Wood: 95
 			Light: 50
 			Medium: 45
 			Heavy: 35
@@ -891,3 +901,43 @@ Drill:
 			Concrete: 100
 		ValidTargets: GroundActor, WaterActor, Ground, Water
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+
+SonicZap:
+	ReloadDelay: 180
+	Range: 6c0
+	Report: sonic4.aud
+	ValidTargets: Ground, Trees
+	Projectile: AreaBeam
+		Speed: 0c128
+		Duration: 10
+		DamageInterval: 5 # Roughly 18 impacts.
+		Width: 384
+		Shape: Cylindrical
+		ZOffset: 2047
+		BeyondTargetRange: 0c256
+		Blockable: true
+		TrackTarget: true
+		Color: 50F5FF45
+	Warhead@1Dam: SpreadDamage
+		Range: 0, 32
+		Falloff: 100, 100
+		Damage: 800
+		AffectsParent: false
+		ValidRelationships: Neutral, Enemy
+		ValidTargets: Ground, Trees
+		Versus:
+			Heavy: 80
+			Concrete: 60
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+	Warhead@2Dam: SpreadDamage
+		Range: 0, 32
+		Falloff: 50, 50
+		Damage: 800
+		InvalidTargets: Disruptor # Does not affect friendly disruptors at all
+		AffectsParent: false
+		ValidRelationships: Ally
+		ValidTargets: Ground, Trees
+		Versus:
+			Heavy: 80
+			Concrete: 60
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath

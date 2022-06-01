@@ -186,12 +186,19 @@
 	PaletteFromFile@TSEFFECTS:
 		Name: tseffects
 		Filename: anim.pal
+	PaletteFromFile@POISONS:
+		Name: poisons
+		Filename: poisons.pal
 	PaletteFromFile@POISONPAL:
 		Name: poisonpal
 		Filename: poisonpal.pal
 	PaletteFromPaletteWithAlpha@chronopal:
 		Name: chronopal
 		BasePalette: player
+		Alpha: 0.45
+	PaletteFromPaletteWithAlpha@alphapoison:
+		Name: alphapoisons
+		BasePalette: poisons
 		Alpha: 0.45
 	RotationPaletteEffect@chronotrappalrotation:
 		Palettes: chronopal

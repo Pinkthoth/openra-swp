@@ -16,8 +16,6 @@ RUBBLE:
 	Targetable:
 		TargetTypes: Rubble, NoAutoTarget, Trees
 		RequiresForceFire: false
-	Tooltip:
-		GenericName: Rubble
 	ChangesHealth:
 		Step: -150
 		StartIfBelow: 101
@@ -41,6 +39,10 @@ RUBBLE:
 		Name: rubble3-body
 		Sequence: idle3
 		RequiresCondition: rubble3
+	Immobile:
+		OccupiesSpace: False
+	ChangesTerrain:
+		TerrainType: Rough
 
 HOSPITALLER.Husk:
 	Inherits: ^PlaneHusk
@@ -237,6 +239,31 @@ ANT40.Husk:
 	RenderSprites:
 		Image: ant40
 
+SAUCER.Husk:
+	Inherits: ^HelicopterHusk
+	Tooltip:
+		Name: Saucer
+	RenderSprites:
+		Image: saucer.husk
+	SpawnActorOnDeath:
+		Actor: SAUCER.Ground.Husk
+
+SAUCER.GROUND.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Saucer)
+	TransformOnCapture@Mechanic:
+		IntoActor: SAUCER
+	TransformOnCapture@Engineer:
+		IntoActor: SAUCER
+	InfiltrateForTransform:
+		IntoActor: SAUCER
+	RenderSprites:
+		Image: saucer
+	-WithFacingSpriteBody:
+	WithSpriteBody:
+		Sequence: husk
+
 TRAN.Husk1:
 	Inherits: ^Husk
 	Tooltip:
@@ -276,6 +303,55 @@ BADR.Husk:
 		MinDamage: Undamaged
 	RenderSprites:
 		Image: badr
+	-RevealOnDeath:
+
+TRANSPORTPLANE.Husk:
+	Inherits: ^PlaneHusk
+	GrantConditionOnFaction@komintern:
+		Factions: russia, ukraine, china, mongolia, kazakhstan
+		Condition: komintern
+	GrantConditionOnFaction@zentrum:
+		Factions: germany, austria, italy, turkey, bulgaria
+		Condition: zentrum
+	GrantConditionOnFaction@entente:
+		Factions: usa, france, england, japan, serbia
+		Condition: entente
+	RenderSprites:
+		Image: transportplane
+	WithFacingSpriteBody:
+		Name: kombody
+		Sequence: badr-idle
+		RequiresCondition: komintern
+	WithFacingSpriteBody@entente:
+		Name: entbody
+		Sequence: douglas-idle
+		RequiresCondition: entente
+	WithFacingSpriteBody@zentrum:
+		Name: zentbody
+		Sequence: junkers-idle
+		RequiresCondition: zentrum
+	Tooltip:
+		Name: Badger
+		RequiresCondition: komintern
+	Tooltip@entente:
+		Name: Douglas
+		RequiresCondition: entente
+	Tooltip@komintern:
+		Name: Junkers
+		RequiresCondition: zentrum
+	Aircraft:
+		TurnSpeed: 20
+		Speed: 149
+	SmokeTrailWhenDamaged@0:
+		Offset: -432,560,0
+		Interval: 2
+		MinDamage: Undamaged
+	SmokeTrailWhenDamaged@1:
+		Offset: -432,-560,0
+		Interval: 2
+		MinDamage: Undamaged
+	RenderSprites:
+		Image: transportplane
 	-RevealOnDeath:
 
 MIG.Husk:
@@ -394,6 +470,7 @@ HIND.Husk:
 		Speed: 112
 	WithIdleOverlay:
 		Sequence: rotor
+		Offset: 0,0,300
 	SmokeTrailWhenDamaged:
 		Offset: -427,0,0
 		MinDamage: Undamaged
@@ -407,6 +484,57 @@ HIND.Husk:
 		Type: GroundPosition
 	RenderSprites:
 		Image: hind
+	WithFacingSpriteBody:
+		Sequence: turret
+
+IBLIS.Husk:
+	Inherits: ^HelicopterHusk
+	Tooltip:
+		Name: Iblis
+	Aircraft:
+		TurnSpeed: 16
+		Speed: 112
+	WithIdleOverlay:
+		Sequence: rotor
+		Offset: 10,0,300
+	SmokeTrailWhenDamaged:
+		Offset: -427,0,0
+		MinDamage: Undamaged
+	RevealsShroud:
+		MinRange: 8c0
+		Range: 10c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 8c0
+		Type: GroundPosition
+	RenderSprites:
+		Image: hind
+	WithFacingSpriteBody:
+		Sequence: turret
+
+GEBARD.Husk:
+	Inherits: ^HelicopterHusk
+	Tooltip:
+		Name: Gebard
+	Aircraft:
+		TurnSpeed: 16
+		Speed: 112
+	WithIdleOverlay:
+		Sequence: rotor
+	SmokeTrailWhenDamaged:
+		Offset: -427,0,0
+		MinDamage: Undamaged
+	RevealsShroud:
+		MinRange: 8c0
+		Range: 10c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 8c0
+		Type: GroundPosition
+	RenderSprites:
+		Image: gebard
 	WithFacingSpriteBody:
 		Sequence: turret
 

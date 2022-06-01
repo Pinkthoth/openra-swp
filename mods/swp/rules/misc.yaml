@@ -517,3 +517,8 @@ SMOKECLOUD:
 	ProximityExternalCondition@smoke:
 		Condition: smoked
 		Range: 1c512
+	WithMakeAnimation:
+	WithDeathAnimation:
+		UseDeathTypeSuffix: False
+		FallbackSquence: die
+		

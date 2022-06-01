@@ -17,7 +17,7 @@ DOG:
 		Bounds: 12,17,-1,-4
 		DecorationBounds: 12,17,-1,-4
 	Health:
-		HP: 1800
+		HP: 3000
 	Mobile:
 		Speed: 99
 		Voice: Move
@@ -167,6 +167,45 @@ E11.Husk:
 	SpawnActorOnDeath:
 		Actor: E11
 
+HOMOSOVIETICUS:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 71
+		Prerequisites: ~barracks, adept, ~infantry.entente, ~techlevel.infonly
+		Description: General-purpose infantry.\nSuppresses a group of infantry.\n  Strong vs Infantry\n	Weak vs Vehicles, Aircraft
+	Valued:
+		Cost: 800
+	Mobile:
+		Speed: 40
+	Armor:
+		Type: Light
+	Tooltip:
+		Name: Homo Sovieticus
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 5000
+	Armament@PRIMARY:
+		Weapon: PortaCannon
+		LocalOffset: 70,80,550
+	Voiced:
+		VoiceSet: CyborgVoice
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: PortaCannon
+		MuzzleSequence: garrison-muzzle
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+		RequiresCondition: !parachute
+	WithInfantryBody@PARACHUTE:
+		StandSequences: parachute
+		RequiresCondition: parachute
+	ProducibleWithLevel:
+		Prerequisites: barracks.upgraded
+
 HVGATLING:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
@@ -260,7 +299,7 @@ WASTETROOPER:
 		HP: 5000
 	Armament:
 		Weapon: Toxxer
-		LocalOffset: 550,0,450
+		LocalOffset: 550,0,465
 	Armament@GARRISONED:
 		Name: garrisoned
 		Weapon: Toxxer
@@ -658,15 +697,6 @@ SPY:
 		Voice: Move
 	Disguise:
 		DisguisedCondition: disguise
-	Infiltrates:
-		Types: SpyInfiltrate
-		Notification: BuildingInfiltrated
-		PlayerExperience: 50
-	AutoTarget:
-		InitialStance: HoldFire
-		InitialStanceAI: HoldFire
-		ScanRadius: 5
-	-WithInfantryBody:
 	WithDisguisingInfantryBody:
 		DefaultAttackSequence: shoot
 		IdleSequences: idle1,idle2
@@ -678,6 +708,15 @@ SPY:
 		Sequence: tag-spy
 		Palette: effect
 		RequiresCondition: disguise
+	Infiltrates:
+		Types: SpyInfiltrate
+		Notification: BuildingInfiltrated
+		PlayerExperience: 50
+	AutoTarget:
+		InitialStance: HoldFire
+		InitialStanceAI: HoldFire
+		ScanRadius: 5
+	-WithInfantryBody:
 	IgnoresDisguise:
 	Armament:
 		Weapon: SilencedPPK
@@ -1201,6 +1240,152 @@ POLITRUK.Husk:
 		Name: Corpse (Politruk)
 	SpawnActorOnDeath:
 		Actor: POLITRUK
+
+NERVEAGENT:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	-ExperienceTrickler@OfficerNearby:
+	-GainsExperienceMultiplier@OfficerNearby:
+	-ExternalCondition@OfficerNearby:
+	-GainsExperience:
+	GainsExperience:
+		LevelUpNotification: LevelUp
+		Conditions:
+			50: rank-veteran
+			100: rank-veteran
+			150: rank-veteran
+		LevelUpImage: crate-effects
+	-DamageMultiplier@RANK-4:
+	-DamageMultiplier@RANK-5:
+	-DamageMultiplier@RANK-6:
+	-DamageMultiplier@RANK-7:
+	-FirepowerMultiplier@RANK-4:
+	-FirepowerMultiplier@RANK-5:
+	-FirepowerMultiplier@RANK-6:
+	-FirepowerMultiplier@RANK-7:
+	-ReloadDelayMultiplier@RANK-4:
+	-ReloadDelayMultiplier@RANK-5:
+	-ReloadDelayMultiplier@RANK-6:
+	-ReloadDelayMultiplier@RANK-7:
+	ChangesHealth@ELITE:
+		Step: 0
+		PercentageStep: 5
+		Delay: 100
+		StartIfBelow: 100
+		DamageCooldown: 125
+		RequiresCondition: rank-veteran > 2
+	WithDecoration@RANK-1:
+		Image: rank
+		Sequence: rank-veteran-8
+		Palette: effect
+		Position: BottomRight
+		Margin: 5, 6
+		ValidRelationships: Ally, Enemy, Neutral
+		RequiresCondition: rank-veteran == 1
+	WithDecoration@RANK-2:
+		Image: rank
+		Sequence: rank-veteran-9
+		Palette: effect
+		Position: BottomRight
+		Margin: 5, 6
+		ValidRelationships: Ally, Enemy, Neutral
+		RequiresCondition: rank-veteran == 2
+	WithDecoration@RANK-3:
+		Image: rank
+		Sequence: rank-veteran-10
+		Palette: effect
+		Position: BottomRight
+		Margin: 5, 6
+		ValidRelationships: Ally, Enemy, Neutral
+		RequiresCondition: rank-veteran == 3
+	-WithDecoration@RANK-4:
+	-WithDecoration@RANK-5:
+	-WithDecoration@RANK-6:
+	-WithDecoration@RANK-7:
+	-Tooltip:
+	DisguiseTooltip:
+		Name: Nerve Agent
+		GenericName: Soldier
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 75
+		Prerequisites: ~barracks, adept, ~infantry.komintern, ~techlevel.infonly
+		Description: Increases the fighting capabilities of infantry.\n  Weak vs Everything
+	Valued:
+		Cost: 550
+	Health:
+		HP: 7000
+	RevealsShroud:
+		Range: 4c768
+	AutoTarget:
+		ScanRadius: 7
+		InitialStance: HoldFire
+		InitialStanceAI: ReturnFire
+	Armament@PRIMARY:
+		Weapon: 9mmPistol
+	Selectable:
+		Class: KOMISSAAR
+	Mobile:
+		Voice: Move
+	AttackFrontal:
+		Voice: Attack
+	AttackMove:
+		Voice: Move
+	Passenger:
+		Voice: Move
+	Guard:
+		Voice: Move
+	Voiced:
+		VoiceSet: StavrosVoice
+	TakeCover:
+		DamageModifiers:
+			Prone50Percent: 50
+		DamageTriggers: TriggerProne
+	-WithInfantryBody:
+	SpawnActorOnDeath@BulletDeath:
+		Actor: NERVEAGENT.Husk
+		DeathType: BulletDeath
+	SpawnActorOnDeath@DefaultDeath:
+		Actor: NERVEAGENT.Husk
+		DeathType: DefaultDeath
+	SpawnActorOnDeath@SmallExplosionDeath:
+		Actor: NERVEAGENT.Husk
+		DeathType: SmallExplosionDeath
+	RenderSprites:
+		Image: nerveagent
+	Disguise:
+		DisguisedCondition: disguise
+		Voice: Move
+	WithDisguisingInfantryBody:
+		DefaultAttackSequence: shoot
+		IdleSequences: idle1,idle2
+		StandSequences: stand,stand2
+	WithDecoration@disguise:
+		Position: Top
+		Margin: 0, -6
+		Image: pips
+		Sequence: tag-spy
+		Palette: effect
+		RequiresCondition: disguise
+	DetonateWeaponOnDeploy:
+		Weapon: NerveGas
+		Voice: Move
+		StartsFullyCharged: False
+		OverlaySequence: idle1
+		OverlayPalette: player
+		IsPlayerPalette: True
+		ChargeTicks: 750
+		SelectionBarColor: 4CFF00
+
+NERVEAGENT.Husk:
+	Inherits: ^InfantryCorpse
+	Tooltip:
+		Name: Corpse (Nerve Agent)
+	SpawnActorOnDeath:
+		Actor: NERVEAGENT
 
 OFFICER:
 	Inherits: ^Soldier
@@ -1873,7 +2058,6 @@ GUERILLA:
 		Name: secondary
 		Weapon: Satchel
 		LocalOffset: 0,0,555
-		FireDelay: 15
 	Armament@GARRISONED:
 		Name: garrisoned
 		Weapon: GuerillaCarbine
@@ -2057,16 +2241,16 @@ NIGHTWITCH:
 		HP: 5000
 	Mobile:
 		Voice: Move
-		Speed: 49
+		Speed: 40
 	RevealsShroud:
 		Range: 5c0
 	Armament@PRIMARY:
-		Weapon: NightWitchBolt
+		Weapon: WitchMG
 		LocalOffset: 427,0,400
 		FireDelay: 5
 	Armament@GARRISONED:
 		Name: garrisoned
-		Weapon: NightWitchBolt
+		Weapon: WitchMG
 	TakeCover:
 		ProneOffset: 227,0,-245
 	AttackFrontal:
@@ -2128,7 +2312,7 @@ NIGHTWITCHAIR:
 		Range: 5c0
 		Type: CenterPosition
 	Armament@PRIMARY:
-		Weapon: NightWitchBolt
+		Weapon: WitchMG
 		LocalOffset: 427,0,341
 	-EjectOnDeath:
 	AttackFrontal:

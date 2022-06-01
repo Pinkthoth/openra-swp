@@ -83,6 +83,176 @@ radist:
 			INTERIOR: TEMPERAT
 	icon: radisticon
 
+homosovieticus:
+	stand:
+		Start: 0
+		Facings: 8
+	stand2:
+		Start: 8
+		Facings: 8
+	parachute:
+		Start: 6
+	run:
+		Start: 24
+		Length: 6
+		Facings: 8
+		Tick: 80
+	shoot:
+		Start: 120
+		Length: 6
+		Facings: 8
+	prone-stand:
+		Start: 16
+		Facings: 8
+		Length: 1
+	prone-stand2:
+		Start: 16
+		Facings: 8
+		Length: 1
+	prone-run:
+		Start: 72
+		Length: 6
+		Facings: 8
+		Tick: 100
+	standup:
+		Start: 216
+		Length: 1
+		Facings: 8
+	prone-shoot:
+		Start: 168
+		Length: 6
+		Facings: 8
+	idle1:
+		Start: 224
+		Length: 24
+		Tick: 120
+	idle2:
+		Start: 261
+		Length: 15
+		Tick: 120
+	die1:
+		Start: 276
+		Length: 28
+		Tick: 40
+	die2:
+		Start: 276
+		Length: 28
+		Tick: 40
+	die3:
+		Start: 331
+		Length: 18
+		Tick: 40
+	die4:
+		Start: 331
+		Length: 18
+		Tick: 40
+	die5: tnkcmndr
+		Start: 246
+		Length: 18
+		Tick: 80
+	die6: electro
+		Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+		Length: *
+		Tick: 80
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	die-crushed: corpse1
+		Length: 6
+		Tick: 1600
+		ZOffset: -511
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	icon: homosovieticusicon
+
+nerveagent:
+	stand:
+		Start: 0
+		Facings: 8
+	stand2:
+		Start: 8
+		Facings: 8
+	parachute:
+		Start: 6
+	run:
+		Start: 24
+		Length: 6
+		Facings: 8
+		Tick: 80
+	shoot:
+		Start: 120
+		Length: 6
+		Facings: 8
+	prone-stand:
+		Start: 16
+		Facings: 8
+		Length: 1
+	prone-stand2:
+		Start: 16
+		Facings: 8
+		Length: 1
+	prone-run:
+		Start: 72
+		Length: 6
+		Facings: 8
+		Tick: 100
+	standup:
+		Start: 216
+		Length: 1
+		Facings: 8
+	prone-shoot:
+		Start: 168
+		Length: 6
+		Facings: 8
+	idle1:
+		Start: 250
+		Length: 11
+		Tick: 120
+	idle2:
+		Start: 261
+		Length: 15
+		Tick: 120
+	die1:
+		Start: 276
+		Length: 28
+		Tick: 40
+	die2:
+		Start: 276
+		Length: 28
+		Tick: 40
+	die3:
+		Start: 331
+		Length: 18
+		Tick: 40
+	die4:
+		Start: 331
+		Length: 18
+		Tick: 40
+	die5: tnkcmndr
+		Start: 246
+		Length: 18
+		Tick: 80
+	die6: electro
+		Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+		Length: *
+		Tick: 80
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	die-crushed: corpse1
+		Length: 6
+		Tick: 1600
+		ZOffset: -511
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	icon: nerveagenticon
+
 legionaire:
 	stand:
 		Start: 0
@@ -105,7 +275,7 @@ legionaire:
 		Start: 0
 		Length: 6
 		Facings: 8
-		Tick: 100
+		Tick: 80
 	prone-stand:
 		Start: 16
 		Facings: 8
@@ -131,7 +301,7 @@ legionaire:
 		Start: 48
 		Length: 6
 		Facings: 8
-		Tick: 100
+		Tick: 80
 	idle1:
 		Start: 249
 		Length: 12
@@ -940,20 +1110,20 @@ wastetrooper:
 
 nightwitch:
 	idle:
-		Start: 366
+		Start: 358
 		Facings: 8
 		Length: 6
 		Tick: 210
 	move:
-		Start: 366
+		Start: 358
 		Facings: 8
 		Length: 6
 		Tick: 210
 	attack:
-		Start: 414
+		Start: 406
 		Facings: 8
 		Length: 6
-		Tick: 80
+		Tick: 60
 	stand:
 		Start: 0
 		Facings: 8
@@ -971,7 +1141,7 @@ nightwitch:
 		Start: 120
 		Length: 6
 		Facings: 8
-		Tick: 80
+		Tick: 60
 	prone-stand:
 		Start: 16
 		Facings: 8
@@ -993,7 +1163,7 @@ nightwitch:
 		Start: 168
 		Length: 6
 		Facings: 8
-		Tick: 80
+		Tick: 60
 	idle1:
 		Start: 224
 		Length: 24
@@ -1041,8 +1211,9 @@ nightwitch:
 	icon: nightwitchicon
 
 nightwitchhusk:
-	idle:
-		Length: *
+	idle: nightwitch
+		Start: 350
+		Length: 8
 		Tick: 60
 
 politruk:

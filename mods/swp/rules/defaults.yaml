@@ -336,7 +336,7 @@
 ^OfficerNearby:
 	ExperienceTrickler@OfficerNearby:
 		Interval: 1
-		Amount: 10
+		Amount: 22
 		RequiresCondition: officer-nearby
 	ExternalCondition@OfficerNearby:
 		Condition: officer-nearby
@@ -644,6 +644,7 @@
 	Inherits@OfficerNearby: ^OfficerNearby
 	Inherits@emdamaged: ^EMDamaged
 	Inherits@magnetictrap: ^MagneticTrap
+	Inherits@berserkable: ^Berserkable
 	Carryable:
 	Huntable:
 	OwnerLostAction:
@@ -744,6 +745,7 @@
 	Inherits@Kommissable: ^Kommissable
 	Inherits@Confusable: ^Confusable
 	Inherits@smoked: ^Smoked
+	Inherits@berserkable: ^Berserkable
 	Inherits@OfficerNearby: ^OfficerNearby
 	Huntable:
 	OwnerLostAction:
@@ -1731,7 +1733,7 @@
 	GrantConditionOnInfiltration@sabotaged:
 		Types: SaboteurInfiltration
 		Condition: sabotaged
-		Duration: 1000
+		Duration: 1500
 	TimedConditionBar@sabotaged:
 		Condition: sabotaged
 		Color: 0088FF
@@ -1743,6 +1745,29 @@
 	WithColoredOverlay@IDISABLE:
 		RequiresCondition: disabled
 		Palette: disabled
+
+^Berserkable:
+	FirepowerMultiplier@nervegas:
+		Modifier: 50
+		RequiresCondition: nervegas
+	DamageMultiplier@nervegas:
+		Modifier: 150
+		RequiresCondition: nervegas
+	Berserkable@nervegas:
+		RequiresCondition: nervegas
+		ActorsToIgnore: nerveagent
+	RejectsOrders@nervegas:
+		RequiresCondition: nervegas
+	WithColoredOverlay@nervegas:
+		Color: 80008040
+		RequiresCondition: nervegas
+	TimedConditionBar@nervegas:
+		Color: 880088
+		Condition: nervegas
+	Targetable@nervegas:
+		TargetTypes: NerveGasable
+	ExternalCondition@nervegas:
+		Condition: nervegas
 
 ^MagneticTrap:
 	ExternalCondition@MagneticTrap:
