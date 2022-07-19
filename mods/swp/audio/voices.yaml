@@ -56,6 +56,11 @@ TeleVoice:
 		Select: telereport1,telereport2
 		Action: teleaction1,teleaction2,teleaction3
 
+HoloVoice:
+	Voices:
+		Select: holoreport1,holoreport2
+		Action: holoaction1,holoaction2,holoaction3
+
 CyborgVoice:
 	Voices:
 		Select: volksela,volkselb,volkselc
@@ -89,6 +94,15 @@ MechanicVoice:
 		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8
 		Burned: dedman10
 		Zapped: dedman6
+
+ZombieVoice:
+	Voices:
+		Select: zombiereport1, zombiereport2, zombiereport3
+		Move: zombiemove1, zombiemove2, zombiemove3
+		Action: zombiemove1, zombiemove2, zombiemove3
+		Die: zombiedie1, zombiedie2
+		Burned: zombieburned1
+		Zapped: zombiezapped1
 
 TanyaVoice:
 	Voices:
@@ -178,12 +192,22 @@ StavrosVoice:
 		Burned: dedman10
 		Zapped: dedman6
 
+VirusVoices:
+	Voices:
+		Select: virreport1, virreport2, virreport3, virreport4
+		Action: virmove1, virmove2, virmove3, virmove4
+		Attack: virmove1, virmove2, virmove3, virmove4
+		Move: virmove1, virmove2, virmove3, virmove4
+		Die: virdie1, virdie2, virdie3
+		Burned: virdie4
+		Zapped: virdie5
+
 RusFemVoices:
 	Voices:
-		Select: femspyreport1,femspyreport2,femspyreport3, femspyreport4
-		Action: femspymove1,femspymove2,femspymove3
-		Attack: femspymove1,femspymove2,femspymove3
-		Move: femspymove1,femspymove2,femspymove3
+		Select: femreport1, femreport2, femreport3
+		Action: femmove1,femmove2,femmove3
+		Attack: femmove1,femmove2,femmove3
+		Move: femmove1,femmove2,femmove3
 		Die: femdie2
 		Burned: femdie1
 		Zapped: femdie1

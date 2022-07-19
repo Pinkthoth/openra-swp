@@ -11,11 +11,14 @@
 	DebugVisualizations:
 	SubterraneanLocomotor@SUBTERRANEAN:
 		Name: subterranean
-		Crushes: wall, crate, infantry
+		Crushes: wall, crate, infantry, tree
 		TerrainSpeeds:
 			Clear: 55
+			Pavement: 55
 			Rough: 45
+			TallGrass: 50
 			Road: 75
+			PavedRoad: 100
 			Bridge: 75
 			Ore: 45
 			Gems: 45
@@ -23,14 +26,21 @@
 			Subterranean: 60
 		SubterraneanTransitionTerrainTypes: Clear, Rough
 		SubterraneanTransitionCost: 200
+	Locomotor@cellbuilding:
+		Name: cellbuilding
+		SharesCell: true
+		TerrainSpeeds:
 	Locomotor@FOOT:
 		Name: foot
 		Crushes: mine, crate
 		SharesCell: true
 		TerrainSpeeds:
 			Clear: 90
+			Pavement: 90
 			Rough: 80
+			TallGrass: 85
 			Road: 100
+			PavedRoad: 100
 			Bridge: 100
 			Ore: 80
 			Gems: 80
@@ -41,8 +51,11 @@
 		SharesCell: true
 		TerrainSpeeds:
 			Clear: 80
+			Pavement: 90
 			Rough: 40
+			TallGrass: 70
 			Road: 100
+			PavedRoad: 100
 			Bridge: 100
 			Ore: 70
 			Gems: 70
@@ -52,8 +65,11 @@
 		Crushes: mine, crate
 		TerrainSpeeds:
 			Clear: 90
+			Pavement: 90
 			Rough: 80
+			TallGrass: 85
 			Road: 100
+			PavedRoad: 100
 			Bridge: 100
 			Ore: 80
 			Gems: 80
@@ -63,8 +79,11 @@
 		Crushes: mine, crate
 		TerrainSpeeds:
 			Clear: 80
+			Pavement: 90
 			Rough: 40
+			TallGrass: 70
 			Road: 100
+			PavedRoad: 100
 			Bridge: 100
 			Ore: 70
 			Gems: 70
@@ -74,8 +93,11 @@
 		Crushes: wall, mine, crate, infantry
 		TerrainSpeeds:
 			Clear: 80
+			Pavement: 90
 			Rough: 40
+			TallGrass: 70
 			Road: 100
+			PavedRoad: 100
 			Bridge: 100
 			Ore: 70
 			Gems: 70
@@ -85,41 +107,69 @@
 		Crushes: wall, mine, crate
 		TerrainSpeeds:
 			Clear: 80
+			Pavement: 90
 			Rough: 70
+			TallGrass: 75
 			Road: 100
+			PavedRoad: 100
 			Bridge: 100
 			Ore: 70
 			Gems: 70
 			Beach: 70
 	Locomotor@TRACKED:
 		Name: tracked
-		Crushes: wall, infantry, mine, crate
+		Crushes: wall, infantry, mine, crate, tree
+		CrushDamageTypes: CrushDeath
 		TerrainSpeeds:
 			Clear: 80
+			Pavement: 90
 			Rough: 70
+			TallGrass: 75
 			Road: 100
+			PavedRoad: 100
 			Bridge: 100
 			Ore: 70
 			Gems: 70
 			Beach: 70
 	Locomotor@HEAVYTRACKED:
 		Name: heavytracked
-		Crushes: wall, infantry, mine, crate, heavywall
+		Crushes: wall, infantry, mine, crate, heavywall, tree
+		CrushDamageTypes: CrushDeath
 		TerrainSpeeds:
 			Clear: 80
+			Pavement: 90
 			Rough: 70
+			TallGrass: 75
 			Road: 100
+			PavedRoad: 100
+			Bridge: 100
+			Ore: 70
+			Gems: 70
+			Beach: 70
+	Locomotor@superlighttracked:
+		Name: superlighttracked
+		Crushes: mine, crate
+		TerrainSpeeds:
+			Clear: 80
+			Pavement: 90
+			Rough: 70
+			TallGrass: 75
+			Road: 100
+			PavedRoad: 100
 			Bridge: 100
 			Ore: 70
 			Gems: 70
 			Beach: 70
 	Locomotor@SAUCERHOVER:
-		Name: saucerhover
+		Name: hover
 		Crushes: wall, infantry, crate
 		TerrainSpeeds:
 			Clear: 100
+			Pavement: 90
 			Rough: 100
 			Road: 100
+			TallGrass: 100
+			PavedRoad: 100
 			Bridge: 100
 			Ore: 100
 			Gems: 100
@@ -138,23 +188,13 @@
 	Locomotor@IMMOBILE:
 		Name: immobile
 		TerrainSpeeds:
-	Locomotor@superlighttracked:
-		Name: superlighttracked
-		Crushes: mine, crate
-		TerrainSpeeds:
-			Clear: 80
-			Rough: 70
-			Road: 100
-			Bridge: 100
-			Ore: 70
-			Gems: 70
-			Beach: 70
 	TerrainRenderer:
 	SubterraneanActorLayer:
 	ShroudRenderer:
-		FogVariants: shroud
 		Index: 255, 16, 32, 48, 64, 80, 96, 112, 128, 144, 160, 176, 192, 208, 224, 240, 20, 40, 56, 65, 97, 130, 148, 194, 24, 33, 66, 132, 28, 41, 67, 134, 1, 2, 4, 8, 3, 6, 12, 9, 7, 14, 13, 11, 5, 10, 15, 255
 		UseExtendedIndex: true
+		ShroudPalette: shroud
+		FogPalette: shroud
 	Faction@0:
 		Name: Entente
 		InternalName: allies
@@ -277,8 +317,8 @@
 		Palette: player
 		Sequences: gold01,gold02,gold03,gold04
 		MaxDensity: 12
-		ValuePerUnit: 25
-		AllowedTerrainTypes: Clear,Road
+		ValuePerUnit: 40
+		AllowedTerrainTypes: Clear,Road,Pavement,PavedRoad,TallGrass
 		AllowUnderActors: true
 	ResourceType@gem:
 		Type: Gems
@@ -288,8 +328,8 @@
 		Palette: player
 		Sequences: gem01,gem02,gem03,gem04
 		MaxDensity: 3
-		ValuePerUnit: 50
-		AllowedTerrainTypes: Clear,Road
+		ValuePerUnit: 80
+		AllowedTerrainTypes: Clear,Road,Pavement,PavedRoad,TallGrass
 		AllowUnderActors: true
 	ResourceRenderer:
 		RenderTypes: Ore, Gems
@@ -306,7 +346,6 @@ World:
 	ProductionQueueFromSelection:
 		ProductionPaletteWidget: PRODUCTION_PALETTE
 	LegacyBridgeLayer:
-		Bridges: bridge1, bridge2, bridge3, bridge4, br1, br2, br3, sbridge1, sbridge2, sbridge3, sbridge4
 	CustomTerrainDebugOverlay:
 	JumpjetActorLayer:
 	CrateSpawner:
@@ -325,12 +364,14 @@ World:
 		SmokeChance: 50
 		SmokeImage: smoke_m
 		SmokeSequences: idle
+		Palette: craters
 	SmudgeLayer@CRATER:
 		Type: Crater
 		Sequence: craters
 		SmokeChance: 25
 		SmokeImage: smoke_m
 		SmokeSequences: idle
+		Palette: craters
 	ResourceLayer:
 	ResourceClaimLayer:
 	WarheadDebugOverlay:

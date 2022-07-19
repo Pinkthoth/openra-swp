@@ -1,72 +1,33 @@
 Speech:
 	Notifications:
-		PhasegenCharging: phasegencharging
+		PhasegenReady: phase_generator_ready
 			VolumeModifier: 4.00
-		PhasegenReady: phasegenready
-			VolumeModifier: 4.00
-		SatelliteTerminated: satellite_terminated
-		SatelliteInitialzed: satellite_initialized
-		ParatroopersPreparing: paratroopers_preparing
-			VolumeModifier: 4.00
-		ParatroopersReady: paratroopers_ready
-			VolumeModifier: 4.00
-		SmokescreenPreparing: smokescreen_preparing
-			VolumeModifier: 4.00
-		SmokescreenReady: smokescreen_ready
-			VolumeModifier: 4.00
-		RadarscanPreparing: radarscan_preparing
-			VolumeModifier: 4.00
-		RadarscanReady: radarscan_ready
-			VolumeModifier: 4.00
-		SatelliteReady: satellite_ready
-			VolumeModifier: 4.00
-		SatelliteCharging: satellite_charging
-			VolumeModifier: 4.00
-		ReinforcementsCharging: reinforcements_charging
-			VolumeModifier: 4.00
-		ReinforcementsReady: reinforcements_ready
-			VolumeModifier: 4.00
-		EMPulseReady: empulse_ready
-			VolumeModifier: 4.00
-		EMPulseCharging: empulse_charging
-			VolumeModifier: 4.00
-		VeilReady: veil_ready
-			VolumeModifier: 4.00
-		VeilCharging: veil_charging
-			VolumeModifier: 4.00
-		FireControlReady: firecontrol_ready
-			VolumeModifier: 4.00
-		FireControlPrepping: firecontrol_prepping
-			VolumeModifier: 4.00
-		EnemyReinforcementsApproaching: enemyreinforcementsapproaching
-			VolumeModifier: 4.00
-		EnemyParatroopersApproaching: enemyparatroopersapproaching
-			VolumeModifier: 4.00
-		EnemyAirplaneApproaching: enemyairplaneapproaching
-			VolumeModifier: 4.00
-		Ready: ready
-			VolumeModifier: 4.00
-		Charging: charging
-			VolumeModifier: 4.00
-		ArtbrgNotification: artbrg
-		ArtbrgDetected: artbrg_detected
-			VolumeModifier: 4.00
-		ArtbrgPrepping: artbrg_prepping
-			VolumeModifier: 4.00
-		ArtbrgReady: artbrg_ready
-			VolumeModifier: 4.00
-		V3Detected: v3_detected
-			VolumeModifier: 4.00
-		V3Ready: v3_ready
-			VolumeModifier: 4.00
-		V3Prepping: v3_prepping
-			VolumeModifier: 4.00
-		AirstrikeDetected: airstrike_detected
+		VeilReady: veil_generator_ready
 			VolumeModifier: 4.00
 		AirstrikeReady: airstrike_ready
 			VolumeModifier: 4.00
-		AirstrikePrepping: airstrike_prepping
+		AirstrikeIncoming: enemy_airstrike_incoming
 			VolumeModifier: 4.00
+		ArtbrgReady: artillery_barrage_ready
+			VolumeModifier: 4.00
+		V3Ready: v3_missile_ready
+			VolumeModifier: 4.00
+		V3Incoming: enemy_v3_missile_incoming
+			VolumeModifier: 4.00
+		SupportPowerReady: support_power_ready
+			VolumeModifier: 4.0
+		EMPulseReady: emp_ready
+			VolumeModifier: 4.00
+		ArtbrgNotification: artbrg
+			VolumeModifier: 2.0
+		ReinforcementsReady: reinforcements_ready
+			VolumeModifier: 4.0
+		SatelliteReady: satellite_ready
+			VolumeModifier: 2.5
+		SatelliteTerminated: satellite_terminated
+			VolumeModifier: 1.0
+		SatelliteInitialzed: satellite_initialized
+			VolumeModifier: 1.0
 		AbombAvailable: aavail1
 		AbombLaunchDetected: alaunch1
 			VolumeModifier: 4.00

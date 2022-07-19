@@ -1,3 +1,37 @@
+shroud:
+	Defaults:
+		Offset: 0, -1
+		ZRamp: 1
+	shroud:
+		Length: *
+	fog: fog
+		Length: *
+
+bib_1x1:
+	idle: bibs
+		Start: 0
+		ZOffset: -1023
+
+bib_1x2:
+	idle:
+		Start: 0
+		ZOffset: -1023
+
+bib_2x1:
+	idle:
+		Start: 0
+		ZOffset: -1023
+
+bib_2x2:
+	idle: bibs
+		Start: 1
+		ZOffset: -1023
+
+bib_3x3:
+	idle: bibs 
+		Start: 2
+		ZOffset: -1023
+
 dropbombs:
 	idle:
 		Start: 0
@@ -22,11 +56,17 @@ powerdown:
 120mm:
 	idle:
 		ZOffset: 1023
-		
+
+pulsecircle:
+	idle:
+		Length: *
+		ZOffset: -500
+		Tick: 30
+		Offset: 0,2,0
+
 bigberthashell:
 	idle:
 		ZOffset: 1023
-		
 
 laserfire:
 	idle: veh-hit3-laser
@@ -54,6 +94,12 @@ sm_electroball:
 		Tick: 30
 
 dig:
+	idle:
+		Length: *
+		ZOffset: 511
+		Offset: 0, 0, 24
+
+dig_sm:
 	idle:
 		Length: *
 		ZOffset: 511
@@ -107,7 +153,7 @@ explosion:
 	emsurgexpld: emsurge
 		Start: 0
 		Length: *
-		Tick: 80
+		Tick: 60
 	blueexp: blueexp
 		Start: 0
 		Length: *
@@ -136,7 +182,29 @@ explosion:
 	poison1: poison1
 		Length: *
 		Tick: 20
+	soundexplosion: wake2
+		Length: *
 	emptyexplosion: empty
+	propagandaburst: propagandaburst
+		Tick: 15
+	lazarusburst: lazarusburst
+		Tick: 5
+	stealthshield: stealthshield
+		Tick: 30
+	superchargeburst: superchargeburst
+		Tick: 40
+	metempsychosisburst: metempsychosisburst
+		Tick: 5
+	chronohasteburst: chronohasteburst
+		Tick: 10
+	holoexplode: holoexplode
+		Tick: 5
+		Offset: 4,0,0
+
+flameshield:
+	idle:
+		ZOffset: 10
+		Length: *
 
 cloud:
 	idle:
@@ -196,6 +264,20 @@ burn-s:
 		Length: 5
 		ZOffset: 512
 
+nanoshield:
+	idle:
+		Start: 11
+		Length: 146
+		Tick: 120
+	make:
+		Start: 0
+		Length: 11
+		Tick: 120
+	die:
+		Start: 157
+		Length: 11
+		Tick: 120
+
 pips:
 	groups:
 		Start: 8
@@ -204,6 +286,10 @@ pips:
 	medic:
 		Start: 20
 		Offset: 15, 1
+	telesign: telesign
+		Start: 0
+		Length: *
+		Tick: 200
 	#ready:
 	#	Start: 3
 	#hold:
@@ -215,6 +301,7 @@ pips:
 		Start: 2
 		Offset: 0, 2
 	tag-spy: tag-spy
+	tag-nerve: tag-nerve
 	pip-empty: pips2
 	pip-green: pips2
 		Start: 1
@@ -231,6 +318,7 @@ pips:
 		Tick: 300
 		Offset: 0, -6
 	pip-commander: pip-commander
+	pip-observer: pip-observer
 	pip-question: pip-question
 	pip-none: empty
 	pip-eye: pip-eye
@@ -244,14 +332,15 @@ pips:
 		Start: 3
 	pip-bomb: pip-ammos
 		Start: 4
+	pip-sabotaged: pip-sabotaged
 
 v2:
 	idle:
 		Facings: 32
 		ZOffset: 1023
 
-kamikazekite:
-	idle:
+hornetmissile:
+	idle: hornet
 		Facings: 32
 		ZOffset: 1023
 
@@ -307,6 +396,15 @@ beacon:
 	guerillabeacon: guerillabeacon
 		Length: *
 		Offset: 0,-42
+	paraminebeacon: paraminebeacon
+		Length: *
+		Offset: 0,-42
+	interceptionbeacon: interceptionbeacon
+		Length: *
+		Offset: 0,-42
+	swarmbeacon: swarmbeacon
+		Length: *
+		Offset: 0,-42
 
 smoke_m:
 	idle:
@@ -334,6 +432,12 @@ smokey:
 		Length: *
 		ZOffset: 1023
 
+soundbeam:
+	idle:
+		Facings: 32
+		Length: 10
+		Tick: 80
+
 bomb:
 	idle:
 		Length: *
@@ -360,6 +464,15 @@ torpedo:
 		ZOffset: -1023
 
 litning:
+	bright:
+		Length: 4
+		ZOffset: 1023
+	dim:
+		Start: 4
+		Length: 4
+		ZOffset: 1023
+
+litning2:
 	bright:
 		Length: 4
 		ZOffset: 1023
@@ -561,6 +674,15 @@ parabomb:
 		Length: 5
 		ZOffset: 1023
 
+paramine:
+	open:
+		Length: 8
+		ZOffset: 1023
+	idle:
+		Start: 8
+		Length: 5
+		ZOffset: 1023
+
 smokland:
 	open: playersmoke
 		Length: 72
@@ -700,6 +822,19 @@ icon:
 	radarscanicon: radarscanicon
 	smokescreenicon: smokescreenicon
 	guerilladropicon: guerilladropicon
+	propagandaicon: propagandaicon
+	flameshieldicon: flameshieldicon
+	superchargeicon: superchargeicon
+	paraminesicon: paraminesicon
+	paratroopers_civ: paratroopers_civ
+	metempsychosisicon: metempsychosisicon
+	lazarenerayicon: lazarenerayicon
+	chronohasteicon: chronohasteicon
+	magneticsuspensionicon: magneticsuspensionicon
+	espionageicon: espionageicon
+	intercepticon: intercepticon
+	swarmicon: swarmicon
+	mirageicon: mirageicon
 
 smokebarrage:
 	idle: empty
@@ -730,7 +865,8 @@ minv:
 	icon: jmin
 
 overlay:
-	Defaults: trans.icn
+	Defaults: placementicon.shp
+		Offset: 0, -12, 1
 		AddExtension: False
 	build-valid:
 	build-invalid:
@@ -742,7 +878,8 @@ overlay:
 		Start: 2
 
 editor-overlay:
-	Defaults: trans.icn
+	Defaults: placementicon.shp
+		Offset: 0, -12, 1
 		AddExtension: False
 	copy:
 	paste:
@@ -763,10 +900,6 @@ resources:
 	gem02: gem02
 	gem03: gem03
 	gem04: gem04
-
-shroud:
-	shroud: shadow
-		Length: *
 
 # Note: The order of smudges and craters determines
 # the index that is mapped to them in maps
@@ -896,6 +1029,7 @@ artillerybarrage:
 empty:
 	idle: empty
 	make:
+	open:
 	dummysputdoor: empty32
 		Length: *
 	dummysputdoor2: empty32

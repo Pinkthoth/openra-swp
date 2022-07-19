@@ -211,14 +211,16 @@ Missions:
 	swp|missions.yaml
 
 MapGrid:
-	TileSize: 24,24
-	Type: Rectangular
+	TileSize: 48,24
+	Type: RectangularIsometric
+	SubCellOffsets: 0,0,0, -362,0,0, 0,362,0, 362,0,0, 0,-362,0
+	DefaultSubCell: 2
 
 SupportsMapsFrom: swp
 
 SoundFormats: Aud, Wav
 
-SpriteFormats: ShpD2, ShpTD, TmpRA, TmpTD, ShpTS
+SpriteFormats: ShpD2, ShpTD, TmpRA, TmpTD, ShpTS, TmpTS
 
 SpriteSequenceFormat: ClassicTilesetSpecificSpriteSequence
 	TilesetExtensions:

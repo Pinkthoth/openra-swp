@@ -19,14 +19,13 @@ FPWR:
 		GenericVisibility: Enemy
 		GenericStancePrefix: False
 	Building:
-		Footprint: xx xx ==
-		Dimensions: 2,3
+		Footprint: xx xx
+		Dimensions: 2,2
 		LocalCenterOffset: 0,-512,0
 	Health:
 		HP: 40000
 	Armor:
 		Type: Wood
-	WithBuildingBib:
 	RenderSprites:
 		Image: powr
 		FactionImages:
@@ -47,6 +46,12 @@ FPWR:
 			kazakhstan: powr
 	Valued:
 		Cost: 30
+	WithIdleOverlay@bip:
+		Image: bib_2x2
+		Sequence: idle
+		Palette: terrain
+		Offset: -1100,500,-300
+		IsDecoration: True
 
 TENF:
 	Inherits: ^FakeBuilding
@@ -66,8 +71,8 @@ TENF:
 		GenericVisibility: Enemy
 		GenericStancePrefix: False
 	Building:
-		Footprint: xx xx ==
-		Dimensions: 2,3
+		Footprint: xx xx
+		Dimensions: 2,2
 		LocalCenterOffset: 0,-512,0
 	RenderSprites:
 		Image: barr
@@ -93,15 +98,20 @@ TENF:
 		HP: 60000
 	Armor:
 		Type: Wood
-	WithBuildingBib:
 	HitShape:
 		UseTargetableCellsOffsets: false
 		TargetableOffsets: 0,0,0, 630,-512,0, 355,512,0, -281,-512,0, -630,512,0
+	WithIdleOverlay@bip:
+		Image: bib_2x2
+		Sequence: idle
+		Palette: terrain
+		Offset: -1100,500,-300
+		IsDecoration: False
 
 WEAF:
 	Inherits: ^FakeBuilding
 	Inherits@infiltrate: ^InfiltratableFake
-	Inherits@shape: ^3x2Shape
+	Inherits@shape: ^2x2Shape
 	Selectable:
 		Bounds: 72,48
 	Buildable:
@@ -116,7 +126,7 @@ WEAF:
 		GenericVisibility: Enemy
 		GenericStancePrefix: False
 	Building:
-		Footprint: xxx xxx ===
+		Footprint: =x= xxx =x=
 		Dimensions: 3,3
 		LocalCenterOffset: 0,-512,0
 	RenderSprites:
@@ -137,7 +147,6 @@ WEAF:
 			serbia: eweap
 			bulgaria: mweap
 			kazakhstan: weap
-	WithBuildingBib:
 	WithProductionDoorOverlay:
 		RequiresCondition: !build-incomplete
 		Sequence: build-top
@@ -147,10 +156,15 @@ WEAF:
 		HP: 150000
 	Armor:
 		Type: Wood
-	-ActorPreviewPlaceBuildingPreview:
 	SequencePlaceBuildingPreview:
 		Sequence: place
 		SequencePalette: placebuilding
+	WithIdleOverlay@bip:
+		Image: bib_3x3
+		Sequence: idle
+		Palette: terrain
+		Offset: 0,0,-300
+		IsDecoration: True
 
 DOMF:
 	Inherits: ^FakeBuilding
@@ -174,10 +188,9 @@ DOMF:
 		Description: Looks like a Radar Dome.
 		Icon: fake-icon
 	Building:
-		Footprint: xx xx ==
-		Dimensions: 2,3
+		Footprint: xx xx
+		Dimensions: 2,2
 		LocalCenterOffset: 0,-512,0
-	WithBuildingBib:
 	RenderSprites:
 		Image: dome
 		FactionImages:
@@ -202,6 +215,12 @@ DOMF:
 		HP: 100000
 	Armor:
 		Type: Wood
+	WithIdleOverlay@bip:
+		Image: bib_2x2
+		Sequence: idle
+		Palette: terrain
+		Offset: -1100,500,-300
+		IsDecoration: True
 
 FIXF:
 	Inherits: ^FakeBuilding
@@ -226,8 +245,6 @@ FIXF:
 		HP: 80000
 	Armor:
 		Type: Wood
-	WithBuildingBib:
-		HasMinibib: true
 	RenderSprites:
 		Image: fix
 		FactionImages:
@@ -271,14 +288,13 @@ FAPW:
 		GenericVisibility: Enemy
 		GenericStancePrefix: False
 	Building:
-		Footprint: xxx Xxx ===
+		Footprint: xxx xxx xxx
 		Dimensions: 3,3
 		LocalCenterOffset: 0,-512,0
 	Health:
 		HP: 70000
 	Armor:
 		Type: Wood
-	WithBuildingBib:
 	RenderSprites:
 		Image: apwr
 		FactionImages:
@@ -302,6 +318,12 @@ FAPW:
 		DecorationBounds: 72,68,0,-10
 	Valued:
 		Cost: 50
+	WithIdleOverlay@bip:
+		Image: bib_3x3
+		Sequence: idle
+		Palette: terrain
+		Offset: 0,-0,0
+		IsDecoration: True
 
 ATEF:
 	Inherits: ^FakeBuilding
@@ -321,10 +343,9 @@ ATEF:
 		Description: Looks like an Allied Tech Center.
 		Icon: fake-icon
 	Building:
-		Footprint: xxx xxx ===
-		Dimensions: 3,3
+		Footprint: xx xx
+		Dimensions: 2,2
 		LocalCenterOffset: 0,-512,0
-	WithBuildingBib:
 	RenderSprites:
 		Image: atek
 	Valued:
@@ -333,6 +354,12 @@ ATEF:
 		HP: 40000
 	Armor:
 		Type: Wood
+	WithIdleOverlay@bip:
+		Image: bib_2x2
+		Sequence: idle
+		Palette: terrain
+		Offset: -1100,500,-300
+		IsDecoration: True
 
 PDOF:
 	Inherits: ^FakeBuilding
@@ -357,8 +384,6 @@ PDOF:
 		Dimensions: 2,2
 	RenderSprites:
 		Image: PDOX
-	WithBuildingBib:
-		HasMinibib: true
 	Valued:
 		Cost: 150
 	Health:
@@ -367,6 +392,12 @@ PDOF:
 		Type: Wood
 	Explodes:
 		DamageThreshold: 50
+	WithIdleOverlay@bip:
+		Image: bib_2x2
+		Sequence: idle
+		Palette: terrain
+		Offset: -1100,500,-300
+		IsDecoration: True
 
 MSLF:
 	Inherits: ^FakeBuilding
@@ -387,8 +418,8 @@ MSLF:
 		Description: Looks like a Missile Silo.\nMaximum 1 can be built.
 		Icon: fake-icon
 	Building:
-		Footprint: xx
-		Dimensions: 2,1
+		Footprint: xx xx
+		Dimensions: 2,2
 	RenderSprites:
 		Image: MSLO
 	Valued:
@@ -399,6 +430,12 @@ MSLF:
 		Type: Wood
 	Explodes:
 		DamageThreshold: 50
+	WithIdleOverlay@bip:
+		Image: bib_2x2
+		Sequence: idle
+		Palette: terrain
+		Offset: -1100,500,-300
+		IsDecoration: True
 
 FACF:
 	Inherits: ^FakeBuilding
@@ -416,10 +453,9 @@ FACF:
 		GenericVisibility: Enemy
 		GenericStancePrefix: False
 	Building:
-		Footprint: xxX xxx XxX ===
-		Dimensions: 3,4
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
 		LocalCenterOffset: 0,-512,0
-	WithBuildingBib:
 	RenderSprites:
 		Image: fact
 		FactionImages:
@@ -449,3 +485,187 @@ FACF:
 		Type: Rectangle
 			TopLeft: -1536, -1536
 			BottomRight: 1536, 1536
+	WithIdleOverlay@bip:
+		Image: bib_3x3
+		Sequence: idle
+		Palette: terrain
+		Offset: 0,0,-300
+		IsDecoration: True
+
+e1.holospawn:
+	Inherits: E1
+	Inherits@MIRAGE: ^MirageSpawn
+	RenderSprites:
+		Image: e1
+	Armament@PRIMARY:
+		Weapon: HoloM1Carbine
+		RequiresCondition: !spawned
+	-Buildable:
+	-Passenger:
+	-SpawnActorOnDeath@BulletDeath:
+	-SpawnActorOnDeath@DefaultDeath:
+	-SpawnActorOnDeath@SmallExplosionDeath:
+	-GivesBounty:
+	-GivesExperience:
+	-GainsExperienceMultiplier:
+	-UpdatesPlayerStatistics:
+	-ActorLostNotification:
+	-DeathSounds@NORMAL:
+	-DeathSounds@BURNED:
+	-DeathSounds@ZOMBIEFY:
+	-DeathSounds@ZAPPED:
+	-WithDeathAnimation:
+	-GrantConditionOnPrerequisite@GLOBALBOUNTY:
+	TransformOnCondition:
+		IntoActor: e1.holo
+
+e1.holo:
+	Inherits: E1
+	Inherits@MIRAGE: ^Mirage
+	RenderSprites:
+		Image: e1
+	Armament@PRIMARY:
+		Weapon: HoloM1Carbine
+	-Buildable:
+	-Passenger:
+	-SpawnActorOnDeath@BulletDeath:
+	-SpawnActorOnDeath@DefaultDeath:
+	-SpawnActorOnDeath@SmallExplosionDeath:
+	-GivesBounty:
+	-GivesExperience:
+	-GainsExperienceMultiplier:
+	-UpdatesPlayerStatistics:
+	-ActorLostNotification:
+	-DeathSounds@NORMAL:
+	-DeathSounds@BURNED:
+	-DeathSounds@ZOMBIEFY:
+	-DeathSounds@ZAPPED:
+	-WithDeathAnimation:
+	-GrantConditionOnPrerequisite@GLOBALBOUNTY:
+
+e3.holospawn:
+	Inherits: E3
+	Inherits@MIRAGE: ^MirageSpawn
+	RenderSprites:
+		Image: e3
+	Armament@PRIMARY:
+		Weapon: HoloRedEye
+		LocalOffset: 0,0,555
+		ReloadingCondition: primary-reloading
+		PauseOnCondition: secondary-reloading
+		RequiresCondition: !spawned
+	Armament@SECONDARY:
+		Name: secondary
+		Weapon: HoloDragon
+		LocalOffset: 0,0,555
+		ReloadingCondition: secondary-reloading
+		PauseOnCondition: primary-reloading
+		RequiresCondition: !spawned
+	-Buildable:
+	-Passenger:
+	-SpawnActorOnDeath@BulletDeath:
+	-SpawnActorOnDeath@DefaultDeath:
+	-SpawnActorOnDeath@SmallExplosionDeath:
+	-GivesBounty:
+	-GivesExperience:
+	-GainsExperienceMultiplier:
+	-UpdatesPlayerStatistics:
+	-ActorLostNotification:
+	-DeathSounds@NORMAL:
+	-DeathSounds@BURNED:
+	-DeathSounds@ZOMBIEFY:
+	-DeathSounds@ZAPPED:
+	-WithDeathAnimation:
+	TransformOnCondition:
+		IntoActor: e3.holo
+	-GrantConditionOnPrerequisite@GLOBALBOUNTY:
+
+e3.holo:
+	Inherits: E3
+	Inherits@MIRAGE: ^Mirage
+	RenderSprites:
+		Image: e3
+	Armament@PRIMARY:
+		Weapon: HoloRedEye
+		LocalOffset: 0,0,555
+		ReloadingCondition: primary-reloading
+		PauseOnCondition: secondary-reloading
+	Armament@SECONDARY:
+		Name: secondary
+		Weapon: HoloDragon
+		LocalOffset: 0,0,555
+		ReloadingCondition: secondary-reloading
+		PauseOnCondition: primary-reloading
+	-Buildable:
+	-Passenger:
+	-SpawnActorOnDeath@BulletDeath:
+	-SpawnActorOnDeath@DefaultDeath:
+	-SpawnActorOnDeath@SmallExplosionDeath:
+	-GivesBounty:
+	-GivesExperience:
+	-GainsExperienceMultiplier:
+	-UpdatesPlayerStatistics:
+	-ActorLostNotification:
+	-DeathSounds@NORMAL:
+	-DeathSounds@BURNED:
+	-DeathSounds@ZOMBIEFY:
+	-DeathSounds@ZAPPED:
+	-WithDeathAnimation:
+	-GrantConditionOnPrerequisite@GLOBALBOUNTY:
+
+ltnk.holospawn:
+	Inherits: LTNK
+	Inherits@MIRAGE: ^MirageSpawn
+	RenderSprites:
+		Image: ltnk
+	Armament:
+		Weapon: HoloLtnkfire
+		RequiresCondition: !spawned
+	-Buildable:
+	-Passenger:
+	TransformOnCondition:
+		IntoActor: ltnk.holo
+	-SpawnActorOnDeath:
+	-Capturable:
+	-CaptureManager:
+	-GivesBounty:
+	-GivesExperience:
+	-UpdatesPlayerStatistics:
+	-ActorLostNotification:
+	Explodes:
+		Weapon: HoloExplode
+		EmptyWeapon: HoloExplode
+		DamageThreshold: 75
+	-GrantConditionOnPrerequisite@GLOBALBOUNTY:
+	-Mobile:
+	Mobile:
+		Speed: 75
+		Locomotor: lighttracked
+		TurnSpeed: 20
+
+ltnk.holo:
+	Inherits: LTNK
+	Inherits@MIRAGE: ^Mirage
+	RenderSprites:
+		Image: ltnk
+	Armament:
+		Weapon: HoloLtnkfire
+	-Buildable:
+	-Passenger:
+	-SpawnActorOnDeath:
+	-Capturable:
+	-CaptureManager:
+	-GivesBounty:
+	-GivesExperience:
+	-UpdatesPlayerStatistics:
+	-ActorLostNotification:
+	Explodes:
+		Weapon: HoloExplode
+		EmptyWeapon: HoloExplode
+		DamageThreshold: 75
+	-GrantConditionOnPrerequisite@GLOBALBOUNTY:
+	-Mobile:
+	Mobile:
+		Speed: 75
+		Locomotor: lighttracked
+		TurnSpeed: 20

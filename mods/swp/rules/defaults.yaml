@@ -8,11 +8,13 @@
 
 ^SpriteActor:
 	BodyOrientation:
+		CameraPitch: 85
 	QuantizeFacingsFromSequence:
 	RenderSprites:
 
 ^ClassicFacingSpriteActor:
-	ClassicFacingBodyOrientation:
+	BodyOrientation:
+		CameraPitch: 85
 	QuantizeFacingsFromSequence:
 	RenderSprites:
 
@@ -24,6 +26,13 @@
 			BottomRight: 512, 512
 
 ^2x1Shape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			TopLeft: -1024, -512
+			BottomRight: 1024, 512
+
+^1x2Shape:
 	HitShape:
 		UseTargetableCellsOffsets: true
 		Type: Rectangle
@@ -44,146 +53,249 @@
 			TopLeft: -1536, -1024
 			BottomRight: 1536, 1024
 
+^2x3Shape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			TopLeft: -1536, -1024
+			BottomRight: 1536, 1024
+
+^3x3Shape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			TopLeft: -1536, -1536
+			BottomRight: 1536, 1536
+
 ^1x1Rubbles:
 	SpawnActorOnDeath@1:
 		Actor: rubble
+		OwnerType: InternalName
+		InternalOwner: Neutral
 
 ^2x1Rubbles:
 	SpawnActorOnDeath@1:
 		Actor: rubble
+		OwnerType: InternalName
+		InternalOwner: Neutral
 	SpawnActorOnDeath@2:
 		Actor: rubble
 		Offset: 1,0
+		OwnerType: InternalName
+		InternalOwner: Neutral
+
+^1x2Rubbles:
+	SpawnActorOnDeath@1:
+		Actor: rubble
+		OwnerType: InternalName
+		InternalOwner: Neutral
+	SpawnActorOnDeath@2:
+		Actor: rubble
+		Offset: 0,1
+		OwnerType: InternalName
+		InternalOwner: Neutral
 
 ^2x2Rubbles:
 	SpawnActorOnDeath@1:
 		Actor: rubble
+		OwnerType: InternalName
+		InternalOwner: Neutral
 	SpawnActorOnDeath@2:
 		Actor: rubble
 		Offset: 1,0
+		OwnerType: InternalName
+		InternalOwner: Neutral
 	SpawnActorOnDeath@3:
 		Actor: rubble
 		Offset: 0,1
+		OwnerType: InternalName
+		InternalOwner: Neutral
 	SpawnActorOnDeath@4:
 		Actor: rubble
 		Offset: 1,1
+		OwnerType: InternalName
+		InternalOwner: Neutral
 
 ^3x2Rubbles:
 	SpawnActorOnDeath@1:
 		Actor: rubble
+		OwnerType: InternalName
+		InternalOwner: Neutral
 	SpawnActorOnDeath@2:
 		Actor: rubble
 		Offset: 1,0
+		OwnerType: InternalName
+		InternalOwner: Neutral
 	SpawnActorOnDeath@3:
 		Actor: rubble
 		Offset: 0,1
+		OwnerType: InternalName
+		InternalOwner: Neutral
 	SpawnActorOnDeath@4:
 		Actor: rubble
 		Offset: 1,1
+		OwnerType: InternalName
+		InternalOwner: Neutral
 	SpawnActorOnDeath@5:
 		Actor: rubble
 		Offset: 0,2
+		OwnerType: InternalName
+		InternalOwner: Neutral
 	SpawnActorOnDeath@6:
 		Actor: rubble
 		Offset: 1,2
+		OwnerType: InternalName
+		InternalOwner: Neutral
 
 ^3x3Rubbles:
 	SpawnActorOnDeath@1:
 		Actor: rubble
 		Offset: 0,0
+		OwnerType: InternalName
+		InternalOwner: Neutral
 	SpawnActorOnDeath@2:
 		Actor: rubble
 		Offset: 1,0
+		OwnerType: InternalName
+		InternalOwner: Neutral
 	SpawnActorOnDeath@3:
 		Actor: rubble
 		Offset: 2,0
+		OwnerType: InternalName
+		InternalOwner: Neutral
 	SpawnActorOnDeath@4:
 		Actor: rubble
 		Offset: 0,1
+		OwnerType: InternalName
+		InternalOwner: Neutral
 	SpawnActorOnDeath@5:
 		Actor: rubble
 		Offset: 1,1
+		OwnerType: InternalName
+		InternalOwner: Neutral
 	SpawnActorOnDeath@6:
 		Actor: rubble
 		Offset: 2,1
+		OwnerType: InternalName
+		InternalOwner: Neutral
 	SpawnActorOnDeath@7:
 		Actor: rubble
 		Offset: 0,2
+		OwnerType: InternalName
+		InternalOwner: Neutral
 	SpawnActorOnDeath@8:
 		Actor: rubble
 		Offset: 1,2
+		OwnerType: InternalName
+		InternalOwner: Neutral
 	SpawnActorOnDeath@9:
 		Actor: rubble
 		Offset: 2,2
+		OwnerType: InternalName
+		InternalOwner: Neutral
 
-^3x2Rubbles:
+^2x3Rubbles:
 	SpawnActorOnDeath@1:
 		Actor: rubble
+		OwnerType: InternalName
+		InternalOwner: Neutral
 	SpawnActorOnDeath@2:
 		Actor: rubble
 		Offset: 1,0
+		OwnerType: InternalName
+		InternalOwner: Neutral
 	SpawnActorOnDeath@3:
 		Actor: rubble
 		Offset: 2,0
+		OwnerType: InternalName
+		InternalOwner: Neutral
 	SpawnActorOnDeath@4:
 		Actor: rubble
 		Offset: 0,1
+		OwnerType: InternalName
+		InternalOwner: Neutral
 	SpawnActorOnDeath@5:
 		Actor: rubble
 		Offset: 1,1
+		OwnerType: InternalName
+		InternalOwner: Neutral
 	SpawnActorOnDeath@6:
 		Actor: rubble
 		Offset: 2,1
+		OwnerType: InternalName
+		InternalOwner: Neutral
 
 ^FixRubbles:
 	SpawnActorOnDeath@1:
 		Actor: rubble
 		Offset: 1,0
+		OwnerType: InternalName
+		InternalOwner: Neutral
 	SpawnActorOnDeath@2:
 		Actor: rubble
 		Offset: 0,1
+		OwnerType: InternalName
+		InternalOwner: Neutral
 	SpawnActorOnDeath@3:
 		Actor: rubble
 		Offset: 1,1
+		OwnerType: InternalName
+		InternalOwner: Neutral
 	SpawnActorOnDeath@4:
 		Actor: rubble
 		Offset: 2,1
+		OwnerType: InternalName
+		InternalOwner: Neutral
 	SpawnActorOnDeath@5:
 		Actor: rubble
 		Offset: 1,2
+		OwnerType: InternalName
+		InternalOwner: Neutral
 
 ^AdeptRubbles:
 	SpawnActorOnDeath@1:
 		Actor: rubble
 		Offset: 0,2
+		OwnerType: InternalName
+		InternalOwner: Neutral
 	SpawnActorOnDeath@2:
 		Actor: rubble
 		Offset: 1,2
+		OwnerType: InternalName
+		InternalOwner: Neutral
 	SpawnActorOnDeath@3:
 		Actor: rubble
 		Offset: 2,2
+		OwnerType: InternalName
+		InternalOwner: Neutral
 	SpawnActorOnDeath@4:
 		Actor: rubble
 		Offset: 0,3
+		OwnerType: InternalName
+		InternalOwner: Neutral
 	SpawnActorOnDeath@5:
 		Actor: rubble
 		Offset: 1,3
+		OwnerType: InternalName
+		InternalOwner: Neutral
 	SpawnActorOnDeath@6:
 		Actor: rubble
 		Offset: 2,3
+		OwnerType: InternalName
+		InternalOwner: Neutral
 
 ^Confusable:
 	ExternalCondition@CONFUSION:
 		Condition: confusion
 	SpeedMultiplier@CONFUSION:
-		Modifier: 90
+		Modifier: 85
 		RequiresCondition: confusion
 	DamageMultiplier@CONFUSION:
-		Modifier: 105
+		Modifier: 110
 		RequiresCondition: confusion
 	ReloadDelayMultiplier@CONFUSION:
 		RequiresCondition: confusion
-		Modifier: 110
+		Modifier: 115
 	FirepowerMultiplier@CONFUSION:
 		Modifier: 90
 		RequiresCondition: confusion
@@ -193,6 +305,26 @@
 		Position: TopLeft
 		ValidRelationships: Ally, Neutral, Enemy
 		RequiresCondition: confusion
+
+^ChronoHasteable:
+	ExternalCondition@chronohaste:
+		Condition: chronohaste
+	SpeedMultiplier@chronohaste:
+		Modifier: 120
+		RequiresCondition: chronohaste
+	ReloadDelayMultiplier@chronohaste:
+		RequiresCondition: chronohaste
+		Modifier: 80
+	TimedConditionBar@chronohaste:
+		Condition: chronohaste
+		Color: D8B400
+
+^FlareVision:
+	RevealsShroudMultiplier@flare:
+		Modifier: 125
+		RequiresCondition: flarevision
+	ExternalCondition@flarevision:
+		Condition: flarevision
 
 ^GainsExperience:
 	GainsExperience:
@@ -349,13 +481,10 @@
 		Condition: kommissable
 	DamageMultiplier@KOMMISSABLE:
 		RequiresCondition: kommissable
-		Modifier: 95
+		Modifier: 93
 	FirepowerMultiplier@KOMMISSABLE:
 		RequiresCondition: kommissable
-		Modifier: 105
-	SpeedMultiplier@KOMMISSABLE:
-		RequiresCondition: kommissable
-		Modifier: 105
+		Modifier: 107
 
 ^InfantryExperienceHospitalOverrides:
 	WithDecoration@RANK-1:
@@ -397,42 +526,6 @@
 		Condition: invulnerability
 	ExternalCondition@INVULNERABILITY:
 		Condition: invulnerability
-		
-^ChronoSlowable:
-	WithColoredOverlay@ChronoslowColor:
-		Palette: chronopal
-		RequiresCondition: chronoslow
-	WithColoredOverlay@ChronoslowColorBlue:
-		Palette: chronoblue
-		RequiresCondition: chronoslow
-	SpeedMultiplier@Slow1:
-		RequiresCondition: chronoslow >= 1 && chronoslow < 3
-		Modifier: 75
-	SpeedMultiplier@Slow2:
-		RequiresCondition: chronoslow >= 3 && chronoslow < 5
-		Modifier: 50
-	SpeedMultiplier@Slow3:
-		RequiresCondition: chronoslow >= 5 && chronoslow < 7
-		Modifier: 25
-	SpeedMultiplier@Slow4:
-		RequiresCondition: chronoslow >= 7
-		Modifier: 0
-	ReloadDelayMultiplier@Slow1:
-		RequiresCondition: chronoslow >= 1 && chronoslow < 3
-		Modifier: 125
-	ReloadDelayMultiplier@Slow2:
-		RequiresCondition: chronoslow >= 3 && chronoslow < 5
-		Modifier: 150
-	ReloadDelayMultiplier@Slow3:
-		RequiresCondition: chronoslow >= 5 && chronoslow < 7
-		Modifier: 175
-	ReloadDelayMultiplier@Slow4:
-		RequiresCondition: chronoslow >= 7
-		Modifier: 20000
-	TimedConditionBar:
-		Condition: chronoslow
-	ExternalCondition@ChronoSlow:
-		Condition: chronoslow
 
 ^Stealthable:
 	Cloak@STEALTHABLE:
@@ -474,6 +567,22 @@
 		RequiresCondition: empdisable
 	ExternalCondition@empdisable:
 		Condition: empdisable
+	GrantCondition@ifempdisable:
+		Condition: turnedoff
+		RequiresCondition: empdisable
+
+^MagneticSuspension:
+	ExternalCondition@magneticsuspension:
+		Condition: magneticsuspension
+	GrantCondition@ifmagneticsuspension:
+		Condition: turnedoff
+		RequiresCondition: magneticsuspension
+	WithColoredOverlay@MAGNETICSUSPENSION:
+		RequiresCondition: magneticsuspension
+		Palette: magnet
+	DamageMultiplier@magneticsuspension:
+		RequiresCondition: magneticsuspension
+		Modifier: 0
 
 ^EMDamaged:
 	ExternalCondition@emdamaged:
@@ -487,9 +596,45 @@
 		Step: -5
 		StartIfBelow: 101
 		RequiresCondition: emdamaged
-	SpeedMultiplier@EMDamaged:
+	GrantCondition@empdisabledmgd:
+		Condition: empdisable
+		RequiresCondition: emdamaged > 12
+	SpeedMultiplier@EMDamaged1:
+		Modifier: 95
+		RequiresCondition: emdamaged == 1
+	SpeedMultiplier@EMDamaged2:
+		Modifier: 90
+		RequiresCondition: emdamaged == 2
+	SpeedMultiplier@EMDamaged3:
 		Modifier: 85
-		RequiresCondition: emdamaged
+		RequiresCondition: emdamaged == 3
+	SpeedMultiplier@EMDamaged4:
+		Modifier: 80
+		RequiresCondition: emdamaged == 4
+	SpeedMultiplier@EMDamaged5:
+		Modifier: 75
+		RequiresCondition: emdamaged == 5
+	SpeedMultiplier@EMDamaged6:
+		Modifier: 70
+		RequiresCondition: emdamaged == 6
+	SpeedMultiplier@EMDamaged7:
+		Modifier: 65
+		RequiresCondition: emdamaged == 7
+	SpeedMultiplier@EMDamaged8:
+		Modifier: 60
+		RequiresCondition: emdamaged == 8
+	SpeedMultiplier@EMDamaged9:
+		Modifier: 55
+		RequiresCondition: emdamaged == 9
+	SpeedMultiplier@EMDamaged10:
+		Modifier: 50
+		RequiresCondition: emdamaged == 10
+	SpeedMultiplier@EMDamaged11:
+		Modifier: 45
+		RequiresCondition: emdamaged == 11
+	SpeedMultiplier@EMDamaged12:
+		Modifier: 40
+		RequiresCondition: emdamaged > 11
 
 ^AutoTargetGround:
 	AutoTarget:
@@ -571,35 +716,59 @@
 	GivesBounty:
 		RequiresCondition: global-bounty
 
+^ArtilleryObservable:
+	GrantConditionOnInfiltration@artilleryobserver:
+		Types: ObserverInfiltration
+		Condition: artilleryobserver
+		RequiresCondition: !artilleryobserver
+	RangeMultiplier@observer:
+		RequiresCondition: artilleryobserver
+		Modifier: 120
+	WithDecoration@artilleryobserver:
+		Image: pips
+		Sequence: pip-observer
+		Position: TopRight
+		ValidRelationships: Ally, Neutral
+		RequiresCondition: artilleryobserver
+	Targetable@artilleryobserver:
+		TargetTypes: ObserverInfiltration
+		RequiresCondition: !artilleryobserver
+	ChangesHealth@artilleryobserver:
+		Step: 100
+		Delay: 3
+		StartIfBelow: 20
+		DamageCooldown: 150
+		RequiresCondition: artilleryobserver
+
 ^Commanderable:
-	InfiltrateToAttach@COMMANDER:
-		Actor: tnkcmndr.attached
-		Types: TankCommanderAttachable
-	Targetable@COMMANDER:
-		TargetTypes: TankCommanderAttachable
-		RequiresCondition: !tnkcmndr-attached
-	ExternalCondition@COMMANDER:
-		Condition: tnkcmndr-attached
-	AttachableTo:
-		Limits:
-			tnkcmndr: 1
-		LimitConditions:
-			tnkcmndr: tnkcmndr-attached
-	WithDecoration@commander:
+	GrantConditionOnInfiltration@commandered:
+		Types: CommanderInfiltration
+		Condition: commandered
+		RequiresCondition: !commandered
+	WithDecoration@commandered:
 		Image: pips
 		Sequence: pip-commander
 		Position: TopRight
 		ValidRelationships: Ally, Neutral
-		RequiresCondition: tnkcmndr-attached
-	DamageMultiplier@commander:
+		RequiresCondition:  commandered
+	Targetable@commandered:
+		TargetTypes: CommanderInfiltration
+		RequiresCondition: !commandered
+	DamageMultiplier@commandered:
 		Modifier: 95
-		RequiresCondition: tnkcmndr-attached
+		RequiresCondition: commandered
 	FirepowerMultiplier@commandered:
 		Modifier: 115
-		RequiresCondition: tnkcmndr-attached
+		RequiresCondition: commandered
 	ReloadDelayMultiplier@commandered:
 		Modifier: 90
-		RequiresCondition: tnkcmndr-attached
+		RequiresCondition: commandered
+	ChangesHealth@commandered:
+		Step: 100
+		Delay: 3
+		StartIfBelow: 20
+		DamageCooldown: 150
+		RequiresCondition: commandered
 
 ^ShinobiHideout:
 	InfiltrateToAttach@shinobi:
@@ -633,7 +802,6 @@
 	Inherits@2: ^IronCurtainable
 	Inherits@3: ^ClassicFacingSpriteActor
 	Inherits@4: ^Stealthable
-	Inherits@5: ^ChronoSlowable
 	Inherits@bounty: ^GlobalBounty
 	Inherits@selection: ^SelectableCombatUnit
 	Inherits@handicaps: ^PlayerHandicaps
@@ -644,14 +812,20 @@
 	Inherits@OfficerNearby: ^OfficerNearby
 	Inherits@emdamaged: ^EMDamaged
 	Inherits@magnetictrap: ^MagneticTrap
+	Inherits@magneticsuspension: ^MagneticSuspension
 	Inherits@berserkable: ^Berserkable
+	Inherits@sliced: ^Sliced
+	Inherits@flameshield: ^FlameShield
+	Inherits@lazarus: ^Lazarus
+	Inherits@chronohaste: ^ChronoHasteable
+	Inherits@flarevision: ^FlareVision
 	Carryable:
 	Huntable:
 	OwnerLostAction:
 		Action: Kill
 	UpdatesPlayerStatistics:
 	Mobile:
-		PauseOnCondition: empdisable || being-captured
+		PauseOnCondition: turnedoff || being-captured
 		Locomotor: wheeled
 		TurnSpeed: 20
 	Selectable:
@@ -666,7 +840,7 @@
 		Condition: damaged
 		ValidDamageStates: Light, Medium, Heavy, Critical
 	SpeedMultiplier@InstantStop:
-		RequiresCondition: empdisable
+		RequiresCondition: turnedoff
 		Modifier: 0
 	Repairable:
 		RepairActors: fix
@@ -726,19 +900,62 @@
 	SpeedMultiplier@CRUSHSUCCESFUL
 		RequiresCondition: crush-succesful
 		Modifier: 50
-		
 
 ^TrackedVehicle:
 	Inherits: ^Vehicle
 	Mobile:
 		Locomotor: tracked
 
+^CellTree:
+	Inherits@1: ^ExistsInWorld
+	Inherits@4: ^SpriteActor
+	AlwaysVisible:
+	Armor:
+		Type: Wood
+	Health:
+		HP: 30000
+	Mobile:
+		Speed: 0
+		Locomotor: cellbuilding
+	Targetable:
+		TargetTypes: Trees
+	WithSpriteBody:
+	HitShape:
+		Type: Circle
+			Radius: 128
+	MapEditorData:
+		Categories: Tree
+	SpawnActorOnDeath@stump:
+		Actor: trees1.stump
+	RenderSprites:
+		Palette: tempdecs
+	Crushable:
+		CrushSound: hdgcrsh.aud
+		CrushClasses: tree
+	GrantExternalConditionToCrusher:
+		WarnCrushCondition: crush-attempt
+		WarnCrushDuration: 15
+		OnCrushCondition: crush-succesful
+		OnCrushDuration: 30
+
+^CellTreeHusk:
+	Inherits@1: ^ExistsInWorld
+	Inherits@4: ^SpriteActor
+	AlwaysVisible:
+	Aircraft:
+		Repulsable: False
+		Speed: 0
+	WithSpriteBody:
+	MapEditorData:
+		Categories: Tree
+	RenderSprites:
+		Palette: tempdecs
+
 ^Infantry:
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^GainsExperience
 	Inherits@3: ^InfantryExperienceHospitalOverrides
 	Inherits@4: ^SpriteActor
-	Inherits@5: ^ChronoSlowable
 	Inherits@bounty: ^GlobalBounty
 	Inherits@selection: ^SelectableCombatUnit
 	Inherits@handicaps: ^PlayerHandicaps
@@ -747,6 +964,11 @@
 	Inherits@smoked: ^Smoked
 	Inherits@berserkable: ^Berserkable
 	Inherits@OfficerNearby: ^OfficerNearby
+	Inherits@sliced: ^Sliced
+	Inherits@lazarus: ^Lazarus
+	Inherits@chronohaste: ^ChronoHasteable
+	Inherits@flarevision: ^FlareVision
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Huntable:
 	OwnerLostAction:
 		Action: Kill
@@ -761,6 +983,7 @@
 		Speed: 56
 		AlwaysTurnInPlace: true
 		Locomotor: foot
+		RequiresCondition: !turnedoff
 	Selectable:
 		Bounds: 18,20,0,-6
 		DecorationBounds: 12,18,0,-8
@@ -784,6 +1007,8 @@
 			ExplosionDeath: 4
 			FireDeath: 5
 			ElectricityDeath: 6
+			AcidDeath: 7
+			Zombiefy: 1
 		CrushedSequence: die-crushed
 	AttackMove:
 	Passenger:
@@ -826,10 +1051,13 @@
 		BlinkInterval: 32
 		BlinkPattern: Off, On
 	DeathSounds@NORMAL:
-		DeathTypes: DefaultDeath, BulletDeath, SmallExplosionDeath, ExplosionDeath
+		DeathTypes: DefaultDeath, BulletDeath, SmallExplosionDeath, ExplosionDeath, AcidDeath
 	DeathSounds@BURNED:
 		Voice: Burned
 		DeathTypes: FireDeath
+	DeathSounds@ZOMBIEFY:
+		Voice: Die
+		DeathTypes: Zombiefy
 	DeathSounds@ZAPPED:
 		Voice: Zapped
 		DeathTypes: ElectricityDeath
@@ -867,9 +1095,17 @@
 		WarnCrushDuration: 15
 		OnCrushCondition: crush-succesful
 		OnCrushDuration: 30
+	SpawnActorOnDeath@zombiefy:
+		DeathType: Zombiefy
+		OwnerType: Killer
+		Actor: Zombie
+		SkipMakeAnimations: False
+	ProximityCaptor:
+		Types: Infantry
 
 ^Soldier:
 	Inherits: ^Infantry
+	Inherits@propaganda: ^Propaganda
 	UpdatesPlayerStatistics:
 	MustBeDestroyed:
 	ProximityCaptor:
@@ -878,10 +1114,12 @@
 		DamageModifiers:
 			Prone50Percent: 50
 		DamageTriggers: TriggerProne
+		RequiresCondition: !propaganda
 	WithInfantryBody:
 		IdleSequences: idle1,idle2
 		StandSequences: stand,stand2
 	AttackFrontal:
+		RequiresCondition: !turnedoff
 
 ^CivInfantry:
 	Inherits: ^Infantry
@@ -921,21 +1159,24 @@
 	Inherits@3: ^IronCurtainable
 	Inherits@4: ^SpriteActor
 	Inherits@5: ^Stealthable
-	Inherits@6: ^ChronoSlowable
 	Inherits@bounty: ^GlobalBounty
 	Inherits@selection: ^SelectableCombatUnit
 	Inherits@handicaps: ^PlayerHandicaps
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@emdamaged: ^EMDamaged
+	Inherits@sliced: ^Sliced
+	Inherits@lazarus: ^Lazarus
+	Inherits@chronohaste: ^ChronoHasteable
+	Inherits@flarevision: ^FlareVision
 	Huntable:
 	OwnerLostAction:
 		Action: Kill
 	UpdatesPlayerStatistics:
 	Mobile:
-		PauseOnCondition: empdisable
+		PauseOnCondition: turnedoff
 		Locomotor: naval
 	SpeedMultiplier@InstantStop:
-		RequiresCondition: empdisable
+		RequiresCondition: turnedoff
 		Modifier: 0
 	Selectable:
 		Bounds: 24,24
@@ -983,8 +1224,10 @@
 	Inherits@selection: ^SelectableCombatUnit
 	Inherits@handicaps: ^PlayerHandicaps
 	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@chronohaste: ^ChronoHasteable
+	Inherits@flarevision: ^FlareVision
 	RejectsOrders:
-		RequiresCondition: empdisable
+		RequiresCondition: turnedoff
 	Huntable:
 	OwnerLostAction:
 		Action: Kill
@@ -997,6 +1240,7 @@
 		Bounds: 24,24
 	Aircraft:
 		AirborneCondition: airborne
+		CruiseAltitude: 4c0
 	Targetable@GROUND:
 		RequiresCondition: !airborne
 		TargetTypes: GroundActor, Vehicle
@@ -1051,15 +1295,21 @@
 	CaptureNotification:
 		Notification: UnitStolen
 		LoseNotification: UnitLost
+	BodyOrientation:
+		QuantizedFacings: 0
+		CameraPitch: 85
 
 ^Plane:
 	Inherits: ^NeutralPlane
 	Inherits@2: ^GainsExperience
+	Inherits@lazarus: ^Lazarus
 	Repairable:
 		RepairActors: fix
 	Targetable@AIRBORNE:
 		RequiresCondition: airborne
 		TargetTypes: AirborneBomber
+	Aircraft:
+		TakeOffOnResupply: true
 
 ^Helicopter:
 	Inherits: ^Plane
@@ -1071,41 +1321,44 @@
 		WaitDistanceFromResupplyBase: 4c0
 		TakeOffOnResupply: true
 		VTOL: true
-		LandableTerrainTypes: Clear, Rough, Road, Ore, Beach, Gems
+		LandableTerrainTypes: Clear, Rough, Road, Ore, Beach, Gems, TallGrass, Pavement, PavedRoad
 		Crushes: crate, mine, infantry
 		CanSlide: True
+		CruiseAltitude: 2c516
 	GpsDot:
 		String: Helicopter
 	Hovers@CRUISING:
 		RequiresCondition: cruising
-	-BodyOrientation:
-	ClassicFacingBodyOrientation:
 	Targetable@AIRBORNE:
 		RequiresCondition: airborne
 		TargetTypes: AirborneActor
+	BodyOrientation:
+		QuantizedFacings: 0
+		CameraPitch: 85
 
 ^BasicBuilding:
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^IronCurtainable
 	Inherits@3: ^SpriteActor
 	Inherits@4: ^Stealthable
-	Inherits@5: ^ChronoSlowable
 	Inherits@shape: ^1x1Shape
 	Inherits@bounty: ^GlobalBounty
 	Inherits@selection: ^SelectableBuilding
 	Inherits@handicaps: ^PlayerHandicaps
 	Inherits@shinobihideout: ^ShinobiHideout
+	Inherits@sliced: ^Sliced
 	Targetable:
 		TargetTypes: GroundActor, C4, DetonateAttack, Structure
 	Building:
 		Dimensions: 1,1
 		Footprint: x
-		TerrainTypes: Clear,Road
+		TerrainTypes: Clear,Road, TallGrass, Pavement, PavedRoad
 		RequiresBaseProvider: True
 		BuildSounds: placbldg.aud, build5.aud
 		UndeploySounds: cashturn.aud
-	ActorPreviewPlaceBuildingPreview:
-		OverridePalette: placebuilding
+	SequencePlaceBuildingPreview:
+		Sequence: idle
+		SequencePalette: placebuilding
 	RequiresBuildableArea:
 		AreaTypes: building
 	SoundOnDamageTransition:
@@ -1133,7 +1386,8 @@
 
 ^Building:
 	Inherits: ^BasicBuilding
-	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@flarevision: ^FlareVision
+	Inherits@withbib: ^WithSpriteBib
 	Huntable:
 	OwnerLostAction:
 		Action: Kill
@@ -1181,7 +1435,6 @@
 ^Defense:
 	Inherits: ^Building
 	Inherits@selection: ^SelectableCombatBuilding
-	Inherits@EMPDISABLE: ^EmpDisable
 	Selectable:
 		Bounds: 24,24
 	Targetable:
@@ -1211,7 +1464,7 @@
 		Dimensions: 1,1
 		Footprint: x
 		BuildSounds: placbldg.aud
-		TerrainTypes: Clear,Road
+		TerrainTypes: Clear,Road, TallGrass, Pavement, PavedRoad
 		UndeploySounds: cashturn.aud
 	FootprintPlaceBuildingPreview:
 		LineBuildSegmentPalette: placelinesegment
@@ -1317,10 +1570,41 @@
 	Interactable:
 		Bounds: 24,24
 
+^GarrisonableCivBuilding:
+	Inherits: ^CivBuilding
+	Inherits@pips: ^CargoPips
+	Inherits@selection: ^SelectableCombatBuilding
+	Inherits@AUTOTARGET: ^AutoTargetAll
+	Cargo:
+		Types: Infantry
+		MaxWeight: 4
+		LoadedCondition: garrisoned
+	AttackGarrisoned:
+		Armaments: garrisoned
+		PortOffsets: 384,0,128, 224,-341,128, -224,-341,128, -384,0,128, -224,341,128, 224,341,128
+		PortYaws: 0, 176, 341, 512, 682, 853
+		PortCones: 88, 88, 88, 88, 88, 88
+	Turreted:
+		TurnSpeed: 512
+	ProximityCapturableSwp:
+		Range: 2c0
+		CaptorTypes: Infantry
+		MustBeClear: True
+	RenderRangeCircle:
+		FallbackRange: 6c0
+	WithIdleOverlay@flag:
+		Image: rallypoint
+		Sequence: flag
+		RequiresCondition: garrisoned
+		IsPlayerPalette: True
+		Offset: 0,0,1700
+		Palette: player
+	-CommandBarBlacklist:
+
 ^CivBuilding:
 	Inherits: ^TechBuilding
 	RenderSprites:
-		Palette: player
+		Palette: temperat-civilian
 	MapEditorData:
 		ExcludeTilesets: INTERIOR
 		Categories: Civilian building
@@ -1328,6 +1612,7 @@
 		Weapon: SmallBuildingExplode
 	Explodes@CIVPANIC:
 		Weapon: CivPanicExplosion
+	-CaptureNotification:
 
 ^CivField:
 	Inherits: ^CivBuilding
@@ -1352,7 +1637,7 @@
 		Name: Tree
 		ShowOwnerRow: false
 	RenderSprites:
-		Palette: terrain
+		Palette: tempdecs
 	WithSpriteBody:
 	Building:
 		Footprint: x
@@ -1365,7 +1650,7 @@
 	Health:
 		HP: 50000
 	Armor:
-		Type: Tree
+		Type: Wood
 	Targetable:
 		TargetTypes: Trees
 	WithDamageOverlay@SmallBurn:
@@ -1393,9 +1678,25 @@
 		Categories: Tree
 	RequiresSpecificOwners:
 		ValidOwnerNames: Neutral
+	Crushable:
+		CrushSound: squishy2.aud
+		CrushClasses: tree
+	SpawnActorOnDeath:
+		Actor: t01.husk
+		DeathType: NotCrushDeath
+	SpawnActorOnDeath@crush:
+		Actor: stmp1
+		DeathType: CrushDeath
+		Offset: 0,1
+	GrantExternalConditionToCrusher:
+		WarnCrushCondition: crush-attempt
+		WarnCrushDuration: 15
+		OnCrushCondition: crush-succesful
+		OnCrushDuration: 30
 
 ^TreeHusk:
 	Inherits@1: ^SpriteActor
+	Inherits@shape: ^1x1Shape
 	Interactable:
 	RenderSprites:
 		Palette: terrain
@@ -1417,6 +1718,51 @@
 		Categories: Tree
 	RequiresSpecificOwners:
 		ValidOwnerNames: Neutral
+	AppearsOnMapPreview:
+		Terrain: Tree
+	Health:
+		HP: 50000
+	Armor:
+		Type: Wood
+	Targetable:
+		TargetTypes: Trees
+	SpawnActorOnDeath@stump:
+		Actor: stmp1
+		Offset: 0,1
+	Crushable:
+		CrushSound: squishy2.aud
+		CrushClasses: tree
+	GrantExternalConditionToCrusher:
+		WarnCrushCondition: crush-attempt
+		WarnCrushDuration: 15
+		OnCrushCondition: crush-succesful
+		OnCrushDuration: 30
+
+^TreeStump:
+	Inherits@1: ^SpriteActor
+	AlwaysVisible:
+	Interactable:
+	RenderSprites:
+		Palette: terrain
+	AppearsOnRadar:
+	RadarColorFromTerrain:
+		Terrain: Tree
+	AppearsOnMapPreview:
+		Terrain: Tree
+	Building:
+		Footprint: _
+		Dimensions: 1,1
+	WithSpriteBody:
+	Tooltip:
+		Name: Tree Stump
+		ShowOwnerRow: false
+	ScriptTriggers:
+	RenderSprites:
+		Palette: tempdecs
+	MapEditorData:
+		Categories: Tree
+	RequiresSpecificOwners:
+		ValidOwnerNames: Neutral
 
 ^Box:
 	Inherits: ^Tree
@@ -1427,6 +1773,55 @@
 	MapEditorData:
 		-ExcludeTilesets:
 		Categories: Decoration
+	-SpawnActorOnDeath:
+	SpawnActorOnDeath:
+		Actor: rubble
+		OwnerType: InternalName
+		InternalOwner: Neutral
+
+^Mirage:
+	Inherits: ^EmpDisable
+	RenderSprites:
+		PlayerPalette: player
+	KillsSelf:
+		RequiresCondition: charged || turnedoff || deployed
+		Delay: 1
+	Explodes:
+		Weapon: HoloExplode
+		DamageThreshold: 20
+	GrantChargingCondition:
+		Condition: charged
+		MaxCharge: 2000
+		ChargingColor: 21ADFF
+	GrantConditionOnDeploy:
+		DeployedCondition: deployed
+	Voiced:
+		VoiceSet: HoloVoice
+	RevealsShroud:
+		Range: 1c0
+	RevealsShroud@GAPGEN:
+		Range: 1c0
+		Type: GroundPosition
+
+^MirageSpawn:
+	Inherits: ^EmpDisable
+	GrantTimedCondition:
+		Condition: spawned
+		Duration: 150
+	KillsSelf:
+		RequiresCondition: turnedoff
+		Delay: 1
+	Mobile:
+		RequiresCondition: !spawned
+	TransformOnCondition:
+		RequiresCondition: !spawned
+	RenderSprites:
+		PlayerPalette: newholo
+	Voiced:
+		VoiceSet: HoloVoice
+	Explodes:
+		Weapon: HoloExplode
+		DamageThreshold: 20
 
 ^BasicHusk:
 	Interactable:
@@ -1447,7 +1842,7 @@
 	Inherits: ^BasicHusk
 	Inherits@2: ^ClassicFacingSpriteActor
 	Husk:
-		AllowedTerrain: Clear, Rough, Road, Ore, Gems, Beach
+		AllowedTerrain: Clear, Rough, Road, Ore, Gems, Beach, TallGrass, Pavement, PavedRoad
 	WithIdleOverlay@Burns:
 		Image: fire
 		Sequence: 1
@@ -1487,15 +1882,27 @@
 		Weapon: UnitExplodeSmall
 		EmptyWeapon: UnitExplodeSmall
 
+^WithSpriteBib:
+	WithIdleOverlay@bip:
+		Image: bib_2x2
+		Sequence: idle
+		Palette: terrain
+		Offset: -1100,500,-300
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+
 ^InfantryCorpse:
 	Inherits: ^BasicHusk
 	Inherits@4: ^SpriteActor
+	-MapEditorData:
 	Targetable: 
 		TargetTypes: Corpse, GroundActor
 	Armor:
 		Type: None
 	Health:
-		HP: 5000
+		HP: 6500
 	-WithFacingSpriteBody:
 	WithSpriteBody:
 		ForceToGround: True
@@ -1519,8 +1926,14 @@
 	SpawnActorOnDeath:
 		DeathType: ResurrectionDeath
 		OwnerType: Killer
+	GrantExternalConditionToKiller:
+		Condition: e1
+	SpawnActorOnDeath@zombiefy:
+		DeathType: Zombiefy
+		OwnerType: Killer
+		Actor: Zombie
+		SkipMakeAnimations: False
 
-		
 ^PlaneHusk:
 	Inherits: ^BasicHusk
 	Inherits@2: ^SpriteActor
@@ -1562,7 +1975,7 @@
 		VTOL: true
 		CanSlide: True
 	FallsToEarth:
-		Explosion: UnitExplodeHeli
+		Explosion: UnitExplodeSmall
 	-MapEditorData:
 	RevealOnDeath:
 		Duration: 60
@@ -1636,7 +2049,7 @@
 		ShowOwnerRow: false
 	Crate:
 		Lifetime: 180
-		TerrainTypes: Clear, Rough, Road, Ore, Beach, Water
+		TerrainTypes: Clear, Rough, Road, Ore, Beach, Water, TallGrass, Pavement, PavedRoad
 	RenderSprites:
 		Palette: effect
 		Image: scrate
@@ -1730,21 +2143,117 @@
 			powerdown: -10, 0
 
 ^Sabotable:
-	GrantConditionOnInfiltration@sabotaged:
+	GrantConditionOnPrerequisite@sabotaged
+		Prerequisites: barr-sabotaged-prereq
+		Condition: barr-sabotaged
+	GrantCondition@sabotaged:
+		Condition: turnedoff
+		RequiresCondition: barr-sabotaged
+	WithColoredOverlay@SABOTAGED:
+		RequiresCondition: barr-sabotaged
+		Palette: disabled
+	Targetable@sabotable:
+		TargetTypes: SaboteurInfiltration
+	WithDecoration@sabotaged:
+		Image: pips
+		Sequence: pip-sabotaged
+		Position: Center
+		Margin: 0, 0
+		BlinkInterval: 32
+		BlinkPattern: On, Off
+		RequiresCondition: barr-sabotaged
+
+^SingleBuildingSabotable:
+	GrantConditionOnInfiltration@sabotaged
 		Types: SaboteurInfiltration
 		Condition: sabotaged
 		Duration: 1500
-	TimedConditionBar@sabotaged:
-		Condition: sabotaged
-		Color: 0088FF
-	GrantCondition@sabotaged:
-		Condition: disabled
+	WithColoredOverlay@SABOTAGED:
 		RequiresCondition: sabotaged
-	Targetable:
-		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
-	WithColoredOverlay@IDISABLE:
-		RequiresCondition: disabled
 		Palette: disabled
+	GrantCondition@sabotaged:
+		Condition: turnedoff
+		RequiresCondition: sabotaged
+	Targetable@sabotable:
+		TargetTypes: SaboteurInfiltration
+	WithDecoration@sabotaged:
+		Image: pips
+		Sequence: pip-sabotaged
+		Position: Center
+		Margin: 0, 0
+		BlinkInterval: 32
+		BlinkPattern: On, Off
+		RequiresCondition: sabotaged
+
+^FlameShield:
+	ExternalCondition@FLAMESHIELD:
+		Condition: flameshield
+	PeriodicExplosion@flame:
+		Weapon: FlameShield
+		LocalOffset: 0,0,0
+		RequiresCondition: flameshield
+	DamageMultiplier@flameshield:
+		Modifier: 50
+		RequiresCondition: flameshield
+	WithIdleOverlay@flameshield
+		Image: flameshield
+		Sequence: idle
+		RequiresCondition: flameshield
+		Offset: 0,0,150
+	Armor@firearmor:
+		Type: FireArmor
+		RequiresCondition: flameshield
+
+^SuperchargePower:
+	TimedConditionBar@supercharged
+		Condition: supercharged
+		Color: 266AFF
+	PowerMultiplier@supercharged:
+		Modifier: 150
+		RequiresCondition: supercharged
+	ExternalCondition@supercharged:
+		Condition: supercharged
+
+^SuperchargeTesla:
+	ExternalCondition@supercharged:
+		Condition: supercharged
+	TimedConditionBar@supercharged:
+		Condition: supercharged
+		Color: 266AFF
+
+^Lazarus:
+	ExternalCondition@lazarus
+		Condition: lazarus
+	ChangesHealth@lazarus:
+		Step: 30
+		Delay: 6
+		StartIfBelow: 100
+		DamageCooldown: 150
+		RequiresCondition: lazarus
+	WithColoredOverlay@LAZARUS:
+		RequiresCondition: lazarus && damaged
+		Palette: lazarusheal
+
+^Drone:
+	GrantConditionOnPrerequisite@radaronline:
+		Condition: tobedisabled
+		Prerequisites: !radaronline
+	WithColoredOverlay@EMPDISABLE:
+		RequiresCondition: turnedoff
+		Palette: disabled
+	GrantCondition@iamdisabled:
+		Condition: turnedoff
+		RequiresCondition: tobedisabled && !spawned
+	WithDecoration@telesign:
+		Image: pips
+		Sequence: telesign
+		Position: Center
+		Margin: 0, 0
+		RequiresCondition: tobedisabled && turnedoff
+	ExternalCondition@spawned:
+		Condition: spawned
+	Voiced:
+		VoiceSet: TeleVoice
 
 ^Berserkable:
 	FirepowerMultiplier@nervegas:
@@ -1755,11 +2264,10 @@
 		RequiresCondition: nervegas
 	Berserkable@nervegas:
 		RequiresCondition: nervegas
-		ActorsToIgnore: nerveagent
 	RejectsOrders@nervegas:
 		RequiresCondition: nervegas
 	WithColoredOverlay@nervegas:
-		Color: 80008040
+		Palette: berserk
 		RequiresCondition: nervegas
 	TimedConditionBar@nervegas:
 		Color: 880088
@@ -1769,11 +2277,37 @@
 	ExternalCondition@nervegas:
 		Condition: nervegas
 
+^Sliced:
+	ExternalCondition@SLICED:
+		Condition: sliced
+	AmbientSound@sliced:
+		SoundFiles: slice1.aud, slice2.aud, slice3.aud, slice4.aud, slice5.aud
+		Delay: 0
+		Interval: 5
+		RequiresCondition: sliced
+
+^Propaganda:
+	ExternalCondition@PROPAGANDA:
+		Condition: propaganda
+	DamageMultiplier@propaganda:
+		Modifier: 50
+		RequiresCondition: propaganda
+	SpeedMultiplier@PROPAGANDA:
+		Modifier: 120
+		RequiresCondition: propaganda
+	ReloadDelayMultiplier@PROPAGANDA:
+		Modifier: 90
+		RequiresCondition: propaganda
+	WithColoredOverlay@PROPAGANDA:
+		Palette: propaganda
+		RequiresCondition: propaganda
+
 ^MagneticTrap:
 	ExternalCondition@MagneticTrap:
 		Condition: magnetic-trap
 	WithColoredOverlay@MAGNETICTRAP:
 		RequiresCondition: magnetic-trap
+		Palette: magnet
 	SpeedMultiplier@magnetitrap:
 		RequiresCondition: magnetic-trap
 		Modifier: 25

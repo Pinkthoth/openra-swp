@@ -179,8 +179,8 @@ HOSP:
 		Priority: 0
 		Bounds: 48,48
 	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
 	Health:
 		HP: 80000
 	CaptureManager:
@@ -199,187 +199,1312 @@ HOSP:
 		ValidRelationships: Neutral, Enemy
 	RevealsShroud:
 		Range: 4c0
-	WithBuildingBib:
-		HasMinibib: true
 	WithDeathAnimation:
 		DeathSequence: dead
 		UseDeathTypeSuffix: false
 	ProvidesPrerequisite@buildingname:
 	AppearsOnMapPreview:
+	RenderSprites:
+		Image: hospital
 	GpsDot:
 		String: Hospital
+	WithIdleOverlay@animation:
+		Image: hospital
+		Sequence: overlay
 
-V01:
-	Inherits: ^CivBuilding
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
+SPORT:
+	Inherits: ^TechBuilding
+	Inherits@shape: ^3x2Shape
+	Inherits@rubbles: ^3x2Rubbles
+	Inherits@PRIMARY: ^PrimaryBuilding
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 420,0,0, 420,-1024,0, 420,1024,0, -777,0,0, -777,-1024,0, -777,1024,0
 	Tooltip:
-		Name: Church
+		Name: Civilian Airfield
+	Selectable:
+		Class: afld
+		Bounds: 72,48
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	Health:
+		HP: 100000
+	Armor:
+		Type: Wood
 	RevealsShroud:
-		Range: 10c0
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-	HitShape:
-		UseTargetableCellsOffsets: false
-		TargetableOffsets: -490,-384,0, 0,0,0, 0,470,0
-		Type: Rectangle
-			TopLeft: -768, -597
-			BottomRight: 896, 683
-
-V02:
-	Inherits: ^CivBuilding
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-	HitShape:
-		UseTargetableCellsOffsets: false
-		TargetableOffsets: -490,-512,0, 0,0,0, 0,512,0
-		Type: Rectangle
-			TopLeft: -1024, -512
-			BottomRight: 1024, 597
-
-V03:
-	Inherits: ^CivBuilding
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-	HitShape:
-		UseTargetableCellsOffsets: false
-		TargetableOffsets: -490,-512,0, 0,0,0, 421,512,0, -210,512,0
-		Type: Rectangle
-			TopLeft: -1024, -597
-			BottomRight: 1024, 597
-
-V04:
-	Inherits: ^CivBuilding
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-	HitShape:
-		UseTargetableCellsOffsets: false
-		TargetableOffsets: 0,0,0, -421,-256,0, -421,256,0
-		Type: Rectangle
-			TopLeft: -683, -432
-			BottomRight: 683, 683
-
-V05:
-	Inherits: ^CivBuilding
-	Inherits@shape: ^2x1Shape
-	Building:
-		Footprint: xx
-		Dimensions: 2,1
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-
-V06:
-	Inherits: ^CivBuilding
-	Inherits@shape: ^2x1Shape
-	Building:
-		Footprint: xx
-		Dimensions: 2,1
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-
-V07:
-	Inherits: ^CivBuilding
-	Inherits@shape: ^2x1Shape
-	Building:
-		Footprint: xx
-		Dimensions: 2,1
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-
-V08:
-	Inherits: ^CivBuilding
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-
-V09:
-	Inherits: ^CivBuilding
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-
-V10:
-	Inherits: ^CivBuilding
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-
-V11:
-	Inherits: ^CivBuilding
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-
-V12:
-	Inherits: ^CivBuilding
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-
-V13:
-	Inherits: ^CivBuilding
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-
-V14:
-	Inherits: ^CivField
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-
-V15:
-	Inherits: ^CivField
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-
-V16:
-	Inherits: ^CivField
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-
-V17:
-	Inherits: ^CivField
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-
-V18:
-	Inherits: ^CivField
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-
-V19:
-	Inherits: ^CivBuilding
-	RenderSprites:
-		Palette: player
-	Tooltip:
-		Name: Oil Pump
-	SpawnActorOnDeath:
-		Actor: V19.Husk
+		MinRange: 4c0
+		Range: 5c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	Exit@1:
+		RequiresCondition: !being-captured || !turnedoff
+		ExitCell: 1,1
+		Facing: 768
+	RallyPoint:
+	Production:
+		Produces: Aircraft, Plane
+		PauseOnCondition: being-captured || turnedoff
+	Reservable:
+	ProductionBar:
+		ProductionType: Aircraft
+	SupportPowerChargeBar:
 	Targetable:
-		TargetTypes: GroundActor, C4, DetonateAttack, Structure, NoAutoTarget
+		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
+	ParatroopersPower@neutralparatroopers:
+		PauseOnCondition: turnedoff
+		OrderName: Paratroopers
+		UnitType: transportplane
+		Icon: paratroopers_civ
+		ChargeInterval: 7500
+		Description: Paratroopers
+		LongDesc: A transport plane drops a squad of infantry\nanywhere on the map.
+		DropItems: E1,E1,E1,E3,E3
+		ReinforcementsArrivedSpeechNotification: ReinforcementsArrived
+		SelectTargetSpeechNotification: SelectTarget
+		AllowImpassableCells: false
+		QuantizedFacings: 8
+		CameraActor: camera.paradrop
+		DisplayBeacon: true
+		BeaconPoster: pinficon
+		ArrowSequence: arrow
+		ClockSequence: clock
+		CircleSequence: circles
+		UseDirectionalTarget: True
+		DirectionArrowAnimation: paradirection
+		SupportPowerPaletteOrder: 50
+		EndChargeSpeechNotification: ReinforcementsReady
+		AllowMultiple: True
+	CaptureManager:
+		BeingCapturedCondition: being-captured
+	Capturable:
+		Types: building
+	CapturableProgressBar:
+	CapturableProgressBlink:
+	EngineerRepairable:
 
-V19.Husk:
-	Inherits: ^CivBuilding
-	RenderSprites:
-		Palette: player
+DISH:
+	Inherits: ^TechBuilding
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Inherits@shape: ^2x2Shape
+	Inherits@rubbles: ^2x2Rubbles
+	-WithDecoration@POWERDOWN:
+	WithDecoration@POWERDOWN:
+		Image: poweroff
+		Sequence: offline
+		Palette: chrome
+		RequiresCondition: powerdown
+		Position: Center
+	Selectable:
+		Bounds: 48,48
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 630,-384,0, 630,384,0, -700,-512,0, -700,512,0
 	Tooltip:
-		Name: Husk (Oil Pump)
-	WithSpriteBody:
-	WithIdleOverlay:
-		StartSequence: fire-start
-		Sequence: fire-loop
+		Name: Radar Dish
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+		LocalCenterOffset: 0,-512,0
+	Targetable:
+		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration
+	Health:
+		HP: 100000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		MinRange: 6c0
+		Range: 10c0
+		RequiresCondition: !disabled
+		RevealGeneratedShroud: False
+	RevealsShroud@Offline:
+		Range: 5c0
+		RequiresCondition: disabled
+	RevealsShroud@GAPGEN:
+		Range: 6c0
+		RequiresCondition: !disabled
+	ProvidesRadar:
+		RequiresCondition: !jammed && !disabled
+	InfiltrateForExploration:
+		Types: SpyInfiltrate
+	ExternalCondition@JAMMED:
+		Condition: jammed
+	WithIdleOverlay@bip:
+		Image: bib_2x2
+		Sequence: idle
+		Palette: terrain
+		Offset: -1100,500,-300
+		IsDecoration: True
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
+	CaptureManager:
+	Capturable:
+		Types: building
+	CapturableProgressBar:
+	CapturableProgressBlink:
+	EngineerRepairable:
+
+CIVNUKE:
+	Inherits: ^TechBuilding
+	Inherits@POWER_OUTAGE: ^DisabledByPowerOutage
+	Inherits@shape: ^3x3Shape
+	Selectable:
+	HitShape:
+	Tooltip:
+		Name: Nuclear Powerplant
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	Targetable:
+		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration
+	Health:
+		HP: 200000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 5c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 3c0
+	WithIdleOverlay@bip:
+		Image: bib_3x3
+		Sequence: idle
+		Palette: terrain
+		Offset: 0,0,0
+		IsDecoration: True
+	Power:
+		Amount: 400
+	ScalePowerWithHealth:
+	SpawnActorOnDeath:
+		Actor: CIVNUKE.exploding
+	CaptureManager:
+	Capturable:
+		Types: building
+	CapturableProgressBar:
+	CapturableProgressBlink:
+	EngineerRepairable:
+
+CIVNUKE.exploding:
+	Inherits: ^TechBuilding
+	Inherits@rubbles: ^3x3Rubbles
 	-Selectable:
-	-Targetable:
-	-Demolishable:
-	-HitShape:
-	-Health:
-	-Explodes:
-	-Explodes@CIVPANIC:
 	Interactable:
+	HitShape:
+	Tooltip:
+		Name: Nuclear Powerplant (Unstable)
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	Targetable:
+		TargetTypes: NoAutoTarget
+	Health:
+		HP: 200000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 5c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 3c0
+	WithIdleOverlay@bip:
+		Image: bib_3x3
+		Sequence: idle
+		Palette: terrain
+		Offset: 0,0,0
+		IsDecoration: True
+	GrantStackingCondition:
+		Condition: exploding
+		DelayPerInstance: 50
+		MaximumInstances: 11
+		RevokeDelay: -1
+	KillsSelf:
+		RequiresCondition: exploding > 10
+	Explodes:
+		Weapon: MiniNuke
+		EmptyWeapon: MiniNuke
+		DamageSource: Killer
+		Type: CenterPosition
+	RenderSprites:
+		Image: civnuke
+	AmbientSound:
+		SoundFiles: nukewarning.wav
+		Interval: 1000
+	WithSpriteBody:
+		Sequence: dead
+
+FHOUSEA:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@Rubbles: ^1x1Rubbles
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_1x1
+		Sequence: idle
+		Palette: terrain
+		Offset: -1700,1100,-300
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 1
+
+FHOUSEB:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@Rubbles: ^1x1Rubbles
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_1x1
+		Sequence: idle
+		Palette: terrain
+		Offset: -1700,1100,-300
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 1
+
+FHOUSEC:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@Rubbles: ^1x1Rubbles
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_1x1
+		Sequence: idle
+		Palette: terrain
+		Offset: -1700,1100,-300
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 1
+
+FHOUSED:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@Rubbles: ^1x1Rubbles
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_1x1
+		Sequence: idle
+		Palette: terrain
+		Offset: -1700,1100,-300
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 1
+
+FHOUSEE:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@Rubbles: ^1x1Rubbles
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_1x1
+		Sequence: idle
+		Palette: terrain
+		Offset: -1700,1100,-300
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 1
+
+FHOUSEF:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@Rubbles: ^1x1Rubbles
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_1x1
+		Sequence: idle
+		Palette: terrain
+		Offset: -1700,1100,-300
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 1
+
+FHOUSEG:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@Rubbles: ^1x1Rubbles
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_1x1
+		Sequence: idle
+		Palette: terrain
+		Offset: -1700,1100,-300
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 1
+
+FHOUSEH:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@Rubbles: ^1x1Rubbles
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_1x1
+		Sequence: idle
+		Palette: terrain
+		Offset: -1700,1100,-300
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 1
+
+FHOUSEI:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@Rubbles: ^1x1Rubbles
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_1x1
+		Sequence: idle
+		Palette: terrain
+		Offset: -1700,1100,-300
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 1
+
+FHOUSEJ:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@Rubbles: ^1x1Rubbles
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_1x1
+		Sequence: idle
+		Palette: terrain
+		Offset: -1700,1100,-300
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 1
+
+FHOUSEK:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@Rubbles: ^1x1Rubbles
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_1x1
+		Sequence: idle
+		Palette: terrain
+		Offset: -1700,1100,-300
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 1
+
+FHOUSEL:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@Rubbles: ^1x1Rubbles
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_1x1
+		Sequence: idle
+		Palette: terrain
+		Offset: -1700,1100,-300
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 1
+
+FHOUSEM:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@Rubbles: ^1x1Rubbles
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_1x1
+		Sequence: idle
+		Palette: terrain
+		Offset: -1700,1100,-300
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 1
+
+FHOUSEN:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@Rubbles: ^1x1Rubbles
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_1x1
+		Sequence: idle
+		Palette: terrain
+		Offset: -1700,1100,-300
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 1
+
+FHOUSEO:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@Rubbles: ^1x1Rubbles
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_1x1
+		Sequence: idle
+		Palette: terrain
+		Offset: -1700,1100,-300
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 1
+
+FHOUSEP:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@Rubbles: ^1x1Rubbles
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_1x1
+		Sequence: idle
+		Palette: terrain
+		Offset: -1700,1100,-300
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 1
+
+FHOUSEQ:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@Rubbles: ^1x1Rubbles
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_1x1
+		Sequence: idle
+		Palette: terrain
+		Offset: -1700,1100,-300
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 1
+
+FHOUSER:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@Rubbles: ^1x1Rubbles
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_1x1
+		Sequence: idle
+		Palette: terrain
+		Offset: -1700,1100,-300
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 1
+
+FHOUSES:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@Rubbles: ^1x1Rubbles
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_1x1
+		Sequence: idle
+		Palette: terrain
+		Offset: -1700,1100,-300
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 1
+
+FHOUSET:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@Rubbles: ^1x1Rubbles
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_1x1
+		Sequence: idle
+		Palette: terrain
+		Offset: -1700,1100,-300
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 1
+
+FLAT1:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^2x3Shape
+	Inherits@rubbles: ^2x3Rubbles
+	Building:
+		Footprint: xx xx xx
+		Dimensions: 2,3
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+
+FLAT1A:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^3x2Shape
+	Inherits@rubbles: ^3x2Rubbles
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+
+FLAT1B:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^2x2Shape
+	Inherits@rubbles: ^2x2Rubbles
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+
+FLAT2:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^1x2Shape
+	Inherits@rubbles: ^1x2Rubbles
+	Building:
+		Footprint: x x
+		Dimensions: 1,2
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+
+FLAT2a:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^2x1Shape
+	Inherits@rubbles: ^2x1Rubbles
+	Building:
+		Footprint: xx
+		Dimensions: 2,1
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+
+
+FLAT3:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^2x2Shape
+	Inherits@rubbles: ^2x2Rubbles
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+
+FLAT4:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^2x3Shape
+	Inherits@rubbles: ^2x3Rubbles
+	Building:
+		Footprint: xx xx xx
+		Dimensions: 2,3
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+
+FLAT5:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^2x1Shape
+	Inherits@rubbles: ^2x1Rubbles
+	Building:
+		Footprint: xx
+		Dimensions: 2,1
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+
+FLAT5A:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^1x2Shape
+	Inherits@rubbles: ^1x2Rubbles
+	Building:
+		Footprint: x x
+		Dimensions: 1,2
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+
+FLAT6:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^2x2Shape
+	Inherits@rubbles: ^2x2Rubbles
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+
+FLAT6A:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^2x2Shape
+	Inherits@rubbles: ^2x2Rubbles
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+
+SHOPS1:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^2x2Shape
+	Inherits@rubbles: ^2x3Rubbles
+	Building:
+		Footprint: xx xx xx
+		Dimensions: 2,3
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_1x2
+		Sequence: idle
+		Palette: terrain
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 6
+
+SHOPS2:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^2x2Shape
+	Inherits@rubbles: ^3x2Rubbles
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_1x2
+		Sequence: idle
+		Palette: terrain
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 6
+
+SHOPS3:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^2x2Shape
+	Inherits@rubbles: ^2x3Rubbles
+	Building:
+		Footprint: xx xx xx
+		Dimensions: 2,3
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_1x2
+		Sequence: idle
+		Palette: terrain
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 6
+
+SHOPS4:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^2x2Shape
+	Inherits@rubbles: ^3x2Rubbles
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_1x2
+		Sequence: idle
+		Palette: terrain
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 6
+
+DETACHED1:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^1x2Shape
+	Inherits@rubbles: ^1x2Rubbles
+	Building:
+		Footprint: x x
+		Dimensions: 1,2
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_1x2
+		Sequence: idle
+		Palette: terrain
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 2
+
+DETACHED2:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^1x2Shape
+	Inherits@rubbles: ^1x2Rubbles
+	Building:
+		Footprint: x x
+		Dimensions: 1,2
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_1x2
+		Sequence: idle
+		Palette: terrain
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 2
+
+DETACHED3:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^2x1Shape
+	Inherits@rubbles: ^2x1Rubbles
+	Building:
+		Footprint: xx
+		Dimensions: 2,1
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_2x1
+		Sequence: idle
+		Palette: terrain
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 2
+
+DETACHED4:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^2x1Shape
+	Inherits@rubbles: ^2x1Rubbles
+	Building:
+		Footprint: xx
+		Dimensions: 2,1
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_2x1
+		Sequence: idle
+		Palette: terrain
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 2
+
+DETACHED5:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^1x2Shape
+	Inherits@rubbles: ^1x2Rubbles
+	Building:
+		Footprint: x x
+		Dimensions: 1,2
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_1x2
+		Sequence: idle
+		Palette: terrain
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 2
+
+DETACHED6:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^1x2Shape
+	Inherits@rubbles: ^1x2Rubbles
+	Building:
+		Footprint: x x
+		Dimensions: 1,2
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_1x2
+		Sequence: idle
+		Palette: terrain
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 2
+
+DETACHED7:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^2x1Shape
+	Inherits@rubbles: ^2x1Rubbles
+	Building:
+		Footprint: xx
+		Dimensions: 2,1
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_2x1
+		Sequence: idle
+		Palette: terrain
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 2
+
+DETACHED8:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^2x1Shape
+	Inherits@rubbles: ^2x1Rubbles
+	Building:
+		Footprint: xx
+		Dimensions: 2,1
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_2x1
+		Sequence: idle
+		Palette: terrain
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 2
+
+DETACHED9:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^1x2Shape
+	Inherits@rubbles: ^1x2Rubbles
+	Building:
+		Footprint: x x
+		Dimensions: 1,2
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_1x2
+		Sequence: idle
+		Palette: terrain
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 2
+
+DETACHED10:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^1x2Shape
+	Inherits@rubbles: ^1x2Rubbles
+	Building:
+		Footprint: x x
+		Dimensions: 1,2
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_1x2
+		Sequence: idle
+		Palette: terrain
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 2
+
+DETACHED11:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^2x1Shape
+	Inherits@rubbles: ^2x1Rubbles
+	Building:
+		Footprint: xx
+		Dimensions: 2,1
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_2x1
+		Sequence: idle
+		Palette: terrain
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 2
+
+DETACHED12:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^2x1Shape
+	Inherits@rubbles: ^2x1Rubbles
+	Building:
+		Footprint: xx
+		Dimensions: 2,1
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_2x1
+		Sequence: idle
+		Palette: terrain
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 2
+
+DETACHED13:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^2x1Shape
+	Inherits@rubbles: ^2x1Rubbles
+	Building:
+		Footprint: xx
+		Dimensions: 2,1
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_2x1
+		Sequence: idle
+		Palette: terrain
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 2
+
+DETACHED14:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^2x1Shape
+	Inherits@rubbles: ^2x1Rubbles
+	Building:
+		Footprint: xx
+		Dimensions: 2,1
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_2x1
+		Sequence: idle
+		Palette: terrain
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 2
+
+DETACHED15:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^1x2Shape
+	Inherits@rubbles: ^1x2Rubbles
+	Building:
+		Footprint: x x
+		Dimensions: 1,2
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_1x2
+		Sequence: idle
+		Palette: terrain
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 2
+
+DETACHED16:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^1x2Shape
+	Inherits@rubbles: ^1x2Rubbles
+	Building:
+		Footprint: x x
+		Dimensions: 1,2
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_1x2
+		Sequence: idle
+		Palette: terrain
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 2
+
+DETACHED17:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^2x2Shape
+	Inherits@rubbles: ^2x2Rubbles
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_2x2
+		Sequence: idle
+		Offset: -1100,500,-300
+		Palette: terrain
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 4
+
+DETACHED18:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^2x2Shape
+	Inherits@rubbles: ^2x2Rubbles
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_2x2
+		Sequence: idle
+		Offset: -1100,500,-300
+		Palette: terrain
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 4
+
+DETACHED19:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^2x2Shape
+	Inherits@rubbles: ^2x2Rubbles
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_2x2
+		Sequence: idle
+		Offset: -1100,500,-300
+		Palette: terrain
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 4
+
+DETACHED20:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^2x2Shape
+	Inherits@rubbles: ^2x2Rubbles
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_2x2
+		Sequence: idle
+		Offset: -1100,500,-300
+		Palette: terrain
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 4
+
+DETACHED21:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^2x2Shape
+	Inherits@rubbles: ^2x2Rubbles
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_2x2
+		Sequence: idle
+		Offset: -1100,500,-300
+		Palette: terrain
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 4
+
+DETACHED22:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^2x2Shape
+	Inherits@rubbles: ^2x2Rubbles
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_2x2
+		Sequence: idle
+		Offset: -1100,500,-300
+		Palette: terrain
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 4
+
+DETACHED23:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^2x2Shape
+	Inherits@rubbles: ^2x2Rubbles
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_2x2
+		Offset: -1100,500,-300
+		Sequence: idle
+		Palette: terrain
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 4
+
+DETACHED24:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^2x2Shape
+	Inherits@rubbles: ^2x2Rubbles
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_2x2
+		Offset: -1100,500,-300
+		Sequence: idle
+		Palette: terrain
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 4
+
+DETACHED25:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^2x1Shape
+	Inherits@rubbles: ^2x1Rubbles
+	Building:
+		Footprint: xx
+		Dimensions: 2,1
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_2x1
+		Sequence: idle
+		Palette: terrain
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 2
+
+DETACHED26:
+	Inherits: ^GarrisonableCivBuilding
+	Inherits@shape: ^1x2Shape
+	Inherits@rubbles: ^1x2Rubbles
+	Building:
+		Footprint: x x
+		Dimensions: 1,2
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	WithIdleOverlay@bip:
+		Image: bib_1x2
+		Sequence: idle
+		Palette: terrain
+		IsDecoration: True
+		RequiresCondition: exists
+	GrantCondition@exists:
+		Condition: exists
+	Cargo:
+		MaxWeight: 2
+
+CHURCH:
+	Inherits: ^CivBuilding
+	Inherits@shape: ^2x3Shape
+	Inherits@rubbles: ^2x3Rubbles
+	Building:
+		Footprint: xx xx xx
+		Dimensions: 2,3
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
 
 BARL:
 	Inherits: ^TechBuilding
@@ -563,6 +1688,8 @@ OILB:
 	UpdatesDerrickCount:
 	GrantConditionOnCombatantOwner:
 		Condition: enabled
+	RenderSprites:
+		Image: derrick
 
 BR1:
 	Inherits: ^Bridge
@@ -757,192 +1884,3 @@ BRIDGEHUT.small:
 	LegacyBridgeHut:
 	Targetable:
 		TargetTypes: BridgeHut, C4
-
-V20:
-	Inherits: ^DesertCivBuilding
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
-	HitShape:
-		UseTargetableCellsOffsets: false
-		TargetableOffsets: -840,-512,0, 0,0,0, -840,512,0
-		Type: Rectangle
-			TopLeft: -1024, -512
-			BottomRight: 1024, 896
-
-V21:
-	Inherits: ^DesertCivBuilding
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
-	HitShape:
-		UseTargetableCellsOffsets: false
-		TargetableOffsets: 840,-512,0, 420,0,0, 840,512,0
-		Type: Rectangle
-			TopLeft: -1024, -1024
-			BottomRight: 1024, 0
-	HitShape@WELL:
-		TargetableOffsets: -770,512,0
-		Type: Rectangle
-			TopLeft: 0, 0
-			BottomRight: 1024, 598
-
-V22:
-	Inherits: ^DesertCivBuilding
-	Inherits@shape: ^2x1Shape
-	Building:
-		Footprint: xx
-		Dimensions: 2,1
-
-V23:
-	Inherits: ^DesertCivBuilding
-
-V24:
-	Inherits: ^DesertCivBuilding
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
-	HitShape:
-		UseTargetableCellsOffsets: false
-		TargetableOffsets: -630,-512,0, 0,0,0, -630,256,0, 420,-512,0
-		Type: Rectangle
-			TopLeft: -1024, -683
-			BottomRight: 640, 853
-
-V25:
-	Inherits: ^DesertCivBuilding
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
-	Tooltip:
-		Name: Church
-	RevealsShroud:
-		Range: 10c0
-	HitShape:
-		UseTargetableCellsOffsets: false
-		TargetableOffsets: 0,-128,0, 420,512,0
-		Type: Rectangle
-			TopLeft: -683, -683
-			BottomRight: 1024, 512
-
-V26:
-	Inherits: ^DesertCivBuilding
-	Inherits@shape: ^2x1Shape
-	Building:
-		Footprint: xx
-		Dimensions: 2,1
-
-V27:
-	Inherits: ^DesertCivBuilding
-
-V28:
-	Inherits: ^DesertCivBuilding
-
-V29:
-	Inherits: ^DesertCivBuilding
-
-V30:
-	Inherits: ^DesertCivBuilding
-	Inherits@shape: ^2x1Shape
-	Building:
-		Footprint: xx
-		Dimensions: 2,1
-
-V31:
-	Inherits: ^DesertCivBuilding
-	Inherits@shape: ^2x1Shape
-	Building:
-		Footprint: xx
-		Dimensions: 2,1
-
-V32:
-	Inherits: ^DesertCivBuilding
-	Inherits@shape: ^2x1Shape
-	Building:
-		Footprint: xx
-		Dimensions: 2,1
-
-V33:
-	Inherits: ^DesertCivBuilding
-	Inherits@shape: ^2x1Shape
-	Building:
-		Footprint: xx
-		Dimensions: 2,1
-
-V34:
-	Inherits: ^DesertCivBuilding
-
-V35:
-	Inherits: ^DesertCivBuilding
-
-V36:
-	Inherits: ^DesertCivBuilding
-
-V37:
-	Inherits: ^DesertCivBuilding
-	Building:
-		Footprint: __xx_ ___xx
-		Dimensions: 5,2
-	HitShape:
-		UseTargetableCellsOffsets: false
-		TargetableOffsets: 0,0,0, 0,1024,0
-		Type: Rectangle
-			TopLeft: -512, -597
-			BottomRight: 1536, 597
-
-RICE:
-	Inherits: ^CivField
-	MapEditorData:
-		RequireTilesets: TEMPERAT
-
-RUSHOUSE:
-	Inherits: ^CivBuilding
-	MapEditorData:
-		RequireTilesets: TEMPERAT
-	Building:
-		Footprint: x x
-		Dimensions: 1,2
-	HitShape:
-		UseTargetableCellsOffsets: false
-
-ASIANHUT:
-	Inherits: ^CivBuilding
-	MapEditorData:
-		RequireTilesets: TEMPERAT
-
-SNOWHUT:
-	Inherits: ^CivBuilding
-	MapEditorData:
-		RequireTilesets: SNOW
-	Building:
-		Footprint: x x
-		Dimensions: 1,2
-	RenderSprites:
-		Scale: 0.7
-	HitShape:
-		UseTargetableCellsOffsets: false
-
-LHUS:
-	Inherits: ^CivBuilding
-	MapEditorData:
-		RequireTilesets: TEMPERAT
-	Selectable:
-		Bounds: 24,48,0,-16
-	Tooltip:
-		Name: Lighthouse
-	Building:
-		Footprint: x
-		Dimensions: 1,1
-
-WINDMILL:
-	Inherits: ^CivBuilding
-	MapEditorData:
-		RequireTilesets: TEMPERAT
-	Selectable:
-		Bounds: 24,24,0,-14
-		DecorationBounds: 36,36,0,-14
-	Tooltip:
-		Name: Windmill
-	Building:
-		Footprint: x
-		Dimensions: 1,1

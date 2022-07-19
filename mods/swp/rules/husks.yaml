@@ -43,6 +43,12 @@ RUBBLE:
 		OccupiesSpace: False
 	ChangesTerrain:
 		TerrainType: Rough
+	GrantTimedCondition:
+		Condition: born
+		Duration: 25
+	DamageMultiplier:
+		Modifier: 0
+		RequiresCondition: born
 
 HOSPITALLER.Husk:
 	Inherits: ^PlaneHusk
@@ -238,6 +244,8 @@ ANT40.Husk:
 		Name: Tactical Bomber
 	RenderSprites:
 		Image: ant40
+	Aircraft:
+		Speed: 110
 
 SAUCER.Husk:
 	Inherits: ^HelicopterHusk
@@ -487,6 +495,61 @@ HIND.Husk:
 	WithFacingSpriteBody:
 		Sequence: turret
 
+TELEKITE.Husk:
+	Inherits: ^HelicopterHusk
+	Tooltip:
+		Name: Hind
+	Aircraft:
+		TurnSpeed: 16
+		Speed: 112
+	SmokeTrailWhenDamaged:
+		Offset: -427,0,0
+		MinDamage: Undamaged
+	RevealsShroud:
+		MinRange: 3c0
+		Range: 5c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 3c0
+		Type: GroundPosition
+	RenderSprites:
+		Image: telekite
+	WithFacingSpriteBody:
+		Sequence: turret
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+
+KHAN.Husk:
+	Inherits: ^HelicopterHusk
+	Tooltip:
+		Name: Khan
+	Aircraft:
+		TurnSpeed: 16
+		Speed: 112
+	WithIdleOverlay:
+		Sequence: rotor
+		Offset: 0,0,300
+	SmokeTrailWhenDamaged:
+		Offset: -427,0,0
+		MinDamage: Undamaged
+	WithIdleOverlay@ROTORGROUND:
+		Sequence: slow-rotor
+		Offset: 100, 0,600
+	RevealsShroud:
+		MinRange: 8c0
+		Range: 10c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 8c0
+		Type: GroundPosition
+	RenderSprites:
+		Image: tengrii
+	WithFacingSpriteBody:
+		Sequence: turret
+
 IBLIS.Husk:
 	Inherits: ^HelicopterHusk
 	Tooltip:
@@ -716,39 +779,39 @@ T17.Husk:
 TC01.Husk:
 	Inherits: ^TreeHusk
 	Building:
-		Footprint: ___ xx_
-		Dimensions: 3,2
+		Footprint: xx x_
+		Dimensions: 2,2
 	MapEditorData:
 		ExcludeTilesets: INTERIOR
 
 TC02.Husk:
 	Inherits: ^TreeHusk
 	Building:
-		Footprint: _x_ xx_
-		Dimensions: 3,2
+		Footprint: xx xx
+		Dimensions: 2,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
 
 TC03.Husk:
 	Inherits: ^TreeHusk
 	Building:
-		Footprint: xx_ xx_
-		Dimensions: 3,2
+		Footprint: xx xx
+		Dimensions: 2,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
 
 TC04.Husk:
 	Inherits: ^TreeHusk
 	Building:
-		Footprint: ____ xxx_ x___
-		Dimensions: 4,3
+		Footprint: xxx __x __x
+		Dimensions: 3,3
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
 
 TC05.Husk:
 	Inherits: ^TreeHusk
 	Building:
-		Footprint: __x_ xxx_ _xx_
+		Footprint: ____ _xx_ _xxx
 		Dimensions: 4,3
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
@@ -839,7 +902,7 @@ WASP.Husk:
 		Speed: 112
 	WithIdleOverlay@ROTORAIR:
 		Sequence: rotor
-		Offset: -100,0,350
+		Offset: -100,0,450
 	SmokeTrailWhenDamaged:
 		Offset: -427,0,0
 		MinDamage: Undamaged
@@ -955,3 +1018,24 @@ MI26.Husk:
 		Type: GroundPosition
 	RenderSprites:
 		Image: mi26
+
+ALBATROSS.Husk:
+	Inherits: ^HelicopterHusk
+	Tooltip:
+		Name: Albatross
+	Aircraft:
+		TurnSpeed: 16
+		Speed: 149
+	WithIdleOverlay@ROTOR1GROUND:
+		Offset: 0,0,430
+		Sequence: slow-rotor
+	RevealsShroud:
+		MinRange: 6c0
+		Range: 8c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 6c0
+		Type: GroundPosition
+	RenderSprites:
+		Image: aircrane

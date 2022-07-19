@@ -4,7 +4,7 @@ RequiresMod: swp
 
 Title: Blank Shellmap
 
-Author: Paul Chote
+Author: Pinkthoth
 
 Tileset: DESERT
 
@@ -32,5 +32,11 @@ Rules:
 		-CrateSpawner:
 		MusicPlaylist:
 			BackgroundMusic: map1
-			AllowMuteBackgroundMusic: true
-			DisableWorldSounds: true
+			AllowMuteBackgroundMusic: True
+			DisableWorldSounds: True
+		-StartGameNotification:
+
+Notifications:
+	Notifications:
+		StartGame: bctrinit
+		VolumeModifier: 0.00

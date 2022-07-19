@@ -15,7 +15,7 @@
 			Medium: 45
 			Heavy: 10
 			Concrete: 20
-		DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, DefaultDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: small_explosion_air
 		ValidTargets: Air, Ground, Water, Trees, AirborneActor, AirborneBomber
@@ -24,13 +24,13 @@
 	ReloadDelay: 30
 	Range: 6c0
 	Report: gun13.aud
-	ValidTargets: Ground, Water, GroundActor, WaterActor
+	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor
 	Projectile: InstantHit
 		Blockable: true
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
 		Damage: 2500
-		ValidTargets: GroundActor, WaterActor
+		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
 			None: 120
 			Wood: 60
@@ -38,10 +38,10 @@
 			Medium: 60
 			Heavy: 28
 			Concrete: 30
-		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: piffs
-		ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees
 	Warhead@3EffWater: CreateEffect
 		Explosions: water_piffs
 		ValidTargets: Water, Underwater
@@ -58,7 +58,7 @@
 			Medium: 25
 			Heavy: 10
 			Concrete: 10
-		DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, DefaultDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: piff
 		Inaccuracy: 171
@@ -111,6 +111,26 @@ AGGatling4:
 	ReloadDelay: 2
 	BurstDelays: 1
 
+AGGatling-handheld:
+	Inherits: ^Gatling
+	Range: 5c0
+	ReloadDelay: 8
+	BurstDelays: 4
+	Range: 5c0
+	Burst: 2
+
+AGGatling2-handheld:
+	Inherits: AGGatling
+	Range: 5c0
+	ReloadDelay: 6
+	BurstDelays: 3
+
+AGGatling3-handheld:
+	Inherits: AGGatling
+	Range: 5c0
+	ReloadDelay: 4
+	BurstDelays: 2
+
 ZSU-23:
 	Inherits: ^AACannon
 	Burst: 2
@@ -130,7 +150,7 @@ ZSU-23:
 FLAK-23-AA:
 	Inherits: ^AACannon
 	Warhead@1Dam: SpreadDamage
-		ValidTargets: AirborneActor, GroundActor, WaterActor, AirborneBomber
+		ValidTargets: AirborneActor, GroundActor, Trees,  WaterActor, AirborneBomber
 	Warhead@2Eff: CreateEffect
 		Explosions: flak_explosion_ground
 		ValidTargets: Air, AirborneActor, AirborneBomber
@@ -152,21 +172,21 @@ FLAK-23-AA-Static:
 FLAK-23-AG:
 	Inherits: ^AACannon
 	Range: 6c0
-	ValidTargets: Ground, Water, GroundActor, WaterActor, AirborneBomber
+	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor, AirborneBomber
 	Projectile: InstantHit
 		Blockable: true
 	Warhead@1Dam: SpreadDamage
-		ValidTargets: AirborneActor, GroundActor, WaterActor, AirborneBomber
+		ValidTargets: AirborneActor, GroundActor, Trees,  WaterActor, AirborneBomber
 		Versus:
 			None: 45
 			Wood: 20
-			Light: 60
-			Medium: 40
+			Light: 55
+			Medium: 35
 			Heavy: 10
 			Concrete: 10
 	Warhead@2Eff: CreateEffect
 		Explosions: flak_explosion_ground
-		ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees, AirborneBomber
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees, AirborneBomber
 	Warhead@3EffWater: CreateEffect
 		Explosions: small_splash
 		ValidTargets: Water, Underwater
@@ -194,21 +214,21 @@ Archer-AG:
 	ReloadDelay: 15
 	Report: shilka.aud
 	Range: 6c0
-	ValidTargets: Ground, GroundActor, Water, WaterActor
+	ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
 	Warhead@1Dam: SpreadDamage
 		Damage: 1200
 		Versus:
 			None: 100
 			Wood: 20
-			Light: 70
-			Medium: 50
-			Heavy: 30
+			Light: 60
+			Medium: 40
+			Heavy: 13
 			Concrete: 20
-		ValidTargets: Ground, GroundActor, Water, WaterActor
+		ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
 	Warhead@2Eff: CreateEffect
 		Explosions: piff
 		Inaccuracy: 0c256
-		ValidTargets: Air, Ground, GroundActor, Water, Trees, AirborneActor, AirborneBomber
+		ValidTargets: Air, Ground, GroundActor, Trees,  Water, Trees, AirborneActor, AirborneBomber
 
 Archer-AA:
 	Inherits: ZSU-23
@@ -220,6 +240,7 @@ Archer-AA:
 	ValidTargets: AirborneActor, AirborneBomber
 	Warhead@1Dam: SpreadDamage
 		Damage: 800
+			None: 180
 		ValidTargets: Air, AirborneActor, AirborneBomber
 	Warhead@2Eff: CreateEffect
 		ValidTargets: Air, AirborneActor, AirborneBomber
@@ -240,7 +261,7 @@ Vulcan:
 		Spread: 128
 		Damage: 500
 		Delay: 2
-		ValidTargets: GroundActor, WaterActor
+		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
 			None: 200
 			Wood: 50
@@ -248,10 +269,10 @@ Vulcan:
 			Medium: 30
 			Heavy: 20
 			Concrete: 35
-		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@4Eff_2: CreateEffect
 		Explosions: piffs
-		ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees
 		Delay: 2
 	Warhead@4Eff_2Water: CreateEffect
 		Explosions: water_piffs
@@ -262,7 +283,7 @@ Vulcan:
 		Spread: 128
 		Damage: 1000
 		Delay: 4
-		ValidTargets: GroundActor, WaterActor
+		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
 			None: 200
 			Wood: 50
@@ -270,10 +291,10 @@ Vulcan:
 			Medium: 30
 			Heavy: 20
 			Concrete: 35
-		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@6Eff_3: CreateEffect
 		Explosions: piffs
-		ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees
 		Delay: 4
 	Warhead@6Eff_3Water: CreateEffect
 		Explosions: water_piffs
@@ -284,7 +305,7 @@ Vulcan:
 		Spread: 128
 		Damage: 800
 		Delay: 6
-		ValidTargets: GroundActor, WaterActor
+		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
 			None: 200
 			Wood: 50
@@ -292,10 +313,10 @@ Vulcan:
 			Medium: 30
 			Heavy: 20
 			Concrete: 35
-		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@8Eff_4: CreateEffect
 		Explosions: piffs
-		ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees
 		Delay: 6
 	Warhead@8Eff_4Water: CreateEffect
 		Explosions: water_piffs
@@ -306,7 +327,7 @@ Vulcan:
 		Spread: 128
 		Damage: 800
 		Delay: 8
-		ValidTargets: GroundActor, WaterActor
+		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
 			None: 200
 			Wood: 50
@@ -314,10 +335,10 @@ Vulcan:
 			Medium: 30
 			Heavy: 20
 			Concrete: 35
-		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@10Eff_5: CreateEffect
 		Explosions: piffs
-		ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees
 		Delay: 8
 	Warhead@10Eff_5Water: CreateEffect
 		Explosions: water_piffs
@@ -328,7 +349,7 @@ Vulcan:
 		Spread: 128
 		Damage: 800
 		Delay: 10
-		ValidTargets: GroundActor, WaterActor
+		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
 			None: 200
 			Wood: 50
@@ -336,10 +357,10 @@ Vulcan:
 			Medium: 30
 			Heavy: 20
 			Concrete: 35
-		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@12Eff_6: CreateEffect
 		Explosions: piffs
-		ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees
 		Delay: 10
 	Warhead@12Eff_6Water: CreateEffect
 		Explosions: water_piffs
@@ -353,19 +374,42 @@ LightMachineGun:
 	Burst: 12
 	Range: 5c0
 	Report: lmg_s1.aud, lmg_s2.aud, lmg_s3.aud
-	BurstDelays: 8
+	BurstDelays: 6
 	Projectile: InstantHit
 		Inaccuracy: 1c216
 	Warhead@1Dam: SpreadDamage
 		Damage: 650
-		Spread: 256
-		Falloff: 110, 50, 25, 15, 5
+		Spread: 0c512
+		Falloff: 200, 35, 25, 15, 5
 	Warhead@2Eff: CreateEffect
 		Explosions: piff
 		Inaccuracy: 0
 	Warhead@3EffWater: CreateEffect
 		Explosions: water_piff
 		Inaccuracy: 0
+
+LightMachineGun2:
+	Inherits: ^LightMG
+	ReloadDelay: 40
+	Burst: 12
+	BurstDelays: 6
+	-Report:
+	Range: 5c0
+	Projectile: InstantHit
+		Inaccuracy: 0c0
+	Warhead@1Dam: SpreadDamage
+		Damage: 200
+		Spread: 0c124
+		Falloff: 200, 35, 25, 15, 5
+		ValidTargets: Ground, GroundActor, WaterActor, Water
+	Warhead@2Eff: CreateEffect
+		Explosions: piff
+		Inaccuracy: 0
+		ValidTargets: Ground, GroundActor
+	Warhead@3EffWater: CreateEffect
+		Explosions: water_piff
+		Inaccuracy: 0
+		ValidTargets: Water
 
 ChainGun:
 	Inherits: ^HeavyMG
@@ -410,7 +454,7 @@ ChainGun.HVF.AA:
 	ReloadDelay: 6
 	Range: 6c0
 	MinRange: 0c128
-	Report: gatling1.aud, gatling2.aud, gatling3.aud
+	Report: gun5.aud
 	ValidTargets: AirborneActor, AirborneBomber
 	Projectile: InstantHit
 		Blockable: false
@@ -428,6 +472,23 @@ ChainGun.HVF.AA:
 		ValidTargets: Air, AirborneActor, AirborneBomber
 		Inaccuracy: 0c512
 
+ChainGun.HVF.AG:
+	Inherits: ^HeavyMG
+	ReloadDelay: 3
+	Range: 5c0
+	Report: gun5.aud
+	MinRange: 1c0
+	Projectile: InstantHit
+		Blockable: false
+	Warhead@1Dam: SpreadDamage
+		Damage: 1000
+		Versus:
+			None: 100
+			Wood: 50
+			Light: 60
+			Heavy: 25
+			Concrete: 25
+
 ChainGun.Spitfire.AA:
 	Inherits: ChainGun.Yak.AA
 	Report: mg1.aud
@@ -435,7 +496,7 @@ ChainGun.Spitfire.AA:
 	Range: 6c0
 	MinRange: 0c128
 	Warhead@1Dam: SpreadDamage
-		Damage: 750
+		Damage: 800
 		Versus:
 			None: 100
 			Wood: 50
@@ -453,51 +514,85 @@ MesserschmittAutocannon.AA:
 	Report: 20MMGUN2.aud
 	Warhead@1EffAir: CreateEffect
 		Explosions: small_explosion_air
+	Warhead@1Dam: SpreadDamage
+		Damage: 1300
 
 ChainGun.A10:
 	Inherits: ChainGun.Yak.AA
-	Range: 6c512
-	Burst: 6
-	BurstDelays: 6
-	Report: gun5.aud
-	ValidTargets: Ground, GroundActor, Water, WaterActor
+	Range: 7c0
+	FirstBurstTargetOffset: -1c0,0,0
+	FollowingBurstTargetOffset: 0c512,0,0
+	ReloadDelay: 75
+	MinRange: 3c0
+	Burst: 8
+	BurstDelays: 1
+	-Report:
+	ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
 	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
+		Delay: 9
 		Damage: 5000
-		Spread: 0c50
+		Falloff: 100, 50, 25, 5
+		Spread: 0c124
 		Versus:
-			None: 100
-			Wood: 60
-			Light: 100
-			Medium: 80
-			Heavy: 60
-			Concrete: 32
-		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
-	ValidTargets: Ground, GroundActor, Water, WaterActor
-	Warhead@2Dam: SpreadDamage
+			None: 200
+			Wood: 50
+			Light: 80
+			Medium: 50
+			Heavy: 30
+			Concrete: 20
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
+		ValidTargets: Ground, GroundActor, Trees, Water, WaterActor
+	ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
+	Warhead@Chain: FireCluster
+		Weapon: ChainGun.A10.SingleShot
+		RandomClusterCount: 8
+		Dimensions: 1,1
+		Footprint: x
+		Delay: 9
+	Warhead@2Eff: CreateEffect
+		Delay: 9
+		Explosions: piffs
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees
+	Warhead@3EffWater: CreateEffect
+		Delay: 9
+		Explosions: water_piffs
+		ValidTargets: Water, Underwater
+		InvalidTargets: Bridge
+
+ChainGun.A10.SingleShot:
+	Inherits: ChainGun.Yak.AA
+	Range: 0c124
+	FirstBurstTargetOffset: -1c0,0,0
+	FollowingBurstTargetOffset: 0c512,0,0
+	ReloadDelay: 50
+	Burst: 1
+	BurstDelays: 1
+	-Report:
+	ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
+	Projectile: InstantHit
+		Inaccuracy: 0c256
+	Warhead@1Dam: SpreadDamage
 		Damage: 1000
-		Spread: 1c00
+		Falloff: 100, 50, 25, 5
+		Spread: 0c124
 		Versus:
-			None: 100
-			Wood: 60
-			Light: 116
-			Heavy: 48
-			Concrete: 32
-		ValidTargets: Ground, GroundActor, Water, WaterActor
-		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
-	Warhead@3Dam: SpreadDamage
-		Damage: 500
-		Spread: 1c50
-		Versus:
-			None: 100
-			Wood: 60
-			Light: 116
-			Heavy: 48
-			Concrete: 32
-		ValidTargets: Ground, GroundActor, Water, WaterActor
-		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
-	Warhead@3Eff: CreateEffect
-		ValidTargets: Ground, GroundActor, Water, WaterActor
+			None: 90
+			Wood: 40
+			Light: 70
+			Medium: 40
+			Heavy: 20
+			Concrete: 10
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
+		ValidTargets: Ground, GroundActor, Trees, Water, WaterActor
+	ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
+	Warhead@2Eff: CreateEffect
+		Explosions: piff
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees
+	Warhead@3EffWater: CreateEffect
+		Explosions: water_piff
+		ValidTargets: Water, Underwater
+		InvalidTargets: Bridge
 
 Pistol:
 	Inherits: ^LightMG
@@ -524,7 +619,7 @@ M1Carbine:
 	Warhead@2Eff2: CreateEffect
 		Delay: 2
 		Explosions: piff
-		ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees
 		Inaccuracy: 171
 	Warhead@3EffWater2: CreateEffect
 		Delay: 2
@@ -535,7 +630,7 @@ M1Carbine:
 	Warhead@2Eff3: CreateEffect
 		Delay: 4
 		Explosions: piff
-		ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees
 		Inaccuracy: 171
 	Warhead@3EffWater3: CreateEffect
 		Delay: 4
@@ -543,6 +638,12 @@ M1Carbine:
 		InvalidTargets: Bridge
 		Explosions: water_piff
 		Inaccuracy: 171
+
+M1Carbine_elite:
+	Inherits: M1Carbine
+	Report: carbine2.wav
+	Warhead@1Dam: SpreadDamage
+		Damage: 1100
 
 WitchMG:
 	Inherits: ^LightMG
@@ -561,7 +662,7 @@ WitchMG:
 	Warhead@2Eff2: CreateEffect
 		Delay: 2
 		Explosions: piff
-		ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees
 		Inaccuracy: 171
 	Warhead@3EffWater2: CreateEffect
 		Delay: 2
@@ -572,7 +673,7 @@ WitchMG:
 	Warhead@2Eff3: CreateEffect
 		Delay: 4
 		Explosions: piff
-		ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees
 		Inaccuracy: 171
 	Warhead@3EffWater3: CreateEffect
 		Delay: 4
@@ -593,7 +694,7 @@ Uzi:
 	Warhead@2Eff2: CreateEffect
 		Delay: 2
 		Explosions: piff
-		ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees
 		Inaccuracy: 171
 	Warhead@3EffWater2: CreateEffect
 		Delay: 2
@@ -604,7 +705,7 @@ Uzi:
 	Warhead@2Eff3: CreateEffect
 		Delay: 4
 		Explosions: piff
-		ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees
 		Inaccuracy: 171
 	Warhead@3EffWater3: CreateEffect
 		Delay: 4
@@ -623,57 +724,124 @@ M60mg:
 		Damage: 2250
 		Versus:
 			None: 130
-			Wood: 20
-			Light: 25
-			Medium: 20
-			Heavy: 10
-			Concrete: 15
+			Wood: 10
+			Light: 20
+			Medium: 15
+			Heavy: 5
+			Concrete: 5
 	Warhead@2Dam_2: SpreadDamage
 		Spread: 128
 		Damage: 2250
 		Delay: 2
-		ValidTargets: GroundActor, WaterActor
+		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
 			None: 130
-			Wood: 20
-			Light: 25
-			Medium: 20
-			Heavy: 10
-			Concrete: 15
-		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+			Wood: 10
+			Light: 20
+			Medium: 15
+			Heavy: 5
+			Concrete: 5
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@3Dam_2: SpreadDamage
 		Spread: 128
 		Damage: 2250
 		Delay: 4
-		ValidTargets: GroundActor, WaterActor
+		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
 			None: 130
-			Wood: 20
-			Light: 25
-			Medium: 20
-			Heavy: 10
-			Concrete: 15
-		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+			Wood: 10
+			Light: 20
+			Medium: 15
+			Heavy: 5
+			Concrete: 5
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@4Dam_2: SpreadDamage
 		Spread: 128
 		Damage: 2250
 		Delay: 6
-		ValidTargets: GroundActor, WaterActor
+		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
 			None: 130
-			Wood: 20
-			Light: 25
-			Medium: 20
-			Heavy: 10
-			Concrete: 15
-		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+			Wood: 10
+			Light: 20
+			Medium: 15
+			Heavy: 5
+			Concrete: 5
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		Inaccuracy: 213
 	Warhead@3EffWater: CreateEffect
 		Inaccuracy: 213
 	Warhead@10Eff_5: CreateEffect
 		Explosions: piffs
-		ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees
+		Delay: 4
+	Warhead@10Eff_5_water: CreateEffect
+		Explosions: piffs
+		ValidTargets: Water
+		Delay: 8
+
+M60mg-Bobcat:
+	Inherits: ^HeavyMG
+	ReloadDelay: 30
+	Range: 5c0
+	Report: mgun11.aud
+	Burst: 1
+	Warhead@1Dam: SpreadDamage
+		Damage: 2250
+		Versus:
+			None: 130
+			Wood: 10
+			Light: 25
+			Medium: 20
+			Heavy: 5
+			Concrete: 5
+	Warhead@2Dam_2: SpreadDamage
+		Spread: 128
+		Damage: 2250
+		Delay: 2
+		ValidTargets: GroundActor, Trees,  WaterActor
+		Versus:
+			None: 130
+			Wood: 10
+			Light: 25
+			Medium: 20
+			Heavy: 5
+			Concrete: 5
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
+	Warhead@3Dam_2: SpreadDamage
+		Spread: 128
+		Damage: 2250
+		Delay: 4
+		ValidTargets: GroundActor, Trees,  WaterActor
+		Versus:
+			None: 130
+			Wood: 10
+			Light: 25
+			Medium: 20
+			Heavy: 5
+			Concrete: 5
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
+	Warhead@4Dam_2: SpreadDamage
+		Spread: 128
+		Damage: 2250
+		Delay: 6
+		ValidTargets: GroundActor, Trees,  WaterActor
+		Versus:
+			None: 130
+			Wood: 10
+			Light: 25
+			Medium: 20
+			Heavy: 5
+			Concrete: 5
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
+	Warhead@2Eff: CreateEffect
+		Inaccuracy: 213
+	Warhead@3EffWater: CreateEffect
+		Inaccuracy: 213
+	Warhead@10Eff_5: CreateEffect
+		Explosions: piffs
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees
 		Delay: 4
 	Warhead@10Eff_5_water: CreateEffect
 		Explosions: piffs
@@ -694,6 +862,151 @@ M60mg-apc:
 	Warhead@3EffWater: CreateEffect
 		Inaccuracy: 213
 
+HeavyMachineGun:
+	Inherits: ^LightMG
+	ReloadDelay: 20
+	Range: 6c0
+	Burst: 10
+	BurstDelays: 18
+	Report: at_light_infantry_1.wav, at_light_infantry_2.wav, at_light_infantry_3.wav, at_light_infantry_4.wav
+	Warhead@1Dam: SpreadDamage
+		Delay: 0
+		Damage: 500
+		Versus:
+			None: 130
+			Wood: 15
+			Light: 35
+			Medium: 25
+			Heavy: 10
+			Concrete: 5
+		ValidTargets: Ground, GroundActor, Water, WaterActor
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
+	Warhead@2Dam: SpreadDamage
+		Delay: 3
+		Damage: 500
+		Versus:
+			None: 130
+			Wood: 15
+			Light: 35
+			Medium: 25
+			Heavy: 10
+			Concrete: 5
+		ValidTargets: Ground, GroundActor, Water, WaterActor
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
+	Warhead@3Dam: SpreadDamage
+		Delay: 6
+		Damage: 500
+		Versus:
+			None: 130
+			Wood: 15
+			Light: 35
+			Medium: 25
+			Heavy: 10
+			Concrete: 5
+		ValidTargets: Ground, GroundActor, Water, WaterActor
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
+	Warhead@4Dam: SpreadDamage
+		Delay: 9
+		Damage: 500
+		Versus:
+			None: 130
+			Wood: 15
+			Light: 35
+			Medium: 25
+			Heavy: 10
+			Concrete: 5
+		ValidTargets: Ground, GroundActor, Water, WaterActor
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
+	Warhead@5Dam: SpreadDamage
+		Delay: 13
+		Damage: 500
+		Versus:
+			None: 130
+			Wood: 15
+			Light: 35
+			Medium: 25
+			Heavy: 10
+			Concrete: 5
+		ValidTargets: Ground, GroundActor, Water, WaterActor
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
+	Warhead@2Eff2: CreateEffect
+		Delay: 0
+		Explosions: piff
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees
+		Inaccuracy: 171
+	Warhead@2Eff3: CreateEffect
+		Delay: 3
+		Explosions: piff
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees
+		Inaccuracy: 171
+	Warhead@3EffWater2: CreateEffect
+		Delay: 0
+		ValidTargets: Water, Underwater
+		InvalidTargets: Bridge
+		Explosions: water_piff
+		Inaccuracy: 171
+	Warhead@3EffWater3: CreateEffect
+		Delay: 3
+		ValidTargets: Water, Underwater
+		InvalidTargets: Bridge
+		Explosions: water_piff
+		Inaccuracy: 171
+	Warhead@2Eff2: CreateEffect
+		Delay: 0
+		Explosions: piff
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees
+		Inaccuracy: 171
+	Warhead@2Eff3: CreateEffect
+		Delay: 3
+		Explosions: piff
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees
+		Inaccuracy: 171
+	Warhead@3EffWater2: CreateEffect
+		Delay: 0
+		ValidTargets: Water, Underwater
+		InvalidTargets: Bridge
+		Explosions: water_piff
+		Inaccuracy: 171
+	Warhead@3EffWater3: CreateEffect
+		Delay: 3
+		ValidTargets: Water, Underwater
+		InvalidTargets: Bridge
+		Explosions: water_piff
+		Inaccuracy: 171
+	Warhead@4Eff2: CreateEffect
+		Delay: 6
+		Explosions: piff
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees
+		Inaccuracy: 171
+	Warhead@4Eff3: CreateEffect
+		Delay: 9
+		Explosions: piff
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees
+		Inaccuracy: 171
+	Warhead@5EffWater2: CreateEffect
+		Delay: 6
+		ValidTargets: Water, Underwater
+		InvalidTargets: Bridge
+		Explosions: water_piff
+		Inaccuracy: 171
+	Warhead@5EffWater3: CreateEffect
+		Delay: 9
+		ValidTargets: Water, Underwater
+		InvalidTargets: Bridge
+		Explosions: water_piff
+		Inaccuracy: 171
+	Warhead@6Eff2: CreateEffect
+		Delay: 13
+		Explosions: piff
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees
+		Inaccuracy: 171
+	Warhead@7EffWater2: CreateEffect
+		Delay: 13
+		ValidTargets: Water, Underwater
+		InvalidTargets: Bridge
+		Explosions: water_piff
+		Inaccuracy: 171
+
 ^SnipeWeapon:
 	ReloadDelay: 80
 	Range: 2c512
@@ -705,10 +1018,10 @@ M60mg-apc:
 		Spread: 42
 		Damage: 15000
 		ValidTargets: Barrel, Infantry
-		DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, DefaultDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: piff
-		ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees
 	Warhead@3EffWater: CreateEffect
 		Explosions: water_piff
 		ValidTargets: Water, Underwater
@@ -747,7 +1060,7 @@ HLFTRKGUN:
 	Warhead@2Eff2: CreateEffect
 		Delay: 2
 		Explosions: piff
-		ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees
 		Inaccuracy: 171
 	Warhead@3EffWater2: CreateEffect
 		Delay: 2
@@ -758,7 +1071,7 @@ HLFTRKGUN:
 	Warhead@2Eff3: CreateEffect
 		Delay: 4
 		Explosions: piff
-		ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees
 		Inaccuracy: 171
 	Warhead@3EffWater3: CreateEffect
 		Delay: 4
@@ -819,7 +1132,7 @@ TNKT:
 		Spread: 128
 		Damage: 2250
 		Delay: 2
-		ValidTargets: GroundActor, WaterActor
+		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
 			None: 100
 			Wood: 35
@@ -827,12 +1140,12 @@ TNKT:
 			Medium: 25
 			Heavy: 10
 			Concrete: 20
-		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@3Dam_2: SpreadDamage
 		Spread: 128
 		Damage: 2250
 		Delay: 4
-		ValidTargets: GroundActor, WaterActor
+		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
 			None: 100
 			Wood: 35
@@ -840,12 +1153,12 @@ TNKT:
 			Medium: 25
 			Heavy: 10
 			Concrete: 20
-		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@4Dam_2: SpreadDamage
 		Spread: 128
 		Damage: 2250
 		Delay: 6
-		ValidTargets: GroundActor, WaterActor
+		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
 			None: 100
 			Wood: 35
@@ -853,14 +1166,14 @@ TNKT:
 			Medium: 25
 			Heavy: 10
 			Concrete: 20
-		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		Inaccuracy: 213
 	Warhead@3EffWater: CreateEffect
 		Inaccuracy: 213
 	Warhead@10Eff_5: CreateEffect
 		Explosions: piffs
-		ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees
 		Delay: 4
 	Warhead@10Eff_5_water: CreateEffect
 		Explosions: piffs
@@ -886,7 +1199,7 @@ TESTUDOGUN:
 		Spread: 128
 		Damage: 1150
 		Delay: 2
-		ValidTargets: GroundActor, WaterActor
+		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
 			None: 100
 			Wood: 35
@@ -894,12 +1207,12 @@ TESTUDOGUN:
 			Medium: 25
 			Heavy: 10
 			Concrete: 20
-		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@3Dam_2: SpreadDamage
 		Spread: 128
 		Damage: 1150
 		Delay: 4
-		ValidTargets: GroundActor, WaterActor
+		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
 			None: 100
 			Wood: 35
@@ -907,12 +1220,12 @@ TESTUDOGUN:
 			Medium: 25
 			Heavy: 10
 			Concrete: 20
-		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@4Dam_2: SpreadDamage
 		Spread: 128
 		Damage: 1150
 		Delay: 6
-		ValidTargets: GroundActor, WaterActor
+		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
 			None: 100
 			Wood: 35
@@ -920,14 +1233,14 @@ TESTUDOGUN:
 			Medium: 25
 			Heavy: 10
 			Concrete: 20
-		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		Inaccuracy: 213
 	Warhead@3EffWater: CreateEffect
 		Inaccuracy: 213
 	Warhead@10Eff_5: CreateEffect
 		Explosions: piffs
-		ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees
 		Delay: 4
 	Warhead@10Eff_5_water: CreateEffect
 		Explosions: piffs
@@ -950,7 +1263,7 @@ APCGun:
 			Light: 30
 			Medium: 20
 			Heavy: 10
-		DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, DefaultDeath
 	Warhead@2Eff: CreateEffect
 		ValidTargets: Ground, Water, Air, GroundActor
 		ImpactActors: false
@@ -961,6 +1274,26 @@ APCGun.AA:
 	BurstDelays: 9
 	Report: gun20.aud
 	ReloadDelay: 9
+	Range: 8c0
+	Warhead@1Dam: SpreadDamage
+		Damage: 2000
+		Versus:
+			None: 25
+			Wood: 75
+			Light: 35
+			Medium: 25
+			Heavy: 20
+			Concrete: 50
+	Warhead@2Eff: CreateEffect
+		ValidTargets: Ground, Water, Air, GroundActor
+		ImpactActors: false
+		Explosions: small_explosion_air
+
+AACrewGun:
+	Inherits: ^AACannon
+	BurstDelays: 4
+	Report: gun20.aud
+	ReloadDelay: 4
 	Range: 8c0
 	Warhead@1Dam: SpreadDamage
 		Damage: 2000
@@ -988,7 +1321,7 @@ GuerillaCarbine:
 	Warhead@2Eff2: CreateEffect
 		Delay: 2
 		Explosions: piff
-		ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees
 		Inaccuracy: 171
 	Warhead@3EffWater2: CreateEffect
 		Delay: 2
@@ -999,39 +1332,7 @@ GuerillaCarbine:
 	Warhead@2Eff3: CreateEffect
 		Delay: 4
 		Explosions: piff
-		ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
-		Inaccuracy: 171
-	Warhead@3EffWater3: CreateEffect
-		Delay: 4
-		ValidTargets: Water, Underwater
-		InvalidTargets: Bridge
-		Explosions: water_piff
-		Inaccuracy: 171
-
-M1Carbine2:
-	Inherits: ^LightMG
-	ReloadDelay: 20
-	Range: 5c0
-	Report: gun11.aud
-	InvalidTargets: Structure, Wall
-	Warhead@1Dam: SpreadDamage
-		Versus:
-			Wood: 30
-	Warhead@2Eff2: CreateEffect
-		Delay: 2
-		Explosions: piff
-		ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
-		Inaccuracy: 171
-	Warhead@3EffWater2: CreateEffect
-		Delay: 2
-		ValidTargets: Water, Underwater
-		InvalidTargets: Bridge
-		Explosions: water_piff
-		Inaccuracy: 171
-	Warhead@2Eff3: CreateEffect
-		Delay: 4
-		Explosions: piff
-		ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees
 		Inaccuracy: 171
 	Warhead@3EffWater3: CreateEffect
 		Delay: 4
@@ -1052,12 +1353,12 @@ MosinNagant44:
 	Warhead@2Eff2: CreateEffect
 		Delay: 2
 		Explosions: piff
-		ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees
 		Inaccuracy: 171
 	Warhead@2Eff3: CreateEffect
 		Delay: 4
 		Explosions: piff
-		ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees
 		Inaccuracy: 171
 
 9mmPistol:

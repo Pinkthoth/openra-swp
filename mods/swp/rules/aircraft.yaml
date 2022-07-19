@@ -6,7 +6,6 @@ BADR:
 	Health:
 		HP: 40000
 	Aircraft:
-		CruiseAltitude: 2560
 		TurnSpeed: 20
 		Speed: 180
 		Repulsable: False
@@ -45,6 +44,81 @@ BADR:
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
 
+AGUILA.Interceptor:
+	Inherits: ^NeutralPlane
+	Inherits@AUTOTARGET: ^AutoTargetAllPlusBombers
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Aguila
+	Health:
+		HP: 12000
+	Armament@PRIMARY:
+		Name: primary
+		Weapon: ChainGun.HVF.AA
+		LocalOffset: 326,-413,0
+		MuzzleSequence: muzzle
+		PauseOnCondition: !ammo
+	Armament@SECONDARY:
+		Name: secondary
+		Weapon: ChainGun.HVF.AA
+		LocalOffset: 326,413,0
+		MuzzleSequence: muzzle
+		PauseOnCondition: !ammo
+	Armament@TERTIARY:
+		Name: tertiary
+		Weapon: ChainGun.HVF.AA
+		LocalOffset: 326,-613,0
+		MuzzleSequence: muzzle
+		PauseOnCondition: !ammo
+	Armament@QUARTERANRY:
+		Name: quarternary
+		Weapon: ChainGun.HVF.AA
+		LocalOffset: 326,613,0
+		MuzzleSequence: muzzle
+		PauseOnCondition: !ammo
+	AttackBomberCA:
+		Armaments: primary, secondary, tertiary, quarternary
+		FacingTolerance: 84
+	AttackAircraft:
+		Armaments: primary, secondary, tertiary, quarternary
+		FacingTolerance: 84
+		PersistentTargeting: False
+		OpportunityFire: True
+	Aircraft:
+		TurnSpeed: 16
+		Speed: 115
+		RepulsionSpeed: 40
+		MaximumPitch: 56
+	AmmoPool:
+		Armaments: primary, secondary, tertiary, quarternary
+		Ammo: 72
+		ReloadDelay: 11
+		AmmoCondition: ammo
+	ReloadAmmoPool:
+		Delay: 150
+		Count: 2
+		ResetOnFire: true
+	-Selectable:
+	-Voiced:
+	RenderSprites:
+		Image: heavyfighter
+	RejectsOrders:
+	Contrail:
+		Offset: -853,0,0
+	SpawnActorOnDeath:
+		Actor: HEAVYFIGHTER.Husk
+	SmokeTrailWhenDamaged:
+		Offset: -853,0,171
+		Interval: 2
+	Interactable:
+	GivesExperience:
+		Experience: 1000
+	WithMuzzleOverlay:
+	AutoTarget:
+		InitialStance: AttackAnything
+		InitialStanceAI: AttackAnything
+
 HOSPITALLER:
 	Inherits: ^Plane
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
@@ -74,16 +148,15 @@ HOSPITALLER:
 		Weapon: PlaneElectricBolt
 		LocalOffset: 700,0,0
 		LocalYaw: -40, 24
-		PauseOnCondition: !ammo
+		PauseOnCondition: !ammo || !airborne
 	AttackAircraft:
 		Armaments: primary
 		FacingTolerance: 80
 		PersistentTargeting: false
 		OpportunityFire: False
 	Aircraft:
-		CruiseAltitude: 2560
 		TurnSpeed: 16
-		Speed: 203
+		Speed: 165
 		RepulsionSpeed: 40
 		MaximumPitch: 56
 		TakeOffOnResupply: True
@@ -110,7 +183,7 @@ HOSPITALLER:
 	ProducibleWithLevel:
 		Prerequisites: aircraft.upgraded
 	Rearmable:
-		RearmActors: hpad, afld
+		RearmActors: afld, sport
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		Margin: 4, 3
@@ -187,6 +260,52 @@ BADR.Bomber:
 	Armament:
 		Weapon: ParaBomb
 
+JUNKERS.Bomber:
+	Inherits: BADR
+	-ParaDrop:
+	-Cargo:
+	-MapEditorData:
+	AttackBomber:
+		FacingTolerance: 8
+	AmmoPool:
+		Ammo: 10
+	Armament:
+		Weapon: ParaMine
+	GrantConditionOnFaction@komintern:
+		Factions: russia, ukraine, china, mongolia, kazakhstan
+		Condition: komintern
+	GrantConditionOnFaction@zentrum:
+		Factions: germany, austria, italy, turkey, bulgaria
+		Condition: zentrum
+	GrantConditionOnFaction@entente:
+		Factions: usa, france, england, japan, serbia
+		Condition: entente
+	RenderSprites:
+		Image: transportplane
+	WithFacingSpriteBody:
+		Name: kombody
+		Sequence: badr-idle
+		RequiresCondition: komintern
+	WithFacingSpriteBody@entente:
+		Name: entbody
+		Sequence: douglas-idle
+		RequiresCondition: entente
+	WithFacingSpriteBody@zentrum:
+		Name: zentbody
+		Sequence: junkers-idle
+		RequiresCondition: zentrum
+	Tooltip:
+		Name: Badger
+		RequiresCondition: komintern
+	Tooltip@entente:
+		Name: Douglas
+		RequiresCondition: entente
+	Tooltip@komintern:
+		Name: Junkers
+		RequiresCondition: zentrum
+	SpawnActorOnDeath:
+		Actor: TRANSPORTPLANE.Husk
+
 ANT40:
 	Inherits: YAK
 	Inherits@HighAltitude: ^HighAltitudePlane
@@ -200,13 +319,13 @@ ANT40:
 		Weapon: FireBombs
 		LocalOffset: 350,-213,-100
 		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
+		PauseOnCondition: !ammo || !airborne
 	Armament@SECONDARY:
 		Name: secondary
 		Weapon: FireBombs
 		LocalOffset: 350,213,-100
 		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
+		PauseOnCondition: !ammo || !airborne
 	AttackAircraft:
 		Armaments: primary, secondary
 	AmmoPool:
@@ -274,29 +393,28 @@ MIG:
 		Weapon: Maverick
 		LocalOffset: 0,-640,0, 0,640,0
 		LocalYaw: -40, 24
-		PauseOnCondition: !ammo
+		PauseOnCondition: !ammo || !airborne
 	Armament@secondary:
 		Name: secondary
 		Weapon: MaverickAA
 		LocalOffset: 0,-640,0, 0,640,0
 		LocalYaw: -40, 24
-		PauseOnCondition: !ammo
+		PauseOnCondition: !ammo || !airborne
 	AttackAircraft:
 		Armaments: primary, secondary
 		FacingTolerance: 80
 		PersistentTargeting: false
 		OpportunityFire: False
 	Aircraft:
-		CruiseAltitude: 2560
 		TurnSpeed: 16
-		Speed: 170
+		Speed: 165
 		RepulsionSpeed: 40
 		MaximumPitch: 56
 	AutoTarget:
 		InitialStance: HoldFire
 		InitialStanceAI: HoldFire
 	AmmoPool:
-		Ammo: 8
+		Ammo: 6
 		AmmoCondition: ammo
 	Selectable:
 		Bounds: 36,28,0,2
@@ -313,10 +431,11 @@ MIG:
 	ProducibleWithLevel:
 		Prerequisites: aircraft.upgraded
 	Rearmable:
-		RearmActors: afld
+		RearmActors: afld, sport
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		Margin: 4, 3
+		PipCount: 3
 		RequiresSelection: true
 		EmptySequence: pip-emptyammo
 		FullSequence: pip-missile
@@ -351,22 +470,21 @@ YAK:
 		Weapon: ChainGun.Yak.AA
 		LocalOffset: 256,-213,0
 		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
+		PauseOnCondition: !ammo || !airborne
 	Armament@SECONDARY:
 		Name: secondary
 		Weapon: ChainGun.Yak.AA
 		LocalOffset: 256,213,0
 		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
+		PauseOnCondition: !ammo || !airborne
 	AttackAircraft:
 		Armaments: primary, secondary
 		FacingTolerance: 80
 		PersistentTargeting: false
 		OpportunityFire: False
 	Aircraft:
-		CruiseAltitude: 2560
 		TurnSpeed: 16
-		Speed: 148
+		Speed: 140
 		RepulsionSpeed: 40
 		MaximumPitch: 56
 	AutoTarget:
@@ -390,7 +508,7 @@ YAK:
 	Selectable:
 		DecorationBounds: 30,28,0,2
 	Rearmable:
-		RearmActors: afld
+		RearmActors: afld, sport
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		Margin: 4, 3
@@ -427,7 +545,7 @@ TESLAHIND:
 	Armament@PRIMARY:
 		Weapon: HindPortaTesla
 		LocalOffset: 85,-230,-85, 85,230,-85
-		PauseOnCondition: !ammo
+		PauseOnCondition: !ammo || !airborne
 	AttackTurreted:
 		Armaments: primary
 	WithSpriteTurret:
@@ -450,7 +568,7 @@ TESLAHIND:
 		Offset: 50,0,200
 	AmmoPool:
 		Armaments: primary
-		Ammo: 12
+		Ammo: 8
 		ReloadDelay: 8
 		AmmoCondition: ammo
 	SpawnActorOnDeath:
@@ -468,7 +586,7 @@ TESLAHIND:
 		Position: BottomLeft
 		Margin: 4, 3
 		RequiresSelection: true
-		PipCount: 6
+		PipCount: 4
 		EmptySequence: pip-emptyammo
 		FullSequence: pip-tech
 	ReloadAmmoPool:
@@ -503,7 +621,7 @@ IBLIS:
 	Armament@PRIMARY:
 		Weapon: IblisMissile
 		LocalOffset: 105,-230,-85, 105,230,-85
-		PauseOnCondition: !ammo
+		PauseOnCondition: !ammo || !airborne
 	AttackTurreted:
 		Armaments: primary
 	WithSpriteTurret:
@@ -558,7 +676,7 @@ HEAVYFIGHTER:
 		Prerequisites: ~afld, ~aircraft.serbia, ~techlevel.medium
 		Description: Attack Plane armed with\ndual machine guns.\n  Strong vs Aircraft\n  Weak vs Tanks, Infantry
 	Valued:
-		Cost: 1350
+		Cost: 1400
 	Tooltip:
 		Name: Aguila Fighter
 	UpdatesPlayerStatistics:
@@ -578,32 +696,55 @@ HEAVYFIGHTER:
 		Weapon: ChainGun.HVF.AA
 		LocalOffset: 326,-413,0
 		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
+		PauseOnCondition: !ammo || !airborne
 	Armament@SECONDARY:
 		Name: secondary
 		Weapon: ChainGun.HVF.AA
 		LocalOffset: 326,413,0
 		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
+		PauseOnCondition: !ammo || !airborne
 	Armament@TERTIARY:
 		Name: tertiary
 		Weapon: ChainGun.HVF.AA
 		LocalOffset: 326,-613,0
 		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
+		PauseOnCondition: !ammo || !airborne
 	Armament@QUARTERANRY:
 		Name: quarternary
 		Weapon: ChainGun.HVF.AA
 		LocalOffset: 326,613,0
 		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
+		PauseOnCondition: !ammo || !airborne
+	Armament@QUINARY:
+		Name: quinary
+		Weapon: ChainGun.HVF.AG
+		LocalOffset: 326,-413,0
+		MuzzleSequence: muzzle
+		PauseOnCondition: !ammo || !airborne
+	Armament@SENARY:
+		Name: senary
+		Weapon: ChainGun.HVF.AG
+		LocalOffset: 326,413,0
+		MuzzleSequence: muzzle
+		PauseOnCondition: !ammo || !airborne
+	Armament@OCTONARY:
+		Name: octonary
+		Weapon: ChainGun.HVF.AG
+		LocalOffset: 326,-613,0
+		MuzzleSequence: muzzle
+		PauseOnCondition: !ammo || !airborne
+	Armament@NONARY:
+		Name: nonary
+		Weapon: ChainGun.HVF.AG
+		LocalOffset: 326,613,0
+		MuzzleSequence: muzzle
+		PauseOnCondition: !ammo || !airborne
 	AttackAircraft:
-		Armaments: primary, secondary, tertiary, quarternary
+		Armaments: primary, secondary, tertiary, quarternary, quinary, senary, octonary, nonary
 		FacingTolerance: 80
 		PersistentTargeting: false
 		OpportunityFire: False
 	Aircraft:
-		CruiseAltitude: 2560
 		TurnSpeed: 16
 		Speed: 115
 		RepulsionSpeed: 40
@@ -612,8 +753,8 @@ HEAVYFIGHTER:
 		InitialStance: HoldFire
 		InitialStanceAI: HoldFire
 	AmmoPool:
-		Armaments: primary, secondary
-		Ammo: 36
+		Armaments: primary, secondary, tertiary, quarternary, quinary, senary, octonary, nonary
+		Ammo: 72
 		ReloadDelay: 11
 		AmmoCondition: ammo
 	WithMuzzleOverlay:
@@ -629,7 +770,7 @@ HEAVYFIGHTER:
 	Selectable:
 		DecorationBounds: 30,28,0,2
 	Rearmable:
-		RearmActors: afld
+		RearmActors: afld, sport
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		Margin: 4, 3
@@ -692,80 +833,6 @@ TRAN:
 	Selectable:
 		DecorationBounds: 40,36
 
-DJINN:
-	Inherits: ^Helicopter
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Buildable:
-		Queue: Helicopter
-		BuildAtProductionType: Helicopter
-		BuildPaletteOrder: 10
-		Prerequisites: hpad, ~helicopter.allies, ~techlevel.medium
-		Description: Fast Infantry Transport Helicopter.\n  Unarmed
-	Valued:
-		Cost: 900
-	Tooltip:
-		Name: Djinn
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Health:
-		HP: 14000
-	RevealsShroud:
-		MinRange: 6c0
-		Range: 8c0
-		Type: GroundPosition
-		RevealGeneratedShroud: False
-	RevealsShroud@GAPGEN:
-		Range: 6c0
-		Type: GroundPosition
-	Aircraft:
-		TurnSpeed: 20
-		Speed: 100
-		AltitudeVelocity: 0c58
-	WithIdleOverlay@ROTOR1AIR:
-		Offset: 457,0,363
-		Sequence: rotor
-		RequiresCondition: airborne
-	WithIdleOverlay@ROTOR1GROUND:
-		Offset: 457,0,363
-		Sequence: slow-rotor
-		RequiresCondition: !airborne
-	WithIdleOverlay@ROTOR2AIR:
-		Offset: -557,0,491
-		Sequence: rotor2
-		RequiresCondition: airborne
-	WithIdleOverlay@ROTOR2GROUND:
-		Offset: -557,0,491
-		Sequence: slow-rotor2
-		RequiresCondition: !airborne
-	SpawnActorOnDeath:
-		Actor: TRAN.Husk
-	Selectable:
-		DecorationBounds: 40,36
-	Armament@PRIMARY:
-		Weapon: Flamer
-		LocalOffset: 500,-50,0
-		PauseOnCondition: !ammo
-	Armament@SECONDARY:
-		Weapon: Flamer
-		LocalOffset: 500,50,0
-		PauseOnCondition: !ammo
-	AttackAircraft:
-	AutoTarget:
-		InitialStance: HoldFire
-		InitialStanceAI: HoldFire
-	Rearmable:
-		RearmActors: hpad
-	WithAmmoPipsDecoration:
-		Position: BottomLeft
-		Margin: 4, 3
-		PipCount: 5
-		RequiresSelection: true
-		EmptySequence: pip-emptyammo
-		FullSequence: pip-missile
-	AmmoPool:
-		Ammo: 120	
-		AmmoCondition: ammo
-
 HELI:
 	Inherits: ^Helicopter
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -794,11 +861,11 @@ HELI:
 	Armament@PRIMARY:
 		Weapon: HellfireAA
 		LocalOffset: 0,-213,-85, 0,213,-85
-		PauseOnCondition: !ammo
+		PauseOnCondition: !ammo || !airborne
 	Armament@SECONDARY:
 		Weapon: HellfireAG
 		LocalOffset: 0,213,-85, 0,-213,-85
-		PauseOnCondition: !ammo
+		PauseOnCondition: !ammo || !airborne
 	AttackTurreted:
 	WithSpriteTurret:
 	Turreted:
@@ -846,7 +913,7 @@ SAUCER:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 40
-		Prerequisites: hpad, ~helicopter.allies, atek, ~techlevel.high
+		Prerequisites: ~disabled, hpad, ~helicopter.ukraine, stek, ~techlevel.high
 		Description: Helicopter gunship armed\nwith multi-purpose missiles.\n  Strong vs Buildings, Vehicles, Aircraft\n  Weak vs Infantry
 	Valued:
 		Cost: 2000
@@ -902,6 +969,8 @@ SAUCER:
 		RequiresCondition: !airborne
 	Hovers:
 		InitialHeight: 0c25
+	TransferTimedExternalConditionOnTransform:
+		Condition: invulnerability
 
 SAUCER.Ground:
 	Inherits: ^Vehicle
@@ -921,7 +990,7 @@ SAUCER.Ground:
 	Mobile:
 		Speed: 80
 		TurnSpeed: 40
-		Locomotor: saucerhover
+		Locomotor: hover
 	RevealsShroud:
 		Range: 4c0
 	RenderSprites:
@@ -935,7 +1004,7 @@ SAUCER.Ground:
 		Facing: 384
 		TransformSounds: electr.aud, electr.aud
 		NoTransformNotification: BuildingCannotPlaceAudio
-	PeriodicExplosion:
+	PeriodicExplosion@slice:
 		Weapon: SaucerSlicer
 		LocalOffset: 0,0,0
 	WithShadow:
@@ -945,9 +1014,26 @@ SAUCER.Ground:
 		TargetTypes: GroundActor, Repair, Saucer
 	Hovers:
 		InitialHeight: 0c25
-	WithShadow:
-		ZOffset: -100
-		Offset: 43, 128, -150
+	ProximityExternalCondition@sliced:
+		Condition: sliced
+		Range: 1c900
+		ValidRelationships: Ally, Enemy, Neutral
+	TransferTimedExternalConditionOnTransform:
+		Condition: invulnerability
+	WithIdleOverlay:
+		Image: pulsecircle
+		Sequence: idle
+		Palette: tseffects-alpha
+	GrantChargingCondition:
+		Condition: charged
+		MaxCharge: 250
+		ChargingColor: D20CFF
+	TransformOnCondition:
+		IntoActor: saucer
+		RequiresCondition: charged
+	AmbientSound@float:
+		SoundFiles: ufofloat.aud
+		Interval: 148
 
 HIND:
 	Inherits: ^Helicopter
@@ -978,7 +1064,8 @@ HIND:
 		Name: primary
 		Weapon: Hind227mm
 		LocalOffset: 85,213,-85, 85,-213,-85
-		PauseOnCondition: !ammo
+		PauseOnCondition: !ammo || !airborne
+		RequiresCondition: ammo
 	AttackTurreted:
 		Armaments: primary, secondary, tertiary
 	WithSpriteTurret:
@@ -1022,6 +1109,92 @@ HIND:
 		EmptySequence: pip-emptyammo
 		FullSequence: pip-missile
 
+TENGRII:
+	Inherits: ^Helicopter
+	Buildable:
+		Queue: Helicopter
+		BuildAtProductionType: Helicopter
+		BuildPaletteOrder: 110
+		Prerequisites: hpad, ~helicopter.soviet, ~techlevel.medium
+		Description: Helicopter gunship armed with rockets.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
+	Valued:
+		Cost: 2250
+	Tooltip:
+		Name: Khan
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 10000
+	RevealsShroud:
+		MinRange: 8c0
+		Range: 10c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 8c0
+		Type: GroundPosition
+	Aircraft:
+		TurnSpeed: 16
+		Speed: 80
+	WithIdleOverlay@ROTORAIR:
+		Sequence: rotor
+		RequiresCondition: airborne
+		Offset: 100, 0,600
+	WithIdleOverlay@ROTORGROUND:
+		Sequence: slow-rotor
+		RequiresCondition: !airborne
+		Offset: 100, 0,600
+	SpawnActorOnDeath:
+		Actor: KHAN.Husk
+	SmokeTrailWhenDamaged:
+		Offset: -427,0,0
+	ProducibleWithLevel:
+		Prerequisites: aircraft.upgraded
+	Selectable:
+		DecorationBounds: 38,32
+	Transforms:
+		IntoActor: tengrii.deployed
+		Facing: 384
+
+TENGRII.Deployed:
+	Inherits: ^Defense
+	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	-WithIdleOverlay@bip:
+	-GrantCondition@exists:
+	Valued:
+		Cost: 2250
+	Tooltip:
+		Name: Khan
+	Selectable:
+		Bounds: 24,24
+		DecorationBounds: 24,40,0,-8
+	Health:
+		HP: 10000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		MinRange: 6c0
+		Range: 7c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 6c0
+	Armament:
+		Weapon: KhanMissile
+		LocalOffset:  700,600,850, 650,550,850
+		PauseOnCondition: turnedoff
+	AttackOmni:
+	DetectCloaked:
+		Range: 6c0
+		RequiresCondition: !turnedoff
+	ProvidesPrerequisite@buildingname:
+	Transforms:
+		IntoActor: tengrii
+	WithIdleOverlay@ROTORGROUND:
+		Sequence: slow-rotor
+		Offset: 100, 0,600
+
 GEBARD:
 	Inherits: ^Helicopter
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
@@ -1051,9 +1224,9 @@ GEBARD:
 		Name: primary
 		Weapon: GebardMissile
 		LocalOffset: 85,213,-85, 85,-213,-85
-		PauseOnCondition: !ammo
+		PauseOnCondition: !ammo || !airborne
 	AttackTurreted:
-		Armaments: primary, secondary, tertiary
+		Armaments: primary
 	WithSpriteTurret:
 	Turreted:
 		TurnSpeed: 30
@@ -1074,7 +1247,7 @@ GEBARD:
 		Offset: 0,0,300
 	AmmoPool:
 		Armaments: primary, secondary
-		Ammo: 24
+		Ammo: 10
 		ReloadDelay: 8
 		AmmoCondition: ammo
 	WithMuzzleOverlay:
@@ -1088,12 +1261,14 @@ GEBARD:
 		DecorationBounds: 38,32
 	Rearmable:
 		RearmActors: hpad
+	Repairable:
+		RepairActors: hpad
 	WithAmmoPipsDecoration:
 		AmmoPools: primary, secondary
 		Position: BottomLeft
 		Margin: 4, 3
 		RequiresSelection: true
-		PipCount: 4
+		PipCount: 5
 		EmptySequence: pip-emptyammo
 		FullSequence: pip-missile
 
@@ -1131,7 +1306,7 @@ COMET:
 		Weapon: M60mg
 		LocalOffset: 85,-213,-85, 85,213,-85
 		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
+		PauseOnCondition: !ammo || !airborne
 	AttackTurreted:
 		Armaments: primary, secondary
 	WithSpriteTurret:
@@ -1153,8 +1328,8 @@ COMET:
 		Offset: 0,0,300
 		RequiresCondition: !airborne
 	AmmoPool:
-		Ammo: 24
-		ReloadDelay: 2
+		Ammo: 12
+		ReloadDelay: 11
 		AmmoCondition: ammo
 	WithMuzzleOverlay:
 	SpawnActorOnDeath:
@@ -1186,20 +1361,20 @@ SPITFIRE:
 		Weapon: ChainGun.Spitfire.AA
 		LocalOffset: 350,-213,0
 		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
+		PauseOnCondition: !ammo || !airborne
 	Armament@SECONDARY:
 		Name: secondary
 		Weapon: ChainGun.Spitfire.AA
 		LocalOffset: 350,213,0
 		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
+		PauseOnCondition: !ammo || !airborne
 	Health:
 		HP: 8500
 	AttackAircraft:
 		Armaments: primary, secondary
 	Aircraft:
 		TurnSpeed: 17
-		Speed: 175
+		Speed: 155
 	Valued:
 		Cost: 1500
 	Buildable:
@@ -1207,14 +1382,14 @@ SPITFIRE:
 		BuildPaletteOrder: 500
 	AmmoPool:
 		Armaments: primary, secondary
-		Ammo: 28
+		Ammo: 32
 		ReloadDelay: 11
 		AmmoCondition: ammo
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		Margin: 4, 3
 		RequiresSelection: true
-		PipCount: 7
+		PipCount: 8
 		EmptySequence: pip-emptyammo
 		FullSequence: pip-bullet
 
@@ -1247,13 +1422,13 @@ MH60:
 		Weapon: ChainGun
 		LocalOffset: 85,-213,-85, 85,213,-85
 		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
+		PauseOnCondition: !ammo || !airborne
 	Armament@SECONDARY:
 		Name: secondary
 		Weapon: ChainGun
 		LocalOffset: 85,213,-85, 85,-213,-85
 		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
+		PauseOnCondition: !ammo || !airborne
 	AttackTurreted:
 	WithSpriteTurret:
 	Turreted:
@@ -1322,7 +1497,7 @@ TEUTON:
 	Armament@PRIMARY:
 		Weapon: TeutonPrism
 		LocalOffset: 85,-273,50, 85,273,50
-		PauseOnCondition: !ammo
+		PauseOnCondition: !ammo || !airborne
 	AttackTurreted:
 	WithSpriteTurret:
 	Turreted:
@@ -1337,13 +1512,13 @@ TEUTON:
 	WithIdleOverlay@ROTORAIR:
 		Sequence: rotor
 		RequiresCondition: airborne
-		Offset: 40,0,230
+		Offset: 40,0,250
 	WithIdleOverlay@ROTORGROUND:
 		Sequence: slow-rotor
 		RequiresCondition: !airborne
-		Offset: 40,0,230
+		Offset: 40,0,250
 	AmmoPool:
-		Ammo: 24
+		Ammo: 10
 		ReloadDelay: 8
 		AmmoCondition: ammo
 	SpawnActorOnDeath:
@@ -1360,7 +1535,7 @@ TEUTON:
 		Position: BottomLeft
 		Margin: 4, 3
 		RequiresSelection: true
-		PipCount: 6
+		PipCount: 5
 		EmptySequence: pip-emptyammo
 		FullSequence: pip-tech
 	PortableChrono:
@@ -1394,7 +1569,7 @@ WASP:
 	Armament@PRIMARY:
 		Weapon: Prism
 		LocalOffset: 900,0,0
-		PauseOnCondition: !ammo
+		PauseOnCondition: !ammo || !airborne
 	AttackTurreted:
 	WithSpriteTurret:
 	Turreted:
@@ -1409,13 +1584,13 @@ WASP:
 	WithIdleOverlay@ROTORAIR:
 		Sequence: rotor
 		RequiresCondition: airborne
-		Offset: -100,0,350
+		Offset: -100,0,450
 	WithIdleOverlay@ROTORGROUND:
 		Sequence: slow-rotor
 		RequiresCondition: !airborne
-		Offset: -100,0,350
+		Offset: -100,0,450
 	AmmoPool:
-		Ammo: 5
+		Ammo: 4
 		ReloadDelay: 8
 		AmmoCondition: ammo
 	SpawnActorOnDeath:
@@ -1430,7 +1605,7 @@ WASP:
 		Position: BottomLeft
 		Margin: 4, 3
 		RequiresSelection: true
-		PipCount: 5
+		PipCount: 4
 		EmptySequence: pip-emptyammo
 		FullSequence: pip-tech
 	ReloadAmmoPool:
@@ -1466,29 +1641,28 @@ MSRSMT:
 		Weapon: MesserschmittAutocannon.AA
 		LocalOffset: 256,-213,0
 		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
+		PauseOnCondition: !ammo || !airborne
 	Armament@SECONDARY:
 		Name: secondary
 		Weapon: MesserschmittAutocannon.AA
 		LocalOffset: 256,213,0
 		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
+		PauseOnCondition: !ammo || !airborne
 	AttackAircraft:
 		FacingTolerance: 80
 		PersistentTargeting: false
 		OpportunityFire: False
 		Armaments: primary, secondary
 	Aircraft:
-		CruiseAltitude: 2560
 		TurnSpeed: 16
-		Speed: 135
+		Speed: 130
 		RepulsionSpeed: 40
 		MaximumPitch: 56
 	AutoTarget:
 		InitialStance: HoldFire
 		InitialStanceAI: HoldFire
 	AmmoPool:
-		Ammo: 28
+		Ammo: 24
 		ReloadDelay: 11
 		AmmoCondition: ammo
 	WithMuzzleOverlay:
@@ -1504,12 +1678,12 @@ MSRSMT:
 	Selectable:
 		DecorationBounds: 30,28,0,2
 	Rearmable:
-		RearmActors: afld
+		RearmActors: afld, sport
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		Margin: 4, 3
 		RequiresSelection: true
-		PipCount: 7
+		PipCount: 6
 		EmptySequence: pip-emptyammo
 		FullSequence: pip-bullet
 		
@@ -1568,19 +1742,14 @@ A10:
 		Weapon: ChainGun.A10
 		LocalOffset: 700,0,0
 		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
-	Armament@SECONDARY:
-		Name: secondary
-		Weapon: A10Bomb
-		LocalOffset: 0,0,0
-		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo2
+		PauseOnCondition: !ammo || !airborne
+	GrantConditionOnAttack@attacking:
+		Condition: attacking
 	AttackAircraft:
 		FacingTolerance: 80
 		PersistentTargeting: false
 		OpportunityFire: False
 	Aircraft:
-		CruiseAltitude: 2560
 		TurnSpeed: 16
 		Speed: 160
 		RepulsionSpeed: 40
@@ -1589,17 +1758,11 @@ A10:
 		InitialStance: HoldFire
 		InitialStanceAI: HoldFire
 	AmmoPool:
-		Name: chaingun
-		Ammo: 24
+		Name: primary
+		Ammo: 32
 		ReloadDelay: 11
 		AmmoCondition: ammo
 		Armaments: primary
-	AmmoPool@bombs:
-		Name: bombs
-		Ammo: 20
-		ReloadDelay: 11
-		AmmoCondition: ammo2
-		Armaments: secondary
 	WithMuzzleOverlay:
 	Contrail@1:
 		Offset: -640,171,0
@@ -1617,23 +1780,21 @@ A10:
 	Selectable:
 		DecorationBounds: 30,28,0,2
 	Rearmable:
-		RearmActors: afld
+		RearmActors: afld, sport
 	WithAmmoPipsDecoration:
-		Position: BottomLeft
-		Margin: 4, 7
-		RequiresSelection: true
-		PipCount: 6
-		AmmoPools: chaingun
-		EmptySequence: pip-emptyammo
-		FullSequence: pip-bullet
-	WithAmmoPipsDecoration@bombs:
 		Position: BottomLeft
 		Margin: 4, 3
 		RequiresSelection: true
-		PipCount: 6
-		AmmoPools: bombs
+		PipCount: 4
+		AmmoPools: primary
 		EmptySequence: pip-emptyammo
-		FullSequence: pip-bomb
+		FullSequence: pip-bullet
+	AmbientSound@fire:
+		Delay: 8
+		SoundFiles: a10sound.wav
+		Interval: 100
+		RequiresCondition: attacking
+
 		
 A10.Husk:
 	Inherits: ^PlaneHusk
@@ -1689,22 +1850,21 @@ STRMVGL:
 	Armament@PRIMARY:
 		Weapon: SturmvogelAA
 		LocalOffset: 0,-213,-85, 0,213,-85
-		PauseOnCondition: !ammo
+		PauseOnCondition: !ammo || !airborne
 	AttackAircraft:
 		FacingTolerance: 80
 		PersistentTargeting: false
 		OpportunityFire: False
 	Aircraft:
-		CruiseAltitude: 2560
 		TurnSpeed: 22
-		Speed: 165
+		Speed: 170
 		RepulsionSpeed: 40
 		MaximumPitch: 56
 	AutoTarget:
 		InitialStance: HoldFire
 		InitialStanceAI: HoldFire
 	AmmoPool:
-		Ammo: 10
+		Ammo: 8
 		ReloadDelay: 11
 		AmmoCondition: ammo
 	WithMuzzleOverlay:
@@ -1722,12 +1882,12 @@ STRMVGL:
 	Selectable:
 		DecorationBounds: 30,28,0,2
 	Rearmable:
-		RearmActors: afld
+		RearmActors: afld, sport
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		Margin: 4, 3
 		RequiresSelection: true
-		PipCount: 5
+		PipCount: 4
 		EmptySequence: pip-emptyammo
 		FullSequence: pip-missile
 		
@@ -1757,6 +1917,168 @@ STRMVGL.Husk:
 	RenderSprites:
 		Image: strmvgl
 
+TELEKITE:
+	Inherits: ^Helicopter
+	Inherits: ^Drone
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Hornet
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 10000
+	RevealsShroud:
+		MinRange: 3c0
+		Range: 5c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 3c0
+		Type: GroundPosition
+	Armament@primary:
+		Weapon: Uzi
+		Name: primary
+		LocalOffset: 300,130,260
+		MuzzleSequence: muzzle
+	Armament@secondary:
+		Weapon: Uzi
+		Name: secondary
+		LocalOffset: 300,-130,260
+		MuzzleSequence: muzzle
+	AttackTurreted:
+	WithSpriteTurret:
+	Turreted:
+		TurnSpeed: 30
+		RealignDelay: 10
+	Aircraft:
+		TurnSpeed: 16
+		Speed: 85
+		CruiseAltitude: 1c0
+		IdealSeparation: 0c216
+		CanHover: False
+	WithMuzzleOverlay:
+	SpawnActorOnDeath:
+		Actor: TELEKITE.Husk
+	LeavesTrails:
+		Offsets: -427,0,0
+		Image: smokey
+		MovingInterval: 3
+		SpawnAtLastPosition: False
+		Type: CenterPosition
+		RequiresCondition: enable-smoke
+		TrailWhileStationary: True
+		StationaryInterval: 3
+	ProducibleWithLevel:
+		Prerequisites: aircraft.upgraded
+	Selectable:
+		DecorationBounds: 24, 24
+	GrantConditionOnDamageState@SmokeTrail:
+		Condition: enable-smoke
+	Targetable:
+		TargetTypes: GroundActor, Vehicle
+	KillsSelf:
+		RequiresCondition: turnedoff
+	-EjectOnDeath:
+
+HARRIER:
+	Inherits: ^Plane
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Buildable:
+		Queue: Aircraft
+		BuildAtProductionType: Plane
+		BuildPaletteOrder: 610
+		Prerequisites: atek, ~afld, ~aircraft.england, ~techlevel.medium
+		Description: Anti-aircraft fighter.\n  Strong vs Aircraft\n	 Weak vs Infantry, Vehicles.
+	Valued:
+		Cost: 2100
+	Tooltip:
+		Name: Harrier
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 12000
+	RevealsShroud:
+		MinRange: 9c0
+		Range: 11c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 9c0
+		Type: GroundPosition
+	Armament@PRIMARY:
+		Weapon: SturmvogelAA
+		LocalOffset: 0,-213,-85, 0,213,-85
+		PauseOnCondition: !ammo || !airborne
+	AttackAircraft:
+		FacingTolerance: 80
+		PersistentTargeting: false
+		OpportunityFire: False
+	Aircraft:
+		TurnSpeed: 22
+		Speed: 165
+		RepulsionSpeed: 40
+		MaximumPitch: 56
+		VTOL: True
+		AltitudeVelocity: 0c80
+	AutoTarget:
+		InitialStance: HoldFire
+		InitialStanceAI: HoldFire
+	AmmoPool:
+		Ammo: 10
+		ReloadDelay: 11
+		AmmoCondition: ammo
+	WithMuzzleOverlay:
+	Contrail@1:
+		Offset: -100,-383,0
+	Contrail@2:
+		Offset: -100,383,0
+	SpawnActorOnDeath:
+		Actor: HARRIER.Husk
+	SmokeTrailWhenDamaged:
+		Offset: -853,0,0
+		Interval: 2
+	ProducibleWithLevel:
+		Prerequisites: aircraft.upgraded
+	Selectable:
+		DecorationBounds: 30,28,0,2
+	Rearmable:
+		RearmActors: afld, sport, hpad
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		Margin: 4, 3
+		RequiresSelection: true
+		PipCount: 5
+		EmptySequence: pip-emptyammo
+		FullSequence: pip-missile
+
+HARRIER.Husk:
+	Inherits: ^PlaneHusk
+	Tooltip:
+		Name: Harrier
+	Contrail:
+		Offset: -853,0,0
+	Aircraft:
+		TurnSpeed: 20
+		Speed: 149
+	LeavesTrails:
+		Offsets: -853,0,0
+		MovingInterval: 2
+		Image: smokey
+		SpawnAtLastPosition: False
+		Type: CenterPosition
+	RevealsShroud:
+		MinRange: 9c0
+		Range: 11c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 9c0
+		Type: GroundPosition
+	RenderSprites:
+		Image: harrier
+
 STUKA:
 	Inherits: YAK
 	Inherits@HighAltitude: ^HighAltitudePlane
@@ -1769,26 +2091,24 @@ STUKA:
 	Armament@PRIMARY:
 		Weapon: DropBombs
 		LocalOffset: 350,-213,0
-		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
+		PauseOnCondition: !ammo || !airborne
 	Armament@SECONDARY:
 		Name: secondary
 		Weapon: DropBombs
 		LocalOffset: 350,213,0
-		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
+		PauseOnCondition: !ammo || !airborne
 	Armament@TERTIARY
 		Name: tertiary
 		Weapon: StukaSpeedUp1
-		PauseOnCondition: !ammo
+		PauseOnCondition: !ammo || !airborne
 	Armament@QUARTERNARY
 		Name: quarternary
 		Weapon: StukaSpeedUp2
-		PauseOnCondition: !ammo
+		PauseOnCondition: !ammo || !airborne
 	Armament@QUINARY
 		Name: quinary
 		Weapon: StukaSpeedUp3
-		PauseOnCondition: !ammo
+		PauseOnCondition: !ammo || !airborne
 	AttackAircraft:
 		Armaments: primary, secondary, tertiary, quarternary, quinary
 	SpeedMultiplier@TERTIARY:
@@ -1800,6 +2120,9 @@ STUKA:
 	SpeedMultiplier@QUINARY:
 		Modifier: 135
 		RequiresCondition: speedup3
+	DamageMultiplier@speedup:
+		Modifier: 50
+		RequiresCondition: speedup1
 	GrantConditionOnAttack@TERTIARY:
 		Condition: speedup1
 		ArmamentNames: tertiary
@@ -1845,6 +2168,10 @@ STUKA:
 		Cost: 1900
 	Selectable:
 		DecorationBounds: 37, 37, 0, 0
+	AmbientSound:
+		SoundFiles: stukasound.wav
+		Interval: 80
+		RequiresCondition: speedup1
 		
 STUKA.Husk:
 	Inherits: ^PlaneHusk
@@ -1979,7 +2306,7 @@ AIRCRANE:
 		Sequence: slow-rotor-shadow
 		RequiresCondition: !airborne
 	SpawnActorOnDeath:
-		Actor: MI26.Husk
+		Actor: ALBATROSS.Husk
 	Selectable:
 		DecorationBounds: 40,36
 	Carryall:
@@ -1987,7 +2314,6 @@ AIRCRANE:
 		
 TRANSUPPORT:
 	Inherits: ^Helicopter
-	Inherits@CARGOPIPS: ^CargoPips
 	Valued:
 		Cost: 900
 	RenderSprites:
@@ -2035,8 +2361,6 @@ TRANSUPPORT:
 		AfterUnloadDelay: 40
 	SpawnActorOnDeath:
 		Actor: MI26.Husk
-	Selectable:
-		DecorationBounds: 40,36
 	ParaDrop:
 		DropRange: 4c0
 		ChuteSound: chute1.aud
@@ -2076,7 +2400,7 @@ ZEPPELIN:
 	Aircraft:
 		TurnSpeed: 16
 		Speed: 50
-		CruiseAltitude: 4c0
+		CruiseAltitude: 6c0
 	AttackAircraft:
 	AmmoPool:
 		Ammo: 10
@@ -2086,7 +2410,7 @@ ZEPPELIN:
 	Armament:
 		Name: primary
 		Weapon: BlimpParaBomb
-		PauseOnCondition: !ammo
+		PauseOnCondition: !ammo || !airborne
 		LocalOffset: -300,0,-220
 	AutoTarget:
 		InitialStance: HoldFire

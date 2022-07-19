@@ -3,7 +3,9 @@ MSLO:
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@shape: ^2x1Shape
 	Inherits@rubbles: ^2x1Rubbles
-	Inherits@sabotable: ^Sabotable
+	Inherits@sabotable: ^SingleBuildingSabotable
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Selectable:
 		Bounds: 48,24
 	Valued:
@@ -17,8 +19,8 @@ MSLO:
 		BuildLimit: 1
 		Description: Provides an atomic bomb.\nRequires power to operate.\nMaximum 1 can be built.\n  Special Ability: Atom Bomb
 	Building:
-		Footprint: xx
-		Dimensions: 2,1
+		Footprint: xx xx
+		Dimensions: 2,2
 	Health:
 		HP: 100000
 	Armor:
@@ -35,13 +37,12 @@ MSLO:
 		Range: 5c0
 		RequiresCondition: !disabled
 	NukePower:
-		PauseOnCondition: disabled
+		PauseOnCondition: disabled || turnedoff
 		Cursor: nuke
 		Icon: abomb
 		ChargeInterval: 13500
 		Description: Atom Bomb
 		LongDesc: Launches a devastating atomic bomb\nat a target location.
-		BeginChargeSpeechNotification: AbombPrepping
 		EndChargeSpeechNotification: AbombReady
 		SelectTargetSpeechNotification: SelectTarget
 		InsufficientPowerSpeechNotification: InsufficientPower
@@ -69,11 +70,19 @@ MSLO:
 		RequiredForShortGame: false
 	WithSupportPowerActivationAnimation:
 		RequiresCondition: !build-incomplete
+	WithIdleOverlay@bip:
+		Image: bib_2x2
+		Sequence: idle
+		Palette: terrain
+		Offset: -1100,500,-300
+		IsDecoration: True
 
 GAP:
 	Inherits: ^ScienceBuilding
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@rubbles: ^1x1Rubbles
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -87,7 +96,7 @@ GAP:
 		Bounds: 24,24
 		DecorationBounds: 24,48,0,-12
 	WithSpriteBody:
-		PauseOnCondition: disabled
+		PauseOnCondition: disabled || turnedoff
 	Health:
 		HP: 50000
 	Armor:
@@ -98,8 +107,6 @@ GAP:
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 5c0
-	WithBuildingBib:
-		HasMinibib: true
 	CreatesShroud:
 		Range: 6c0
 		RequiresCondition: !disabled
@@ -116,150 +123,20 @@ GAP:
 		Type: Rectangle
 			TopLeft: -512, -512
 			BottomRight: 512, 512
-
-SPEN:
-	Inherits: ^Building
-	Inherits@PRIMARY: ^PrimaryBuilding
-	Selectable:
-		Bounds: 72,48
-	InfiltrateForSupportPower:
-		Proxy: powerproxy.sonarpulse
-		Types: SpyInfiltrate
-	Valued:
-		Cost: 900
-	Tooltip:
-		Name: Sub Pen
-	Buildable:
-		Queue: Building
-		BuildPaletteOrder: 50
-		Prerequisites: anypower, ~disabled, ~techlevel.low
-		Description: Produces and repairs\nsubmarines and transports.
-	Targetable:
-		TargetTypes: WaterActor, Structure, C4, DetonateAttack, SpyInfiltrate
-	Building:
-		Footprint: XXX xxx XXX
-		Dimensions: 3,3
-		TerrainTypes: Water
-	RequiresBuildableArea:
-		AreaTypes: building
-		Adjacent: 8
-	-GivesBuildableArea:
-	Health:
-		HP: 100000
-	Armor:
-		Type: Wood
-	RevealsShroud:
-		MinRange: 4c0
-		Range: 5c0
-		RevealGeneratedShroud: False
-	RevealsShroud@GAPGEN:
-		Range: 4c0
-	Exit@1:
-		RequiresCondition: !being-captured || !empdisable
-		SpawnOffset: 0,-213,0
-		Facing: 384
-		ExitCell: -1,2
-		ProductionTypes: Submarine
-	Exit@2:
-		RequiresCondition: !being-captured || !empdisable
-		SpawnOffset: 0,-213,0
-		Facing: 640
-		ExitCell: 3,2
-		ProductionTypes: Submarine
-	Exit@3:
-		RequiresCondition: !being-captured || !empdisable
-		SpawnOffset: 0,0,0
-		Facing: 128
-		ExitCell: 0,0
-		ProductionTypes: Submarine
-	Exit@4:
-		RequiresCondition: !being-captured || !empdisable
-		SpawnOffset: 0,0,0
-		Facing: 896
-		ExitCell: 2,0
-		ProductionTypes: Submarine
-	Exit@b1:
-		RequiresCondition: !being-captured || !empdisable
-		SpawnOffset: -1024,1024,0
-		Facing: 640
-		ExitCell: 0,2
-		ProductionTypes: Ship
-	Exit@b2:
-		RequiresCondition: !being-captured || !empdisable
-		SpawnOffset: 1024,1024,0
-		Facing: 896
-		ExitCell: 2,2
-		ProductionTypes: Ship
-	Exit@b3:
-		RequiresCondition: !being-captured || !empdisable
-		SpawnOffset: -1024,-1024,0
-		Facing: 384
-		ExitCell: 0,0
-		ProductionTypes: Ship
-	Exit@b4:
-		RequiresCondition: !being-captured || !empdisable
-		SpawnOffset: 1024,-1024,0
-		Facing: 128
-		ExitCell: 2,0
-		ProductionTypes: Ship
-	Production:
-		Produces: Ship, Submarine
-		PauseOnCondition: being-captured || empdisable
-	-SpawnActorsOnSell:
-	RepairsUnits:
-		HpPerStep: 1000
-		StartRepairingNotification: Repairing
-		FinishRepairingNotification: UnitRepaired
-		PlayerExperience: 15
-	RallyPoint:
-	ProductionBar:
-		ProductionType: Ship
-	Power:
-		Amount: -30
-	DetectCloaked:
-		CloakTypes: Underwater
-		Range: 10c0
-	RenderDetectionCircle:
-	ProvidesPrerequisite@soviet:
-		Factions: soviet, russia, ukraine
-		Prerequisite: ships.soviet
-	ProvidesPrerequisite@sovietvanilla:
-		Factions: soviet
-		Prerequisite: ships.sovietvanilla
-	ProvidesPrerequisite@russia:
-		Factions: russia
-		Prerequisite: ships.russia
-	ProvidesPrerequisite@ukraine:
-		Factions: ukraine
-		Prerequisite: ships.ukraine
-	ProvidesPrerequisite@sovietstructure:
-		RequiresPrerequisites: structures.komintern
-		Prerequisite: ships.soviet
-	ProvidesPrerequisite@sovietvanillastructure:
-		RequiresPrerequisites: structures.sovietvanilla
-		Prerequisite: ships.sovietvanilla
-	ProvidesPrerequisite@russianstructure:
-		RequiresPrerequisites: structures.russia
-		Prerequisite: ships.russia
-	ProvidesPrerequisite@ukrainianstructure:
-		RequiresPrerequisites: structures.ukraine
-		Prerequisite: ships.ukraine
-	ProvidesPrerequisite@buildingname:
-	MapEditorData:
-		ExcludeTilesets: INTERIOR
-	HitShape:
-		Type: Rectangle
-			TopLeft: -1536, -598
-			BottomRight: 1536, 598
-	HitShape@TOPANDBOTTOM:
-		TargetableOffsets: 811,0,0, -811,0,0
-		Type: Rectangle
-			TopLeft: -555, -1110
-			BottomRight: 555, 1110
+	WithIdleOverlay@bip:
+		Image: bib_1x1
+		Sequence: idle
+		Palette: terrain
+		Offset: -1700,1100,-300
+		IsDecoration: True
 
 SYRD:
 	Inherits: ^Building
 	Inherits@PRIMARY: ^PrimaryBuilding
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	ProvidesPrerequisite@disabled:
+		Prerequisite: disabled
 	Selectable:
 		Bounds: 72,48
 	InfiltrateForSupportPower:
@@ -271,6 +148,11 @@ SYRD:
 		Name: Naval Yard
 	Targetable:
 		TargetTypes: WaterActor, Structure, C4, DetonateAttack, SpyInfiltrate
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 40
+		Prerequisites: anypower, disabled, ~techlevel.low
+		Description: Produces and repairs\nships and transports.
 	Building:
 		Footprint: XXX xxx XXX
 		Dimensions: 3,3
@@ -289,32 +171,32 @@ SYRD:
 	RevealsShroud@GAPGEN:
 		Range: 4c0
 	Exit@1:
-		RequiresCondition: !being-captured || !empdisable || !sabotaged
+		RequiresCondition: !being-captured || !turnedoff
 		SpawnOffset: -1024,1024,0
 		Facing: 640
 		ExitCell: 0,2
 		ProductionTypes: Ship, Boat
 	Exit@2:
-		RequiresCondition: !being-captured || !empdisable || !sabotaged
+		RequiresCondition: !being-captured || !turnedoff
 		SpawnOffset: 1024,1024,0
 		Facing: 896
 		ExitCell: 2,2
 		ProductionTypes: Ship, Boat
 	Exit@3:
-		RequiresCondition: !being-captured || !empdisable || !sabotaged
+		RequiresCondition: !being-captured || !turnedoff
 		SpawnOffset: -1024,-1024,0
 		Facing: 384
 		ExitCell: 0,0
 		ProductionTypes: Ship, Boat
 	Exit@4:
-		RequiresCondition: !being-captured || !empdisable || !sabotaged
+		RequiresCondition: !being-captured || !turnedoff
 		SpawnOffset: 1024,-1024,0
 		Facing: 128
 		ExitCell: 2,0
 		ProductionTypes: Ship, Boat
 	Production:
 		Produces: Ship, Boat
-		PauseOnCondition: being-captured || empdisable || sabotaged
+		PauseOnCondition: being-captured || turnedoff
 	-SpawnActorsOnSell:
 	RepairsUnits:
 		HpPerStep: 1000
@@ -379,7 +261,9 @@ IRON:
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
-	Inherits@sabotable: ^Sabotable
+	Inherits@sabotable: ^SingleBuildingSabotable
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 160
@@ -411,10 +295,8 @@ IRON:
 	RevealsShroud@GAPGEN:
 		Range: 5c0
 		RequiresCondition: !disabled
-	WithBuildingBib:
-		HasMinibib: true
 	GrantExternalConditionPower@IRONCURTAIN:
-		PauseOnCondition: disabled
+		PauseOnCondition: disabled || turnedoff
 		OrderName: IronCurtain
 		Icon: invuln
 		ChargeInterval: 3000
@@ -423,7 +305,6 @@ IRON:
 		Duration: 500
 		SelectTargetSpeechNotification: SelectTarget
 		InsufficientPowerSpeechNotification: InsufficientPower
-		BeginChargeSpeechNotification: IronCurtainCharging
 		EndChargeSpeechNotification: IronCurtainReady
 		DisplayRadarPing: True
 		Condition: invulnerability
@@ -440,13 +321,21 @@ IRON:
 		Amount: -200
 	MustBeDestroyed:
 		RequiredForShortGame: false
+	WithIdleOverlay@bip:
+		Image: bib_2x2
+		Sequence: idle
+		Palette: terrain
+		Offset: -1100,500,-300
+		IsDecoration: True
 
 PDOX:
 	Inherits: ^ScienceBuilding
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
-	Inherits@sabotable: ^Sabotable
+	Inherits@sabotable: ^SingleBuildingSabotable
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Selectable:
 		Bounds: 48,48
 	Buildable:
@@ -477,11 +366,9 @@ PDOX:
 	RevealsShroud@GAPGEN:
 		Range: 5c0
 		RequiresCondition: !disabled
-	WithBuildingBib:
-		HasMinibib: true
 	ChronoshiftPower@chronoshift:
 		OrderName: Chronoshift
-		PauseOnCondition: disabled
+		PauseOnCondition: disabled || turnedoff
 		Prerequisites: !pdox.germany
 		Icon: chrono
 		ChargeInterval: 3000
@@ -489,7 +376,6 @@ PDOX:
 		LongDesc: Teleports a group of units across\nthe map for 20 seconds.
 		SelectTargetSpeechNotification: SelectTarget
 		InsufficientPowerSpeechNotification: InsufficientPower
-		BeginChargeSpeechNotification: ChronosphereCharging
 		EndChargeSpeechNotification: ChronosphereReady
 		Duration: 400
 		KillCargo: true
@@ -507,12 +393,21 @@ PDOX:
 	MustBeDestroyed:
 		RequiredForShortGame: false
 	ProvidesPrerequisite@buildingname:
+	WithIdleOverlay@bip:
+		Image: bib_2x2
+		Sequence: idle
+		Palette: terrain
+		Offset: -1100,500,-300
+		IsDecoration: True
 
 TSLA:
 	Inherits: ^Defense
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@rubbles: ^1x1Rubbles
+	Inherits@supercharged: ^SuperchargeTesla
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 43
@@ -535,15 +430,20 @@ TSLA:
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 6c0
-	WithBuildingBib:
-		HasMinibib: true
 	WithTeslaChargeAnimation:
 	Armament:
 		Weapon: TeslaZap
 		LocalOffset: 0,0,896
+		RequiresCondition: !supercharged
+		PauseOnCondition: disabled || turnedoff
+	Armament@charged:
+		Weapon: TeslaZapCharged
+		LocalOffset: 0,0,896
+		RequiresCondition: supercharged
+		PauseOnCondition: disabled || turnedoff
 	AttackTesla:
 		RequiresCondition: !build-incomplete
-		PauseOnCondition: disabled
+		PauseOnCondition: disabled || turnedoff
 		ChargeAudio: tslachg2.aud
 		MaxCharges: 3
 		ReloadDelay: 120
@@ -553,12 +453,93 @@ TSLA:
 		Range: 6c0
 		RequiresCondition: !disabled
 	ProvidesPrerequisite@buildingname:
+	WithIdleOverlay@bip:
+		Image: bib_1x1
+		Sequence: idle
+		Palette: terrain
+		Offset: -1700,1100,-300
+		IsDecoration: True
+
+REFTWR:
+	Inherits: ^Defense
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@rubbles: ^1x1Rubbles
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 43
+		Prerequisites: weap, ~structures.zentrum, ~techlevel.medium
+		Description: Advanced base defense.\nRequires power to operate.\nCan detect cloaked units.\n  Strong vs Vehicles, Infantry\n  Weak vs Aircraft
+	Valued:
+		Cost: 1400
+	Tooltip:
+		Name: Refractor Tower
+	Selectable:
+		Bounds: 24,24
+		DecorationBounds: 24,48,0,-16
+	Health:
+		HP: 40000
+	Armor:
+		Type: Concrete
+	RevealsShroud:
+		MinRange: 6c0
+		Range: 7c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 6c0
+	WithTeslaChargeAnimation:
+	Armament:
+		Weapon: PrismTower
+		LocalOffset: 0,0,2000
+		PauseOnCondition: disabled || turnedoff
+	AttackCharges:
+		PauseOnCondition: disabled || build-incomplete || turnedoff
+		ChargeLevel: 20
+		ChargingCondition: charging
+	AmbientSound@chargesound:
+		RequiresCondition: charging
+		SoundFiles: prismchrg.aud
+		Interval: 30, 40
+	-WithSpriteBody:
+	WithChargeSpriteBody:
+		Sequence: active
+	Power:
+		Amount: -100
+	DetectCloaked:
+		Range: 6c0
+		RequiresCondition: !disabled
+	ProvidesPrerequisite@buildingname:
+	WithIdleOverlay@bip:
+		Image: bib_1x1
+		Sequence: idle
+		Palette: terrain
+		Offset: -1700,1100,-300
+		IsDecoration: True
+	WithIdleOverlay@top:
+		Image: reftwr
+		Sequence: top
+		PauseOnCondition: disabled || turnedoff
+		RequiresCondition: !build-incomplete && !damaged
+	WithIdleOverlay@damaged-top:
+		Image: reftwr
+		Sequence: damaged-top
+		PauseOnCondition: disabled || turnedoff
+		RequiresCondition: !build-incomplete && damaged
+	SequencePlaceBuildingPreview:
+		Sequence: build
+	GrantConditionOnDamageState@DAMAGED:
+		Condition: damaged
+		ValidDamageStates: Heavy, Critical
 
 AGUN:
 	Inherits: ^Defense
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@AUTOTARGET: ^AutoTargetAllPlusBombers
 	Inherits@rubbles: ^1x1Rubbles
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 75
@@ -581,8 +562,6 @@ AGUN:
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 5c0
-	WithBuildingBib:
-		HasMinibib: true
 	Turreted:
 		TurnSpeed: 60
 		InitialFacing: 832
@@ -595,9 +574,10 @@ AGUN:
 		Weapon: ZSU-23
 		LocalOffset: 520,100,450, 520,-150,450
 		MuzzleSequence: muzzle
+		PauseOnCondition: disabled || turnedoff
 	AttackTurreted:
 		RequiresCondition: !build-incomplete
-		PauseOnCondition: disabled
+		PauseOnCondition: disabled || turnedoff
 	WithMuzzleOverlay:
 	RenderRangeCircle:
 		RangeCircleType: aa
@@ -605,13 +585,91 @@ AGUN:
 		Amount: -50
 	-BodyOrientation:
 	ClassicFacingBodyOrientation:
+	WithIdleOverlay@bip:
+		Image: bib_1x1
+		Sequence: idle
+		Palette: terrain
+		Offset: -1700,1100,-300
+		IsDecoration: True
+	SequencePlaceBuildingPreview:
+		Sequence: build
+
+CAGUN:
+	Inherits: ^Defense
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Inherits@AUTOTARGET: ^AutoTargetAllPlusBombers
+	Inherits@rubbles: ^1x1Rubbles
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 83
+		Prerequisites: dome, ~structures.france, ~techlevel.medium
+		Description: Anti-Air base defense.\nRequires power to operate.\n  Strong vs Aircraft\n  Weak vs Ground units
+	Valued:
+		Cost: 950
+	Tooltip:
+		Name: Camo AA Gun
+	Selectable:
+		Bounds: 24,24
+		DecorationBounds: 24,32,0,-4
+	Health:
+		HP: 40000
+	Armor:
+		Type: Concrete
+	RevealsShroud:
+		MinRange: 5c0
+		Range: 6c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 5c0
+	Turreted:
+		TurnSpeed: 60
+		InitialFacing: 832
+		RealignDelay: -1
+		RequiresCondition: !build-incomplete
+	WithSpriteTurret:
+		RequiresCondition: !build-incomplete
+		Recoils: false
+	Armament:
+		Weapon: ZSU-23
+		LocalOffset: 520,100,450, 520,-150,450
+		MuzzleSequence: muzzle
+		PauseOnCondition: disabled || turnedoff
+	AttackTurreted:
+		RequiresCondition: !build-incomplete
+		PauseOnCondition: disabled || turnedoff
+	WithMuzzleOverlay:
+	RenderRangeCircle:
+		RangeCircleType: aa
+	Power:
+		Amount: -50
+	-BodyOrientation:
+	ClassicFacingBodyOrientation:
+	WithIdleOverlay@bip:
+		Image: bib_1x1
+		Sequence: idle
+		Palette: terrain
+		Offset: -1700,1100,-300
+		IsDecoration: True
+	SequencePlaceBuildingPreview:
+		Sequence: build
+	Cloak:
+		InitialDelay: 125
+		CloakDelay: 60
+		IsPlayerPalette: true
+		PauseOnCondition: cloak-force-disabled
+	GrantConditionOnDamageState@UNCLOAK:
+		Condition: cloak-force-disabled
+		ValidDamageStates: Critical
 
 DOME:
 	Inherits: ^Building
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
-	Inherits@sabotable: ^Sabotable
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Selectable:
 		Bounds: 48,48
 	HitShape:
@@ -627,8 +685,8 @@ DOME:
 	Tooltip:
 		Name: Radar Dome
 	Building:
-		Footprint: xx xx ==
-		Dimensions: 2,3
+		Footprint: xx xx
+		Dimensions: 2,2
 		LocalCenterOffset: 0,-512,0
 	Targetable:
 		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration
@@ -647,11 +705,10 @@ DOME:
 	RevealsShroud@GAPGEN:
 		Range: 6c0
 		RequiresCondition: !disabled
-	WithBuildingBib:
 	ProvidesRadar:
 		RequiresCondition: !jammed && !disabled
 	InfiltrateForExploration:
-		Types: SpyInfiltrate
+		Types: SaboteurInfiltration
 	Power:
 		Amount: -40
 	ProvidesPrerequisite@buildingname:
@@ -671,7 +728,7 @@ DOME:
 			kazakhstan: kdome
 	ProvidesPrerequisite@RadarOnline:
 		Prerequisite: radaronline
-		RequiresCondition: !disabled && !empdisable
+		RequiresCondition: !disabled && !turnedoff
 	ProvidesPrerequisite@usa:
 		Factions: usa
 		Prerequisite: support.usa
@@ -687,9 +744,45 @@ DOME:
 	ProvidesPrerequisite@zentrum:
 		Factions: germany, austria, italy, turkey, bulgaria
 		Prerequisite: support.zentrum
-	ProvidesPrerequisite@bulgaria:
-		Factions: bulgaria
-		Prerequisite: support.bulgaria
+	ProvidesPrerequisite@turkey:
+		Factions: turkey
+		Prerequisite: support.turkey
+	ProvidesPrerequisite@japan:
+		Factions: japan
+		Prerequisite: support.japan
+	ProvidesPrerequisite@russia:
+		Factions: russia
+		Prerequisite: support.russia
+	ProvidesPrerequisite@italy:
+		Factions: italy
+		Prerequisite: support.italy
+	ProvidesPrerequisite@kazakhstan:
+		Factions: kazakhstan
+		Prerequisite: support.kazakhstan
+	ProvidesPrerequisite@austria:
+		Factions: austria
+		Prerequisite: support.austria
+	ProvidesPrerequisite@germany:
+		Factions: germany
+		Prerequisite: support.germany
+	ProvidesPrerequisite@mongolia:
+		Factions: mongolia
+		Prerequisite: support.mongolia
+	ProvidesPrerequisite@austria:
+		Factions: austria
+		Prerequisite: support.austria
+	ProvidesPrerequisite@spain:
+		Factions: spain
+		Prerequisite: support.spain
+	ProvidesPrerequisite@usa:
+		Factions: usa
+		Prerequisite: support.usa
+	ProvidesPrerequisite@china:
+		Factions: china
+		Prerequisite: support.china
+	ProvidesPrerequisite@france:
+		Factions: france
+		Prerequisite: support.france
 	SpawnActorPower@RadarScan:
 		Actor: RADARSCAN
 		LifeTime: 255
@@ -701,15 +794,101 @@ DOME:
 		LongDesc: Reveals the selected area.
 		Cursor: ability
 		OrderName: RadarScanOrder
-		PauseOnCondition: disabled || empdisable
-		EndChargeSpeechNotification: RadarscanReady
+		PauseOnCondition: disabled || turnedoff
+		EndChargeSpeechNotification: SupportPowerReady
 		LaunchSound: xradar.aud
 		EffectImage: radarscananim
 		EffectSequence: idle
 		EffectPalette: player
 		Prerequisites: support.england
+	InterceptorPower@AirDef:
+		OrderName: interceptors
+		Prerequisites: ~support.spain
+		PauseOnCondition: turnedoff
+		Icon: intercepticon
+		ChargeInterval: 3000
+		Description: Intercept
+		LongDesc: A squadron of fighters\nengages enemy aircraft within\nover a selected area.
+		SelectTargetSpeechNotification: SelectTarget
+		EndChargeSpeechNotification: SupportPowerReady
+		CameraActor: camera
+		CameraRemoveDelay: 450
+		UnitType: aguila.interceptor
+		QuantizedFacings: 8
+		DisplayBeacon: true
+		BeaconPoster: interceptionbeacon
+		SquadSize: 2
+		ArrowSequence: arrow
+		ClockSequence: clock
+		CircleSequence: circles
+		UseDirectionalTarget: True
+		DirectionArrowAnimation: paradirection
+		GuardDuration: 500
+		Cordon: 5c0
+	AirReinforcementsPower@Swarm:
+		OrderName: Swarm
+		Prerequisites: ~support.usa
+		PauseOnCondition: turnedoff
+		Icon: swarmicon
+		ChargeInterval: 3000
+		Description: Swarm
+		LongDesc: A squadron of Hornet drones\nis sent to selected area.
+		SelectTargetSpeechNotification: SelectTarget
+		EndChargeSpeechNotification: SupportPowerReady
+		UnitType: telekite
+		QuantizedFacings: 8
+		DisplayBeacon: False
+		SquadSize: 12
+		ArrowSequence: arrow
+		ClockSequence: clock
+		CircleSequence: circles
+		UseDirectionalTarget: True
+		DirectionArrowAnimation: paradirection
+		Cordon: 1c0
+		SquadOffset: -1024, 0, 0
+	SpawnActorPower@Flare:
+		Actor: FLARE
+		LifeTime: 500
+		SelectTargetSpeechNotification: SelectTarget
+		InsufficientPowerSpeechNotification: InsufficientPower
+		ChargeInterval: 3000
+		Icon: flareicon
+		Description: Flare
+		LongDesc: Fires a flare that increases\nthe vision of units in it's vicinity.
+		Cursor: attack
+		DeploySound: at_drone_rocket_1.wav
+		OrderName: FlareOrder
+		PauseOnCondition: disabled || turnedoff
+		EndChargeSpeechNotification: SupportPowerReady
+		EffectImage: empty
+		EffectSequence: idle
+		Prerequisites: support.austria
+	ParatroopersPower@guerilladrop:
+		PauseOnCondition: turnedoff
+		OrderName: GuerillaDrop
+		UnitType: transupport
+		Icon: guerilladropicon
+		ChargeInterval: 7500
+		Description: Guerilla Drop
+		LongDesc: A transport helicopter drops a squad of guerilla\nanywhere on the map.
+		DropItems: guerilla, guerilla, guerilla, guerilla
+		ReinforcementsArrivedSpeechNotification: ReinforcementsArrived
+		SelectTargetSpeechNotification: SelectTarget
+		AllowImpassableCells: false
+		QuantizedFacings: 8
+		CameraActor: camera.paradrop
+		DisplayBeacon: true
+		BeaconPoster: guerillabeacon
+		ArrowSequence: arrow
+		ClockSequence: clock
+		CircleSequence: circles
+		UseDirectionalTarget: True
+		DirectionArrowAnimation: paradirection
+		SupportPowerPaletteOrder: 50
+		EndChargeSpeechNotification: SupportPowerReady
+		Prerequisites: support.mongolia
 	NukePower@ARTILLERY:
-		PauseOnCondition: empdisable || disabled
+		PauseOnCondition: turnedoff || disabled
 		OrderName: ArtilleryBarrage
 		Cursor: ability
 		Icon: barrageicon
@@ -732,10 +911,9 @@ DOME:
 		AllowMultiple: false
 		SupportPowerPaletteOrder: 65
 		LaunchSpeechNotification: ArtbrgNotification
-		IncomingSpeechNotification: ArtbrgDetected
 		EndChargeSpeechNotification: ArtbrgReady
 	AirstrikePower@parabombs:
-		PauseOnCondition: empdisable || disabled
+		PauseOnCondition: turnedoff || disabled
 		OrderName: Parabombs
 		Icon: parabombs
 		Prerequisites: support.komintern
@@ -757,19 +935,19 @@ DOME:
 		UseDirectionalTarget: True
 		DirectionArrowAnimation: paradirection
 		SupportPowerPaletteOrder: 75
-		IncomingSpeechNotification: AirstrikeDetected
 		EndChargeSpeechNotification: AirstrikeReady
+		IncomingSpeechNotification: AirstrikeIncoming
 	NukePower@v3missile:
 		OrderName: V3Missile
-		PauseOnCondition: empdisable || disabled
+		PauseOnCondition: turnedoff || disabled
 		Cursor: ability
 		Icon: v3icon
 		ChargeInterval: 8500
 		Description: V3 Missile
 		LongDesc: Launches an explosive and incendiary\nwarhead at a target location.
 		SelectTargetSpeechNotification: SelectTarget
-		IncomingSpeechNotification: V3Detected
 		EndChargeSpeechNotification: V3Ready
+		IncomingSpeechNotification: V3Incoming
 		MissileWeapon: V3Missile
 		MissileDelay: 1
 		FlightDelay: 180
@@ -786,29 +964,233 @@ DOME:
 		TrailSequences: idle
 		SkipAscent: True
 		Prerequisites: support.zentrum
-	NukePower@smokescreen:
-		OrderName: smokescreen
-		PauseOnCondition: empdisable || disabled
+	DetonateWeaponPower@Mirage:
+		OrderName: Mirage
+		Icon: mirageicon
 		Cursor: ability
-		Icon: smokescreenicon
-		ChargeInterval: 8500
-		Description: Smokescreen
-		EndChargeSpeechNotification: SmokescreenReady
-		LongDesc: Fires a small artillery barrage\nthat creates a smokescreen.
+		ChargeInterval: 5500
+		Description: Mirage
+		EndChargeSpeechNotification: SupportPowerReady
+		ActivationDelay: 1
+		LongDesc: Creates a hologram army at\nselected area.
+		Weapon: MirageInit
+		AirburstAltitude: 4c512
+		AllowMultiple: false
+		CameraActor: camera
+		CameraRemoveDelay: 375
 		SelectTargetSpeechNotification: SelectTarget
-		MissileWeapon: SmokeBarrage
-		MissileDelay: 1
-		FlightDelay: 180
-		SpawnOffset: 0, 0c128, 0c512
+		PauseOnCondition: disabled || turnedoff
 		DisplayTimerRelationships: None
-		DisplayBeacon: False
-		DisplayRadarPing: False
-		DetonationAltitude: 1c0
-		BeaconPoster:
-		CameraRange: 10c0
-		FlightVelocity: 0c512
-		SkipAscent: True
-		Prerequisites: support.bulgaria
+		ArrowSequence: arrow
+		ClockSequence: clock
+		CircleSequence: circles
+		TargetCircleRange: 4c0
+		TargetCircleColor: 0000FF90
+		Duration: 350
+		Prerequisites: support.france
+	DetonateWeaponPower@SmokeScreen:
+		OrderName: smokescreen
+		Icon: smokescreenicon
+		Cursor: ability
+		ChargeInterval: 5500
+		Description: Smokescreen
+		EndChargeSpeechNotification: SupportPowerReady
+		ActivationDelay: 1
+		LongDesc: Creates a smokescreen that decreases\ndamage intake of units under the smoke.
+		Weapon: SmokeBarrage
+		AirburstAltitude: 4c512
+		AllowMultiple: false
+		CameraActor: camera
+		CameraRemoveDelay: 375
+		SelectTargetSpeechNotification: SelectTarget
+		PauseOnCondition: disabled || turnedoff
+		DisplayTimerRelationships: None
+		ArrowSequence: arrow
+		ClockSequence: clock
+		CircleSequence: circles
+		TargetCircleRange: 4c0
+		TargetCircleColor: 0000FF90
+		Duration: 350
+		Prerequisites: support.japan
+	GrantExternalConditionPowerCA@PROPAGANDA:
+		OrderName: Propaganda
+		PauseOnCondition: turnedoff || disabled
+		Icon: propagandaicon
+		ChargeInterval: 5500
+		Description: Propaganda
+		LongDesc: Makes a group of infantry move faster, \ntake less damage and not prone for 20 seconds.
+		Duration: 500
+		SelectTargetSpeechNotification: SelectTarget
+		InsufficientPowerSpeechNotification: InsufficientPower
+		EndChargeSpeechNotification: SupportPowerReady
+		DisplayRadarPing: True
+		Condition: propaganda
+		OnFireSound: cheer.aud
+		SupportPowerPaletteOrder: 10
+		Dimensions: 3, 3
+		Footprint: xxx xxx xxx
+		Prerequisites: support.china
+		Weapon: PropagandaBurst
+		ActivationDelay: 0
+		AirburstAltitude: 0c0
+	SpawnActorPower@MAGNETICSUPRESSION:
+		Actor: MAGNETICSUSPENSIONSPAWNER
+		LifeTime: 255
+		SelectTargetSpeechNotification: SelectTarget
+		InsufficientPowerSpeechNotification: InsufficientPower
+		ChargeInterval: 3000
+		Icon: magneticsuspensionicon
+		IconPalette: tseffects
+		Description: Magnetic Suspension
+		LongDesc: Disabled all units within an area\nmakes them untargetable, invulnerable\nand unable to fire.\nBlocks off the whole are from movement.
+		Cursor: ability
+		OrderName: MagneticSuspension
+		PauseOnCondition: disabled || turnedoff
+		EndChargeSpeechNotification: SupportPowerReady
+		Prerequisites: support.ukraine
+		DeploySound: magnetic_start.aud
+		EffectImage: radarscananim
+		EffectSequence: idle
+	GrantExternalConditionPower@FLAMESHIELD:
+		OrderName: Flame Shield
+		PauseOnCondition: turnedoff || disabled
+		Icon: flameshieldicon
+		ChargeInterval: 5500
+		Description: Flame Shield
+		LongDesc: Engulfs a vehicle in flames.\n Decreases damage intake by 75%.
+		Duration: 500
+		SelectTargetSpeechNotification: SelectTarget
+		InsufficientPowerSpeechNotification: InsufficientPower
+		EndChargeSpeechNotification: SupportPowerReady
+		DisplayRadarPing: True
+		Condition: flameshield
+		OnFireSound: ifritfire.aud
+		SupportPowerPaletteOrder: 10
+		Dimensions: 2, 2
+		Footprint: xx xx
+		Prerequisites: support.turkey
+	GrantExternalConditionPowerCA@SUPERCHARGE:
+		OrderName: Supercharge
+		PauseOnCondition: turnedoff || disabled
+		Icon: superchargeicon
+		ChargeInterval: 5500
+		Description: Supercharge
+		LongDesc: Increases the power output of power plants by 50%\nor the reload speed of tesla units\nby 30%.
+		Duration: 500
+		SelectTargetSpeechNotification: SelectTarget
+		InsufficientPowerSpeechNotification: InsufficientPower
+		EndChargeSpeechNotification: SupportPowerReady
+		DisplayRadarPing: True
+		Condition: supercharged
+		OnFireSound: chargepwr1.wav
+		SupportPowerPaletteOrder: 10
+		Dimensions: 2, 2
+		Footprint: xx xx
+		Prerequisites: support.russia
+		Weapon: SuperchargeBurst
+		ActivationDelay: 0
+		AirburstAltitude: 0c0
+	AirstrikePower@Paramine:
+		PauseOnCondition: turnedoff || disabled
+		OrderName: Paramine
+		Icon: paraminesicon
+		Prerequisites: support.italy
+		ChargeInterval: 8500
+		Description: Paramine
+		LongDesc: A squad of Junkers drop parachuted mines\non your target.
+		SelectTargetSpeechNotification: SelectTarget
+		CameraActor: camera
+		CameraRemoveDelay: 150
+		UnitType: junkers.bomber
+		QuantizedFacings: 8
+		DisplayBeacon: true
+		BeaconPoster: paraminebeacon
+		SquadSize: 3
+		SquadOffset: 1792,1792,0
+		ArrowSequence: arrow
+		ClockSequence: clock
+		CircleSequence: circles
+		UseDirectionalTarget: True
+		DirectionArrowAnimation: paradirection
+		SupportPowerPaletteOrder: 75
+		EndChargeSpeechNotification: SupportPowerReady
+	DetonateWeaponPower@Metempsychosis:
+		OrderName: metempsychosis
+		Icon: metempsychosisicon
+		Cursor: ability
+		ChargeInterval: 5500
+		Description: Metempsychosis
+		EndChargeSpeechNotification: SupportPowerReady
+		ActivationDelay: 1
+		LongDesc: Raises the dead as zombies.
+		Weapon: Metempsychosis
+		AirburstAltitude: 0c0
+		AllowMultiple: false
+		CameraActor: camera
+		CameraRemoveDelay: 375
+		SelectTargetSpeechNotification: SelectTarget
+		PauseOnCondition: disabled || turnedoff
+		DisplayTimerRelationships: None
+		ArrowSequence: arrow
+		ClockSequence: clock
+		CircleSequence: circles
+		TargetCircleRange: 2c0
+		TargetCircleColor: 0000FF90
+		Duration: 350
+		Prerequisites: support.kazakhstan
+	DetonateWeaponPower@LazareneRay:
+		OrderName: lazareneray
+		Icon: lazarenerayicon
+		Cursor: ability
+		ChargeInterval: 5500
+		Description: Lazarene Ray
+		EndChargeSpeechNotification: SupportPowerReady
+		ActivationDelay: 1
+		LongDesc: Resurrects dead allied units.
+		Weapon: LazareneRay
+		AirburstAltitude: 0c0
+		AllowMultiple: false
+		CameraActor: camera
+		CameraRemoveDelay: 375
+		SelectTargetSpeechNotification: SelectTarget
+		PauseOnCondition: disabled || turnedoff
+		DisplayTimerRelationships: None
+		ArrowSequence: arrow
+		ClockSequence: clock
+		CircleSequence: circles
+		TargetCircleRange: 2c0
+		TargetCircleColor: 0000FF90
+		Duration: 350
+		Prerequisites: support.austria
+	GrantExternalConditionPowerCA@chronohaste:
+		PauseOnCondition: disabled || turnedoff
+		OrderName: ChronoHaste
+		Icon: chronohasteicon
+		ChargeInterval: 3000
+		Description: Chrono Haste
+		LongDesc: Makes a group of units move faster\nfor 20 seconds.
+		Duration: 500
+		SelectTargetSpeechNotification: SelectTarget
+		EndChargeSpeechNotification: SupportPowerReady
+		DisplayRadarPing: True
+		Condition: chronohaste
+		OnFireSound: ironcur9.aud
+		SupportPowerPaletteOrder: 10
+		Dimensions: 2, 2
+		Footprint: xx xx
+		Prerequisites: support.germany
+		Weapon: ChronohasteBurst
+		ActivationDelay: 0
+		AirburstAltitude: 0c0
+	InfiltrateForSupportPower@spied-dome:
+		Proxy: proxy.spied-dome
+		Types: SpyInfiltrate
+	WithIdleOverlay@bip:
+		Image: bib_2x2
+		Sequence: idle
+		Palette: terrain
+		Offset: -1100,500,-300
+		IsDecoration: True
 
 RADARSCAN:
 	Interactable:
@@ -838,10 +1220,149 @@ RADARSCAN:
 	DetectCloaked:
 		Range: 10c0
 
+ACADEMY:
+	Inherits: ^ScienceBuilding
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Inherits@shape: ^2x2Shape
+	Inherits@rubbles: ^2x2Rubbles
+	Inherits@sabotable: ^SingleBuildingSabotable
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Selectable:
+		Bounds: 48,48
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 50000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 7c0
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 600
+		Prerequisites: ~structures.england, dome, ~techlevel.medium
+		Description: Produces an additional spy for every trained spy\n and produces a free spy every two minutes.\nPromotes produced spies.
+		BuildLimit: 1
+	Valued:
+		Cost: 700
+	Tooltip:
+		Name: MI6 Command Post
+	ProvidesPrerequisite:
+		Prerequisite: mi6academy
+	ProvidesPrerequisite@buildingname:
+	AppearsOnMapPreview:
+	ClonesProducedUnits:
+		ProductionType: Clones
+		CloneableTypes: spy.mi6
+	RallyPoint:
+	Exit@2:
+		RequiresCondition: !being-captured || !turnedoff
+		SpawnOffset: 725,640,0
+		ExitCell: 0,2
+		ProductionTypes: Clones
+	Production:
+		Produces: Clones
+		PauseOnCondition: being-captured || turnedoff
+	PeriodicProducer:
+		Actors: spy.mi6
+		Type: Clones
+		ChargeDuration: 3000
+		ShowSelectionBar: True
+		PauseOnCondition: being-captured || turnedoff
+		ReadyAudio: UnitReady
+	RenderSprites:
+		Image: ecom
+	WithIdleOverlay@bip:
+		Image: bib_2x2
+		Sequence: idle
+		Palette: terrain
+		Offset: -1100,500,-300
+		IsDecoration: True
+	Power:
+		Amount: -40
+
+RECRUITMENTOFFICE:
+	Inherits: ^ScienceBuilding
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Inherits@shape: ^2x2Shape
+	Inherits@rubbles: ^2x2Rubbles
+	Inherits@sabotable: ^SingleBuildingSabotable
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Selectable:
+		Bounds: 48,48
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 50000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 7c0
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 600
+		Prerequisites: ~structures.china, adept, ~techlevel.medium
+		Description: Produces a two Militias\n every 30 seconds for 100$.
+		BuildLimit: 1
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Forward Command
+	ProvidesPrerequisite@buildingname:
+	AppearsOnMapPreview:
+	RallyPoint:
+	Exit@1:
+		RequiresCondition: !being-captured || !turnedoff
+		SpawnOffset: 600,100,0
+		ExitCell: 0,-1
+		ProductionTypes: Clones
+	Exit@2:
+		RequiresCondition: !being-captured || !turnedoff
+		SpawnOffset: 600,100,0
+		ExitCell: 1,-1
+		ProductionTypes: Clones
+	Exit@3:
+		RequiresCondition: !being-captured || !turnedoff
+		SpawnOffset: -400,700,0
+		ExitCell: 0,2
+		ProductionTypes: Clones
+	Exit@4:
+		RequiresCondition: !being-captured || !turnedoff
+		SpawnOffset: -400,700,0
+		ExitCell: 1,2
+		ProductionTypes: Clones
+	Production:
+		Produces: Clones
+		PauseOnCondition: being-captured || turnedoff
+	PeriodicProducerWithPrice:
+		Actors: militia, militia
+		Type: Clones
+		Price: 100
+		ChargeDuration: 750
+		ShowSelectionBar: True
+		PauseOnCondition: being-captured || turnedoff
+		ReadyAudio: UnitReady
+	RenderSprites:
+		Image: kcom
+	WithIdleOverlay@bip:
+		Image: bib_2x2
+		Sequence: idle
+		Palette: terrain
+		Offset: -1100,500,-300
+		IsDecoration: True
+	Power:
+		Amount: -10
+
 PBOX:
 	Inherits: ^Defense
 	Inherits@AUTOTARGET: ^AutoTargetAll
 	Inherits@rubbles: ^1x1Rubbles
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Tooltip:
 		Name: Pillbox
 	Building:
@@ -864,8 +1385,6 @@ PBOX:
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 5c0
-	WithBuildingBib:
-		HasMinibib: true
 	Turreted:
 		TurnSpeed: 512
 	-QuantizeFacingsFromSequence:
@@ -884,6 +1403,7 @@ PBOX:
 		LocalYaw: 0, 176, 341, 512, 682, 853
 		MuzzleSequence: muzzle
 		LocalOffset: 300,0,0
+		PauseOnCondition: turnedoff
 	WithMuzzleOverlay:
 	RenderRangeCircle:
 		FallbackRange: 6c0
@@ -891,17 +1411,25 @@ PBOX:
 		Amount: -20
 	DetectCloaked:
 		Range: 6c0
+	WithIdleOverlay@bip:
+		Image: bib_1x1
+		Sequence: idle
+		Palette: terrain
+		Offset: -1700,1100,-300
+		IsDecoration: True
 
 HBOX:
 	Inherits: ^Defense
 	Inherits@AUTOTARGET: ^AutoTargetAll
 	Inherits@rubbles: ^1x1Rubbles
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Tooltip:
 		Name: Camo Pillbox
 	Building:
 	Buildable:
 		Queue: Defense
-		BuildPaletteOrder: 71
+		BuildPaletteOrder: 81
 		Prerequisites: barr, ~structures.france, ~techlevel.medium
 		Description: Camouflaged static defense with a fireport\nfor a garrisoned soldier.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
 	Valued:
@@ -948,15 +1476,24 @@ HBOX:
 		LocalYaw: 0, 176, 341, 512, 682, 853
 		MuzzleSequence: muzzle
 		LocalOffset: 300,0,0
+		PauseOnCondition: turnedoff
 	WithMuzzleOverlay:
 	Power:
 		Amount: -20
 	-MustBeDestroyed:
+	WithIdleOverlay@bip:
+		Image: bib_1x1
+		Sequence: idle
+		Palette: terrain
+		Offset: -1700,1100,-300
+		IsDecoration: True
 
 GUN:
 	Inherits: ^Defense
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@rubbles: ^1x1Rubbles
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 70
@@ -977,8 +1514,6 @@ GUN:
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 5c0
-	WithBuildingBib:
-		HasMinibib: true
 	Turreted:
 		TurnSpeed: 48
 		InitialFacing: 192
@@ -993,6 +1528,7 @@ GUN:
 		Weapon: TurretGun
 		LocalOffset: 512,0,112
 		MuzzleSequence: muzzle
+		PauseOnCondition: turnedoff
 	AttackTurreted:
 		RequiresCondition: !build-incomplete
 	WithMuzzleOverlay:
@@ -1002,14 +1538,24 @@ GUN:
 		Range: 6c0
 	-BodyOrientation:
 	ClassicFacingBodyOrientation:
+	WithIdleOverlay@bip:
+		Image: bib_1x1
+		Sequence: idle
+		Palette: terrain
+		Offset: -1700,1100,-300
+		IsDecoration: True
+	SequencePlaceBuildingPreview:
+		Sequence: build
 
 CAMOGUN:
 	Inherits: ^Defense
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@rubbles: ^1x1Rubbles
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Buildable:
 		Queue: Defense
-		BuildPaletteOrder: 72
+		BuildPaletteOrder: 82
 		Prerequisites: weap, ~structures.france, ~techlevel.medium
 		Description: Anti-Armor base defense.\nCan detect cloaked units.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
 	Valued:
@@ -1027,13 +1573,12 @@ CAMOGUN:
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 5c0
-	WithBuildingBib:
-		HasMinibib: true
 	Turreted:
 		TurnSpeed: 48
 		InitialFacing: 400
 		RealignDelay: -1
 		RequiresCondition: !build-incomplete
+		PauseOnCondition: turnedoff
 	WithSpriteTurret:
 		RequiresCondition: !build-incomplete
 		Recoils: false
@@ -1043,6 +1588,7 @@ CAMOGUN:
 		Weapon: TurretGun
 		LocalOffset: 530,0,90
 		MuzzleSequence: muzzle
+		PauseOnCondition: turnedoff
 	AttackTurreted:
 		RequiresCondition: !build-incomplete
 	WithMuzzleOverlay:
@@ -1056,11 +1602,21 @@ CAMOGUN:
 		InitialDelay: 125
 		CloakDelay: 60
 		IsPlayerPalette: true
+	WithIdleOverlay@bip:
+		Image: bib_1x1
+		Sequence: idle
+		Palette: terrain
+		Offset: -1700,1100,-300
+		IsDecoration: True
+	SequencePlaceBuildingPreview:
+		Sequence: build
 
 GATLINGGUN:
 	Inherits: ^Defense
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@rubbles: ^1x1Rubbles
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 40
@@ -1069,7 +1625,7 @@ GATLINGGUN:
 	Valued:
 		Cost: 900
 	Tooltip:
-		Name: Gatling Tower
+		Name: Gatling Sentry
 	Building:
 	Health:
 		HP: 40000
@@ -1081,8 +1637,6 @@ GATLINGGUN:
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 5c0
-	WithBuildingBib:
-		HasMinibib: true
 	Turreted:
 		TurnSpeed: 48
 		InitialFacing: 150
@@ -1096,45 +1650,53 @@ GATLINGGUN:
 		LocalOffset: 480,-300,200
 		MuzzleSequence: muzzle
 		RequiresCondition: !gatling
+		PauseOnCondition: turnedoff
 	Armament@ag-1:
 		Weapon: AGGatling2
 		LocalOffset: 480,-300,200
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling == 1
+		PauseOnCondition: turnedoff
 	Armament@ag-2:
 		Weapon: AGGatling3
 		LocalOffset: 480,-300,200
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling == 2
+		PauseOnCondition: turnedoff
 	Armament@ag-3:
 		Weapon: AGGatling4
 		LocalOffset: 480,-300,200
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling >= 3
+		PauseOnCondition: turnedoff
 	Armament@ag-0s:
 		Name: secondary
 		Weapon: AGGatling
 		LocalOffset: 480,300,200
 		MuzzleSequence: muzzle
 		RequiresCondition: !gatling
+		PauseOnCondition: turnedoff
 	Armament@ag-1s:
 		Name: secondary
 		Weapon: AGGatling2
 		LocalOffset: 480,300,200
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling == 1
+		PauseOnCondition: turnedoff
 	Armament@ag-2s:
 		Name: secondary
 		Weapon: AGGatling3
 		LocalOffset: 480,300,200
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling == 2
+		PauseOnCondition: turnedoff
 	Armament@ag-3s:
 		Name: secondary
 		Weapon: AGGatling4
 		LocalOffset: 480,300,200
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling >= 3
+		PauseOnCondition: turnedoff
 	GrantConditionOnAttack:
 		Condition: gatling
 		RequiredShotsPerInstance: 12, 24
@@ -1145,6 +1707,7 @@ GATLINGGUN:
 		RevokeOnNewTarget: false
 	AttackTurreted:
 		RequiresCondition: !build-incomplete
+		PauseOnCondition: turnedoff
 	WithMuzzleOverlay:
 	Power:
 		Amount: -40
@@ -1152,18 +1715,28 @@ GATLINGGUN:
 		Range: 6c0
 	-BodyOrientation:
 	ClassicFacingBodyOrientation:
+	WithIdleOverlay@bip:
+		Image: bib_1x1
+		Sequence: idle
+		Palette: terrain
+		Offset: -1700,1100,-300
+		IsDecoration: True
+	SequencePlaceBuildingPreview:
+		Sequence: build
 
-MAMELUK:
+GRANDCANNON:
 	Inherits: ^Defense
 	Inherits@AUTOTARGET: ^AutoTargetGround
-	Inherits@rubbles: ^1x1Rubbles
+	Inherits@rubbles: ^2x2Rubbles
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 76
 		Prerequisites: dome, ~structures.serbia, ~techlevel.medium
 		Description: Extra long ranged stationary artillery.\nCan detect cloaked units.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
 	Valued:
-		Cost: 1600
+		Cost: 2100
 	Tooltip:
 		Name: Grand Cannon
 	Building:
@@ -1179,8 +1752,6 @@ MAMELUK:
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 5c0
-	WithBuildingBib:
-		HasMinibib: true
 	Turreted:
 		TurnSpeed: 10
 		InitialFacing: 145
@@ -1190,11 +1761,13 @@ MAMELUK:
 		RequiresCondition: !build-incomplete
 		Recoils: false
 	Armament:
-		Weapon: 8Inch
+		Weapon: 8Inch-Grand-Cannon
 		LocalOffset: 1212,0,412, 1112,0,632
 		MuzzleSequence: muzzle
+		PauseOnCondition: turnedoff
 	AttackTurreted:
 		RequiresCondition: !build-incomplete
+		PauseOnCondition: turnedoff
 	WithMuzzleOverlay:
 	Power:
 		Amount: -40
@@ -1204,11 +1777,23 @@ MAMELUK:
 	ClassicFacingBodyOrientation:
 	Selectable:
 		Bounds: 60,60,0,-2
+	WithIdleOverlay@bip:
+		Image: bib_2x2
+		Sequence: idle
+		Palette: terrain
+		Offset: -1100,500,-300
+		IsDecoration: True
+	SequencePlaceBuildingPreview:
+		Sequence: build
+	RenderSprites:
+		Image: mameluk
 
 FTUR:
 	Inherits: ^Defense
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@rubbles: ^1x1Rubbles
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 80
@@ -1229,8 +1814,6 @@ FTUR:
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 5c0
-	WithBuildingBib:
-		HasMinibib: true
 	Turreted:
 		TurnSpeed: 48
 		InitialFacing: 360
@@ -1241,8 +1824,10 @@ FTUR:
 	Armament:
 		Weapon: FireballLauncher
 		LocalOffset: 752,150,150, 752,-150,150
+		PauseOnCondition: turnedoff
 	AttackTurreted:
 		RequiresCondition: !build-incomplete
+		PauseOnCondition: turnedoff
 	-QuantizeFacingsFromSequence:
 	BodyOrientation:
 		QuantizedFacings: 8
@@ -1254,6 +1839,17 @@ FTUR:
 	Explodes:
 		Weapon: BuildingExplode
 		EmptyWeapon: BuildingExplode
+	WithIdleOverlay@bip:
+		Image: bib_1x1
+		Sequence: idle
+		Palette: terrain
+		Offset: -1700,1100,-300
+		IsDecoration: True
+	SequencePlaceBuildingPreview:
+		Sequence: build
+	Selectable:
+		Bounds: 28,28
+		DecorationBounds: 28,28,0,-6
 
 SAM:
 	Inherits: ^Defense
@@ -1261,6 +1857,8 @@ SAM:
 	Inherits@AUTOTARGET: ^AutoTargetAllPlusBombers
 	Inherits@shape: ^2x1Shape
 	Inherits@rubbles: ^2x1Rubbles
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Selectable:
 		Bounds: 48,24
 	HitShape:
@@ -1277,8 +1875,8 @@ SAM:
 	Tooltip:
 		Name: SAM Site
 	Building:
-		Footprint: xx
-		Dimensions: 2,1
+		Footprint: x
+		Dimensions: 1,1
 	Health:
 		HP: 40000
 	Armor:
@@ -1289,8 +1887,6 @@ SAM:
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 5c0
-	WithBuildingBib:
-		HasMinibib: true
 	Turreted:
 		TurnSpeed: 120
 		InitialFacing: 0
@@ -1303,9 +1899,10 @@ SAM:
 		Weapon: NikeSam
 		LocalOffset: 0,0,320
 		MuzzleSequence: muzzle
+		PauseOnCondition: disabled || turnedoff
 	AttackTurreted:
 		RequiresCondition: !build-incomplete
-		PauseOnCondition: disabled
+		PauseOnCondition: disabled || turnedoff
 	WithMuzzleOverlay:
 	RenderRangeCircle:
 		RangeCircleType: aa
@@ -1313,19 +1910,28 @@ SAM:
 		Amount: -40
 	-BodyOrientation:
 	ClassicFacingBodyOrientation:
+	WithIdleOverlay@bip:
+		Image: bib_1x1
+		Sequence: idle
+		Palette: terrain
+		Offset: -1700,1100,-300
+		IsDecoration: True
+	SequencePlaceBuildingPreview:
+		Sequence: build
 
 ADEPT:
 	Inherits: ^Building
 	Inherits@shape: ^3x2Shape
 	Inherits@rubbles: ^AdeptRubbles
+	Inherits@sabotable: ^Sabotable
 	Valued:
 		Cost: 1600
 	Tooltip:
 		Name: Arms Depot
 	Selectable:
 	Building:
-		Footprint: ___ ___ xxx xxx ===
-		Dimensions: 3, 5
+		Footprint: xx= xxx =xx
+		Dimensions: 3, 3
 	Selectable:
 	Buildable:
 		Queue: Building
@@ -1342,7 +1948,6 @@ ADEPT:
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 4c0
-	WithBuildingBib:
 	Power:
 		Amount: -60
 	ProvidesPrerequisite@adept:
@@ -1356,6 +1961,7 @@ ADEPT:
 		DeathSequence: dead
 		UseDeathTypeSuffix: false
 	RenderSprites:
+		Image: adept
 		FactionImages:
 			austria: madept
 			germany: madept
@@ -1369,19 +1975,48 @@ ADEPT:
 			serbia: eadept
 	FreeActor@CHARGEPOS1:
 		Actor: ADEPTCHARGER
-		SpawnOffset: 0,4
+		SpawnOffset: 0,2
 		Facing: 768
 	FreeActor@CHARGEPOS2:
 		Actor: ADEPTCHARGER
-		SpawnOffset: 1,4
-		Facing: 768
-	FreeActor@CHARGEPOS3:
-		Actor: ADEPTCHARGER
-		SpawnOffset: 2,4
+		SpawnOffset: 2,0
 		Facing: 768
 	ProximityExternalCondition:
 		Condition: keepchargeralive
 		Range: 3c0
+	WithIdleOverlay@bip:
+		Image: bib_3x3
+		Sequence: idle
+		Palette: terrain
+		Offset: 0,-0,-300
+		IsDecoration: True
+	GrantConditionOnPrerequisite@sabotaged
+		Prerequisites: adept-sabotaged-prereq
+		Condition: adept-sabotaged
+	GrantCondition@sabotaged:
+		Condition: turnedoff
+		RequiresCondition: adept-sabotaged
+	WithColoredOverlay@SABOTAGED:
+		RequiresCondition: adept-sabotaged
+	WithDecoration@sabotaged:
+		RequiresCondition: adept-sabotaged
+	InfiltrateForSupportPowerSwp:
+		Types: SaboteurInfiltration
+		Proxy: proxy.adept-sabotaged
+	TransformOnCondition:
+		IntoActor: adept.disabled
+		RequiresCondition: adept-sabotaged
+	-GrantCondition@sabotaged:
+
+ADEPT.disabled:
+	Inherits: ADEPT
+	TransformOnCondition:
+		IntoActor: adept
+		RequiresCondition: !adept-sabotaged
+	-Buildable:
+	-FreeActor@CHARGEPOS1:
+	-FreeActor@CHARGEPOS2:
+	-ProximityExternalCondition:
 
 ADEPTCHARGER:
 	Interactable: 
@@ -1396,8 +2031,6 @@ ADEPTCHARGER:
 	WithSpriteBody: 
 	RenderSpritesEditorOnly:
 		Image: camera
-	MapEditorData:
-		Categories: System
 	Exit@1:
 		SpawnOffset: 0,0,0
 		ExitCell: 0,0
@@ -1426,8 +2059,8 @@ MTEK:
 	ProvidesPrerequisite:
 		Prerequisite: techcenter
 	Building:
-		Footprint: xxx xxx ===
-		Dimensions: 3,3
+		Footprint: xx xx
+		Dimensions: 2,2
 		LocalCenterOffset: 0,-512,0
 	Health:
 		HP: 60000
@@ -1439,7 +2072,6 @@ MTEK:
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 4c0
-	WithBuildingBib:
 	Targetable:
 		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
 	Power:
@@ -1449,6 +2081,12 @@ MTEK:
 	InfiltrateForSupportPower@mtektech:
 		Types: SpyInfiltrate
 		Proxy: proxy.mtektech
+	WithIdleOverlay@bip:
+		Image: bib_2x2
+		Sequence: idle
+		Palette: terrain
+		Offset: -1100,500,-300
+		IsDecoration: True
 
 ATEK:
 	Inherits: ^ScienceBuilding
@@ -1468,8 +2106,8 @@ ATEK:
 	ProvidesPrerequisite:
 		Prerequisite: techcenter
 	Building:
-		Footprint: xxx xxx ===
-		Dimensions: 3,3
+		Footprint: xx xx
+		Dimensions: 2,2
 		LocalCenterOffset: 0,-512,0
 	Health:
 		HP: 60000
@@ -1481,7 +2119,6 @@ ATEK:
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 4c0
-	WithBuildingBib:
 	Targetable:
 		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
 	Power:
@@ -1490,13 +2127,21 @@ ATEK:
 	InfiltrateForSupportPower@atektech:
 		Types: SpyInfiltrate
 		Proxy: proxy.atektech
+	WithIdleOverlay@bip:
+		Image: bib_2x2
+		Sequence: idle
+		Palette: terrain
+		Offset: -1100,500,-300
+		IsDecoration: True
 
 WEAP:
 	Inherits: ^Building
-	Inherits@shape: ^3x2Shape
+	Inherits@shape: ^3x3Shape
 	Inherits@PRIMARY: ^PrimaryBuilding
 	Inherits@rubbles: ^3x3Rubbles
 	Inherits@sabotable: ^Sabotable
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Selectable:
 		Bounds: 72,48
 	Buildable:
@@ -1509,7 +2154,7 @@ WEAP:
 	Tooltip:
 		Name: War Factory
 	Building:
-		Footprint: xxx xxx ===
+		Footprint: =x= xxx =x=
 		Dimensions: 3,3
 		LocalCenterOffset: 0,-512,0
 	Health:
@@ -1522,18 +2167,21 @@ WEAP:
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 4c0
-	WithBuildingBib:
 	WithProductionDoorOverlay:
 		RequiresCondition: !build-incomplete
 		Sequence: build-top
 	RallyPoint:
 	Exit@1:
-		RequiresCondition: !being-captured || !empdisable || !sabotaged
+		RequiresCondition: !being-captured || !turnedoff
 		SpawnOffset: 213,-128,0
-		ExitCell: 1,2
+		ExitCell: 2,2
+	Exit@2:
+		RequiresCondition: !being-captured || !turnedoff
+		SpawnOffset: 213,-128,0
+		ExitCell: 0,0
 	Production:
 		Produces: Vehicle
-		PauseOnCondition: being-captured || empdisable || sabotaged
+		PauseOnCondition: being-captured || turnedoff
 	ProvidesPrerequisite@allies:
 		Factions: allies, england, france, usa, japan, serbia
 		Prerequisite: vehicles.entente
@@ -1607,7 +2255,6 @@ WEAP:
 	InfiltrateForSupportPower:
 		Proxy: vehicles.upgraded
 		Types: SpyInfiltrate
-	-ActorPreviewPlaceBuildingPreview:
 	SequencePlaceBuildingPreview:
 		Sequence: place
 		SequencePalette: placebuilding
@@ -1626,16 +2273,39 @@ WEAP:
 	GrantExternalConditionToProduced@spawned:
 		Duration: 100
 		Condition: spawned
+	WithIdleOverlay@bip:
+		Image: bib_3x3
+		Sequence: idle
+		Palette: terrain
+		Offset: 0,0,-300
+		IsDecoration: True
+	GrantConditionOnPrerequisite@sabotaged
+		Prerequisites: weap-sabotaged-prereq
+		Condition: weap-sabotaged
+	GrantCondition@sabotaged:
+		Condition: turnedoff
+		RequiresCondition: weap-sabotaged
+	WithColoredOverlay@SABOTAGED:
+		RequiresCondition: weap-sabotaged
+	WithDecoration@sabotaged:
+		RequiresCondition: weap-sabotaged
+	InfiltrateForSupportPowerSwp:
+		Types: SaboteurInfiltration
+		Proxy: proxy.weap-sabotaged
 
 FACT:
 	Inherits: ^Building
 	Inherits@rubbles: ^3x3Rubbles
 	Inherits@sabotable: ^Sabotable
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Targetable:
+		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SaboteurInfiltration
 	Selectable:
 		Bounds: 72,72
 	Building:
-		Footprint: xxX xxx XxX ===
-		Dimensions: 3,4
+		Footprint: xxX xxx XxX
+		Dimensions: 3,3
 		LocalCenterOffset: 0,-512,0
 	Buildable:
 		Queue: Building
@@ -1711,7 +2381,7 @@ FACT:
 		Range: 4c0
 	Production:
 		Produces: Building, Defense
-		PauseOnCondition: being-captured || empdisable || sabotaged
+		PauseOnCondition: being-captured || turnedoff
 	Valued:
 		Cost: 2100
 	Tooltip:
@@ -1721,7 +2391,7 @@ FACT:
 	BaseBuilding:
 	Transforms:
 		RequiresCondition: factundeploy
-		PauseOnCondition: chrono-vortex || being-captured || being-demolished || build-incomplete || sabotaged
+		PauseOnCondition: chrono-vortex || being-captured || being-demolished || build-incomplete || turnedoff
 		IntoActor: mcv
 		Offset: 1,1
 		Facing: 384
@@ -1740,7 +2410,7 @@ FACT:
 	TransformsIntoTransforms:
 		RequiresCondition: factundeploy && build-incomplete
 	Sellable:
-		RequiresCondition: !build-incomplete && !chrono-vortex && !being-captured && !being-demolished && !sabotaged
+		RequiresCondition: !build-incomplete && !chrono-vortex && !being-captured && !being-demolished && !turnedoff
 	GrantConditionOnPrerequisite@GLOBALFACTUNDEPLOY:
 		Condition: factundeploy
 		Prerequisites: global-factundeploy
@@ -1751,8 +2421,7 @@ FACT:
 		Color: 8A8A8A
 	BaseProvider:
 		PauseOnCondition: being-captured
-		Range: 16c0
-	WithBuildingBib:
+		Range: 11c0
 	WithBuildingPlacedAnimation:
 		RequiresCondition: !build-incomplete && !chrono-vortex
 	Power:
@@ -1789,6 +2458,25 @@ FACT:
 			china: kfact
 			mongolia: kfact
 			kazakhstan: kfact
+	WithIdleOverlay@bip:
+		Image: bib_3x3
+		Sequence: idle
+		Palette: terrain
+		Offset: 0,0,-300
+		IsDecoration: True
+	GrantConditionOnPrerequisite@sabotaged
+		Prerequisites: fact-sabotaged-prereq
+		Condition: fact-sabotaged
+	GrantCondition@sabotaged:
+		Condition: turnedoff
+		RequiresCondition: fact-sabotaged
+	WithColoredOverlay@SABOTAGED:
+		RequiresCondition: fact-sabotaged
+	WithDecoration@sabotaged:
+		RequiresCondition: fact-sabotaged
+	InfiltrateForSupportPowerSwp:
+		Types: SaboteurInfiltration
+		Proxy: proxy.fact-sabotaged
 
 PROC:
 	Inherits: ^Building
@@ -1804,14 +2492,14 @@ PROC:
 	Tooltip:
 		Name: Ore Refinery
 	Building:
-		Footprint: =+x x=x x==
+		Footprint: =x= === =x=
 		Dimensions: 3,3
 		LocalCenterOffset: 0,-512,0
 	Selectable:
 		Bounds: 72,45,0,-4
 		DecorationBounds: 72,75,1,-4
 	Targetable:
-		TargetTypes: GroundActor, Structure, C4, DetonateAttack, ThiefInfiltrate, SpyInfiltrate, SaboteurInfiltration
+		TargetTypes: GroundActor, Structure, C4, DetonateAttack, ThiefInfiltrate, SaboteurInfiltration
 	Health:
 		HP: 90000
 	Armor:
@@ -1835,9 +2523,8 @@ PROC:
 		Facing: 768
 	InfiltrateForCash:
 		Percentage: 50
-		Types: SpyInfiltrate, ThiefInfiltrate
+		Types: ThiefInfiltrate
 		InfiltratedNotification: CreditsStolen
-	WithBuildingBib:
 	WithIdleOverlay@topsolid:
 		Sequence: topsolid
 		RequiresCondition: !cloak && !build-incomplete
@@ -1848,26 +2535,25 @@ PROC:
 		UseDeathTypeSuffix: false
 	ProvidesPrerequisite@buildingname:
 	HitShape@TOPLEFT:
-		TargetableOffsets: 0,-1052,0
+		TargetableOffsets: 0,-952,0
 		Type: Rectangle
 			TopLeft: -1536, -256
 			BottomRight: -256,256
 	HitShape@TOPRIGHT:
-		TargetableOffsets: 1050,1152,0  ,   620,830,0
+		TargetableOffsets: 1050,1052,0  ,   620,830,0
 		Type: Rectangle
 			TopLeft: 256, -1024
 			BottomRight: 1536, 256
 	HitShape@BOTRIGHT:
-		TargetableOffsets: -1600,1052,0
+		TargetableOffsets: -1600,952,0
 		Type: Rectangle
 			TopLeft: 256, 718
 			BottomRight: 1536, 1280
 	HitShape@BOTLEFT:
-		TargetableOffsets: -1600,-1252,0  ,  -1700,-730,0
+		TargetableOffsets: -1600,-1052,0  ,  -1700,-730,0
 		Type: Rectangle
 			TopLeft: -1536, 768
 			BottomRight: -256, 2048
-	-ActorPreviewPlaceBuildingPreview:
 	SequencePlaceBuildingPreview:
 		Sequence: idle
 		SequencePalette: placebuilding
@@ -1898,24 +2584,43 @@ PROC:
 			france: eproc
 	TransformOnCondition:
 		IntoActor: proc.disabled
-		RequiresCondition: sabotaged
+		RequiresCondition: proc-sabotaged
+	WithIdleOverlay@bip:
+		Image: bib_3x3
+		Sequence: idle
+		Palette: terrain
+		Offset: 0,-0,-300
+		IsDecoration: True
+	InfiltrateForSupportPowerSwp:
+		Types: SaboteurInfiltration
+		Proxy: proxy.proc-sabotaged
+	GrantConditionOnPrerequisite@sabotaged
+		Prerequisites: proc-sabotaged-prereq
+		Condition: proc-sabotaged
+	WithDecoration@sabotaged:
+		RequiresCondition: proc-sabotaged
+	WithColoredOverlay@SABOTAGED:
+		RequiresCondition: proc-sabotaged
+	GrantCondition@sabotaged:
+		Condition: turnedoff
+		RequiresCondition: proc-sabotaged
+	-GrantCondition@sabotaged:
 
 PROC.disabled:
 	Inherits: PROC
-	GrantTimedCondition:
-		Condition: sabotaged
-		Duration: 1500
 	TransformOnCondition:
 		IntoActor: proc.resumed
-		RequiresCondition: !sabotaged
+		RequiresCondition: !proc-sabotaged
 	-Refinery:
 	-Buildable:
 	-FreeActor:
+	-MapEditorData:
 
 PROC.resumed:
 	Inherits: PROC
 	-FreeActor:
 	-Buildable:
+	-MapEditorData:
 
 SILO:
 	Inherits: ^Building
@@ -1945,8 +2650,6 @@ SILO:
 		Percentage: 50
 		Types: ThiefInfiltrate
 		InfiltratedNotification: CreditsStolen
-	WithBuildingBib:
-		HasMinibib: true
 	-WithSpriteBody:
 	WithResourceLevelSpriteBody:
 		Sequence: stages
@@ -1965,12 +2668,66 @@ SILO:
 		PipCount: 5
 		FullSequence: pip-yellow
 
+LAZARUSPLATFORM:
+	Inherits: ^ScienceBuilding
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Inherits@shape: ^2x2Shape
+	Inherits@rubbles: ^2x2Rubbles
+	Inherits@sabotable: ^Sabotable
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 180
+		Prerequisites: dome, ~structures.austria, ~techlevel.medium
+		Description: Slowly heals or repairs surrounding units\nby gathering bits of their past selves\nfrom the space-time continuum.
+	Valued:
+		Cost: 1500
+	Targetable:
+		TargetTypes: GroundActor, Structure, C4, DetonateAttack, ThiefInfiltrate
+	Tooltip:
+		Name: Lazarus Platform
+	-GivesBuildableArea:
+	-MustBeDestroyed:
+	Health:
+		HP: 80000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4c0
+	WithSpriteBody:
+		PauseOnCondition: disabled || turnedoff
+	Power:
+		Amount: -200
+	Explodes:
+		Weapon: SmallBuildingExplode
+		EmptyWeapon: SmallBuildingExplode
+	ProximityExternalCondition@lazarus:
+		Condition: lazarus
+		Range: 4c0
+		RequiresCondition: !disabled && !turnedoff
+	WithRangeCircle@lazarus:
+		Type: lazarus
+		Range: 4c0
+		Color: 00FFFF
+	WithIdleOverlay@bip:
+		Image: bib_2x2
+		Sequence: idle
+		Palette: terrain
+		Offset: -1100,500,-300
+		IsDecoration: True
+
 HPAD:
 	Inherits: ^Building
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
 	Inherits@PRIMARY: ^PrimaryBuilding
 	Inherits@sabotable: ^Sabotable
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Selectable:
 		Bounds: 48,48
 	HitShape:
@@ -1986,8 +2743,8 @@ HPAD:
 	Tooltip:
 		Name: Helipad
 	Building:
-		Footprint: xx xx ==
-		Dimensions: 2,3
+		Footprint: xx xx
+		Dimensions: 2,2
 		LocalCenterOffset: 0,-512,0
 	Health:
 		HP: 80000
@@ -1999,21 +2756,20 @@ HPAD:
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 4c0
-	WithBuildingBib:
 	WithResupplyAnimation:
 		RequiresCondition: !build-incomplete
 	Exit@1:
-		RequiresCondition: !being-captured || !empdisable || !sabotaged
+		RequiresCondition: !being-captured || !turnedoff
 		SpawnOffset: 0,-256,0
 		ExitCell: 0,0
 		Facing: 896
 	RallyPoint:
 	Production:
 		Produces: Helicopter
-		PauseOnCondition: being-captured || empdisable || sabotaged
+		PauseOnCondition: being-captured || turnedoff
 	Reservable:
 	ProductionBar:
-		ProductionType: Aircraft
+		ProductionType: Helicopter
 	Power:
 		Amount: -10
 	ProvidesPrerequisite@allies:
@@ -2091,38 +2847,35 @@ HPAD:
 			ukraine: shpad
 			china: shpad
 			mongolia: shpad
-	ParatroopersPower@guerilla:
-		PauseOnCondition: empdisable
-		OrderName: GuerillaDrop
-		UnitType: transupport
-		Icon: guerilladropicon
-		ChargeInterval: 7500
-		Description: Guerilla Drop
-		LongDesc: A Halo transport helicopter drops a squad\nof guerilla anywhere on the map.
-		DropItems: GUERILLA, GUERILLA, GUERILLA, GUERILLA
-		ReinforcementsArrivedSpeechNotification: ReinforcementsArrived
-		SelectTargetSpeechNotification: SelectTarget
-		AllowImpassableCells: false
-		QuantizedFacings: 8
-		CameraActor: camera.paradrop
-		DisplayBeacon: true
-		BeaconPoster: guerillabeacon
-		ArrowSequence: arrow
-		ClockSequence: clock
-		CircleSequence: circles
-		UseDirectionalTarget: True
-		DirectionArrowAnimation: paradirection
-		SupportPowerPaletteOrder: 50
-		IncomingSpeechNotification: EnemyReinforcementsApproaching
-		EndChargeSpeechNotification: ParatroopersReady
-		BeginChargeSpeechNotification: ParatroopersPreparing
-		Prerequisites: hpad.support.china
+	WithIdleOverlay@bip:
+		Image: bib_2x2
+		Sequence: idle
+		Palette: terrain
+		Offset: -1100,500,-300
+		IsDecoration: True
+	GrantConditionOnPrerequisite@sabotaged
+		Prerequisites: hpad-sabotaged-prereq
+		Condition: hpad-sabotaged
+	GrantCondition@sabotaged:
+		Condition: turnedoff
+		RequiresCondition: hpad-sabotaged
+	WithColoredOverlay@SABOTAGED:
+		RequiresCondition: hpad-sabotaged
+	WithDecoration@sabotaged:
+		RequiresCondition: hpad-sabotaged
+	InfiltrateForSupportPowerSwp:
+		Types: SaboteurInfiltration
+		Proxy: proxy.hpad-sabotaged
+	RepairsUnits:
 
 AFLD:
 	Inherits: ^Building
 	Inherits@shape: ^3x2Shape
 	Inherits@rubbles: ^3x2Rubbles
 	Inherits@PRIMARY: ^PrimaryBuilding
+	Inherits@sabotable: ^Sabotable
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	HitShape:
 		UseTargetableCellsOffsets: false
 		TargetableOffsets: 0,0,0, 420,0,0, 420,-1024,0, 420,1024,0, -777,0,0, -777,-1024,0, -777,1024,0
@@ -2152,13 +2905,13 @@ AFLD:
 	RevealsShroud@GAPGEN:
 		Range: 4c0
 	Exit@1:
-		RequiresCondition: !being-captured || !empdisable || !sabotaged
+		RequiresCondition: !being-captured || !turnedoff
 		ExitCell: 1,1
 		Facing: 768
 	RallyPoint:
 	Production:
 		Produces: Aircraft, Plane
-		PauseOnCondition: being-captured || empdisable || sabotaged
+		PauseOnCondition: being-captured || turnedoff
 	Reservable:
 	ProvidesPrerequisite@soviet:
 		Factions: soviet, russia, ukraine, china, mongolia, kazakhstan
@@ -2250,14 +3003,14 @@ AFLD:
 			france: eafld
 			japan: eafld
 	ParatroopersPower@entparatroopers:
-		PauseOnCondition: empdisable
+		PauseOnCondition: turnedoff
 		OrderName: Paratroopers
 		UnitType: transportplane
 		Icon: paratroopers
 		ChargeInterval: 7500
 		Description: Paratroopers
 		LongDesc: A transport plane drops a squad of infantry\nanywhere on the map.
-		DropItems: E1,E1,E1,E3,E3
+		DropItems: E1R3,E1R3,E1R3,E3R3,E3R3
 		ReinforcementsArrivedSpeechNotification: ReinforcementsArrived
 		SelectTargetSpeechNotification: SelectTarget
 		AllowImpassableCells: false
@@ -2271,15 +3024,35 @@ AFLD:
 		UseDirectionalTarget: True
 		DirectionArrowAnimation: paradirection
 		SupportPowerPaletteOrder: 50
-		IncomingSpeechNotification: EnemyReinforcementsApproaching
-		EndChargeSpeechNotification: ParatroopersReady
-		BeginChargeSpeechNotification: ParatroopersPreparing
+		EndChargeSpeechNotification: ReinforcementsReady
+	GrantConditionOnPrerequisite@sabotaged
+		Prerequisites: afld-sabotaged-prereq
+		Condition: afld-sabotaged
+	GrantCondition@sabotaged:
+		Condition: turnedoff
+		RequiresCondition: afld-sabotaged
+	InfiltrateForSupportPowerSwp:
+		Types: SaboteurInfiltration
+		Proxy: proxy.afld-sabotaged
+	WithDecoration@sabotaged:
+		RequiresCondition: afld-sabotaged
+	WithColoredOverlay@SABOTAGED:
+		RequiresCondition: afld-sabotaged
+	WithIdleOverlay@bip:
+		Image: bib_2x2
+		Sequence: idle
+		Palette: terrain
+		Offset: -1100,500,-300
+		IsDecoration: True
 
 POWR:
 	Inherits: ^Building
 	Inherits@POWER_OUTAGE: ^DisabledByPowerOutage
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
+	Inherits@supercharge: ^SuperchargePower
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Selectable:
 		Bounds: 48,48
 	HitShape:
@@ -2297,8 +3070,8 @@ POWR:
 	ProvidesPrerequisite:
 		Prerequisite: anypower
 	Building:
-		Footprint: xx xx ==
-		Dimensions: 2,3
+		Footprint: xx xx
+		Dimensions: 2,2
 		LocalCenterOffset: 0,-512,0
 	Health:
 		HP: 45000
@@ -2306,9 +3079,9 @@ POWR:
 		Type: Wood
 	RevealsShroud:
 		Range: 4c0
-	WithBuildingBib:
 	Power:
 		Amount: 100
+		RequiresCondition: !turnedoff && !disabled
 	Targetable:
 		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration
 	ScalePowerWithHealth:
@@ -2327,12 +3100,21 @@ POWR:
 			japan: epowr
 			england: epowr
 			france: epowr
+	WithIdleOverlay@bip:
+		Image: bib_2x2
+		Sequence: idle
+		Palette: terrain
+		Offset: -1100,500,-300
+		IsDecoration: True
 
 APWR:
 	Inherits: ^Building
 	Inherits@POWER_OUTAGE: ^DisabledByPowerOutage
-	Inherits@shape: ^3x2Shape
-	Inherits@rubbles: ^3x2Rubbles
+	Inherits@shape: ^3x3Shape
+	Inherits@rubbles: ^2x2Rubbles
+	Inherits@supercharge: ^SuperchargePower
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	HitShape:
 		TargetableOffsets: -355,-1024,0
 	Buildable:
@@ -2347,8 +3129,8 @@ APWR:
 	ProvidesPrerequisite:
 		Prerequisite: anypower
 	Building:
-		Footprint: xxx Xxx ===
-		Dimensions: 3,3
+		Footprint: xx xx
+		Dimensions: 2,2
 		LocalCenterOffset: 0,-512,0
 	Selectable:
 		Bounds: 72,48
@@ -2359,9 +3141,9 @@ APWR:
 		Type: Wood
 	RevealsShroud:
 		Range: 5c0
-	WithBuildingBib:
 	Power:
 		Amount: 200
+		RequiresCondition: !disabled && !turnedoff
 	Targetable:
 		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration
 	ScalePowerWithHealth:
@@ -2380,6 +3162,12 @@ APWR:
 			japan: eapwr
 			england: eapwr
 			france: eapwr
+	WithIdleOverlay@bip:
+		Image: bib_3x3
+		Sequence: idle
+		Palette: terrain
+		Offset: 0,-0,0
+		IsDecoration: True
 
 STEK:
 	Inherits: ^ScienceBuilding
@@ -2401,8 +3189,8 @@ STEK:
 	ProvidesPrerequisite:
 		Prerequisite: techcenter
 	Building:
-		Footprint: XxX XxX ===
-		Dimensions: 3,3
+		Footprint: xx xx
+		Dimensions: 2,2
 		LocalCenterOffset: 0,-512,0
 	Health:
 		HP: 80000
@@ -2414,7 +3202,6 @@ STEK:
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 4c0
-	WithBuildingBib:
 	Power:
 		Amount: -100
 	Targetable:
@@ -2423,6 +3210,12 @@ STEK:
 	InfiltrateForSupportPower@stektech:
 		Types: SpyInfiltrate
 		Proxy: proxy.stektech
+	WithIdleOverlay@bip:
+		Image: bib_2x2
+		Sequence: idle
+		Palette: terrain
+		Offset: -1100,500,-300
+		IsDecoration: True
 
 BARR:
 	Inherits: ^Building
@@ -2430,6 +3223,8 @@ BARR:
 	Inherits@rubbles: ^2x2Rubbles
 	Inherits@PRIMARY: ^PrimaryBuilding
 	Inherits@sabotable: ^Sabotable
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Selectable:
 		Bounds: 48,48
 	HitShape:
@@ -2445,8 +3240,8 @@ BARR:
 	Tooltip:
 		Name: Barracks
 	Building:
-		Footprint: xx xx ==
-		Dimensions: 2,3
+		Footprint: xx xx
+		Dimensions: 2,2
 		LocalCenterOffset: 0,-512,0
 	Health:
 		HP: 60000
@@ -2458,21 +3253,30 @@ BARR:
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 4c0
-	WithBuildingBib:
 	RallyPoint:
 	Exit@1:
-		RequiresCondition: !being-captured || !empdisable || !sabotaged
+		RequiresCondition: !being-captured || !turnedoff
+		SpawnOffset: 725,0,0
+		ExitCell: 1,-1
+		ProductionTypes: Soldier, Infantry
+	Exit@2:
+		RequiresCondition: !being-captured || !turnedoff
+		SpawnOffset: 275,-300,0
+		ExitCell: 0,-1
+		ProductionTypes: Soldier, Infantry
+	Exit@3:
+		RequiresCondition: !being-captured || !turnedoff
 		SpawnOffset: -170,810,0
 		ExitCell: 1,2
 		ProductionTypes: Soldier, Infantry
-	Exit@2:
-		RequiresCondition: !being-captured || !empdisable || !sabotaged
-		SpawnOffset: -725,640,0
+	Exit@4:
+		RequiresCondition: !being-captured || !turnedoff
+		SpawnOffset: -725,680,0
 		ExitCell: 0,2
 		ProductionTypes: Soldier, Infantry
 	Production:
 		Produces: Infantry, Soldier
-		PauseOnCondition: being-captured || empdisable || sabotaged
+		PauseOnCondition: being-captured || turnedoff
 	GrantExternalConditionToProduced:
 		Condition: produced
 	ProductionBar:
@@ -2562,6 +3366,15 @@ BARR:
 			japan: erax
 			england: erax
 			france: erax
+	WithIdleOverlay@bip:
+		Image: bib_2x2
+		Sequence: idle
+		Palette: terrain
+		Offset: -1100,500,-300
+		IsDecoration: True
+	InfiltrateForSupportPowerSwp:
+		Types: SaboteurInfiltration
+		Proxy: proxy.barr-sabotaged
 
 FIX:
 	Inherits: ^Building
@@ -2577,7 +3390,7 @@ FIX:
 	Tooltip:
 		Name: Service Depot
 	Building:
-		Footprint: _+_ +++ _+_
+		Footprint: =+= +++ =+=
 		Dimensions: 3,3
 	Selectable:
 		Bounds: 68,34,0,3
@@ -2600,9 +3413,7 @@ FIX:
 		StartRepairingNotification: Repairing
 		FinishRepairingNotification: UnitRepaired
 		PlayerExperience: 15
-		PauseOnCondition: sabotaged
-	WithBuildingBib:
-		HasMinibib: true
+		PauseOnCondition: fix-sabotaged || turnedoff
 	WithResupplyAnimation:
 		RequiresCondition: !build-incomplete
 	Power:
@@ -2624,10 +3435,25 @@ FIX:
 			england: efix
 			france: efix
 			japan: efix
+	GrantConditionOnPrerequisite@sabotaged
+		Prerequisites: fix-sabotaged-prereq
+		Condition: fix-sabotaged
+	GrantCondition@sabotaged:
+		Condition: turnedoff
+		RequiresCondition: fix-sabotaged
+	WithColoredOverlay@SABOTAGED:
+		RequiresCondition: fix-sabotaged
+	WithDecoration@sabotaged:
+		RequiresCondition: fix-sabotaged
+	InfiltrateForSupportPowerSwp:
+		Types: SaboteurInfiltration
+		Proxy: proxy.fix-sabotaged
 
 FLKGUN:
 	Inherits: AGUN
 	Inherits@rubbles: ^1x1Rubbles
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Turreted:
 		TurnSpeed: 60
 		InitialFacing: 780
@@ -2639,6 +3465,7 @@ FLKGUN:
 		Weapon: FLAK-23-AA-Static
 		LocalOffset: 712,0,700
 		MuzzleSequence: muzzle
+		PauseOnCondition: disabled || turnedoff
 	Tooltip:
 		Name: Flak Cannon
 	Buildable:
@@ -2646,13 +3473,21 @@ FLKGUN:
 		BuildPaletteOrder: 44
 		Prerequisites: dome, ~structures.komintern, ~techlevel.medium
 		Description: Anti-Air base defense.\nRequires power to operate.\n  Strong vs Aircraft\n  Weak vs Ground units
+	WithIdleOverlay@bip:
+		Image: bib_1x1
+		Sequence: idle
+		Palette: terrain
+		Offset: -1700,1100,-300
+		IsDecoration: True
 		
 UPLINK:
 	Inherits: ^ScienceBuilding
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
-	Inherits@sabotable: ^Sabotable
+	Inherits@sabotable: ^SingleBuildingSabotable
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Selectable:
 	Buildable:
 		Queue: Defense
@@ -2682,14 +3517,6 @@ UPLINK:
 	RevealsShroud@GAPGEN:
 		Range: 5c0
 		RequiresCondition: !disabled
-	WithBuildingBib:
-		HasMinibib: true
-	ProvidesPrerequisite@germany:
-		Factions: germany
-		Prerequisite: pdox.germany
-	ProvidesPrerequisite@germanstructure:
-		RequiresPrerequisites: structures.germany
-		Prerequisite: pdox.germany
 	SupportPowerChargeBar:
 	InfiltrateForSupportPowerReset:
 		Types: SpyInfiltrate, SaboteurInfiltration
@@ -2701,9 +3528,9 @@ UPLINK:
 		RequiredForShortGame: false
 	ProvidesPrerequisite@buildingname:
 	WithSpriteBody:
-		PauseOnCondition: empdisable || disabled
+		PauseOnCondition: turnedoff || disabled
 	GpsPower:
-		PauseOnCondition: disabled || !gpsactivated
+		PauseOnCondition: disabled || turnedoff || !gpsactivated
 		Icon: gps
 		OneShot: true
 		ChargeInterval: 1
@@ -2723,17 +3550,15 @@ UPLINK:
 		Description: GPS Satellite
 		LongDesc: Reveals map terrain and provides tactical\ninformation. Requires power and active radar.
 		Icon: gps
-		PauseOnCondition: disabled
+		PauseOnCondition: disabled || turnedoff
 		Actors: powergps
 		Type: GPSPower
 		ChargeInterval: 3500
 		OrderName: GPSSpawner
 		SupportPowerPaletteOrder: 20
 		LaunchSpeechNotification: SatelliteInitialzed
-		IncomingSpeechNotification: SatelliteInitialzed
 		DisplayTimerRelationships: None
 		EndChargeSpeechNotification: SatelliteReady
-		BeginChargeSpeechNotification: SatelliteCharging
 		RequiresCondition: !gpsactivated
 	GrantConditionOnPrerequisite@gpsactivation:
 		Prerequisites: gpsactiveprereq
@@ -2754,6 +3579,12 @@ UPLINK:
 		ChargeInterval: 1501
 		SupportPowerPaletteOrder: 20
 		RequiresCondition: gpsactivated
+	WithIdleOverlay@bip:
+		Image: bib_2x2
+		Sequence: idle
+		Palette: terrain
+		Offset: -1100,500,-300
+		IsDecoration: True
 
 powergps:
 	Interactable: 
@@ -2767,8 +3598,6 @@ powergps:
 	WithSpriteBody: 
 	RenderSpritesEditorOnly:
 		Image: camera
-	MapEditorData:
-		Categories: System
 	ProvidesPrerequisite@gap:
 		Prerequisite: gpsactiveprereq
 	ActorLostNotification:
@@ -2791,7 +3620,9 @@ STHGEN:
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
-	Inherits@sabotable: ^Sabotable
+	Inherits@sabotable: ^SingleBuildingSabotable
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Selectable:
 	Buildable:
 		Queue: Defense
@@ -2821,11 +3652,9 @@ STHGEN:
 	RevealsShroud@GAPGEN:
 		Range: 5c0
 		RequiresCondition: !disabled
-	WithBuildingBib:
-		HasMinibib: true
-	GrantExternalConditionPower@STEALTH:
+	GrantExternalConditionPowerCA@STEALTH:
 		OrderName: Phase
-		PauseOnCondition: empdisable || disabled
+		PauseOnCondition: turnedoff || disabled
 		Icon: cloakicon
 		ChargeInterval: 3000
 		Description: Stealth Shield
@@ -2833,14 +3662,16 @@ STHGEN:
 		Duration: 500
 		SelectTargetSpeechNotification: SelectTarget
 		InsufficientPowerSpeechNotification: InsufficientPower
-		BeginChargeSpeechNotification: PhasegenCharging
 		EndChargeSpeechNotification: PhasegenReady
 		DisplayRadarPing: True
 		Condition: stealth
 		OnFireSound: ironcur9.aud
 		SupportPowerPaletteOrder: 10
-		Dimensions: 3, 3
-		Footprint: xxx xxx xxx
+		Dimensions: 5, 5
+		Footprint: _xxx_ xxxxx xxxxx xxxxx _xxx_
+		Weapon: StealthShield
+		ActivationDelay: 0
+		AirburstAltitude: 0c0
 	SupportPowerChargeBar:
 	InfiltrateForSupportPowerReset:
 		Types: SpyInfiltrate, SaboteurInfiltration
@@ -2851,13 +3682,21 @@ STHGEN:
 	MustBeDestroyed:
 		RequiredForShortGame: false
 	ProvidesPrerequisite@buildingname:
+	WithIdleOverlay@bip:
+		Image: bib_2x2
+		Sequence: idle
+		Palette: terrain
+		Offset: -1100,500,-300
+		IsDecoration: True
 	
 EMPGUN:
 	Inherits: ^Defense
 	Inherits@shape: ^2x2Shape
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@rubbles: ^2x2Rubbles
-	Inherits@sabotable: ^Sabotable
+	Inherits@sabotable: ^SingleBuildingSabotable
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Valued:
 		Cost: 1600
 	Selectable:
@@ -2882,7 +3721,7 @@ EMPGUN:
 		TurnSpeed: 40
 		InitialFacing: 896
 	AttackTurreted:
-		RequiresCondition: !build-incomplete && !empdisable && !disabled
+		RequiresCondition: !build-incomplete && !turnedoff && !disabled
 	Armament:
 		Weapon: EMPulseCannon
 		LocalOffset: 712,0,50
@@ -2894,7 +3733,7 @@ EMPGUN:
 		Amount: -150
 	RenderSprites:
 	AttackOrderPower:
-		PauseOnCondition: empdisable || disabled
+		PauseOnCondition: turnedoff || disabled
 		Icon: empicon
 		OrderName: EMPulse
 		ChargeInterval: 3375
@@ -2902,76 +3741,27 @@ EMPGUN:
 		LongDesc: Fires a pulse blast which disables\nall mechanical units in the area.
 		SelectTargetSpeechNotification: SelectTarget
 		EndChargeSpeechNotification: EMPulseReady
-		BeginChargeSpeechNotification: EMPulseCharging
 	InfiltrateForSupportPowerReset:
 		Types: SpyInfiltrate, SaboteurInfiltration
 	Targetable:
 		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
+	WithIdleOverlay@bip:
+		Image: bib_2x2
+		Sequence: idle
+		Palette: terrain
+		Offset: -1100,500,-300
+		IsDecoration: True
+	SequencePlaceBuildingPreview:
+		Sequence: build
 
-REFGUN:
-	Inherits: ^Defense
-	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
-	Inherits@AUTOTARGET: ^AutoTargetGround
-	Inherits@rubbles: ^1x1Rubbles
-	Buildable:
-		Queue: Defense
-		BuildPaletteOrder: 85
-		Prerequisites: weap, ~structures.zentrum, ~techlevel.medium
-		Description: Anti-ground defensive structure\nthat uses a direct energy weapon.\nCan detect cloaked units.\n	Strong vs Vehicles\n  Weak vs Infantry, Aircraft
-	Valued:
-		Cost: 1400
-	Tooltip:
-		Name: Refractor Cannon
-	Building:
-	Health:
-		HP: 47500
-	Armor:
-		Type: Concrete
-	RevealsShroud:
-		MinRange: 5c0
-		Range: 6c512
-		RevealGeneratedShroud: False
-	RevealsShroud@GAPGEN:
-		Range: 5c0
-	WithBuildingBib:
-		HasMinibib: true
-	Turreted:
-		TurnSpeed: 28
-		InitialFacing: 192
-		RealignDelay: -1
-		RequiresCondition: !build-incomplete
-	WithSpriteTurret:
-		RequiresCondition: !build-incomplete
-		Recoils: false
-	Armament@RAILGUN:
-		Name: primary
-		Weapon: PrismTower
-		Turret: primary
-		LocalOffset: 740,0,530
-		FireDelay: 8
-	AttackTurreted:
-		PauseOnCondition: build-incomplete || disabled
-		PersistentTargeting: True
-	WithTurretAttackAnimation:
-		Armament: primary
-		Sequence: recoil
-	Power:
-		Amount: -40
-	DetectCloaked:
-		Range: 6c0
-	-BodyOrientation:
-	ClassicFacingBodyOrientation:
-	Selectable:
-		DecorationBounds: 40, 40, 0, -10
-	RenderSprites:
-		Image: railgun
-		
 SRIMP:
 	Inherits: ^ScienceBuilding
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
-	Inherits@sabotable: ^Sabotable
+	Inherits@sabotable: ^SingleBuildingSabotable
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Health:
 		HP: 100000
 	Armor:
@@ -3015,13 +3805,11 @@ SRIMP:
 		LongDesc: Generates global shroud and\n jams enemy radar.
 		Cursor: attack
 		OrderName: SpawnActorPowerInfoOrderSrimp
-		PauseOnCondition: disabled || empdisable
+		PauseOnCondition: disabled || turnedoff
 		EndChargeSpeechNotification: VeilReady
-		BeginChargeSpeechNotification: VeilCharging
-		EffectImage: empty
+		EffectImage: radarscananim
+		EffectSequence: idle
 	SupportPowerChargeBar:
-	WithBuildingBib:
-		HasMinibib: true
 	Tooltip:
 		Name: Veil Projector
 	Building:
@@ -3038,6 +3826,12 @@ SRIMP:
 	WithSupportPowerActivationOverlay@DAMAGED:
 		RequiresCondition: iambroken
 		Sequence: damaged-active
+	WithIdleOverlay@bip:
+		Image: bib_2x2
+		Sequence: idle
+		Palette: terrain
+		Offset: -1100,500,-300
+		IsDecoration: True
 
 CENTRALSRIMP:
 	Interactable:
@@ -3050,8 +3844,6 @@ CENTRALSRIMP:
 	RenderSpritesEditorOnly:
 	BodyOrientation:
 		QuantizedFacings: 1
-	MapEditorData:
-		Categories: System
 	RenderSpritesEditorOnly:
 		Image: gap
 	CreatesShroud:
@@ -3062,12 +3854,13 @@ CENTRALSRIMP:
 		Range: 18c0
 		Color: 0000FF80
 		Visible: Always
+
 SBAG:
 	Inherits: ^Wall
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 10
-		Prerequisites: fact, ~structures.entente, ~techlevel.low
+		Prerequisites: fact, ~techlevel.low
 		Description: Stops infantry and light vehicles.\nCan be crushed by tanks.
 	Valued:
 		Cost: 50
@@ -3085,30 +3878,6 @@ SBAG:
 		Types: sandbag
 	WithWallSpriteBody:
 		Type: sandbag
-
-FENC:
-	Inherits: ^Wall
-	Buildable:
-		Queue: Defense
-		BuildPaletteOrder: 20
-		Prerequisites: fact, ~structures.komintern, ~techlevel.low
-		Description: Stops infantry and light vehicles.\nCan be crushed by tanks.
-	Valued:
-		Cost: 50
-	CustomSellValue:
-		Value: 0
-	Tooltip:
-		Name: Wire Fence
-	Health:
-		HP: 15000
-	Armor:
-		Type: Wood
-	LineBuild:
-		NodeTypes: fence
-	LineBuildNode:
-		Types: fence
-	WithWallSpriteBody:
-		Type: fence
 
 BRIK:
 	Inherits: ^Wall
@@ -3139,56 +3908,6 @@ BRIK:
 		Types: concrete
 	WithWallSpriteBody:
 		Type: concrete
-
-CYCL:
-	Inherits: ^Wall
-	Buildable:
-		Queue: Defense
-		BuildPaletteOrder: 10
-		Prerequisites: fact, ~structures.zentrum, ~techlevel.low
-		Description: Stops infantry and light vehicles.\nCan be crushed by tanks.
-	Valued:
-		Cost: 50
-	CustomSellValue:
-		Value: 0
-	Tooltip:
-		Name: Chain-Link Barrier
-	Health:
-		HP: 15000
-	Armor:
-		Type: Wood
-	LineBuild:
-		NodeTypes: chain
-	LineBuildNode:
-		Types: chain
-	WithWallSpriteBody:
-		Type: chain
-
-BARB:
-	Inherits: ^Wall
-	Tooltip:
-		Name: Barbed-Wire Fence
-	Armor:
-		Type: Wood
-	LineBuild:
-		NodeTypes: barbwire
-	LineBuildNode:
-		Types: barbwire
-	WithWallSpriteBody:
-		Type: barbwire
-
-WOOD:
-	Inherits: ^Wall
-	Tooltip:
-		Name: Wooden Fence
-	Armor:
-		Type: Wood
-	LineBuild:
-		NodeTypes: woodfence
-	LineBuildNode:
-		Types: woodfence
-	WithWallSpriteBody:
-		Type: woodfence
 
 TRENCH:
 	Inherits: ^Defense
@@ -3245,6 +3964,14 @@ TRENCH:
 	Explodes:
 		Weapon: SmallBuildingExplode
 		EmptyWeapon: SmallBuildingExplode
+	SequencePlaceBuildingPreview:
+		Sequence: build
+	WithIdleOverlay@bip:
+		Image: bib_1x1
+		Sequence: idle
+		Palette: terrain
+		Offset: -1700,1100,-300
+		IsDecoration: True
 
 BARRACKS:
 	AlwaysVisible:

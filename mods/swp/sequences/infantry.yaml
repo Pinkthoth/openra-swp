@@ -1,89 +1,77 @@
-radist:
-	stand:
+^SharedDeaths:
+	die7: aciddeath
 		Start: 0
-		Facings: 8
-	stand2:
-		Start: 8
-		Facings: 8
-	parachute:
-		Start: 6
-	run:
-		Start: 24
-		Length: 6
-		Facings: 8
-		Tick: 80
-	shoot:
-		Start: 120
-		Length: 6
-		Facings: 8
-	prone-stand:
-		Start: 16
-		Facings: 8
-		Length: 1
-	prone-stand2:
-		Start: 16
-		Facings: 8
-		Length: 1
-	prone-run:
-		Start: 72
-		Length: 6
-		Facings: 8
-		Tick: 100
-	standup:
-		Start: 216
-		Length: 1
-		Facings: 8
-	prone-shoot:
-		Start: 168
-		Length: 6
-		Facings: 8
-	idle1:
-		Start: 224
-		Length: 24
-		Tick: 120
-	idle2:
-		Start: 261
-		Length: 15
-		Tick: 120
-	die1:
-		Start: 276
-		Length: 28
-		Tick: 40
-	die2:
-		Start: 276
-		Length: 28
-		Tick: 40
-	die3:
-		Start: 331
-		Length: 18
-		Tick: 40
-	die4:
-		Start: 331
-		Length: 18
-		Tick: 40
-	die5: tnkcmndr
-		Start: 246
-		Length: 18
-		Tick: 80
-	die6: electro
-		Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
 		Length: *
-		Tick: 80
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
-	die-crushed: corpse1
-		Length: 6
-		Tick: 1600
-		ZOffset: -511
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
-	icon: radisticon
+		Tick: 50
 
-homosovieticus:
+ironman:
+	Inherits: ^SharedDeaths
+	stand:
+		Start: 0
+		Facings: 8
+	stand2:
+		Start: 8
+		Facings: 8
+	parachute:
+		Start: 6
+	run:
+		Start: 16
+		Length: 6
+		Facings: 8
+		Tick: 80
+	shoot:
+		Start: 64
+		Length: 6
+		Facings: 8
+		Tick: 60
+	idle1:
+		Start: 120
+		Length: 25
+		Tick: 120
+	idle2:
+		Start: 145
+		Length: 19
+		Tick: 120
+	die1:
+		Start: 164
+		Length: 28
+		Tick: 40
+	die2:
+		Start: 193
+		Length: 28
+		Tick: 40
+	die3:
+		Start: 218
+		Length: 18
+		Tick: 40
+	die4:
+		Start: 218
+		Length: 18
+		Tick: 40
+	die5: tnkcmndr
+		Start: 246
+		Length: 18
+		Tick: 80
+	die6: electro
+		Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+		Length: *
+		Tick: 80
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	die-crushed: corpse1
+		Length: 6
+		Tick: 1600
+		ZOffset: -511
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	icon: ironmanicon
+
+grenadelauncher:
+	Inherits: ^SharedDeaths
 	stand:
 		Start: 0
 		Facings: 8
@@ -101,6 +89,7 @@ homosovieticus:
 		Start: 120
 		Length: 6
 		Facings: 8
+		Tick: 60
 	prone-stand:
 		Start: 16
 		Facings: 8
@@ -122,6 +111,7 @@ homosovieticus:
 		Start: 168
 		Length: 6
 		Facings: 8
+		Tick: 60
 	idle1:
 		Start: 224
 		Length: 24
@@ -166,9 +156,10 @@ homosovieticus:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
-	icon: homosovieticusicon
+	icon: stormtroopericon
 
 nerveagent:
+	Inherits: ^SharedDeaths
 	stand:
 		Start: 0
 		Facings: 8
@@ -254,6 +245,7 @@ nerveagent:
 	icon: nerveagenticon
 
 legionaire:
+	Inherits: ^SharedDeaths
 	stand:
 		Start: 0
 		Facings: 8
@@ -376,7 +368,214 @@ legionaire:
 				Frames: 42,43,44,45,46,47,42,43,44,45,46,47
 	icon: legionaireicon
 
+arditi:
+	Inherits: ^SharedDeaths
+	stand:
+		Start: 0
+		Facings: 8
+	stand2:
+		Start: 8
+		Facings: 8
+	parachute:
+		Start: 6
+	run:
+		Start: 24
+		Length: 6
+		Facings: 8
+		Tick: 80
+	shoot:
+		Start: 120
+		Length: 6
+		Facings: 8
+	prone-stand:
+		Start: 16
+		Facings: 8
+		Length: 1
+	prone-stand2:
+		Start: 16
+		Facings: 8
+		Length: 1
+	prone-run:
+		Start: 72
+		Length: 6
+		Facings: 8
+		Tick: 100
+	standup:
+		Start: 216
+		Length: 1
+		Facings: 8
+	prone-shoot:
+		Start: 168
+		Length: 6
+		Facings: 8
+	make:
+		Start: 233
+		Length: 16
+		Tick: 80
+	empty: empty
+	deployed-stand:
+		Facings: 8
+		Start: 350
+	deployed-shoot:
+		Facings: 8
+		Start: 358
+		Length: 6
+		Tick: 80
+	idle1:
+		Start: 250
+		Length: 17
+		Tick: 120
+	idle2:
+		Start: 265
+		Length: 13
+		Tick: 120
+	die1:
+		Start: 276
+		Length: 28
+		Tick: 40
+	die2:
+		Start: 276
+		Length: 28
+		Tick: 40
+	die3:
+		Start: 331
+		Length: 18
+		Tick: 40
+	die4:
+		Start: 331
+		Length: 18
+		Tick: 40
+	die5: tnkcmndr
+		Start: 246
+		Length: 18
+		Tick: 80
+	die6: electro
+		Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+		Length: *
+		Tick: 80
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	die-crushed: corpse1
+		Length: 6
+		Tick: 1600
+		ZOffset: -511
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	garrison-muzzle: minigun
+		Length: 12
+		Facings: 8
+		Combine:
+			minigun:
+				Length: 12
+				Frames: 0,1,2,3,4,5,0,1,2,3,4,5
+			minigun:
+				Length: 12
+				Frames: 6,7,8,9,10,11,6,7,8,9,10,11
+			minigun:
+				Length: 12
+				Frames: 12,13,14,15,16,17,12,13,14,15,16,17
+			minigun:
+				Length: 12
+				Frames: 18,19,20,21,22,23,18,19,20,21,22,23
+			minigun:
+				Length: 12
+				Frames: 24,25,26,27,28,29,24,25,26,27,28,29
+			minigun:
+				Length: 12
+				Frames: 30,31,32,33,34,35,30,31,32,33,34,35
+			minigun:
+				Length: 12
+				Frames: 36,37,38,39,40,41,36,37,38,39,40,41
+			minigun:
+				Length: 12
+				Frames: 42,43,44,45,46,47,42,43,44,45,46,47
+	icon: arditiicon
+
+arditi.deployed:
+	make: arditi
+		Start: 233
+		Length: 16
+		Tick: 80
+	stand: arditi
+		Facings: 8
+		Start: 350
+	shoot: arditi
+		Facings: 8
+		Start: 358
+		Length: 6
+		Tick: 80
+	die1: arditi
+		Start: 406
+		Length: 28
+		Tick: 40
+	die2: arditi
+		Start: 406
+		Length: 28
+		Tick: 40
+	die3: arditi
+		Start: 406
+		Length: 28
+		Tick: 40
+	die4: arditi
+		Start: 406
+		Length: 28
+		Tick: 40
+	die5: tnkcmndr
+		Start: 246
+		Length: 18
+		Tick: 80
+	die6: electro
+		Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+		Length: *
+		Tick: 80
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	die-crushed: corpse1
+		Length: 6
+		Tick: 1600
+		ZOffset: -511
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	garrison-muzzle: minigun
+		Length: 12
+		Facings: 8
+		Combine:
+			minigun:
+				Length: 12
+				Frames: 0,1,2,3,4,5,0,1,2,3,4,5
+			minigun:
+				Length: 12
+				Frames: 6,7,8,9,10,11,6,7,8,9,10,11
+			minigun:
+				Length: 12
+				Frames: 12,13,14,15,16,17,12,13,14,15,16,17
+			minigun:
+				Length: 12
+				Frames: 18,19,20,21,22,23,18,19,20,21,22,23
+			minigun:
+				Length: 12
+				Frames: 24,25,26,27,28,29,24,25,26,27,28,29
+			minigun:
+				Length: 12
+				Frames: 30,31,32,33,34,35,30,31,32,33,34,35
+			minigun:
+				Length: 12
+				Frames: 36,37,38,39,40,41,36,37,38,39,40,41
+			minigun:
+				Length: 12
+				Frames: 42,43,44,45,46,47,42,43,44,45,46,47
+	icon: arditiicon
+
 bolter:
+	Inherits: ^SharedDeaths
 	stand:
 		Facings: 8
 	stand2:
@@ -465,6 +664,7 @@ bolter:
 	icon: arcblastericon
 
 cyborg:
+	Inherits: ^SharedDeaths
 	stand:
 		Start: 0
 		Facings: 8
@@ -552,6 +752,7 @@ cyborg:
 	icon: cyborgicon
 
 guerilla:
+	Inherits: ^SharedDeaths
 	stand:
 		Start: 0
 		Facings: 8
@@ -573,6 +774,7 @@ guerilla:
 		Start: 350
 		Length: 6
 		Facings: 8
+		Tick: 80
 	prone-stand:
 		Start: 16
 		Facings: 8
@@ -598,6 +800,7 @@ guerilla:
 		Start: 398
 		Length: 6
 		Facings: 8
+		Tick: 80
 	idle1:
 		Start: 224
 		Length: 24
@@ -677,6 +880,7 @@ guerilla:
 	icon: guerillaicon
 
 flktrp:
+	Inherits: ^SharedDeaths
 	stand:
 		Start: 0
 		Facings: 8
@@ -763,7 +967,8 @@ flktrp:
 			INTERIOR: TEMPERAT
 	icon: flktrpicon
 
-e11:
+desolator:
+	Inherits: ^SharedDeaths
 	stand:
 		Start: 0
 		Facings: 8
@@ -781,7 +986,101 @@ e11:
 		Start: 120
 		Length: 6
 		Facings: 8
+		Tick: 35
+	prone-stand:
+		Start: 16
+		Facings: 8
+		Length: 1
+	prone-stand2:
+		Start: 16
+		Facings: 8
+		Length: 1
+	prone-run:
+		Start: 72
+		Length: 6
+		Facings: 8
+		Tick: 100
+	standup:
+		Start: 216
+		Length: 1
+		Facings: 8
+	make:
+		Start: 266
+		Length: 10
+	deployed-stand:
+		Start: 275
+	empty: empty
+	prone-shoot:
+		Start: 168
+		Length: 6
+		Facings: 8
+		Tick: 35
+	idle1:
+		Start: 224
+		Length: 24
+		Tick: 120
+	idle2:
+		Start: 250
+		Length: 18
+		Tick: 120
+	die1:
+		Start: 276
+		Length: 28
+		Tick: 40
+	die2:
+		Start: 276
+		Length: 28
+		Tick: 40
+	die3:
+		Start: 331
+		Length: 18
+		Tick: 40
+	die4:
+		Start: 331
+		Length: 18
+		Tick: 40
+	die5: tnkcmndr
+		Start: 246
+		Length: 18
 		Tick: 80
+	die6: electro
+		Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+		Length: *
+		Tick: 80
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	die-crushed: corpse1
+		Length: 6
+		Tick: 1600
+		ZOffset: -511
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	icon: desolatoricon
+
+e11:
+	Inherits: ^SharedDeaths
+	stand:
+		Start: 0
+		Facings: 8
+	stand2:
+		Start: 8
+		Facings: 8
+	parachute:
+		Start: 6
+	run:
+		Start: 24
+		Length: 6
+		Facings: 8
+		Tick: 80
+	shoot:
+		Start: 120
+		Length: 6
+		Facings: 8
+		Tick: 70
 	prone-stand:
 		Start: 16
 		Facings: 8
@@ -803,7 +1102,7 @@ e11:
 		Start: 168
 		Length: 6
 		Facings: 8
-		Tick: 80
+		Tick: 70
 	idle1:
 		Start: 224
 		Length: 24
@@ -879,6 +1178,7 @@ e11:
 	icon: e11icon
 
 hvgatling:
+	Inherits: ^SharedDeaths
 	stand:
 		Start: 0
 		Facings: 8
@@ -994,6 +1294,7 @@ hvgatling:
 	icon: hvgatlingicon
 
 wastetrooper:
+	Inherits: ^SharedDeaths
 	stand:
 		Start: 0
 		Facings: 8
@@ -1109,6 +1410,7 @@ wastetrooper:
 	icon: wastewarrioricon
 
 nightwitch:
+	Inherits: ^SharedDeaths
 	idle:
 		Start: 358
 		Facings: 8
@@ -1217,6 +1519,7 @@ nightwitchhusk:
 		Tick: 60
 
 politruk:
+	Inherits: ^SharedDeaths
 	stand:
 		Start: 0
 		Facings: 8
@@ -1302,6 +1605,7 @@ politruk:
 	icon: politrukicon
 
 officer:
+	Inherits: ^SharedDeaths
 	stand:
 		Start: 0
 		Facings: 8
@@ -1386,7 +1690,94 @@ officer:
 			INTERIOR: TEMPERAT
 	icon: officericon
 
+artilleryobserver:
+	Inherits: ^SharedDeaths
+	stand:
+		Start: 0
+		Facings: 8
+	stand2:
+		Start: 8
+		Facings: 8
+	parachute:
+		Start: 6
+	run:
+		Start: 24
+		Length: 6
+		Facings: 8
+		Tick: 80
+	shoot:
+		Start: 120
+		Length: 6
+		Facings: 8
+	prone-stand:
+		Start: 16
+		Facings: 8
+		Length: 1
+	prone-stand2:
+		Start: 16
+		Facings: 8
+		Length: 1
+	prone-run:
+		Start: 72
+		Length: 6
+		Facings: 8
+		Tick: 100
+	standup:
+		Start: 216
+		Length: 1
+		Facings: 8
+	prone-shoot:
+		Start: 168
+		Length: 6
+		Facings: 8
+	idle1:
+		Start: 250
+		Length: 11
+		Tick: 120
+	idle2:
+		Start: 262
+		Length: 14
+		Tick: 120
+	die1:
+		Start: 276
+		Length: 28
+		Tick: 40
+	die2:
+		Start: 276
+		Length: 28
+		Tick: 40
+	die3:
+		Start: 331
+		Length: 18
+		Tick: 40
+	die4:
+		Start: 331
+		Length: 18
+		Tick: 40
+	die5: tnkcmndr
+		Start: 246
+		Length: 18
+		Tick: 80
+	die6: electro
+		Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+		Length: *
+		Tick: 80
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	die-crushed: corpse1
+		Length: 6
+		Tick: 1600
+		ZOffset: -511
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	icon: artilleryobservericon
+
 tnkcmndr:
+	Inherits: ^SharedDeaths
 	stand:
 		Start: 0
 		Facings: 8
@@ -1471,6 +1862,7 @@ deadinfantry:
 		ZOffset: -100
 
 kulak:
+	Inherits: ^SharedDeaths
 	stand:
 		Facings: 8
 	stand2:
@@ -1528,6 +1920,7 @@ kulak:
 	icon: kulakicon
 
 arz:
+	Inherits: ^SharedDeaths
 	stand:
 		Start: 0
 		Facings: -8
@@ -1602,6 +1995,7 @@ arz:
 	icon: arzicon
 
 e1:
+	Inherits: ^SharedDeaths
 	stand:
 		Facings: 8
 	stand2:
@@ -1718,6 +2112,7 @@ e1:
 	icon: e1icon
 
 sniper:
+	Inherits: ^SharedDeaths
 	stand:
 		Facings: 8
 	stand2:
@@ -1808,6 +2203,7 @@ sniper:
 	icon: snipericon
 
 e3:
+	Inherits: ^SharedDeaths
 	stand:
 		Facings: 8
 	stand2:
@@ -1888,6 +2284,7 @@ e3:
 	icon: e3icon
 
 e6:
+	Inherits: ^SharedDeaths
 	stand:
 		Facings: 8
 	stand2:
@@ -1960,6 +2357,7 @@ e6:
 	icon: e6icon
 
 medi:
+	Inherits: ^SharedDeaths
 	stand:
 		Facings: 8
 	run:
@@ -2027,6 +2425,7 @@ medi:
 	icon: mediicon
 
 mech:
+	Inherits: ^SharedDeaths
 	stand:
 		Facings: 8
 	run:
@@ -2094,6 +2493,7 @@ mech:
 	icon: mechicon
 
 e2:
+	Inherits: ^SharedDeaths
 	stand:
 		Facings: 8
 	stand2:
@@ -2174,6 +2574,7 @@ e2:
 	icon: e2icon
 
 mltvthrwr:
+	Inherits: ^SharedDeaths
 	stand:
 		Facings: 8
 	stand2:
@@ -2254,6 +2655,7 @@ mltvthrwr:
 	icon: mltvthrwricon
 
 saboteur:
+	Inherits: ^SharedDeaths
 	stand:
 		Start: 0
 		Facings: -8
@@ -2325,79 +2727,8 @@ saboteur:
 			INTERIOR: TEMPERAT
 	icon: saboteuricon
 
-scout:
-	stand:
-		Start: 0
-		Facings: -8
-	idle1:
-		Start: 145
-		Length: 8
-		Tick: 80
-	idle2:
-		Start: 152
-		Length: 8
-		Tick: 80
-	run:
-		Start: 8
-		Length: 6
-		Facings: -8
-		Tick: 120
-	prone-stand:
-		Frames: 64, 68, 72, 76, 80, 84, 88, 92
-		Facings: -8
-	prone-run:
-		Start: 64
-		Length: 4
-		Facings: -8
-		Tick: 120
-	standup:
-		Start: 56
-		Facings: -8
-		Tick: 120
-	shoot:
-		Start: 161
-		Facings: -8
-		Length: 6
-	prone-shoot:
-		Start: 209
-		Facings: -8
-		Length: 6
-	die1:
-		Start: 96
-		Length: 12
-		Tick: 80
-	die2:
-		Start: 108
-		Length: 12
-		Tick: 80
-	die3:
-		Start: 120
-		Length: 8
-		Tick: 80
-	die4:
-		Start: 128
-		Length: 8
-		Tick: 80
-	die5: e1
-		Start: 324
-		Length: 18
-		Tick: 80
-	die-crushed:
-		Start: 136
-		Length: 8
-		Tick: 800
-		ZOffset: -511
-	die6: electro
-		Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
-		Length: *
-		Tick: 80
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
-	icon: scouticon
-
 dog:
+	Inherits: ^SharedDeaths
 	stand:
 		Facings: 8
 	walk:
@@ -2460,6 +2791,7 @@ dog:
 	icon: dogicon
 
 spy:
+	Inherits: ^SharedDeaths
 	stand:
 		Facings: 8
 	stand2:
@@ -2538,6 +2870,7 @@ spy:
 	icon: spyicon
 
 thf:
+	Inherits: ^SharedDeaths
 	stand:
 		Facings: 8
 	run:
@@ -2597,6 +2930,7 @@ thf:
 	icon: thficon
 
 e7:
+	Inherits: ^SharedDeaths
 	stand:
 		Facings: 8
 	run:
@@ -2716,6 +3050,7 @@ e7:
 	icon: e7icon
 
 e4:
+	Inherits: ^SharedDeaths
 	stand:
 		Facings: 8
 	stand2:
@@ -2796,6 +3131,7 @@ e4:
 	icon: e4icon
 
 gnrl:
+	Inherits: ^SharedDeaths
 	stand:
 		Facings: 8
 	run:
@@ -2865,95 +3201,8 @@ gnrl:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 
-shok:
-	stand:
-		Facings: 8
-	stand2:
-		Start: 8
-		Facings: 8
-	run:
-		Start: 16
-		Length: 6
-		Facings: 8
-		Tick: 120
-	shoot:
-		Start: 64
-		Length: 16
-		Facings: 8
-	prone-stand:
-		Start: 208
-		Stride: 4
-		Facings: 8
-	prone-stand2:
-		Start: 208
-		Stride: 4
-		Facings: 8
-	prone-run:
-		Start: 208
-		Length: 4
-		Facings: 8
-		Tick: 120
-	liedown:
-		Start: 192
-		Length: 2
-		Facings: 8
-	standup:
-		Start: 240
-		Length: 2
-		Facings: 8
-	prone-shoot:
-		Start: 256
-		Length: 16
-		Facings: 8
-	parachute:
-		Start: 528
-	idle1:
-		Start: 384
-		Length: 14
-		Tick: 120
-	idle2:
-		Start: 399
-		Length: 16
-		Tick: 120
-	die1:
-		Start: 416
-		Length: 8
-		Tick: 80
-	die2:
-		Start: 424
-		Length: 8
-		Tick: 80
-	die3:
-		Start: 432
-		Length: 8
-		Tick: 80
-	die4:
-		Start: 440
-		Length: 12
-		Tick: 80
-	die5:
-		Start: 452
-		Length: 18
-		Tick: 80
-	die6: electro
-		Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
-		Length: *
-		Tick: 80
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
-	die-crushed: corpse1
-		Length: 6
-		Tick: 1600
-		ZOffset: -511
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
-	icon: shokicon
-
 c1:
+	Inherits: ^SharedDeaths
 	stand:
 		Facings: 8
 	panic-stand:
@@ -3009,6 +3258,7 @@ c1:
 		Tick: 80
 
 c2:
+	Inherits: ^SharedDeaths
 	stand:
 		Facings: 8
 	panic-stand:
@@ -3064,6 +3314,7 @@ c2:
 		Tick: 80
 
 c11:
+	Inherits: ^SharedDeaths
 	stand:
 		Facings: 8
 	panic-stand:
@@ -3119,6 +3370,7 @@ c11:
 		Tick: 80
 
 einstein:
+	Inherits: ^SharedDeaths
 	stand:
 		Facings: 8
 	panic-stand:
@@ -3170,6 +3422,7 @@ einstein:
 			INTERIOR: TEMPERAT
 
 delphi:
+	Inherits: ^SharedDeaths
 	stand:
 		Facings: 8
 	panic-stand:
@@ -3221,6 +3474,7 @@ delphi:
 			INTERIOR: TEMPERAT
 
 chan:
+	Inherits: ^SharedDeaths
 	stand:
 		Facings: 8
 	panic-stand:
@@ -3272,16 +3526,20 @@ chan:
 			INTERIOR: TEMPERAT
 
 zombie:
+	Inherits: ^SharedDeaths
 	stand:
 		Facings: 8
-	stand2:
+	idle:
 		Start: 8
 		Facings: 8
-	run:
+	move:
 		Start: 16
 		Length: 6
 		Facings: 8
 		Tick: 100
+	make: zombiemake
+		Length: *
+		Tick: 150
 	bite:
 		Start: 64
 		Length: 4
@@ -3328,73 +3586,8 @@ zombie:
 			INTERIOR: TEMPERAT
 	icon: zombicon
 
-ant:
-	stand: ant1
-		Facings: 8
-	run: ant1
-		Start: 8
-		Length: 8
-		Facings: 8
-	bite: ant1
-		Start: 72
-		Length: 4
-		Facings: 8
-	die: ant1
-		Start: 104
-		Length: 8
-		Tick: 300
-	die-crushed: ant1
-		Start: 104
-		Length: 8
-		Tick: 400
-		ZOffset: -511
-	icon: anticon
-
-fireant:
-	stand: ant2
-		Facings: 8
-	run: ant2
-		Start: 8
-		Length: 8
-		Facings: 8
-	bite: ant2
-		Start: 72
-		Length: 4
-		Facings: 8
-	die: ant2
-		Start: 104
-		Length: 8
-		Tick: 300
-	die-crushed: ant2
-		Start: 104
-		Length: 8
-		Tick: 400
-		ZOffset: -511
-	icon: anticon
-
-scoutant:
-	stand: ant3
-		Facings: 8
-	run: ant3
-		Start: 8
-		Length: 8
-		Facings: 8
-	bite: ant3
-		Start: 72
-		Length: 4
-		Facings: 8
-	die: ant3
-		Start: 104
-		Length: 8
-		Tick: 300
-	die-crushed: ant3
-		Start: 104
-		Length: 8
-		Tick: 400
-		ZOffset: -511
-	icon: anticon
-
 saboteur:
+	Inherits: ^SharedDeaths
 	stand:
 		Start: 0
 		Facings: -8
@@ -3472,6 +3665,7 @@ saboteur:
 	icon: saboteuricon
 	
 scvn:
+	Inherits: ^SharedDeaths
 	stand:
 		Facings: 8
 	run:
@@ -3539,6 +3733,7 @@ scvn:
 	icon: salvagericon
 
 strmtrpr:
+	Inherits: ^SharedDeaths
 	stand:
 		Start: 0
 		Facings: -8
@@ -3616,9 +3811,10 @@ strmtrpr:
 		Length: 8
 		Tick: 800
 		ZOffset: -511
-	icon: stormtroopericon
+	icon: refractorguardicon
 
 specop:
+	Inherits: ^SharedDeaths
 	stand:
 		Start: 0
 		Facings: -8
@@ -3738,6 +3934,7 @@ specop:
 	icon: specopicon
 	
 militia:
+	Inherits: ^SharedDeaths
 	stand:
 		Facings: 8
 	stand2:
@@ -3828,206 +4025,9 @@ militia:
 		Stride: 6
 		Facings: 8
 	icon: militiaicon
-	
-mort:
-	Defaults:
-		Offset: 6,-10
-	stand: mort2
-		Facings: 8
-	stand2: mort2
-		Facings: 8
-	run: mort2
-		Start: 16
-		Length: 6
-		Facings: 8
-		Tick: 100
-	throw: mort2
-		Start: 64
-		Length: 20
-		Facings: 8
-	liedown: mort2
-		Start: 224
-		Length: 2
-		Facings: 8
-	standup: mort2
-		Start: 272
-		Length: 2
-		Facings: 8
-	prone-stand: mort2
-		Start: 240
-		Stride: 4
-		Facings: 8
-	prone-stand2: mort2
-		Start: 240
-		Stride: 4
-		Facings: 8
-	prone-run: mort2
-		Start: 240
-		Length: 4
-		Facings: 8
-		Tick: 100
-	prone-throw: mort2
-		Start: 288
-		Length: 12
-		Facings: 8
-	idle1: mort2
-		Start: 384
-		Length: 16
-		Tick: 120
-	idle2: mort2
-		Start: 400
-		Length: 16
-		Tick: 120
-	cheer: mort2
-		Start: 494
-		Length: 3
-		Facings: 8
-		Tick: 120
-	die1: mort2
-		Start: 416
-		Length: 9
-		Tick: 80
-	die2: mort2
-		Start: 424
-		Length: 8
-		Tick: 80
-	die3: mort2
-		Start: 432
-		Length: 8
-		Tick: 80
-	die4: mort2
-		Start: 440
-		Length: 12
-		Tick: 80
-	die5: mort2
-		Start: 452
-		Length: 18
-		Tick: 80
-	die6: electro
-		Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
-		Length: *
-		Tick: 80
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
-	die7: mort2
-		Start: 416
-		Length: 9
-		Tick: 80
-	die-crushed: corpse1
-		Length: 6
-		Tick: 1600
-		ZOffset: -511
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
-	icon: mortaricon
-		Offset: 0,0
-
-tslman:
-	stand: 
-		Start: 0
-		Facings: -8
-		Transpose: true
-		Offset: 8,-3
-	stand2:
-		Start: 0
-		Facings: -8
-		Transpose: true
-		Offset: 8,-3
-	parachute:
-		Start: 6
-	idle1: 
-		Frames: 181, 188, 195, 202, 209, 216, 223, 230
-		Length: 8
-		Tick: 80
-		Offset: 8,-3
-	idle2: 
-		Frames: 182, 189, 196, 203, 210, 217, 223, 231
-		Length: 8
-		Tick: 80
-		Offset: 8,-3
-	run: 
-		Start: 8
-		Length: 6
-		Facings: -8
-		Transpose: true
-		Tick: 120
-		Offset: 8,-3
-	shoot: 
-		Start: 48
-		Length: 6
-		Facings: -8
-		Transpose: true
-		Offset: 8,-3
-	prone-stand: 
-		Start: 104
-		Facings: -8
-		Transpose: true
-		Offset: 6,4
-	prone-run: 
-		Start: 112
-		Length: 3
-		Facings: -8
-		Transpose: true
-		Tick: 120
-		Offset: 6,4
-	standup: 
-		Start: 96
-		Facings: -8
-		Transpose: true
-		Tick: 120
-		Offset: 8,-3
-	prone-shoot: 
-		Start: 128
-		Length: 6
-		Facings: -8
-		Transpose: true
-		Offset: 6,4
-	die1: 
-		Frames: 176, 183, 190, 197, 204, 211, 218, 225, 232, 233, 234, 235
-		Length: 12
-		Tick: 80
-		Offset: 8,-3
-	die2: 
-		Frames: 177, 184, 191, 198, 205, 212, 219, 226
-		Length: 8
-		Tick: 80
-		Offset: 8,-3
-	die3: 
-		Frames: 178, 185, 192, 199, 206, 213, 220, 227
-		Length: 8
-		Tick: 80
-		Offset: 8,-3
-	die4: 
-		Frames: 179, 186, 193, 200, 207, 214, 221, 228
-		Length: 8
-		Tick: 80
-		Offset: 8,-3
-	die5:
-		Frames: 179, 186, 193, 200, 207, 214, 221, 228
-		Length: 8
-		Tick: 80
-		Offset: 8,-3
-	die6: electro
-		Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
-		Length: *
-		Tick: 80
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
-	die-crushed: 
-		Frames: 180, 187, 194, 201, 208, 215, 222, 229
-		Length: 8
-		Tick: 800
-		Offset: 8,-3
-		ZOffset: -511
-	icon: tslmanicon
 
 pneer:
+	Inherits: ^SharedDeaths
 	stand:
 		Facings: 8
 	run:
@@ -4092,6 +4092,84 @@ pneer:
 		Length: 4
 		Facings: 8
 		Tick: 100
+	stand-2:
+		Facings: 8
+		Offset: -10,-10
+	run-2:
+		Start: 8
+		Length: 6
+		Facings: 8
+		Tick: 100
+		Offset: -10,-10
+	repair-2:
+		Start: 56
+		Length: 58
+		Tick: 120
+		Offset: -10,-10
+	standup-2:
+		Start: 114
+		Length: 2
+		Facings: 8
+		Offset: -10,-10
+	idle-2:
+		Start: 178
+		Length: 14
+		Tick: 120
+		Offset: -10,-10
+	die9:
+		Start: 193
+		Length: 8
+		Tick: 80
+		Offset: -10,-10
+	die10:
+		Start: 201
+		Length: 8
+		Tick: 80
+		Offset: -10,-10
+	die11:
+		Start: 209
+		Length: 8
+		Tick: 80
+		Offset: -10,-10
+	die12:
+		Start: 217
+		Length: 12
+		Tick: 80
+		Offset: -10,-10
+	die13:
+		Start: 229
+		Length: 18
+		Tick: 80
+		Offset: -10,-10
+	die14: electro
+		Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+		Length: *
+		Tick: 80
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+		Offset: -10,-10
+	die-crushed-2: corpse1
+		Length: 6
+		Tick: 1600
+		ZOffset: -511
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+		Offset: -10,-10
+	prone-stand-2:
+		Start: 130
+		Stride: 4
+		Facings: 8
+		Offset: -10,-10
+	prone-run-2:
+		Start: 130
+		Length: 4
+		Facings: 8
+		Tick: 100
+		Offset: -10,-10
 	icon: pneericon
 
 cavalry:
@@ -4154,87 +4232,9 @@ cavalry:
 		Facings: 8
 		Scale: 1.5
 	icon: cavalryicon
-	
-emprocketeer:
-	Defaults:
-		Offset: 6,-10
-	stand:
-		Facings: 8
-	stand2:
-		Start: 8
-		Facings: 8
-	run:
-		Start: 16
-		Length: 6
-		Facings: 8
-		Tick: 120
-	shoot:
-		Start: 64
-		Length: 8
-		Facings: 8
-	parachute:
-		Start: 393
-	idle1:
-		Start: 272
-		Length: 14
-		Tick: 120
-	idle2:
-		Start: 287
-		Length: 16
-		Tick: 120
-	die1:
-		Start: 304
-		Length: 8
-		Tick: 80
-	die2:
-		Start: 312
-		Length: 8
-		Tick: 80
-	die3:
-		Start: 320
-		Length: 8
-		Tick: 80
-	die4:
-		Start: 328
-		Length: 12
-		Tick: 80
-	die5:
-		Start: 340
-		Length: 18
-		Tick: 80
-	die6: electro
-		Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
-		Length: *
-		Tick: 80
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
-	die-crushed: corpse1
-		Length: 6
-		Tick: 1600
-		ZOffset: -511
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
-	prone-stand:
-		Start: 128
-		Length: 2
-		Facings: 8
-	prone-run:
-		Start: 144
-		Length: 4
-		Facings: 8
-		Tick: 120
-	prone-shoot:
-		Start: 192
-		Length: 10
-		Facings: 8
-	icon: emprocketeericon
-		Offset: 0,0
 		
 shinobi:
+	Inherits: ^SharedDeaths
 	stand:
 		Start: 0
 		Facings: -8

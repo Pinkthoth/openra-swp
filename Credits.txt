@@ -5,7 +5,28 @@ Sounds
 -Homo Sovieticus sounds: GenesisAria at PPM Forums
 -Missiles: TRUEGRIT at PPM Forums
 -Magnetic ray: ConMan at PPM Forums, sound from State of War
+-Missiles: lazygecko on Discord
 
 Graphics:
 -Poison gas effect: ppap1140 at PPM Forums
 -Poison cloud: toadnuke
+-Energy disc: Volkov T-666
+-Acid death: Atomic Noodles
+-Propaganda effect: Volkov T-666
+-Lazarus Ray effect: ppap11404
+-Stealth shield effect: ppap11404
+-Supercharge effect: Volkov T-666
+-Chrono Haste effect: Volkov T-666
+-Magnetic suspension effect: ppap11404
+
+Civilian buildings
+-EoralMilk
+
+Isometric RA tiles
+-BittahCommander
+
+Various icons
+-Mig Eater from Revora.net
+
+Civilian nuclear plant warning sound
+-Missile Alert by BOMB SIREN at SoundBible

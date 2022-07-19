@@ -20,7 +20,8 @@ HARV:
 	Harvester:
 		Capacity: 20
 		Resources: Ore,Gems
-		BaleUnloadDelay: 1
+		BaleLoadDelay: 12
+		BaleUnloadDelay: 6
 		SearchFromProcRadius: 15
 		SearchFromHarvesterRadius: 8
 		HarvestFacings: 8
@@ -218,8 +219,58 @@ TRUK:
 		PlayerExperience: 50
 	SpawnActorOnDeath:
 		Actor: moneycrate
-		
+
 #zentrum units
+BIKE:
+	Inherits: ^TrackedVehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 95
+		Prerequisites: ~disabled, ~vehicles.japan, ~techlevel.low
+		Description: Fast scouting unit.\n	Strong vs Infantry\n  Weak vs Tanks, Aircraft
+	Valued:
+		Cost: 375
+	Tooltip:
+		Name: Recon Bike
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 5500
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 160
+		TurnSpeed: 25
+		Locomotor: smallwheels
+		PauseOnCondition: being-captured
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 5c512
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c512
+	Armament@primary:
+		Weapon: Uzi
+		Name: primary
+		LocalOffset: 300,130,260
+		MuzzleSequence: muzzle
+	Armament@secondary:
+		Weapon: Uzi
+		Name: secondary
+		LocalOffset: 300,-130,260
+		MuzzleSequence: muzzle
+	AttackFrontal:
+		PauseOnCondition: turnedoff
+		Armaments: primary, secondary
+	WithMuzzleOverlay:
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
+	Explodes:
+		EmptyWeapon: SmallUnitExplode
+		Weapon: SmallUnitExplode
+
 ARMCR:
 	Inherits: ^Vehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
@@ -251,13 +302,13 @@ ARMCR:
 		Range: 4c0
 	Turreted:
 		TurnSpeed: 40
-		Offset: -30,0,280
+		Offset: -30,0,330
 	Armament:
-		Weapon: M60mg
+		Weapon: M60mg-Bobcat
 		MuzzleSequence: muzzle
-		LocalOffset: 220,0,140
+		LocalOffset: 230,0,50
 	AttackTurreted:
-		PauseOnCondition: empdisable
+		PauseOnCondition: turnedoff
 	WithMuzzleOverlay:
 	WithSpriteTurret:
 	ProducibleWithLevel:
@@ -311,13 +362,13 @@ HLFTRK:
 		Range: 4c0
 	Turreted:
 		TurnSpeed: 40
-		Offset: -60,0,200
+		Offset: -60,0,330
 	Armament:
 		Weapon: HLFTRKGUN
 		MuzzleSequence: muzzle
-		LocalOffset: 220,0,100
+		LocalOffset: 200,0,20
 	AttackTurreted:
-		PauseOnCondition: empdisable
+		PauseOnCondition: turnedoff
 	WithMuzzleOverlay:
 	WithSpriteTurret:
 	Cargo:
@@ -372,15 +423,15 @@ PUMA:
 		Range: 4c0
 	Turreted:
 		TurnSpeed: 28
-		Offset: 100,0,250
+		Offset: 100,0,300
 	Armament:
 		Weapon: 25mm
 		Recoil: 85
 		RecoilRecovery: 25
-		LocalOffset: 750,0,150
+		LocalOffset: 500,0,30
 		MuzzleSequence: muzzle
 	AttackTurreted:
-		PauseOnCondition: empdisable
+		PauseOnCondition: turnedoff
 	WithMuzzleOverlay:
 	WithSpriteTurret:
 	ProducibleWithLevel:
@@ -417,13 +468,13 @@ PRISMCANNON:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 30000
+		HP: 29000
 	Armor:
 		Type: Medium
 	Mobile:
 		Speed: 65
 		TurnSpeed: 10
-		PauseOnCondition: being-captured || empdisable
+		PauseOnCondition: being-captured || turnedoff
 	RevealsShroud:
 		MinRange: 4c0
 		Range: 5c0
@@ -437,7 +488,7 @@ PRISMCANNON:
 		LocalOffset: 800,0,240
 		MuzzleSequence: muzzle
 	AttackFrontal:
-		PauseOnCondition: empdisable
+		PauseOnCondition: turnedoff
 	WithMuzzleOverlay:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
@@ -476,21 +527,16 @@ HVTNK:
 		Range: 4c0
 	Turreted:
 		TurnSpeed: 20
-		Offset: 30,0,210
+		Offset: 30,0,300
 	Armament:
 		Weapon: hvtnkfire
 		Name: primary
 		Recoil: 128
 		RecoilRecovery: 38
-		LocalOffset: 1000,0,80
+		LocalOffset: 850,0,0
 		MuzzleSequence: muzzle
-	Armament@MG:
-		Weapon: TNKMG
-		Name: secondary
-		LocalOffset: 0,-100,50
-		MuzzleSequence: muzzle-mg
 	AttackTurreted:
-		PauseOnCondition: empdisable
+		PauseOnCondition: turnedoff
 	WithMuzzleOverlay:
 	WithSpriteTurret:
 	SpawnActorOnDeath:
@@ -515,60 +561,11 @@ HVTNK.Husk:
 	RenderSprites:
 		Image: hvtnk
 
-BIKE:
-	Inherits: ^TrackedVehicle
-	Inherits@GAINSEXPERIENCE: ^GainsExperience
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 95
-		Prerequisites: ~vehicles.germany, ~techlevel.low
-		Description: Fast scouting unit.\n	Strong vs Infantry\n  Weak vs Tanks, Aircraft
-	Valued:
-		Cost: 350
-	Tooltip:
-		Name: Recon Bike
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Health:
-		HP: 5500
-	Armor:
-		Type: Light
-	Mobile:
-		Speed: 160
-		TurnSpeed: 25
-		Locomotor: smallwheels
-		PauseOnCondition: being-captured
-	RevealsShroud:
-		MinRange: 4c0
-		Range: 5c512
-		RevealGeneratedShroud: False
-	RevealsShroud@GAPGEN:
-		Range: 4c512
-	Armament@primary:
-		Weapon: Uzi
-		Name: primary
-		LocalOffset: 300,130,260
-		MuzzleSequence: muzzle
-	Armament@secondary:
-		Weapon: Uzi
-		Name: secondary
-		LocalOffset: 300,-130,260
-		MuzzleSequence: muzzle
-	AttackFrontal:
-		PauseOnCondition: empdisable
-		Armaments: primary, secondary
-	WithMuzzleOverlay:
-	ProducibleWithLevel:
-		Prerequisites: vehicles.upgraded
-	Explodes:
-		EmptyWeapon: SmallUnitExplode
-		Weapon: SmallUnitExplode
-
 V2RL:
 	Inherits: ^Vehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@artilleryobserver: ^ArtilleryObservable
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 230
@@ -602,7 +599,7 @@ V2RL:
 	AttackFrontal:
 		TargetFrozenActors: True
 		ForceFireIgnoresActors: True
-		PauseOnCondition: empdisable
+		PauseOnCondition: turnedoff
 	WithFacingSpriteBody:
 		RequiresCondition: !reloading
 		Name: loaded
@@ -634,7 +631,7 @@ MSAM:
 		Description: Mobile surface to air missile platform.\n	Strong vs Aircraft\n  Weak vs Infantry, Vehicles.
 	Mobile:
 		Locomotor: lighttracked
-		Speed: 100
+		Speed: 72
 		TurnSpeed: 28
 	Health:
 		HP: 18000
@@ -655,7 +652,7 @@ MSAM:
 		Ammo: 2
 		AmmoCondition: ammo
 	AttackTurreted:
-		PauseOnCondition: empdisable
+		PauseOnCondition: turnedoff
 	WithSpriteTurret:
 		RequiresCondition: ammo > 1
 	WithSpriteTurret@OneMissile:
@@ -671,6 +668,8 @@ MSAM:
 		Count: 1
 	SpawnActorOnDeath:
 		Actor: MSAM.Husk
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
 
 MSAM.Husk:
 	Inherits: ^Husk
@@ -721,7 +720,7 @@ ECTNK:
 		LocalOffset: 620,0,151
 		MuzzleSequence: muzzle
 	AttackFrontal:
-		PauseOnCondition: empdisable
+		PauseOnCondition: turnedoff
 	WithMuzzleOverlay:
 	PortableChrono:
 		ChargeDelay: 250
@@ -844,10 +843,10 @@ MAUS:
 		Weapon: MausCannon
 		Recoil: 128
 		RecoilRecovery: 38
-		LocalOffset: 1100,60,200
+		LocalOffset: 1000,60,100
 		MuzzleSequence: muzzle
 	AttackFrontal:
-		PauseOnCondition: empdisable
+		PauseOnCondition: turnedoff
 	WithMuzzleOverlay:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
@@ -868,58 +867,6 @@ MAUS.Husk:
 		IntoActor: MAUS
 	RenderSprites:
 		Image: maus
-
-SONIQUE:
-	Inherits: ^TrackedVehicle
-	Inherits@EXPERIENCE: ^GainsExperience
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Valued:
-		Cost: 1750
-	Tooltip:
-		Name: Sonique
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 340
-		Prerequisites: dome, ~vehicles.turkey, ~techlevel.medium
-		Description: Shoots a long cone of flame\nand leaves the ground burning.\n Strong vs. Infantry, Buildings.\n Weak vs. Tanks, Aircraft.
-	Mobile:
-		TurnSpeed: 20
-		Speed: 56
-	Health:
-		HP: 47000
-	Repairable:
-		HpPerStep: 2046
-	Armor:
-		Type: Heavy
-	RevealsShroud:
-		Range: 6c0
-	Armament:
-		Weapon: soniczap
-		LocalOffset: 330,0,150
-	AttackFrontal:
-		PauseOnCondition: empdisable
-	Explodes:
-		Weapon: V2Explode
-	Selectable:
-		DecorationBounds: 32,32
-	WithMuzzleOverlay:
-	SpawnActorOnDeath:
-		Actor: SONIQUE.Husk
-
-SONIQUE.Husk:
-	Inherits: ^Husk
-	Tooltip:
-		Name: Husk (Sonique)
-	TransformOnCapture@Mechanic:
-		IntoActor: SONIQUE
-	TransformOnCapture@Engineer:
-		IntoActor: SONIQUE
-	InfiltrateForTransform:
-		IntoActor: SONIQUE
-	RenderSprites:
-		Image: sonique
 
 MRJ:
 	Inherits: ^Vehicle
@@ -961,7 +908,7 @@ MRJ:
 	JamsMissiles:
 		Range: 5c0
 		DeflectionRelationships: Neutral, Enemy
-		RequiresCondition: !empdisable
+		RequiresCondition: !turnedoff
 	RenderJammerCircle:
 	SpawnActorOnDeath:
 		Actor: MRJ.Husk
@@ -1057,7 +1004,7 @@ FTRK:
 		Range: 4c0
 	Turreted:
 		TurnSpeed: 40
-		Offset: -298,0,298
+		Offset: -278,0,345
 	Armament@AA:
 		Weapon: FLAK-23-AA
 		Recoil: 85
@@ -1069,7 +1016,7 @@ FTRK:
 		LocalOffset: 512,0,192
 		MuzzleSequence: muzzle
 	AttackTurreted:
-		PauseOnCondition: empdisable
+		PauseOnCondition: turnedoff
 	WithMuzzleOverlay:
 	WithSpriteTurret:
 	ProducibleWithLevel:
@@ -1125,10 +1072,10 @@ TNKT:
 		Range: 4c0
 	Armament:
 		Weapon: TNKT
-		LocalOffset: 270,0,260
+		LocalOffset: 280,0,310
 		MuzzleSequence: muzzle
 	AttackFrontal:
-		PauseOnCondition: empdisable
+		PauseOnCondition: turnedoff
 	WithMuzzleOverlay:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
@@ -1147,6 +1094,64 @@ TNKT.Husk:
 		IntoActor: TNKT
 	RenderSprites:
 		Image: tnkt
+
+TRAKTOR:
+	Inherits: ^TrackedVehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 332
+		Prerequisites: stek, ~vehicles.ukraine, ~techlevel.high
+		Description: Heavy magnetic tank that debilitates it's target.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Traktor
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 45000
+	Armor:
+		Type: Medium
+	Mobile:
+		Speed: 60
+		PauseOnCondition: being-captured
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 5c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	Armament:
+		Weapon: TraktorBeam
+		LocalOffset: 350,0,290
+	AttackFrontal:
+		PauseOnCondition: turnedoff
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
+	SpawnActorOnDeath:
+		Actor: TRAKTOR.Husk
+	AmbientSound:
+		SoundFiles: magnetic_sound.aud
+		Delay: 0
+		Interval: 250
+		RequiresCondition: attacking
+	GrantConditionOnAttack:
+		Condition: attacking
+
+TRAKTOR.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Traktor)
+	TransformOnCapture@Mechanic:
+		IntoActor: TRAKTOR
+	TransformOnCapture@Engineer:
+		IntoActor: TRAKTOR
+	InfiltrateForTransform:
+		IntoActor: TRAKTOR
+	RenderSprites:
+		Image: traktor
 
 BTR:
 	Inherits: ^TrackedVehicle
@@ -1182,13 +1187,13 @@ BTR:
 		Weapon: 25mm-btr
 		Recoil: 85
 		RecoilRecovery: 25
-		LocalOffset: 508,0,90
+		LocalOffset: 250,0,30
 		MuzzleSequence: muzzle
 	Turreted:
-		Offset: 120,0,250
+		Offset: 120,0,310
 		TurnSpeed: 28
 	AttackTurreted:
-		PauseOnCondition: empdisable
+		PauseOnCondition: turnedoff
 	WithSpriteTurret:
 	WithMuzzleOverlay:
 	Cargo:
@@ -1212,6 +1217,66 @@ BTR.Husk:
 		IntoActor: BTR
 	RenderSprites:
 		Image: btr
+
+MARAUDER:
+	Inherits: ^Vehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 50
+		Prerequisites: ~vehicles.mongolia, ~techlevel.low
+		Description: Fast scout & anti-infantry vehicle.\nCan carry one infantry.\n	 Strong vs Infantry\n  Weak vs Vehicles, Aircraft
+	Valued:
+		Cost: 500
+	RenderSprites:
+		Image: bggy
+	Tooltip:
+		Name: Marauder
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 15000
+	Armor:
+		Type: Light
+	Mobile:
+		TurnSpeed: 40
+		Speed: 150
+		PauseOnCondition: being-captured
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 8c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	Turreted:
+		TurnSpeed: 40
+		Offset: 0,0,128
+	Armament:
+		Weapon: M60mg
+		MuzzleSequence: muzzle
+		LocalOffset: 145,0,43
+	AttackTurreted:
+		PauseOnCondition: turnedoff
+	WithMuzzleOverlay:
+	WithSpriteTurret:
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
+	SpawnActorOnDeath:
+		Actor: MARAUDER.Husk
+
+MARAUDER.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Marauder)
+	TransformOnCapture@Mechanic:
+		IntoActor: MARAUDER
+	TransformOnCapture@Engineer:
+		IntoActor: MARAUDER
+	InfiltrateForTransform:
+		IntoActor: MARAUDER
+	RenderSprites:
+		Image: bggy
 
 MTNK:
 	Inherits: ^TrackedVehicle
@@ -1248,15 +1313,10 @@ MTNK:
 		Weapon: 90mm
 		Recoil: 128
 		RecoilRecovery: 38
-		LocalOffset: 750,0,80
+		LocalOffset: 750,0,50
 		MuzzleSequence: muzzle
-	Armament@MG:
-		Weapon: TNKMG
-		Name: secondary
-		LocalOffset: 0,-100,50
-		MuzzleSequence: muzzle-mg
 	AttackTurreted:
-		PauseOnCondition: empdisable
+		PauseOnCondition: turnedoff
 	WithMuzzleOverlay:
 	WithSpriteTurret:
 	SpawnActorOnDeath:
@@ -1285,6 +1345,7 @@ TEMPLAR:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@supercharged: ^SuperchargeTesla
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 510
@@ -1315,10 +1376,14 @@ TEMPLAR:
 		Offset: 0,0,0
 	Armament:
 		Weapon: TTankZap
-		RecoilRecovery: 38
 		LocalOffset: 820,0,120
+		RequiresCondition: !supercharged
+	Armament@charged:
+		Weapon: TTankZapCharged
+		LocalOffset: 820,0,120
+		RequiresCondition: supercharged
 	AttackTurreted:
-		PauseOnCondition: empdisable
+		PauseOnCondition: turnedoff
 	WithSpriteTurret:
 	SpawnActorOnDeath:
 		Actor: TEMPLAR.Husk
@@ -1351,6 +1416,7 @@ KATYA:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@artilleryobserver: ^ArtilleryObservable
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -1373,9 +1439,6 @@ KATYA:
 		Type: Light
 	RevealsShroud:
 		Range: 5c0
-	Turreted:
-		TurnSpeed: 512
-		Offset: -360,0,150
 	Armament@PRIMARY:
 		Weapon: 227mm
 		LocalOffset: 213,128,50, 213,-128,50
@@ -1386,17 +1449,14 @@ KATYA:
 	AttackFrontal:
 		TargetFrozenActors: True
 		ForceFireIgnoresActors: True
-		PauseOnCondition: empdisable
-	WithSpriteTurret:
+		PauseOnCondition: turnedoff
 	Explodes:
 		Weapon: ArtilleryExplode
 		EmptyWeapon: UnitExplodeSmall
 		LoadedChance: 75
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
-	WithTurretAimAnimation:
-		Sequence: aim
-		
+
 MGG:
 	Inherits: ^Vehicle
 	-ExperienceTrickler@OfficerNearby:
@@ -1422,9 +1482,9 @@ MGG:
 	WithIdleOverlay@SPINNER:
 		Offset: -299,0,171
 		Sequence: spinner
-		PauseOnCondition: undeployed || empdisable
+		PauseOnCondition: undeployed || turnedoff
 	CreatesShroud:
-		RequiresCondition: !undeployed && !empdisable
+		RequiresCondition: !undeployed && !turnedoff
 	GrantConditionOnDeploy:
 		DeployedCondition: undeployed
 	RevealsShroud:
@@ -1497,7 +1557,7 @@ T100:
 		Recoil: 43
 		MuzzleSequence: muzzle
 	AttackTurreted:
-		PauseOnCondition: empdisable
+		PauseOnCondition: turnedoff
 	WithMuzzleOverlay:
 	WithSpriteTurret:
 	SpawnActorOnDeath:
@@ -1513,321 +1573,6 @@ T100:
 		DecorationBounds: 32, 30, 0, 0
 
 #Entente units
-JEEP:
-	Inherits: ^Vehicle
-	Inherits@GAINSEXPERIENCE: ^GainsExperience
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 50
-		Prerequisites: ~vehicles.entente, ~techlevel.low
-		Description: Fast scout & anti-infantry vehicle.\nCan carry one infantry.\n	 Strong vs Infantry\n  Weak vs Vehicles, Aircraft
-	Valued:
-		Cost: 500
-	RenderSprites:
-		Image: jeep
-		Scale: 0.9
-	Tooltip:
-		Name: Ranger
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Health:
-		HP: 15000
-	Armor:
-		Type: Light
-	Mobile:
-		TurnSpeed: 40
-		Speed: 150
-		PauseOnCondition: being-captured
-	RevealsShroud:
-		MinRange: 4c0
-		Range: 8c0
-		RevealGeneratedShroud: False
-	RevealsShroud@GAPGEN:
-		Range: 4c0
-	Turreted:
-		TurnSpeed: 40
-		Offset: 0,0,128
-	Armament:
-		Weapon: M60mg
-		MuzzleSequence: muzzle
-		LocalOffset: 145,0,43
-	AttackTurreted:
-		PauseOnCondition: empdisable
-	WithMuzzleOverlay:
-	WithSpriteTurret:
-	ProducibleWithLevel:
-		Prerequisites: vehicles.upgraded
-	SpawnActorOnDeath:
-		Actor: JEEP.Husk
-
-JEEP.Husk:
-	Inherits: ^Husk
-	Tooltip:
-		Name: Husk (Ranger)
-	TransformOnCapture@Mechanic:
-		IntoActor: JEEP
-	TransformOnCapture@Engineer:
-		IntoActor: JEEP
-	InfiltrateForTransform:
-		IntoActor: JEEP
-	RenderSprites:
-		Image: jeep
-		Scale: 0.9
-
-APC:
-	Inherits: ^TrackedVehicle
-	Inherits@GAINSEXPERIENCE: ^GainsExperience
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Inherits@CARGOPIPS: ^CargoPips
-	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 49
-		Prerequisites: ~vehicles.entente, ~techlevel.low
-		Description: Tough infantry transport.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
-	Valued:
-		Cost: 750
-	Tooltip:
-		Name: Armored Personnel Carrier
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Health:
-		HP: 30000
-	Armor:
-		Type: Medium
-	Mobile:
-		Speed: 165
-		PauseOnCondition: notmobile || being-captured
-	RevealsShroud:
-		MinRange: 4c0
-		Range: 5c0
-		RevealGeneratedShroud: False
-	RevealsShroud@GAPGEN:
-		Range: 4c0
-	Armament:
-		Weapon: M60mg-apc
-		LocalOffset: 85,0,171
-		MuzzleSequence: muzzle
-	AttackFrontal:
-		PauseOnCondition: empdisable
-	WithMuzzleOverlay:
-	Cargo:
-		Types: Infantry
-		MaxWeight: 4
-		LoadingCondition: notmobile
-	ProducibleWithLevel:
-		Prerequisites: vehicles.upgraded
-	RenderSprites:
-		Scale: 0.9
-	SpawnActorOnDeath:
-		Actor: APC.Husk
-
-APC.Husk:
-	Inherits: ^Husk
-	Tooltip:
-		Name: Husk (Armored Personnel Carrier)
-	TransformOnCapture@Mechanic:
-		IntoActor: APC
-	TransformOnCapture@Engineer:
-		IntoActor: APC
-	InfiltrateForTransform:
-		IntoActor: APC
-	RenderSprites:
-		Image: apc
-		Scale: 0.9
-
-TRAKTOR:
-	Inherits: ^TrackedVehicle
-	Inherits@GAINSEXPERIENCE: ^GainsExperience
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 332
-		Prerequisites: stek, ~vehicles.ukraine, ~techlevel.high
-		Description: Heavy magnetic tank that debilitates it's target.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
-	Valued:
-		Cost: 2000
-	Tooltip:
-		Name: Traktor
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Health:
-		HP: 45000
-	Armor:
-		Type: Medium
-	Mobile:
-		Speed: 60
-		PauseOnCondition: being-captured
-	RevealsShroud:
-		MinRange: 4c0
-		Range: 5c0
-		RevealGeneratedShroud: False
-	RevealsShroud@GAPGEN:
-		Range: 4c0
-	Armament:
-		Weapon: TraktorBeam
-		LocalOffset: 500,0,290
-	AttackFrontal:
-		PauseOnCondition: empdisable
-	ProducibleWithLevel:
-		Prerequisites: vehicles.upgraded
-	SpawnActorOnDeath:
-		Actor: TRAKTOR.Husk
-
-TRAKTOR.Husk:
-	Inherits: ^Husk
-	Tooltip:
-		Name: Husk (Traktor)
-	TransformOnCapture@Mechanic:
-		IntoActor: TRAKTOR
-	TransformOnCapture@Engineer:
-		IntoActor: TRAKTOR
-	InfiltrateForTransform:
-		IntoActor: TRAKTOR
-	RenderSprites:
-		Image: traktor
-
-WASTETANKER:
-	Inherits: ^TrackedVehicle
-	Inherits@GAINSEXPERIENCE: ^GainsExperience
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 331
-		Prerequisites: stek, ~vehicles.kazakhstan, ~techlevel.high
-		Description: Tough tank that shoots toxic materials.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
-	Valued:
-		Cost: 1800
-	Tooltip:
-		Name: Waste Tanker
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Health:
-		HP: 38000
-	Armor:
-		Type: Heavy
-	Mobile:
-		Speed: 65
-		PauseOnCondition: being-captured
-	RevealsShroud:
-		MinRange: 4c0
-		Range: 5c0
-		RevealGeneratedShroud: False
-	RevealsShroud@GAPGEN:
-		Range: 4c0
-	Armament:
-		Weapon: TruckToxxer
-		LocalOffset: 710,0,350
-	AttackFrontal:
-		PauseOnCondition: empdisable
-	ProducibleWithLevel:
-		Prerequisites: vehicles.upgraded
-	SpawnActorOnDeath:
-		Actor: WASTETANKER.Husk
-
-WASTETANKER.Husk:
-	Inherits: ^Husk
-	Tooltip:
-		Name: Husk (Waste Tanker)
-	TransformOnCapture@Mechanic:
-		IntoActor: WASTETANKER
-	TransformOnCapture@Engineer:
-		IntoActor: WASTETANKER
-	InfiltrateForTransform:
-		IntoActor: WASTETANKER
-	RenderSprites:
-		Image: wastetanker
-
-IFV:
-	Inherits: ^TrackedVehicle
-	Inherits@GAINSEXPERIENCE: ^GainsExperience
-	Inherits@AUTOTARGET: ^AutoTargetAllPlusBombers
-	Inherits@CARGOPIPS: ^CargoPips
-	Valued:
-		Cost: 750
-	Tooltip:
-		Name: Warthog
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 195
-		Prerequisites: adept, ~vehicles.england, ~techlevel.low
-		Description: Tough infantry transport armed\nwith a small AA-cannon.\n	 Strong vs Light armour, Aircraft\n	 Weak vs Tanks
-	Mobile:
-		TurnSpeed: 28
-		Speed: 100
-		Locomotor: lighttracked
-		PauseOnCondition: notmobile || being-captured
-	Health:
-		HP: 28000
-	Repairable:
-		HpPerStep: 1440
-	Armor:
-		Type: Medium
-	RevealsShroud:
-		MinRange: 4c0
-		Range: 5c0
-		RevealGeneratedShroud: False
-	RevealsShroud@GAPGEN:
-		Range: 4c0
-	Turreted:
-		TurnSpeed: 40
-		Offset: -200,0,270
-	AutoTargetPriority@Air:
-		ValidTargets: Air
-		Priority: 2
-	Armament@PRIMARY:
-		Weapon: APCGun
-		Recoil: 48
-		RecoilRecovery: 18
-		LocalOffset: 270,100,50, 270,-100,50
-		MuzzleSequence: muzzle
-		PauseOnCondition: reload-air
-		ReloadingCondition: reload-ground
-	Armament@SECONDARY:
-		Name: secondary
-		Weapon: APCGun.AA
-		Recoil: 48
-		RecoilRecovery: 18
-		LocalOffset: 175,100,299, 175,-100,299
-		MuzzleSequence: muzzle-air
-		PauseOnCondition: reload-ground
-		ReloadingCondition: reload-air
-	GrantConditionOnAttack:
-		Condition: attack-air
-		ArmamentNames: secondary
-		RevokeDelay: 18
-		RevokeOnNewTarget: False
-		RevokeAll: True
-	AttackTurreted:
-		PauseOnCondition: empdisable
-	WithMuzzleOverlay:
-	WithSpriteTurret:
-		RequiresCondition: !attack-air
-	WithSpriteTurret@AIR:
-		Sequence: turret-air
-		RequiresCondition: attack-air
-	Cargo:
-		Types: Infantry
-		MaxWeight: 3
-		LoadingCondition: notmobile
-	SpawnActorOnDeath:
-		Actor: IFV.Husk
-
-IFV.Husk:
-	Inherits: ^Husk
-	Tooltip:
-		Name: Husk (Warthog)
-	TransformOnCapture@Mechanic:
-		IntoActor: IFV
-	TransformOnCapture@Engineer:
-		IntoActor: IFV
-	InfiltrateForTransform:
-		IntoActor: IFV
-	RenderSprites:
-		Image: ifv
-
 SIPAHI:
 	Inherits: ^Vehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
@@ -1860,12 +1605,12 @@ SIPAHI:
 		Range: 4c0
 	Turreted:
 		TurnSpeed: 40
-		Offset: -30,0,280
+		Offset: -60,0,350
 	Armament:
 		Weapon: M1Carbine
 		MuzzleSequence: muzzle
 		LocalOffset: 210,0,190
-		RequiresCondition: nochange
+		RequiresCondition: nochange || !hascargo
 	Armament@prism:
 		Weapon: PrismHandHeld
 		LocalOffset: 210,0,190
@@ -1959,8 +1704,11 @@ SIPAHI:
 		IsCyclic: false
 		RevokeOnNewTarget: false
 	AttackTurreted:
-		PauseOnCondition: empdisable
+		PauseOnCondition: turnedoff
 	WithMuzzleOverlay:
+	WithSpriteTurret@editor:
+		Sequence: turret-rifle
+		RequiresCondition: !nochange
 	WithSpriteTurret@rifle:
 		Sequence: turret-rifle
 		RequiresCondition: nochange
@@ -2018,6 +1766,7 @@ SIPAHI:
 	Cargo:
 		Types: Infantry
 		MaxWeight: 1
+		LoadedCondition: hascargo
 		PassengerConditions:
 			dog: nochange
 			kulak: nochange
@@ -2088,6 +1837,325 @@ SIPAHI.Husk:
 	RenderSprites:
 		Image: sipahi
 
+SONIQUE:
+	Inherits: ^TrackedVehicle
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Valued:
+		Cost: 1750
+	Tooltip:
+		Name: Disruptor
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 340
+		Prerequisites: dome, ~vehicles.turkey, ~techlevel.medium
+		Description: Shoots a long cone of flame\nand leaves the ground burning.\n Strong vs. Infantry, Buildings.\n Weak vs. Tanks, Aircraft.
+	Mobile:
+		TurnSpeed: 20
+		Speed: 56
+	Health:
+		HP: 47000
+	Repairable:
+		HpPerStep: 2046
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 6c0
+	Armament:
+		Weapon: DisruptionBeam
+		LocalOffset: 900,0,0
+	AttackFrontal:
+		PauseOnCondition: turnedoff
+	Explodes:
+		Weapon: V2Explode
+	Selectable:
+		DecorationBounds: 32,32
+	SpawnActorOnDeath:
+		Actor: SONIQUE.Husk
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
+
+SONIQUE.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Disruptor)
+	TransformOnCapture@Mechanic:
+		IntoActor: SONIQUE
+	TransformOnCapture@Engineer:
+		IntoActor: SONIQUE
+	InfiltrateForTransform:
+		IntoActor: SONIQUE
+	RenderSprites:
+		Image: sonique
+
+JEEP:
+	Inherits: ^Vehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 50
+		Prerequisites: ~vehicles.entente, ~techlevel.low
+		Description: Fast scout & anti-infantry vehicle.\nCan carry one infantry.\n	 Strong vs Infantry\n  Weak vs Vehicles, Aircraft
+	Valued:
+		Cost: 500
+	RenderSprites:
+		Image: jeep
+		Scale: 0.9
+	Tooltip:
+		Name: Ranger
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 15000
+	Armor:
+		Type: Light
+	Mobile:
+		TurnSpeed: 40
+		Speed: 150
+		PauseOnCondition: being-captured
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 8c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	Turreted:
+		TurnSpeed: 40
+		Offset: 0,0,128
+	Armament:
+		Weapon: M60mg
+		MuzzleSequence: muzzle
+		LocalOffset: 145,0,43
+	AttackTurreted:
+		PauseOnCondition: turnedoff
+	WithMuzzleOverlay:
+	WithSpriteTurret:
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
+	SpawnActorOnDeath:
+		Actor: JEEP.Husk
+
+JEEP.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Ranger)
+	TransformOnCapture@Mechanic:
+		IntoActor: JEEP
+	TransformOnCapture@Engineer:
+		IntoActor: JEEP
+	InfiltrateForTransform:
+		IntoActor: JEEP
+	RenderSprites:
+		Image: jeep
+		Scale: 0.9
+
+APC:
+	Inherits: ^TrackedVehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CARGOPIPS: ^CargoPips
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 49
+		Prerequisites: ~vehicles.entente, ~techlevel.low
+		Description: Tough infantry transport.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+	Valued:
+		Cost: 750
+	Tooltip:
+		Name: Armored Personnel Carrier
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 30000
+	Armor:
+		Type: Medium
+	Mobile:
+		Speed: 120
+		PauseOnCondition: notmobile || being-captured
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 5c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	Armament:
+		Weapon: M60mg-apc
+		LocalOffset: 85,0,171
+		MuzzleSequence: muzzle
+	AttackFrontal:
+		PauseOnCondition: turnedoff
+	WithMuzzleOverlay:
+	Cargo:
+		Types: Infantry
+		MaxWeight: 4
+		LoadingCondition: notmobile
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
+	RenderSprites:
+		Scale: 0.9
+	SpawnActorOnDeath:
+		Actor: APC.Husk
+
+APC.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Armored Personnel Carrier)
+	TransformOnCapture@Mechanic:
+		IntoActor: APC
+	TransformOnCapture@Engineer:
+		IntoActor: APC
+	InfiltrateForTransform:
+		IntoActor: APC
+	RenderSprites:
+		Image: apc
+		Scale: 0.9
+
+WASTETANKER:
+	Inherits: ^TrackedVehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 331
+		Prerequisites: stek, ~vehicles.kazakhstan, ~techlevel.high
+		Description: Tough tank that shoots toxic materials.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+	Valued:
+		Cost: 1800
+	Tooltip:
+		Name: Waste Tanker
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 38000
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 65
+		PauseOnCondition: being-captured
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 5c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	Armament:
+		Weapon: TruckToxxer
+		LocalOffset: 710,0,350
+	AttackFrontal:
+		PauseOnCondition: turnedoff
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
+	SpawnActorOnDeath:
+		Actor: WASTETANKER.Husk
+
+WASTETANKER.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Waste Tanker)
+	TransformOnCapture@Mechanic:
+		IntoActor: WASTETANKER
+	TransformOnCapture@Engineer:
+		IntoActor: WASTETANKER
+	InfiltrateForTransform:
+		IntoActor: WASTETANKER
+	RenderSprites:
+		Image: wastetanker
+
+IFV:
+	Inherits: ^TrackedVehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetAllPlusBombers
+	Inherits@CARGOPIPS: ^CargoPips
+	Valued:
+		Cost: 750
+	Tooltip:
+		Name: Warthog
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 195
+		Prerequisites: adept, ~vehicles.england, ~techlevel.low
+		Description: Tough infantry transport armed\nwith a small AA-cannon.\n	 Strong vs Light armour, Aircraft\n	 Weak vs Tanks
+	Mobile:
+		TurnSpeed: 28
+		Speed: 100
+		Locomotor: lighttracked
+		PauseOnCondition: notmobile || being-captured
+	Health:
+		HP: 29000
+	Repairable:
+		HpPerStep: 1440
+	Armor:
+		Type: Medium
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 5c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	Turreted:
+		TurnSpeed: 40
+		Offset: -150,0,420
+	AutoTargetPriority@Air:
+		ValidTargets: Air
+		Priority: 2
+	Armament@PRIMARY:
+		Weapon: APCGun
+		Recoil: 48
+		RecoilRecovery: 18
+		LocalOffset: 270,100,0, 270,-100,50
+		MuzzleSequence: muzzle
+		PauseOnCondition: reload-air
+		ReloadingCondition: reload-ground
+	Armament@SECONDARY:
+		Name: secondary
+		Weapon: APCGun.AA
+		Recoil: 48
+		RecoilRecovery: 18
+		LocalOffset: 175,100,299, 175,-100,299
+		MuzzleSequence: muzzle-air
+		PauseOnCondition: reload-ground
+		ReloadingCondition: reload-air
+	GrantConditionOnAttack:
+		Condition: attack-air
+		ArmamentNames: secondary
+		RevokeDelay: 18
+		RevokeOnNewTarget: False
+		RevokeAll: True
+	AttackTurreted:
+		PauseOnCondition: turnedoff
+	WithMuzzleOverlay:
+	WithSpriteTurret:
+		RequiresCondition: !attack-air
+	WithSpriteTurret@AIR:
+		Sequence: turret-air
+		RequiresCondition: attack-air
+	Cargo:
+		Types: Infantry
+		MaxWeight: 3
+		LoadingCondition: notmobile
+	SpawnActorOnDeath:
+		Actor: IFV.Husk
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
+
+IFV.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Warthog)
+	TransformOnCapture@Mechanic:
+		IntoActor: IFV
+	TransformOnCapture@Engineer:
+		IntoActor: IFV
+	InfiltrateForTransform:
+		IntoActor: IFV
+	RenderSprites:
+		Image: ifv
+
 RTNK:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
@@ -2119,15 +2187,15 @@ RTNK:
 	Turreted:
 		TurnSpeed: 28
 	Turreted:
-		Offset: -100,0,100
+		Offset: -100,0,130
 	Armament:
 		Weapon: 25mm-recon
 		Recoil: 85
 		RecoilRecovery: 25
-		LocalOffset: 680,0,90
+		LocalOffset: 500,0,20
 		MuzzleSequence: muzzle
 	AttackTurreted:
-		PauseOnCondition: empdisable
+		PauseOnCondition: turnedoff
 	WithMuzzleOverlay:
 	WithSpriteTurret:
 	ProducibleWithLevel:
@@ -2147,59 +2215,6 @@ RTNK.Husk:
 		IntoActor: RTNK
 	RenderSprites:
 		Image: rtnk
-
-KAMIKAZEKITER:
-	Inherits: ^Vehicle
-	Inherits@GAINSEXPERIENCE: ^GainsExperience
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 230
-		Prerequisites: dome, ~vehicles.zentrum, ~techlevel.medium
-		Description: Long-range rocket artillery.\n	 Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft
-	Valued:
-		Cost: 900
-	Tooltip:
-		Name: Kamikaze
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	RenderSprites:
-		Image: kamikazekiter
-	Health:
-		HP: 20000
-	Armor:
-		Type: Light
-	Mobile:
-		Speed: 72
-	RevealsShroud:
-		MinRange: 4c0
-		Range: 5c0
-		RevealGeneratedShroud: False
-	RevealsShroud@GAPGEN:
-		Range: 4c0
-	Armament:
-		Weapon: KamikazeKite
-		ReloadingCondition: reloading
-		LocalOffset: 80,0,400
-	AutoTarget:
-		ScanRadius: 10
-	AttackFrontal:
-		TargetFrozenActors: True
-		ForceFireIgnoresActors: False
-		PauseOnCondition: empdisable
-	WithFacingSpriteBody:
-		RequiresCondition: !reloading
-		Name: loaded
-	WithFacingSpriteBody@EMPTY:
-		RequiresCondition: reloading
-		Sequence: empty-idle
-		Name: reloading
-	Explodes:
-		Weapon: V2Explode
-	ProducibleWithLevel:
-		Prerequisites: vehicles.upgraded
-	Selectable:
-		DecorationBounds: 20, 20
 
 RONIN:
 	Inherits: ^TrackedVehicle
@@ -2237,15 +2252,15 @@ RONIN:
 	Armament:
 		Weapon: RoninDrake
 		RecoilRecovery: 25
-		LocalOffset: 730,60,-90
+		LocalOffset: 730,60,25
 	Armament@secondary:
 		Name: secondary
 		Weapon: M60mg
 		RecoilRecovery: 25
-		LocalOffset: 538,-30,110
+		LocalOffset: 438,-50,25, 438,-65,25
 		MuzzleSequence: muzzle
 	AttackTurreted:
-		PauseOnCondition: empdisable
+		PauseOnCondition: turnedoff
 	WithMuzzleOverlay:
 	WithSpriteTurret:
 	ProducibleWithLevel:
@@ -2287,7 +2302,7 @@ PAPC:
 	Armor:
 		Type: Medium
 	Mobile:
-		Speed: 165
+		Speed: 120
 		PauseOnCondition: notmobile || being-captured
 	RevealsShroud:
 		MinRange: 4c0
@@ -2300,7 +2315,7 @@ PAPC:
 		LocalOffset: 190,0,270
 		MuzzleSequence: muzzle
 	AttackFrontal:
-		PauseOnCondition: empdisable
+		PauseOnCondition: turnedoff
 	WithMuzzleOverlay:
 	Cargo:
 		Types: Infantry
@@ -2367,13 +2382,13 @@ PTNK:
 		Range: 4c0
 	Turreted:
 		TurnSpeed: 28
-		Offset: -230,0,270
+		Offset: -230,0,300
 	Armament:
 		Weapon: Drake
 		RecoilRecovery: 25
 		LocalOffset: 690,30,90
 	AttackTurreted:
-		PauseOnCondition: empdisable
+		PauseOnCondition: turnedoff
 	WithMuzzleOverlay:
 	WithSpriteTurret:
 	ProducibleWithLevel:
@@ -2441,15 +2456,10 @@ LTNK:
 		Weapon: ltnkfire
 		Recoil: 128
 		RecoilRecovery: 38
-		LocalOffset: 720,0,80
+		LocalOffset: 720,0,90
 		MuzzleSequence: muzzle
-	Armament@MG:
-		Weapon: TNKMG
-		Name: secondary
-		LocalOffset: 0,-100,50
-		MuzzleSequence: muzzle-mg
 	AttackTurreted:
-		PauseOnCondition: empdisable
+		PauseOnCondition: turnedoff
 	WithMuzzleOverlay:
 	WithSpriteTurret:
 	SpawnActorOnDeath:
@@ -2478,6 +2488,7 @@ TELEDRONE:
 	Inherits: ^Vehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMovePlusBombers
+	Inherits@Drone: ^Drone
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -2508,18 +2519,103 @@ TELEDRONE:
 		LocalOffset: 40,0,30
 	AttackMove:
 	AttackTurreted:
-		PauseOnCondition: empdisable
+		PauseOnCondition: turnedoff
 	WithSpriteTurret:
-	GrantConditionOnPrerequisite@radaronline:
-		Condition: tobedisabled
-		Prerequisites: !radaronline
-	GrantCondition@iamdisabled:
-		Condition: empdisable
-		RequiresCondition: tobedisabled && !spawned
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
+
+LIMPETMINE:
+	Inherits: ^Vehicle
+	Inherits@drone: ^Drone
+	Inherits@selection: ^SelectableSupportUnit
+	-ExperienceTrickler@OfficerNearby:
+	-GainsExperienceMultiplier@OfficerNearby:
+	-ExternalCondition@OfficerNearby:
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 710
+		Prerequisites: dome, ~vehicles.usa, ~techlevel.medium
+		Description: Transports cash to other players.\n  Unarmed
+	Valued:
+		Cost: 425
+	Tooltip:
+		Name: Cicada
+	Health:
+		HP: 20000
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 80
+	RevealsShroud:
+		Range: 3c0
+	-WithFacingSpriteBody:
+	WithSpriteBody:
+	Selectable:
+		DecorationBounds: 24,30,0,-4
+	Transforms:
+		IntoActor: limpetmine.deployed
+		Offset: 0,0
+		Facing: 384
+		TransformSounds: place2.aud
+		NoTransformNotification: BuildingCannotPlaceAudio
+		RequiresCondition: !turnedoff
+	Hovers:
+		RequiresCondition: !turnedoff
+	WithShadow:
+		ZOffset: -10
+		Offset: 0,0,-500
+	Explodes:
+		Weapon: EMPMine
+
+LIMPETMINE.DEPLOYED:
+	Inherits: ^Mine
+	Inherits@turnedoff: ^EmpDisable
+	Inherits@drone: ^Drone
+	-Interactable:
+	Selectable:
+	SelectionDecorations:
+	Health:
+		HP: 20000
+	RenderSprites:
+		Image: limpetmine
+	Mine:
+		AvoidFriendly: True
+	Explodes:
+		Weapon: EMPMine
+	RevealsShroud:
+		Range: 2c0
+	WithSpriteBody:
+		Sequence: deployed
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Cicada Mine
+	Transforms:
+		IntoActor: limpetmine
+		Offset: 0,0
+		Facing: 384
+		TransformSounds: clicky1.aud
+		NoTransformNotification: BuildingCannotPlaceAudio
+		RequiresCondition: !turnedoff
+	KillsSelf:
+		RequiresCondition: deployed
+	GrantConditionOnDeploy:
+		DeployedCondition: deployed
+		RequiresCondition: !turnedoff
+		SkipMakeAnimation: True
+	TransformsIntoMobile:
+		Locomotor: hover
+		RequiresCondition: !turnedoff
 	Voiced:
 		VoiceSet: TeleVoice
-	ExternalCondition@spawned:
-		Condition: spawned
+	WithMakeAnimation:
+		Condition: build-incomplete
+	WithIdleOverlay@dig:
+		Image: dig_sm
+		StartSequence: idle
+		Sequence: idle
+		RequiresCondition: build-incomplete
+		Palette: tseffects
 
 ARC:
 	Inherits: ^TrackedVehicle
@@ -2531,14 +2627,14 @@ ARC:
 		Prerequisites: atek, ~vehicles.usa, ~techlevel.low
 		Description: Entente main battle tank. \n Fast tank, good for fast manouvers.\n	Strong vs Light armor, Tanks\n	Weak vs Infantry, Aircraft
 	Valued:
-		Cost: 1100
+		Cost: 1150
 	Tooltip:
 		Name: Arc Thrower
 		GenericName: Tank
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 43000
+		HP: 45000
 	Armor:
 		Type: Heavy
 	Mobile:
@@ -2551,12 +2647,12 @@ ARC:
 		Range: 4c0
 	Turreted:
 		TurnSpeed: 28
-		Offset: 40,0,250
+		Offset: 30,0,270
 	Armament:
 		Weapon: ElectricBolt
 		LocalOffset: 790,200,540, 790,-200,540
 	AttackTurreted:
-		PauseOnCondition: empdisable
+		PauseOnCondition: turnedoff
 	WithSpriteTurret:
 	SpawnActorOnDeath:
 		Actor: ARC.Husk
@@ -2582,6 +2678,7 @@ ARC.Husk:
 
 EMPDEVICE:
 	Inherits: ^TrackedVehicle
+	Inherits@drone: ^Drone
 	-ExperienceTrickler@OfficerNearby:
 	-GainsExperienceMultiplier@OfficerNearby:
 	-ExternalCondition@OfficerNearby:
@@ -2591,7 +2688,7 @@ EMPDEVICE:
 		Prerequisites: atek, ~vehicles.usa, ~techlevel.high
 		Description: Radio controlled device.\nExplodes as an EM pulse.\n  Strong vs Vehicles, Buildings\n  Weak vs Infantry, Aircraft
 	Valued:
-		Cost: 2000
+		Cost: 2250
 	Tooltip:
 		Name: Mobile EMP Device
 		GenericName: Tank
@@ -2615,11 +2712,10 @@ EMPDEVICE:
 		Range: 4c0
 	GrantConditionOnDeploy:
 		DeployedCondition: deployed
-		UndeployedCondition: undeployed
-		PauseOnCondition: empdisable
-	KillsSelf:
-		RequiresCondition: deployed && !undeployed
-		Delay: 1
+		PauseOnCondition: turnedoff
+		RequiresCondition: !deployed
+	WithMakeAnimation:
+		Sequence: make
 	Explodes@EMPExplode:
 		Weapon: EMPulseCannon
 		EmptyWeapon: EMPulseCannon
@@ -2627,25 +2723,30 @@ EMPDEVICE:
 	WithRangeCircle:
 		Color: FFFF0080
 		Range: 7c0
+	KillsSelf:
+		RequiresCondition: charged
 	Targetable:
 		TargetTypes: GroundActor, MADTank, Vehicle
 	Selectable:
 		DecorationBounds: 44,38,0,-4
-	GrantConditionOnPrerequisite@radaronline:
-		Condition: tobedisabled
-		Prerequisites: !radaronline
-	GrantCondition@iamdisabled:
-		Condition: empdisable
-		RequiresCondition: tobedisabled && !spawned
-	Voiced:
-		VoiceSet: TeleVoice
-	ExternalCondition@spawned:
-		Condition: spawned
+	AmbientSound@deploy:
+		Delay: 0
+		Interval: 100
+		SoundFiles: madchrg2.aud
+		RequiresCondition: deployed
+	AmmoPool:
+		InitialAmmo: 0
+		Ammo: 10000
+		AmmoCondition: charged
+	ReloadAmmoPool:
+		Delay: 50
+		RequiresCondition: deployed
 
 ARTY:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@artilleryobserver: ^ArtilleryObservable
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 230
@@ -2675,12 +2776,12 @@ ARTY:
 		Range: 4c0
 	Armament:
 		Weapon: 155mm
-		LocalOffset: 624,0,208
+		LocalOffset: 624,0,300
 		MuzzleSequence: muzzle
 	AttackFrontal:
 		TargetFrozenActors: True
 		ForceFireIgnoresActors: True
-		PauseOnCondition: empdisable
+		PauseOnCondition: turnedoff
 	WithMuzzleOverlay:
 	Explodes:
 		Weapon: ArtilleryExplode
@@ -2725,7 +2826,7 @@ ARCHER:
 		LocalOffset: 820,0,210
 		MuzzleSequence: muzzle
 	AttackFrontal:
-		PauseOnCondition: empdisable
+		PauseOnCondition: turnedoff
 	WithMuzzleOverlay:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
@@ -2785,14 +2886,14 @@ ENTENTEAA:
 	Armament@AG:
 		Name: secondary
 		Weapon: Archer-AG
-		LocalOffset: 800,-190,150, 800,190,150
+		LocalOffset: 800,-190,100, 800,190,100
 		MuzzleSequence: muzzle
 		RequiresCondition: !aa-firing
 	GrantConditionOnAttack@aafiring:
 		ArmamentNames: primary
 		Condition: aa-firing
 	AttackTurreted:
-		PauseOnCondition: empdisable
+		PauseOnCondition: turnedoff
 	WithMuzzleOverlay:
 	WithSpriteTurret:
 		RequiresCondition: aa-firing
@@ -2843,7 +2944,7 @@ HVRTNKTNK:
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 118
+		Speed: 85
 	RevealsShroud:
 		MinRange: 4c0
 		Range: 5c0
@@ -2852,14 +2953,14 @@ HVRTNKTNK:
 		Range: 4c0
 	Turreted:
 		TurnSpeed: 28
-		Offset: -200,0,200
+		Offset: -200,0,280
 	Armament:
 		Weapon: MagneticBolt
 		Recoil: 0
 		RecoilRecovery: 25
-		LocalOffset: 468,0,100
+		LocalOffset: 398,0,100
 	AttackTurreted:
-		PauseOnCondition: empdisable
+		PauseOnCondition: turnedoff
 	WithSpriteTurret:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
@@ -3000,28 +3101,18 @@ GRINDER:
 		RequiresCondition: moving
 	GrantConditionOnMovement:
 		Condition: moving
-	AmmoPool:
-		Name: invuln-pool
-		Ammo: 10
-		InitialAmmo: 0
-		AmmoCondition: ammo
-	WithAmmoPipsDecoration:
-		PipCount: 10
-		FullSequence: pip-red
-		AmmoPools: invuln-pool
-		Position: TopLeft
-		ValidRelationships: Ally, Enemy, Neutral
-		RequiresCondition: invulnerability-trigger
-	ReloadAmmoPool:
-		AmmoPool: invuln-pool
-		RequiresCondition: invulnerability-trigger
+	GrantChargingCondition:
+		Condition: charged
+		MaxCharge: 200
+		PauseOnCondition: !invulnerability-trigger
 	KillsSelf:
-		RequiresCondition: ammo == 10
+		RequiresCondition: charged
 
 TTNK:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@supercharged: ^SuperchargeTesla
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 330
@@ -3039,7 +3130,7 @@ TTNK:
 	Armor:
 		Type: Medium
 	Mobile:
-		Speed: 66
+		Speed: 70
 	RevealsShroud:
 		MinRange: 6c0
 		Range: 7c0
@@ -3049,8 +3140,13 @@ TTNK:
 	Armament:
 		Weapon: TTankZap
 		LocalOffset: 0,0,213
+		RequiresCondition: !supercharged
+	Armament@charged:
+		Weapon: TTankZapCharged
+		LocalOffset: 0,0,213
+		RequiresCondition: supercharged
 	AttackTurreted:
-		PauseOnCondition: empdisable
+		PauseOnCondition: turnedoff
 	Turreted:
 	WithIdleOverlay@SPINNER:
 		Sequence: spinner
@@ -3102,12 +3198,12 @@ FLMTNK:
 		Range: 6c0
 	Armament:
 		Weapon: FireballLauncher
-		LocalOffset: 900,180,180, 900,-180,180
+		LocalOffset: 300,180,100, 300,-180,100
 	Turreted:
 		Offset: -50,0,130
 		TurnSpeed: 13
 	AttackTurreted:
-		PauseOnCondition: empdisable
+		PauseOnCondition: turnedoff
 	WithSpriteTurret:
 	Explodes:
 		Weapon: V2Explode
@@ -3115,6 +3211,8 @@ FLMTNK:
 		DecorationBounds: 32,32
 	SpawnActorOnDeath:
 		Actor: FLMTNK.Husk
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
 
 FLMTNK.Husk:
 	Inherits: ^Husk
@@ -3153,6 +3251,8 @@ FIRELANCER:
 		HpPerStep: 2046
 	Armor:
 		Type: Heavy
+	Armor@fireshiled:
+		Type: FireArmor
 	RevealsShroud:
 		Range: 6c0
 	Armament:
@@ -3161,7 +3261,7 @@ FIRELANCER:
 		MuzzleSequence: muzzle
 		MuzzlePalette: tseffects
 	AttackFrontal:
-		PauseOnCondition: empdisable
+		PauseOnCondition: turnedoff
 	Explodes:
 		Weapon: V2Explode
 	Selectable:
@@ -3169,6 +3269,8 @@ FIRELANCER:
 	WithMuzzleOverlay:
 	SpawnActorOnDeath:
 		Actor: FIRELANCER.Husk
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
 
 FIRELANCER.Husk:
 	Inherits: ^Husk
@@ -3183,57 +3285,11 @@ FIRELANCER.Husk:
 	RenderSprites:
 		Image: firelancer
 
-IFRIT:
-	Inherits: ^Vehicle
-	Inherits@GAINSEXPERIENCE: ^GainsExperience
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 310
-		Prerequisites: mtek, ~vehicles.turkey, ~techlevel.medium
-		Description: Long-range rocket artillery.\n	 Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft
-	Valued:
-		Cost: 1150
-	Tooltip:
-		Name: Thermal Missile Launcher
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	RenderSprites:
-		Image: ifrit
-	Health:
-		HP: 20000
-	Armor:
-		Type: Light
-	Mobile:
-		Speed: 72
-		Locomotor: lighttracked
-	RevealsShroud:
-		MinRange: 4c0
-		Range: 5c0
-		RevealGeneratedShroud: False
-	RevealsShroud@GAPGEN:
-		Range: 4c0
-	Armament:
-		Weapon: IfritMissile
-		LocalOffset: 270,-90,180, 270,90,180
-	AutoTarget:
-		ScanRadius: 10
-	AttackFrontal:
-		TargetFrozenActors: True
-		ForceFireIgnoresActors: True
-		PauseOnCondition: empdisable
-	WithFacingSpriteBody:
-	Explodes:
-		Weapon: V2Explode
-	ProducibleWithLevel:
-		Prerequisites: vehicles.upgraded
-	Selectable:
-		DecorationBounds: 20, 20
-
 HELGA:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@artilleryobserver: ^ArtilleryObservable
 	Tooltip:
 		Name: Czar
 		RequiresCondition: !deployed
@@ -3256,8 +3312,8 @@ HELGA:
 	Selectable:
 		DecorationBounds: 44,38,0,-4
 	Mobile:
-		Speed: 50
-		TurnSpeed: 8
+		Speed: 45
+		TurnSpeed: 10
 		ImmovableCondition: !undeployed
 		RequireForceMoveCondition: !undeployed
 	RevealsShroud:
@@ -3267,7 +3323,7 @@ HELGA:
 		Image: bigbertha
 	WithMakeAnimation:
 	GrantConditionOnDeploy:
-		PauseOnCondition: empdisable || being-captured
+		PauseOnCondition: turnedoff || being-captured
 		DeployedCondition: deployed
 		UndeployedCondition: undeployed
 		UndeployOnMove: true
@@ -3296,7 +3352,7 @@ HELGA:
 		Armaments: deployed
 		Turrets: deployed
 		RequiresCondition: deployed
-		PauseOnCondition: empdisable
+		PauseOnCondition: turnedoff
 		TargetFrozenActors: True
 		ForceFireIgnoresActors: True
 		OutsideRangeRequiresForceFire: True
@@ -3304,7 +3360,7 @@ HELGA:
 		Name: deployed
 		Turret: deployed
 		Weapon: bigberthagun
-		LocalOffset: 1212,-100,700
+		LocalOffset: 1012,0,900
 		RequiresCondition: deployed
 		MuzzleSequence: muzzle
 	WithMuzzleOverlay:
@@ -3316,6 +3372,8 @@ HELGA:
 		Range: 13c512
 	SpawnActorOnDeath:
 		Actor: HELGA.Husk
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
 
 HELGA.Husk:
 	Inherits: ^Husk
@@ -3370,11 +3428,13 @@ SAPPER:
 		SubterraneanTransitionSound: subdril1.aud
 	AttackFrontal:
 		FacingTolerance: 45
-		PauseOnCondition: empdisable
+		PauseOnCondition: turnedoff
 	Armament:
 		Weapon: drill
 	WithAttackAnimation:
 		Sequence: attack
+	GrantConditionOnAttack:
+		Condition: attacking
 	RejectsOrders:
 		RequiresCondition: submerged
 	Targetable:
@@ -3390,6 +3450,12 @@ SAPPER:
 		IsPlayerPalette: True
 	SpawnActorOnDeath:
 		Actor: SAPPER.Husk
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
+	AmbientSound@attacking:
+		SoundFiles: drilling.aud
+		Interval: 250
+		RequiresCondition: attacking
 
 SAPPER.Husk:
 	Inherits: ^Husk
@@ -3454,7 +3520,7 @@ TESTUDO:
 	RenderSprites:
 		Image: testudo
 	GrantConditionOnDeploy:
-		PauseOnCondition: empdisable || being-captured
+		PauseOnCondition: turnedoff || being-captured
 		DeployedCondition: deployed
 		UndeployedCondition: undeployed
 		UndeployOnMove: true
@@ -3471,10 +3537,15 @@ TESTUDO:
 	WithFacingSpriteBody:
 		RequiresCondition: !deployed
 	WithMakeAnimation:
+	Turreted@editor:
+		Turret: editor
+		TurnSpeed: 28
+		Offset: -180,0,310
+		RequiresCondition: !undeployed || !deployed
 	Turreted@undeployed:
 		Turret: undeployed-turret
 		TurnSpeed: 28
-		Offset: -180,0,250
+		Offset: -180,0,310
 		RequiresCondition: undeployed
 	Turreted@deployed:
 		Turret: deployed-turret
@@ -3490,7 +3561,7 @@ TESTUDO:
 	AttackTurreted:
 		Turrets: undeployed-turret, deployed-turret
 		Armaments: primary, secondary, tertiary, quarternary
-		PauseOnCondition: empdisable
+		PauseOnCondition: turnedoff
 	Armament@undeployed:
 		Name: primary
 		Turret: undeployed-turret
@@ -3536,58 +3607,8 @@ TESTUDO:
 		MoveSequence: move
 	Selectable:
 		Bounds: 28,28
-
-KHAN:
-	Inherits: ^Vehicle
-	Inherits@GAINSEXPERIENCE: ^GainsExperience
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Valued:
-		Cost: 800
-	Tooltip:
-		Name: Khan
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Buildable:
-		BuildPaletteOrder: 272
-		Prerequisites: ~weap, ~vehicles.mongolia, dome, ~techlevel.medium
-		Queue: Vehicle
-		Description: Fast scout and anti-infantry\nrocket artillery.\n  Strong vs Infantry\n  Weak vs Tanks, Aircraft
-	Mobile:
-		TurnSpeed: 40
-		Speed: 170
-	Health:
-		HP: 12000
-	Repairable:
-		HpPerStep: 1819
-	Armor:
-		Type: Light
-	RevealsShroud:
-		Range: 8c0
-	Turreted:
-		TurnSpeed: 40
-		Offset: -300,0,150
-	Armament:
-		Weapon: 227mm-Khan
-		LocalOffset: 171,0,43
-	AttackMove:
-	AttackTurreted:
-		PauseOnCondition: empdisable
-	WithSpriteTurret:
-	SpawnActorOnDeath:
-		Actor: KHAN.Husk
-
-KHAN.Husk:
-	Inherits: ^Husk
-	Tooltip:
-		Name: Husk (Khan)
-	TransformOnCapture@Mechanic:
-		IntoActor: KHAN
-	TransformOnCapture@Engineer:
-		IntoActor: KHAN
-	InfiltrateForTransform:
-		IntoActor: KHAN
-	RenderSprites:
-		Image: khan
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
 
 RACER:
 	Inherits: ^TrackedVehicle
@@ -3605,7 +3626,7 @@ RACER:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 26000
+		HP: 24000
 	Armor:
 		Type: Light
 	Mobile:
@@ -3622,7 +3643,7 @@ RACER:
 		Weapon: Drake
 		LocalOffset: 120,150,200, 120,-150,200
 	AttackFrontal:
-		PauseOnCondition: empdisable
+		PauseOnCondition: turnedoff
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	WithMoveAnimation:
@@ -3735,7 +3756,120 @@ ORDADEPLOYED:
 	-EngineerRepairable:
 	-Sellable:
 	-WithBuildingRepairDecoration:
-		
+	-WithBuildingBib:
+	WithIdleOverlay@bip:
+		Image: bib_1x1
+		Sequence: idle
+		Palette: terrain
+		Offset: -1700,1100,-300
+		IsDecoration: True
+
+GATLINGCAR:
+	Inherits: ^Vehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 20
+		Prerequisites: ~vehicles.zentrum, ~techlevel.low
+		Description: Heavy scout & anti-infantry vehicle.\n	 Strong vs Infantry\n  Weak vs Vehicles, Aircraft
+	Valued:
+		Cost: 700
+	Tooltip:
+		Name: Gatling Car
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 21000
+	Armor:
+		Type: Medium
+	Mobile:
+		TurnSpeed: 40
+		Speed: 115
+		PauseOnCondition: being-captured
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 8c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	Turreted:
+		TurnSpeed: 40
+		Offset: -50,0,290
+	Armament@ag-0:
+		Weapon: AGGatling
+		LocalOffset: 320,-115,10
+		MuzzleSequence: muzzle
+		RequiresCondition: !gatling
+	Armament@ag-1:
+		Weapon: AGGatling2
+		LocalOffset: 320,-100,30
+		MuzzleSequence: muzzle
+		RequiresCondition: gatling == 1
+	Armament@ag-2:
+		Weapon: AGGatling3
+		LocalOffset: 320,-100,30
+		MuzzleSequence: muzzle
+		RequiresCondition: gatling == 2
+	Armament@ag-3:
+		Weapon: AGGatling4
+		LocalOffset: 320,-100,30
+		MuzzleSequence: muzzle
+		RequiresCondition: gatling >= 3
+	Armament@ag-0s:
+		Name: secondary
+		Weapon: AGGatling
+		LocalOffset: 320,100,30
+		MuzzleSequence: muzzle
+		RequiresCondition: !gatling
+	Armament@ag-1s:
+		Name: secondary
+		Weapon: AGGatling2
+		LocalOffset: 320,100,30
+		MuzzleSequence: muzzle
+		RequiresCondition: gatling == 1
+	Armament@ag-2s:
+		Name: secondary
+		Weapon: AGGatling3
+		LocalOffset: 320,100,30
+		MuzzleSequence: muzzle
+		RequiresCondition: gatling == 2
+	Armament@ag-3s:
+		Name: secondary
+		Weapon: AGGatling4
+		LocalOffset: 320,100,30
+		MuzzleSequence: muzzle
+		RequiresCondition: gatling >= 3
+	GrantConditionOnAttack:
+		Condition: gatling
+		RequiredShotsPerInstance: 12, 24
+		MaximumInstances: 2
+		RevokeDelay: 25
+		RevokeAll: true
+		IsCyclic: false
+		RevokeOnNewTarget: false
+	AttackTurreted:
+		PauseOnCondition: turnedoff
+	WithMuzzleOverlay:
+	WithSpriteTurret:
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
+	SpawnActorOnDeath:
+		Actor: GATLINGCAR.Husk
+
+GATLINGCAR.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Gatling Car)
+	TransformOnCapture@Mechanic:
+		IntoActor: GATLINGCAR
+	TransformOnCapture@Engineer:
+		IntoActor: GATLINGCAR
+	InfiltrateForTransform:
+		IntoActor: GATLINGCAR
+	RenderSprites:
+		Image: gatlingcar
+
 LOUCHUAN:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
@@ -3758,7 +3892,7 @@ LOUCHUAN:
 		Type: Heavy
 	Mobile:
 		Speed: 45
-		PauseOnCondition: notmobile || being-captured || empdisable
+		PauseOnCondition: notmobile || being-captured || turnedoff
 	RevealsShroud:
 		MinRange: 4c0
 		Range: 5c0
