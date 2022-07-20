@@ -67,10 +67,7 @@ Sequences:
 	swp|sequences/vehicles.yaml
 
 TileSets:
-	swp|tilesets/snow.yaml
-	swp|tilesets/interior.yaml
 	swp|tilesets/temperat.yaml
-	swp|tilesets/desert.yaml
 
 Cursors:
 	swp|cursors.yaml

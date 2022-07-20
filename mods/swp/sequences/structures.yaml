@@ -1071,7 +1071,7 @@ mdome:
 		Start: 0
 	damaged-idle: mdome
 		Start: 1
-	active: mdome:
+	active: mdome
 		Start: 0
 	damaged-active: mdome
 		Start: 1
@@ -1090,7 +1090,7 @@ kdome:
 		Start: 0
 	damaged-idle: kdome
 		Start: 1
-	active: kdome:
+	active: kdome
 		Start: 0
 	damaged-active: kdome
 		Start: 1
@@ -1103,7 +1103,7 @@ kdome:
 			INTERIOR: TEMPERAT
 	icon: domeicon
 	fake-icon: domficon
-	
+
 mtek:
 	idle: 
 		Start: 0

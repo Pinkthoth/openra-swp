@@ -1049,7 +1049,7 @@ DOME:
 		EndChargeSpeechNotification: SupportPowerReady
 		Prerequisites: support.ukraine
 		DeploySound: magnetic_start.aud
-		EffectImage: radarscananim
+		EffectImage: empty
 		EffectSequence: idle
 	GrantExternalConditionPower@FLAMESHIELD:
 		OrderName: Flame Shield
@@ -1191,34 +1191,6 @@ DOME:
 		Palette: terrain
 		Offset: -1100,500,-300
 		IsDecoration: True
-
-RADARSCAN:
-	Interactable:
-	EditorOnlyTooltip:
-		Name: Radar Scan Dummy
-	AlwaysVisible:
-	Immobile:
-		OccupiesSpace: false
-	WithSpriteBody:
-	RenderSpritesEditorOnly:
-	BodyOrientation:
-		QuantizedFacings: 1
-	MapEditorData:
-		Categories: System
-	RenderSpritesEditorOnly:
-		Image: gap
-	RevealsShroud:
-		RevealGeneratedShroud: True
-		Range: 10c0
-		Type: CenterPosition
-	RenderDetectionCircleSWP:
-		Visible: Always
-		TrailCount: 1
-		UpdateLineTick: 4092
-		BorderWidth: 5
-		Width: 3
-	DetectCloaked:
-		Range: 10c0
 
 ACADEMY:
 	Inherits: ^ScienceBuilding
@@ -3586,35 +3558,6 @@ UPLINK:
 		Offset: -1100,500,-300
 		IsDecoration: True
 
-powergps:
-	Interactable: 
-	EditorOnlyTooltip:
-		Name: (GPS Power Dummy)
-	AlwaysVisible: 
-	Aircraft:
-		Repulsable: False
-	BodyOrientation:
-		QuantizedFacings: 1
-	WithSpriteBody: 
-	RenderSpritesEditorOnly:
-		Image: camera
-	ProvidesPrerequisite@gap:
-		Prerequisite: gpsactiveprereq
-	ActorLostNotification:
-		Notification: SatelliteTerminated
-	Health:
-		HP: 1500
-	HitShape:
-	ChangesHealth:
-		Step: -1
-		StartIfBelow: 101
-		Delay: 1
-	GrantConditionOnPrerequisite@satelliteexists:
-		Prerequisites: uplink
-		Condition: uplinkexists
-	KillsSelf:
-		RequiresCondition: !uplinkexists
-	
 STHGEN:
 	Inherits: ^ScienceBuilding
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
@@ -3807,7 +3750,7 @@ SRIMP:
 		OrderName: SpawnActorPowerInfoOrderSrimp
 		PauseOnCondition: disabled || turnedoff
 		EndChargeSpeechNotification: VeilReady
-		EffectImage: radarscananim
+		EffectImage: empty
 		EffectSequence: idle
 	SupportPowerChargeBar:
 	Tooltip:
@@ -3832,28 +3775,6 @@ SRIMP:
 		Palette: terrain
 		Offset: -1100,500,-300
 		IsDecoration: True
-
-CENTRALSRIMP:
-	Interactable:
-	EditorOnlyTooltip:
-		Name: Global Shroud Spawner
-	AlwaysVisible:
-	Immobile:
-		OccupiesSpace: false
-	WithSpriteBody:
-	RenderSpritesEditorOnly:
-	BodyOrientation:
-		QuantizedFacings: 1
-	RenderSpritesEditorOnly:
-		Image: gap
-	CreatesShroud:
-		Range: 49c0
-		Type: CenterPosition
-	WithRangeCircle@JAMMER:
-		Type: veilprojector
-		Range: 18c0
-		Color: 0000FF80
-		Visible: Always
 
 SBAG:
 	Inherits: ^Wall

@@ -909,7 +909,8 @@
 ^CellTree:
 	Inherits@1: ^ExistsInWorld
 	Inherits@4: ^SpriteActor
-	AlwaysVisible:
+	HiddenUnderFog:
+		Type: CenterPosition
 	Armor:
 		Type: Wood
 	Health:
@@ -941,7 +942,8 @@
 ^CellTreeHusk:
 	Inherits@1: ^ExistsInWorld
 	Inherits@4: ^SpriteActor
-	AlwaysVisible:
+	HiddenUnderFog:
+		Type: CenterPosition
 	Aircraft:
 		Repulsable: False
 		Speed: 0
@@ -1740,7 +1742,8 @@
 
 ^TreeStump:
 	Inherits@1: ^SpriteActor
-	AlwaysVisible:
+	HiddenUnderFog:
+		Type: CenterPosition
 	Interactable:
 	RenderSprites:
 		Palette: terrain
