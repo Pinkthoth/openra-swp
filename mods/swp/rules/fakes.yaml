@@ -518,6 +518,7 @@ e1.holospawn:
 	-GrantConditionOnPrerequisite@GLOBALBOUNTY:
 	TransformOnCondition:
 		IntoActor: e1.holo
+	-MapEditorData:
 
 e1.holo:
 	Inherits: E1
@@ -542,6 +543,7 @@ e1.holo:
 	-DeathSounds@ZAPPED:
 	-WithDeathAnimation:
 	-GrantConditionOnPrerequisite@GLOBALBOUNTY:
+	-MapEditorData:
 
 e3.holospawn:
 	Inherits: E3
@@ -579,6 +581,7 @@ e3.holospawn:
 	TransformOnCondition:
 		IntoActor: e3.holo
 	-GrantConditionOnPrerequisite@GLOBALBOUNTY:
+	-MapEditorData:
 
 e3.holo:
 	Inherits: E3
@@ -612,6 +615,7 @@ e3.holo:
 	-DeathSounds@ZAPPED:
 	-WithDeathAnimation:
 	-GrantConditionOnPrerequisite@GLOBALBOUNTY:
+	-MapEditorData:
 
 ltnk.holospawn:
 	Inherits: LTNK
@@ -642,6 +646,7 @@ ltnk.holospawn:
 		Speed: 75
 		Locomotor: lighttracked
 		TurnSpeed: 20
+	-MapEditorData:
 
 ltnk.holo:
 	Inherits: LTNK
@@ -669,3 +674,4 @@ ltnk.holo:
 		Speed: 75
 		Locomotor: lighttracked
 		TurnSpeed: 20
+	-MapEditorData:

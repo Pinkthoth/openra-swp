@@ -914,15 +914,12 @@ RADARSCAN:
 	EditorOnlyTooltip:
 		Name: Radar Scan Dummy
 	AlwaysVisible:
-	Building:
-		Footprint: _
-		Dimensions: 1,1
+	Immobile:
+		OccupiesSpace: false
 	WithSpriteBody:
 	RenderSpritesEditorOnly:
 	BodyOrientation:
 		QuantizedFacings: 1
-	MapEditorData:
-		Categories: System
 	RenderSpritesEditorOnly:
 		Image: gap
 	RevealsShroud:

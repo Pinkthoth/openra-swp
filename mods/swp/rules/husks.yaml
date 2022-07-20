@@ -22,9 +22,6 @@ RUBBLE:
 		Delay: 8
 	RenderSprites:
 		Image: rubble
-	Building:
-		Footprint: _
-		Dimensions: 1,1
 	GrantRandomCondition:
 		Conditions: rubble1,rubble2, rubble3
 	WithSpriteBody@rubble1:

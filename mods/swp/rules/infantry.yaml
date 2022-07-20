@@ -3304,6 +3304,7 @@ SHINOBI.attached:
 	-RenderSprites:
 	RenderSpritesEditorOnly:
 		Image: shinobi
+	-MapEditorData:
 
 GUERILLA:
 	Inherits: ^Soldier

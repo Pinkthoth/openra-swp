@@ -1034,6 +1034,7 @@ SAUCER.Ground:
 	AmbientSound@float:
 		SoundFiles: ufofloat.aud
 		Interval: 148
+	-MapEditorData:
 
 HIND:
 	Inherits: ^Helicopter
@@ -1194,6 +1195,7 @@ TENGRII.Deployed:
 	WithIdleOverlay@ROTORGROUND:
 		Sequence: slow-rotor
 		Offset: 100, 0,600
+	-MapEditorData:
 
 GEBARD:
 	Inherits: ^Helicopter

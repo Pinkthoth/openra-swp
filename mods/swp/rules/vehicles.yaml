@@ -3033,6 +3033,7 @@ HVRTNKHVR:
 	TransformOnCondition:
 		IntoActor: hvrtnktnk
 		RequiresCondition: !airborne
+	-MapEditorData:
 
 HVRTNKHVR.Husk:
 	Inherits: ^HelicopterHusk
@@ -3763,6 +3764,7 @@ ORDADEPLOYED:
 		Palette: terrain
 		Offset: -1700,1100,-300
 		IsDecoration: True
+	-MapEditorData:
 
 GATLINGCAR:
 	Inherits: ^Vehicle

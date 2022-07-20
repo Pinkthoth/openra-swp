@@ -1884,6 +1884,7 @@
 	Explodes:
 		Weapon: UnitExplodeSmall
 		EmptyWeapon: UnitExplodeSmall
+	-MapEditorData:
 
 ^WithSpriteBib:
 	WithIdleOverlay@bip:

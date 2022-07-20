@@ -1,3 +1,188 @@
+FACT:
+	Inherits: ^Building
+	Inherits@rubbles: ^3x3Rubbles
+	Inherits@sabotable: ^Sabotable
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Targetable:
+		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SaboteurInfiltration
+	Selectable:
+		Bounds: 72,72
+	Building:
+		Footprint: xxX xxx XxX
+		Dimensions: 3,3
+		LocalCenterOffset: 0,-512,0
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 1000
+		Prerequisites: ~disabled
+		Description: Produces structures.
+	ProvidesPrerequisite@allies:
+		Factions: allies, england, france, usa, japan, serbia
+		Prerequisite: structures.entente
+	ProvidesPrerequisite@alliesvanilla:
+		Factions: allies
+		Prerequisite: structures.alliesvanilla
+	ProvidesPrerequisite@england:
+		Factions: england
+		Prerequisite: structures.england
+	ProvidesPrerequisite@france:
+		Factions: france
+		Prerequisite: structures.france
+	ProvidesPrerequisite@serbia:
+		Factions: serbia
+		Prerequisite: structures.serbia
+	ProvidesPrerequisite@soviet:
+		Factions: soviet, russia, ukraine, china, mongolia, kazakhstan
+		Prerequisite: structures.komintern
+	ProvidesPrerequisite@sovietvanilla:
+		Factions: soviet
+		Prerequisite: structures.sovietvanilla
+	ProvidesPrerequisite@russia:
+		Factions: russia
+		Prerequisite: structures.russia
+	ProvidesPrerequisite@kazakhstan:
+		Factions: kazakhstan
+		Prerequisite: structures.kazakhstan
+	ProvidesPrerequisite@ukraine:
+		Factions: ukraine
+		Prerequisite: structures.ukraine
+	ProvidesPrerequisite@china:
+		Factions: china
+		Prerequisite: structures.china
+	ProvidesPrerequisite@mongolia:
+		Factions: mongolia
+		Prerequisite: structures.mongolia
+	ProvidesPrerequisite@zentrum:
+		Factions: tetrarhcy, germany, austria, turkey, italy, bulgaria
+		Prerequisite: structures.zentrum
+	ProvidesPrerequisite@zentrumvanilla:
+		Factions: zentrum
+		Prerequisite: structures.zentrumvanilla
+	ProvidesPrerequisite@germany:
+		Factions: germany
+		Prerequisite: structures.germany
+	ProvidesPrerequisite@austria:
+		Factions: austria
+		Prerequisite: structures.austria
+	ProvidesPrerequisite@turkey:
+		Factions: turkey
+		Prerequisite: structures.turkey
+	ProvidesPrerequisite@italy:
+		Factions: italy
+		Prerequisite: structures.italy
+	ProvidesPrerequisite@bulgaria:
+		Factions: bulgaria
+		Prerequisite: structures.bulgaria
+	Health:
+		HP: 175000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 5c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	Production:
+		Produces: Building, Defense
+		PauseOnCondition: being-captured || turnedoff
+	Valued:
+		Cost: 2100
+	Tooltip:
+		Name: Construction Yard
+	SpawnActorsOnSell:
+		ActorTypes: e1,e1,e1,tecn,tecn2,e6
+	BaseBuilding:
+	Transforms:
+		RequiresCondition: factundeploy
+		PauseOnCondition: chrono-vortex || being-captured || being-demolished || build-incomplete || turnedoff
+		IntoActor: mcv
+		Offset: 1,1
+		Facing: 384
+	TransformsIntoMobile:
+		RequiresCondition: factundeploy
+		Locomotor: heavywheeled
+		RequiresForceMove: true
+	TransformsIntoPassenger:
+		RequiresCondition: factundeploy
+		CargoType: Vehicle
+		RequiresForceMove: true
+	TransformsIntoRepairable:
+		RequiresCondition: factundeploy
+		RepairActors: fix
+		RequiresForceMove: true
+	TransformsIntoTransforms:
+		RequiresCondition: factundeploy && build-incomplete
+	Sellable:
+		RequiresCondition: !build-incomplete && !chrono-vortex && !being-captured && !being-demolished && !turnedoff
+	GrantConditionOnPrerequisite@GLOBALFACTUNDEPLOY:
+		Condition: factundeploy
+		Prerequisites: global-factundeploy
+	ProductionBar@Building:
+		ProductionType: Building
+	ProductionBar@Defense:
+		ProductionType: Defense
+		Color: 8A8A8A
+	BaseProvider:
+		PauseOnCondition: being-captured
+		Range: 11c0
+	WithBuildingPlacedAnimation:
+		RequiresCondition: !build-incomplete && !chrono-vortex
+	Power:
+		Amount: 0
+	WithDeathAnimation:
+		DeathSequence: dead
+		UseDeathTypeSuffix: false
+	ProvidesPrerequisite@buildingname:
+	HitShape:
+		TargetableOffsets: 1273,939,0, -980,-640,0, -980,640,0
+		Type: Rectangle
+			TopLeft: -1536, -1536
+			BottomRight: 1536, 1536
+	ConyardChronoReturn:
+		ReturnOriginalActorOnCondition: build-incomplete
+		Condition: chrono-vortex
+		Damage: 950
+	TransferTimedExternalConditionOnTransform:
+		Condition: invulnerability
+	RenderSprites:
+		FactionImages:
+			austria: mfact
+			germany: mfact
+			turkey: mfact
+			italy: mfact
+			bulgaria: mfact
+			serbia: efact
+			usa: efact
+			japan: efact
+			england: efact
+			france: efact
+			russia: kfact
+			ukraine: kfact
+			china: kfact
+			mongolia: kfact
+			kazakhstan: kfact
+	WithIdleOverlay@bip:
+		Image: bib_3x3
+		Sequence: idle
+		Palette: terrain
+		Offset: 0,0,-300
+		IsDecoration: True
+	GrantConditionOnPrerequisite@sabotaged
+		Prerequisites: fact-sabotaged-prereq
+		Condition: fact-sabotaged
+	GrantCondition@sabotaged:
+		Condition: turnedoff
+		RequiresCondition: fact-sabotaged
+	WithColoredOverlay@SABOTAGED:
+		RequiresCondition: fact-sabotaged
+	WithDecoration@sabotaged:
+		RequiresCondition: fact-sabotaged
+	InfiltrateForSupportPowerSwp:
+		Types: SaboteurInfiltration
+		Proxy: proxy.fact-sabotaged
+
 MSLO:
 	Inherits: ^ScienceBuilding
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
@@ -1989,6 +2174,7 @@ ADEPT.disabled:
 	-FreeActor@CHARGEPOS1:
 	-FreeActor@CHARGEPOS2:
 	-ProximityExternalCondition:
+	-MapEditorData:
 
 ADEPTCHARGER:
 	Interactable: 
@@ -2264,191 +2450,6 @@ WEAP:
 	InfiltrateForSupportPowerSwp:
 		Types: SaboteurInfiltration
 		Proxy: proxy.weap-sabotaged
-
-FACT:
-	Inherits: ^Building
-	Inherits@rubbles: ^3x3Rubbles
-	Inherits@sabotable: ^Sabotable
-	Inherits@EMPDISABLE: ^EmpDisable
-	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
-	Targetable:
-		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SaboteurInfiltration
-	Selectable:
-		Bounds: 72,72
-	Building:
-		Footprint: xxX xxx XxX
-		Dimensions: 3,3
-		LocalCenterOffset: 0,-512,0
-	Buildable:
-		Queue: Building
-		BuildPaletteOrder: 1000
-		Prerequisites: ~disabled
-		Description: Produces structures.
-	ProvidesPrerequisite@allies:
-		Factions: allies, england, france, usa, japan, serbia
-		Prerequisite: structures.entente
-	ProvidesPrerequisite@alliesvanilla:
-		Factions: allies
-		Prerequisite: structures.alliesvanilla
-	ProvidesPrerequisite@england:
-		Factions: england
-		Prerequisite: structures.england
-	ProvidesPrerequisite@france:
-		Factions: france
-		Prerequisite: structures.france
-	ProvidesPrerequisite@serbia:
-		Factions: serbia
-		Prerequisite: structures.serbia
-	ProvidesPrerequisite@soviet:
-		Factions: soviet, russia, ukraine, china, mongolia, kazakhstan
-		Prerequisite: structures.komintern
-	ProvidesPrerequisite@sovietvanilla:
-		Factions: soviet
-		Prerequisite: structures.sovietvanilla
-	ProvidesPrerequisite@russia:
-		Factions: russia
-		Prerequisite: structures.russia
-	ProvidesPrerequisite@kazakhstan:
-		Factions: kazakhstan
-		Prerequisite: structures.kazakhstan
-	ProvidesPrerequisite@ukraine:
-		Factions: ukraine
-		Prerequisite: structures.ukraine
-	ProvidesPrerequisite@china:
-		Factions: china
-		Prerequisite: structures.china
-	ProvidesPrerequisite@mongolia:
-		Factions: mongolia
-		Prerequisite: structures.mongolia
-	ProvidesPrerequisite@zentrum:
-		Factions: tetrarhcy, germany, austria, turkey, italy, bulgaria
-		Prerequisite: structures.zentrum
-	ProvidesPrerequisite@zentrumvanilla:
-		Factions: zentrum
-		Prerequisite: structures.zentrumvanilla
-	ProvidesPrerequisite@germany:
-		Factions: germany
-		Prerequisite: structures.germany
-	ProvidesPrerequisite@austria:
-		Factions: austria
-		Prerequisite: structures.austria
-	ProvidesPrerequisite@turkey:
-		Factions: turkey
-		Prerequisite: structures.turkey
-	ProvidesPrerequisite@italy:
-		Factions: italy
-		Prerequisite: structures.italy
-	ProvidesPrerequisite@bulgaria:
-		Factions: bulgaria
-		Prerequisite: structures.bulgaria
-	Health:
-		HP: 175000
-	Armor:
-		Type: Wood
-	RevealsShroud:
-		MinRange: 4c0
-		Range: 5c0
-		RevealGeneratedShroud: False
-	RevealsShroud@GAPGEN:
-		Range: 4c0
-	Production:
-		Produces: Building, Defense
-		PauseOnCondition: being-captured || turnedoff
-	Valued:
-		Cost: 2100
-	Tooltip:
-		Name: Construction Yard
-	SpawnActorsOnSell:
-		ActorTypes: e1,e1,e1,tecn,tecn2,e6
-	BaseBuilding:
-	Transforms:
-		RequiresCondition: factundeploy
-		PauseOnCondition: chrono-vortex || being-captured || being-demolished || build-incomplete || turnedoff
-		IntoActor: mcv
-		Offset: 1,1
-		Facing: 384
-	TransformsIntoMobile:
-		RequiresCondition: factundeploy
-		Locomotor: heavywheeled
-		RequiresForceMove: true
-	TransformsIntoPassenger:
-		RequiresCondition: factundeploy
-		CargoType: Vehicle
-		RequiresForceMove: true
-	TransformsIntoRepairable:
-		RequiresCondition: factundeploy
-		RepairActors: fix
-		RequiresForceMove: true
-	TransformsIntoTransforms:
-		RequiresCondition: factundeploy && build-incomplete
-	Sellable:
-		RequiresCondition: !build-incomplete && !chrono-vortex && !being-captured && !being-demolished && !turnedoff
-	GrantConditionOnPrerequisite@GLOBALFACTUNDEPLOY:
-		Condition: factundeploy
-		Prerequisites: global-factundeploy
-	ProductionBar@Building:
-		ProductionType: Building
-	ProductionBar@Defense:
-		ProductionType: Defense
-		Color: 8A8A8A
-	BaseProvider:
-		PauseOnCondition: being-captured
-		Range: 11c0
-	WithBuildingPlacedAnimation:
-		RequiresCondition: !build-incomplete && !chrono-vortex
-	Power:
-		Amount: 0
-	WithDeathAnimation:
-		DeathSequence: dead
-		UseDeathTypeSuffix: false
-	ProvidesPrerequisite@buildingname:
-	HitShape:
-		TargetableOffsets: 1273,939,0, -980,-640,0, -980,640,0
-		Type: Rectangle
-			TopLeft: -1536, -1536
-			BottomRight: 1536, 1536
-	ConyardChronoReturn:
-		ReturnOriginalActorOnCondition: build-incomplete
-		Condition: chrono-vortex
-		Damage: 950
-	TransferTimedExternalConditionOnTransform:
-		Condition: invulnerability
-	RenderSprites:
-		FactionImages:
-			austria: mfact
-			germany: mfact
-			turkey: mfact
-			italy: mfact
-			bulgaria: mfact
-			serbia: efact
-			usa: efact
-			japan: efact
-			england: efact
-			france: efact
-			russia: kfact
-			ukraine: kfact
-			china: kfact
-			mongolia: kfact
-			kazakhstan: kfact
-	WithIdleOverlay@bip:
-		Image: bib_3x3
-		Sequence: idle
-		Palette: terrain
-		Offset: 0,0,-300
-		IsDecoration: True
-	GrantConditionOnPrerequisite@sabotaged
-		Prerequisites: fact-sabotaged-prereq
-		Condition: fact-sabotaged
-	GrantCondition@sabotaged:
-		Condition: turnedoff
-		RequiresCondition: fact-sabotaged
-	WithColoredOverlay@SABOTAGED:
-		RequiresCondition: fact-sabotaged
-	WithDecoration@sabotaged:
-		RequiresCondition: fact-sabotaged
-	InfiltrateForSupportPowerSwp:
-		Types: SaboteurInfiltration
-		Proxy: proxy.fact-sabotaged
 
 PROC:
 	Inherits: ^Building

@@ -436,6 +436,7 @@ CIVNUKE.exploding:
 		Interval: 1000
 	WithSpriteBody:
 		Sequence: dead
+	-MapEditorData:
 
 FHOUSEA:
 	Inherits: ^GarrisonableCivBuilding
