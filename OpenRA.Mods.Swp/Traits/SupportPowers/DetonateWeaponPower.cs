@@ -120,7 +120,6 @@ namespace OpenRA.Mods.Swp.Traits
 
 			self.World.AddFrameEndTask(w =>
 			{
-
 				var actor = w.CreateActor(Info.CameraActor, new TypeDictionary
 					{
 						new LocationInit(self.World.Map.CellContaining(order.Target.CenterPosition)),

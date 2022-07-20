@@ -91,6 +91,7 @@ namespace OpenRA.Mods.Swp.Traits
 
 						activated |= sp.Produce(self, self.World.Map.Rules.Actors[name.ToLowerInvariant()], info.Type, inits, 0);
 					}
+
 					ownerResources.TakeCash(priceToPay);
 					self.World.AddFrameEndTask(w => w.Add(new FloatingText(self.CenterPosition, self.Owner.Color, FloatingText.FormatCashTick(-priceToPay), 30)));
 				}
@@ -116,7 +117,7 @@ namespace OpenRA.Mods.Swp.Traits
 				return 0f;
 
 			if (ticks < 0)
-				return (float)(info.ChargeDuration -1) /info.ChargeDuration;
+				return (float)(info.ChargeDuration - 1)  / info.ChargeDuration;
 			else
 				return (float)(info.ChargeDuration - ticks) / info.ChargeDuration;
 		}

@@ -96,7 +96,7 @@ namespace OpenRA.Mods.Swp.Traits
 					return;
 				}
 
-				if(charge == Info.MaxCharge)
+				if (charge == Info.MaxCharge)
 					GrantCondition(self);
 			}
 			else
