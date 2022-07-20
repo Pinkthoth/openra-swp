@@ -117,7 +117,7 @@ namespace OpenRA.Mods.Swp.Traits
 				return 0f;
 
 			if (ticks < 0)
-				return (float)(info.ChargeDuration - 1)  / info.ChargeDuration;
+				return (float)(info.ChargeDuration - 1) / info.ChargeDuration;
 			else
 				return (float)(info.ChargeDuration - ticks) / info.ChargeDuration;
 		}
