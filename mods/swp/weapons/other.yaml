@@ -35,6 +35,7 @@
 		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
 			None: 1000
+			Concrete: 50
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ElectricityDeath
 
 ^ElectricBoltWeapon:
@@ -852,8 +853,8 @@ SPEMPPulse:
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne
 
 Prism:
-	ReloadDelay: 125
-	Range: 8c0
+	ReloadDelay: 150
+	Range: 7c512
 	Report: prisray.aud
 	ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
 	Projectile: LaserZap
@@ -863,21 +864,27 @@ Prism:
 		Color: 0094FF
 	Warhead@1Dam: SpreadDamage
 		Spread: 42
-		Damage: 15000
+		Damage: 12000
 		Versus:
 			None: 100
 			Wood: 50
 			Light: 100
-			Medium: 100
-			Heavy: 100
+			Medium: 90
+			Heavy: 80
+			Concrete: 30
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath
 		ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Scorch
+	Warhead@PrismBurst: FireCluster
+		Weapon: PrismTowerBurst
+		RandomClusterCount: 3
+		Dimensions: 3,3
+		Footprint: xxx x_x xxx
 
 PrismTower:
 	ReloadDelay: 200
-	Range: 8c0
+	Range: 7c512
 	Report: prisray.aud
 	ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
 	Projectile: LaserZap
@@ -892,8 +899,9 @@ PrismTower:
 			None: 100
 			Wood: 50
 			Light: 100
-			Medium: 100
-			Heavy: 100
+			Medium: 90
+			Heavy: 80
+			Concrete: 30
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath
 		ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
 	Warhead@2Smu: LeaveSmudge
@@ -918,8 +926,9 @@ PrismTowerBurst:
 			None: 100
 			Wood: 50
 			Light: 100
-			Medium: 100
-			Heavy: 100
+			Medium: 90
+			Heavy: 80
+			Concrete: 30
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath
 		ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
 	Warhead@2Smu: LeaveSmudge
@@ -939,10 +948,12 @@ PrismHandHeld:
 		Spread: 42
 		Damage: 8000
 		Versus:
-			Wood: 50
+			None: 100
+			Wood: 45
 			Light: 90
-			Medium: 85
-			Heavy: 80
+			Medium: 80
+			Heavy: 60
+			Concrete: 25
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath
 		ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
 	Warhead@2Smu: LeaveSmudge

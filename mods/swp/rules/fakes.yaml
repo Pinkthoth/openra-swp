@@ -361,15 +361,15 @@ ATEF:
 		Offset: -1100,500,-300
 		IsDecoration: True
 
-PDOF:
+STHGENF:
 	Inherits: ^FakeBuilding
 	Inherits@IDISABLE: ^DisableOnLowPower
 	Inherits@shape: ^2x2Shape
 	Selectable:
 		Bounds: 48,48
 	Tooltip:
-		Name: Fake Chronosphere
-		GenericName: Chronosphere
+		Name: Fake Phase Generator
+		GenericName: Phase Generator
 		GenericVisibility: Enemy
 		GenericStancePrefix: False
 	Buildable:
@@ -377,13 +377,13 @@ PDOF:
 		Queue: Defense
 		Prerequisites: ~structures.france, ~techlevel.unrestricted
 		BuildLimit: 1
-		Description: Looks like a Chronosphere.\nMaximum 1 can be built.
+		Description: Looks like a Phase Generator.\nMaximum 1 can be built.
 		Icon: fake-icon
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
 	RenderSprites:
-		Image: PDOX
+		Image: STHGEN
 	Valued:
 		Cost: 150
 	Health:
@@ -398,6 +398,48 @@ PDOF:
 		Palette: terrain
 		Offset: -1100,500,-300
 		IsDecoration: True
+
+EMPGUNF:
+	Inherits: ^FakeBuilding
+	Inherits@IDISABLE: ^DisableOnLowPower
+	Inherits@shape: ^2x2Shape
+	Selectable:
+		Bounds: 48,48
+	Tooltip:
+		Name: Fake EMP Cannon
+		GenericName: EMP Cannon
+		GenericVisibility: Enemy
+		GenericStancePrefix: False
+	Buildable:
+		BuildPaletteOrder: 980
+		Queue: Defense
+		Prerequisites: ~structures.france, ~techlevel.unrestricted
+		BuildLimit: 1
+		Description: Looks like a EMP Cannon.\nMaximum 1 can be built.
+		Icon: fake-icon
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	RenderSprites:
+		Image: EMPGUN
+	Valued:
+		Cost: 150
+	Health:
+		HP: 100000
+	Armor:
+		Type: Wood
+	Explodes:
+		DamageThreshold: 50
+	WithIdleOverlay@bip:
+		Image: bib_2x2
+		Sequence: idle
+		Palette: terrain
+		Offset: -1100,500,-300
+		IsDecoration: True
+	SequencePlaceBuildingPreview:
+		Sequence: build
+	WithSpriteBody:
+		Sequence: fakeidle
 
 MSLF:
 	Inherits: ^FakeBuilding
@@ -582,6 +624,7 @@ e3.holospawn:
 		IntoActor: e3.holo
 	-GrantConditionOnPrerequisite@GLOBALBOUNTY:
 	-MapEditorData:
+	RejectsOrders:
 
 e3.holo:
 	Inherits: E3
@@ -643,10 +686,11 @@ ltnk.holospawn:
 	-GrantConditionOnPrerequisite@GLOBALBOUNTY:
 	-Mobile:
 	Mobile:
-		Speed: 75
+		Speed: 0
 		Locomotor: lighttracked
 		TurnSpeed: 20
 	-MapEditorData:
+	RejectsOrders:
 
 ltnk.holo:
 	Inherits: LTNK

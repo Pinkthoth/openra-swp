@@ -956,9 +956,9 @@ DOME:
 	ProvidesPrerequisite@austria:
 		Factions: austria
 		Prerequisite: support.austria
-	ProvidesPrerequisite@spain:
-		Factions: spain
-		Prerequisite: support.spain
+	ProvidesPrerequisite@serbia:
+		Factions: serbia
+		Prerequisite: support.serbia
 	ProvidesPrerequisite@usa:
 		Factions: usa
 		Prerequisite: support.usa
@@ -988,7 +988,7 @@ DOME:
 		Prerequisites: support.england
 	InterceptorPower@AirDef:
 		OrderName: interceptors
-		Prerequisites: ~support.spain
+		Prerequisites: support.serbia
 		PauseOnCondition: turnedoff
 		Icon: intercepticon
 		ChargeInterval: 3000
@@ -1802,57 +1802,66 @@ GATLINGGUN:
 	WithSpriteTurret:
 		RequiresCondition: !build-incomplete
 		Recoils: false
-	Armament@ag-0:
-		Weapon: AGGatling
-		LocalOffset: 480,-300,200
-		MuzzleSequence: muzzle
+	Armament@gatling-start-0:
+		Weapon: AGGatlingStart
 		RequiresCondition: !gatling
 		PauseOnCondition: turnedoff
-	Armament@ag-1:
-		Weapon: AGGatling2
-		LocalOffset: 480,-300,200
+	Armament@ag-0:
+		Weapon: AGGatling
+		LocalOffset: 400,-300,200
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling == 1
 		PauseOnCondition: turnedoff
-	Armament@ag-2:
-		Weapon: AGGatling3
-		LocalOffset: 480,-300,200
+	Armament@ag-1:
+		Weapon: AGGatling2
+		LocalOffset: 400,-300,200
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling == 2
 		PauseOnCondition: turnedoff
+	Armament@ag-2:
+		Weapon: AGGatling3
+		LocalOffset: 400,-300,200
+		MuzzleSequence: muzzle
+		RequiresCondition: gatling == 3
+		PauseOnCondition: turnedoff
 	Armament@ag-3:
 		Weapon: AGGatling4
-		LocalOffset: 480,-300,200
+		LocalOffset: 400,-300,200
 		MuzzleSequence: muzzle
-		RequiresCondition: gatling >= 3
+		RequiresCondition: gatling >= 4
+		PauseOnCondition: turnedoff
+	Armament@gatling-start-0s:
+		Name: secondary
+		Weapon: AGGatlingStart
+		RequiresCondition: !gatling
 		PauseOnCondition: turnedoff
 	Armament@ag-0s:
 		Name: secondary
 		Weapon: AGGatling
-		LocalOffset: 480,300,200
+		LocalOffset: 400,300,200
 		MuzzleSequence: muzzle
-		RequiresCondition: !gatling
+		RequiresCondition: gatling == 1
 		PauseOnCondition: turnedoff
 	Armament@ag-1s:
 		Name: secondary
 		Weapon: AGGatling2
-		LocalOffset: 480,300,200
+		LocalOffset: 400,300,200
 		MuzzleSequence: muzzle
-		RequiresCondition: gatling == 1
+		RequiresCondition: gatling == 2
 		PauseOnCondition: turnedoff
 	Armament@ag-2s:
 		Name: secondary
 		Weapon: AGGatling3
-		LocalOffset: 480,300,200
+		LocalOffset: 400,300,200
 		MuzzleSequence: muzzle
-		RequiresCondition: gatling == 2
+		RequiresCondition: gatling == 3
 		PauseOnCondition: turnedoff
 	Armament@ag-3s:
 		Name: secondary
 		Weapon: AGGatling4
-		LocalOffset: 480,300,200
+		LocalOffset: 400,300,200
 		MuzzleSequence: muzzle
-		RequiresCondition: gatling >= 3
+		RequiresCondition: gatling >= 4
 		PauseOnCondition: turnedoff
 	GrantConditionOnAttack:
 		Condition: gatling
@@ -1862,6 +1871,21 @@ GATLINGGUN:
 		RevokeAll: true
 		IsCyclic: false
 		RevokeOnNewTarget: false
+	AmbientSound@gatlingspinning:
+		SoundFiles: turret_loop_11.wav
+		RequiresCondition: gatling && aiming
+	AmbientSound@loopstart:
+		SoundFiles: turret_start_11.wav
+		RequiresCondition: !gatling && aiming
+		Interval: 100
+		Delay: 0
+	AmbientSound@loopend:
+		SoundFiles: turret_end_11.wav
+		RequiresCondition: gatling && !aiming
+		Interval: 100
+		Delay: 0
+	GrantConditionWhileAiming@aiming:
+		Condition: aiming
 	AttackTurreted:
 		RequiresCondition: !build-incomplete
 		PauseOnCondition: turnedoff
@@ -1919,7 +1943,7 @@ GRANDCANNON:
 		Recoils: false
 	Armament:
 		Weapon: 8Inch-Grand-Cannon
-		LocalOffset: 1212,0,412, 1112,0,632
+		LocalOffset: 1112,0,712, 1012,0,932
 		MuzzleSequence: muzzle
 		PauseOnCondition: turnedoff
 	AttackTurreted:
@@ -2329,14 +2353,14 @@ WEAP:
 		RequiresCondition: !build-incomplete
 		Sequence: build-top
 	RallyPoint:
-	Exit@1:
-		RequiresCondition: !being-captured || !turnedoff
-		SpawnOffset: 213,-128,0
-		ExitCell: 2,2
 	Exit@2:
 		RequiresCondition: !being-captured || !turnedoff
 		SpawnOffset: 213,-128,0
 		ExitCell: 0,0
+	Exit@1:
+		RequiresCondition: !being-captured || !turnedoff
+		SpawnOffset: 213,-128,0
+		ExitCell: 2,2
 	Production:
 		Produces: Vehicle
 		PauseOnCondition: being-captured || turnedoff
@@ -2640,6 +2664,12 @@ SILO:
 		RequiresSelection: true
 		PipCount: 5
 		FullSequence: pip-yellow
+	WithIdleOverlay@bip:
+		Image: bib_1x1
+		Sequence: idle
+		Palette: terrain
+		Offset: -1700,1100,-300
+		IsDecoration: True
 
 LAZARUSPLATFORM:
 	Inherits: ^ScienceBuilding
@@ -2655,7 +2685,7 @@ LAZARUSPLATFORM:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 180
-		Prerequisites: dome, ~structures.austria, ~techlevel.medium
+		Prerequisites: mtek, ~structures.austria, ~techlevel.medium
 		Description: Slowly heals or repairs surrounding units\nby gathering bits of their past selves\nfrom the space-time continuum.
 	Valued:
 		Cost: 1500

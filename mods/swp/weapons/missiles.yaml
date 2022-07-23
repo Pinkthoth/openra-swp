@@ -515,7 +515,7 @@ SCUD:
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, SmallExplosionDeath, Incendiary
 	Warhead@3Eff: CreateEffect
 		Explosions: napalm
-		ImpactSounds: firebl3.aud
+		ImpactSounds: explosion_medium_5.wav
 	Warhead@4EffWater: CreateEffect
 		Explosions: large_splash
 	Warhead@Smu: LeaveSmudge
@@ -682,7 +682,7 @@ IfritAreaFire:
 		ValidTargets: GroundActor, Trees,  WaterActor, Trees
 		Versus:
 			None: 100
-			Wood: 10
+			Wood: 15
 			Light: 50
 			Medium: 30
 			Heavy: 20
@@ -697,7 +697,7 @@ IfritAreaFire:
 		ValidTargets: GroundActor, Trees,  WaterActor, Trees
 		Versus:
 			None: 100
-			Wood: 10
+			Wood: 15
 			Light: 50
 			Medium: 30
 			Heavy: 20
@@ -713,7 +713,7 @@ IfritAreaFire:
 		ValidTargets: GroundActor, Trees,  WaterActor, Trees
 		Versus:
 			None: 100
-			Wood: 10
+			Wood: 15
 			Light: 50
 			Medium: 30
 			Heavy: 20
@@ -729,7 +729,7 @@ IfritAreaFire:
 		ValidTargets: GroundActor, Trees,  WaterActor, Trees
 		Versus:
 			None: 100
-			Wood: 10
+			Wood: 15
 			Light: 50
 			Medium: 30
 			Heavy: 20
@@ -745,7 +745,7 @@ IfritAreaFire:
 		ValidTargets: GroundActor, Trees,  WaterActor, Trees
 		Versus:
 			None: 100
-			Wood: 10
+			Wood: 15
 			Light: 50
 			Medium: 30
 			Heavy: 20
@@ -761,7 +761,7 @@ IfritAreaFire:
 		ValidTargets: GroundActor, Trees,  WaterActor, Trees
 		Versus:
 			None: 100
-			Wood: 10
+			Wood: 15
 			Light: 50
 			Medium: 30
 			Heavy: 20
@@ -777,7 +777,7 @@ IfritAreaFire:
 		ValidTargets: GroundActor, Trees,  WaterActor, Trees
 		Versus:
 			None: 100
-			Wood: 10
+			Wood: 15
 			Light: 50
 			Medium: 30
 			Heavy: 20
@@ -895,6 +895,43 @@ IfritAreaFire:
 	Warhead@3Eff: CreateEffect
 		Explosions: med_explosion
 		ImpactSounds: xplobig4.aud
+
+227mm-Marauder:
+	Inherits: ^AntiGroundMissile
+	ReloadDelay: 175
+	Range: 11c0
+	MinRange: 3c0
+	Burst: 4
+	BurstDelays: 4
+	Report: aatrooperattack.wav
+	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor
+	TargetActorCenter: true
+	-Projectile:
+	Projectile: Bullet
+		Blockable: false
+		Image: DRAGON
+		Shadow: True
+		TrailImage: smokey
+		Inaccuracy: 1c512
+		LaunchAngle: 62
+		ContrailLength: 10
+		Speed: 341
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c256
+		Damage: 1000
+		Falloff: 150, 110, 75, 50, 15, 5, 0
+		ValidTargets: GroundActor, Trees,  WaterActor, AirborneActor
+		Versus:
+			None: 95
+			Wood: 75
+			Light: 60
+			Medium: 50
+			Heavy: 40
+			Concrete: 55
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@3Eff: CreateEffect
+		Explosions: med_explosion
+		ImpactSounds: explosion_small_1.wav
 
 Hind227mm:
 	Inherits: ^AntiGroundMissile

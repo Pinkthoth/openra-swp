@@ -53,7 +53,7 @@ HARV:
 		RequiresCondition: !no-ore
 		Weapon: OreExplosion
 	WithHarvesterSpriteBody:
-		ImageByFullness: harvempty, harvhalf, harv
+		ImageByFullness: harv2empty, harv2half, harv2
 	-WithFacingSpriteBody:
 	WithHarvesterPipsDecoration:
 		Position: BottomLeft
@@ -464,7 +464,7 @@ PRISMCANNON:
 	Valued:
 		Cost: 1400
 	Tooltip:
-		Name: Mobile Refractor Cannon
+		Name: Refractor Cannon
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
@@ -697,7 +697,7 @@ ECTNK:
 	Valued:
 		Cost: 1000
 	Tooltip:
-		Name: Chrono Tortoise
+		Name: Chrono APC
 		GenericName: Tank
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
@@ -719,6 +719,7 @@ ECTNK:
 		Weapon: M60mg-apc
 		LocalOffset: 620,0,151
 		MuzzleSequence: muzzle
+		PauseOnCondition: turnedoff
 	AttackFrontal:
 		PauseOnCondition: turnedoff
 	WithMuzzleOverlay:
@@ -782,12 +783,15 @@ CTNK:
 		Weapon: APTusk
 		LocalOffset: -160,-276,232
 		LocalYaw: 60
+		PauseOnCondition: turnedoff
 	Armament@SECONDARY:
 		Weapon: APTusk
 		LocalOffset: -160,276,232
 		LocalYaw: -60
+		PauseOnCondition: turnedoff
 	AttackFrontal:
 		FacingTolerance: 0
+		PauseOnCondition: turnedoff
 	PortableChrono:
 		ChargeDelay: 250
 	ProducibleWithLevel:
@@ -1224,11 +1228,11 @@ MARAUDER:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 50
-		Prerequisites: ~vehicles.mongolia, ~techlevel.low
-		Description: Fast scout & anti-infantry vehicle.\nCan carry one infantry.\n	 Strong vs Infantry\n  Weak vs Vehicles, Aircraft
+		BuildPaletteOrder: 97
+		Prerequisites: dome, ~vehicles.mongolia, ~techlevel.medium
+		Description: Fast scout & anti-infantry vehicle.\nArmed with a small rocket launcher.\n	 Strong vs Infantry\n  Weak vs Vehicles, Aircraft
 	Valued:
-		Cost: 500
+		Cost: 750
 	RenderSprites:
 		Image: bggy
 	Tooltip:
@@ -1236,12 +1240,12 @@ MARAUDER:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 15000
+		HP: 12500
 	Armor:
 		Type: Light
 	Mobile:
 		TurnSpeed: 40
-		Speed: 150
+		Speed: 125
 		PauseOnCondition: being-captured
 	RevealsShroud:
 		MinRange: 4c0
@@ -1251,14 +1255,13 @@ MARAUDER:
 		Range: 4c0
 	Turreted:
 		TurnSpeed: 40
-		Offset: 0,0,128
+		Offset: -325,0,150
 	Armament:
-		Weapon: M60mg
-		MuzzleSequence: muzzle
-		LocalOffset: 145,0,43
+		Weapon: 227mm-Marauder
+		LocalOffset: 171,0,43
+		PauseOnCondition: turnedoff
 	AttackTurreted:
 		PauseOnCondition: turnedoff
-	WithMuzzleOverlay:
 	WithSpriteTurret:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
@@ -1441,11 +1444,11 @@ KATYA:
 		Range: 5c0
 	Armament@PRIMARY:
 		Weapon: 227mm
-		LocalOffset: 213,128,50, 213,-128,50
+		LocalOffset: 213,128,200, 213,-128,200
 	Armament@SECONDARY:
 		Name: secondary
 		Weapon: 227mm
-		LocalOffset: 213,-128,50, 213,128,50
+		LocalOffset: 213,-128,200, 213,128,200
 	AttackFrontal:
 		TargetFrozenActors: True
 		ForceFireIgnoresActors: True
@@ -1564,7 +1567,7 @@ T100:
 		Actor: T100.Husk
 	ChangesHealth:
 		Step: 100
-		Delay: 3
+		Delay: 6
 		StartIfBelow: 50
 		DamageCooldown: 150
 	ProducibleWithLevel:
@@ -1607,14 +1610,51 @@ SIPAHI:
 		TurnSpeed: 40
 		Offset: -60,0,350
 	Armament:
-		Weapon: M1Carbine
+		Weapon: M1Carbine_elite
 		MuzzleSequence: muzzle
 		LocalOffset: 210,0,190
-		RequiresCondition: nochange || !hascargo
+		RequiresCondition: nochange || !hascargo || passpy
+	AmbientSound@gatlingspinning:
+		SoundFiles: turret_loop_11.wav
+		RequiresCondition: gatling && aiming && pashvgat
+	AmbientSound@loopstart:
+		SoundFiles: turret_start_11.wav
+		RequiresCondition: !gatling && aiming && pashvgat
+		Interval: 100
+		Delay: 0
+	AmbientSound@loopend:
+		SoundFiles: turret_end_11.wav
+		RequiresCondition: gatling && !aiming && pashvgat
+		Interval: 100
+		Delay: 0
+	GrantConditionWhileAiming@aiming:
+		Condition: aiming
 	Armament@prism:
 		Weapon: PrismHandHeld
 		LocalOffset: 210,0,190
 		RequiresCondition: passtrmtrpr
+	Armament@pasnerveagent:
+		Weapon: ZombieGun
+		LocalOffset: 210,0,190
+		RequiresCondition: pasnerveagent
+	Armament@prim_e3:
+		Weapon: RedEye
+		LocalOffset: 0,0,555
+		ReloadingCondition: primary-reloading
+		PauseOnCondition: secondary-reloading
+		RequiresCondition: pase3
+	Armament@sec_e3:
+		Name: secondary
+		Weapon: Dragon
+		LocalOffset: 0,0,555
+		ReloadingCondition: secondary-reloading
+		PauseOnCondition: primary-reloading
+		RequiresCondition: pase3
+	Armament@SECONDARY:
+		Name: secondary
+		Weapon: LegionMissile
+		LocalOffset: 0,0,555
+		RequiresCondition: paslegionaire
 	Armament@medic:
 		Weapon: Heal
 		Cursor: heal
@@ -1624,7 +1664,13 @@ SIPAHI:
 		RequiresCondition: pasmedic
 	Armament@lmg:
 		Weapon: LightMachineGun
+		LocalOffset: 300,0,0
 		MuzzleSequence: muzzle
+		RequiresCondition: pase11
+	Armament@secondary:
+		Name: secondary
+		LocalOffset: 300,0,0
+		Weapon: LightMachineGun2
 		RequiresCondition: pase11
 	Armament@tesla:
 		Weapon: PortaTesla
@@ -1672,29 +1718,64 @@ SIPAHI:
 		LocalOffset: 427,0,341
 		RequiresCondition: passniper
 	Armament@nightwitch:
-		Weapon: NightWitchBolt
+		Weapon: WitchMG
 		LocalOffset: 427,0,341
 		RequiresCondition: pasngwtch
+	Armament@desolator:
+		Weapon: DesolatorHandHeld
+		LocalOffset: 427,0,341
+		RequiresCondition: psngdesolator
+	Armament@grenadelauncher:
+		Weapon: GrenadeLauncher
+		LocalOffset: 427,0,341
+		RequiresCondition: pasgrenlnchr
+	Armament@scavenger:
+		Weapon: HuskBreaker
+		Cursor: repair
+		OutsideRangeCursor: repair
+		TargetRelationships: Ally, Neutral, Enemy
+		RequiresCondition: passcvn
+		ReloadingCondition: reloading-wrench
+	Armament@bolter:
+		Weapon: SM_ElectricBolt
+		LocalOffset: 427,0,341
+		RequiresCondition: pasbolter
+	Armament@arz:
+		Weapon: Resurrect
+		Cursor: heal
+		OutsideRangeCursor: heal
+		TargetRelationships: Ally
+		ForceTargetRelationships: None
+		FireDelay: 65
+		RequiresCondition: pasarz
+	Armament@gatling-start-0:
+		Weapon: AGGatlingStart
+		RequiresCondition: pashvgat && !gatling
+		PauseOnCondition: turnedoff
 	Armament@ag-0:
 		Weapon: AGGatling
-		LocalOffset: 510,0,220
-		MuzzleSequence: muzzle
-		RequiresCondition: pashvgat && !gatling
-	Armament@ag-1:
-		Weapon: AGGatling2
-		LocalOffset: 544,0,200
+		LocalOffset: 350,0,130
 		MuzzleSequence: muzzle
 		RequiresCondition: pashvgat && gatling == 1
-	Armament@ag-2:
-		Weapon: AGGatling3
-		LocalOffset: 544,0,200
+		PauseOnCondition: turnedoff
+	Armament@ag-1:
+		Weapon: AGGatling2
+		LocalOffset: 350,0,130
 		MuzzleSequence: muzzle
 		RequiresCondition: pashvgat && gatling == 2
+		PauseOnCondition: turnedoff
+	Armament@ag-2:
+		Weapon: AGGatling3
+		LocalOffset: 350,0,130
+		MuzzleSequence: muzzle
+		RequiresCondition: pashvgat && gatling == 3
+		PauseOnCondition: turnedoff
 	Armament@ag-3:
 		Weapon: AGGatling4
-		LocalOffset: 544,0,200
+		LocalOffset: 350,0,130
 		MuzzleSequence: muzzle
-		RequiresCondition: pashvgat && gatling >= 3
+		RequiresCondition: pashvgat && gatling >= 4
+		PauseOnCondition: turnedoff
 	GrantConditionOnAttack@gatling:
 		Condition: gatling
 		RequiredShotsPerInstance: 12, 24
@@ -1703,18 +1784,25 @@ SIPAHI:
 		RevokeAll: true
 		IsCyclic: false
 		RevokeOnNewTarget: false
+		RequiresCondition: pashvgat
 	AttackTurreted:
 		PauseOnCondition: turnedoff
 	WithMuzzleOverlay:
 	WithSpriteTurret@editor:
 		Sequence: turret-rifle
-		RequiresCondition: !nochange
+		RequiresCondition: !hascargo
 	WithSpriteTurret@rifle:
 		Sequence: turret-rifle
-		RequiresCondition: nochange
+		RequiresCondition: nochange || passpy
 	WithSpriteTurret@missile:
 		Sequence: turret-missile
 		RequiresCondition: pase3
+	WithSpriteTurret@pasbolter:
+		Sequence: turret-arc
+		RequiresCondition: pasbolter
+	WithSpriteTurret@legionaire:
+		Sequence: turret-ronin
+		RequiresCondition: paslegionaire
 	WithSpriteTurret@flak:
 		Sequence: turret-flak
 		RequiresCondition: pasflktrp
@@ -1723,23 +1811,23 @@ SIPAHI:
 		RequiresCondition: pase11
 	WithSpriteTurret@tox:
 		Sequence: turret-tox
-		RequiresCondition: pastox
+		RequiresCondition: pastox || pasnerveagent
 	WithSpriteTurret@flame:
 		Sequence: turret-flame
 		RequiresCondition: pase4
 	WithSpriteTurret@mortar:
 		Sequence: turret-mortar
-		RequiresCondition: pase2 || pasmolotov
+		RequiresCondition: pase2 || pasmolotov || pasgrenlnchr
 	WithIdleOverlay@Shok:
 		Sequence: spinner-ttnk
-		Offset: 0,10,100
+		Offset: 0,0,100
 		RequiresCondition: passhktrp
 	WithSpriteTurret@passtrmtrpr:
 		Sequence: turret-sniper
 		RequiresCondition: passtrmtrpr
 	WithSpriteTurret@sniper:
 		Sequence: turret-sniper
-		RequiresCondition: passniper
+		RequiresCondition: passniper || psngdesolator
 	WithSpriteTurret@nightwitch:
 		Sequence: turret-sniper
 		RequiresCondition: pasngwtch
@@ -1748,12 +1836,17 @@ SIPAHI:
 		RequiresCondition: pashvgat
 	WithIdleOverlay@spy:
 		Sequence: spinner-mrj
-		Offset: -256,0,256
+		Offset: -256,0,320
 		RequiresCondition: passpy
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
+	CashTrickler:
+		Interval: 80
+		InitialDelay: 0
+		Amount: 50
+		RequiresCondition: reloading-wrench
 	WithFacingSpriteBody:
-		RequiresCondition: !pasmedic && !pasmech
+		RequiresCondition: !pasmedic && !pasmech && !pasarz
 		Name: body
 	WithFacingSpriteBody@Medic:
 		Sequence: idle-medic
@@ -1761,8 +1854,21 @@ SIPAHI:
 		Name: medic-body
 	WithFacingSpriteBody@Mech:
 		Sequence: idle-mech
-		RequiresCondition: pasmech
+		RequiresCondition: pasmech || passcvn
 		Name: mech-body
+	Cloak@shinobi:
+		Palette: newcloak
+		InitialDelay: 125
+		CloakDelay: 175
+		CloakSound: appear1.aud
+		UncloakSound: appear1.aud
+		IsPlayerPalette: true
+		PauseOnCondition: cloak-force-disabled
+		UncloakOn: Attack, Heal, Dock
+		RequiresCondition: passhinobi
+	GrantConditionOnDamageState@UNCLOAK:
+		Condition: cloak-force-disabled
+		ValidDamageStates: Critical
 	Cargo:
 		Types: Infantry
 		MaxWeight: 1
@@ -1771,36 +1877,42 @@ SIPAHI:
 			dog: nochange
 			kulak: nochange
 			saboteur: nochange
-			scvn: nochange
+			scvn: passcvn
 			thf: nochange
 			pneer: nochange
-			shinobi: nochange
+			shinobi: passhinobi
 			mltvthrwr: pasmolotov
 			arz: pasarz
 			e6: nochange
 			spy: passpy
+			spy.mi6: passpy
 			medi: pasmedic
 			mech: pasmech
 			politruk: paspolitruk
 			officer: pasofficer
+			artilleryobserver : nochange
 			strmtrpr: passtrmtrpr
 			specop: nochange
 			flktrp: pasflktrp
-			e1: nochange
+			bolter: pasbolter
 			e2: pase2
 			e3: pase3
 			e4: pase4
 			e11: pase11
 			hvgatling: pashvgat
-			legionaire: nochange
 			sniper: passniper
 			wastetrooper: pastox
+			nerveagent: pasnerveagent
 			shktrp: passhktrp
 			militia: nochange
 			nightwitch: pasngwtch
-	GrantCondition@NoOneInside:
-		RequiresCondition: !pashvgat && !passniper && !pasngwtch && !pastox && !pasmolotov && !pasarz && !passpy && !pasmedic && !pasmech && !paspolitruk && !pasofficer && !passtrmtrpr && !pasflktrp && !pase2 && !pase3 && !pase4 && !pase11 && !passhktrp
-		Condition: nochange
+			ironman: nochange
+			grenadelauncher: pasgrenlnchr
+			guerilla: nochange
+			arditi: nochange
+			desolator: psngdesolator
+			legionaire: paslegionaire
+			e1: nochange
 	ProximityExternalCondition@OfficerNearby:
 		Range: 4c0
 		ValidRelationships: Ally
@@ -1850,7 +1962,7 @@ SONIQUE:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 340
-		Prerequisites: dome, ~vehicles.turkey, ~techlevel.medium
+		Prerequisites: atek, ~vehicles.france, ~techlevel.medium
 		Description: Shoots a long cone of flame\nand leaves the ground burning.\n Strong vs. Infantry, Buildings.\n Weak vs. Tanks, Aircraft.
 	Mobile:
 		TurnSpeed: 20
@@ -2233,7 +2345,7 @@ RONIN:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 28000
+		HP: 27500
 	Armor:
 		Type: Medium
 	Mobile:
@@ -2255,7 +2367,7 @@ RONIN:
 		LocalOffset: 730,60,25
 	Armament@secondary:
 		Name: secondary
-		Weapon: M60mg
+		Weapon: M60mg-Ronin
 		RecoilRecovery: 25
 		LocalOffset: 438,-50,25, 438,-65,25
 		MuzzleSequence: muzzle
@@ -2797,7 +2909,7 @@ ARCHER:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 261
-		Prerequisites: dome, ~vehicles.entente, ~techlevel.high
+		Prerequisites: dome, adept, ~vehicles.entente, ~techlevel.high
 		Description: Long range tank destroyer.\n  Strong vs Vehicles, Defenses\n  Weak vs Infantry, Aircraft
 	Valued:
 		Cost: 1300
@@ -2806,7 +2918,7 @@ ARCHER:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 30000
+		HP: 28000
 	Armor:
 		Type: Heavy
 	Mobile:
@@ -2855,7 +2967,7 @@ ENTENTEAA:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 320
-		Prerequisites: atek, ~vehicles.entente, ~techlevel.low
+		Prerequisites: atek, adept, ~vehicles.entente, ~techlevel.low
 		Description: Mobile unit with a double\nbarreled AA cannon.\n  Strong vs Infantry, Light armor, Aircraft\n  Weak vs Tanks
 	Valued:
 		Cost: 1700
@@ -2930,7 +3042,7 @@ HVRTNKTNK:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 335
-		Prerequisites: stek, ~vehicles.ukraine, ~techlevel.unrestricted
+		Prerequisites: dome, ~vehicles.ukraine, ~techlevel.unrestricted
 		Description: Manipulates Earth's magnetosphere\nto assume a levitating state.\n  Strong vs Heavy armor\n	Weak vs Infantry, Tanks, Aircraft
 	Valued:
 		Cost: 1200
@@ -3068,7 +3180,7 @@ GRINDER:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 330
-		Prerequisites: ~weap, stek, ~vehicles.russia, ~techlevel.low
+		Prerequisites: ~weap, stek, adept, ~vehicles.russia, ~techlevel.low
 		Description: Tough infantry transport.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
 	Valued:
 		Cost: 2300
@@ -3117,7 +3229,7 @@ TTNK:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 330
-		Prerequisites: dome, ~vehicles.russia, ~techlevel.high
+		Prerequisites: stek, ~vehicles.russia, ~techlevel.high
 		Description: Tank with mounted Tesla coil.\n  Strong vs Infantry, Vehicles, Buildings\n	 Weak vs Aircraft
 	Valued:
 		Cost: 1350
@@ -3176,7 +3288,7 @@ FLMTNK:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Valued:
-		Cost: 1100
+		Cost: 1125
 	Tooltip:
 		Name: Flame Tank
 	UpdatesPlayerStatistics:
@@ -3200,12 +3312,8 @@ FLMTNK:
 	Armament:
 		Weapon: FireballLauncher
 		LocalOffset: 300,180,100, 300,-180,100
-	Turreted:
-		Offset: -50,0,130
-		TurnSpeed: 13
-	AttackTurreted:
+	AttackFrontal:
 		PauseOnCondition: turnedoff
-	WithSpriteTurret:
 	Explodes:
 		Weapon: V2Explode
 	Selectable:
@@ -3241,7 +3349,7 @@ FIRELANCER:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 340
-		Prerequisites: dome, ~vehicles.turkey, ~techlevel.medium
+		Prerequisites: mtek, ~vehicles.turkey, ~techlevel.medium
 		Description: Shoots a long cone of flame\nand leaves the ground burning.\n Strong vs. Infantry, Buildings.\n Weak vs. Tanks, Aircraft.
 	Mobile:
 		TurnSpeed: 20
@@ -3302,7 +3410,7 @@ HELGA:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 330
-		Prerequisites: mtek, ~vehicles.bulgaria, ~techlevel.high
+		Prerequisites: mtek, adept, ~vehicles.bulgaria, ~techlevel.high
 		Description: Huge extra long range\ndeployable artillery.\n  Strong vs Infantry, Defences\n  Weak vs Tanks, Aircraft
 	Valued:
 		Cost: 1800
@@ -3403,7 +3511,7 @@ SAPPER:
 		Prerequisites: mtek, ~vehicles.italy, ~techlevel.low
 		Description: Subterranean transport vehicle.\nArmed with a huge drill.\n	Strong vs. Buildings.\nWeak vs All Unit Types.
 	Valued:
-		Cost: 1200
+		Cost: 1500
 	Tooltip:
 		Name: Sapper
 	Health:
@@ -3457,6 +3565,8 @@ SAPPER:
 		SoundFiles: drilling.aud
 		Interval: 250
 		RequiresCondition: attacking
+	Selectable:
+		DecorationBounds: 32, 30, 0, 0
 
 SAPPER.Husk:
 	Inherits: ^Husk
@@ -3541,12 +3651,12 @@ TESTUDO:
 	Turreted@editor:
 		Turret: editor
 		TurnSpeed: 28
-		Offset: -180,0,310
+		Offset: -180,0,335
 		RequiresCondition: !undeployed || !deployed
 	Turreted@undeployed:
 		Turret: undeployed-turret
 		TurnSpeed: 28
-		Offset: -180,0,310
+		Offset: -180,0,335
 		RequiresCondition: undeployed
 	Turreted@deployed:
 		Turret: deployed-turret
@@ -3772,8 +3882,8 @@ GATLINGCAR:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 20
-		Prerequisites: ~vehicles.zentrum, ~techlevel.low
+		BuildPaletteOrder: 98
+		Prerequisites: ~vehicles.china, adept, ~techlevel.low
 		Description: Heavy scout & anti-infantry vehicle.\n	 Strong vs Infantry\n  Weak vs Vehicles, Aircraft
 	Valued:
 		Cost: 700
@@ -3798,50 +3908,67 @@ GATLINGCAR:
 	Turreted:
 		TurnSpeed: 40
 		Offset: -50,0,290
+	Armament@gatling-start-0:
+		Weapon: AGGatlingStart
+		RequiresCondition: !gatling
+		PauseOnCondition: turnedoff
 	Armament@ag-0:
 		Weapon: AGGatling
-		LocalOffset: 320,-115,10
-		MuzzleSequence: muzzle
-		RequiresCondition: !gatling
-	Armament@ag-1:
-		Weapon: AGGatling2
-		LocalOffset: 320,-100,30
+		LocalOffset: 300,-100,180
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling == 1
-	Armament@ag-2:
-		Weapon: AGGatling3
-		LocalOffset: 320,-100,30
+		PauseOnCondition: turnedoff
+	Armament@ag-1:
+		Weapon: AGGatling2
+		LocalOffset: 300,-100,180
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling == 2
+		PauseOnCondition: turnedoff
+	Armament@ag-2:
+		Weapon: AGGatling3
+		LocalOffset: 300,-100,180
+		MuzzleSequence: muzzle
+		RequiresCondition: gatling == 3
+		PauseOnCondition: turnedoff
 	Armament@ag-3:
 		Weapon: AGGatling4
-		LocalOffset: 320,-100,30
+		LocalOffset: 300,-100,180
 		MuzzleSequence: muzzle
-		RequiresCondition: gatling >= 3
+		RequiresCondition: gatling >= 4
+		PauseOnCondition: turnedoff
+	Armament@gatling-start-0s:
+		Name: secondary
+		Weapon: AGGatlingStart
+		RequiresCondition: !gatling
+		PauseOnCondition: turnedoff
 	Armament@ag-0s:
 		Name: secondary
 		Weapon: AGGatling
-		LocalOffset: 320,100,30
+		LocalOffset: 300,100,180
 		MuzzleSequence: muzzle
-		RequiresCondition: !gatling
+		RequiresCondition: gatling == 1
+		PauseOnCondition: turnedoff
 	Armament@ag-1s:
 		Name: secondary
 		Weapon: AGGatling2
-		LocalOffset: 320,100,30
+		LocalOffset: 300,100,180
 		MuzzleSequence: muzzle
-		RequiresCondition: gatling == 1
+		RequiresCondition: gatling == 2
+		PauseOnCondition: turnedoff
 	Armament@ag-2s:
 		Name: secondary
 		Weapon: AGGatling3
-		LocalOffset: 320,100,30
+		LocalOffset: 300,100,180
 		MuzzleSequence: muzzle
-		RequiresCondition: gatling == 2
+		RequiresCondition: gatling == 3
+		PauseOnCondition: turnedoff
 	Armament@ag-3s:
 		Name: secondary
 		Weapon: AGGatling4
-		LocalOffset: 320,100,30
+		LocalOffset: 300,100,180
 		MuzzleSequence: muzzle
-		RequiresCondition: gatling >= 3
+		RequiresCondition: gatling >= 4
+		PauseOnCondition: turnedoff
 	GrantConditionOnAttack:
 		Condition: gatling
 		RequiredShotsPerInstance: 12, 24
@@ -3850,6 +3977,21 @@ GATLINGCAR:
 		RevokeAll: true
 		IsCyclic: false
 		RevokeOnNewTarget: false
+	AmbientSound@gatlingspinning:
+		SoundFiles: turret_loop_11.wav
+		RequiresCondition: gatling && aiming
+	AmbientSound@loopstart:
+		SoundFiles: turret_start_11.wav
+		RequiresCondition: !gatling && aiming
+		Interval: 100
+		Delay: 0
+	AmbientSound@loopend:
+		SoundFiles: turret_end_11.wav
+		RequiresCondition: gatling && !aiming
+		Interval: 100
+		Delay: 0
+	GrantConditionWhileAiming@aiming:
+		Condition: aiming
 	AttackTurreted:
 		PauseOnCondition: turnedoff
 	WithMuzzleOverlay:
@@ -3880,7 +4022,7 @@ LOUCHUAN:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 330
-		Prerequisites: stek, ~vehicles.china, ~techlevel.high
+		Prerequisites: stek, adept, ~vehicles.china, ~techlevel.high
 		Description: Strong infantry transport.\nInfantry may shoot from inside.\n  Strong vs Everything.
 	Valued:
 		Cost: 1500

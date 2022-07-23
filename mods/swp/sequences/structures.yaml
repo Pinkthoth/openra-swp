@@ -867,30 +867,24 @@ mrax:
 	
 proc:
 	idle: ref-bot
-		Offset: 2, 3
 		ZOffset: -1000
 	damaged-idle:
-		Offset: 2, 3
+		Offset: 0,-6
 		ZOffset: -1000
 		Start: 1
 	topsolid: ref-top
-		Offset: 2, 3
 		ZOffset: 0c912
 		Start: 0
 	damaged-topsolid: ref-top
-		Offset: 2, 3
 		ZOffset: 0c912
 		Start: 2
 	opaquetop: ref-top
-		Offset: 2, 3
 		ZOffset: 0c912
 		Start: 1
 	damaged-opaquetop: ref-top
-		Offset: 2, 3
 		ZOffset: 0c912
 		Start: 3
 	make: ref-anim
-		Offset: 5, -1
 		Length: *
 	dead: procdead
 		Tick: 800
@@ -1386,6 +1380,7 @@ sthgen:
 		Offset: 0,-4
 		UseTilesetExtension: true
 	icon: sthgenicon
+	fake-icon: sthgenficon
 	
 empgun:
 	Defaults:
@@ -1401,43 +1396,19 @@ empgun:
 	damaged-turret:
 		Start: 32
 		Facings: 32
+	fakeidle:
+		Start: 28
+	damaged-fakeidle:
+		Start: 60
 	make: empgunmake
 		Length: *
 	build:
 		Start: 0
 	icon: empgunicon
 		Offset: 0,0
-	
-refgun:
-	idle: gunmake # Empty first frame. We need WithSpriteBody for the make anim, and WSB needs at least a placeholder default sequence to work
-	make:
-		Start: 384
-		Length: 25
-	turret:
-		Facings: 32
-		UseClassicFacings: True
-	recoil:
-		Start: 32
-		Facings: 32
-		Length: 5
-		UseClassicFacings: True
-	damaged-turret:
-		Start: 192
-		Facings: 32
-		UseClassicFacings: True
-	damaged-recoil:
-		Start: 224
-		Facings: 32
-		Length: 5
-		UseClassicFacings: True
-	muzzle: gunfire2
-		Length: 5
-	bib: mbGUN
-		Length: *
-		Offset: -1,-1
-		UseTilesetExtension: true
-	icon: railgunicon
-	
+	fake-icon: empgunficon
+		Offset: 0,0
+
 efact:
 	idle: 
 		Start: 0

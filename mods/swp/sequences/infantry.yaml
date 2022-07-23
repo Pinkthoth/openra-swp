@@ -3811,7 +3811,7 @@ strmtrpr:
 		Length: 8
 		Tick: 800
 		ZOffset: -511
-	icon: refractorguardicon
+	icon: strmtrpricon
 
 specop:
 	Inherits: ^SharedDeaths

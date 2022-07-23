@@ -82,21 +82,21 @@
 
 25mm-btr:
 	Inherits: ^Cannon
-	ReloadDelay: 35
+	ReloadDelay: 20
 	Range: 4c768
 	Report: MEDTANK20.aud
 	Projectile: Bullet
 		Speed: 853
 		Image: 50CAL
 	Warhead@1Dam: SpreadDamage
-		Damage: 2100
+		Damage: 1900
 		Versus:
 			None: 32
 			Wood: 52
-			Light: 75
-			Medium: 110
-			Heavy: 45
-			Concrete: 30
+			Light: 90
+			Medium: 50
+			Heavy: 42
+			Concrete: 20
 	-Warhead@2Smu:
 	Warhead@3Eff: CreateEffect
 		-ImpactSounds:
@@ -476,7 +476,7 @@ ltnkfire:
 			Wood: 75
 			Light: 75
 			Medium: 95
-			Heavy: 150
+			Heavy: 165
 			Concrete: 65
 
 MausCannon:
@@ -502,10 +502,9 @@ MausCannon:
 
 BuildingGrenade:
 	Inherits: ^Artillery
-	ReloadDelay: 60
-	Range: 4c0
+	ReloadDelay: 120
+	Range: 5c0
 	Report: grenade1.aud
-	ValidTargets: Structure, Wall
 	Projectile: Bullet
 		Speed: 136
 		Inaccuracy: 554
@@ -588,14 +587,14 @@ GrenadeLauncher:
 	Inherits: ^Artillery
 	ReloadDelay: 75
 	Report: glnch4.aud
-	Range: 7c0
+	Range: 6c0
 	Projectile: Bullet
-		LaunchAngle: 255
+		LaunchAngle: 100
 		Speed: 136
 		Inaccuracy: 554
 		Image: BOMB
-		ContrailWidth: 20
-		ContrailLength: 40
+		ContrailWidth: 40
+		ContrailLength: 30
 	Warhead@1Dam: SpreadDamage
 		Spread: 256
 		Damage: 6000

@@ -128,6 +128,37 @@
 		InternalOwner: Neutral
 	SpawnActorOnDeath@3:
 		Actor: rubble
+		Offset: 2,0
+		OwnerType: InternalName
+		InternalOwner: Neutral
+	SpawnActorOnDeath@4:
+		Actor: rubble
+		Offset: 0,1
+		OwnerType: InternalName
+		InternalOwner: Neutral
+	SpawnActorOnDeath@5:
+		Actor: rubble
+		Offset: 1,1
+		OwnerType: InternalName
+		InternalOwner: Neutral
+	SpawnActorOnDeath@6:
+		Actor: rubble
+		Offset: 2,1
+		OwnerType: InternalName
+		InternalOwner: Neutral
+
+^2x3Rubbles:
+	SpawnActorOnDeath@1:
+		Actor: rubble
+		OwnerType: InternalName
+		InternalOwner: Neutral
+	SpawnActorOnDeath@2:
+		Actor: rubble
+		Offset: 1,0
+		OwnerType: InternalName
+		InternalOwner: Neutral
+	SpawnActorOnDeath@3:
+		Actor: rubble
 		Offset: 0,1
 		OwnerType: InternalName
 		InternalOwner: Neutral
@@ -191,37 +222,6 @@
 	SpawnActorOnDeath@9:
 		Actor: rubble
 		Offset: 2,2
-		OwnerType: InternalName
-		InternalOwner: Neutral
-
-^2x3Rubbles:
-	SpawnActorOnDeath@1:
-		Actor: rubble
-		OwnerType: InternalName
-		InternalOwner: Neutral
-	SpawnActorOnDeath@2:
-		Actor: rubble
-		Offset: 1,0
-		OwnerType: InternalName
-		InternalOwner: Neutral
-	SpawnActorOnDeath@3:
-		Actor: rubble
-		Offset: 2,0
-		OwnerType: InternalName
-		InternalOwner: Neutral
-	SpawnActorOnDeath@4:
-		Actor: rubble
-		Offset: 0,1
-		OwnerType: InternalName
-		InternalOwner: Neutral
-	SpawnActorOnDeath@5:
-		Actor: rubble
-		Offset: 1,1
-		OwnerType: InternalName
-		InternalOwner: Neutral
-	SpawnActorOnDeath@6:
-		Actor: rubble
-		Offset: 2,1
 		OwnerType: InternalName
 		InternalOwner: Neutral
 
@@ -735,10 +735,30 @@
 		RequiresCondition: !artilleryobserver
 	ChangesHealth@artilleryobserver:
 		Step: 100
-		Delay: 3
+		Delay: 12
 		StartIfBelow: 20
 		DamageCooldown: 150
 		RequiresCondition: artilleryobserver
+
+^Crew:
+	WithMoveAnimation:
+	WithAttackAnimation:
+		Sequence: attack
+	WithMoveAnimation@turn:
+		MoveSequence: turn
+		ValidMovementTypes: Turn
+		RequiresCondition: !not-in-place
+	GrantConditionOnMovement@horizontal
+		Condition: not-in-place
+		ValidMovementTypes: Horizontal
+	GrantConditionOnMovement@vertical
+		Condition: not-in-place
+		ValidMovementTypes: Vertical
+	Passenger:
+		CargoType: Infantry
+		Weight: 3
+	ProximityCaptor:
+		Types: Infantry
 
 ^Commanderable:
 	GrantConditionOnInfiltration@commandered:
@@ -755,17 +775,20 @@
 		TargetTypes: CommanderInfiltration
 		RequiresCondition: !commandered
 	DamageMultiplier@commandered:
-		Modifier: 95
+		Modifier: 85
 		RequiresCondition: commandered
 	FirepowerMultiplier@commandered:
 		Modifier: 115
 		RequiresCondition: commandered
 	ReloadDelayMultiplier@commandered:
-		Modifier: 90
+		Modifier: 85
+		RequiresCondition: commandered
+	SpeedMultiplier@commandered:
+		Modifier: 115
 		RequiresCondition: commandered
 	ChangesHealth@commandered:
 		Step: 100
-		Delay: 3
+		Delay: 12
 		StartIfBelow: 20
 		DamageCooldown: 150
 		RequiresCondition: commandered
@@ -971,6 +994,8 @@
 	Inherits@chronohaste: ^ChronoHasteable
 	Inherits@flarevision: ^FlareVision
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	AmbientSound@sliced:
+		SoundFiles: meatslice.wav, meastslice2.wav, meatslice3.wav, meatslice4.wav
 	Huntable:
 	OwnerLostAction:
 		Action: Kill
@@ -1365,7 +1390,7 @@
 		AreaTypes: building
 	SoundOnDamageTransition:
 		DamagedSounds: kaboom1.aud
-		DestroyedSounds: kaboom22.aud
+		DestroyedSounds: kaboom22.aud, xplobig4.aud
 	WithSpriteBody:
 	Explodes:
 		Type: Footprint
@@ -1602,6 +1627,8 @@
 		Offset: 0,0,1700
 		Palette: player
 	-CommandBarBlacklist:
+	SoundOnDamageTransition:
+		DestroyedSounds: crumble_bld.aud
 
 ^CivBuilding:
 	Inherits: ^TechBuilding

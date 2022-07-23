@@ -126,7 +126,7 @@ ARDITI:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 74
-		Prerequisites: ~barr, ~infantry.italy, ~techlevel.infonly
+		Prerequisites: ~barr, adept, ~infantry.italy, ~techlevel.infonly
 		Description: General-purpose infantry capable\nof placing sand bags, which\ndecrease damage intake by 66%.\n  Strong vs Infantry\n	Weak vs Vehicles, Aircraft
 	Valued:
 		Cost: 150
@@ -269,18 +269,30 @@ HVGATLING:
 		AddToArmyValue: true
 	Health:
 		HP: 5000
-	Armament@ag-0:
-		Weapon: AGGatling-handheld
-		LocalOffset: 510,0,220
+	Armament@gatling-start-0:
+		Weapon: AGGatlingStart
 		RequiresCondition: !gatling
-	Armament@ag-1:
-		Weapon: AGGatling2-handheld
-		LocalOffset: 544,0,200
+		PauseOnCondition: turnedoff
+	Armament@ag-0:
+		Weapon: AGGatling
+		LocalOffset: 480,-100,200
 		RequiresCondition: gatling == 1
-	Armament@ag-2:
-		Weapon: AGGatling3-handheld
-		LocalOffset: 544,0,200
+		PauseOnCondition: turnedoff
+	Armament@ag-1:
+		Weapon: AGGatling2
+		LocalOffset: 480,-100,200
 		RequiresCondition: gatling == 2
+		PauseOnCondition: turnedoff
+	Armament@ag-2:
+		Weapon: AGGatling3
+		LocalOffset: 480,-100,200
+		RequiresCondition: gatling == 3
+		PauseOnCondition: turnedoff
+	Armament@ag-3:
+		Weapon: AGGatling4
+		LocalOffset: 480,-100,200
+		RequiresCondition: gatling >= 4
+		PauseOnCondition: turnedoff
 	GrantConditionOnAttack:
 		Condition: gatling
 		RequiredShotsPerInstance: 12, 24
@@ -289,6 +301,9 @@ HVGATLING:
 		RevokeAll: true
 		IsCyclic: false
 		RevokeOnNewTarget: false
+	AmbientSound@gatlingspinning:
+		SoundFiles: turret_loop_11.wav
+		RequiresCondition: gatling
 	Armament@GARRISONED:
 		Name: garrisoned
 		Weapon: LightMachineGun
@@ -458,7 +473,7 @@ KULAK:
 	RenderSprites:
 		Image: kulak
 	Tooltip:
-		Name: Kulak
+		Name: Conscript
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
@@ -1368,7 +1383,7 @@ TNKCMNDR:
 		Prerequisites: ~barracks, adept, ~infantry.germany, ~techlevel.infonly
 		Description: Can enter vehicles to \nenhance fighting capabilities.\n  Weak vs Everything
 	Valued:
-		Cost: 300
+		Cost: 400
 	Health:
 		HP: 7000
 	RevealsShroud:
@@ -1677,11 +1692,20 @@ HVMG:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@crew: ^Crew
+	-GrantConditionOnInfiltration@commandered:
+	-WithDecoration@commandered:
+	-Targetable@commandered:
+	-DamageMultiplier@commandered:
+	-FirepowerMultiplier@commandered:
+	-ReloadDelayMultiplier@commandered:
+	-SpeedMultiplier@commandered:
+	-ChangesHealth@commandered:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 49
-		Prerequisites: ~barr, ~infantry.bulgaria, ~techlevel.infonly
-		Description: Infantry operated anti-tank gun.\n  Strong vs Heavy armor.\n  Weak vs Infantry, Aircraft
+		Prerequisites: ~barr, adept, ~infantry.bulgaria, ~techlevel.infonly
+		Description: Infantry operated heavy machine gun.\n  Strong vs Infantry, Light armor.\n  Weak vs Tanks, Aircraft
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -1704,24 +1728,16 @@ HVMG:
 		Range: 4c0
 	Armament:
 		Weapon: HeavyMachineGun
-		LocalOffset: 425,0,280
+		LocalOffset: 375,0,300
 		MuzzleSequence: muzzle
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: HeavyMachineGun
 	AttackFrontal:
 		FacingTolerance: 25
 	WithMuzzleOverlay:
 	ProducibleWithLevel:
 		Prerequisites: infantry.upgraded
-	WithMoveAnimation:
-	WithAttackAnimation:
-		Sequence: attack
-	WithMoveAnimation@turn:
-		MoveSequence: turn
-		ValidMovementTypes: Turn
-		RequiresCondition: !not-in-place
-	GrantConditionOnMovement@horizontal
-		Condition: not-in-place
-	GrantConditionOnMovement@vertical
-		Condition: not-in-place
 
 ARTILLERYOBSERVER:
 	Inherits: ^Soldier
@@ -1792,10 +1808,10 @@ ARTILLERYOBSERVER:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 76
-		Prerequisites: ~barracks, mtek, ~infantry.bulgaria, ~techlevel.infonly
+		Prerequisites: ~barracks, dome, ~infantry.bulgaria, ~techlevel.infonly
 		Description: Increases range of infiltrated artillery units\nHeals infiltrated artillery unit to 20% health..\n  Weak vs Everything
 	Valued:
-		Cost: 300
+		Cost: 400
 	Health:
 		HP: 7000
 	RevealsShroud:
@@ -2049,7 +2065,7 @@ SPECOP:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 80
-		Prerequisites: ~techlevel.medium, ~infantry.england, dome, ~barr
+		Prerequisites: ~techlevel.medium, ~infantry.england, adept, ~barr
 		Description: Elite rifleman armed with\na rifle and grenades.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft
 	Valued:
 		Cost: 200
@@ -2233,10 +2249,19 @@ ATGUNNER:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@crew: ^Crew
+	-GrantConditionOnInfiltration@commandered:
+	-WithDecoration@commandered:
+	-Targetable@commandered:
+	-DamageMultiplier@commandered:
+	-FirepowerMultiplier@commandered:
+	-ReloadDelayMultiplier@commandered:
+	-SpeedMultiplier@commandered:
+	-ChangesHealth@commandered:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 49
-		Prerequisites: ~barr, ~infantry.serbia, ~techlevel.infonly
+		Prerequisites: ~barr, adept, ~infantry.serbia, ~techlevel.infonly
 		Description: Infantry operated anti-tank gun.\n  Strong vs Heavy armor.\n  Weak vs Infantry, Aircraft
 	Valued:
 		Cost: 600
@@ -2263,27 +2288,28 @@ ATGUNNER:
 		LocalOffset: 575,0,360
 		MuzzleSequence: muzzle
 		FireDelay: 15
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: 76mmOrdinanceQF
 	AttackFrontal:
 		FacingTolerance: 25
 	WithMuzzleOverlay:
 	ProducibleWithLevel:
 		Prerequisites: infantry.upgraded
-	WithMoveAnimation:
-	WithAttackAnimation:
-		Sequence: attack
-	WithMoveAnimation@turn:
-		MoveSequence: turn
-		ValidMovementTypes: Turn
-		RequiresCondition: !not-in-place
-	GrantConditionOnMovement@horizontal
-		Condition: not-in-place
-	GrantConditionOnMovement@vertical
-		Condition: not-in-place
 
 AAGUNCREW:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@crew: ^Crew
+	-GrantConditionOnInfiltration@commandered:
+	-WithDecoration@commandered:
+	-Targetable@commandered:
+	-DamageMultiplier@commandered:
+	-FirepowerMultiplier@commandered:
+	-ReloadDelayMultiplier@commandered:
+	-SpeedMultiplier@commandered:
+	-ChangesHealth@commandered:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 49
@@ -2311,31 +2337,31 @@ AAGUNCREW:
 		Range: 4c0
 	Armament:
 		Weapon: AACrewGun
-		Recoil: 48
 		RecoilRecovery: 18
-		LocalOffset: 525,110,310, 525,-110,310
+		LocalOffset: 325,120,410, 325,-120,410
 		MuzzleSequence: muzzle
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: AACrewGun
 	AttackFrontal:
 		FacingTolerance: 25
 	WithMuzzleOverlay:
 	ProducibleWithLevel:
 		Prerequisites: infantry.upgraded
-	WithMoveAnimation:
-	WithAttackAnimation:
-		Sequence: attack
-	WithMoveAnimation@turn:
-		MoveSequence: turn
-		ValidMovementTypes: Turn
-		RequiresCondition: !not-in-place
-	GrantConditionOnMovement@horizontal
-		Condition: not-in-place
-	GrantConditionOnMovement@vertical
-		Condition: not-in-place
 
 MORTARCREW:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@crew: ^Crew
+	-GrantConditionOnInfiltration@commandered:
+	-WithDecoration@commandered:
+	-Targetable@commandered:
+	-DamageMultiplier@commandered:
+	-FirepowerMultiplier@commandered:
+	-ReloadDelayMultiplier@commandered:
+	-SpeedMultiplier@commandered:
+	-ChangesHealth@commandered:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 49
@@ -2365,21 +2391,13 @@ MORTARCREW:
 		Weapon: Mortar
 		LocalOffset: 0,0,230
 		FireDelay: 15
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: Mortar
 	AttackFrontal:
 		FacingTolerance: 25
 	ProducibleWithLevel:
 		Prerequisites: infantry.upgraded
-	WithMoveAnimation:
-	WithAttackAnimation:
-		Sequence: attack
-	WithMoveAnimation@turn:
-		MoveSequence: turn
-		ValidMovementTypes: Turn
-		RequiresCondition: !not-in-place
-	GrantConditionOnMovement@horizontal
-		Condition: not-in-place
-	GrantConditionOnMovement@vertical
-		Condition: not-in-place
 
 MILITIA:
 	Inherits: ^Soldier
@@ -2744,7 +2762,7 @@ NERVEAGENT:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 75
-		Prerequisites: ~barracks, adept, ~infantry.kazakhstan, ~techlevel.infonly
+		Prerequisites: ~barracks, stek, ~infantry.kazakhstan, ~techlevel.infonly
 		Description: Unleashes a nerve toxin that makes units\nattack anything on sight. Zombifies units\nit kills with it's weapon.\nAbility: Disquises\n  Weak vs Everything
 	Valued:
 		Cost: 550
@@ -2828,7 +2846,7 @@ NIGHTWITCH:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 77
-		Prerequisites: stek, ~infantry.ukraine, ~techlevel.high
+		Prerequisites: dome, ~infantry.ukraine, ~techlevel.high
 		Description: Elite infantry capable of levitation.\n  Strong vs Infantry, Vehicles\n  Weak vs Aircraft
 	Valued:
 		Cost: 350
@@ -3146,7 +3164,10 @@ CAVALRY:
 	ProducibleWithLevel:
 		Prerequisites: infanry.upgraded
 	Targetable:
-		TargetTypes: GroundActor, Infantry, Heal
+		TargetTypes: GroundActor, Infantry
+	Targetable@HEAL:
+		RequiresCondition: damaged
+		TargetTypes: Heal
 
 BOLTER:
 	Inherits: ^Soldier
@@ -3378,7 +3399,7 @@ IRONMAN:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 4000
+		HP: 12000
 	Armor:
 		Type: Medium
 	Mobile:
@@ -3456,7 +3477,7 @@ Zombie:
 	WithAttackAnimation:
 		Sequence: bite
 	WithDeathAnimation:
-		DeathSequence: die1
+		DeathSequence: die
 	WithMakeAnimation:
 		Condition: build-incomplete
 	WithMoveAnimation:
@@ -3472,7 +3493,7 @@ GRENADELAUNCHER:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 73
-		Prerequisites: ~infantry.germany, ~techlevel.infonly
+		Prerequisites: adept, ~infantry.germany, ~techlevel.infonly
 		Description: Infantry armed with a grenade launcher.\n  Strong vs Buildings, Infantry\n  Weak vs Vehicles, Aircraft
 	Valued:
 		Cost: 200

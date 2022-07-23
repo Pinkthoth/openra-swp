@@ -72,7 +72,7 @@
 	Range: 7c0
 	Burst: 2
 	BurstDelays: 8
-	Report: bgatweaa.wav, bgatweab.wav, bgatweac.wav, bgatwead.wav
+	Report: adp_gun_1.wav, adp_gun_2.wav, adp_gun_3.wav
 	Projectile: InstantHit
 		Blockable: true
 	Warhead@1Dam: SpreadDamage
@@ -88,6 +88,18 @@
 		Explosions: piff
 
 #Gatling Tank AG Weapon:
+
+AGGatlingStart:
+	Inherits: ^Gatling
+	-Report:
+	ReloadDelay: 1
+	BurstDelays: 1
+	Range: 5c0
+	Burst: 2
+	Warhead@1Dam: SpreadDamage
+		Damage: 0
+	-Warhead@2Eff:
+	-Warhead@3EffWater:
 
 AGGatling:
 	Inherits: ^Gatling
@@ -178,12 +190,12 @@ FLAK-23-AG:
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: AirborneActor, GroundActor, Trees,  WaterActor, AirborneBomber
 		Versus:
-			None: 45
+			None: 50
 			Wood: 20
-			Light: 55
-			Medium: 35
+			Light: 45
+			Medium: 20
 			Heavy: 10
-			Concrete: 10
+			Concrete: 5
 	Warhead@2Eff: CreateEffect
 		Explosions: flak_explosion_ground
 		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees, AirborneBomber
@@ -398,7 +410,7 @@ LightMachineGun2:
 	Projectile: InstantHit
 		Inaccuracy: 0c0
 	Warhead@1Dam: SpreadDamage
-		Damage: 200
+		Damage: 150
 		Spread: 0c124
 		Falloff: 200, 35, 25, 15, 5
 		ValidTargets: Ground, GroundActor, WaterActor, Water
@@ -451,7 +463,7 @@ ChainGun.Yak.AA:
 
 ChainGun.HVF.AA:
 	Inherits: ^HeavyMG
-	ReloadDelay: 6
+	ReloadDelay: 8
 	Range: 6c0
 	MinRange: 0c128
 	Report: gun5.aud
@@ -474,7 +486,7 @@ ChainGun.HVF.AA:
 
 ChainGun.HVF.AG:
 	Inherits: ^HeavyMG
-	ReloadDelay: 3
+	ReloadDelay: 8
 	Range: 5c0
 	Report: gun5.aud
 	MinRange: 1c0
@@ -519,7 +531,7 @@ MesserschmittAutocannon.AA:
 
 ChainGun.A10:
 	Inherits: ChainGun.Yak.AA
-	Range: 7c0
+	Range: 8c0
 	FirstBurstTargetOffset: -1c0,0,0
 	FollowingBurstTargetOffset: 0c512,0,0
 	ReloadDelay: 75
@@ -536,11 +548,11 @@ ChainGun.A10:
 		Spread: 0c124
 		Versus:
 			None: 200
-			Wood: 50
-			Light: 80
+			Wood: 20
+			Light: 70
 			Medium: 50
 			Heavy: 30
-			Concrete: 20
+			Concrete: 10
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 		ValidTargets: Ground, GroundActor, Trees, Water, WaterActor
 	ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
@@ -552,7 +564,8 @@ ChainGun.A10:
 		Delay: 9
 	Warhead@2Eff: CreateEffect
 		Delay: 9
-		Explosions: piffs
+		Explosions: a10piffs
+		ExplosionPalette: ra2effects
 		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees
 	Warhead@3EffWater: CreateEffect
 		Delay: 9
@@ -587,7 +600,8 @@ ChainGun.A10.SingleShot:
 		ValidTargets: Ground, GroundActor, Trees, Water, WaterActor
 	ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
 	Warhead@2Eff: CreateEffect
-		Explosions: piff
+		Explosions: a10piff
+		ExplosionPalette: ra2effects
 		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees
 	Warhead@3EffWater: CreateEffect
 		Explosions: water_piff
@@ -641,7 +655,7 @@ M1Carbine:
 
 M1Carbine_elite:
 	Inherits: M1Carbine
-	Report: carbine2.wav
+	Report: at_light_infantry_1.wav
 	Warhead@1Dam: SpreadDamage
 		Damage: 1100
 
@@ -714,6 +728,73 @@ Uzi:
 		Explosions: water_piff
 		Inaccuracy: 171
 
+M60mg-Comet:
+	Inherits: ^HeavyMG
+	ReloadDelay: 30
+	Range: 5c0
+	Report: HMGL1.wav, HMGL2.wav, HMGL3.wav
+	Burst: 1
+	Warhead@1Dam: SpreadDamage
+		Damage: 2250
+		Versus:
+			None: 130
+			Wood: 10
+			Light: 20
+			Medium: 15
+			Heavy: 5
+			Concrete: 5
+	Warhead@2Dam_2: SpreadDamage
+		Spread: 128
+		Damage: 2250
+		Delay: 2
+		ValidTargets: GroundActor, Trees,  WaterActor
+		Versus:
+			None: 130
+			Wood: 10
+			Light: 20
+			Medium: 15
+			Heavy: 5
+			Concrete: 5
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
+	Warhead@3Dam_2: SpreadDamage
+		Spread: 128
+		Damage: 2250
+		Delay: 4
+		ValidTargets: GroundActor, Trees,  WaterActor
+		Versus:
+			None: 130
+			Wood: 10
+			Light: 20
+			Medium: 15
+			Heavy: 5
+			Concrete: 5
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
+	Warhead@4Dam_2: SpreadDamage
+		Spread: 128
+		Damage: 2250
+		Delay: 6
+		ValidTargets: GroundActor, Trees,  WaterActor
+		Versus:
+			None: 130
+			Wood: 10
+			Light: 20
+			Medium: 15
+			Heavy: 5
+			Concrete: 5
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
+	Warhead@2Eff: CreateEffect
+		Inaccuracy: 213
+	Warhead@3EffWater: CreateEffect
+		Inaccuracy: 213
+	Warhead@10Eff_5: CreateEffect
+		Explosions: piffs
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees
+		Delay: 4
+	Warhead@10Eff_5_water: CreateEffect
+		Explosions: piffs
+		ValidTargets: Water
+		Delay: 8
+
 M60mg:
 	Inherits: ^HeavyMG
 	ReloadDelay: 30
@@ -762,6 +843,73 @@ M60mg:
 		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
 			None: 130
+			Wood: 10
+			Light: 20
+			Medium: 15
+			Heavy: 5
+			Concrete: 5
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
+	Warhead@2Eff: CreateEffect
+		Inaccuracy: 213
+	Warhead@3EffWater: CreateEffect
+		Inaccuracy: 213
+	Warhead@10Eff_5: CreateEffect
+		Explosions: piffs
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees
+		Delay: 4
+	Warhead@10Eff_5_water: CreateEffect
+		Explosions: piffs
+		ValidTargets: Water
+		Delay: 8
+
+M60mg-Ronin:
+	Inherits: ^HeavyMG
+	ReloadDelay: 30
+	Range: 5c0
+	Report: ronin_mg.wav
+	Burst: 1
+	Warhead@1Dam: SpreadDamage
+		Damage: 1500
+		Versus:
+			None: 120
+			Wood: 10
+			Light: 20
+			Medium: 15
+			Heavy: 5
+			Concrete: 5
+	Warhead@2Dam_2: SpreadDamage
+		Spread: 128
+		Damage: 1500
+		Delay: 2
+		ValidTargets: GroundActor, Trees,  WaterActor
+		Versus:
+			None: 120
+			Wood: 10
+			Light: 20
+			Medium: 15
+			Heavy: 5
+			Concrete: 5
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
+	Warhead@3Dam_2: SpreadDamage
+		Spread: 128
+		Damage: 1500
+		Delay: 4
+		ValidTargets: GroundActor, Trees,  WaterActor
+		Versus:
+			None: 120
+			Wood: 10
+			Light: 20
+			Medium: 15
+			Heavy: 5
+			Concrete: 5
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
+	Warhead@4Dam_2: SpreadDamage
+		Spread: 128
+		Damage: 1500
+		Delay: 6
+		ValidTargets: GroundActor, Trees,  WaterActor
+		Versus:
+			None: 120
 			Wood: 10
 			Light: 20
 			Medium: 15
@@ -864,16 +1012,16 @@ M60mg-apc:
 
 HeavyMachineGun:
 	Inherits: ^LightMG
-	ReloadDelay: 20
+	ReloadDelay: 50
 	Range: 6c0
 	Burst: 10
-	BurstDelays: 18
-	Report: at_light_infantry_1.wav, at_light_infantry_2.wav, at_light_infantry_3.wav, at_light_infantry_4.wav
+	BurstDelays: 16
+	Report: hvmgsound.wav
 	Warhead@1Dam: SpreadDamage
 		Delay: 0
 		Damage: 500
 		Versus:
-			None: 130
+			None: 150
 			Wood: 15
 			Light: 35
 			Medium: 25
@@ -885,7 +1033,7 @@ HeavyMachineGun:
 		Delay: 3
 		Damage: 500
 		Versus:
-			None: 130
+			None: 150
 			Wood: 15
 			Light: 35
 			Medium: 25
@@ -897,7 +1045,7 @@ HeavyMachineGun:
 		Delay: 6
 		Damage: 500
 		Versus:
-			None: 130
+			None: 150
 			Wood: 15
 			Light: 35
 			Medium: 25
@@ -909,7 +1057,7 @@ HeavyMachineGun:
 		Delay: 9
 		Damage: 500
 		Versus:
-			None: 130
+			None: 150
 			Wood: 15
 			Light: 35
 			Medium: 25
@@ -921,7 +1069,7 @@ HeavyMachineGun:
 		Delay: 13
 		Damage: 500
 		Versus:
-			None: 130
+			None: 150
 			Wood: 15
 			Light: 35
 			Medium: 25
@@ -1296,7 +1444,7 @@ AACrewGun:
 	ReloadDelay: 4
 	Range: 8c0
 	Warhead@1Dam: SpreadDamage
-		Damage: 2000
+		Damage: 1000
 		Versus:
 			None: 25
 			Wood: 75
@@ -1313,7 +1461,7 @@ GuerillaCarbine:
 	Inherits: ^LightMG
 	ReloadDelay: 20
 	Range: 5c0
-	Report: mgun2.aud
+	Report: carbine2.wav
 	Warhead@1Dam: SpreadDamage
 		Damage: 1250
 		Versus:

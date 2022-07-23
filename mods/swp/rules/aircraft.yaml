@@ -48,7 +48,7 @@ AGUILA.Interceptor:
 	Inherits: ^NeutralPlane
 	Inherits@AUTOTARGET: ^AutoTargetAllPlusBombers
 	Valued:
-		Cost: 2000
+		Cost: 1600
 	Tooltip:
 		Name: Aguila
 	Health:
@@ -524,7 +524,7 @@ TESLAHIND:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 225
-		Prerequisites: hpad, ~helicopter.russia, ~techlevel.high
+		Prerequisites: hpad, stek, ~helicopter.russia, ~techlevel.high
 		Description: Helicopter gunship armed with\nsmall dual tesla coils.\nRecharges ammo automatically.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
 	Valued:
 		Cost: 2000
@@ -600,8 +600,8 @@ IBLIS:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 225
-		Prerequisites: hpad, ~helicopter.russia, ~techlevel.high
-		Description: Helicopter gunship armed with\nsmall dual tesla coils.\nRecharges ammo automatically.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+		Prerequisites: hpad, mtek, ~helicopter.turkey, ~techlevel.high
+		Description: Helicopter gunship armed with\nIncendiary missiles.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -672,11 +672,11 @@ HEAVYFIGHTER:
 	Buildable:
 		Queue: Aircraft
 		BuildAtProductionType: Plane
-		BuildPaletteOrder: 520
+		BuildPaletteOrder: 501
 		Prerequisites: ~afld, ~aircraft.serbia, ~techlevel.medium
 		Description: Attack Plane armed with\ndual machine guns.\n  Strong vs Aircraft\n  Weak vs Tanks, Infantry
 	Valued:
-		Cost: 1400
+		Cost: 1600
 	Tooltip:
 		Name: Aguila Fighter
 	UpdatesPlayerStatistics:
@@ -913,7 +913,7 @@ SAUCER:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 40
-		Prerequisites: ~disabled, hpad, ~helicopter.ukraine, stek, ~techlevel.high
+		Prerequisites: hpad, ~helicopter.ukraine, stek, ~techlevel.high
 		Description: Helicopter gunship armed\nwith multi-purpose missiles.\n  Strong vs Buildings, Vehicles, Aircraft\n  Weak vs Infantry
 	Valued:
 		Cost: 2000
@@ -1032,7 +1032,7 @@ SAUCER.Ground:
 		IntoActor: saucer
 		RequiresCondition: charged
 	AmbientSound@float:
-		SoundFiles: ufofloat.aud
+		SoundFiles: ufofloat.wav
 		Interval: 148
 	-MapEditorData:
 
@@ -1116,7 +1116,7 @@ TENGRII:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 110
-		Prerequisites: hpad, ~helicopter.soviet, ~techlevel.medium
+		Prerequisites: hpad, stek, ~helicopter.mongolia, ~techlevel.high
 		Description: Helicopter gunship armed with rockets.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
 	Valued:
 		Cost: 2250
@@ -1203,8 +1203,8 @@ GEBARD:
 	Buildable:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
-		BuildPaletteOrder: 110
-		Prerequisites: hpad, ~helicopter.germany, ~techlevel.medium
+		BuildPaletteOrder: 220
+		Prerequisites: hpad, adept, ~helicopter.germany, ~techlevel.medium
 		Description: Fast helicopter gunship armed with rockets.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
 	Valued:
 		Cost: 180
@@ -1305,12 +1305,12 @@ COMET:
 		Range: 8c0
 		Type: GroundPosition
 	Armament@PRIMARY:
-		Weapon: M60mg
+		Weapon: M60mg-Comet
 		LocalOffset: 85,-213,-85, 85,213,-85
 		MuzzleSequence: muzzle
 		PauseOnCondition: !ammo || !airborne
 	AttackTurreted:
-		Armaments: primary, secondary
+		Armaments: primary
 	WithSpriteTurret:
 	Turreted:
 		TurnSpeed: 30
@@ -1747,6 +1747,7 @@ A10:
 		PauseOnCondition: !ammo || !airborne
 	GrantConditionOnAttack@attacking:
 		Condition: attacking
+		RevokeDelay: 50
 	AttackAircraft:
 		FacingTolerance: 80
 		PersistentTargeting: false
@@ -1792,7 +1793,7 @@ A10:
 		EmptySequence: pip-emptyammo
 		FullSequence: pip-bullet
 	AmbientSound@fire:
-		Delay: 8
+		Delay: 4
 		SoundFiles: a10sound.wav
 		Interval: 100
 		RequiresCondition: attacking
@@ -1830,7 +1831,7 @@ STRMVGL:
 	Buildable:
 		Queue: Aircraft
 		BuildAtProductionType: Plane
-		BuildPaletteOrder: 610
+		BuildPaletteOrder: 650
 		Prerequisites: mtek, ~afld, ~aircraft.zentrum, ~techlevel.medium
 		Description: Anti-aircraft fighter.\n  Strong vs Aircraft\n	 Weak vs Infantry, Vehicles.
 	Valued:
@@ -1983,6 +1984,7 @@ TELEKITE:
 	KillsSelf:
 		RequiresCondition: turnedoff
 	-EjectOnDeath:
+	-Targetable@AIRBORNE:
 
 HARRIER:
 	Inherits: ^Plane
@@ -2165,7 +2167,7 @@ STUKA:
 	Buildable:
 		Prerequisites: ~afld, ~aircraft.zentrum, ~techlevel.high
 		Description: Drops highly effective bombs on a\nsmall target area. Dives fast on it's target.\n  Strong vs Infantry, Light armor, Tanks\n  Weak vs Aircraft
-		BuildPaletteOrder: 650
+		BuildPaletteOrder: 610
 	Valued: 
 		Cost: 1900
 	Selectable:

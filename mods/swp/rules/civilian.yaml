@@ -377,7 +377,7 @@ CIVNUKE:
 		Offset: 0,0,0
 		IsDecoration: True
 	Power:
-		Amount: 400
+		Amount: 300
 	ScalePowerWithHealth:
 	SpawnActorOnDeath:
 		Actor: CIVNUKE.exploding

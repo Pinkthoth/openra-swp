@@ -46,25 +46,26 @@ limpetmine:
 	icon: limpetmineicon
 
 harv:
+	Defaults: harv2
 	idle:
 		Facings: 32
 	harvest:
 		Start: 32
 		Length: 8
-		Facings: 8
-	dock: harv
-		Start: 96
+		Facings: 32
+	dock:
+		Start: 288
 		Length: 8
-	dock-loop: harv
-		Start: 104
-		Length: 7
+	dock-loop:
+		Start: 295
+		Length: 13
 	icon: harvicon
 		Start: 0
 
-harvempty:
+harv2empty:
 	Inherits: harv
 
-harvhalf:
+harv2half:
 	Inherits: harv
 
 hhusk:
@@ -388,7 +389,7 @@ hvmg:
 	muzzle: minigun
 		Length: 6
 		Facings: 8
-		Tick: 110
+		Tick: 80
 	icon: hvmgicon
 
 aaguncrew:
@@ -428,6 +429,12 @@ sipahi:
 		Start: 0
 		Facings: 32
 	turret-missile: khanlauncher
+		Start: 0
+		Facings: 32
+	turret-ronin: ronin
+		Start: 32
+		Facings: 32
+	turret-arc: arctower
 		Start: 0
 		Facings: 32
 	turret-flak: ftrk
@@ -537,34 +544,6 @@ mtnk:
 	muzzle-mg: minigun
 		Length: 6
 		Facings: 8
-	icon: cossackicon
-
-marauder:
-	idle:
-		Facings: 32
-	run:
-		Facings: 32
-	muzzle: gunfire2
-		Length: 5
-	prone-idle:
-		Facings: 32
-		Start: 197
-	prone-run:
-		Facings: 32
-		Start: 197
-	liedown:
-		Facings: 32
-		Start: 32
-		Length: 5
-		Tick: 300
-	standup:
-		Facings: 32
-		Start: 229
-		Length: 5
-		Tick: 300
-	turret:
-		Facings: 32
-		Start: 395
 	icon: cossackicon
 
 templar:
@@ -827,9 +806,6 @@ ttnk:
 flmtnk:
 	idle:
 		Facings: 32
-	turret:
-		Start: 32
-		Facings: 32
 	icon: flmtnkicon
 
 firelancer:
@@ -984,13 +960,13 @@ racer:
 bggy:
 	idle:
 		Facings: 32
-	turret:
-		Start: 32
+	turret: khanlauncher
+		Start: 0
 		Facings: 32
 	muzzle: minigun
 		Length: 6
 		Facings: 8
-	icon: khanicon
+	icon: bggyicon
 
 teledrone:
 	idle:

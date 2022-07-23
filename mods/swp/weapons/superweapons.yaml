@@ -304,7 +304,7 @@ ArtilleryBarrageSecondary:
 		
 ArtilleryBarrageShell:
 	Inherits: ^Artillery
-	-Report:
+	Report: shellinc1.wav, shellinc2.wav, shellinc3.wav
 	ValidTargets: Ground, Water, Air
 	Projectile: Bullet
 		Speed: 700
@@ -313,10 +313,10 @@ ArtilleryBarrageShell:
 		ContrailLength: 10
 	Warhead@3Eff: CreateEffect
 		Explosions: large_explosion
-		ImpactSounds: kaboom15.aud
+		ImpactSounds: explosion_large_1.wav, explosion_large_2.wav, explosion_large_4.wav
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c216
-		Falloff: 150, 100, 75, 60, 30, 20, 10, 5
+		Falloff: 150, 125, 100, 75, 60, 30, 20, 10, 5
 		Damage: 6000
 		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
@@ -334,10 +334,10 @@ ArtilleryBarrageShell:
 		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
 			None: 10
-			Wood: 10
+			Wood: 30
 			Light: 70
 			Medium: 80
-			Heavy: 100
+			Heavy: 90
 			Concrete: 50
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@4EffWater: CreateEffect

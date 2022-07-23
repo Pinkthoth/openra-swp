@@ -219,6 +219,9 @@
 	PaletteFromFile@TSEFFECTS:
 		Name: tseffects
 		Filename: anim.pal
+	PaletteFromFile@ra2effects:
+		Name: ra2effects
+		Filename: ra2anim.pal
 	PaletteFromPaletteWithAlpha@tseffects-alpha:
 		Name: tseffects-alpha
 		BasePalette: tseffects
