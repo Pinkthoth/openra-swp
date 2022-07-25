@@ -46,7 +46,7 @@ limpetmine:
 	icon: limpetmineicon
 
 harv:
-	Defaults: harv2
+	Defaults: harv
 	idle:
 		Facings: 32
 	harvest:
@@ -62,10 +62,10 @@ harv:
 	icon: harvicon
 		Start: 0
 
-harv2empty:
+harvempty:
 	Inherits: harv
 
-harv2half:
+harvhalf:
 	Inherits: harv
 
 hhusk:

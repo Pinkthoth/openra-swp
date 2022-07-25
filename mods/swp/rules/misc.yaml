@@ -624,10 +624,14 @@ SMINE:
 
 SPYCAMERA:
 	Inherits: ^Mine
+	Inherits@POWER_OUTAGE: ^DisableOnLowPower
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Inherits@EMPDISABLE: ^EmpDisable
 	RenderSprites:
 		Image: scam
 	RevealsShroud:
 		Range: 5c0
+		RequiresCondition: !disabled && !turnedoff
 	Mine:
 		CrushClasses: spycam
 		DetonateClasses: spycam
@@ -650,6 +654,9 @@ SPYCAMERA:
 		CloakSound: appear1td.aud
 		UncloakSound: trans1td.aud
 		IsPlayerPalette: true
+		RequiresCondition: !disabled && !turnedoff
+	Power:
+		Amount: -5
 
 SMOKECLOUD:
 	Inherits@helicopter: ^Helicopter

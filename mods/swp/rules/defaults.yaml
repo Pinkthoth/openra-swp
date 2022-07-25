@@ -534,6 +534,7 @@
 		IsPlayerPalette: true
 		RequiresCondition: stealth
 		Palette: newcloak
+		CloakTypes: Phase
 	TimedConditionBar@STEALTH:
 		Condition: stealth
 		Color: FF54D1
@@ -793,33 +794,6 @@
 		DamageCooldown: 150
 		RequiresCondition: commandered
 
-^ShinobiHideout:
-	InfiltrateToAttach@shinobi:
-		Actor: shinobi.attached
-		Types: ShinobiAttachable
-	Targetable@shinobi:
-		TargetTypes: ShinobiAttachable
-		RequiresCondition: !shinobi-attached
-	ExternalCondition@shinobi:
-		Condition: shinobi-attached
-	AttachableTo:
-		Limits:
-			shinobi: 1
-		LimitConditions:
-			shinobi: shinobi-attached
-	WithDecoration@commander:
-		Image: pips
-		Sequence: pip-commander
-		Position: TopRight
-		ValidRelationships: Ally, Neutral
-		RequiresCondition: shinobi-attached
-	WithDecoration@shinobi:
-		Image: pips
-		Sequence: pip-eye
-		Position: TopLeft
-		ValidRelationships: Ally, Neutral
-		RequiresCondition: shinobi-attached
-
 ^Vehicle:
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^IronCurtainable
@@ -842,6 +816,9 @@
 	Inherits@lazarus: ^Lazarus
 	Inherits@chronohaste: ^ChronoHasteable
 	Inherits@flarevision: ^FlareVision
+	DetectCloaked@phase:
+		CloakTypes: Cloak
+		Range: 1c0
 	Carryable:
 	Huntable:
 	OwnerLostAction:
@@ -1117,6 +1094,9 @@
 	DetectCloaked:
 		CloakTypes: Cloak
 		Range: 2c0
+	DetectCloaked@phase:
+		CloakTypes: Cloak
+		Range: 2c0
 	GrantExternalConditionToCrusher:
 		WarnCrushCondition: crush-attempt
 		WarnCrushDuration: 15
@@ -1372,7 +1352,6 @@
 	Inherits@bounty: ^GlobalBounty
 	Inherits@selection: ^SelectableBuilding
 	Inherits@handicaps: ^PlayerHandicaps
-	Inherits@shinobihideout: ^ShinobiHideout
 	Inherits@sliced: ^Sliced
 	Targetable:
 		TargetTypes: GroundActor, C4, DetonateAttack, Structure
@@ -1477,6 +1456,9 @@
 	MapEditorData:
 		Categories: Defense
 	-CommandBarBlacklist:
+	DetectCloaked@phase:
+		CloakTypes: Cloak
+		Range: 4c0
 
 ^Wall:
 	Inherits@1: ^ExistsInWorld
@@ -2135,6 +2117,10 @@
 	MapEditorData:
 		Categories: System
 
+^BuildTimeDiscount:
+	ProductionTimeMultiplier@basediscount:
+		Multiplier: 70
+
 ^DisableOnLowPower:
 	WithColoredOverlay@IDISABLE:
 		RequiresCondition: disabled
@@ -2414,24 +2400,3 @@
 		RequiresSelection: true
 		Image: pips
 		Sequence: tag-primary
-
-^TankGunnerAttachable:
-	InfiltrateToAttach@TankGunner:
-		Actor: tnkgnr.attached
-		Types: MiniDroneAttachable
-	Targetable@TankGunner:
-		TargetTypes: MiniDroneAttachable
-		RequiresCondition: !tnkgnr-attached
-	ChangesHealth@TankGunner:
-		Step: 1000
-		Delay: 25
-		StartIfBelow: 100
-		DamageCooldown: 50
-		RequiresCondition: tnkgnr-attached
-	ExternalCondition@TankGunner:
-		Condition: tnkgnr-attached
-	AttachableTo:
-		Limits:
-			tnkgnr: 1
-		LimitConditions:
-			tnkgnr: tnkgnr-attached

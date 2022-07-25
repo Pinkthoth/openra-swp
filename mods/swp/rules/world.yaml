@@ -204,17 +204,17 @@
 		Name: Britain
 		InternalName: england
 		Side: Entente
-		Description: Kingdom of Great Britain\nFocus: Special Operatives and Intelligence\n\nSpecial Infantry: Commando\nSpecial Vehicle: Warthog\nSpecial Infantry: Sniper\nSpecial Ability: Radar Scan
+		Description: Kingdom of Great Britain\nFocus: Special Operations and Intelligence\n\nSpecial Infantry: Commando\nSpecial Vehicle: Warthog\nSpecial Infantry: Sniper\nSpecial Aircraft: Harrier\nSpecial Building: MI6 Command Post\nSpecial Ability: Radar Scan
 	Faction@2:
 		Name: France
 		InternalName: france
 		Side: Entente
-		Description: Republic of France\nFocus: Misdirection and Deception\n\nSpecial Infantry: Legionaire\nSpecial Building: Fake structures\nSpecial Vehicle: Mobile Radar Jammer\nSpecial Building: Camo Pillbox\nSpecial Building: Camo Turret
+		Description: Republic of France\nFocus: Misdirection and Deception\n\nSpecial Infantry: Legionaire\nSpecial Building: Fake structures\nSpecial Vehicle: Mobile Radar Jammer\nSpecial Vehicle: Disruptor\nSpecial Building: Camo Defenses\nSpecial Ability: Mirage
 	Faction@3:
 		Name: Germany
 		InternalName: germany
 		Side: Zentrum
-		Description: German Empire\nFocus: Blitzkrieg and Chrono Technology\n\nSpecial Infantry: Tank Commander\nSpecial Vehicle: Recon Bike\nSpecial Vehicle: Chrono Tortoise\nSpecial Vehicle: Chrono Tank
+		Description: German Empire\nFocus: Blitzkrieg and Chrono Technology\n\nSpecial Infantry: Tank Commander\nSpecial Vehicle: Chrono APC\nSpecial Vehicle: Chrono Tank\nSpecial Infantry: Stormtrooper\nSpecial Helicopter: Gebard\nSpecial Ability: Chrono Haste
 	Faction@4:
 		Name: Komintern
 		InternalName: soviet
@@ -224,62 +224,62 @@
 		Name: Russia
 		InternalName: russia
 		Side: Komintern
-		Description: Russian Soviet Republic\nFocus: Tesla and Curtain Technology\n\nSpecial Infantry: Tesla Trooper\nSpecial Vehicle: Tesla Tank\nSpecial Helicopter: Tesla Hind\nSpecial Vehicle: Grinder
+		Description: Russian Soviet Republic\nFocus: Tesla and Iron Curtain Technology\n\nSpecial Infantry: Tesla Trooper\nSpecial Vehicle: Tesla Tank\nSpecial Helicopter: Tesla Hind\nSpecial Vehicle: Grinder\nSpecial Infantry: Iron Man\nSpecial Ability: Supercharge
 	Faction@6:
 		Name: Ukraine
 		InternalName: ukraine
 		Side: Komintern
-		Description: Ukrainian Soviet Republic\nFocus: Magnetic and Veil Technology\n\nSpecial Infantry: Nightwitch\nSpecial Vehicle: Maglev Tank\nSpecial Vehicle: Traktor\nSpecial Vehicle: Mobile Veil Generator\nSpecial Building: Veil Generator
+		Description: Ukrainian Soviet Republic\nFocus: Magnetic and Veil Technology\n\nSpecial Infantry: Nightwitch\nSpecial Vehicle: Maglev Tank\nSpecial Vehicle: Traktor\nSpecial Vehicle: Mobile Veil Generator\nSpecial Building: Veil Generator\nSpecial Helicopter: Saucer\nSpecial Ability: Magnetic Suspension
 	Faction@7:
 		Name: Japan
 		InternalName: japan
 		Side: Entente
-		Description: Empire of Japan\nFocus: Phase Technology\n\nSpecial Infantry: Shinobi\nSpecial Vehicle: Ronin\nSpecial Vehicle: Ebi\nSpecial Vehicle: Kitsune
+		Description: Empire of Japan\nFocus: Phase Technology\n\nSpecial Infantry: Shinobi\nSpecial Vehicle: Ronin\nSpecial Vehicle: Ebi\nSpecial Vehicle: Kitsune\nSpecial Vehicle: Recon Bike\nSpecial Ability: Smokescreen
 	Faction@8:
 		Name: USA
 		InternalName: usa
 		Side: Entente
-		Description: United States of America\nFocus: Electromagnetism\n\nSpecial Infantry: Arc Blaster\nSpecial Vehicle: Arc Thrower\nSpecial Vehicle: EMP Device\nSpecial Vehicle: Beetle
+		Description: United States of America\nFocus: Electromagnetism\n\nSpecial Infantry: Arc Blaster\nSpecial Vehicle: Arc Thrower\nSpecial Vehicle: Mobile EMP Device\nSpecial Vehicle: Beetle\nSpecial Vehicle: Cicada\nSpecial Ability: Swarm
 	Faction@17:
 		Name: Spain
 		InternalName: serbia
 		Side: Entente
-		Description: Spanish Republic\nFocus: Heavy Weaponry\n\nSpecial Infantry: Anti-Tank Crew\nSpecial Vehicle: Caballero\nSpecial Building: Grand Cannon\nSpecial Plane: Aguila
+		Description: Spanish Republic\nFocus: Heavy Weaponry\n\nSpecial Infantry: Anti-Tank Crew\nSpecial Vehicle: Caballero\nSpecial Infantry: AA Gun Crew\nSpecial Building: Grand Cannon\nSpecial Plane: Aguila\nSpecial Ability: Intercept
 	Faction@9:
 		Name: China
 		InternalName: china
 		Side: Komintern
-		Description: People's Republic of China\nFocus: Infantry Focus\n\nSpecial Infantry: Militia\nSpecial Vehicle: Louchuan\nSpecial Infantry: Flaktrooper\nSpecial Ability: Guerilla Drop
+		Description: People's Republic of China\nFocus: Infantry Focus\n\nSpecial Infantry: Militia\nSpecial Vehicle: Louchuan\nSpecial Vehicle: Gatling Car\nSpecial Infantry: Flaktrooper\nSpecial Building: Forward Command\nSpecial Ability: Propaganda
 	Faction@16:
 		Name: Turkmenia
 		InternalName: kazakhstan
 		Side: Komintern
-		Description: Federation of Turkic Soviets\nFocus: Explosives & Salvaging\n\nSpecial Infantry: Kulak\nSpecial Vehicle: Waste Tanker\nSpecial Infantry: Waste Warrior\nSpecial Infantry: Salvager
+		Description: Federation of Turkic Soviets\nFocus: Chemical Weaponry & Salvaging\n\nSpecial Infantry: Conscript\nSpecial Vehicle: Waste Tanker\nSpecial Infantry: Waste Warrior\nSpecial Infantry: Salvager\nSpecial Infantry: Nerve Agent\nSpecial Ability: Metempsychosis
 	Faction@10:
 		Name: Italy
 		InternalName: italy
 		Side: Zentrum
-		Description: Kingdom of Italy\nFocus: Trench Warfare\n\nSpecial Infantry: Pioneer\nSpecial Vehicle: Testudo\nSpecial Building: Trench\nSpecial Vehicle: Sapper
+		Description: Kingdom of Italy\nFocus: Trench Warfare\n\nSpecial Infantry: Pioneer\nSpecial Vehicle: Testudo\nSpecial Infantry: Arditi\nSpecial Building: Trench\nSpecial Vehicle: Sapper\nSpecial Ability: Paramines
 	Faction@11:
 		Name: Mongolia
 		InternalName: mongolia
 		Side: Komintern
-		Description: People's Republic of Mongolia\nFocus: Hit & Run Tactics\n\nSpecial Infantry: Cavalry\nSpecial Vehicle: Raider\nSpecial Vehicle: Khan\nSpecial Vehicle: Orda
+		Description: People's Republic of Mongolia\nFocus: Hit & Run Tactics\n\nSpecial Infantry: Cavalry\nSpecial Vehicle: Raider\nSpecial Vehicle: Marauder\nSpecial Vehicle: Orda\nSpecial Helicopter: Khan\nSpecial Ability: Guerilla Drop
 	Faction@12:
 		Name: Austria
 		InternalName: austria
 		Side: Zentrum
-		Description: Austro-Hungarian Empire\nFocus: Refractor and Lazarus Technology\n\nSpecial Infantry: Refractor Guard\nSpecial Vehicle: Refractor Cannon\nSpecial Helicopter: Wasp\nSpecial Infantry: Lazarus Operator
+		Description: Austro-Hungarian Empire\nFocus: Refractor and Lazarus Technology\n\nSpecial Infantry: Refractor Guardian\nSpecial Vehicle: Refractor Cannon\nSpecial Helicopter: Wasp\nSpecial Infantry: Lazarus Operator\nSpecial Building: Lazarus Platform\nSpecial Ability: Lazarene Ray
 	Faction@13:
 		Name: Ottomans
 		InternalName: turkey
 		Side: Zentrum
-		Description: Ottoman Empire\nFocus: Thermal Technology\n\nSpecial Infantry: Molotov Thrower\nSpecial Vehicle: Flame Tank\nSpecial Vehicle: Thermal Missile Launcher\nSpecial Vehicle: Ifrit
+		Description: Ottoman Empire\nFocus: Thermal Weaponry\n\nSpecial Infantry: Molotov Thrower\nSpecial Vehicle: Flame Tank\nSpecial Infantry: Desolator\nSpecial Vehicle: Ifrit\nSpecial Helicopter: Iblis\nSpecial Ability: Flame Shield
 	Faction@15:
 		Name: Bulgaria
 		InternalName: bulgaria
 		Side: Zentrum
-		Description: Tsardom of Bulgaria\nFocus: Indirect Fire\n\nSpecial Infantry: Mortar\nSpecial Vehicle: Czar\nSpecial Aircraft: Zeppelin\nSpecial Ability: Smokescreen
+		Description: Tsardom of Bulgaria\nFocus: Indirect Fire\n\nSpecial Infantry: Mortar\nSpecial Vehicle: Czar\nSpecial Aircraft: Zeppelin\nSpecial Infantry: Heavy Machine Gun Crew\nSpecial Infantry: Artillery Observer\nSpecial Ability: Flare
 	Faction@14:
 		Name: Zentrum
 		InternalName: zentrum

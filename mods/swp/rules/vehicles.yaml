@@ -53,7 +53,7 @@ HARV:
 		RequiresCondition: !no-ore
 		Weapon: OreExplosion
 	WithHarvesterSpriteBody:
-		ImageByFullness: harv2empty, harv2half, harv2
+		ImageByFullness: harvempty, harvhalf, harv
 	-WithFacingSpriteBody:
 	WithHarvesterPipsDecoration:
 		Position: BottomLeft
@@ -438,6 +438,8 @@ PUMA:
 		Prerequisites: vehicles.upgraded
 	SpawnActorOnDeath:
 		Actor: PUMA.Husk
+	Selectable:
+		DecorationBounds: 32,32,0,-2
 
 PUMA.Husk:
 	Inherits: ^Husk
@@ -1459,6 +1461,8 @@ KATYA:
 		LoadedChance: 75
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
+	Selectable:
+		DecorationBounds: 32,32,0,0
 
 MGG:
 	Inherits: ^Vehicle
@@ -2132,7 +2136,7 @@ WASTETANKER:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 331
-		Prerequisites: stek, ~vehicles.kazakhstan, ~techlevel.high
+		Prerequisites: dome, ~vehicles.kazakhstan, ~techlevel.high
 		Description: Tough tank that shoots toxic materials.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
 	Valued:
 		Cost: 1800
@@ -2254,6 +2258,7 @@ IFV:
 		Actor: IFV.Husk
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
+
 
 IFV.Husk:
 	Inherits: ^Husk
@@ -3214,7 +3219,7 @@ GRINDER:
 		RequiresCondition: moving
 	GrantConditionOnMovement:
 		Condition: moving
-	GrantChargingCondition:
+	GrantChargingConditionFull:
 		Condition: charged
 		MaxCharge: 200
 		PauseOnCondition: !invulnerability-trigger
@@ -3296,7 +3301,7 @@ FLMTNK:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 210
-		Prerequisites: adept, ~vehicles.turkey, ~techlevel.medium
+		Prerequisites: dome, ~vehicles.turkey, ~techlevel.medium
 		Description: Shoots balls of napalm.\n Strong vs. Infantry, Buildings.\n Weak vs. Tanks, Aircraft.
 	Mobile:
 		TurnSpeed: 28
@@ -3566,7 +3571,7 @@ SAPPER:
 		Interval: 250
 		RequiresCondition: attacking
 	Selectable:
-		DecorationBounds: 32, 30, 0, 0
+		DecorationBounds: 32, 30, 0, -4
 
 SAPPER.Husk:
 	Inherits: ^Husk
@@ -3717,7 +3722,7 @@ TESTUDO:
 	WithMoveAnimation:
 		MoveSequence: move
 	Selectable:
-		Bounds: 28,28
+		Bounds: 28,28,0,-2
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 

@@ -66,6 +66,9 @@ DOG:
 	Voiced:
 		VoiceSet: DogVoice
 	-TakeCover:
+	DetectCloaked@phase:
+		CloakTypes: Cloak
+		Range: 4c0
 
 E1:
 	Inherits: ^Soldier
@@ -721,7 +724,7 @@ E2:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 35
+		BuildPaletteOrder: 43
 		Prerequisites: ~infantry.komintern, ~techlevel.infonly
 		Description: Infantry armed with grenades.\n  Strong vs Buildings, Infantry\n  Weak vs Vehicles, Aircraft
 	Valued:
@@ -1123,7 +1126,7 @@ MEDI:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 30
+		BuildPaletteOrder: 44
 		Prerequisites: ~barr, ~infantry.entente, ~techlevel.infonly
 		Description: Heals nearby infantry.\n  Unarmed
 	Valued:
@@ -1380,7 +1383,7 @@ TNKCMNDR:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 90
-		Prerequisites: ~barracks, adept, ~infantry.germany, ~techlevel.infonly
+		Prerequisites: ~barracks, dome, ~infantry.germany, ~techlevel.infonly
 		Description: Can enter vehicles to \nenhance fighting capabilities.\n  Weak vs Everything
 	Valued:
 		Cost: 400
@@ -1808,7 +1811,7 @@ ARTILLERYOBSERVER:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 76
-		Prerequisites: ~barracks, dome, ~infantry.bulgaria, ~techlevel.infonly
+		Prerequisites: ~barracks, mtek, ~infantry.bulgaria, ~techlevel.infonly
 		Description: Increases range of infiltrated artillery units\nHeals infiltrated artillery unit to 20% health..\n  Weak vs Everything
 	Valued:
 		Cost: 400
@@ -2133,7 +2136,7 @@ SNIPER:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 91
-		Prerequisites: ~barracks, dome, ~infantry.england, ~techlevel.medium
+		Prerequisites: ~barracks, atek, ~infantry.england, ~techlevel.medium
 		Description: Elite sniper infantry unit.\nCan detect cloaked units.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
 	Health:
 		HP: 8000
@@ -3065,6 +3068,8 @@ PNEER:
 		Position: BottomLeft
 		Margin: 4, 3
 		RequiresSelection: true
+	Selectable:
+		Bounds: 24,24,0,0
 
 PNEER.Corpse:
 	Inherits: ^InfantryCorpse
@@ -3246,7 +3251,7 @@ SHINOBI:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 120
 		Prerequisites: atek, ~infantry.japan, ~techlevel.high
-		Description: Spying infantry capable of becoming invisible.\nLays invisible spy cameras.\nCan hide in enemy buildings giving vision.\n  Weak vs Everything
+		Description: Spying infantry capable of becoming invisible.\nLays invisible spy cameras.\n  Weak vs Everything
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -3300,9 +3305,6 @@ SHINOBI:
 		Position: BottomLeft
 		Margin: 4, 3
 		RequiresSelection: true
-	Infiltrates:
-		Types: ShinobiAttachable
-		ValidRelationships: Enemy
 
 SHINOBI.Corpse:
 	Inherits: ^InfantryCorpse
@@ -3312,20 +3314,6 @@ SHINOBI.Corpse:
 		Actor: SHINOBI
 	GrantExternalConditionToKiller:
 		Condition: SHINOBI
-
-SHINOBI.attached:
-	Inherits: SHINOBI
-	Attachable:
-	-Selectable:
-	Interactable:
-	-AmmoPool:
-	-Minelayer:
-	-WithAmmoPipsDecoration:
-	-Buildable:
-	-RenderSprites:
-	RenderSpritesEditorOnly:
-		Image: shinobi
-	-MapEditorData:
 
 GUERILLA:
 	Inherits: ^Soldier

@@ -108,20 +108,6 @@ powr:
 	icon: powricon
 	fake-icon: fpwricon
 
-academy:
-	idle:
-		Start: 0
-	damaged-idle:
-		Start: 1
-	make: academymake
-		Length: *
-	bib: bib3
-		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
-	icon: academyicon
-
 apwr:
 	defaults:
 		ZOffset: 0
@@ -243,6 +229,21 @@ stek:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 	icon: stekicon
+
+kcom:
+	idle: fcom 
+	damaged-idle: fcom
+		Start: 1
+	make: fcommake
+		Length: *
+	dead: fcom
+		Start: 1
+	bib: bib3
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	icon: fcomicon
 
 weap:
 	idle:
@@ -866,10 +867,11 @@ mrax:
 	fake-icon: fbarricon
 	
 proc:
+	Defaults:
+		Offset: -2,-6
 	idle: ref-bot
 		ZOffset: -1000
 	damaged-idle:
-		Offset: 0,-6
 		ZOffset: -1000
 		Start: 1
 	topsolid: ref-top
@@ -885,6 +887,7 @@ proc:
 		ZOffset: 0c912
 		Start: 3
 	make: ref-anim
+		Offset: 1,-10
 		Length: *
 	dead: procdead
 		Tick: 800
@@ -896,9 +899,13 @@ proc:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 	icon: procicon
+		Offset: 0,0
 	fake-icon: fprocicon
+		Offset: 0,0
 
 eproc:
+	Defaults:
+		Offset: 1,-7
 	idle:
 		ZOffset: -1000
 	damaged-idle:
@@ -930,9 +937,13 @@ eproc:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 	icon: procicon
+		Offset: 0,0
 	fake-icon: fprocicon
-	
+		Offset: 0,0
+
 mproc:
+	Defaults:
+		Offset: 1,-10,0
 	idle:
 		ZOffset: -1000
 	damaged-idle:
@@ -964,7 +975,9 @@ mproc:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 	icon: procicon
+		Offset: 0,0
 	fake-icon: fprocicon
+		Offset: 0,0
 	
 eweap:
 	idle: eweap
@@ -1120,34 +1133,34 @@ mafld:
 		Start: 0
 		Length: 8
 		Tick: 100
-		ZOffset: -1023
+		ZOffset: -1020
 		Offset: 0,-4
 	damaged-idle: 
 		Start: 8
 		Length: 8
 		Tick: 100
-		ZOffset: -1023
+		ZOffset: -1020
 		Offset: 0,-4
 	dead:
 		Start: 8
 		Tick: 800
-		ZOffset: -1023
+		ZOffset: -1020
 		Offset: 0,-4
 	make: mafldmake
 		Length: *
-		ZOffset: -1023
+		ZOffset: -1020
 		Offset: 0,-4
 	active:
 		Start: 0
 		Length: 8
 		Tick: 100
-		ZOffset: -1023
+		ZOffset: -1020
 		Offset: 0,-4
 	damaged-active:
 		Start: 8
 		Length: 8
 		Tick: 100
-		ZOffset: -1023
+		ZOffset: -1020
 		Offset: 0,-4
 	icon: afldicon
 
@@ -1249,24 +1262,7 @@ eadept:
 			INTERIOR: TEMPERAT
 	icon: adepticon
 		Offset: 0,0
-	
-mcom:
-	idle: 
-		Start: 0
-	damaged-idle: 
-		Start: 1
-	dead:
-		Start: 2
-		Tick: 800
-	make: mcommake
-		Length: *
-	bib: bib3
-		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
-	icon: mcomicon
-	
+
 ecom:
 	Defaults:
 		Offset: 0,-6,0
@@ -1284,23 +1280,8 @@ ecom:
 		UseTilesetExtension: true
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
-	icon: mcomicon
+	icon: academyicon
 		Offset: 0,0,0
-	
-kcom:
-	idle: 
-	damaged-idle:
-		Start: 1
-	make: kcommake
-		Length: *
-	dead:
-		Start: 1
-	bib: bib3
-		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
-	icon: fcomicon
 	
 flkgun:
 	idle: gunmake # Empty first frame (agunmake has no empty frames). We need WithSpriteBody for the make anim, and WSB needs at least a placeholder default sequence to work
@@ -1719,7 +1700,7 @@ atek:
 
 #Neutral
 fcom:
-	idle:
+	idle: fcon
 	damaged-idle:
 		Start: 1
 	make: fcommake

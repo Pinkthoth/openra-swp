@@ -194,7 +194,7 @@ MSLO:
 	Selectable:
 		Bounds: 48,24
 	Valued:
-		Cost: 2600
+		Cost: 2500
 	Tooltip:
 		Name: Missile Silo
 	Buildable:
@@ -269,7 +269,7 @@ GAP:
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Valued:
-		Cost: 900
+		Cost: 850
 	Tooltip:
 		Name: Veil Generator
 	Buildable:
@@ -599,7 +599,7 @@ TSLA:
 		Prerequisites: weap, ~structures.komintern, ~techlevel.medium
 		Description: Advanced base defense.\nRequires power to operate.\nCan detect cloaked units.\n  Strong vs Vehicles, Infantry\n  Weak vs Aircraft
 	Valued:
-		Cost: 1400
+		Cost: 1300
 	Tooltip:
 		Name: Tesla Coil
 	Selectable:
@@ -658,7 +658,7 @@ REFTWR:
 		Prerequisites: weap, ~structures.zentrum, ~techlevel.medium
 		Description: Advanced base defense.\nRequires power to operate.\nCan detect cloaked units.\n  Strong vs Vehicles, Infantry\n  Weak vs Aircraft
 	Valued:
-		Cost: 1400
+		Cost: 1300
 	Tooltip:
 		Name: Refractor Tower
 	Selectable:
@@ -731,7 +731,7 @@ AGUN:
 		Prerequisites: dome, ~structures.entente, ~techlevel.medium
 		Description: Anti-Air base defense.\nRequires power to operate.\n  Strong vs Aircraft\n  Weak vs Ground units
 	Valued:
-		Cost: 900
+		Cost: 800
 	Tooltip:
 		Name: AA Gun
 	Selectable:
@@ -792,7 +792,7 @@ CAGUN:
 		Prerequisites: dome, ~structures.france, ~techlevel.medium
 		Description: Anti-Air base defense.\nRequires power to operate.\n  Strong vs Aircraft\n  Weak vs Ground units
 	Valued:
-		Cost: 950
+		Cost: 850
 	Tooltip:
 		Name: Camo AA Gun
 	Selectable:
@@ -855,6 +855,7 @@ DOME:
 	Inherits@rubbles: ^2x2Rubbles
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Inherits@discount: ^BuildTimeDiscount
 	Selectable:
 		Bounds: 48,48
 	HitShape:
@@ -1462,7 +1463,7 @@ RECRUITMENTOFFICE:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 600
-		Prerequisites: ~structures.china, adept, ~techlevel.medium
+		Prerequisites: ~structures.china, weap, ~techlevel.medium
 		Description: Produces a two Militias\n every 30 seconds for 100$.
 		BuildLimit: 1
 	Valued:
@@ -1529,7 +1530,7 @@ PBOX:
 		Prerequisites: barr, ~structures.entente, ~techlevel.low
 		Description: Static defense with a fireport for\na garrisoned soldier.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
 	Valued:
-		Cost: 800
+		Cost: 700
 	CustomSellValue:
 		Value: 400
 	Health:
@@ -1590,7 +1591,7 @@ HBOX:
 		Prerequisites: barr, ~structures.france, ~techlevel.medium
 		Description: Camouflaged static defense with a fireport\nfor a garrisoned soldier.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
 	Valued:
-		Cost: 850
+		Cost: 750
 	CustomSellValue:
 		Value: 550
 	Health:
@@ -1657,7 +1658,7 @@ GUN:
 		Prerequisites: weap, ~structures.entente, ~techlevel.medium
 		Description: Anti-Armor base defense.\nCan detect cloaked units.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
 	Valued:
-		Cost: 900
+		Cost: 800
 	Tooltip:
 		Name: Turret
 	Building:
@@ -1716,7 +1717,7 @@ CAMOGUN:
 		Prerequisites: weap, ~structures.france, ~techlevel.medium
 		Description: Anti-Armor base defense.\nCan detect cloaked units.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
 	Valued:
-		Cost: 950
+		Cost: 850
 	Tooltip:
 		Name: Camo Turret
 	Building:
@@ -1780,7 +1781,7 @@ GATLINGGUN:
 		Prerequisites: weap, ~structures.komintern, ~techlevel.medium
 		Description: Anti-Armor base defense.\nCan detect cloaked units.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
 	Valued:
-		Cost: 900
+		Cost: 725
 	Tooltip:
 		Name: Gatling Sentry
 	Building:
@@ -1914,10 +1915,10 @@ GRANDCANNON:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 76
-		Prerequisites: dome, ~structures.serbia, ~techlevel.medium
+		Prerequisites: atek, ~structures.serbia, ~techlevel.medium
 		Description: Extra long ranged stationary artillery.\nCan detect cloaked units.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
 	Valued:
-		Cost: 2100
+		Cost: 1850
 	Tooltip:
 		Name: Grand Cannon
 	Building:
@@ -1981,7 +1982,7 @@ FTUR:
 		Prerequisites: barr, ~structures.zentrum, ~techlevel.low
 		Description: Anti-Infantry base defense.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
 	Valued:
-		Cost: 900
+		Cost: 750
 	Tooltip:
 		Name: Flame Tower
 	Building:
@@ -2105,6 +2106,7 @@ ADEPT:
 	Inherits@shape: ^3x2Shape
 	Inherits@rubbles: ^AdeptRubbles
 	Inherits@sabotable: ^Sabotable
+	Inherits@discount: ^BuildTimeDiscount
 	Valued:
 		Cost: 1600
 	Tooltip:
@@ -2227,6 +2229,7 @@ MTEK:
 	Inherits: ^ScienceBuilding
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^3x3Rubbles
+	Inherits@discount: ^BuildTimeDiscount
 	Selectable:
 		Bounds: 62,62
 	Buildable:
@@ -2274,6 +2277,7 @@ ATEK:
 	Inherits: ^ScienceBuilding
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^3x3Rubbles
+	Inherits@discount: ^BuildTimeDiscount
 	Selectable:
 		Bounds: 48,48
 	Buildable:
@@ -2479,6 +2483,8 @@ PROC:
 	Inherits: ^Building
 	Inherits@rubbles: ^3x3Rubbles
 	Inherits@sabotable: ^Sabotable
+	ProductionTimeMultiplier@basediscount:
+		Multiplier: 85
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 60
@@ -3056,6 +3062,7 @@ POWR:
 	Inherits@supercharge: ^SuperchargePower
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Inherits@discount: ^BuildTimeDiscount
 	Selectable:
 		Bounds: 48,48
 	HitShape:
@@ -3118,6 +3125,7 @@ APWR:
 	Inherits@supercharge: ^SuperchargePower
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Inherits@discount: ^BuildTimeDiscount
 	HitShape:
 		TargetableOffsets: -355,-1024,0
 	Buildable:
@@ -3176,6 +3184,7 @@ STEK:
 	Inherits: ^ScienceBuilding
 	Inherits@shape: ^3x2Shape
 	Inherits@rubbles: ^3x3Rubbles
+	Inherits@discount: ^BuildTimeDiscount
 	Selectable:
 		Bounds: 72,48
 	HitShape:
@@ -3383,6 +3392,7 @@ FIX:
 	Inherits: ^Building
 	Inherits@rubbles: ^FixRubbles
 	Inherits@sabotable: ^Sabotable
+	Inherits@discount: ^BuildTimeDiscount
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 100
@@ -3482,7 +3492,7 @@ FLKGUN:
 		Palette: terrain
 		Offset: -1700,1100,-300
 		IsDecoration: True
-		
+
 UPLINK:
 	Inherits: ^ScienceBuilding
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown

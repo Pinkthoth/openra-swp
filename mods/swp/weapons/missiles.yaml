@@ -1044,8 +1044,8 @@ RoninDrake:
 	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor, AirborneActor, AirborneBomber
 	Projectile: Missile
 		TrailImage: smokey
-		Speed: 290
-		Arm: 2
+		Speed: 320
+		Arm: 0
 		Blockable: false
 		ContrailLength: 10
 		Inaccuracy: 0
@@ -1055,5 +1055,6 @@ RoninDrake:
 		RangeLimit: 6c0
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
+		Falloff: 100, 50, 25, 5
 		Damage: 1850
 		ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor, AirborneActor, AirborneBomber

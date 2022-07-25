@@ -1024,7 +1024,7 @@ SAUCER.Ground:
 		Image: pulsecircle
 		Sequence: idle
 		Palette: tseffects-alpha
-	GrantChargingCondition:
+	GrantChargingConditionFull:
 		Condition: charged
 		MaxCharge: 250
 		ChargingColor: D20CFF

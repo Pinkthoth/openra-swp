@@ -128,15 +128,15 @@ FCOM:
 	OwnerLostAction:
 		Action: ChangeOwner
 	Building:
-		Footprint: xx xx ==
-		Dimensions: 2,3
-		LocalCenterOffset: 0,-512,0
+		Footprint: xx xx
+		Dimensions: 2,2
+		LocalCenterOffset: 0,0,0
 	Health:
 		HP: 80000
 	Armor:
 		Type: Wood
 	Tooltip:
-		Name: Forward Command
+		Name: Forward Construction Yard
 	TooltipDescription@ally:
 		Description: Provides buildable area.
 		ValidRelationships: Ally
@@ -149,7 +149,6 @@ FCOM:
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 4c0
-	WithBuildingBib:
 	CaptureManager:
 		BeingCapturedCondition: being-captured
 	Capturable:
@@ -168,6 +167,14 @@ FCOM:
 	AppearsOnMapPreview:
 	GpsDot:
 		String: Forward
+	RenderSprites:
+		Image: fcom
+	WithIdleOverlay@bip:
+		Image: bib_2x2
+		Sequence: idle
+		Palette: terrain
+		Offset: -1100,500,-300
+		IsDecoration: True
 
 HOSP:
 	Inherits: ^TechBuilding
@@ -778,117 +785,6 @@ FHOUSET:
 	Cargo:
 		MaxWeight: 1
 
-FLAT1:
-	Inherits: ^GarrisonableCivBuilding
-	Inherits@shape: ^2x3Shape
-	Inherits@rubbles: ^2x3Rubbles
-	Building:
-		Footprint: xx xx xx
-		Dimensions: 2,3
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-
-FLAT1A:
-	Inherits: ^GarrisonableCivBuilding
-	Inherits@shape: ^3x2Shape
-	Inherits@rubbles: ^3x2Rubbles
-	Building:
-		Footprint: xxx xxx
-		Dimensions: 3,2
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-
-FLAT1B:
-	Inherits: ^GarrisonableCivBuilding
-	Inherits@shape: ^2x2Shape
-	Inherits@rubbles: ^2x2Rubbles
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-
-FLAT2:
-	Inherits: ^GarrisonableCivBuilding
-	Inherits@shape: ^1x2Shape
-	Inherits@rubbles: ^1x2Rubbles
-	Building:
-		Footprint: x x
-		Dimensions: 1,2
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-
-FLAT2a:
-	Inherits: ^GarrisonableCivBuilding
-	Inherits@shape: ^2x1Shape
-	Inherits@rubbles: ^2x1Rubbles
-	Building:
-		Footprint: xx
-		Dimensions: 2,1
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-
-
-FLAT3:
-	Inherits: ^GarrisonableCivBuilding
-	Inherits@shape: ^2x2Shape
-	Inherits@rubbles: ^2x2Rubbles
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-
-FLAT4:
-	Inherits: ^GarrisonableCivBuilding
-	Inherits@shape: ^2x3Shape
-	Inherits@rubbles: ^2x3Rubbles
-	Building:
-		Footprint: xx xx xx
-		Dimensions: 2,3
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-
-FLAT5:
-	Inherits: ^GarrisonableCivBuilding
-	Inherits@shape: ^2x1Shape
-	Inherits@rubbles: ^2x1Rubbles
-	Building:
-		Footprint: xx
-		Dimensions: 2,1
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-
-FLAT5A:
-	Inherits: ^GarrisonableCivBuilding
-	Inherits@shape: ^1x2Shape
-	Inherits@rubbles: ^1x2Rubbles
-	Building:
-		Footprint: x x
-		Dimensions: 1,2
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-
-FLAT6:
-	Inherits: ^GarrisonableCivBuilding
-	Inherits@shape: ^2x2Shape
-	Inherits@rubbles: ^2x2Rubbles
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-
-FLAT6A:
-	Inherits: ^GarrisonableCivBuilding
-	Inherits@shape: ^2x2Shape
-	Inherits@rubbles: ^2x2Rubbles
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-
 SHOPS1:
 	Inherits: ^GarrisonableCivBuilding
 	Inherits@shape: ^2x2Shape
@@ -1496,16 +1392,6 @@ DETACHED26:
 		Condition: exists
 	Cargo:
 		MaxWeight: 2
-
-CHURCH:
-	Inherits: ^CivBuilding
-	Inherits@shape: ^2x3Shape
-	Inherits@rubbles: ^2x3Rubbles
-	Building:
-		Footprint: xx xx xx
-		Dimensions: 2,3
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
 
 BARL:
 	Inherits: ^TechBuilding

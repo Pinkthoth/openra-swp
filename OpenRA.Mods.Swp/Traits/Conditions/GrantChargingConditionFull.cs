@@ -17,7 +17,7 @@ namespace OpenRA.Mods.Swp.Traits
 {
 	[Desc("Gives a condition to the actor that charges when enabled,",
 		"drains gradually when paused, and is revoked when fully drained or disabled.")]
-	public class GrantChargingConditionInfo : PausableConditionalTraitInfo
+	public class GrantChargingConditionFullInfo : PausableConditionalTraitInfo
 	{
 		[FieldLoader.Require]
 		[GrantedConditionReference]
@@ -48,10 +48,10 @@ namespace OpenRA.Mods.Swp.Traits
 		public readonly Color ChargingColor = Color.DarkRed;
 		public readonly Color DischargingColor = Color.DarkMagenta;
 
-		public override object Create(ActorInitializer init) { return new GrantChargingCondition(init, this); }
+		public override object Create(ActorInitializer init) { return new GrantChargingConditionFull(init, this); }
 	}
 
-	public class GrantChargingCondition : PausableConditionalTrait<GrantChargingConditionInfo>, INotifyCreated, ITick, ISelectionBar
+	public class GrantChargingConditionFull : PausableConditionalTrait<GrantChargingConditionFullInfo>, INotifyCreated, ITick, ISelectionBar
 	{
 		int token = Actor.InvalidConditionToken;
 		int chargeDelay;
@@ -60,7 +60,7 @@ namespace OpenRA.Mods.Swp.Traits
 		[Sync]
 		int charge;
 
-		public GrantChargingCondition(ActorInitializer init, GrantChargingConditionInfo info)
+		public GrantChargingConditionFull(ActorInitializer init, GrantChargingConditionFullInfo info)
 			: base(info) { }
 
 		protected override void Created(Actor self)
@@ -96,7 +96,8 @@ namespace OpenRA.Mods.Swp.Traits
 					return;
 				}
 
-				GrantCondition(self);
+				if (charge == Info.MaxCharge)
+					GrantCondition(self);
 			}
 			else
 			{
