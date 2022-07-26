@@ -1156,6 +1156,7 @@ TENGRII:
 	Transforms:
 		IntoActor: tengrii.deployed
 		Facing: 384
+		TransformSounds: place2.aud
 
 TENGRII.Deployed:
 	Inherits: ^Defense
@@ -1192,10 +1193,13 @@ TENGRII.Deployed:
 	ProvidesPrerequisite@buildingname:
 	Transforms:
 		IntoActor: tengrii
+		TransformSounds: clicky1.aud
 	WithIdleOverlay@ROTORGROUND:
 		Sequence: slow-rotor
 		Offset: 100, 0,600
 	-MapEditorData:
+	TransformsIntoMobile:
+		Locomotor: hover
 
 GEBARD:
 	Inherits: ^Helicopter

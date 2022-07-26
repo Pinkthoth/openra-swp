@@ -1,0 +1,29 @@
+0.011-pre-release
+Bug fixes
+-Fixed an issue where dogs were unbuildable.
+-Gatling Sentry is buildable with Barracks.
+-Fixed trees not appearing under fog of war.
+-Turret and Camo Turret are buildable with Barracks.
+-Khan can be ordered to move when deployed.
+
+Unit balance
+-Raider hp decreased by 9000, speed decreased by 5.
+-Tankette price increased by 50$.
+-Testudo price increased by 100$.
+-Doubled the Lazarus Platform's healing effect.
+-Toxic weapon damage reduced vs. armoured units, increased versus infantry to match discription.
+-Increased Waste Warrior price by 50$.
+-Increased Arch Thrower health by 5000.
+-Increased Arch Thrower range by 1c0.
+
+Graphics and sounds
+-New sound effect for Testudo's armament.
+-Changed Desolator weapon effect
+-Decreased Desolator weapon effectiveness versus armoured units, and increased it versus wood armour.
+-Sound effect for deploying Arditi.
+-Sound effect for delpoying Khan.
+-Repositioned Forward Command's building.
+-Repositioned entente Tech Center's building.
+-Repositioned zentrum Tech Center's building.
+-Repositioned Flame Tower, SAM Site and Refractor Tower in the queue palette.
+-Decreased Artillery Barrage contrail width.

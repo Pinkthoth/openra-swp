@@ -2,7 +2,7 @@ DOG:
 	Inherits: ^Soldier
 	Buildable:
 		Queue: Infantry
-		BuildAtProductionType: Dog
+		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 42
 		Prerequisites: ~infantry.zentrum, ~techlevel.infonly
 		Description: Anti-infantry unit.\nCan detect spies.\n  Strong vs Infantry\n	 Weak vs Vehicles, Aircraft
@@ -180,6 +180,8 @@ ARDITI:
 	GrantConditionOnDeploy:
 		DeployedCondition: deployed
 		UndeployedCondition: undeployed
+		DeploySounds: sbagdeploy.wav
+		UndeploySounds: sbagdeploy.wav
 	SpawnActorOnDeath@BulletDeath:
 		Actor: ARDITI.Husk
 		DeathType: BulletDeath
@@ -348,7 +350,7 @@ WASTETROOPER:
 		Prerequisites: ~barracks, dome, ~infantry.kazakhstan, ~techlevel.infonly
 		Description: Shoots bursts of corrosive acid.\n  Strong vs Infantry, Vehicles\n	Weak vs Aircraft
 	Valued:
-		Cost: 300
+		Cost: 325
 	Mobile:
 		Speed: 50
 	Tooltip:
@@ -359,7 +361,7 @@ WASTETROOPER:
 		HP: 5000
 	Armament:
 		Weapon: Toxxer
-		LocalOffset: 550,0,480
+		LocalOffset: 500,0,520
 	Armament@GARRISONED:
 		Name: garrisoned
 		Weapon: Toxxer
@@ -2539,7 +2541,7 @@ DESOLATOR:
 	Armament:
 		Name: primary
 		Weapon: DesolatorHandHeld
-		LocalOffset: 0,0,600
+		LocalOffset: 120,0,600
 		PauseOnCondition: deployed
 	Mobile:
 		RequiresCondition: !deployed
@@ -3070,6 +3072,7 @@ PNEER:
 		RequiresSelection: true
 	Selectable:
 		Bounds: 24,24,0,0
+		DecorationBounds: 24,24,0,0
 
 PNEER.Corpse:
 	Inherits: ^InfantryCorpse

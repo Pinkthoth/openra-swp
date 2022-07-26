@@ -654,7 +654,7 @@ REFTWR:
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Buildable:
 		Queue: Defense
-		BuildPaletteOrder: 43
+		BuildPaletteOrder: 101
 		Prerequisites: weap, ~structures.zentrum, ~techlevel.medium
 		Description: Advanced base defense.\nRequires power to operate.\nCan detect cloaked units.\n  Strong vs Vehicles, Infantry\n  Weak vs Aircraft
 	Valued:
@@ -1655,7 +1655,7 @@ GUN:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 70
-		Prerequisites: weap, ~structures.entente, ~techlevel.medium
+		Prerequisites: barr, ~structures.entente, ~techlevel.medium
 		Description: Anti-Armor base defense.\nCan detect cloaked units.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
 	Valued:
 		Cost: 800
@@ -1714,7 +1714,7 @@ CAMOGUN:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 82
-		Prerequisites: weap, ~structures.france, ~techlevel.medium
+		Prerequisites: barr, ~structures.france, ~techlevel.medium
 		Description: Anti-Armor base defense.\nCan detect cloaked units.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
 	Valued:
 		Cost: 850
@@ -1778,7 +1778,7 @@ GATLINGGUN:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 40
-		Prerequisites: weap, ~structures.komintern, ~techlevel.medium
+		Prerequisites: barr, ~structures.komintern, ~techlevel.medium
 		Description: Anti-Armor base defense.\nCan detect cloaked units.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
 	Valued:
 		Cost: 725
@@ -1978,7 +1978,7 @@ FTUR:
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Buildable:
 		Queue: Defense
-		BuildPaletteOrder: 80
+		BuildPaletteOrder: 100
 		Prerequisites: barr, ~structures.zentrum, ~techlevel.low
 		Description: Anti-Infantry base defense.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
 	Valued:
@@ -2049,7 +2049,7 @@ SAM:
 			BottomRight: 768,512
 	Buildable:
 		Queue: Defense
-		BuildPaletteOrder: 100
+		BuildPaletteOrder: 102
 		Prerequisites: dome, ~structures.zentrum, ~techlevel.medium
 		Description: Anti-Air base defense.\nRequires power to operate.\n  Strong vs Aircraft\n  Weak vs Ground units
 	Valued:

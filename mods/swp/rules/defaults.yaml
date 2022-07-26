@@ -909,8 +909,7 @@
 ^CellTree:
 	Inherits@1: ^ExistsInWorld
 	Inherits@4: ^SpriteActor
-	HiddenUnderFog:
-		Type: CenterPosition
+	AlwaysVisible:
 	Armor:
 		Type: Wood
 	Health:
@@ -2242,7 +2241,7 @@
 	ExternalCondition@lazarus
 		Condition: lazarus
 	ChangesHealth@lazarus:
-		Step: 30
+		Step: 60
 		Delay: 6
 		StartIfBelow: 100
 		DamageCooldown: 150

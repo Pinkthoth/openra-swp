@@ -231,6 +231,8 @@ stek:
 	icon: stekicon
 
 kcom:
+	Defaults:
+		Offset: 0,-4,0
 	idle: fcom 
 	damaged-idle: fcom
 		Start: 1
@@ -244,6 +246,7 @@ kcom:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 	icon: fcomicon
+		Offset: 0,0,0
 
 weap:
 	idle:
@@ -1112,6 +1115,8 @@ kdome:
 	fake-icon: domficon
 
 mtek:
+	Defaults:
+		Offset: 0,-8,0
 	idle: 
 		Start: 0
 	damaged-idle: 
@@ -1127,7 +1132,8 @@ mtek:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 	icon: mtekicon
-	
+		Offset: 0,0,0
+
 mafld:
 	idle: 
 		Start: 0
@@ -1682,6 +1688,8 @@ hbox:
 		UseTilesetExtension: false
 		
 atek:
+	Defaults:
+		Offset: 0,-4,
 	idle:
 	damaged-idle:
 		Start: 1
@@ -1689,14 +1697,16 @@ atek:
 		Length: *
 	active: sputdoor
 		Length: *
-		Offset: -4,0
+		Offset: -4,-4
 	bib: bib2
 		Length: *
 		UseTilesetExtension: true
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 	icon: atekicon
+		Offset: 0,0,0
 	fake-icon: ateficon
+		Offset: 0,0,0
 
 #Neutral
 fcom:

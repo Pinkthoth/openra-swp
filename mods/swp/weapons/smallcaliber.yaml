@@ -1332,7 +1332,7 @@ TESTUDOGUN:
 	Inherits: ^HeavyMG
 	ReloadDelay: 30
 	Range: 4c512
-	Report: 20MMGUN2.aud
+	Report: hk_adp_gun_1.wav
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
 		Damage: 1150

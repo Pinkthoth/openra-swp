@@ -878,6 +878,7 @@ IfritAreaFire:
 		Inaccuracy: 2053
 		LaunchAngle: 62
 		ContrailLength: 10
+		ContrailWidth: 34
 		Speed: 341
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c256

@@ -140,6 +140,7 @@ ElectricBolt:
 	Inherits: ^ElectricBoltWeapon
 	ReloadDelay: 90
 	Burst: 2
+	Range: 6c0
 	BurstDelays: 20
 	Projectile: Missile
 		Image: electroball
@@ -213,6 +214,7 @@ SM_ElectricBolt:
 	Inherits: ^ElectricBoltWeapon
 	ReloadDelay: 50
 	Burst: 1
+	Range: 5c512
 	Projectile: Missile
 		Image: sm_electroball
 		Palette: tseffects
@@ -238,6 +240,11 @@ SM_ElectricBolt:
 		Damage: 6000
 		Versus:
 			None: 40
+			Light: 40
+			Medium: 50
+			Heavy: 30
+			Wood: 30
+			Concrete: 20
 		ValidTargets: GroundActor, Trees,  WaterActor
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ElectricityDeath
 	Warhead@3Eff: CreateEffect
@@ -307,8 +314,6 @@ Napalm:
 
 Toxxer:
 	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor, Trees
-	FirstBurstTargetOffset: -0c256,0,0
-	FollowingBurstTargetOffset: 0c64,0,0
 	ReloadDelay: 50
 	Report: flamer1.aud, flamer2.aud, flamer3.aud, flamer4.aud
 	Range: 5c0
@@ -321,18 +326,18 @@ Toxxer:
 		Image: toxb3
 		Palette: poisonpal
 		LaunchAngle: 62
-		Inaccuracy: 853
+		Inaccuracy: 1c0
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c126
 		Falloff: 120, 80, 50, 25, 10, 5
 		Damage: 1500
 		Versus:
-			None: 50
+			None: 30
 			Wood: 10
-			Tree: 80
-			Light: 55
-			Medium: 40
-			Heavy: 30
+			Tree: 10
+			Light: 40
+			Medium: 30
+			Heavy: 20
 			Concrete: 5
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, AcidDeath
 		ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor, Trees
@@ -348,17 +353,11 @@ Toxxer:
 
 TruckToxxer:
 	Inherits: Toxxer
+	Range: 5c512
+	Burst: 20
 	Warhead@1Dam: SpreadDamage
 		Damage: 2000
 		Falloff: 200, 100, 150, 100, 50, 25, 10, 5
-		Versus:
-			None: 50
-			Wood: 10
-			Tree: 80
-			Light: 55
-			Medium: 40
-			Heavy: 30
-			Concrete: 5
 
 TeslaZap:
 	Inherits: ^TeslaWeapon
@@ -994,46 +993,26 @@ DesolatorHandHeld:
 		HelixColor: FF6A00
 		BeamColor: FF0000
 		BeamWidth: 0c20
+		HelixRadius: 0c126
+		HelixPitch: 0c126
+		HelixAlphaDeltaPerTick: -20
+		BeamAlphaDeltaPerTick: -12
+		HelixRadiusDeltaPerTick: -20
+		QuantizationCount: 6
 	Warhead@1Dam: SpreadDamage
 		Spread: 42
 		Damage: 8000
 		Versus:
-			Wood: 50
-			Light: 90
-			Medium: 85
-			Heavy: 80
+			None: 150
+			Wood: 80
+			Light: 60
+			Medium: 40
+			Heavy: 30
+			Concrete: 20
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath
 		ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Scorch
-
-A10Bomb:
-	Inherits: ^FireWeapon
-	ReloadDelay: 4
-	Range: 2c0
-	Burst: 2
-	BurstDelays: 2
-	Report: chute1.aud
-	Projectile: GravityBomb
-		Image: dropbombs
-		Shadow: true
-		Velocity: 40, 0, -74
-		Acceleration: 0, 0, 0
-	Warhead@1Dam: SpreadDamage
-		Spread: 0c256
-		Damage: 3000
-		Falloff: 300, 200, 100, 50, 18, 7, 0
-		Versus:
-			Wood: 35
-			Concrete: 20
-			None: 50
-			Light: 65
-			Medium: 55
-			Heavy: 45
-		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath
-	Warhead@3Eff: CreateEffect
-		Explosions: artillery_explosion
-		ImpactSounds: kaboom15.aud
 
 Firelance:
 	ReloadDelay: 150

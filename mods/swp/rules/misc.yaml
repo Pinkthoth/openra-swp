@@ -915,6 +915,10 @@ CENTRALSRIMP:
 		Range: 18c0
 		Color: 0000FF80
 		Visible: Always
+	AmbientSound@veil:
+		SoundFiles: veil_sound.wav
+		Interval: 336
+		Delay: 0
 
 RADARSCAN:
 	Interactable:

@@ -110,9 +110,9 @@ explosion:
 		Length: *
 		ZOffset: 2047
 	a10piff: a10piff
-		Tick: 60
+		Tick: 30
 	a10piffs: a10piffs
-		Tick: 60
+		Tick: 30
 	piff: piff
 	piffs: piffpiff
 	planepiffs: planepiffs
