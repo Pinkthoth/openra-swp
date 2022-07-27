@@ -1971,7 +1971,8 @@ Templates:
 
 	Template@550:
 		Id: 550
-		Images: field1.shp
+		Images: fields.shp
+		Frames: 0
 		Size: 1,1
 		Categories: Terrain
 		Tiles:
@@ -1979,7 +1980,8 @@ Templates:
 
 	Template@551:
 		Id: 551
-		Images: field2.shp
+		Images: fields.shp
+		Frames: 1
 		Size: 1,1
 		Categories: Terrain
 		Tiles:
@@ -1987,7 +1989,8 @@ Templates:
 
 	Template@552:
 		Id: 552
-		Images: fieldlat1.shp
+		Images: fields.shp
+		Frames: 2
 		Size: 1,1
 		Categories: Terrain
 		Tiles:
@@ -1995,7 +1998,8 @@ Templates:
 
 	Template@553:
 		Id: 553
-		Images: fieldlat2.shp
+		Images: fields.shp
+		Frames: 3
 		Size: 1,1
 		Categories: Terrain
 		Tiles:
@@ -2003,7 +2007,8 @@ Templates:
 
 	Template@554:
 		Id: 554
-		Images: fieldlat3.shp
+		Images: fields.shp
+		Frames: 4
 		Size: 1,1
 		Categories: Terrain
 		Tiles:
@@ -2011,7 +2016,8 @@ Templates:
 
 	Template@555:
 		Id: 555
-		Images: fieldlat4.shp
+		Images: fields.shp
+		Frames: 5
 		Size: 1,1
 		Categories: Terrain
 		Tiles:
@@ -2019,7 +2025,8 @@ Templates:
 
 	Template@556:
 		Id: 556
-		Images: fieldlat5.shp
+		Images: fields.shp
+		Frames: 6
 		Size: 1,1
 		Categories: Terrain
 		Tiles:
@@ -2027,7 +2034,8 @@ Templates:
 
 	Template@557:
 		Id: 557
-		Images: fieldlat6.shp
+		Images: fields.shp
+		Frames: 7
 		Size: 1,1
 		Categories: Terrain
 		Tiles:
@@ -2035,7 +2043,8 @@ Templates:
 
 	Template@558:
 		Id: 558
-		Images: fieldlat7.shp
+		Images: fields.shp
+		Frames: 8
 		Size: 1,1
 		Categories: Terrain
 		Tiles:
@@ -2043,7 +2052,8 @@ Templates:
 
 	Template@559:
 		Id: 559
-		Images: fieldlat8.shp
+		Images: fields.shp
+		Frames: 9
 		Size: 1,1
 		Categories: Terrain
 		Tiles:
@@ -2051,7 +2061,8 @@ Templates:
 
 	Template@560:
 		Id: 560
-		Images: fieldlat9.shp
+		Images: fields.shp
+		Frames: 10
 		Size: 1,1
 		Categories: Terrain
 		Tiles:
@@ -2059,7 +2070,8 @@ Templates:
 
 	Template@561:
 		Id: 561
-		Images: fieldlat10.shp
+		Images: fields.shp
+		Frames: 11
 		Size: 1,1
 		Categories: Terrain
 		Tiles:
@@ -2067,7 +2079,8 @@ Templates:
 
 	Template@562:
 		Id: 562
-		Images: fieldlat11.shp
+		Images: fields.shp
+		Frames: 12
 		Size: 1,1
 		Categories: Terrain
 		Tiles:
@@ -2075,7 +2088,8 @@ Templates:
 
 	Template@563:
 		Id: 563
-		Images: fieldlat12.shp
+		Images: fields.shp
+		Frames: 13
 		Size: 1,1
 		Categories: Terrain
 		Tiles:
@@ -2083,7 +2097,8 @@ Templates:
 
 	Template@564:
 		Id: 564
-		Images: fieldlat13.shp
+		Images: fields.shp
+		Frames: 14
 		Size: 1,1
 		Categories: Terrain
 		Tiles:
@@ -2091,7 +2106,8 @@ Templates:
 
 	Template@565:
 		Id: 565
-		Images: fieldlat14.shp
+		Images: fields.shp
+		Frames: 15
 		Size: 1,1
 		Categories: Terrain
 		Tiles:
@@ -2099,7 +2115,8 @@ Templates:
 
 	Template@566:
 		Id: 566
-		Images: fieldlat15.shp
+		Images: fields.shp
+		Frames: 16
 		Size: 1,1
 		Categories: Terrain
 		Tiles:
@@ -2107,7 +2124,8 @@ Templates:
 
 	Template@567:
 		Id: 567
-		Images: fieldlat16.shp
+		Images: fields.shp
+		Frames: 17
 		Size: 1,1
 		Categories: Terrain
 		Tiles:
@@ -2115,7 +2133,8 @@ Templates:
 
 	Template@568:
 		Id: 568
-		Images: fieldlat17.shp
+		Images: fields.shp
+		Frames: 18
 		Size: 1,1
 		Categories: Terrain
 		Tiles:
@@ -2123,7 +2142,8 @@ Templates:
 
 	Template@569:
 		Id: 569
-		Images: fieldlat18.shp
+		Images: fields.shp
+		Frames: 19
 		Size: 1,1
 		Categories: Terrain
 		Tiles:
@@ -2131,7 +2151,8 @@ Templates:
 
 	Template@570:
 		Id: 570
-		Images: fieldlat19.shp
+		Images: fields.shp
+		Frames: 20
 		Size: 1,1
 		Categories: Terrain
 		Tiles:
@@ -2139,7 +2160,8 @@ Templates:
 
 	Template@571:
 		Id: 571
-		Images: fieldlat20.shp
+		Images: fields.shp
+		Frames: 21
 		Size: 1,1
 		Categories: Terrain
 		Tiles:
@@ -2147,31 +2169,8 @@ Templates:
 
 	Template@572:
 		Id: 572
-		Images: fieldlat21.shp
-		Size: 1,1
-		Categories: Terrain
-		Tiles:
-			0: Clear
-
-	Template@573:
-		Id: 573
-		Images: fieldlat12.shp
-		Size: 1,1
-		Categories: Terrain
-		Tiles:
-			0: Clear
-
-	Template@574:
-		Id: 574
-		Images: fieldlat12.shp
-		Size: 1,1
-		Categories: Terrain
-		Tiles:
-			0: Clear
-
-	Template@575:
-		Id: 575
-		Images: fieldlat12.shp
+		Images: fields.shp
+		Frames: 22
 		Size: 1,1
 		Categories: Terrain
 		Tiles:
