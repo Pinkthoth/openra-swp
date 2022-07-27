@@ -848,7 +848,7 @@ E6:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 40
 		Prerequisites: ~barracks, ~techlevel.infonly
-		Description: Infiltrates and captures\nenemy structures.\n	Unarmed
+		Description: Infiltrates and captures\nenemy structures.\nUnarmed
 	Valued:
 		Cost: 400
 	Tooltip:
