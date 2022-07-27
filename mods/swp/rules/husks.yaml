@@ -111,6 +111,8 @@ MCV.Husk:
 		IntoActor: mcv
 	RenderSprites:
 		Image: mcvhusk
+	ProvidesPrerequisite@MCVexists:
+		Prerequisite: mcvexists
 
 ZERO.Husk:
 	Inherits: ^PlaneHusk

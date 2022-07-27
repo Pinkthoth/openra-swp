@@ -1610,6 +1610,13 @@
 	-CommandBarBlacklist:
 	SoundOnDamageTransition:
 		DestroyedSounds: crumble_bld.aud
+	RevealsShroud:
+		Range: 5c0
+	RevealsShroud@GAPGEN:
+		Range: 1c0
+		Type: GroundPosition
+	Targetable@target
+		TargetTypes: Defense
 
 ^CivBuilding:
 	Inherits: ^TechBuilding
@@ -1800,7 +1807,7 @@
 	Explodes:
 		Weapon: HoloExplode
 		DamageThreshold: 20
-	GrantChargingCondition:
+	GrantChargingConditionFull:
 		Condition: charged
 		MaxCharge: 2000
 		ChargingColor: 21ADFF
@@ -1809,9 +1816,10 @@
 	Voiced:
 		VoiceSet: HoloVoice
 	RevealsShroud:
-		Range: 1c0
+		Range: 5c0
+		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
-		Range: 1c0
+		Range: 2c0
 		Type: GroundPosition
 
 ^MirageSpawn:

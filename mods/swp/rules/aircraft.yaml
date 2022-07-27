@@ -1,5 +1,8 @@
 BADR:
 	Inherits: ^NeutralPlane
+	Targetable@AIRBORNE:
+		RequiresCondition: airborne
+		TargetTypes: AirborneBomber
 	ParaDrop:
 		DropRange: 4c0
 		ChuteSound: chute1.aud
@@ -835,7 +838,7 @@ TRAN:
 
 HELI:
 	Inherits: ^Helicopter
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMovePlusBombers
 	Buildable:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
@@ -1831,7 +1834,7 @@ A10.Husk:
 
 STRMVGL:
 	Inherits: ^Plane
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMovePlusBombers
 	Buildable:
 		Queue: Aircraft
 		BuildAtProductionType: Plane
@@ -1992,7 +1995,7 @@ TELEKITE:
 
 HARRIER:
 	Inherits: ^Plane
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMovePlusBombers
 	Buildable:
 		Queue: Aircraft
 		BuildAtProductionType: Plane
@@ -2100,11 +2103,6 @@ STUKA:
 		Weapon: DropBombs
 		LocalOffset: 350,-213,0
 		PauseOnCondition: !ammo || !airborne
-	Armament@SECONDARY:
-		Name: secondary
-		Weapon: DropBombs
-		LocalOffset: 350,213,0
-		PauseOnCondition: !ammo || !airborne
 	Armament@TERTIARY
 		Name: tertiary
 		Weapon: StukaSpeedUp1
@@ -2118,7 +2116,7 @@ STUKA:
 		Weapon: StukaSpeedUp3
 		PauseOnCondition: !ammo || !airborne
 	AttackAircraft:
-		Armaments: primary, secondary, tertiary, quarternary, quinary
+		Armaments: primary, tertiary, quarternary, quinary
 	SpeedMultiplier@TERTIARY:
 		Modifier: 135
 		RequiresCondition: speedup1

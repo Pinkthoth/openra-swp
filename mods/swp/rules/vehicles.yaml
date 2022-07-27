@@ -70,10 +70,14 @@ MCV:
 	-ExperienceTrickler@OfficerNearby:
 	-GainsExperienceMultiplier@OfficerNearby:
 	-ExternalCondition@OfficerNearby:
+	ProvidesPrerequisite@MCVexists:
+		Prerequisite: mcvexists
+	ProductionTimeMultiplier@basediscount:
+		Multiplier: 90
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 700
-		Prerequisites: fix, ~techlevel.medium
+		Prerequisites: fix, ~mcvexists, ~techlevel.medium
 		BuildDurationModifier: 50
 		Description: Deploys into another Construction Yard.\n	Unarmed
 	Valued:
@@ -121,6 +125,20 @@ MCV:
 			bulgaria: mmcv
 			serbia: emcv
 			kazakhstan: kmcv
+
+MCV.new:
+	Inherits: MCV
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 700
+		Prerequisites: ~!mcvexists, ~techlevel.medium
+		BuildDurationModifier: 50
+		Description: Deploys into another Construction Yard.\n	Unarmed
+	-ProductionTimeMultiplier@basediscount:
+	ProductionCostMultiplier@costicrease:
+		Multiplier: 120
+	RenderSprites:
+		Image: mcv
 
 MNLY:
 	Inherits: ^TrackedVehicle
@@ -1967,7 +1985,7 @@ SONIQUE:
 		Queue: Vehicle
 		BuildPaletteOrder: 340
 		Prerequisites: atek, ~vehicles.france, ~techlevel.medium
-		Description: Shoots a long cone of flame\nand leaves the ground burning.\n Strong vs. Infantry, Buildings.\n Weak vs. Tanks, Aircraft.
+		Description: Emits a beam of harmonic resonance sound.\nUnits under it's influence are damaged and confused.\n Strong vs. Infantry.\n Weak vs. Tanks, Aircraft.
 	Mobile:
 		TurnSpeed: 20
 		Speed: 56
@@ -2183,7 +2201,7 @@ WASTETANKER.Husk:
 IFV:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
-	Inherits@AUTOTARGET: ^AutoTargetAllPlusBombers
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMovePlusBombers
 	Inherits@CARGOPIPS: ^CargoPips
 	Valued:
 		Cost: 750
@@ -2258,7 +2276,6 @@ IFV:
 		Actor: IFV.Husk
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
-
 
 IFV.Husk:
 	Inherits: ^Husk
@@ -2336,7 +2353,7 @@ RTNK.Husk:
 RONIN:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMovePlusBombers
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 70
@@ -2742,7 +2759,7 @@ ARC:
 		Queue: Vehicle
 		BuildPaletteOrder: 337
 		Prerequisites: atek, adept, ~vehicles.usa, ~techlevel.low
-		Description: Entente main battle tank. \n Fast tank, good for fast manouvers.\n	Strong vs Light armor, Tanks\n	Weak vs Infantry, Aircraft
+		Description: Fires arcs that slow down enemy vehicles.\n	Strong vs Vehicles\n	Weak vs Infantry, Aircraft
 	Valued:
 		Cost: 1150
 	Tooltip:
@@ -3248,7 +3265,7 @@ TTNK:
 	Armor:
 		Type: Medium
 	Mobile:
-		Speed: 70
+		Speed: 75
 	RevealsShroud:
 		MinRange: 6c0
 		Range: 7c0

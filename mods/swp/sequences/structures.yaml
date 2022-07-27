@@ -1757,12 +1757,12 @@ sport:
 dish:
 	idle:
 		Length: 32
-		Offset: 0,-6
+		Offset: 0,8
      	Tick: 160
 	damaged-idle:
 		Start: 32
 		Length: 32
-		Offset: 0,-6
+		Offset: 0,8
 		Tick: 160
 	bib: bib3
 		Length: *

@@ -4028,43 +4028,48 @@ militia:
 
 pneer:
 	Inherits: ^SharedDeaths
+	Defaults: pioneercrew
 	stand:
 		Facings: 8
 	run:
-		Start: 8
+		Start: 16
 		Length: 6
 		Facings: 8
 		Tick: 100
-	repair:
-		Start: 56
-		Length: 58
-		Tick: 120
-	standup:
-		Start: 114
-		Length: 2
+	prone-stand:
+		Start: 8
 		Facings: 8
-	idle:
-		Start: 178
-		Length: 14
-		Tick: 120
+	prone-run:
+		Start: 64
+		Length: 6
+		Facings: 8
+		Tick: 100
+	liedown:
+		Start: 0
+		Length: 1
+		Facings: 8
+	standup:
+		Start: 0
+		Length: 1
+		Facings: 8
 	die1:
-		Start: 193
-		Length: 8
-		Tick: 80
+		Start: 112
+		Length: 21
+		Tick: 40
 	die2:
-		Start: 201
-		Length: 8
-		Tick: 80
+		Start: 112
+		Length: 21
+		Tick: 40
 	die3:
-		Start: 209
-		Length: 8
-		Tick: 80
+		Start: 141
+		Length: 20
+		Tick: 40
 	die4:
-		Start: 217
-		Length: 12
-		Tick: 80
-	die5:
-		Start: 229
+		Start: 141
+		Length: 20
+		Tick: 40
+	die5: tnkcmndr
+		Start: 246
 		Length: 18
 		Tick: 80
 	die6: electro
@@ -4083,93 +4088,7 @@ pneer:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
-	prone-stand:
-		Start: 130
-		Stride: 4
-		Facings: 8
-	prone-run:
-		Start: 130
-		Length: 4
-		Facings: 8
-		Tick: 100
-	stand-2:
-		Facings: 8
-		Offset: -10,-10
-	run-2:
-		Start: 8
-		Length: 6
-		Facings: 8
-		Tick: 100
-		Offset: -10,-10
-	repair-2:
-		Start: 56
-		Length: 58
-		Tick: 120
-		Offset: -10,-10
-	standup-2:
-		Start: 114
-		Length: 2
-		Facings: 8
-		Offset: -10,-10
-	idle-2:
-		Start: 178
-		Length: 14
-		Tick: 120
-		Offset: -10,-10
-	die9:
-		Start: 193
-		Length: 8
-		Tick: 80
-		Offset: -10,-10
-	die10:
-		Start: 201
-		Length: 8
-		Tick: 80
-		Offset: -10,-10
-	die11:
-		Start: 209
-		Length: 8
-		Tick: 80
-		Offset: -10,-10
-	die12:
-		Start: 217
-		Length: 12
-		Tick: 80
-		Offset: -10,-10
-	die13:
-		Start: 229
-		Length: 18
-		Tick: 80
-		Offset: -10,-10
-	die14: electro
-		Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
-		Length: *
-		Tick: 80
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
-		Offset: -10,-10
-	die-crushed-2: corpse1
-		Length: 6
-		Tick: 1600
-		ZOffset: -511
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
-		Offset: -10,-10
-	prone-stand-2:
-		Start: 130
-		Stride: 4
-		Facings: 8
-		Offset: -10,-10
-	prone-run-2:
-		Start: 130
-		Length: 4
-		Facings: 8
-		Tick: 100
-		Offset: -10,-10
+	die8: empty
 	icon: pneericon
 
 cavalry:

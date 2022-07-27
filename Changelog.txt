@@ -1,3 +1,51 @@
+0.012-pre-release
+Unit balance
+-Removed secondary weapon from Dive Bomber.
+-Decreased Cavalry health by 2000.
+-Increased Katyushka rocket bullseye hit damage from 150 to 180.
+-Increased Tesla Tank speed by 5.
+-Changed Radar Scan cooldown from 2 minutes to 3 minutes and 30 seconds.
+-Changed Intercept cooldown from 2 minutes to 3 minutes and 30 seconds.
+-Changed Swarm cooldown from 2 minutes to 4 minutes.
+-Changed Flare cooldown from 2 minutes to 3 minutes.
+-Changed Guerilla Drop cooldown from 2 minutes to 4 minutes and 30 seconds.
+-Changed Smokescreen cooldown from 4 minutes 45 seconds minutes to 4 minutes.
+-Changed Magnetic Suspension cooldown from 2 minutes to 5 minutes.
+-Changed Flame Shield cooldown from 4 minutes and 45 seconds to 4 minutes.
+-Changed Supercharge cooldown from 4 minutes and 45 seconds to 4 minutes.
+-Changed Paramines cooldown from 5 minutes and 35 seconds to 4 minutes.
+-Changed Lazarene Ray cooldown from 4 minutes and 45 seconds to 4 minutes.
+-Changed Chrono Haste cooldown from 2 minutes to 4 minutes.
+-Zombie health increased by 6000.
+
+Bug fixes
+-Added hospital healing to cavalry.
+-Fixed Cavalry vision looking weird.
+-Fixed garrisoned civilian buildings not having vision range.
+-Fixed units not autotargeting garrisoned civilian buildings.
+-Fixed Disruptor tooltip text.
+-Fixed Arc Thrower tooltip text.
+-Fixed Squire and some other tanks being able to shoot over concrete walls.
+-Fixed Badgers and other transport planes being targetable by rocket infantry.
+-Fixed a bug caused by some file extensions being misspelled as .SHP instead of .shp.
+-Fixed Flak Troopers not attacking aircraft properly.
+-Fixed Legionaires not attacking aircraft properly.
+-Fixed AA Gun Crews not attacking aircraft properly.
+-Fixed Ronins not attacking aircraft properly.
+-Fixed Longbows not attacking aircraft properly.
+-Fixed Sturmvogels not attacking aircraft properly.
+-Fixed Harriers not attacking aircraft properly.
+-Fixed Mirage units disappearing immediately due to a wrong trait.
+
+Graphics and sound
+-Fixed Radar Dish being off center.
+-Fixed grayed out Helicopter queue being slightly darker than other queues.
+-Added a new Pioneer model, also fixing a crash where the Pioneer died of certain weapon types.
+-Changed Pioneer name to Pioneer Crew
+
+Features:
+-A new MCV is buildable if no Construction Yard, MCV or MCV husk exists for the player.
+
 0.011-pre-release
 Bug fixes
 -Fixed an issue where dogs were unbuildable.
@@ -15,6 +63,7 @@ Unit balance
 -Increased Waste Warrior price by 50$.
 -Increased Arch Thrower health by 5000.
 -Increased Arch Thrower range by 1c0.
+-Decreased Arc Bolter's damage versus armoured units slightly.
 
 Graphics and sounds
 -New sound effect for Testudo's armament.

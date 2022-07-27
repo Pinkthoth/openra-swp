@@ -17,6 +17,8 @@ FACT:
 		BuildPaletteOrder: 1000
 		Prerequisites: ~disabled
 		Description: Produces structures.
+	ProvidesPrerequisite@MCVexists:
+		Prerequisite: mcvexists
 	ProvidesPrerequisite@allies:
 		Factions: allies, england, france, usa, japan, serbia
 		Prerequisite: structures.entente
@@ -974,7 +976,7 @@ DOME:
 		LifeTime: 255
 		SelectTargetSpeechNotification: SelectTarget
 		InsufficientPowerSpeechNotification: InsufficientPower
-		ChargeInterval: 3000
+		ChargeInterval: 5250
 		Icon: radarscanicon
 		Description: Radar Scan
 		LongDesc: Reveals the selected area.
@@ -992,7 +994,7 @@ DOME:
 		Prerequisites: support.serbia
 		PauseOnCondition: turnedoff
 		Icon: intercepticon
-		ChargeInterval: 3000
+		ChargeInterval: 5250
 		Description: Intercept
 		LongDesc: A squadron of fighters\nengages enemy aircraft within\nover a selected area.
 		SelectTargetSpeechNotification: SelectTarget
@@ -1016,7 +1018,7 @@ DOME:
 		Prerequisites: ~support.usa
 		PauseOnCondition: turnedoff
 		Icon: swarmicon
-		ChargeInterval: 3000
+		ChargeInterval: 6000
 		Description: Swarm
 		LongDesc: A squadron of Hornet drones\nis sent to selected area.
 		SelectTargetSpeechNotification: SelectTarget
@@ -1037,7 +1039,7 @@ DOME:
 		LifeTime: 500
 		SelectTargetSpeechNotification: SelectTarget
 		InsufficientPowerSpeechNotification: InsufficientPower
-		ChargeInterval: 3000
+		ChargeInterval: 4500
 		Icon: flareicon
 		Description: Flare
 		LongDesc: Fires a flare that increases\nthe vision of units in it's vicinity.
@@ -1054,7 +1056,7 @@ DOME:
 		OrderName: GuerillaDrop
 		UnitType: transupport
 		Icon: guerilladropicon
-		ChargeInterval: 7500
+		ChargeInterval: 6750
 		Description: Guerilla Drop
 		LongDesc: A transport helicopter drops a squad of guerilla\nanywhere on the map.
 		DropItems: guerilla, guerilla, guerilla, guerilla
@@ -1178,7 +1180,7 @@ DOME:
 		OrderName: smokescreen
 		Icon: smokescreenicon
 		Cursor: ability
-		ChargeInterval: 5500
+		ChargeInterval: 6000
 		Description: Smokescreen
 		EndChargeSpeechNotification: SupportPowerReady
 		ActivationDelay: 1
@@ -1224,7 +1226,7 @@ DOME:
 		LifeTime: 255
 		SelectTargetSpeechNotification: SelectTarget
 		InsufficientPowerSpeechNotification: InsufficientPower
-		ChargeInterval: 3000
+		ChargeInterval: 7500
 		Icon: magneticsuspensionicon
 		IconPalette: tseffects
 		Description: Magnetic Suspension
@@ -1241,7 +1243,7 @@ DOME:
 		OrderName: Flame Shield
 		PauseOnCondition: turnedoff || disabled
 		Icon: flameshieldicon
-		ChargeInterval: 5500
+		ChargeInterval: 6000
 		Description: Flame Shield
 		LongDesc: Engulfs a vehicle in flames.\n Decreases damage intake by 75%.
 		Duration: 500
@@ -1259,7 +1261,7 @@ DOME:
 		OrderName: Supercharge
 		PauseOnCondition: turnedoff || disabled
 		Icon: superchargeicon
-		ChargeInterval: 5500
+		ChargeInterval: 6000
 		Description: Supercharge
 		LongDesc: Increases the power output of power plants by 50%\nor the reload speed of tesla units\nby 30%.
 		Duration: 500
@@ -1281,7 +1283,7 @@ DOME:
 		OrderName: Paramine
 		Icon: paraminesicon
 		Prerequisites: support.italy
-		ChargeInterval: 8500
+		ChargeInterval: 6000
 		Description: Paramine
 		LongDesc: A squad of Junkers drop parachuted mines\non your target.
 		SelectTargetSpeechNotification: SelectTarget
@@ -1328,7 +1330,7 @@ DOME:
 		OrderName: lazareneray
 		Icon: lazarenerayicon
 		Cursor: ability
-		ChargeInterval: 5500
+		ChargeInterval: 6000
 		Description: Lazarene Ray
 		EndChargeSpeechNotification: SupportPowerReady
 		ActivationDelay: 1
@@ -1352,7 +1354,7 @@ DOME:
 		PauseOnCondition: disabled || turnedoff
 		OrderName: ChronoHaste
 		Icon: chronohasteicon
-		ChargeInterval: 3000
+		ChargeInterval: 6000
 		Description: Chrono Haste
 		LongDesc: Makes a group of units move faster\nfor 20 seconds.
 		Duration: 500

@@ -472,7 +472,7 @@ KULAK:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 45
 		Prerequisites: ~barr, ~infantry.kazakhstan, ~techlevel.infonly
-		Description: Can pick up any weapon or tool from a corpse.\n  Unarmed.
+		Description: Can pick up any weapon or tool from a corpse.\nUnarmed.
 	Valued:
 		Cost: 40
 	RenderSprites:
@@ -1169,7 +1169,7 @@ MEDI:
 	SpawnActorOnDeath@SmallExplosionDeath:
 		Actor: MEDI.Husk
 		DeathType: SmallExplosionDeath
-		
+
 MEDI.Husk:
 	Inherits: ^InfantryCorpse
 	Tooltip:
@@ -1995,7 +1995,7 @@ STRMTRPR.Corpse:
 
 LEGIONAIRE:
 	Inherits: ^Soldier
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMovePlusBombers
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
@@ -2305,7 +2305,7 @@ ATGUNNER:
 AAGUNCREW:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMovePlusBombers
 	Inherits@crew: ^Crew
 	-GrantConditionOnInfiltration@commandered:
 	-WithDecoration@commandered:
@@ -2457,7 +2457,7 @@ MILITIA.Corpse:
 
 FLKTRP:
 	Inherits: ^Soldier
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMovePlusBombers
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
@@ -3004,6 +3004,44 @@ NIGHTWITCHAIR.Husk:
 
 PNEER:
 	Inherits: ^Soldier
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	WithInfantryBody:
+		-IdleSequences:
+		StandSequences: stand
+	ChangesHealth@HOSPITAL:
+		Step: 500
+		Delay: 100
+		StartIfBelow: 100
+		DamageCooldown: 125
+		RequiresCondition: hospitalheal
+	GrantConditionOnPrerequisite@HOSPITAL:
+		Condition: hospital
+		Prerequisites: hosp
+	GrantConditionOnDamageState@HOSPITAL:
+		Condition: damaged
+		ValidDamageStates: Light, Medium, Heavy, Critical
+	GrantCondition@HOSPITAL:
+		RequiresCondition: hospital && damaged
+		Condition: hospitalheal
+	WithDecoration@REDCROSS:
+		Image: pips
+		Sequence: medic
+		Position: BottomRight
+		Margin: 17, 4
+		RequiresCondition: hospitalheal
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+	EdibleByLeap:
+	TakeCover:
+		DamageModifiers:
+			Prone50Percent: 50
+		DamageTriggers: TriggerProne
+		RequiresCondition: !propaganda
+	Passenger:
+		CargoType: Infantry
+		Weight: 2
+	ProximityCaptor:
+		Types: Infantry
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
@@ -3011,48 +3049,27 @@ PNEER:
 		Prerequisites: adept, ~infantry.italy, ~techlevel.medium
 		Description: Lays anti-infantry mines.\n	Unarmed
 	Valued:
-		Cost: 400
+		Cost: 450
 	Tooltip:
-		Name: Pioneer
+		Name: Pioneer Crew
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
-	RenderSprites:
 	Health:
 		HP: 8000
+	Armor:
+		Type: None
 	Mobile:
-		Speed: 49
+		Speed: 56
+		TurnSpeed: 200
 		Locomotor: bigfoot
-		Voice: Move
 	RevealsShroud:
-		Range: 3c0
-	Passenger:
-		CustomPipType: blue
-		Voice: Move
-	WithInfantryBody:
-		IdleSequences: idle
-		DefaultAttackSequence: repair
-		StandSequences: stand
-		RequiresCondition: !parachute
-	WithInfantryBody@numer2:
-		IdleSequences: idle-2
-		DefaultAttackSequence: repair-2
-		StandSequences: stand-2
-		MoveSequence: run-2
-		RequiresCondition: !parachute
-	WithInfantryBody@PARACHUTE:
-		RequiresCondition: parachute
-		IsPlayerPalette: true
-	WithDeathAnimation@numer2:
-		DeathTypes:
-			DefaultDeath: 8
-			BulletDeath: 9
-			SmallExplosionDeath: 10
-			ExplosionDeath: 11
-			FireDeath: 12
-			ElectricityDeath: 13
-			AcidDeath: 14
-			Zombiefy: 8
-		CrushedSequence: die-crushed
+		MinRange: 4c0
+		Range: 5c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	ProducibleWithLevel:
+		Prerequisites: infantry.upgraded
 	Minelayer:
 		Mine: SMINE
 		TileUnknownName: build-valid
@@ -3072,7 +3089,27 @@ PNEER:
 		RequiresSelection: true
 	Selectable:
 		Bounds: 24,24,0,0
-		DecorationBounds: 24,24,0,0
+		DecorationBounds: 24,24,0,-6
+	WithDeathAnimation@numer2:
+		DeathTypes:
+			DefaultDeath: 1
+			BulletDeath: 2
+			SmallExplosionDeath: 3
+			ExplosionDeath: 4
+			FireDeath: 5
+			ElectricityDeath: 6
+			AcidDeath: 7
+			Zombiefy: 8
+	Targetable:
+		TargetTypes: GroundActor, Infantry
+	Targetable@HEAL:
+		RequiresCondition: damaged
+		TargetTypes: Heal
+	SpawnActorOnDeath@zombiefytwo:
+		DeathType: Zombiefy
+		OwnerType: Killer
+		Actor: Zombie
+		SkipMakeAnimations: False
 
 PNEER.Corpse:
 	Inherits: ^InfantryCorpse
@@ -3102,6 +3139,29 @@ CAVALRY:
 	-CaptureNotification:
 	-Explodes:
 	-WithDamageOverlay:
+	ChangesHealth@HOSPITAL:
+		Step: 500
+		Delay: 100
+		StartIfBelow: 100
+		DamageCooldown: 125
+		RequiresCondition: hospitalheal
+	GrantConditionOnPrerequisite@HOSPITAL:
+		Condition: hospital
+		Prerequisites: hosp
+	GrantConditionOnDamageState@HOSPITAL:
+		Condition: damaged
+		ValidDamageStates: Light, Medium, Heavy, Critical
+	GrantCondition@HOSPITAL:
+		RequiresCondition: hospital && damaged
+		Condition: hospitalheal
+	WithDecoration@REDCROSS:
+		Image: pips
+		Sequence: medic
+		Position: BottomRight
+		Margin: 17, 4
+		RequiresCondition: hospitalheal
+		BlinkInterval: 32
+		BlinkPattern: Off, On
 	EdibleByLeap:
 	Buildable:
 		Queue: Infantry
@@ -3119,7 +3179,7 @@ CAVALRY:
 		Bounds: 24,24
 		DecorationBounds: 28,28,0,-4
 	Health:
-		HP: 12000
+		HP: 10000
 	Armor:
 		Type: None
 	-Mobile:
@@ -3128,7 +3188,7 @@ CAVALRY:
 		Speed: 85
 		Locomotor: foot
 	RevealsShroud:
-		MinRange: 6c0
+		MinRange: 4c0
 		Range: 6c512
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
@@ -3434,7 +3494,7 @@ Zombie:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 4000
+		HP: 10000
 	Mobile:
 		Speed: 40
 		PauseOnCondition: build-incomplete
