@@ -1,42 +1,25 @@
 Speech:
 	Notifications:
 		PhasegenReady: phase_generator_ready
-			VolumeModifier: 4.00
 		VeilReady: veil_generator_ready
-			VolumeModifier: 4.00
 		AirstrikeReady: airstrike_ready
-			VolumeModifier: 4.00
 		AirstrikeIncoming: enemy_airstrike_incoming
-			VolumeModifier: 4.00
 		ArtbrgReady: artillery_barrage_ready
-			VolumeModifier: 4.00
 		V3Ready: v3_missile_ready
-			VolumeModifier: 4.00
 		V3Incoming: enemy_v3_missile_incoming
-			VolumeModifier: 4.00
 		SupportPowerReady: support_power_ready
-			VolumeModifier: 4.0
 		EMPulseReady: emp_ready
-			VolumeModifier: 4.00
 		ArtbrgNotification: artbrg
-			VolumeModifier: 2.0
+			VolumeModifier: 3.0
 		ReinforcementsReady: reinforcements_ready
-			VolumeModifier: 4.0
 		SatelliteReady: satellite_ready
-			VolumeModifier: 2.5
 		SatelliteTerminated: satellite_terminated
-			VolumeModifier: 1.0
 		SatelliteInitialzed: satellite_initialized
-			VolumeModifier: 1.0
 		AbombAvailable: aavail1
 		AbombLaunchDetected: alaunch1
-			VolumeModifier: 4.00
 		AbombPrepping: aprep1
-			VolumeModifier: 4.00
 		AbombReady: aready1
-			VolumeModifier: 4.00
 		AirUnitLost: aunitl1
-			VolumeModifier: 4.00
 		AlliedForcesApproaching: aappro1
 		AlliedForcesFallen: afallen1
 		AlliedForcesSelected: aselect1
@@ -46,42 +29,26 @@ Speech:
 		AlliedReinforcementsSouth: aarrivs1
 		AlliedReinforcementsWest: aarrivw1
 		AtomBombLaunchDetected: atlnch1
-			VolumeModifier: 4.00
 		AtomBombPrepping: atprep1
-			VolumeModifier: 4.00
 		BaseAttack: baseatk1
-			VolumeModifier: 4.00
 		Building: abldgin1
-			VolumeModifier: 4.00
 		BuildingCannotPlaceAudio: nodeply1
-			VolumeModifier: 4.00
 		BuildingCaptured: strucap1
-			VolumeModifier: 4.00
 		BuildingInfiltrated: bldginf1
-			VolumeModifier: 4.00
-		BuildingSabotaged: bldgsabo1
-			VolumeModifier: 4.00
 		BuildingInProgress: progres1
-			VolumeModifier: 4.00
 		BuildingProgress: bldgprg1
-			VolumeModifier: 4.00
 		Cancelled: cancld1
-			VolumeModifier: 4.00
 		ChronosphereCharging: chrochr1
-			VolumeModifier: 4.00
 		ChronosphereReady: chrordy1
-			VolumeModifier: 4.00
 		ChronosphereTestSuccessful: chroyes1
 		CommandCenterAttack: cmdcntr1
 		CommandoFreed: comndof1
 		CommandoRescued: comndor1
 		ConstructionComplete: conscmp1
-			VolumeModifier: 4.00
 		ControlCenterDeactivated: cntlded1
 		ConvoyApproaching: convyap1
 		ConvoyUnitLost: convlst1
 		CreditsStolen: credit1
-			VolumeModifier: 4.00
 		EnemyUnitsApproaching: enmyapp1
 		EnemyDetected: enmydet
 		ExplosiveChargePlaced: xploplc1
@@ -89,77 +56,52 @@ Speech:
 		FourtyMinutesRemaining: 40minr
 		HarvesterAttack:
 		InsufficientFunds: nofunds1
-			VolumeModifier: 4.00
 		InsufficientPower: nopowr1
-			VolumeModifier: 4.00
 		IronCurtainCharging: ironchg1
-			VolumeModifier: 4.00
 		IronCurtainReady: ironrdy1
-			VolumeModifier: 4.00
 		KosyginFreed: kosyfre1
 		KosyginRescued: kosyres1
 		Leave: bct1
-			VolumeModifier: 4.00
 		Lose: misnlst1
-			VolumeModifier: 4.00
 		LowPower: lopower1
-			VolumeModifier: 4.00
 		MercenaryFreed: mercf1
 		MercenaryRescued: mercr1
 		MissionAccomplished: misnwon1
 		MissionFailed: misnlst1
 		MissionTimerInitialised: mtimein1
 		NavalUnitLost: navylst1
-			VolumeModifier: 4.00
 		NewOptions: newopt1
-			VolumeModifier: 4.00
 		NoBuild: nobuild1
 		ObjectiveMet: objmet1
 		ObjectiveNotMet: objnmet1
 		ObjectiveNotReached: objnrch1
 		ObjectiveReached: objrch1
 		OnHold: onhold1
-			VolumeModifier: 4.00
 		OperationControlTerminated: opterm1
-			VolumeModifier: 4.00
 		PrimaryBuildingSelected: pribldg1
-			VolumeModifier: 4.00
 		ReinforcementsArrived: reinfor1
-			VolumeModifier: 4.00
 		Repairing: repair1
-			VolumeModifier: 4.00
 		SatelliteLaunched: satlnch1
 		SecondObjectiveMet: 2objmet1
 		SelectTarget: slcttgt1
-			VolumeModifier: 4.00
 		SignalFlare: flare1
 		SignalFlareEast: flaree1
 		SignalFlareNorth: flaren1
 		SignalFlareSouth: flares1
 		SignalFlareWest: flarew1
 		SilosNeeded: silond1
-			VolumeModifier: 4.00
 		SonarPulseReady: pulse1
-			VolumeModifier: 4.00
-		SonarPulseCharging: pulse2
-			VolumeModifier: 4.00
 		SovietEmpireFallen: sovefal1
 		SovietEmpireSelected: sovemp1
 		SovietForcesApproaching: sovfapp1
 		SovietForcesFallen: sovforc1
 		SovietReinforcementsArrived: sovrein1
 		SpyPlaneReady: spypln1
-			VolumeModifier: 4.00
-		SpyPlanePreparing: spypln2
-			VolumeModifier: 4.00
 		StartGame: bctrinit
-			VolumeModifier: 4.00
 		GameLoaded: load1
 		GameSaved: save1
 		StructureDestroyed: strckil1
-			VolumeModifier: 4.00
 		StructureSold: strusld1
-			VolumeModifier: 4.00
 		TanyaFreed: tanyaf1
 		TanyaRescued: tanyar1
 		TargetFreed: targfre1
@@ -170,28 +112,22 @@ Speech:
 		TimerStarted: timergo1
 		TimerStopped: timerno1
 		Training: train1
-			VolumeModifier: 4.00
 		TwentyMinutesRemaining: 20minr
 		UnitArmorUpgraded: armorup1
 		UnitFirepowerUpgraded: firepo1
 		UnitFull: unitful1
 		UnitLost: unitlst1
-			VolumeModifier: 4.00
 		UnitReady: unitrdy1
-			VolumeModifier: 4.00
 		UnitRepaired: unitrep1
-			VolumeModifier: 4.00
 		UnitSold: unitsld1
 		UnitSpeedUpgraded: unitspd1
 		UnitStolen: unitsto
-			VolumeModifier: 4.00
 		WarningOneMinuteRemaining: 1minr
 		WarningTwoMinutesRemaining: 2minr
 		WarningThreeMinutesRemaining: 3minr
 		WarningFourMinutesRemaining: 4minr
 		WarningFiveMinutesRemaining: 5minr
 		Win: misnwon1
-			VolumeModifier: 4.00
 
 Sounds:
 	Notifications:
@@ -205,9 +141,12 @@ Sounds:
 		DisablePower: bleep11
 		EnablePower: bleep12
 		ChatLine: rabeep1
+			AllowInterrupt: true
 		ClickSound: ramenu1
+			AllowInterrupt: true
 		ClickDisabledSound:
 		Beacon: beepslct
+			AllowInterrupt: true
 		AlertBuzzer: buzzy1
 		AlertBleep: bleep6
 		BaseSetup: bleep9

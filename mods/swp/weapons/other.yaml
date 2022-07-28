@@ -549,7 +549,7 @@ HuskBreaker:
 		DebugOverlayColor: 00FF00
 
 Resurrect:
-	ReloadDelay: 80
+	ReloadDelay: 140
 	Range: 4c0
 	Report: heal2.aud
 	ValidTargets: Corpse
@@ -645,7 +645,7 @@ BlimpParaBomb:
 	ReloadDelay: 50
 	Range: 0c5
 	Burst: 1
-	Report: chute1.aud
+	Report: shellinc1.wav
 	Range: 0c480
 	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor
 	Projectile: GravityBomb
@@ -693,7 +693,7 @@ DropBombs:
 		Falloff: 180, 150, 100, 75, 50, 25, 15, 5, 0
 		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
-			None: 30
+			None: 40
 			Wood: 70
 			Light: 70
 			Medium: 80
@@ -732,7 +732,7 @@ Firebombs:
 		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
 			None: 55
-			Wood: 95
+			Wood: 80
 			Light: 50
 			Medium: 45
 			Heavy: 35
@@ -778,6 +778,8 @@ HoloM1Carbine:
 	Inherits: M1Carbine
 	Warhead@1Dam: SpreadDamage
 		Damage: 0
+	-Warhead@2Eff:
+	-Warhead@3EffWater:
 	-Warhead@2Eff2:
 	-Warhead@3EffWater2:
 	-Warhead@2Eff3:
@@ -1049,7 +1051,7 @@ Firelance:
 		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Trees
 
 DisruptionBeam:
-	ReloadDelay: 150
+	ReloadDelay: 100
 	Range: 6c0
 	Report: sonic4.aud
 	ValidTargets: GroundActor, Trees,  WaterActor, Ground, Water

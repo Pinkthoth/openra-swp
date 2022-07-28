@@ -305,7 +305,7 @@ ARMCR:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 21000
+		HP: 20000
 	Armor:
 		Type: Medium
 	Mobile:
@@ -1019,7 +1019,7 @@ FTRK:
 		Type: Light
 	Mobile:
 		TurnSpeed: 40
-		Speed: 130
+		Speed: 120
 	RevealsShroud:
 		MinRange: 4c0
 		Range: 6c0
@@ -1188,13 +1188,13 @@ BTR:
 		Prerequisites: ~vehicles.komintern, adept, ~techlevel.low
 		Description: Tough infantry transport.\n  Strong vs Light armor\n  Weak vs Infantry, Tanks, Aircraft
 	Valued:
-		Cost: 750
+		Cost: 775
 	Tooltip:
 		Name: Bronetransporter
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 30000
+		HP: 35000
 	Armor:
 		Type: Medium
 	Mobile:
@@ -1265,7 +1265,7 @@ MARAUDER:
 		Type: Light
 	Mobile:
 		TurnSpeed: 40
-		Speed: 125
+		Speed: 115
 		PauseOnCondition: being-captured
 	RevealsShroud:
 		MinRange: 4c0
@@ -1443,7 +1443,7 @@ KATYA:
 	Valued:
 		Cost: 900
 	Tooltip:
-		Name: Katyushka
+		Name: Katyusha
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -1620,7 +1620,7 @@ SIPAHI:
 		Type: Medium
 	Mobile:
 		TurnSpeed: 40
-		Speed: 100
+		Speed: 110
 		PauseOnCondition: being-captured
 	RevealsShroud:
 		MinRange: 4c0
@@ -1771,29 +1771,29 @@ SIPAHI:
 		FireDelay: 65
 		RequiresCondition: pasarz
 	Armament@gatling-start-0:
-		Weapon: AGGatlingStart
+		Weapon: AGGatlingStart-handheld
 		RequiresCondition: pashvgat && !gatling
 		PauseOnCondition: turnedoff
 	Armament@ag-0:
-		Weapon: AGGatling
+		Weapon: AGGatling-handheld
 		LocalOffset: 350,0,130
 		MuzzleSequence: muzzle
 		RequiresCondition: pashvgat && gatling == 1
 		PauseOnCondition: turnedoff
 	Armament@ag-1:
-		Weapon: AGGatling2
+		Weapon: AGGatling2-handheld
 		LocalOffset: 350,0,130
 		MuzzleSequence: muzzle
 		RequiresCondition: pashvgat && gatling == 2
 		PauseOnCondition: turnedoff
 	Armament@ag-2:
-		Weapon: AGGatling3
+		Weapon: AGGatling3-handheld
 		LocalOffset: 350,0,130
 		MuzzleSequence: muzzle
 		RequiresCondition: pashvgat && gatling == 3
 		PauseOnCondition: turnedoff
 	Armament@ag-3:
-		Weapon: AGGatling4
+		Weapon: AGGatling4-handheld
 		LocalOffset: 350,0,130
 		MuzzleSequence: muzzle
 		RequiresCondition: pashvgat && gatling >= 4
@@ -2048,7 +2048,7 @@ JEEP:
 		Type: Light
 	Mobile:
 		TurnSpeed: 40
-		Speed: 150
+		Speed: 145
 		PauseOnCondition: being-captured
 	RevealsShroud:
 		MinRange: 4c0
@@ -2107,7 +2107,7 @@ APC:
 	Armor:
 		Type: Medium
 	Mobile:
-		Speed: 120
+		Speed: 110
 		PauseOnCondition: notmobile || being-captured
 	RevealsShroud:
 		MinRange: 4c0
@@ -2300,18 +2300,18 @@ RTNK:
 		Prerequisites: ~vehicles.entente, ~techlevel.low
 		Description: Fast tank, good for scouting.\n  Strong vs Light armor\n  Weak vs Infantry, Tanks, Aircraft
 	Valued:
-		Cost: 750
+		Cost: 800
 	Tooltip:
 		Name: Squire
 		GenericName: Tank
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 27000
+		HP: 25000
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 113
+		Speed: 110
 	RevealsShroud:
 		MinRange: 4c0
 		Range: 5c0
@@ -2326,7 +2326,7 @@ RTNK:
 		Weapon: 25mm-recon
 		Recoil: 85
 		RecoilRecovery: 25
-		LocalOffset: 500,0,20
+		LocalOffset: 500,0,70
 		MuzzleSequence: muzzle
 	AttackTurreted:
 		PauseOnCondition: turnedoff
@@ -2426,13 +2426,13 @@ PAPC:
 		Prerequisites: atek, ~vehicles.japan, ~techlevel.high
 		Description: Infantry transport.\nCapable of becoming invisible.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
 	Valued:
-		Cost: 800
+		Cost: 850
 	Tooltip:
 		Name: Ebi
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 25000
+		HP: 20000
 	Armor:
 		Type: Medium
 	Mobile:
@@ -2453,7 +2453,7 @@ PAPC:
 	WithMuzzleOverlay:
 	Cargo:
 		Types: Infantry
-		MaxWeight: 4
+		MaxWeight: 3
 		LoadingCondition: notmobile
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
@@ -2495,7 +2495,7 @@ PTNK:
 		Prerequisites: atek, ~vehicles.japan, ~techlevel.low
 		Description: Fast tank, capable of becoming invisible.\n  Strong vs Heavy armor\n  Weak vs Infantry, Tanks, Aircraft
 	Valued:
-		Cost: 1200
+		Cost: 1250
 	Tooltip:
 		Name: Kitsune
 		GenericName: Tank
@@ -2669,7 +2669,7 @@ LIMPETMINE:
 		Queue: Vehicle
 		BuildPaletteOrder: 710
 		Prerequisites: dome, ~vehicles.usa, ~techlevel.medium
-		Description: Transports cash to other players.\n  Unarmed
+		Description: Tele controlled deployable mine. Explodes in an EMP burst.\nCan be detonated manually.\n  Unarmed
 	Valued:
 		Cost: 425
 	Tooltip:
@@ -2772,7 +2772,7 @@ ARC:
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 75
+		Speed: 70
 	RevealsShroud:
 		MinRange: 4c0
 		Range: 5c0
@@ -2992,7 +2992,7 @@ ENTENTEAA:
 		Prerequisites: atek, adept, ~vehicles.entente, ~techlevel.low
 		Description: Mobile unit with a double\nbarreled AA cannon.\n  Strong vs Infantry, Light armor, Aircraft\n  Weak vs Tanks
 	Valued:
-		Cost: 1700
+		Cost: 2000
 	Tooltip:
 		Name: Marksman
 	UpdatesPlayerStatistics:
@@ -3002,8 +3002,8 @@ ENTENTEAA:
 	Armor:
 		Type: Heavy
 	Mobile:
-		TurnSpeed: 30
-		Speed: 55
+		TurnSpeed: 20
+		Speed: 45
 	RevealsShroud:
 		MinRange: 4c0
 		Range: 6c0
@@ -3011,7 +3011,7 @@ ENTENTEAA:
 	RevealsShroud@GAPGEN:
 		Range: 4c0
 	Turreted:
-		TurnSpeed: 35
+		TurnSpeed: 25
 		Offset: -80,0,220
 	Armament@AA:
 		Weapon: Archer-AA
@@ -3203,7 +3203,7 @@ GRINDER:
 		Queue: Vehicle
 		BuildPaletteOrder: 330
 		Prerequisites: ~weap, stek, adept, ~vehicles.russia, ~techlevel.low
-		Description: Tough infantry transport.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+		Description: Portable Iron Curtain vehicle armed\na massive meat grinder.\nDoes not slow down while crushing.\nCan deploy to activate Iron Curtain before exploding after a while\n.Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
 	Valued:
 		Cost: 2300
 	Tooltip:
@@ -3630,7 +3630,7 @@ TESTUDO:
 		Queue: Vehicle
 		BuildPaletteOrder: 114
 		Prerequisites: adept, ~vehicles.italy, ~techlevel.low
-		Description: Modified trench digger.\nMay entrench itself.\nDoes not slow down while crushing.\n	Strong vs Infantry, Light Armor\n	Weak vs Tanks, Aircraft
+		Description: Modified trench digger armed with dual machine guns.\nMay entrench itself to reduce damage intake by 30%.\nDoes not slow down while crushing.\n	Strong vs Infantry, Light Armor\n	Weak vs Tanks, Aircraft
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -3731,7 +3731,7 @@ TESTUDO:
 	RevealOnFire:
 		ArmamentNames: deployed
 	DamageMultiplier@deployed:
-		Modifier: 80
+		Modifier: 70
 		RequiresCondition: deployed
 	WithIdleOverlay@bib:
 		Sequence: bib
@@ -3751,7 +3751,7 @@ RACER:
 		Queue: Vehicle
 		BuildPaletteOrder: 96
 		Prerequisites: ~vehicles.mongolia, ~techlevel.medium
-		Description: Lightly armoured tracked motorbike.\nArmed with two rocket launchers.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+		Description: Lightly armoured tracked motorbike.\nArmed with two rocket launchers.\n  Strong vs Heavy armor\n  Weak vs Tanks, Aircraft
 	Valued:
 		Cost: 700
 	Tooltip:
@@ -3914,7 +3914,7 @@ GATLINGCAR:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 21000
+		HP: 19000
 	Armor:
 		Type: Medium
 	Mobile:

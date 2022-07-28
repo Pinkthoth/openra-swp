@@ -660,6 +660,35 @@ SPYCAMERA:
 
 SMOKECLOUD:
 	Inherits@helicopter: ^Helicopter
+	-DamageMultiplier@RANK-1:
+	-DamageMultiplier@RANK-2:
+	-DamageMultiplier@RANK-3:
+	-DamageMultiplier@RANK-4:
+	-DamageMultiplier@RANK-5:
+	-DamageMultiplier@RANK-6:
+	-DamageMultiplier@RANK-7:
+	-FirepowerMultiplier@RANK-1:
+	-FirepowerMultiplier@RANK-2:
+	-FirepowerMultiplier@RANK-3:
+	-FirepowerMultiplier@RANK-4:
+	-FirepowerMultiplier@RANK-5:
+	-FirepowerMultiplier@RANK-6:
+	-FirepowerMultiplier@RANK-7:
+	-ReloadDelayMultiplier@RANK-1:
+	-ReloadDelayMultiplier@RANK-2:
+	-ReloadDelayMultiplier@RANK-3:
+	-ReloadDelayMultiplier@RANK-4:
+	-ReloadDelayMultiplier@RANK-5:
+	-ReloadDelayMultiplier@RANK-6:
+	-ReloadDelayMultiplier@RANK-7:
+	-ChangesHealth@ELITE:
+	-WithDecoration@RANK-1:
+	-WithDecoration@RANK-2:
+	-WithDecoration@RANK-3:
+	-WithDecoration@RANK-4:
+	-WithDecoration@RANK-5:
+	-WithDecoration@RANK-6:
+	-WithDecoration@RANK-7:
 	-SpawnActorOnDeath:
 	-WithShadow:
 	-Selectable:
@@ -674,6 +703,7 @@ SMOKECLOUD:
 	-Explodes:
 	-CaptureManager:
 	-Capturable:
+	-GainsExperience:
 	-CaptureNotification:
 	-UpdatesPlayerStatistics:
 	GrantConditionOnDamageState@DAMAGED:
@@ -681,7 +711,7 @@ SMOKECLOUD:
 	Interactable:
 	RenderSprites:
 		Image: cloud
-		Palette: swpeffects-alpha
+		Palette: basic-alpha
 	Aircraft:
 		Speed: 10
 		Repulsable: False
@@ -693,9 +723,8 @@ SMOKECLOUD:
 		RequiresCondition: airborne
 	Health:
 		HP: 100
-	ChangesHealth:
-		Step: -1
-		StartIfBelow: 101
+	KillsSelf:
+		Delay: 250
 	ProximityExternalCondition@smoke:
 		Condition: smoked
 		Range: 1c512

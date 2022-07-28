@@ -19,7 +19,7 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: True
-		BuildTimeSpeedReduction: 1000, 850, 700, 570, 460, 393, 366, 353, 341, 330
+		BuildTimeSpeedReduction: 1000, 825, 700, 620, 585, 555, 535, 520, 510, 500
 		BuildDurationModifier: 10
 	ClassicProductionQueue@Defense:
 		Type: Defense
@@ -32,7 +32,7 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: True
-		BuildTimeSpeedReduction: 1000, 850, 700, 570, 460, 393, 366, 353, 341, 330
+		BuildTimeSpeedReduction: 1000, 825, 700, 620, 585, 555, 535, 520, 510, 500
 		BuildDurationModifier: 10
 	ClassicProductionQueue@Vehicle:
 		Type: Vehicle
@@ -45,7 +45,7 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: True
-		BuildTimeSpeedReduction: 1000, 850, 700, 570, 460, 393, 366, 353, 341, 330
+		BuildTimeSpeedReduction: 1000, 825, 700, 620, 585, 555, 535, 520, 510, 500
 		BuildDurationModifier: 10
 	ClassicProductionQueue@Infantry:
 		Type: Infantry
@@ -58,7 +58,7 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: True
-		BuildTimeSpeedReduction: 1000, 850, 700, 570, 460, 393, 366, 353, 341, 330
+		BuildTimeSpeedReduction: 1000, 825, 700, 620, 585, 555, 535, 520, 510, 500
 		BuildDurationModifier: 10
 	ClassicProductionQueue@Ship:
 		Type: Ship
@@ -71,7 +71,7 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: True
-		BuildTimeSpeedReduction: 1000, 850, 700, 570, 460, 393, 366, 353, 341, 330
+		BuildTimeSpeedReduction: 1000, 825, 700, 620, 585, 555, 535, 520, 510, 500
 		BuildDurationModifier: 10
 	ClassicProductionQueue@Aircraft:
 		Type: Aircraft
@@ -84,7 +84,7 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: True
-		BuildTimeSpeedReduction: 1000, 850, 700, 570, 460, 393, 366, 353, 341, 330
+		BuildTimeSpeedReduction: 1000, 825, 700, 620, 585, 555, 535, 520, 510, 500
 		BuildDurationModifier: 10
 	ClassicProductionQueue@Helicopter:
 		Type: Helicopter
@@ -97,7 +97,7 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: True
-		BuildTimeSpeedReduction: 1000, 850, 700, 570, 460, 393, 366, 353, 341, 330
+		BuildTimeSpeedReduction: 1000, 825, 700, 620, 585, 555, 535, 520, 510, 500
 		BuildDurationModifier: 10
 	PlaceBuilding:
 		NewOptionsNotification: NewOptions

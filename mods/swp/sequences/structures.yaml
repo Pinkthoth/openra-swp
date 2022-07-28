@@ -875,6 +875,7 @@ proc:
 	idle: ref-bot
 		ZOffset: -1000
 	damaged-idle:
+		Offset: -2,-12
 		ZOffset: -1000
 		Start: 1
 	topsolid: ref-top

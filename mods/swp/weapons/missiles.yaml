@@ -24,7 +24,7 @@
 			Light: 34
 			Medium: 70
 			Heavy: 100
-			Concrete: 50
+			Concrete: 55
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Crater
@@ -60,7 +60,7 @@ Stinger:
 			Wood: 88
 			Light: 88
 			Heavy: 120
-			Concrete: 75
+			Concrete: 80
 
 StingerAA:
 	Inherits: Stinger
@@ -182,7 +182,7 @@ HornetMissile:
 			Light: 60
 			Medium: 50
 			Heavy: 40
-			Concrete: 55
+			Concrete: 60
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, SmallExplosionDeath, Incendiary
 	Warhead@3Eff: CreateEffect
 		Explosions: napalm
@@ -283,7 +283,7 @@ MammothTusk:
 			None: 100
 			Light: 60
 			Heavy: 24
-			Concrete: 50
+			Concrete: 55
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@3Eff: CreateEffect
 		ImpactSounds: kaboom12.aud
@@ -367,7 +367,7 @@ Stinger:
 			Wood: 88
 			Light: 88
 			Heavy: 120
-			Concrete: 60
+			Concrete: 65
 
 StingerAA:
 	Inherits: Stinger
@@ -553,7 +553,7 @@ IblisMissile:
 			Light: 150
 			Medium: 70
 			Heavy: 50
-			Concrete: 175
+			Concrete: 180
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, SmallExplosionDeath, Incendiary
 	Warhead@3Eff: CreateEffect
 		Explosions: napalm
@@ -612,7 +612,7 @@ KhanMissile:
 			Tree: 70
 			Light: 60
 			Heavy: 50
-			Concrete: 70
+			Concrete: 75
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, SmallExplosionDeath, Incendiary
 	Warhead@3Eff: CreateEffect
 		Explosions: napalm
@@ -653,7 +653,7 @@ IfritMissile:
 			Tree: 75
 			Light: 70
 			Heavy: 70
-			Concrete: 70
+			Concrete: 75
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, SmallExplosionDeath, Incendiary
 	Warhead@3Eff: CreateEffect
 		Explosions: napalm
@@ -861,10 +861,10 @@ IfritAreaFire:
 
 227mm:
 	Inherits: ^AntiGroundMissile
-	ReloadDelay: 175
+	ReloadDelay: 165
 	Range: 11c0
 	MinRange: 3c0
-	Burst: 6
+	Burst: 5
 	BurstDelays: 4
 	Report: katyamissilesound.wav
 	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor
@@ -882,7 +882,7 @@ IfritAreaFire:
 		Speed: 341
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c256
-		Damage: 1000
+		Damage: 1200
 		Falloff: 180, 110, 75, 50, 15, 5, 0
 		ValidTargets: GroundActor, Trees,  WaterActor, AirborneActor
 		Versus:
@@ -891,7 +891,7 @@ IfritAreaFire:
 			Light: 60
 			Medium: 50
 			Heavy: 40
-			Concrete: 55
+			Concrete: 70
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@3Eff: CreateEffect
 		Explosions: med_explosion
@@ -928,7 +928,7 @@ IfritAreaFire:
 			Light: 60
 			Medium: 50
 			Heavy: 40
-			Concrete: 55
+			Concrete: 60
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@3Eff: CreateEffect
 		Explosions: med_explosion
@@ -965,7 +965,7 @@ Hind227mm:
 			Light: 80
 			Medium: 70
 			Heavy: 60
-			Concrete: 30
+			Concrete: 35
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@3Eff: CreateEffect
 		Explosions: med_explosion
@@ -1002,7 +1002,7 @@ GebardMissile:
 			Light: 60
 			Medium: 70
 			Heavy: 40
-			Concrete: 25
+			Concrete: 30
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@3Eff: CreateEffect
 		Explosions: med_explosion
@@ -1035,14 +1035,14 @@ Drake:
 
 RoninDrake:
 	Inherits: ^AntiGroundMissile
-	ReloadDelay: 80
+	ReloadDelay: 90
 	Range: 5c0
 	Burst: 2
 	BurstDelays: 10
 	MinRange: 0c512
 	Report: missile6.aud
 	Report: bazook1.aud
-	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor, AirborneActor, AirborneBomber
+	ValidTargets: Ground, Water, Trees, WaterActor, AirborneActor, AirborneBomber, Vehicle, Structure
 	Projectile: Missile
 		TrailImage: smokey
 		Speed: 320

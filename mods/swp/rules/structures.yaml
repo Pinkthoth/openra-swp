@@ -601,7 +601,7 @@ TSLA:
 		Prerequisites: weap, ~structures.komintern, ~techlevel.medium
 		Description: Advanced base defense.\nRequires power to operate.\nCan detect cloaked units.\n  Strong vs Vehicles, Infantry\n  Weak vs Aircraft
 	Valued:
-		Cost: 1300
+		Cost: 1400
 	Tooltip:
 		Name: Tesla Coil
 	Selectable:
@@ -660,7 +660,7 @@ REFTWR:
 		Prerequisites: weap, ~structures.zentrum, ~techlevel.medium
 		Description: Advanced base defense.\nRequires power to operate.\nCan detect cloaked units.\n  Strong vs Vehicles, Infantry\n  Weak vs Aircraft
 	Valued:
-		Cost: 1300
+		Cost: 1400
 	Tooltip:
 		Name: Refractor Tower
 	Selectable:
@@ -733,7 +733,7 @@ AGUN:
 		Prerequisites: dome, ~structures.entente, ~techlevel.medium
 		Description: Anti-Air base defense.\nRequires power to operate.\n  Strong vs Aircraft\n  Weak vs Ground units
 	Valued:
-		Cost: 800
+		Cost: 850
 	Tooltip:
 		Name: AA Gun
 	Selectable:
@@ -794,7 +794,7 @@ CAGUN:
 		Prerequisites: dome, ~structures.france, ~techlevel.medium
 		Description: Anti-Air base defense.\nRequires power to operate.\n  Strong vs Aircraft\n  Weak vs Ground units
 	Valued:
-		Cost: 850
+		Cost: 900
 	Tooltip:
 		Name: Camo AA Gun
 	Selectable:
@@ -1096,6 +1096,7 @@ DOME:
 		SkipAscent: true
 		FlightDelay: 160
 		OneShot: false
+		CameraRemoveDelay: 350
 		AllowMultiple: false
 		SupportPowerPaletteOrder: 65
 		LaunchSpeechNotification: ArtbrgNotification
@@ -1143,6 +1144,7 @@ DOME:
 		DisplayTimerRelationships: None
 		DisplayBeacon: False
 		DisplayRadarPing: False
+		CameraRemoveDelay: 125
 		BeaconPoster:
 		CameraRange: 10c0
 		FlightVelocity: 0c512
@@ -1189,7 +1191,7 @@ DOME:
 		AirburstAltitude: 4c512
 		AllowMultiple: false
 		CameraActor: camera
-		CameraRemoveDelay: 375
+		CameraRemoveDelay: 100
 		SelectTargetSpeechNotification: SelectTarget
 		PauseOnCondition: disabled || turnedoff
 		DisplayTimerRelationships: None
@@ -1530,9 +1532,9 @@ PBOX:
 		Queue: Defense
 		BuildPaletteOrder: 60
 		Prerequisites: barr, ~structures.entente, ~techlevel.low
-		Description: Static defense with a fireport for\na garrisoned soldier.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+		Description: Static anti-infantry base defense.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
 	Valued:
-		Cost: 700
+		Cost: 800
 	CustomSellValue:
 		Value: 400
 	Health:
@@ -1591,9 +1593,9 @@ HBOX:
 		Queue: Defense
 		BuildPaletteOrder: 81
 		Prerequisites: barr, ~structures.france, ~techlevel.medium
-		Description: Camouflaged static defense with a fireport\nfor a garrisoned soldier.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+		Description: Static anti-infantry base defense.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
 	Valued:
-		Cost: 750
+		Cost: 850
 	CustomSellValue:
 		Value: 550
 	Health:
@@ -1660,7 +1662,7 @@ GUN:
 		Prerequisites: barr, ~structures.entente, ~techlevel.medium
 		Description: Anti-Armor base defense.\nCan detect cloaked units.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
 	Valued:
-		Cost: 800
+		Cost: 900
 	Tooltip:
 		Name: Turret
 	Building:
@@ -1719,7 +1721,7 @@ CAMOGUN:
 		Prerequisites: barr, ~structures.france, ~techlevel.medium
 		Description: Anti-Armor base defense.\nCan detect cloaked units.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
 	Valued:
-		Cost: 850
+		Cost: 950
 	Tooltip:
 		Name: Camo Turret
 	Building:
@@ -1781,9 +1783,9 @@ GATLINGGUN:
 		Queue: Defense
 		BuildPaletteOrder: 40
 		Prerequisites: barr, ~structures.komintern, ~techlevel.medium
-		Description: Anti-Armor base defense.\nCan detect cloaked units.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
+		Description: Anti-infantry base defense.\nCan detect cloaked units.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
 	Valued:
-		Cost: 725
+		Cost: 825
 	Tooltip:
 		Name: Gatling Sentry
 	Building:
@@ -1984,7 +1986,7 @@ FTUR:
 		Prerequisites: barr, ~structures.zentrum, ~techlevel.low
 		Description: Anti-Infantry base defense.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
 	Valued:
-		Cost: 750
+		Cost: 850
 	Tooltip:
 		Name: Flame Tower
 	Building:
@@ -2230,7 +2232,7 @@ ADEPTCHARGER:
 MTEK:
 	Inherits: ^ScienceBuilding
 	Inherits@shape: ^2x2Shape
-	Inherits@rubbles: ^3x3Rubbles
+	Inherits@rubbles: ^2x2Rubbles
 	Inherits@discount: ^BuildTimeDiscount
 	Selectable:
 		Bounds: 62,62
@@ -2278,7 +2280,7 @@ MTEK:
 ATEK:
 	Inherits: ^ScienceBuilding
 	Inherits@shape: ^2x2Shape
-	Inherits@rubbles: ^3x3Rubbles
+	Inherits@rubbles: ^2x2Rubbles
 	Inherits@discount: ^BuildTimeDiscount
 	Selectable:
 		Bounds: 48,48
@@ -2342,7 +2344,7 @@ WEAP:
 	Tooltip:
 		Name: War Factory
 	Building:
-		Footprint: =x= xxx =x=
+		Footprint: +x= xxx =x+
 		Dimensions: 3,3
 		LocalCenterOffset: 0,-512,0
 	Health:
@@ -2497,7 +2499,7 @@ PROC:
 	Tooltip:
 		Name: Ore Refinery
 	Building:
-		Footprint: =x= === =x=
+		Footprint: =x= =+= =x=
 		Dimensions: 3,3
 		LocalCenterOffset: 0,-512,0
 	Selectable:
@@ -3185,7 +3187,7 @@ APWR:
 STEK:
 	Inherits: ^ScienceBuilding
 	Inherits@shape: ^3x2Shape
-	Inherits@rubbles: ^3x3Rubbles
+	Inherits@rubbles: ^2x2Rubbles
 	Inherits@discount: ^BuildTimeDiscount
 	Selectable:
 		Bounds: 72,48
@@ -3615,7 +3617,7 @@ STHGEN:
 		BuildPaletteOrder: 130
 		Prerequisites: atek, ~structures.entente, ~techlevel.unrestricted
 		BuildLimit: 1
-		Description: Makes vehicles invisible for a short time.\nRequires power to operate.\nMaximum 1 can be built.\n  Special Ability: Stealth Shield
+		Description: Makes vehicles and buildings invisible for a 20 seconds.\nRequires power to operate.\nMaximum 1 can be built.\n  Special Ability: Phase Shield
 	Valued:
 		Cost: 1600
 	Tooltip:

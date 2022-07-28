@@ -130,7 +130,7 @@ HOSPITALLER:
 		BuildAtProductionType: Plane
 		BuildPaletteOrder: 800
 		Prerequisites: ~afld, techcenter, ~atektech, ~techlevel.high
-		Description: Anti-vehicle attack plane.\nSlows down enemy vehicles.\n  Strong vs Buildings, Vehicles\n  Weak vs Infantry, Aircraft
+		Description: Anti-vehicle attack plane.\nSlows down enemy vehicles.\nCan become invisible.\n  Strong vs Buildings, Vehicles\n  Weak vs Infantry, Aircraft
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -530,7 +530,7 @@ TESLAHIND:
 		Prerequisites: hpad, stek, ~helicopter.russia, ~techlevel.high
 		Description: Helicopter gunship armed with\nsmall dual tesla coils.\nRecharges ammo automatically.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
 	Valued:
-		Cost: 2000
+		Cost: 1800
 	Tooltip:
 		Name: Tesla Hind
 	UpdatesPlayerStatistics:
@@ -606,7 +606,7 @@ IBLIS:
 		Prerequisites: hpad, mtek, ~helicopter.turkey, ~techlevel.high
 		Description: Helicopter gunship armed with\nIncendiary missiles.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
 	Valued:
-		Cost: 2000
+		Cost: 1850
 	Tooltip:
 		Name: Iblis
 	UpdatesPlayerStatistics:
@@ -677,7 +677,7 @@ HEAVYFIGHTER:
 		BuildAtProductionType: Plane
 		BuildPaletteOrder: 501
 		Prerequisites: ~afld, ~aircraft.serbia, ~techlevel.medium
-		Description: Attack Plane armed with\ndual machine guns.\n  Strong vs Aircraft\n  Weak vs Tanks, Infantry
+		Description: Attack Plane armed with\nquadruble machine guns.\nMay attack air or ground targets.\n Strong vs Aircraft, Infantry\n  Weak vs Tanks
 	Valued:
 		Cost: 1600
 	Tooltip:
@@ -917,7 +917,7 @@ SAUCER:
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 40
 		Prerequisites: hpad, ~helicopter.ukraine, stek, ~techlevel.high
-		Description: Helicopter gunship armed\nwith multi-purpose missiles.\n  Strong vs Buildings, Vehicles, Aircraft\n  Weak vs Infantry
+		Description: Levitating disc armed with magnetic rays.\nMay levitate just above ground for a while,\ndamaging nearby targets.\n  Strong vs Buildings, Vehicles, Aircraft\n  Weak vs Infantry
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -1120,7 +1120,7 @@ TENGRII:
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 110
 		Prerequisites: hpad, stek, ~helicopter.mongolia, ~techlevel.high
-		Description: Helicopter gunship armed with rockets.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
+		Description: Helicopter gunship armed with rockets.\nMust be deployed to fire.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
 	Valued:
 		Cost: 2250
 	Tooltip:
@@ -1214,7 +1214,7 @@ GEBARD:
 		Prerequisites: hpad, adept, ~helicopter.germany, ~techlevel.medium
 		Description: Fast helicopter gunship armed with rockets.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
 	Valued:
-		Cost: 180
+		Cost: 1800
 	Tooltip:
 		Name: Gebard
 	UpdatesPlayerStatistics:
@@ -1560,7 +1560,7 @@ WASP:
 		Prerequisites: hpad, mtek, ~helicopter.austria, ~techlevel.high
 		Description: Helicopter gunship armed\nwith a direct energy weapon.\nSlowly recharges ammo.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
 	Valued:
-		Cost: 2000
+		Cost: 1900
 	Tooltip:
 		Name: Wasp
 	UpdatesPlayerStatistics:
@@ -1730,7 +1730,7 @@ A10:
 		BuildAtProductionType: Plane
 		BuildPaletteOrder: 510
 		Prerequisites: ~afld, ~aircraft.entente, atek, ~techlevel.high
-		Description: Attack Plane armed with\na machine gun and napalm bombs.\n	Strong vs Infantry, Vehicles\n  Weak vs Aircraft
+		Description: Attack Plane armed with\na powerful autocannon.\n	Strong vs Infantry, Vehicles\n  Weak vs Aircraft
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -2273,7 +2273,7 @@ AIRCRANE:
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 199
 		Prerequisites: hpad, ~helicopter.zentrum, ~techlevel.medium
-		Description: Infantry Transport Helicopter.\n	Unarmed
+		Description: Vehicle Transport Helicopter.\n	Unarmed
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -2392,7 +2392,7 @@ ZEPPELIN:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 80000
+		HP: 70000
 	Armor:
 		Type: Medium
 	RevealsShroud:
@@ -2428,6 +2428,7 @@ ZEPPELIN:
 	ProducibleWithLevel:
 		Prerequisites: aircraft.upgraded
 	Selectable:
+		Bounds: 45,35
 		DecorationBounds: 55,45,0,-12
 	WithAmmoPipsDecoration:
 		Position: BottomLeft

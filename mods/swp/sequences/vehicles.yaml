@@ -566,8 +566,8 @@ templar.husk:
 katya:
 	idle:
 		Facings: 32
-	icon: katyushkaicon
-	
+	icon: katyicon
+
 mgg:
 	idle:
 		Facings: 32

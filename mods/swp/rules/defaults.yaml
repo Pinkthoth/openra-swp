@@ -481,10 +481,10 @@
 		Condition: kommissable
 	DamageMultiplier@KOMMISSABLE:
 		RequiresCondition: kommissable
-		Modifier: 93
+		Modifier: 90
 	FirepowerMultiplier@KOMMISSABLE:
 		RequiresCondition: kommissable
-		Modifier: 107
+		Modifier: 110
 
 ^InfantryExperienceHospitalOverrides:
 	WithDecoration@RANK-1:
@@ -760,6 +760,12 @@
 		Weight: 3
 	ProximityCaptor:
 		Types: Infantry
+	SpawnActorOnDeath@crew_member1:
+		Actor: e1crew
+	SpawnActorOnDeath@crew_member2:
+		Actor: e1crew
+	Targetable@infantry:
+		TargetTypes: Infantry
 
 ^Commanderable:
 	GrantConditionOnInfiltration@commandered:
@@ -896,10 +902,10 @@
 		Condition: crush-succesful
 	SpeedMultiplier@CRUSHATTEMPT
 		RequiresCondition: crush-attempt
-		Modifier: 75
+		Modifier: 85
 	SpeedMultiplier@CRUSHSUCCESFUL
 		RequiresCondition: crush-succesful
-		Modifier: 50
+		Modifier: 60
 
 ^TrackedVehicle:
 	Inherits: ^Vehicle

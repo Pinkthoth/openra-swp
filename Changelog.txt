@@ -1,3 +1,133 @@
+0.013-pre-release
+Unit balance
+-Decreased Heavy Machine Gun Crew health by 5000.
+-Increased Pioneer Crew health by 2000.
+-Decreased AT Gun Crew health by 5000.
+-Changed light machine guns to do 15%. less damage towards light armour and 10%. less damage towards medium armour.
+-Changed gatling guns to do 5%. more damage towards none armour and 5%. more damage towards light armour
+-Changed Night Witch's weapon to do 20%. less damage to light armour. and 10%. less damage towards medium and heavy armour.
+-Changed Heavy Machine Gun Crew's weapon to do 15%. more damage towards wood armour.
+-Changed Marksman to cost 2000$.
+-Decreased Marksman speed to 45.
+-Changed Marksman weapon to do 3%. less damage towards heavy armour and 20%. less damage towards medium armour and 10%. less damage towards concrete armour and 12%. less damage towards none armour.
+-Decreased Marksman turret turn speed by 10.
+-Decreased Marksman turn speed by 10.
+-Changed Marksman AA damage towards medium armor to 40%.
+-Decreased Ebi transport capacity by 1.
+-Decreased Ebi health by 5000.
+-Increased Ebi cost by 50.
+-Increased Kitsune cost by 50.
+-Decreased Mortar reload time by 25.
+-Increased Stormtrooper reload time by 25.
+-Decreased Stormtrooper range by 0c512
+-Increased Stormtrooper cost by 100$.
+-Decreased Stormtrooper weapon damage towards concrete armour by 50.
+-Increased Commando cost by 25$.
+-Increased Lazarus Operator's weapon's load time by 60.
+-Increased Legionaire cost by 25$.
+-Decreased Thunderbolt splash damage versus wood armour by 25% and main damage by 5%.
+-Increased Cavalry health by 2000.
+-Increased parabomb fall speed by 10.
+-Decreased Nerve Agent gas range by 1c0
+-Decreased the effect of Nerve Agent's gas by 100
+-Increased Dive Bomber weapon damage versus none armour by 10%.
+-Decreased Tactical Bomber's weapon damage versus wood armour by 15%.
+-Decreased crush attempt's slowing effect by 10 and succesful crush's effect by 10.
+-Increased Artillery Barrage camera time to 350
+-Increased V3 Missile camera time to 125.
+-Increased Katyushka missile damage towards concrete armour by 10.
+-Increased Artillery weapon damage to concrete by 10.
+-Decreased Grenadier weapon damage towards concrete by 40.
+-Decreased Guerilla weapon damage towards concrete by 40.
+-Decreased Flak Track speed by 5.
+-Increased Flak Track damage towards medium armour by 5.
+-Increased all ballistic and missile weapon's damage towards concrete armour by 5, unless listed previously as decreased or already at 100.
+-Increased Squire cost by 50$.
+-Decreased Squire health by 2000.
+-Increased Tankette weapon damage towards heavy armour by 5%.
+-Increased Bronetransporter health by 5000.
+-Increased Bronetransporter cost by 25$.
+-Increased Testudo deployment damage reduction by 10%.
+-Decreased Disruptor weapon reload time by 50.
+-Decreased Ronin machine gun damage towards none armour by 5%.
+-Increased Ronin missile reload time by 10.
+-Spy weapon range increased to 5c0.
+-Decreased Katyusha burst by 1.
+-Increased Katyusha damage by 200.
+-Decreased Katyusha reload time by 10.
+-Decreased Zeppelin health by 10000.
+-Decreased Tesla Hind price by 200$.
+-Decreased Wasp price by 100$.
+-Decreased Iblis price by 150$.
+-Set Light Machine Gunner damage against light armour to 30% and medium armour to 17%.
+-Decreased Iron Man cost to 400$.
+-Increased all defensive stucture costs by 100$, except anti-air defensive structures which price was increased by 50$.
+-Increased Grand Cannon range by 2c0
+-Increased Grand Cannon damage against none armour by 30%., wood armour by 5%. and heavy armour by 5%.
+-Decreased Grand Cannon reload time by 50 ticks.
+-Decreased Grand Cannon damage against concrete armour by 30%.
+-Increased Vulcan damage against medium armour by 10%.
+-Increased Sentry gatling gun damage towards none armour by 5%., light armour by 10%., medium armour by 8%., heavy armour by 2%, wood armoud by 10% and concrete by 5%.
+-Increased Sentry gatling gun range by 1c0
+-Decreased Bobcat health by 1000.
+-Increased Flak Track weapon damage towards none armour by 5%., and medium armour by 5%.
+-Decreased Jeep speed by 5.
+-Decreased Flak Track speed by 5.
+-Decreased Squire speed by 3.
+-Increased Caballero speed by 10.
+-Decreased Marauder speed by 15.
+-Decreased APC speed by 10.
+-Decreased Arc Thrower speed by 5.
+-Decreased Gatling Car health by 2000.
+-Decreased Heavy Machine Gunner cost by 100$.
+-Politruk damage reduction and firepower increase set to 10%.
+-Changed build time reduction to 1000, 825, 700, 620, 585, 555, 535, 520, 510, 500
+-Decreased LMG damage further away, and increased direct damage by 10 and 4, and 20 respectively.
+
+Bug fixes
+-Changed Albatross description to match it's effect.
+-Changed Desolator's tooltip to match it's effect.
+-Changed Raider description to match it's effect.
+-Changed Phase Generator's description to match it's effect.
+-Changed Gatling Sentry's description to match it's effect.
+-Changed Pillbox's and Camo Pillbox's description to match it's effect.
+-Changed Khan's description to match it's effect.
+-Changed Saucer's description to match it's effect.
+-Changed Hospitaller's description to match it's effect.
+-Changed Thunderbolt's description to match it's effect.
+-Changed Aguila's description to match it's effect.
+-Removed Carryable trait from crew units.
+-Changed Arditi to be able to be undeployed by moving.
+-Fixed Smokescreen clouds not disappearing and gaining experience.
+-Fixed tech centers leaving 3x3 rubbles.
+-Fixed Ronin missiles targeting infantry.
+-Politruks can detect disquise.
+-Officers can detect disquise.
+-Nerve Agents can detect disquise.
+-Gebard price set to 1800$.
+-Fixed a graphical issue with damaged Komintern Ore Refinery.
+-Crews now have the Infantry target type.
+
+Features:
+-Changed War Factory footprint so that vehicles don't get stuck behind the warfactory, and the warfactory can't be blocked.
+-Changed Ore Refinery footprint so that it can't be blocked by occupying the center cell.
+-Thiefs can detect disguise.
+-Tank Commanders can detect disquise.
+-Artillery Observers can detect disquise
+-Snipers can detect disquise.
+-AT Gun Crew and AA Gun Crew now have two armor types and two hitshapes, so that a frontal assault on them attacks medium armour and a back attack attacks none armour.
+-Crews now spawn two severely damaged Rifle Men when the crew is killed.
+
+Graphics and sound
+-Decreased announcer volume.
+-Fixed Smokescreen palette.
+-Corrected Katyusha name and changed the icon.
+-Made Dive Bomber diving sound a bid louder.
+-Removed piffs from hologram rifle's weapon.
+
+0.0126-pre-release
+-Changed how field tiles are incorporated into the mod.
+
 0.012-pre-release
 Unit balance
 -Removed secondary weapon from Dive Bomber.

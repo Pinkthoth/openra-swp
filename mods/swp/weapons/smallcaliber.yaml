@@ -54,8 +54,8 @@
 		Versus:
 			None: 140
 			Wood: 15
-			Light: 40
-			Medium: 25
+			Light: 25
+			Medium: 15
 			Heavy: 10
 			Concrete: 10
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, DefaultDeath
@@ -78,8 +78,8 @@
 	Warhead@1Dam: SpreadDamage
 		Damage: 900
 		Versus:
-			None: 65
-			Light: 20
+			None: 70
+			Light: 25
 			Medium: 17
 			Heavy: 15
 			Wood: 15
@@ -87,14 +87,12 @@
 	Warhead@2Eff: CreateEffect
 		Explosions: piff
 
-#Gatling Tank AG Weapon:
-
 AGGatlingStart:
 	Inherits: ^Gatling
+	Range: 6c0
 	-Report:
 	ReloadDelay: 1
 	BurstDelays: 1
-	Range: 5c0
 	Burst: 2
 	Warhead@1Dam: SpreadDamage
 		Damage: 0
@@ -105,8 +103,17 @@ AGGatling:
 	Inherits: ^Gatling
 	ReloadDelay: 8
 	BurstDelays: 4
-	Range: 5c0
+	Range: 6c0
 	Burst: 2
+	Warhead@1Dam: SpreadDamage
+		Damage: 900
+		Versus:
+			None: 75
+			Light: 35
+			Medium: 25
+			Heavy: 17
+			Wood: 25
+			Concrete: 20
 
 AGGatling2:
 	Inherits: AGGatling
@@ -122,6 +129,18 @@ AGGatling4:
 	Inherits: AGGatling
 	ReloadDelay: 2
 	BurstDelays: 1
+
+AGGatlingStart-handheld:
+	Inherits: ^Gatling
+	-Report:
+	ReloadDelay: 1
+	BurstDelays: 1
+	Range: 5c0
+	Burst: 2
+	Warhead@1Dam: SpreadDamage
+		Damage: 0
+	-Warhead@2Eff:
+	-Warhead@3EffWater:
 
 AGGatling-handheld:
 	Inherits: ^Gatling
@@ -142,6 +161,12 @@ AGGatling3-handheld:
 	Range: 5c0
 	ReloadDelay: 4
 	BurstDelays: 2
+
+AGGatling4-handheld:
+	Inherits: AGGatling
+	Range: 5c0
+	ReloadDelay: 2
+	BurstDelays: 1
 
 ZSU-23:
 	Inherits: ^AACannon
@@ -190,10 +215,10 @@ FLAK-23-AG:
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: AirborneActor, GroundActor, Trees,  WaterActor, AirborneBomber
 		Versus:
-			None: 50
+			None: 55
 			Wood: 20
 			Light: 45
-			Medium: 20
+			Medium: 30
 			Heavy: 10
 			Concrete: 5
 	Warhead@2Eff: CreateEffect
@@ -230,12 +255,12 @@ Archer-AG:
 	Warhead@1Dam: SpreadDamage
 		Damage: 1200
 		Versus:
-			None: 100
+			None: 82
 			Wood: 20
 			Light: 60
-			Medium: 40
-			Heavy: 13
-			Concrete: 20
+			Medium: 20
+			Heavy: 10
+			Concrete: 10
 		ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
 	Warhead@2Eff: CreateEffect
 		Explosions: piff
@@ -252,7 +277,13 @@ Archer-AA:
 	ValidTargets: AirborneActor, AirborneBomber
 	Warhead@1Dam: SpreadDamage
 		Damage: 800
-			None: 180
+		Versus:
+			None: 82
+			Wood: 20
+			Light: 60
+			Medium: 40
+			Heavy: 10
+			Concrete: 10
 		ValidTargets: Air, AirborneActor, AirborneBomber
 	Warhead@2Eff: CreateEffect
 		ValidTargets: Air, AirborneActor, AirborneBomber
@@ -266,7 +297,7 @@ Vulcan:
 			None: 200
 			Wood: 50
 			Light: 40
-			Medium: 30
+			Medium: 40
 			Heavy: 20
 			Concrete: 35
 	Warhead@4Dam_2: SpreadDamage
@@ -278,7 +309,7 @@ Vulcan:
 			None: 200
 			Wood: 50
 			Light: 50
-			Medium: 30
+			Medium: 40
 			Heavy: 20
 			Concrete: 35
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
@@ -300,7 +331,7 @@ Vulcan:
 			None: 200
 			Wood: 50
 			Light: 50
-			Medium: 30
+			Medium: 40
 			Heavy: 20
 			Concrete: 35
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
@@ -322,7 +353,7 @@ Vulcan:
 			None: 200
 			Wood: 50
 			Light: 50
-			Medium: 30
+			Medium: 40
 			Heavy: 20
 			Concrete: 35
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
@@ -344,7 +375,7 @@ Vulcan:
 			None: 200
 			Wood: 50
 			Light: 50
-			Medium: 30
+			Medium: 40
 			Heavy: 20
 			Concrete: 35
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
@@ -366,7 +397,7 @@ Vulcan:
 			None: 200
 			Wood: 50
 			Light: 50
-			Medium: 30
+			Medium: 40
 			Heavy: 20
 			Concrete: 35
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
@@ -392,7 +423,10 @@ LightMachineGun:
 	Warhead@1Dam: SpreadDamage
 		Damage: 650
 		Spread: 0c512
-		Falloff: 200, 35, 25, 15, 5
+		Versus:
+			Light: 30
+			Medium: 17
+		Falloff: 220, 35, 25, 5, 1
 	Warhead@2Eff: CreateEffect
 		Explosions: piff
 		Inaccuracy: 0
@@ -412,7 +446,10 @@ LightMachineGun2:
 	Warhead@1Dam: SpreadDamage
 		Damage: 150
 		Spread: 0c124
-		Falloff: 200, 35, 25, 15, 5
+		Versus:
+			Light: 30
+			Medium: 17
+		Falloff: 220, 35, 25, 15, 5
 		ValidTargets: Ground, GroundActor, WaterActor, Water
 	Warhead@2Eff: CreateEffect
 		Explosions: piff
@@ -548,7 +585,7 @@ ChainGun.A10:
 		Spread: 0c124
 		Versus:
 			None: 200
-			Wood: 20
+			Wood: 15
 			Light: 70
 			Medium: 50
 			Heavy: 30
@@ -591,7 +628,7 @@ ChainGun.A10.SingleShot:
 		Spread: 0c124
 		Versus:
 			None: 90
-			Wood: 40
+			Wood: 15
 			Light: 70
 			Medium: 40
 			Heavy: 20
@@ -670,9 +707,9 @@ WitchMG:
 			None: 200
 			Concrete: 25
 			Wood: 30
-			Light: 90
-			Medium: 60
-			Heavy: 40
+			Light: 70
+			Medium: 50
+			Heavy: 30
 	Warhead@2Eff2: CreateEffect
 		Delay: 2
 		Explosions: piff
@@ -871,7 +908,7 @@ M60mg-Ronin:
 	Warhead@1Dam: SpreadDamage
 		Damage: 1500
 		Versus:
-			None: 120
+			None: 115
 			Wood: 10
 			Light: 20
 			Medium: 15
@@ -883,7 +920,7 @@ M60mg-Ronin:
 		Delay: 2
 		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
-			None: 120
+			None: 115
 			Wood: 10
 			Light: 20
 			Medium: 15
@@ -896,7 +933,7 @@ M60mg-Ronin:
 		Delay: 4
 		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
-			None: 120
+			None: 115
 			Wood: 10
 			Light: 20
 			Medium: 15
@@ -909,7 +946,7 @@ M60mg-Ronin:
 		Delay: 6
 		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
-			None: 120
+			None: 115
 			Wood: 10
 			Light: 20
 			Medium: 15
@@ -1022,7 +1059,7 @@ HeavyMachineGun:
 		Damage: 500
 		Versus:
 			None: 150
-			Wood: 15
+			Wood: 30
 			Light: 35
 			Medium: 25
 			Heavy: 10
@@ -1034,7 +1071,7 @@ HeavyMachineGun:
 		Damage: 500
 		Versus:
 			None: 150
-			Wood: 15
+			Wood: 30
 			Light: 35
 			Medium: 25
 			Heavy: 10
@@ -1046,7 +1083,7 @@ HeavyMachineGun:
 		Damage: 500
 		Versus:
 			None: 150
-			Wood: 15
+			Wood: 30
 			Light: 35
 			Medium: 25
 			Heavy: 10
@@ -1058,7 +1095,7 @@ HeavyMachineGun:
 		Damage: 500
 		Versus:
 			None: 150
-			Wood: 15
+			Wood: 30
 			Light: 35
 			Medium: 25
 			Heavy: 10
@@ -1070,7 +1107,7 @@ HeavyMachineGun:
 		Damage: 500
 		Versus:
 			None: 150
-			Wood: 15
+			Wood: 30
 			Light: 35
 			Medium: 25
 			Heavy: 10
@@ -1157,7 +1194,7 @@ HeavyMachineGun:
 
 ^SnipeWeapon:
 	ReloadDelay: 80
-	Range: 2c512
+	Range: 5c0
 	Report: gun5.aud
 	ValidTargets: Ground, Infantry, Barrel
 	Projectile: InstantHit
@@ -1180,6 +1217,11 @@ SilencedPPK:
 	Report: silppk.aud
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
+		Versus:
+			None: 100
+			Light: 20
+			Medium: 10
+			Heavy: 5
 
 Colt45:
 	Inherits: ^SnipeWeapon
@@ -1195,6 +1237,11 @@ Sniper:
 	Range: 10c0
 	Warhead@1Dam: SpreadDamage
 		Damage: 14000
+		Versus:
+			None: 100
+			Light: 20
+			Medium: 10
+			Heavy: 5
 
 HLFTRKGUN:
 	Inherits: ^LightMG
@@ -1274,7 +1321,7 @@ TNKT:
 			Wood: 35
 			Light: 35
 			Medium: 25
-			Heavy: 10
+			Heavy: 15
 			Concrete: 20
 	Warhead@2Dam_2: SpreadDamage
 		Spread: 128
@@ -1286,7 +1333,7 @@ TNKT:
 			Wood: 35
 			Light: 35
 			Medium: 25
-			Heavy: 10
+			Heavy: 15
 			Concrete: 20
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@3Dam_2: SpreadDamage
@@ -1299,7 +1346,7 @@ TNKT:
 			Wood: 35
 			Light: 35
 			Medium: 25
-			Heavy: 10
+			Heavy: 15
 			Concrete: 20
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@4Dam_2: SpreadDamage
@@ -1312,7 +1359,7 @@ TNKT:
 			Wood: 35
 			Light: 35
 			Medium: 25
-			Heavy: 10
+			Heavy: 15
 			Concrete: 20
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect

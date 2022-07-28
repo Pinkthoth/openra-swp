@@ -17,7 +17,7 @@
 			Wood: 75
 			Light: 75
 			Medium: 85
-			Concrete: 50
+			Concrete: 55
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Crater
@@ -50,7 +50,7 @@
 			Light: 60
 			Medium: 40
 			Heavy: 25
-			Concrete: 40
+			Concrete: 45
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@3Eff: CreateEffect
 		Explosions: artillery_explosion
@@ -74,7 +74,7 @@
 			Light: 75
 			Medium: 100
 			Heavy: 48
-			Concrete: 32
+			Concrete: 37
 	-Warhead@2Smu:
 	Warhead@3Eff: CreateEffect
 		-ImpactSounds:
@@ -97,7 +97,7 @@
 			Light: 90
 			Medium: 50
 			Heavy: 42
-			Concrete: 20
+			Concrete: 25
 	-Warhead@2Smu:
 	Warhead@3Eff: CreateEffect
 		-ImpactSounds:
@@ -120,7 +120,7 @@
 			Light: 70
 			Medium: 90
 			Heavy: 33
-			Concrete: 25
+			Concrete: 30
 	-Warhead@2Smu:
 	Warhead@3Eff: CreateEffect
 		-ImpactSounds:
@@ -211,6 +211,7 @@ TurretGun:
 		Falloff: 100, 55, 20, 5
 		Versus:
 			None: 60
+			Concrete: 55
 
 PortaCannon:
 	Inherits: ^Artillery
@@ -235,7 +236,7 @@ PortaCannon:
 			Light: 65
 			Medium: 60
 			Heavy: 50
-			Concrete: 30
+			Concrete: 35
 
 8Inch:
 	Inherits: ^Artillery
@@ -264,7 +265,19 @@ PortaCannon:
 
 8Inch-Grand-Cannon:
 	Inherits: 8Inch
-	Range: 10c0
+	ReloadDelay: 200
+	Range: 12c0
+	Warhead@1Dam: SpreadDamage
+		Spread: 213
+		Damage: 2500
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		Versus:
+			None: 90
+			Wood: 40
+			Light: 60
+			Medium: 45
+			Heavy: 30
+			Concrete: 70
 
 2Inch:
 	Inherits: ^Cannon
@@ -280,7 +293,7 @@ PortaCannon:
 			None: 28
 			Wood: 72
 			Light: 72
-			Concrete: 48
+			Concrete: 53
 
 Grenade:
 	Inherits: ^Artillery
@@ -300,7 +313,7 @@ Grenade:
 			Light: 25
 			Medium: 25
 			Heavy: 25
-			Concrete: 100
+			Concrete: 60
 	Warhead@3Eff: CreateEffect
 		Explosions: med_explosion
 		ImpactSounds: kaboom25.aud
@@ -327,7 +340,7 @@ Satchel:
 			Light: 40
 			Medium: 45
 			Heavy: 50
-			Concrete: 100
+			Concrete: 60
 	Warhead@3Eff: CreateEffect
 		Explosions: med_explosion
 		ImpactSounds: kaboom25.aud
@@ -409,7 +422,7 @@ hvtnkfire:
 			None: 0
 			Medium: 95
 			Heavy: 115
-			Concrete: 45
+			Concrete: 50
 	Warhead@2Dam: SpreadDamage
 		Damage: 3000
 		Falloff: 200, 150, 100, 50
@@ -441,7 +454,7 @@ ltnkfire:
 			Light: 80
 			Medium: 90
 			Heavy: 95
-			Concrete: 45
+			Concrete: 50
 	Warhead@2Dam: SpreadDamage
 		Damage: 1500
 		Falloff: 200, 150, 100, 50
@@ -478,7 +491,7 @@ ltnkfire:
 			Light: 75
 			Medium: 95
 			Heavy: 165
-			Concrete: 65
+			Concrete: 70
 
 MausCannon:
 	Inherits: ^Cannon
@@ -499,7 +512,7 @@ MausCannon:
 			Light: 70
 			Medium: 90
 			Heavy: 135
-			Concrete: 60
+			Concrete: 65
 
 BuildingGrenade:
 	Inherits: ^Artillery
@@ -527,7 +540,7 @@ BuildingGrenade:
 
 Mortar:
 	Inherits: ^Artillery
-	ReloadDelay: 150
+	ReloadDelay: 125
 	Range: 11c0
 	Report: mortarattack.wav
 	Projectile: Bullet
@@ -547,7 +560,7 @@ Mortar:
 			Light: 28
 			Medium: 22
 			Heavy: 18
-			Concrete: 40
+			Concrete: 45
 	Warhead@3Eff: CreateEffect
 		Explosions: med_explosion
 		ImpactSounds: kaboom25.aud
@@ -578,7 +591,7 @@ bigberthagun:
 			Light: 65
 			Medium: 45
 			Heavy: 30
-			Concrete: 60
+			Concrete: 65
 	Warhead@3Eff: CreateEffect
 		Explosions: berthaexpld
 		ImpactSounds: explode1.aud
@@ -586,9 +599,9 @@ bigberthagun:
 
 GrenadeLauncher:
 	Inherits: ^Artillery
-	ReloadDelay: 75
+	ReloadDelay: 100
 	Report: glnch4.aud
-	Range: 6c0
+	Range: 5c512
 	Projectile: Bullet
 		LaunchAngle: 100
 		Speed: 136
@@ -605,7 +618,7 @@ GrenadeLauncher:
 			Light: 25
 			Medium: 25
 			Heavy: 25
-			Concrete: 100
+			Concrete: 50
 	Warhead@3Eff: CreateEffect
 		Explosions: med_explosion
 		ImpactSounds: kaboom25.aud

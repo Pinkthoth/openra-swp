@@ -410,8 +410,8 @@ NerveGas:
 	-Warhead@3EffWater:
 	Warhead@10: GrantExternalCondition
 		Condition: nervegas
-		Duration: 300
-		Range: 2c516
+		Duration: 200
+		Range: 1c516
 		ValidTargets: GroundActor, Trees,  WaterActor
 	-Warhead@Smu:
 

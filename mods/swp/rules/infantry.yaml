@@ -144,7 +144,6 @@ ARDITI:
 	Crushable:
 		RequiresCondition: !deployed
 	Mobile:
-		PauseOnCondition: deployed
 	TakeCover:
 		RequiresCondition: !deployed
 	Armament@GARRISONED:
@@ -182,6 +181,8 @@ ARDITI:
 		UndeployedCondition: undeployed
 		DeploySounds: sbagdeploy.wav
 		UndeploySounds: sbagdeploy.wav
+		UndeployOnMove: true
+		UndeployOnPickup: true
 	SpawnActorOnDeath@BulletDeath:
 		Actor: ARDITI.Husk
 		DeathType: BulletDeath
@@ -275,7 +276,7 @@ HVGATLING:
 	Health:
 		HP: 5000
 	Armament@gatling-start-0:
-		Weapon: AGGatlingStart
+		Weapon: AGGatlingStart-handheld
 		RequiresCondition: !gatling
 		PauseOnCondition: turnedoff
 	Armament@ag-0:
@@ -1306,7 +1307,8 @@ THF:
 	SpawnActorOnDeath@SmallExplosionDeath:
 		Actor: THF.Husk
 		DeathType: SmallExplosionDeath
-		
+	IgnoresDisguise:
+
 THF.Husk:
 	Inherits: ^InfantryCorpse
 	Tooltip:
@@ -1421,6 +1423,7 @@ TNKCMNDR:
 		Types: CommanderInfiltration
 		ValidRelationships: Ally
 		Voice: Move
+	IgnoresDisguise:
 
 TNKCMNDR.Husk:
 	Inherits: ^InfantryCorpse
@@ -1554,7 +1557,8 @@ POLITRUK:
 		DeathType: SmallExplosionDeath
 	RenderSprites:
 		Image: politruk
-		
+	IgnoresDisguise:
+
 POLITRUK.Husk:
 	Inherits: ^InfantryCorpse
 	Tooltip:
@@ -1683,7 +1687,8 @@ OFFICER:
 	SpawnActorOnDeath@SmallExplosionDeath:
 		Actor: OFFICER.Husk
 		DeathType: SmallExplosionDeath
-		
+	IgnoresDisguise:
+
 OFFICER.Husk:
 	Inherits: ^InfantryCorpse
 	Tooltip:
@@ -1698,6 +1703,7 @@ HVMG:
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@crew: ^Crew
+	-Carryable:
 	-GrantConditionOnInfiltration@commandered:
 	-WithDecoration@commandered:
 	-Targetable@commandered:
@@ -1712,13 +1718,13 @@ HVMG:
 		Prerequisites: ~barr, adept, ~infantry.bulgaria, ~techlevel.infonly
 		Description: Infantry operated heavy machine gun.\n  Strong vs Infantry, Light armor.\n  Weak vs Tanks, Aircraft
 	Valued:
-		Cost: 500
+		Cost: 400
 	Tooltip:
 		Name: Heavy Machine Gun Crew
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 25000
+		HP: 20000
 	Armor:
 		Type: None
 	Mobile:
@@ -1859,6 +1865,7 @@ ARTILLERYOBSERVER:
 		Types: ObserverInfiltration
 		ValidRelationships: Ally
 		Voice: Move
+	IgnoresDisguise:
 
 ARTILLERYOBSERVER.Husk:
 	Inherits: ^InfantryCorpse
@@ -2003,7 +2010,7 @@ LEGIONAIRE:
 		Prerequisites: ~barracks, adept, ~infantry.france, ~techlevel.infonly
 		Description: General-purpose infantry. Armed with an\nassault rifle and a stinger.\n  Strong vs Infantry\n	Weak vs Vehicles, Aircraft
 	Valued:
-		Cost: 300
+		Cost: 325
 	Tooltip:
 		Name: Legionaire
 	UpdatesPlayerStatistics:
@@ -2073,7 +2080,7 @@ SPECOP:
 		Prerequisites: ~techlevel.medium, ~infantry.england, adept, ~barr
 		Description: Elite rifleman armed with\na rifle and grenades.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft
 	Valued:
-		Cost: 200
+		Cost: 225
 	Tooltip:
 		Name: Commando
 	UpdatesPlayerStatistics:
@@ -2182,6 +2189,7 @@ SNIPER:
 	SpawnActorOnDeath@SmallExplosionDeath:
 		Actor: SNIPER.Husk
 		DeathType: SmallExplosionDeath
+	IgnoresDisguise:
 
 SNIPER.Husk:
 	Inherits: ^InfantryCorpse
@@ -2255,6 +2263,7 @@ ATGUNNER:
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@crew: ^Crew
+	-Carryable:
 	-GrantConditionOnInfiltration@commandered:
 	-WithDecoration@commandered:
 	-Targetable@commandered:
@@ -2275,9 +2284,23 @@ ATGUNNER:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 25000
+		HP: 20000
 	Armor:
-		Type: Light
+		Type: Medium
+	Armor@2:
+		Type: None
+	HitShape:
+		ArmorTypes: Medium
+		TargetableOffsets: 400,0,0
+		Type: Rectangle
+			TopLeft: -250, -550
+			BottomRight: 250, 50
+	HitShape@2:
+		ArmorTypes: None
+		TargetableOffsets: -400,0,0
+		Type: Rectangle
+			TopLeft: -250, -50
+			BottomRight: 250, 550
 	Mobile:
 		Speed: 45
 		TurnSpeed: 10
@@ -2307,6 +2330,7 @@ AAGUNCREW:
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMovePlusBombers
 	Inherits@crew: ^Crew
+	-Carryable:
 	-GrantConditionOnInfiltration@commandered:
 	-WithDecoration@commandered:
 	-Targetable@commandered:
@@ -2329,7 +2353,21 @@ AAGUNCREW:
 	Health:
 		HP: 25000
 	Armor:
-		Type: Light
+		Type: Medium
+	Armor@2:
+		Type: None
+	HitShape:
+		ArmorTypes: Medium
+		TargetableOffsets: 400,0,0
+		Type: Rectangle
+			TopLeft: -250, -550
+			BottomRight: 250, 50
+	HitShape@2:
+		ArmorTypes: None
+		TargetableOffsets: -400,0,0
+		Type: Rectangle
+			TopLeft: -250, -50
+			BottomRight: 250, 55
 	Mobile:
 		Speed: 45
 		TurnSpeed: 10
@@ -2359,6 +2397,7 @@ MORTARCREW:
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@crew: ^Crew
+	-Carryable:
 	-GrantConditionOnInfiltration@commandered:
 	-WithDecoration@commandered:
 	-Targetable@commandered:
@@ -2525,7 +2564,7 @@ DESOLATOR:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 136
 		Prerequisites: ~barr, mtek, ~infantry.turkey, ~techlevel.infonly
-		Description: General-purpose anti-air and\n anti-ground infantry.\n  Strong vs Light Armor, Aircraft\n	Weak vs Vehicles
+		Description: Anti-infantry unit, capable of creating\na large burning area around it by deploying.\n  Strong vs Infantry\n	Weak vs Vehicles
 	Valued:
 		Cost: 550
 	Mobile:
@@ -2834,6 +2873,7 @@ NERVEAGENT:
 		IsPlayerPalette: True
 		ChargeTicks: 750
 		SelectionBarColor: 4CFF00
+	IgnoresDisguise:
 
 NERVEAGENT.Husk:
 	Inherits: ^InfantryCorpse
@@ -3055,7 +3095,7 @@ PNEER:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 8000
+		HP: 10000
 	Armor:
 		Type: None
 	Mobile:
@@ -3179,7 +3219,7 @@ CAVALRY:
 		Bounds: 24,24
 		DecorationBounds: 28,28,0,-4
 	Health:
-		HP: 10000
+		HP: 12000
 	Armor:
 		Type: None
 	-Mobile:
@@ -3438,7 +3478,7 @@ IRONMAN:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Valued:
-		Cost: 500
+		Cost: 400
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
@@ -3547,7 +3587,7 @@ GRENADELAUNCHER:
 		Prerequisites: adept, ~infantry.germany, ~techlevel.infonly
 		Description: Infantry armed with a grenade launcher.\n  Strong vs Buildings, Infantry\n  Weak vs Vehicles, Aircraft
 	Valued:
-		Cost: 200
+		Cost: 300
 	Tooltip:
 		Name: Stormtrooper
 	UpdatesPlayerStatistics:
@@ -3610,3 +3650,18 @@ E3R3:
 	UpdatesPlayerStatistics:
 		OverrideActor: e3
 	-Buildable:
+
+E1CREW:
+	Inherits: E1
+	RenderSprites:
+		Image: e1
+	GrantTimedCondition@spawned:
+		Condition: spawned
+		Duration: 2
+	ChangesHealth@spawned:
+		RequiresCondition: spawned
+		StartIfBelow: 101
+		Step: -4500
+		Delay: 0
+	-Buildable:
+	-MapEditorData:
