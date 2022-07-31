@@ -315,7 +315,7 @@ ANT40:
 	Tooltip:
 		Name: Tactical Bomber
 	Health:
-		HP: 18000
+		HP: 19000
 	SpawnActorOnDeath:
 		Actor: ANT40.Husk
 	Armament@PRIMARY:
@@ -1287,7 +1287,7 @@ COMET:
 	Inherits@CARGOPIPS: ^CargoPips
 	Cargo:
 		Types: Infantry
-		MaxWeight: 8
+		MaxWeight: 4
 		AfterUnloadDelay: 40
 	Buildable:
 		Queue: Helicopter
@@ -1620,6 +1620,8 @@ WASP:
 	ReloadAmmoPool:
 		Delay: 200
 		ResetOnFire: True
+	Rearmable:
+		RearmActors: hpad
 
 MSRSMT:
 	Inherits: ^Plane

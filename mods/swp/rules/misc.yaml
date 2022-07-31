@@ -597,24 +597,6 @@ fact.colorpicker:
 		Image: fact
 		Palette: colorpicker
 
-CTFLAG:
-	Inherits: ^TechBuilding
-	Building:
-		Footprint: x
-		Dimensions: 1,1
-	Tooltip:
-		Name: Flag
-	WithBuildingBib:
-		HasMinibib: true
-	-HitShape:
-	-Health:
-	-Explodes:
-	-Selectable:
-	-Targetable:
-	MapEditorData:
-		Categories: Decoration
-	Interactable:
-
 SMINE:
 	Inherits: ^Mine
 	RenderSprites:
@@ -770,12 +752,39 @@ MAGNETICSUSPENSIONSPAWNER:
 	WithSpriteBody:
 	BodyOrientation:
 		QuantizedFacings: 1
+	RenderSprites:
+		Image: magneticshield
+		Scale: 0.5
+		Palette: neweffects-alpha
+	WithSpriteBody:
+		Sequence: make
+	GrantTimedCondition:
+		Condition: spawned
+		Duration: 60
+	FreeActor:
+		Actor: MAGNETICSUSPENSION
+		RequiresCondition: !spawned
+	KillsSelf:
+		Delay: 61
+		GrantsCondition: timetodie
+	FreeActor@2:
+		Actor: MAGNETBLOCK
+		RequiresCondition: timetodie
+		SpawnOffset: -2,-2
+
+MAGNETBLOCK:
+	Inherits: ^Rock
+	-RenderSprites:
 	RenderSpritesEditorOnly:
 		Image: camera
-	FreeActor:
-		Actor: MAGNETICSUSPENSION1
+	Building:
+		Footprint: _xxx_ xxxxx xxxxx xxxxx _xxx_
+		Dimensions: 5,5
+	-MapEditorData:
+	KillsSelf:
+		Delay: 250
 
-MAGNETICSUSPENSION1:
+MAGNETICSUSPENSION:
 	Interactable:
 	EditorOnlyTooltip:
 		Name: Global Shroud Spawner
@@ -785,10 +794,9 @@ MAGNETICSUSPENSION1:
 	BodyOrientation:
 		QuantizedFacings: 1
 	RenderSprites:
-		Image: nanoshield
-		Scale: 0.05
+		Image: magneticshield
+		Scale: 0.5
 		Palette: neweffects-alpha
-	WithMakeAnimation:
 	WithDeathAnimation:
 		UseDeathTypeSuffix: False
 		FallbackSequence: die
@@ -798,121 +806,7 @@ MAGNETICSUSPENSION1:
 		Delay: 250
 	ProximityExternalCondition@magneticsuspension:
 		Condition: magneticsuspension
-		Range: 0c512
-		ValidRelationships: Ally, Neutral, Enemy
-	AmbientSound:
-		SoundFiles: magnetic_sound.aud
-		Delay: 0
-		Interval: 250
-	KillsSelf:
-		Delay: 100
-	FreeActor:
-		RequiresCondition: !tospawn
-		Actor: MAGNETICSUSPENSION2
-	GrantTimedCondition:
-		Condition: tospawn
-		Duration: 90
-
-MAGNETICSUSPENSION2:
-	Interactable:
-	EditorOnlyTooltip:
-		Name: Global Shroud Spawner
-	AlwaysVisible:
-	Immobile:
-		OccupiesSpace: false
-	BodyOrientation:
-		QuantizedFacings: 1
-	RenderSprites:
-		Image: nanoshield
-		Scale: 0.1
-		Palette: neweffects-alpha
-	WithMakeAnimation:
-	WithDeathAnimation:
-		UseDeathTypeSuffix: False
-		FallbackSequence: die
-	ScriptTriggers:
-	WithSpriteBody:
-	KillsSelf:
-		Delay: 250
-	ProximityExternalCondition@magneticsuspension:
-		Condition: magneticsuspension
-		Range: 1c0
-		ValidRelationships: Ally, Neutral, Enemy
-	AmbientSound:
-		SoundFiles: magnetic_sound.aud
-		Delay: 0
-		Interval: 250
-	KillsSelf:
-		Delay: 125
-	FreeActor:
-		RequiresCondition: !tospawn
-		Actor: MAGNETICSUSPENSION3
-	GrantTimedCondition:
-		Condition: tospawn
-		Duration: 115
-
-MAGNETICSUSPENSION3:
-	Interactable:
-	EditorOnlyTooltip:
-		Name: Global Shroud Spawner
-	AlwaysVisible:
-	Immobile:
-		OccupiesSpace: false
-	BodyOrientation:
-		QuantizedFacings: 1
-	RenderSprites:
-		Image: nanoshield
-		Scale: 0.15
-		Palette: neweffects-alpha
-	WithMakeAnimation:
-	WithDeathAnimation:
-		UseDeathTypeSuffix: False
-		FallbackSequence: die
-	ScriptTriggers:
-	WithSpriteBody:
-	KillsSelf:
-		Delay: 250
-	ProximityExternalCondition@magneticsuspension:
-		Condition: magneticsuspension
-		Range: 1c720
-		ValidRelationships: Ally, Neutral, Enemy
-	AmbientSound:
-		SoundFiles: magnetic_sound.aud
-		Delay: 0
-		Interval: 250
-	KillsSelf:
-		Delay: 175
-	FreeActor:
-		RequiresCondition: !tospawn
-		Actor: MAGNETICSUSPENSION4
-	GrantTimedCondition:
-		Condition: tospawn
-		Duration: 165
-
-MAGNETICSUSPENSION4:
-	Interactable:
-	EditorOnlyTooltip:
-		Name: Global Shroud Spawner
-	AlwaysVisible:
-	Immobile:
-		OccupiesSpace: false
-	BodyOrientation:
-		QuantizedFacings: 1
-	RenderSprites:
-		Image: nanoshield
-		Scale: 0.20
-		Palette: neweffects-alpha
-	WithMakeAnimation:
-	WithDeathAnimation:
-		UseDeathTypeSuffix: False
-		FallbackSequence: die
-	ScriptTriggers:
-	WithSpriteBody:
-	KillsSelf:
-		Delay: 200
-	ProximityExternalCondition@magneticsuspension:
-		Condition: magneticsuspension
-		Range: 2c206
+		Range: 2c512
 		ValidRelationships: Ally, Neutral, Enemy
 	AmbientSound:
 		SoundFiles: magnetic_sound.aud

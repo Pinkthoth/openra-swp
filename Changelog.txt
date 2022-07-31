@@ -1,3 +1,62 @@
+0.014-pre-release
+Unti balance
+-Marksman's anti-ground weapon's range decreased by 0c512.
+-Thunderbolt weapon range decreased by 1c0.
+-Cavalry weapon range increased by 0c512.
+-Increased Militia price by 5$.
+-Increased Militia weapon reload time by 5.
+-Decreased Militia weapon damage by 100.
+-Decreased Militia health by 1000.
+-Increased Dog health by 1000.
+-Increased Arditi health by 250.
+-Increased Kulak health by 1000.
+-Increased Flamethrower health by 500.
+-Increased Night Witch health by 500.
+-Decreased Arc Thrower speed by 5.
+-Decreased civilian Nuclear Power plant's vision range by 1c0.
+-Decreased Stormtrooper weapon range by 0c512.
+-Decreased Stromtrooper grenade fly speed by 20.
+-Increased Squire weapon damage by 100.
+-Decreased Ranger and Bobcat weapon damage against none armour by 30%.
+-Increased Squire weapon damage versus wood armour by 10%.
+-Decreased Comet weapon reload time by 15 ticks, and increased damage output towards light and medium armour by 15%., and wood, heavy and concrete armour by 10%.
+-Decreased Comet weapon damage vs none armour by 20%.
+-Increased Comet weapon range by 1c0.
+-Decreased Comet carrying capacity to 4.
+-Increased Black Hawk weapon range by 1c0.
+-Increased Tiger and Crusader weapon damage against concrete armour by 35%. and Cossack weapon damage by 40%.
+-Increased Bronetransporter, Squire and Puma weapon damage against concrete armour by 10%.
+-Increased anti ground missile's damage against concrete armour by 10%.
+-Increased Hind damage vs. none armour by 5%.
+-Increased Squire damage vs light armour by 5%.
+-Decreased Squire damage vs medium armour by 10%.
+-Decreased War Factory cost by 100$.
+-Decreased Marksman aa weapon's damage by 100.
+-Increased Pillbox & Camo Pillbox damage vs none armour by 5%.
+-Increased Black Hawk damage vs none armour by 29%.
+-Increased Tactical Bomber health by 1000.
+-Decreased Toxxer damage vs. heavy, medium and light armour by 10%.
+-Decreased Waste Tanker's cost by 200$.
+-Decreased Disruptor cost by 150$.
+
+-Changed build time reductions for vehicles, ships, helicopters and aircraft to max out at 5 production buildings: 1000, 800, 650, 550, 500
+-Increased all ballistic and missile damage against concrete armor by 10, except for Mortar, Paladin, Czar, Khan, Katyusha, V2-Missile Launcher and others if the value was already at 100 or over that.
+-Changed MAgnetic suspension's effect.
+
+Bug fixes
+-Wasp is rearmable on Helipads.
+-Legionaire inside Caballero has a secondary rifle weapon.
+-Corrected Supercharge description.
+-Corrected Magnetic Suspension's description.
+-Fixed Japan not having Recon Bike in it's build palette.
+-Firing artillery is heard before an entente artillery barrage.
+-Caballero with a Shinobi inside now properly retains it's weapon.
+-EM Pulse disables phase stealth.
+-Fixed vehicles, infantry and defences not being able to detect phase cloak.
+
+Sounds and graphics
+-Comet mg sound, Atomic Noodles
+
 0.013-pre-release
 Unit balance
 -Decreased Heavy Machine Gun Crew health by 5000.

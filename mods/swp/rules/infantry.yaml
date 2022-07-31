@@ -17,7 +17,7 @@ DOG:
 		Bounds: 12,17,-1,-4
 		DecorationBounds: 12,17,-1,-4
 	Health:
-		HP: 3000
+		HP: 4000
 	Mobile:
 		Speed: 99
 		Voice: Move
@@ -138,7 +138,7 @@ ARDITI:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 5000
+		HP: 5250
 	Armament@PRIMARY:
 		Weapon: M1Carbine_elite
 	Crushable:
@@ -308,7 +308,7 @@ HVGATLING:
 		IsCyclic: false
 		RevokeOnNewTarget: false
 	AmbientSound@gatlingspinning:
-		SoundFiles: turret_loop_11.wav
+		SoundFiles: inf_loop_11.wav
 		RequiresCondition: gatling
 	Armament@GARRISONED:
 		Name: garrisoned
@@ -483,7 +483,7 @@ KULAK:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 6000
+		HP: 7000
 	Mobile:
 		Speed: 50
 	RevealsShroud:
@@ -2216,7 +2216,7 @@ E4:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 4000
+		HP: 4500
 	Armament@PRIMARY:
 		Weapon: Flamer
 		LocalOffset: 700,0,500
@@ -2454,7 +2454,7 @@ MILITIA:
 		Description: Light general-purpose infantry.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
 	Selectable:
 	Valued:
-		Cost: 75
+		Cost: 80
 	Tooltip:
 		Name: Militia
 	UpdatesPlayerStatistics:
@@ -2902,7 +2902,7 @@ NIGHTWITCH:
 	Selectable:
 		Class: NIGHTWITCH
 	Health:
-		HP: 5000
+		HP: 5500
 	Mobile:
 		Voice: Move
 		Speed: 40
@@ -2972,7 +2972,7 @@ NIGHTWITCHAIR:
 	Armor:
 		Type: None
 	Health:
-		HP: 5000
+		HP: 5500
 	Aircraft:
 		TurnSpeed: 20
 		Speed: 90
@@ -3242,7 +3242,7 @@ CAVALRY:
 	Voiced:
 		VoiceSet: GenericVoice
 	Armament:
-		Weapon: MosinNagant44
+		Weapon: MosinNagant44-Cavalry
 		Recoil: 128
 		RecoilRecovery: 38
 		LocalOffset: 720,0,80

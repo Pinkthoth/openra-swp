@@ -372,11 +372,11 @@ CIVNUKE:
 	Armor:
 		Type: Wood
 	RevealsShroud:
-		MinRange: 4c0
-		Range: 5c0
+		MinRange: 3c0
+		Range: 4c0
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
-		Range: 3c0
+		Range: 2c0
 	WithIdleOverlay@bip:
 		Image: bib_3x3
 		Sequence: idle

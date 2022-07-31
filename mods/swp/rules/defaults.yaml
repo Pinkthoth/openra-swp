@@ -535,6 +535,11 @@
 		RequiresCondition: stealth
 		Palette: newcloak
 		CloakTypes: Phase
+		PauseOnCondition: cloak-force-disabled
+		UncloakOn: Attack, Heal, Dock
+	GrantConditionOnDamageState@UNCLOAK:
+		Condition: cloak-force-disabled
+		ValidDamageStates: Critical
 	TimedConditionBar@STEALTH:
 		Condition: stealth
 		Color: FF54D1
@@ -823,7 +828,7 @@
 	Inherits@chronohaste: ^ChronoHasteable
 	Inherits@flarevision: ^FlareVision
 	DetectCloaked@phase:
-		CloakTypes: Cloak
+		CloakTypes: Phase
 		Range: 1c0
 	Carryable:
 	Huntable:
@@ -1100,7 +1105,7 @@
 		CloakTypes: Cloak
 		Range: 2c0
 	DetectCloaked@phase:
-		CloakTypes: Cloak
+		CloakTypes: Phase
 		Range: 2c0
 	GrantExternalConditionToCrusher:
 		WarnCrushCondition: crush-attempt
@@ -1462,7 +1467,7 @@
 		Categories: Defense
 	-CommandBarBlacklist:
 	DetectCloaked@phase:
-		CloakTypes: Cloak
+		CloakTypes: Phase
 		Range: 4c0
 
 ^Wall:

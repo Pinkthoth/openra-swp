@@ -17,7 +17,7 @@
 			Wood: 75
 			Light: 75
 			Medium: 85
-			Concrete: 55
+			Concrete: 65
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Crater
@@ -50,7 +50,7 @@
 			Light: 60
 			Medium: 40
 			Heavy: 25
-			Concrete: 45
+			Concrete: 55
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@3Eff: CreateEffect
 		Explosions: artillery_explosion
@@ -74,7 +74,7 @@
 			Light: 75
 			Medium: 100
 			Heavy: 48
-			Concrete: 37
+			Concrete: 57
 	-Warhead@2Smu:
 	Warhead@3Eff: CreateEffect
 		-ImpactSounds:
@@ -97,7 +97,7 @@
 			Light: 90
 			Medium: 50
 			Heavy: 42
-			Concrete: 25
+			Concrete: 45
 	-Warhead@2Smu:
 	Warhead@3Eff: CreateEffect
 		-ImpactSounds:
@@ -113,14 +113,14 @@
 	Report: autocannon.aud
 	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
-		Damage: 1000
+		Damage: 1100
 		Versus:
 			None: 32
-			Wood: 42
-			Light: 70
-			Medium: 90
+			Wood: 52
+			Light: 75
+			Medium: 80
 			Heavy: 33
-			Concrete: 30
+			Concrete: 40
 	-Warhead@2Smu:
 	Warhead@3Eff: CreateEffect
 		-ImpactSounds:
@@ -135,7 +135,7 @@
 			None: 0
 			Medium: 95
 			Heavy: 115
-			Concrete: 45
+			Concrete: 95
 	Warhead@2Dam: SpreadDamage
 		Damage: 2000
 		Falloff: 200, 150, 100, 50
@@ -236,7 +236,7 @@ PortaCannon:
 			Light: 65
 			Medium: 60
 			Heavy: 50
-			Concrete: 35
+			Concrete: 55
 
 8Inch:
 	Inherits: ^Artillery
@@ -293,7 +293,7 @@ PortaCannon:
 			None: 28
 			Wood: 72
 			Light: 72
-			Concrete: 53
+			Concrete: 63
 
 Grenade:
 	Inherits: ^Artillery
@@ -313,7 +313,7 @@ Grenade:
 			Light: 25
 			Medium: 25
 			Heavy: 25
-			Concrete: 60
+			Concrete: 70
 	Warhead@3Eff: CreateEffect
 		Explosions: med_explosion
 		ImpactSounds: kaboom25.aud
@@ -340,7 +340,7 @@ Satchel:
 			Light: 40
 			Medium: 45
 			Heavy: 50
-			Concrete: 60
+			Concrete: 70
 	Warhead@3Eff: CreateEffect
 		Explosions: med_explosion
 		ImpactSounds: kaboom25.aud
@@ -366,7 +366,7 @@ Molotov:
 			Light: 30
 			Medium: 25
 			Heavy: 25
-			Concrete: 50
+			Concrete: 60
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath
 	Warhead@3Eff: CreateEffect
 		Explosions: napalm
@@ -422,7 +422,7 @@ hvtnkfire:
 			None: 0
 			Medium: 95
 			Heavy: 115
-			Concrete: 50
+			Concrete: 95
 	Warhead@2Dam: SpreadDamage
 		Damage: 3000
 		Falloff: 200, 150, 100, 50
@@ -454,7 +454,7 @@ ltnkfire:
 			Light: 80
 			Medium: 90
 			Heavy: 95
-			Concrete: 50
+			Concrete: 95
 	Warhead@2Dam: SpreadDamage
 		Damage: 1500
 		Falloff: 200, 150, 100, 50
@@ -531,7 +531,7 @@ BuildingGrenade:
 			Wood: 100
 			Light: 25
 			Heavy: 25
-			Concrete: 80
+			Concrete: 90
 	Warhead@3Eff: CreateEffect
 		Explosions: med_explosion
 		ImpactSounds: kaboom25.aud
@@ -601,10 +601,10 @@ GrenadeLauncher:
 	Inherits: ^Artillery
 	ReloadDelay: 100
 	Report: glnch4.aud
-	Range: 5c512
+	Range: 5c0
 	Projectile: Bullet
 		LaunchAngle: 100
-		Speed: 136
+		Speed: 116
 		Inaccuracy: 554
 		Image: BOMB
 		ContrailWidth: 40
@@ -618,7 +618,7 @@ GrenadeLauncher:
 			Light: 25
 			Medium: 25
 			Heavy: 25
-			Concrete: 50
+			Concrete: 60
 	Warhead@3Eff: CreateEffect
 		Explosions: med_explosion
 		ImpactSounds: kaboom25.aud

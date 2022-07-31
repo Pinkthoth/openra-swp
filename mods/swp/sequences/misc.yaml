@@ -105,6 +105,20 @@ dig_sm:
 		ZOffset: 511
 		Offset: 0, 0, 24
 
+magneticshield:
+	idle:
+		Start: 22
+		Length: 90
+		Tick: 150
+	make:
+		Start: 0
+		Length: 22
+		Tick: 150
+	die:
+		Start: 112
+		Length: 28
+		Tick: 100
+
 explosion:
 	Defaults:
 		Length: *

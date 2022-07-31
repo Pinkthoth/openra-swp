@@ -250,7 +250,7 @@ Archer-AG:
 	BurstDelays: 3
 	ReloadDelay: 15
 	Report: shilka.aud
-	Range: 6c0
+	Range: 5c512
 	ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
 	Warhead@1Dam: SpreadDamage
 		Damage: 1200
@@ -276,7 +276,7 @@ Archer-AA:
 	Range: 7c0
 	ValidTargets: AirborneActor, AirborneBomber
 	Warhead@1Dam: SpreadDamage
-		Damage: 800
+		Damage: 700
 		Versus:
 			None: 82
 			Wood: 20
@@ -294,7 +294,7 @@ Vulcan:
 	Warhead@1Dam: SpreadDamage
 		Damage: 500
 		Versus:
-			None: 200
+			None: 205
 			Wood: 50
 			Light: 40
 			Medium: 40
@@ -306,7 +306,7 @@ Vulcan:
 		Delay: 2
 		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
-			None: 200
+			None: 205
 			Wood: 50
 			Light: 50
 			Medium: 40
@@ -328,7 +328,7 @@ Vulcan:
 		Delay: 4
 		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
-			None: 200
+			None: 205
 			Wood: 50
 			Light: 50
 			Medium: 40
@@ -350,7 +350,7 @@ Vulcan:
 		Delay: 6
 		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
-			None: 200
+			None: 205
 			Wood: 50
 			Light: 50
 			Medium: 40
@@ -372,7 +372,7 @@ Vulcan:
 		Delay: 8
 		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
-			None: 200
+			None: 205
 			Wood: 50
 			Light: 50
 			Medium: 40
@@ -394,7 +394,7 @@ Vulcan:
 		Delay: 10
 		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
-			None: 200
+			None: 205
 			Wood: 50
 			Light: 50
 			Medium: 40
@@ -463,13 +463,13 @@ LightMachineGun2:
 ChainGun:
 	Inherits: ^HeavyMG
 	ReloadDelay: 10
-	Range: 5c0
+	Range: 6c0
 	MinRange: 0c128
 	Projectile: InstantHit
 		Blockable: false
 	Warhead@1Dam: SpreadDamage
 		Versus:
-			None: 115
+			None: 144
 			Wood: 50
 			Light: 62
 			Medium: 50
@@ -568,7 +568,7 @@ MesserschmittAutocannon.AA:
 
 ChainGun.A10:
 	Inherits: ChainGun.Yak.AA
-	Range: 8c0
+	Range: 7c0
 	FirstBurstTargetOffset: -1c0,0,0
 	FollowingBurstTargetOffset: 0c512,0,0
 	ReloadDelay: 75
@@ -767,31 +767,31 @@ Uzi:
 
 M60mg-Comet:
 	Inherits: ^HeavyMG
-	ReloadDelay: 30
-	Range: 5c0
-	Report: HMGL1.wav, HMGL2.wav, HMGL3.wav
+	ReloadDelay: 15
+	Range: 6c0
+	Report: gun5.aud
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
 		Damage: 2250
 		Versus:
-			None: 130
-			Wood: 10
-			Light: 20
-			Medium: 15
-			Heavy: 5
-			Concrete: 5
+			None: 110
+			Wood: 20
+			Light: 30
+			Medium: 25
+			Heavy: 15
+			Concrete: 15
 	Warhead@2Dam_2: SpreadDamage
 		Spread: 128
 		Damage: 2250
 		Delay: 2
 		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
-			None: 130
-			Wood: 10
-			Light: 20
-			Medium: 15
-			Heavy: 5
-			Concrete: 5
+			None: 110
+			Wood: 20
+			Light: 35
+			Medium: 30
+			Heavy: 15
+			Concrete: 15
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@3Dam_2: SpreadDamage
 		Spread: 128
@@ -799,12 +799,12 @@ M60mg-Comet:
 		Delay: 4
 		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
-			None: 130
-			Wood: 10
-			Light: 20
-			Medium: 15
-			Heavy: 5
-			Concrete: 5
+			None: 110
+			Wood: 20
+			Light: 35
+			Medium: 30
+			Heavy: 15
+			Concrete: 15
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@4Dam_2: SpreadDamage
 		Spread: 128
@@ -812,12 +812,12 @@ M60mg-Comet:
 		Delay: 6
 		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
-			None: 130
-			Wood: 10
-			Light: 20
-			Medium: 15
-			Heavy: 5
-			Concrete: 5
+			None: 110
+			Wood: 20
+			Light: 35
+			Medium: 30
+			Heavy: 15
+			Concrete: 15
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		Inaccuracy: 213
@@ -841,7 +841,7 @@ M60mg:
 	Warhead@1Dam: SpreadDamage
 		Damage: 2250
 		Versus:
-			None: 130
+			None: 100
 			Wood: 10
 			Light: 20
 			Medium: 15
@@ -853,7 +853,7 @@ M60mg:
 		Delay: 2
 		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
-			None: 130
+			None: 100
 			Wood: 10
 			Light: 20
 			Medium: 15
@@ -866,7 +866,7 @@ M60mg:
 		Delay: 4
 		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
-			None: 130
+			None: 100
 			Wood: 10
 			Light: 20
 			Medium: 15
@@ -879,7 +879,7 @@ M60mg:
 		Delay: 6
 		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
-			None: 130
+			None: 100
 			Wood: 10
 			Light: 20
 			Medium: 15
@@ -1538,11 +1538,11 @@ GuerillaCarbine:
 		
 MosinNagant44:
 	Inherits: ^LightMG
-	ReloadDelay: 30
+	ReloadDelay: 35
 	Range: 5c0
 	Report: rifle1.aud
 	Warhead@1Dam: SpreadDamage
-		Damage: 900
+		Damage: 800
 		Versus:
 			Wood: 20
 	Warhead@2Eff2: CreateEffect
@@ -1555,6 +1555,13 @@ MosinNagant44:
 		Explosions: piff
 		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees
 		Inaccuracy: 171
+
+MosinNagant44-Cavalry:
+	Inherits: MosinNagant44
+	ReloadDelay: 30
+	Range: 5c512
+	Warhead@1Dam: SpreadDamage
+		Damage: 900
 
 9mmPistol:
 	Inherits: MosinNagant44

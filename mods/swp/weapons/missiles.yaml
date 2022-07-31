@@ -24,7 +24,7 @@
 			Light: 34
 			Medium: 70
 			Heavy: 100
-			Concrete: 55
+			Concrete: 75
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Crater
@@ -60,7 +60,7 @@ Stinger:
 			Wood: 88
 			Light: 88
 			Heavy: 120
-			Concrete: 80
+			Concrete: 90
 
 StingerAA:
 	Inherits: Stinger
@@ -182,7 +182,7 @@ HornetMissile:
 			Light: 60
 			Medium: 50
 			Heavy: 40
-			Concrete: 60
+			Concrete: 70
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, SmallExplosionDeath, Incendiary
 	Warhead@3Eff: CreateEffect
 		Explosions: napalm
@@ -283,7 +283,7 @@ MammothTusk:
 			None: 100
 			Light: 60
 			Heavy: 24
-			Concrete: 55
+			Concrete: 65
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@3Eff: CreateEffect
 		ImpactSounds: kaboom12.aud
@@ -367,7 +367,7 @@ Stinger:
 			Wood: 88
 			Light: 88
 			Heavy: 120
-			Concrete: 65
+			Concrete: 75
 
 StingerAA:
 	Inherits: Stinger
@@ -928,7 +928,7 @@ IfritAreaFire:
 			Light: 60
 			Medium: 50
 			Heavy: 40
-			Concrete: 60
+			Concrete: 70
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@3Eff: CreateEffect
 		Explosions: med_explosion
@@ -960,12 +960,12 @@ Hind227mm:
 		Falloff: 250, 200, 150, 80, 60, 15, 5, 0
 		ValidTargets: GroundActor, Trees,  WaterActor, AirborneActor
 		Versus:
-			None: 50
+			None: 55
 			Wood: 40
 			Light: 80
 			Medium: 70
 			Heavy: 60
-			Concrete: 35
+			Concrete: 45
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@3Eff: CreateEffect
 		Explosions: med_explosion
@@ -1002,7 +1002,7 @@ GebardMissile:
 			Light: 60
 			Medium: 70
 			Heavy: 40
-			Concrete: 30
+			Concrete: 40
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@3Eff: CreateEffect
 		Explosions: med_explosion

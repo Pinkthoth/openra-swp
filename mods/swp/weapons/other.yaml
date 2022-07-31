@@ -335,9 +335,9 @@ Toxxer:
 			None: 30
 			Wood: 10
 			Tree: 10
-			Light: 40
-			Medium: 30
-			Heavy: 20
+			Light: 30
+			Medium: 20
+			Heavy: 10
 			Concrete: 5
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, AcidDeath
 		ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor, Trees

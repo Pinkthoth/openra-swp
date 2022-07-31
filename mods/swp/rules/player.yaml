@@ -45,7 +45,7 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: True
-		BuildTimeSpeedReduction: 1000, 825, 700, 620, 585, 555, 535, 520, 510, 500
+		BuildTimeSpeedReduction: 1000, 800, 650, 550, 500
 		BuildDurationModifier: 10
 	ClassicProductionQueue@Infantry:
 		Type: Infantry
@@ -71,7 +71,7 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: True
-		BuildTimeSpeedReduction: 1000, 825, 700, 620, 585, 555, 535, 520, 510, 500
+		BuildTimeSpeedReduction: 1000, 800, 650, 550, 500
 		BuildDurationModifier: 10
 	ClassicProductionQueue@Aircraft:
 		Type: Aircraft
@@ -84,7 +84,7 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: True
-		BuildTimeSpeedReduction: 1000, 825, 700, 620, 585, 555, 535, 520, 510, 500
+		BuildTimeSpeedReduction: 1000, 800, 650, 550, 500
 		BuildDurationModifier: 10
 	ClassicProductionQueue@Helicopter:
 		Type: Helicopter
@@ -97,7 +97,7 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: True
-		BuildTimeSpeedReduction: 1000, 825, 700, 620, 585, 555, 535, 520, 510, 500
+		BuildTimeSpeedReduction: 1000, 800, 650, 550, 500
 		BuildDurationModifier: 10
 	PlaceBuilding:
 		NewOptionsNotification: NewOptions

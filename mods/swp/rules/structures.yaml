@@ -1100,6 +1100,7 @@ DOME:
 		AllowMultiple: false
 		SupportPowerPaletteOrder: 65
 		LaunchSpeechNotification: ArtbrgNotification
+		IncomingSpeechNotification: ArtbrgNotification
 		EndChargeSpeechNotification: ArtbrgReady
 	AirstrikePower@parabombs:
 		PauseOnCondition: turnedoff || disabled
@@ -1265,7 +1266,7 @@ DOME:
 		Icon: superchargeicon
 		ChargeInterval: 6000
 		Description: Supercharge
-		LongDesc: Increases the power output of power plants by 50%\nor the reload speed of tesla units\nby 30%.
+		LongDesc: Increases the power output of power plants by 50%\nor grants tesla units' weapons\nchain lightning.
 		Duration: 500
 		SelectTargetSpeechNotification: SelectTarget
 		InsufficientPowerSpeechNotification: InsufficientPower
@@ -2340,7 +2341,7 @@ WEAP:
 		Prerequisites: proc, ~techlevel.low
 		Description: Produces vehicles.
 	Valued:
-		Cost: 1900
+		Cost: 1800
 	Tooltip:
 		Name: War Factory
 	Building:
