@@ -1,3 +1,37 @@
+0.015-pre-release
+Unit balance
+-Legionaire cost reduced by 25$.
+-Commando, Legionaire and Arditi health increased by 500.
+-Increased Puma, Squire and Bronetransporter damage vs. none armour by 5%.
+-Increased Puma and Bronetransporter damage vs. light and medium armor by 5%.
+-Increased Squire damage vs. light armour by 10% and vs. medium armour by 5%.
+-Airborne Night Witch's health decreased by 1500.
+-Desolator cost decreased by 150$.
+-Decreased Desolator weapon damage vs. light, medium and heavy armour by 10%., increased Desolator weapon damage vs. concrete armour by 20%.
+-Increased MCV and Construction Yard health by 5%.
+-Increased Stormtrooper range by 0c512
+-Increased Stormtrooper price by 100$.
+-Increased Stormtrooper weapon reload time by 30.
+-Decreased Stormtrooper health by 500.
+-Decreased Katyusha range by 1c0.
+-Decreased V2 Missile launcher range by 0c512.
+-Increased Artillery range by 1c0.
+-Decreased Comet speed by 25.
+-Decreased Comet weapon damage vs. none armour by 10%. and vs light, medium and heavy armour by 5%.
+-Decreased Ranger speed by 10.
+-Increased Tankette damage vs. none armour by 5%.
+
+Bug fixes
+-Night Witch has a dying sound while airborne.
+
+Features
+-Increased building placement range by 1c0.
+
+Graphics and sound
+-Changed Desolator weapon effects.
+-Removed burning sound from fires that stay on the ground.
+-Removed muzzle overlay from Refractor Cannon.
+
 0.014-pre-release
 Unti balance
 -Marksman's anti-ground weapon's range decreased by 0c512.
@@ -38,7 +72,6 @@ Unti balance
 -Decreased Toxxer damage vs. heavy, medium and light armour by 10%.
 -Decreased Waste Tanker's cost by 200$.
 -Decreased Disruptor cost by 150$.
-
 -Changed build time reductions for vehicles, ships, helicopters and aircraft to max out at 5 production buildings: 1000, 800, 650, 550, 500
 -Increased all ballistic and missile damage against concrete armor by 10, except for Mortar, Paladin, Czar, Khan, Katyusha, V2-Missile Launcher and others if the value was already at 100 or over that.
 -Changed MAgnetic suspension's effect.
@@ -53,9 +86,6 @@ Bug fixes
 -Caballero with a Shinobi inside now properly retains it's weapon.
 -EM Pulse disables phase stealth.
 -Fixed vehicles, infantry and defences not being able to detect phase cloak.
-
-Sounds and graphics
--Comet mg sound, Atomic Noodles
 
 0.013-pre-release
 Unit balance

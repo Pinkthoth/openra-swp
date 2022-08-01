@@ -774,11 +774,11 @@ M60mg-Comet:
 	Warhead@1Dam: SpreadDamage
 		Damage: 2250
 		Versus:
-			None: 110
+			None: 100
 			Wood: 20
 			Light: 30
 			Medium: 25
-			Heavy: 15
+			Heavy: 10
 			Concrete: 15
 	Warhead@2Dam_2: SpreadDamage
 		Spread: 128
@@ -786,11 +786,11 @@ M60mg-Comet:
 		Delay: 2
 		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
-			None: 110
+			None: 100
 			Wood: 20
-			Light: 35
-			Medium: 30
-			Heavy: 15
+			Light: 30
+			Medium: 25
+			Heavy: 10
 			Concrete: 15
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@3Dam_2: SpreadDamage
@@ -799,11 +799,11 @@ M60mg-Comet:
 		Delay: 4
 		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
-			None: 110
+			None: 100
 			Wood: 20
-			Light: 35
-			Medium: 30
-			Heavy: 15
+			Light: 30
+			Medium: 25
+			Heavy: 10
 			Concrete: 15
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@4Dam_2: SpreadDamage
@@ -812,11 +812,11 @@ M60mg-Comet:
 		Delay: 6
 		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
-			None: 110
+			None: 100
 			Wood: 20
-			Light: 35
-			Medium: 30
-			Heavy: 15
+			Light: 30
+			Medium: 25
+			Heavy: 10
 			Concrete: 15
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
@@ -1317,7 +1317,7 @@ TNKT:
 	Warhead@1Dam: SpreadDamage
 		Damage: 2250
 		Versus:
-			None: 100
+			None: 105
 			Wood: 35
 			Light: 35
 			Medium: 25
@@ -1329,7 +1329,7 @@ TNKT:
 		Delay: 2
 		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
-			None: 100
+			None: 105
 			Wood: 35
 			Light: 35
 			Medium: 25
@@ -1342,7 +1342,7 @@ TNKT:
 		Delay: 4
 		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
-			None: 100
+			None: 105
 			Wood: 35
 			Light: 35
 			Medium: 25
@@ -1355,7 +1355,7 @@ TNKT:
 		Delay: 6
 		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
-			None: 100
+			None: 105
 			Wood: 35
 			Light: 35
 			Medium: 25

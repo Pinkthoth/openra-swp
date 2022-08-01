@@ -77,7 +77,7 @@ FACT:
 		Factions: bulgaria
 		Prerequisite: structures.bulgaria
 	Health:
-		HP: 175000
+		HP: 183750
 	Armor:
 		Type: Wood
 	RevealsShroud:

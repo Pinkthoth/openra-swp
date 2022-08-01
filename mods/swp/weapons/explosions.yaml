@@ -140,7 +140,6 @@ BuildingExplode:
 
 BuildingFire:
 	Projectile: InstantHit
-	Report: burninglong1.aud, burninglong2.aud, burninglong3.aud
 	Warhead@2EffStart: CreateEffect
 		Image: Fire
 		Explosions: firelong

@@ -138,7 +138,7 @@ ARDITI:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 5250
+		HP: 5500
 	Armament@PRIMARY:
 		Weapon: M1Carbine_elite
 	Crushable:
@@ -2010,13 +2010,13 @@ LEGIONAIRE:
 		Prerequisites: ~barracks, adept, ~infantry.france, ~techlevel.infonly
 		Description: General-purpose infantry. Armed with an\nassault rifle and a stinger.\n  Strong vs Infantry\n	Weak vs Vehicles, Aircraft
 	Valued:
-		Cost: 325
+		Cost: 300
 	Tooltip:
 		Name: Legionaire
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 5000
+		HP: 5500
 	RevealsShroud:
 		MinRange: 4c0
 		Range: 5c0
@@ -2086,7 +2086,7 @@ SPECOP:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 5000
+		HP: 5500
 	Mobile:
 	RevealsShroud:
 		Range: 6c0
@@ -2566,7 +2566,7 @@ DESOLATOR:
 		Prerequisites: ~barr, mtek, ~infantry.turkey, ~techlevel.infonly
 		Description: Anti-infantry unit, capable of creating\na large burning area around it by deploying.\n  Strong vs Infantry\n	Weak vs Vehicles
 	Valued:
-		Cost: 550
+		Cost: 400
 	Mobile:
 		Speed: 40
 	Tooltip:
@@ -2582,6 +2582,18 @@ DESOLATOR:
 		Weapon: DesolatorHandHeld
 		LocalOffset: 120,0,600
 		PauseOnCondition: deployed
+	Armament@linedamage:
+		Name: secondary
+		Weapon: DesolatorHandHeld_LineDamage
+		LocalOffset: 120,0,600
+		PauseOnCondition: deployed
+	Armament@effect:
+		Name: tertiary
+		Weapon: DesolatorHandHeld_Effect
+		LocalOffset: 120,0,600
+		PauseOnCondition: deployed
+	AttackFrontal:
+		Armaments: primary, secondary, tertiary
 	Mobile:
 		RequiresCondition: !deployed
 	Armament@Garrisoned:
@@ -2972,7 +2984,7 @@ NIGHTWITCHAIR:
 	Armor:
 		Type: None
 	Health:
-		HP: 5500
+		HP: 4000
 	Aircraft:
 		TurnSpeed: 20
 		Speed: 90
@@ -3016,6 +3028,8 @@ NIGHTWITCHAIR:
 	Voiced:
 		VoiceSet: RusFemVoices
 		Volume: 1.5
+	DeathSounds@NORMAL:
+		DeathTypes: DefaultDeath, BulletDeath, SmallExplosionDeath, ExplosionDeath, AcidDeath
 
 NIGHTWITCHAIR.Husk:
 	Inherits: ^HelicopterHusk
@@ -3587,13 +3601,13 @@ GRENADELAUNCHER:
 		Prerequisites: adept, ~infantry.germany, ~techlevel.infonly
 		Description: Infantry armed with a grenade launcher.\n  Strong vs Buildings, Infantry\n  Weak vs Vehicles, Aircraft
 	Valued:
-		Cost: 300
+		Cost: 400
 	Tooltip:
 		Name: Stormtrooper
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 5000
+		HP: 4500
 	Armament@PRIMARY:
 		Weapon: GrenadeLauncher
 		LocalOffset: 0,0,555

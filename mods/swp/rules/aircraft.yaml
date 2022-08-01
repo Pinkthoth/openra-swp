@@ -1324,7 +1324,7 @@ COMET:
 		RealignDelay: 10
 	Aircraft:
 		TurnSpeed: 16
-		Speed: 120
+		Speed: 95
 	AutoTarget:
 		InitialStance: HoldFire
 		InitialStanceAI: HoldFire

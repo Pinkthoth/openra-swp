@@ -87,7 +87,7 @@ MCV:
 	Selectable:
 		DecorationBounds: 42,42
 	Health:
-		HP: 70000
+		HP: 73500
 	Armor:
 		Type: Medium
 	Mobile:
@@ -509,7 +509,6 @@ PRISMCANNON:
 		MuzzleSequence: muzzle
 	AttackFrontal:
 		PauseOnCondition: turnedoff
-	WithMuzzleOverlay:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	Selectable:
@@ -2048,7 +2047,7 @@ JEEP:
 		Type: Light
 	Mobile:
 		TurnSpeed: 40
-		Speed: 145
+		Speed: 135
 		PauseOnCondition: being-captured
 	RevealsShroud:
 		MinRange: 4c0

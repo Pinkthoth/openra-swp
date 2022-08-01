@@ -69,10 +69,10 @@
 	Warhead@1Dam: SpreadDamage
 		Damage: 3500
 		Versus:
-			None: 32
+			None: 37
 			Wood: 52
-			Light: 75
-			Medium: 100
+			Light: 80
+			Medium: 105
 			Heavy: 48
 			Concrete: 57
 	-Warhead@2Smu:
@@ -92,10 +92,10 @@
 	Warhead@1Dam: SpreadDamage
 		Damage: 1900
 		Versus:
-			None: 32
+			None: 37
 			Wood: 52
-			Light: 90
-			Medium: 50
+			Light: 95
+			Medium: 55
 			Heavy: 42
 			Concrete: 45
 	-Warhead@2Smu:
@@ -115,10 +115,10 @@
 	Warhead@1Dam: SpreadDamage
 		Damage: 1100
 		Versus:
-			None: 32
+			None: 37
 			Wood: 52
-			Light: 75
-			Medium: 80
+			Light: 85
+			Medium: 85
 			Heavy: 33
 			Concrete: 40
 	-Warhead@2Smu:
@@ -200,7 +200,7 @@ TurretGun:
 155mm:
 	Inherits: ^Artillery
 	MinRange: 4c0
-	Range: 10c0
+	Range: 11c0
 	Report: tank5.aud
 	TargetActorCenter: true
 	Projectile: Bullet
@@ -383,6 +383,7 @@ Molotov:
 		Footprint: X
 		Weapon: IfritAreaFire
 		RandomClusterCount: 1
+		ValidTargets: Ground, GroundActor
 
 DepthCharge:
 	Inherits: ^Artillery
@@ -599,9 +600,9 @@ bigberthagun:
 
 GrenadeLauncher:
 	Inherits: ^Artillery
-	ReloadDelay: 100
+	ReloadDelay: 130
 	Report: glnch4.aud
-	Range: 5c0
+	Range: 5c512
 	Projectile: Bullet
 		LaunchAngle: 100
 		Speed: 116
