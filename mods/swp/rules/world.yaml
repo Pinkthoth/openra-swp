@@ -317,7 +317,7 @@
 		Palette: player
 		Sequences: gold01,gold02,gold03,gold04
 		MaxDensity: 12
-		ValuePerUnit: 40
+		ValuePerUnit: 30
 		AllowedTerrainTypes: Clear,Road,Pavement,PavedRoad,TallGrass
 		AllowUnderActors: true
 	ResourceType@gem:
@@ -328,7 +328,7 @@
 		Palette: player
 		Sequences: gem01,gem02,gem03,gem04
 		MaxDensity: 3
-		ValuePerUnit: 80
+		ValuePerUnit: 60
 		AllowedTerrainTypes: Clear,Road,Pavement,PavedRoad,TallGrass
 		AllowUnderActors: true
 	ResourceRenderer:
@@ -357,6 +357,7 @@ World:
 		WaterChance: 20
 		InitialSpawnDelay: 1500
 		CheckboxDisplayOrder: 1
+		CheckboxEnabled: False
 	DomainIndex:
 	SmudgeLayer@SCORCH:
 		Type: Scorch

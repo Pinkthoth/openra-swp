@@ -18,11 +18,11 @@ HARV:
 	Selectable:
 		DecorationBounds: 42,42
 	Harvester:
-		Capacity: 20
+		Capacity: 15
 		Resources: Ore,Gems
 		BaleLoadDelay: 12
 		BaleUnloadDelay: 6
-		SearchFromProcRadius: 15
+		SearchFromProcRadius: 13
 		SearchFromHarvesterRadius: 8
 		HarvestFacings: 8
 		EmptyCondition: no-ore
@@ -1453,6 +1453,7 @@ KATYA:
 	Mobile:
 		Speed: 85
 		TurnSpeed: 16
+		Locomotor: wheeled
 	Health:
 		HP: 20000
 	Repairable:
@@ -2031,7 +2032,7 @@ JEEP:
 		Queue: Vehicle
 		BuildPaletteOrder: 50
 		Prerequisites: ~vehicles.entente, ~techlevel.low
-		Description: Fast scout & anti-infantry vehicle.\nCan carry one infantry.\n	 Strong vs Infantry\n  Weak vs Vehicles, Aircraft
+		Description: Fast scout & anti-infantry vehicle. Strong vs Infantry\n  Weak vs Vehicles, Aircraft
 	Valued:
 		Cost: 500
 	RenderSprites:
@@ -2670,7 +2671,7 @@ LIMPETMINE:
 		Prerequisites: dome, ~vehicles.usa, ~techlevel.medium
 		Description: Tele controlled deployable mine. Explodes in an EMP burst.\nCan be detonated manually.\n  Unarmed
 	Valued:
-		Cost: 425
+		Cost: 375
 	Tooltip:
 		Name: Cicada
 	Health:
@@ -3336,7 +3337,7 @@ FLMTNK:
 	AttackFrontal:
 		PauseOnCondition: turnedoff
 	Explodes:
-		Weapon: V2Explode
+		Weapon: CrateNapalm
 	Selectable:
 		DecorationBounds: 32,32
 	SpawnActorOnDeath:

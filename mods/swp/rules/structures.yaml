@@ -129,6 +129,7 @@ FACT:
 	BaseProvider:
 		PauseOnCondition: being-captured
 		Range: 11c0
+		RequiresCondition: !turnedoff
 	WithBuildingPlacedAnimation:
 		RequiresCondition: !build-incomplete && !chrono-vortex
 	Power:
@@ -171,26 +172,13 @@ FACT:
 		Palette: terrain
 		Offset: 0,0,-300
 		IsDecoration: True
-	GrantConditionOnPrerequisite@sabotaged
-		Prerequisites: fact-sabotaged-prereq
-		Condition: fact-sabotaged
-	GrantCondition@sabotaged:
-		Condition: turnedoff
-		RequiresCondition: fact-sabotaged
-	WithColoredOverlay@SABOTAGED:
-		RequiresCondition: fact-sabotaged
-	WithDecoration@sabotaged:
-		RequiresCondition: fact-sabotaged
-	InfiltrateForSupportPowerSwp:
-		Types: SaboteurInfiltration
-		Proxy: proxy.fact-sabotaged
 
 MSLO:
 	Inherits: ^ScienceBuilding
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@shape: ^2x1Shape
 	Inherits@rubbles: ^2x1Rubbles
-	Inherits@sabotable: ^SingleBuildingSabotable
+	Inherits@sabotable: ^Sabotable
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Selectable:
@@ -248,7 +236,7 @@ MSLO:
 		SupportPowerPaletteOrder: 70
 	SupportPowerChargeBar:
 	InfiltrateForSupportPowerReset:
-		Types: SpyInfiltrate, SaboteurInfiltration
+		Types: SpyInfiltrate
 	Targetable:
 		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
 	Power:
@@ -448,7 +436,7 @@ IRON:
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
-	Inherits@sabotable: ^SingleBuildingSabotable
+	Inherits@sabotable: ^Sabotable
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Buildable:
@@ -501,7 +489,7 @@ IRON:
 		Footprint: xx xx
 	SupportPowerChargeBar:
 	InfiltrateForSupportPowerReset:
-		Types: SpyInfiltrate, SaboteurInfiltration
+		Types: SpyInfiltrate
 	Targetable:
 		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
 	Power:
@@ -520,7 +508,7 @@ PDOX:
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
-	Inherits@sabotable: ^SingleBuildingSabotable
+	Inherits@sabotable: ^Sabotable
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Selectable:
@@ -572,7 +560,7 @@ PDOX:
 		Footprint: xxx xxx xxx
 	SupportPowerChargeBar:
 	InfiltrateForSupportPowerReset:
-		Types: SpyInfiltrate, SaboteurInfiltration
+		Types: SpyInfiltrate
 	Targetable:
 		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
 	Power:
@@ -856,6 +844,7 @@ DOME:
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
 	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@sabotable: ^Sabotable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Inherits@discount: ^BuildTimeDiscount
 	Selectable:
@@ -976,7 +965,7 @@ DOME:
 		LifeTime: 255
 		SelectTargetSpeechNotification: SelectTarget
 		InsufficientPowerSpeechNotification: InsufficientPower
-		ChargeInterval: 5250
+		ChargeInterval: 6750
 		Icon: radarscanicon
 		Description: Radar Scan
 		LongDesc: Reveals the selected area.
@@ -994,7 +983,7 @@ DOME:
 		Prerequisites: support.serbia
 		PauseOnCondition: turnedoff
 		Icon: intercepticon
-		ChargeInterval: 5250
+		ChargeInterval: 6750
 		Description: Intercept
 		LongDesc: A squadron of fighters\nengages enemy aircraft within\nover a selected area.
 		SelectTargetSpeechNotification: SelectTarget
@@ -1018,7 +1007,7 @@ DOME:
 		Prerequisites: ~support.usa
 		PauseOnCondition: turnedoff
 		Icon: swarmicon
-		ChargeInterval: 6000
+		ChargeInterval: 7500
 		Description: Swarm
 		LongDesc: A squadron of Hornet drones\nis sent to selected area.
 		SelectTargetSpeechNotification: SelectTarget
@@ -1039,7 +1028,7 @@ DOME:
 		LifeTime: 500
 		SelectTargetSpeechNotification: SelectTarget
 		InsufficientPowerSpeechNotification: InsufficientPower
-		ChargeInterval: 4500
+		ChargeInterval: 6000
 		Icon: flareicon
 		Description: Flare
 		LongDesc: Fires a flare that increases\nthe vision of units in it's vicinity.
@@ -1056,7 +1045,7 @@ DOME:
 		OrderName: GuerillaDrop
 		UnitType: transupport
 		Icon: guerilladropicon
-		ChargeInterval: 6750
+		ChargeInterval: 8250
 		Description: Guerilla Drop
 		LongDesc: A transport helicopter drops a squad of guerilla\nanywhere on the map.
 		DropItems: guerilla, guerilla, guerilla, guerilla
@@ -1159,7 +1148,7 @@ DOME:
 		OrderName: Mirage
 		Icon: mirageicon
 		Cursor: ability
-		ChargeInterval: 5500
+		ChargeInterval: 7000
 		Description: Mirage
 		EndChargeSpeechNotification: SupportPowerReady
 		ActivationDelay: 1
@@ -1168,7 +1157,7 @@ DOME:
 		AirburstAltitude: 4c512
 		AllowMultiple: false
 		CameraActor: camera
-		CameraRemoveDelay: 375
+		CameraRemoveDelay: 125
 		SelectTargetSpeechNotification: SelectTarget
 		PauseOnCondition: disabled || turnedoff
 		DisplayTimerRelationships: None
@@ -1183,7 +1172,7 @@ DOME:
 		OrderName: smokescreen
 		Icon: smokescreenicon
 		Cursor: ability
-		ChargeInterval: 6000
+		ChargeInterval: 7500
 		Description: Smokescreen
 		EndChargeSpeechNotification: SupportPowerReady
 		ActivationDelay: 1
@@ -1207,7 +1196,7 @@ DOME:
 		OrderName: Propaganda
 		PauseOnCondition: turnedoff || disabled
 		Icon: propagandaicon
-		ChargeInterval: 5500
+		ChargeInterval: 7500
 		Description: Propaganda
 		LongDesc: Makes a group of infantry move faster, \ntake less damage and not prone for 20 seconds.
 		Duration: 500
@@ -1229,7 +1218,7 @@ DOME:
 		LifeTime: 255
 		SelectTargetSpeechNotification: SelectTarget
 		InsufficientPowerSpeechNotification: InsufficientPower
-		ChargeInterval: 7500
+		ChargeInterval: 9000
 		Icon: magneticsuspensionicon
 		IconPalette: tseffects
 		Description: Magnetic Suspension
@@ -1246,7 +1235,7 @@ DOME:
 		OrderName: Flame Shield
 		PauseOnCondition: turnedoff || disabled
 		Icon: flameshieldicon
-		ChargeInterval: 6000
+		ChargeInterval: 7500
 		Description: Flame Shield
 		LongDesc: Engulfs a vehicle in flames.\n Decreases damage intake by 75%.
 		Duration: 500
@@ -1264,7 +1253,7 @@ DOME:
 		OrderName: Supercharge
 		PauseOnCondition: turnedoff || disabled
 		Icon: superchargeicon
-		ChargeInterval: 6000
+		ChargeInterval: 7500
 		Description: Supercharge
 		LongDesc: Increases the power output of power plants by 50%\nor grants tesla units' weapons\nchain lightning.
 		Duration: 500
@@ -1286,7 +1275,7 @@ DOME:
 		OrderName: Paramine
 		Icon: paraminesicon
 		Prerequisites: support.italy
-		ChargeInterval: 6000
+		ChargeInterval: 7500
 		Description: Paramine
 		LongDesc: A squad of Junkers drop parachuted mines\non your target.
 		SelectTargetSpeechNotification: SelectTarget
@@ -1309,7 +1298,7 @@ DOME:
 		OrderName: metempsychosis
 		Icon: metempsychosisicon
 		Cursor: ability
-		ChargeInterval: 5500
+		ChargeInterval: 7000
 		Description: Metempsychosis
 		EndChargeSpeechNotification: SupportPowerReady
 		ActivationDelay: 1
@@ -1333,7 +1322,7 @@ DOME:
 		OrderName: lazareneray
 		Icon: lazarenerayicon
 		Cursor: ability
-		ChargeInterval: 6000
+		ChargeInterval: 7500
 		Description: Lazarene Ray
 		EndChargeSpeechNotification: SupportPowerReady
 		ActivationDelay: 1
@@ -1357,7 +1346,7 @@ DOME:
 		PauseOnCondition: disabled || turnedoff
 		OrderName: ChronoHaste
 		Icon: chronohasteicon
-		ChargeInterval: 6000
+		ChargeInterval: 7500
 		Description: Chrono Haste
 		LongDesc: Makes a group of units move faster\nfor 20 seconds.
 		Duration: 500
@@ -1388,7 +1377,7 @@ ACADEMY:
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
-	Inherits@sabotable: ^SingleBuildingSabotable
+	Inherits@sabotable: ^Sabotable
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Selectable:
@@ -1451,7 +1440,7 @@ RECRUITMENTOFFICE:
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
-	Inherits@sabotable: ^SingleBuildingSabotable
+	Inherits@sabotable: ^Sabotable
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Selectable:
@@ -2110,7 +2099,6 @@ ADEPT:
 	Inherits: ^Building
 	Inherits@shape: ^3x2Shape
 	Inherits@rubbles: ^AdeptRubbles
-	Inherits@sabotable: ^Sabotable
 	Inherits@discount: ^BuildTimeDiscount
 	Valued:
 		Cost: 1600
@@ -2178,34 +2166,27 @@ ADEPT:
 		Palette: terrain
 		Offset: 0,-0,-300
 		IsDecoration: True
-	GrantConditionOnPrerequisite@sabotaged
-		Prerequisites: adept-sabotaged-prereq
-		Condition: adept-sabotaged
-	GrantCondition@sabotaged:
-		Condition: turnedoff
-		RequiresCondition: adept-sabotaged
-	WithColoredOverlay@SABOTAGED:
-		RequiresCondition: adept-sabotaged
-	WithDecoration@sabotaged:
-		RequiresCondition: adept-sabotaged
-	InfiltrateForSupportPowerSwp:
-		Types: SaboteurInfiltration
-		Proxy: proxy.adept-sabotaged
-	TransformOnCondition:
+	Targetable@sabotable:
+		TargetTypes: SaboteurInfiltration
+	InfiltrateForTransform:
 		IntoActor: adept.disabled
-		RequiresCondition: adept-sabotaged
-	-GrantCondition@sabotaged:
+		Types: SaboteurInfiltration
 
 ADEPT.disabled:
 	Inherits: ADEPT
+	Inherits@sabotable: ^Sabotable
+	GrantTimedCondition@sabotage-start:
+		Condition: sabotaged
+		Duration: 750
 	TransformOnCondition:
 		IntoActor: adept
-		RequiresCondition: !adept-sabotaged
+		RequiresCondition: !sabotaged
 	-Buildable:
 	-FreeActor@CHARGEPOS1:
 	-FreeActor@CHARGEPOS2:
 	-ProximityExternalCondition:
 	-MapEditorData:
+	-GrantCondition@sabotaged:
 
 ADEPTCHARGER:
 	Interactable: 
@@ -2263,7 +2244,7 @@ MTEK:
 	RevealsShroud@GAPGEN:
 		Range: 4c0
 	Targetable:
-		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
+		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate
 	Power:
 		Amount: -200
 	ProvidesPrerequisite@buildingname:
@@ -2311,7 +2292,7 @@ ATEK:
 	RevealsShroud@GAPGEN:
 		Range: 4c0
 	Targetable:
-		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
+		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate
 	Power:
 		Amount: -200
 	ProvidesPrerequisite@buildingname:
@@ -2470,24 +2451,10 @@ WEAP:
 		Palette: terrain
 		Offset: 0,0,-300
 		IsDecoration: True
-	GrantConditionOnPrerequisite@sabotaged
-		Prerequisites: weap-sabotaged-prereq
-		Condition: weap-sabotaged
-	GrantCondition@sabotaged:
-		Condition: turnedoff
-		RequiresCondition: weap-sabotaged
-	WithColoredOverlay@SABOTAGED:
-		RequiresCondition: weap-sabotaged
-	WithDecoration@sabotaged:
-		RequiresCondition: weap-sabotaged
-	InfiltrateForSupportPowerSwp:
-		Types: SaboteurInfiltration
-		Proxy: proxy.weap-sabotaged
 
 PROC:
 	Inherits: ^Building
 	Inherits@rubbles: ^3x3Rubbles
-	Inherits@sabotable: ^Sabotable
 	ProductionTimeMultiplier@basediscount:
 		Multiplier: 85
 	Buildable:
@@ -2507,7 +2474,9 @@ PROC:
 		Bounds: 72,45,0,-4
 		DecorationBounds: 72,75,1,-4
 	Targetable:
-		TargetTypes: GroundActor, Structure, C4, DetonateAttack, ThiefInfiltrate, SaboteurInfiltration
+		TargetTypes: GroundActor, Structure, C4, DetonateAttack, ThiefInfiltrate, SpyInfiltrate
+	Targetable@sabotable:
+		TargetTypes: SaboteurInfiltration
 	Health:
 		HP: 90000
 	Armor:
@@ -2531,7 +2500,7 @@ PROC:
 		Facing: 768
 	InfiltrateForCash:
 		Percentage: 50
-		Types: ThiefInfiltrate
+		Types: ThiefInfiltrate, SpyInfiltrate
 		InfiltratedNotification: CreditsStolen
 	WithIdleOverlay@topsolid:
 		Sequence: topsolid
@@ -2590,35 +2559,26 @@ PROC:
 			japan: eproc
 			england: eproc
 			france: eproc
-	TransformOnCondition:
-		IntoActor: proc.disabled
-		RequiresCondition: proc-sabotaged
 	WithIdleOverlay@bip:
 		Image: bib_3x3
 		Sequence: idle
 		Palette: terrain
 		Offset: 0,-0,-300
 		IsDecoration: True
-	InfiltrateForSupportPowerSwp:
+	InfiltrateForTransform
+		IntoActor: proc.disabled
 		Types: SaboteurInfiltration
-		Proxy: proxy.proc-sabotaged
-	GrantConditionOnPrerequisite@sabotaged
-		Prerequisites: proc-sabotaged-prereq
-		Condition: proc-sabotaged
-	WithDecoration@sabotaged:
-		RequiresCondition: proc-sabotaged
-	WithColoredOverlay@SABOTAGED:
-		RequiresCondition: proc-sabotaged
-	GrantCondition@sabotaged:
-		Condition: turnedoff
-		RequiresCondition: proc-sabotaged
-	-GrantCondition@sabotaged:
 
 PROC.disabled:
 	Inherits: PROC
-	TransformOnCondition:
+	Inherits@sabotable: ^Sabotable
+	GrantTimedCondition@sabotage-start:
+		Condition: sabotaged
+		Duration: 750
+	TransformOnCondition@sabotaged:
 		IntoActor: proc.resumed
-		RequiresCondition: !proc-sabotaged
+		RequiresCondition: !sabotaged
+	-GrantCondition@sabotaged:
 	-Refinery:
 	-Buildable:
 	-FreeActor:
@@ -2867,20 +2827,6 @@ HPAD:
 		Palette: terrain
 		Offset: -1100,500,-300
 		IsDecoration: True
-	GrantConditionOnPrerequisite@sabotaged
-		Prerequisites: hpad-sabotaged-prereq
-		Condition: hpad-sabotaged
-	GrantCondition@sabotaged:
-		Condition: turnedoff
-		RequiresCondition: hpad-sabotaged
-	WithColoredOverlay@SABOTAGED:
-		RequiresCondition: hpad-sabotaged
-	WithDecoration@sabotaged:
-		RequiresCondition: hpad-sabotaged
-	InfiltrateForSupportPowerSwp:
-		Types: SaboteurInfiltration
-		Proxy: proxy.hpad-sabotaged
-	RepairsUnits:
 
 AFLD:
 	Inherits: ^Building
@@ -3039,19 +2985,6 @@ AFLD:
 		DirectionArrowAnimation: paradirection
 		SupportPowerPaletteOrder: 50
 		EndChargeSpeechNotification: ReinforcementsReady
-	GrantConditionOnPrerequisite@sabotaged
-		Prerequisites: afld-sabotaged-prereq
-		Condition: afld-sabotaged
-	GrantCondition@sabotaged:
-		Condition: turnedoff
-		RequiresCondition: afld-sabotaged
-	InfiltrateForSupportPowerSwp:
-		Types: SaboteurInfiltration
-		Proxy: proxy.afld-sabotaged
-	WithDecoration@sabotaged:
-		RequiresCondition: afld-sabotaged
-	WithColoredOverlay@SABOTAGED:
-		RequiresCondition: afld-sabotaged
 	WithIdleOverlay@bip:
 		Image: bib_2x2
 		Sequence: idle
@@ -3066,6 +2999,7 @@ POWR:
 	Inherits@rubbles: ^2x2Rubbles
 	Inherits@supercharge: ^SuperchargePower
 	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@sabotable: ^Sabotable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Inherits@discount: ^BuildTimeDiscount
 	Selectable:
@@ -3129,6 +3063,7 @@ APWR:
 	Inherits@rubbles: ^2x2Rubbles
 	Inherits@supercharge: ^SuperchargePower
 	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@sabotable: ^Sabotable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Inherits@discount: ^BuildTimeDiscount
 	HitShape:
@@ -3222,7 +3157,7 @@ STEK:
 	Power:
 		Amount: -100
 	Targetable:
-		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
+		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate
 	ProvidesPrerequisite@buildingname:
 	InfiltrateForSupportPower@stektech:
 		Types: SpyInfiltrate
@@ -3389,9 +3324,6 @@ BARR:
 		Palette: terrain
 		Offset: -1100,500,-300
 		IsDecoration: True
-	InfiltrateForSupportPowerSwp:
-		Types: SaboteurInfiltration
-		Proxy: proxy.barr-sabotaged
 
 FIX:
 	Inherits: ^Building
@@ -3431,7 +3363,7 @@ FIX:
 		StartRepairingNotification: Repairing
 		FinishRepairingNotification: UnitRepaired
 		PlayerExperience: 15
-		PauseOnCondition: fix-sabotaged || turnedoff
+		PauseOnCondition: turnedoff
 	WithResupplyAnimation:
 		RequiresCondition: !build-incomplete
 	Power:
@@ -3453,19 +3385,6 @@ FIX:
 			england: efix
 			france: efix
 			japan: efix
-	GrantConditionOnPrerequisite@sabotaged
-		Prerequisites: fix-sabotaged-prereq
-		Condition: fix-sabotaged
-	GrantCondition@sabotaged:
-		Condition: turnedoff
-		RequiresCondition: fix-sabotaged
-	WithColoredOverlay@SABOTAGED:
-		RequiresCondition: fix-sabotaged
-	WithDecoration@sabotaged:
-		RequiresCondition: fix-sabotaged
-	InfiltrateForSupportPowerSwp:
-		Types: SaboteurInfiltration
-		Proxy: proxy.fix-sabotaged
 
 FLKGUN:
 	Inherits: AGUN
@@ -3503,7 +3422,7 @@ UPLINK:
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
-	Inherits@sabotable: ^SingleBuildingSabotable
+	Inherits@sabotable: ^Sabotable
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Selectable:
@@ -3537,7 +3456,7 @@ UPLINK:
 		RequiresCondition: !disabled
 	SupportPowerChargeBar:
 	InfiltrateForSupportPowerReset:
-		Types: SpyInfiltrate, SaboteurInfiltration
+		Types: SpyInfiltrate
 	Targetable:
 		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
 	Power:
@@ -3609,7 +3528,7 @@ STHGEN:
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
-	Inherits@sabotable: ^SingleBuildingSabotable
+	Inherits@sabotable: ^Sabotable
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Selectable:
@@ -3646,7 +3565,7 @@ STHGEN:
 		PauseOnCondition: turnedoff || disabled
 		Icon: cloakicon
 		ChargeInterval: 3000
-		Description: Stealth Shield
+		Description: Phase Shield
 		LongDesc: Makes a group of units invisible\nfor 20 seconds.
 		Duration: 500
 		SelectTargetSpeechNotification: SelectTarget
@@ -3663,7 +3582,7 @@ STHGEN:
 		AirburstAltitude: 0c0
 	SupportPowerChargeBar:
 	InfiltrateForSupportPowerReset:
-		Types: SpyInfiltrate, SaboteurInfiltration
+		Types: SpyInfiltrate
 	Targetable:
 		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
 	Power:
@@ -3683,7 +3602,7 @@ EMPGUN:
 	Inherits@shape: ^2x2Shape
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@rubbles: ^2x2Rubbles
-	Inherits@sabotable: ^SingleBuildingSabotable
+	Inherits@sabotable: ^Sabotable
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Valued:
@@ -3731,7 +3650,7 @@ EMPGUN:
 		SelectTargetSpeechNotification: SelectTarget
 		EndChargeSpeechNotification: EMPulseReady
 	InfiltrateForSupportPowerReset:
-		Types: SpyInfiltrate, SaboteurInfiltration
+		Types: SpyInfiltrate
 	Targetable:
 		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
 	WithIdleOverlay@bip:
@@ -3748,7 +3667,7 @@ SRIMP:
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
-	Inherits@sabotable: ^SingleBuildingSabotable
+	Inherits@sabotable: ^Sabotable
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Health:
@@ -3777,7 +3696,7 @@ SRIMP:
 	MustBeDestroyed:
 		RequiredForShortGame: false
 	InfiltrateForSupportPowerReset:
-		Types: SpyInfiltrate, SaboteurInfiltration
+		Types: SpyInfiltrate
 	Targetable:
 		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
 	Selectable:
@@ -3830,7 +3749,7 @@ SBAG:
 		Prerequisites: fact, ~techlevel.low
 		Description: Stops infantry and light vehicles.\nCan be crushed by tanks.
 	Valued:
-		Cost: 50
+		Cost: 30
 	CustomSellValue:
 		Value: 0
 	Tooltip:
@@ -3854,7 +3773,7 @@ BRIK:
 		Prerequisites: fact, ~techlevel.medium
 		Description: Stop units and blocks enemy fire.
 	Valued:
-		Cost: 225
+		Cost: 200
 	CustomSellValue:
 		Value: 0
 	Tooltip:

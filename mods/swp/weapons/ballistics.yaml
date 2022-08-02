@@ -494,6 +494,12 @@ ltnkfire:
 			Heavy: 165
 			Concrete: 70
 
+76mmOrdinanceQF-ATGUNNER:
+	Range: 7c0
+	Inherits: 76mmOrdinanceQF
+	Warhead@1Dam: SpreadDamage
+		Damage: 6000
+
 MausCannon:
 	Inherits: ^Cannon
 	Range: 6c512

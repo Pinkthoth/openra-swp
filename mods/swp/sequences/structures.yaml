@@ -1712,10 +1712,8 @@ atek:
 #Neutral
 fcom:
 	idle: fcon
-	damaged-idle:
+	damaged-idle: fcon
 		Start: 1
-	make: fcommake
-		Length: *
 	bib: bib3
 		Length: *
 		UseTilesetExtension: true

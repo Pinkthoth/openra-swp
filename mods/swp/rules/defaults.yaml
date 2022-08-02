@@ -747,6 +747,7 @@
 		RequiresCondition: artilleryobserver
 
 ^Crew:
+	Inherits@infantryhealthnerf: ^InfantryHealthNerf
 	WithMoveAnimation:
 	WithAttackAnimation:
 		Sequence: attack
@@ -963,6 +964,10 @@
 	RenderSprites:
 		Palette: tempdecs
 
+^InfantryHealthNerf:
+	DamageMultiplier@infantrynerf:
+		Modifier: 105
+
 ^Infantry:
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^GainsExperience
@@ -981,6 +986,8 @@
 	Inherits@chronohaste: ^ChronoHasteable
 	Inherits@flarevision: ^FlareVision
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Inherits@infantryhealthnerf: ^InfantryHealthNerf
+	Inherits@stealthable: ^Stealthable
 	AmbientSound@sliced:
 		SoundFiles: meatslice.wav, meastslice2.wav, meatslice3.wav, meatslice4.wav
 	Huntable:
@@ -1258,6 +1265,10 @@
 	Aircraft:
 		AirborneCondition: airborne
 		CruiseAltitude: 4c0
+		CruisingCondition: cruising
+	SpeedMultiplier@takingoff:
+		RequiresCondition: !cruising
+		Modifier: 125
 	Targetable@GROUND:
 		RequiresCondition: !airborne
 		TargetTypes: GroundActor, Vehicle
@@ -1377,6 +1388,7 @@
 		SequencePalette: placebuilding
 	RequiresBuildableArea:
 		AreaTypes: building
+		Adjacent: 3
 	SoundOnDamageTransition:
 		DamagedSounds: kaboom1.aud
 		DestroyedSounds: kaboom22.aud, xplobig4.aud
@@ -1826,12 +1838,6 @@
 		DeployedCondition: deployed
 	Voiced:
 		VoiceSet: HoloVoice
-	RevealsShroud:
-		Range: 5c0
-		RevealGeneratedShroud: False
-	RevealsShroud@GAPGEN:
-		Range: 2c0
-		Type: GroundPosition
 
 ^MirageSpawn:
 	Inherits: ^EmpDisable
@@ -1852,6 +1858,12 @@
 	Explodes:
 		Weapon: HoloExplode
 		DamageThreshold: 20
+	RevealsShroud:
+		Range: 1c512
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 1c0
+		Type: GroundPosition
 
 ^BasicHusk:
 	Interactable:
@@ -1952,7 +1964,6 @@
 	EdibleByLeap:
 	RenderSprites:
 		Image: deadinfantry
-		Scale: 0.6
 	WithColoredOverlay@IDISABLE:
 	SpawnActorOnDeath:
 		DeathType: ResurrectionDeath
@@ -2006,7 +2017,7 @@
 		VTOL: true
 		CanSlide: True
 	FallsToEarth:
-		Explosion: UnitExplodeSmall
+		Explosion: UnitExplodePlane
 	-MapEditorData:
 	RevealOnDeath:
 		Duration: 60
@@ -2178,14 +2189,11 @@
 			powerdown: -10, 0
 
 ^Sabotable:
-	GrantConditionOnPrerequisite@sabotaged
-		Prerequisites: barr-sabotaged-prereq
-		Condition: barr-sabotaged
 	GrantCondition@sabotaged:
 		Condition: turnedoff
-		RequiresCondition: barr-sabotaged
+		RequiresCondition: sabotaged
 	WithColoredOverlay@SABOTAGED:
-		RequiresCondition: barr-sabotaged
+		RequiresCondition: sabotaged
 		Palette: disabled
 	Targetable@sabotable:
 		TargetTypes: SaboteurInfiltration
@@ -2196,29 +2204,14 @@
 		Margin: 0, 0
 		BlinkInterval: 32
 		BlinkPattern: On, Off
-		RequiresCondition: barr-sabotaged
-
-^SingleBuildingSabotable:
-	GrantConditionOnInfiltration@sabotaged
-		Types: SaboteurInfiltration
+		RequiresCondition: sabotaged
+	GrantConditionOnInfiltration@saboteur:
 		Condition: sabotaged
-		Duration: 1500
-	WithColoredOverlay@SABOTAGED:
-		RequiresCondition: sabotaged
-		Palette: disabled
-	GrantCondition@sabotaged:
-		Condition: turnedoff
-		RequiresCondition: sabotaged
-	Targetable@sabotable:
-		TargetTypes: SaboteurInfiltration
-	WithDecoration@sabotaged:
-		Image: pips
-		Sequence: pip-sabotaged
-		Position: Center
-		Margin: 0, 0
-		BlinkInterval: 32
-		BlinkPattern: On, Off
-		RequiresCondition: sabotaged
+		Duration: 750
+		Types: SaboteurInfiltration
+	TimedConditionBar@sabotaged:
+		Condition: sabotaged
+		Color: 808080
 
 ^FlameShield:
 	ExternalCondition@FLAMESHIELD:

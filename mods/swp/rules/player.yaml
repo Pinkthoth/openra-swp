@@ -45,7 +45,7 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: True
-		BuildTimeSpeedReduction: 1000, 800, 650, 550, 500
+		BuildTimeSpeedReduction: 1000, 700, 500, 400, 330
 		BuildDurationModifier: 10
 	ClassicProductionQueue@Infantry:
 		Type: Infantry
@@ -71,7 +71,7 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: True
-		BuildTimeSpeedReduction: 1000, 800, 650, 550, 500
+		BuildTimeSpeedReduction: 1000, 700, 500, 400, 330
 		BuildDurationModifier: 10
 	ClassicProductionQueue@Aircraft:
 		Type: Aircraft
@@ -84,7 +84,7 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: True
-		BuildTimeSpeedReduction: 1000, 800, 650, 550, 500
+		BuildTimeSpeedReduction: 1000, 850, 720, 610, 520, 450, 390, 330
 		BuildDurationModifier: 10
 	ClassicProductionQueue@Helicopter:
 		Type: Helicopter
@@ -97,7 +97,7 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: True
-		BuildTimeSpeedReduction: 1000, 800, 650, 550, 500
+		BuildTimeSpeedReduction: 1000, 850, 720, 610, 520, 450, 390, 330
 		BuildDurationModifier: 10
 	PlaceBuilding:
 		NewOptionsNotification: NewOptions
@@ -116,18 +116,19 @@ Player:
 		InsufficientFundsNotification: InsufficientFunds
 		CashTickUpNotification: CashTickUp
 		CashTickDownNotification: CashTickDown
-		SelectableCash: 4000, 6500, 11500, 21500
-		DefaultCash: 6500
+		SelectableCash: 4500, 7000, 12000, 22000
+		DefaultCash: 7000
 	DeveloperMode:
 		CheckboxDisplayOrder: 10
 	GpsWatcher:
 	Shroud:
 		FogCheckboxDisplayOrder: 3
+		ExploredMapCheckboxEnabled: True
 	LobbyPrerequisiteCheckbox@GLOBALBOUNTY:
 		ID: bounty
 		Label: Kill Bounties
 		Description: Players receive cash bonuses when killing enemy units
-		Enabled: False
+		Enabled: True
 		DisplayOrder: 8
 		Prerequisites: global-bounty
 	LobbyPrerequisiteCheckbox@GLOBALFACTUNDEPLOY:
@@ -141,7 +142,7 @@ Player:
 		ID: reusable-engineers
 		Label: Reusable Engineers
 		Description: Engineers remain on the battlefield after capturing a structure
-		Enabled: False
+		Enabled: True
 		DisplayOrder: 9
 		Prerequisites: global-reusable-engineers
 	FrozenActorLayer:

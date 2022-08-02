@@ -205,6 +205,7 @@ FLAK-23-AA-Static:
 			Medium: 65
 			Heavy: 55
 			Concrete: 50
+		ValidTargets: AirborneActor, AirborneBomber
 
 FLAK-23-AG:
 	Inherits: ^AACannon
@@ -414,10 +415,10 @@ Vulcan:
 LightMachineGun:
 	Inherits: ^LightMG
 	ReloadDelay: 40
-	Burst: 12
+	Burst: 18
+	-Report:
 	Range: 5c0
-	Report: lmg_s1.aud, lmg_s2.aud, lmg_s3.aud
-	BurstDelays: 6
+	BurstDelays: 4
 	Projectile: InstantHit
 		Inaccuracy: 1c216
 	Warhead@1Dam: SpreadDamage
@@ -426,20 +427,56 @@ LightMachineGun:
 		Versus:
 			Light: 30
 			Medium: 17
-		Falloff: 220, 35, 25, 5, 1
+		Falloff: 220, 35
+	Warhead@1Dam-prone: SpreadDamage
+		Damage: 1
+		Spread: 1c512
+		Versus:
+			None: 100
+			Light: 0
+			Medium: 0
+			Heavy: 0
+			Wood: 0
+			Concrete: 0
+		Falloff: 100
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, DefaultDeath
+		ValidTargets: Infantry
+	Warhead@1Dam-anti: SpreadDamage
+		Damage: -1
+		Delay: 1
+		Spread: 1c512
+		Versus:
+			None: 100
+			Light: 0
+			Medium: 0
+			Heavy: 0
+			Wood: 0
+			Concrete: 0
+		Falloff: 100
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, DefaultDeath
+		ValidTargets: Infantry
 	Warhead@2Eff: CreateEffect
 		Explosions: piff
 		Inaccuracy: 0
+		ValidTargets: Ground, GroundActor
+	Warhead@3Eff: CreateEffect
+		Explosions: piff
+		Inaccuracy: 0c124
+		ValidTargets: Ground, GroundActor
 	Warhead@3EffWater: CreateEffect
 		Explosions: water_piff
 		Inaccuracy: 0
+	Warhead@4EffWater: CreateEffect
+		Explosions: water_piff
+		Inaccuracy: 0
+		ValidTargets: Water, WaterActor
 
 LightMachineGun2:
 	Inherits: ^LightMG
 	ReloadDelay: 40
+	Report: lmg_s1.aud, lmg_s2.aud, lmg_s3.aud
 	Burst: 12
 	BurstDelays: 6
-	-Report:
 	Range: 5c0
 	Projectile: InstantHit
 		Inaccuracy: 0c0
@@ -449,16 +486,24 @@ LightMachineGun2:
 		Versus:
 			Light: 30
 			Medium: 17
-		Falloff: 220, 35, 25, 15, 5
+		Falloff: 220, 35
 		ValidTargets: Ground, GroundActor, WaterActor, Water
 	Warhead@2Eff: CreateEffect
 		Explosions: piff
-		Inaccuracy: 0
+		Inaccuracy: 0c124
+		ValidTargets: Ground, GroundActor
+	Warhead@3Eff: CreateEffect
+		Explosions: piff
+		Inaccuracy: 0c124
 		ValidTargets: Ground, GroundActor
 	Warhead@3EffWater: CreateEffect
 		Explosions: water_piff
-		Inaccuracy: 0
+		Inaccuracy: 0c124
 		ValidTargets: Water
+	Warhead@4EffWater: CreateEffect
+		Explosions: water_piff
+		Inaccuracy: 0c124
+		ValidTargets: Water, WaterActor
 
 ChainGun:
 	Inherits: ^HeavyMG
@@ -485,7 +530,7 @@ ChainGun.Yak.AA:
 	Projectile: InstantHit
 		Blockable: false
 	Warhead@1Dam: SpreadDamage
-		Damage: 1000
+		Damage: 1100
 		Versus:
 			None: 100
 			Wood: 50
@@ -545,7 +590,7 @@ ChainGun.Spitfire.AA:
 	Range: 6c0
 	MinRange: 0c128
 	Warhead@1Dam: SpreadDamage
-		Damage: 800
+		Damage: 880
 		Versus:
 			None: 100
 			Wood: 50
@@ -564,7 +609,7 @@ MesserschmittAutocannon.AA:
 	Warhead@1EffAir: CreateEffect
 		Explosions: small_explosion_air
 	Warhead@1Dam: SpreadDamage
-		Damage: 1300
+		Damage: 1430
 
 ChainGun.A10:
 	Inherits: ChainGun.Yak.AA
@@ -707,9 +752,9 @@ WitchMG:
 			None: 200
 			Concrete: 25
 			Wood: 30
-			Light: 70
-			Medium: 50
-			Heavy: 30
+			Light: 50
+			Medium: 30
+			Heavy: 10
 	Warhead@2Eff2: CreateEffect
 		Delay: 2
 		Explosions: piff

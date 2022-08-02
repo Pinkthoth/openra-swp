@@ -1080,7 +1080,7 @@ e11:
 		Start: 120
 		Length: 6
 		Facings: 8
-		Tick: 70
+		Tick: 50
 	prone-stand:
 		Start: 16
 		Facings: 8
@@ -1102,7 +1102,7 @@ e11:
 		Start: 168
 		Length: 6
 		Facings: 8
-		Tick: 70
+		Tick: 50
 	idle1:
 		Start: 224
 		Length: 24
@@ -1854,12 +1854,22 @@ tnkcmndr:
 	icon: tnkcmndricon
 
 deadinfantry:
-	stand: e1
-		ZOffset: -100
-		Start: 294
-	idle: e1
-		Start: 294
-		ZOffset: -100
+	stand: corpse1
+		Length: 6
+		Tick: 3500
+		ZOffset: -511
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	idle: corpse1
+		Length: 6
+		Tick: 3500
+		ZOffset: -511
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
 
 kulak:
 	Inherits: ^SharedDeaths

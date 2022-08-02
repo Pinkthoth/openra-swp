@@ -226,7 +226,7 @@ MINE:
 	AppearsOnMapPreview:
 		Terrain: Ore
 	SeedsResource:
-		Interval: 100
+		Interval: 125
 	MapEditorData:
 		Categories: Resource spawn
 	RequiresSpecificOwners:
@@ -251,7 +251,7 @@ GMINE:
 		Terrain: Gems
 	SeedsResource:
 		ResourceType: Gems
-		Interval: 100
+		Interval: 125
 	MapEditorData:
 		Categories: Resource spawn
 	RequiresSpecificOwners:
@@ -313,158 +313,6 @@ LAR2:
 	Inherits@1: LAR1
 	Tooltip:
 		Name: Ant Larvae
-
-proxy.barr-sabotaged:
-	Interactable:
-	EditorOnlyTooltip:
-		Name: Global Shroud Spawner
-	AlwaysVisible:
-	Immobile:
-		OccupiesSpace: false
-	WithSpriteBody:
-	RenderSpritesEditorOnly:
-	BodyOrientation:
-		QuantizedFacings: 1
-	RenderSpritesEditorOnly:
-		Image: camera
-	ProvidesPrerequisite:
-		Prerequisite: barr-sabotaged-prereq
-	KillsSelf:
-		Delay: 1500
-		RemoveInstead: True
-
-proxy.fact-sabotaged:
-	Interactable:
-	EditorOnlyTooltip:
-		Name: Global Shroud Spawner
-	AlwaysVisible:
-	Immobile:
-		OccupiesSpace: false
-	WithSpriteBody:
-	RenderSpritesEditorOnly:
-	BodyOrientation:
-		QuantizedFacings: 1
-	RenderSpritesEditorOnly:
-		Image: camera
-	ProvidesPrerequisite:
-		Prerequisite: fact-sabotaged-prereq
-	KillsSelf:
-		Delay: 1500
-		RemoveInstead: True
-
-proxy.weap-sabotaged:
-	Interactable:
-	EditorOnlyTooltip:
-		Name: Global Shroud Spawner
-	AlwaysVisible:
-	Immobile:
-		OccupiesSpace: false
-	WithSpriteBody:
-	RenderSpritesEditorOnly:
-	BodyOrientation:
-		QuantizedFacings: 1
-	RenderSpritesEditorOnly:
-		Image: camera
-	ProvidesPrerequisite:
-		Prerequisite: weap-sabotaged-prereq
-	KillsSelf:
-		Delay: 1500
-		RemoveInstead: True
-
-proxy.hpad-sabotaged:
-	Interactable:
-	EditorOnlyTooltip:
-		Name: Global Shroud Spawner
-	AlwaysVisible:
-	Immobile:
-		OccupiesSpace: false
-	WithSpriteBody:
-	RenderSpritesEditorOnly:
-	BodyOrientation:
-		QuantizedFacings: 1
-	RenderSpritesEditorOnly:
-		Image: camera
-	ProvidesPrerequisite:
-		Prerequisite: hpad-sabotaged-prereq
-	KillsSelf:
-		Delay: 1500
-		RemoveInstead: True
-
-proxy.afld-sabotaged:
-	Interactable:
-	EditorOnlyTooltip:
-		Name: Global Shroud Spawner
-	AlwaysVisible:
-	Immobile:
-		OccupiesSpace: false
-	WithSpriteBody:
-	RenderSpritesEditorOnly:
-	BodyOrientation:
-		QuantizedFacings: 1
-	RenderSpritesEditorOnly:
-		Image: camera
-	ProvidesPrerequisite:
-		Prerequisite: afld-sabotaged-prereq
-	KillsSelf:
-		Delay: 1500
-		RemoveInstead: True
-
-proxy.proc-sabotaged:
-	Interactable:
-	EditorOnlyTooltip:
-		Name: Global Shroud Spawner
-	AlwaysVisible:
-	Immobile:
-		OccupiesSpace: false
-	WithSpriteBody:
-	RenderSpritesEditorOnly:
-	BodyOrientation:
-		QuantizedFacings: 1
-	RenderSpritesEditorOnly:
-		Image: camera
-	ProvidesPrerequisite:
-		Prerequisite: proc-sabotaged-prereq
-	KillsSelf:
-		Delay: 1500
-		RemoveInstead: True
-
-proxy.fix-sabotaged:
-	Interactable:
-	EditorOnlyTooltip:
-		Name: Global Shroud Spawner
-	AlwaysVisible:
-	Immobile:
-		OccupiesSpace: false
-	WithSpriteBody:
-	RenderSpritesEditorOnly:
-	BodyOrientation:
-		QuantizedFacings: 1
-	RenderSpritesEditorOnly:
-		Image: camera
-	ProvidesPrerequisite:
-		Prerequisite: fix-sabotaged-prereq
-	KillsSelf:
-		Delay: 1500
-		RemoveInstead: True
-
-proxy.adept-sabotaged:
-	Interactable:
-	EditorOnlyTooltip:
-		Name: Global Shroud Spawner
-	AlwaysVisible:
-	Immobile:
-		OccupiesSpace: false
-	WithSpriteBody:
-	RenderSpritesEditorOnly:
-	BodyOrientation:
-		QuantizedFacings: 1
-	RenderSpritesEditorOnly:
-		Image: camera
-	ProvidesPrerequisite:
-		Prerequisite: adept-sabotaged-prereq
-	KillsSelf:
-		Delay: 1500
-		RemoveInstead: True
 
 powerproxy.parabombs:
 	AlwaysVisible:
@@ -867,6 +715,9 @@ RADARSCAN:
 		BorderWidth: 5
 		Width: 3
 	DetectCloaked:
+		Range: 10c0
+	DetectCloaked@phase:
+		CloakTypes: Phase
 		Range: 10c0
 
 powergps:

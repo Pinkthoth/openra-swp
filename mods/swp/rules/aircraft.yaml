@@ -344,6 +344,8 @@ ANT40:
 		FullSequence: pip-bomb
 	Aircraft:
 		Speed: 110
+		IdleTurnSpeed: 8 
+		TurnSpeed: 12
 	-WithMuzzleOverlay:
 	Targetable@AIRBORNE:
 		RequiresCondition: airborne
@@ -1673,7 +1675,7 @@ MSRSMT:
 		InitialStance: HoldFire
 		InitialStanceAI: HoldFire
 	AmmoPool:
-		Ammo: 24
+		Ammo: 20
 		ReloadDelay: 11
 		AmmoCondition: ammo
 	WithMuzzleOverlay:
@@ -2118,22 +2120,24 @@ STUKA:
 		Weapon: StukaSpeedUp3
 		PauseOnCondition: !ammo || !airborne
 	AttackAircraft:
+		StrafeRunLength: 10c0
 		Armaments: primary, tertiary, quarternary, quinary
 	SpeedMultiplier@TERTIARY:
 		Modifier: 135
-		RequiresCondition: speedup1
+		RequiresCondition: speedup1 && charged
 	SpeedMultiplier@QUARTERNARY:
 		Modifier: 135
-		RequiresCondition: speedup2
+		RequiresCondition: speedup2 && charged
 	SpeedMultiplier@QUINARY:
 		Modifier: 135
-		RequiresCondition: speedup3
+		RequiresCondition: speedup3 && charged
 	DamageMultiplier@speedup:
-		Modifier: 50
-		RequiresCondition: speedup1
+		Modifier: 75
+		RequiresCondition: speedup1 && charged
 	GrantConditionOnAttack@TERTIARY:
 		Condition: speedup1
 		ArmamentNames: tertiary
+		RevokeDelay: 65
 	GrantConditionOnAttack@QUARTERNARY:
 		Condition: speedup2
 		ArmamentNames: quarternary
@@ -2154,6 +2158,8 @@ STUKA:
 		FullSequence: pip-bomb
 	Aircraft:
 		Speed: 130
+		IdleTurnSpeed: 8 
+		TurnSpeed: 12
 	-WithMuzzleOverlay:
 	LeavesTrails@SPEEDUP1:
 		Offsets: 0,0,0
@@ -2162,7 +2168,7 @@ STUKA:
 		SpawnAtLastPosition: False
 		Type: CenterPosition
 		Palette: stukatrailpal
-		RequiresCondition: speedup1
+		RequiresCondition: speedup1 && charged
 	Targetable@AIRBORNE:
 		RequiresCondition: airborne
 		TargetTypes: AirborneBomber
@@ -2179,8 +2185,15 @@ STUKA:
 	AmbientSound:
 		SoundFiles: stukasound.wav
 		Interval: 80
-		RequiresCondition: speedup1
-		
+		RequiresCondition: speedup1 && charged
+	GrantChargingCondition@dive:
+		Condition: charged
+		MaxCharge: 55
+		PauseOnCondition: speedup1
+		ShowSelectionBarWhenFull: False
+		ChargingColor: CCCCCC
+		DischargingColor: 757575
+
 STUKA.Husk:
 	Inherits: ^PlaneHusk
 	Tooltip:

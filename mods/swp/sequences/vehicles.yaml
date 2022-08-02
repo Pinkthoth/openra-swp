@@ -57,8 +57,8 @@ harv:
 		Start: 288
 		Length: 8
 	dock-loop:
-		Start: 295
-		Length: 13
+		Start: 296
+		Length: 12
 	icon: harvicon
 		Start: 0
 
@@ -596,9 +596,9 @@ jeep:
 	turret:
 		Start: 32
 		Facings: 32
-	muzzle: minigun
-		Length: 6
-		Facings: 8
+	muzzle: newmuzzle
+		Length: 7
+		Facings: 32
 	icon: jeepicon
 
 apc:

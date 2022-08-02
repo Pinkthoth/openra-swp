@@ -683,10 +683,12 @@ DropBombs:
 	Range: 3c0
 	Report: chute1.aud
 	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor
-	Projectile: Bullet
-		Speed: 220
+	Projectile: Missile
+		RangeLimit: 3c0
 		Image: dropbombs
 		Shadow: True
+		Speed: 250
+		ExplodeWhenEmpty: False
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c256
 		Damage: 7500
@@ -1102,6 +1104,21 @@ Firelance:
 			Concrete: 25
 		ValidTargets: GroundActor, Trees,  WaterActor, Ground, Water
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath, Incendiary
+		ValidRelationships: Enemy, Neutral
+	Warhead@1Dam-ally: SpreadDamage
+		Damage: 350
+		Spread: 256
+		Falloff: 100,50,25,5
+		Versus:
+			None: 90
+			Wood: 80
+			Light: 60
+			Medium: 50
+			Heavy: 25
+			Concrete: 25
+		ValidTargets: GroundActor, Trees,  WaterActor, Ground, Water
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath, Incendiary
+		ValidRelationships: Ally
 	Warhead@BurnArea: FireCluster
 		Weapon: IfritAreaFire
 		RandomClusterCount: 1
@@ -1136,6 +1153,7 @@ DisruptionBeam:
 			Concrete: 25
 		ValidTargets: GroundActor, Trees,  WaterActor, Ground, Water
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, DefaultDeath
+		ValidRelationships: Enemy, Neutral
 	Warhead@3Eff: CreateEffect
 		Explosions: soundexplosion
 		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Trees
@@ -1243,6 +1261,7 @@ IfritAreaFire:
 			FireArmor: 0
 		AffectsParent: true
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath, Incendiary
+		ValidRelationships: Enemy, Neutral
 	Warhead@2Dam: SpreadDamage
 		Spread: 0c256
 		Damage: 450
@@ -1259,6 +1278,7 @@ IfritAreaFire:
 		AffectsParent: true
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath, Incendiary
 		Delay: 20
+		ValidRelationships: Enemy, Neutral
 	Warhead@3Dam: SpreadDamage
 		Spread: 0c256
 		Damage: 400
@@ -1275,6 +1295,7 @@ IfritAreaFire:
 		AffectsParent: true
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath, Incendiary
 		Delay: 40
+		ValidRelationships: Enemy, Neutral
 	Warhead@4Dam: SpreadDamage
 		Spread: 0c256
 		Damage: 350
@@ -1291,6 +1312,7 @@ IfritAreaFire:
 		AffectsParent: true
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath, Incendiary
 		Delay: 60
+		ValidRelationships: Enemy, Neutral
 	Warhead@5Dam: SpreadDamage
 		Spread: 0c256
 		Damage: 350
@@ -1307,6 +1329,7 @@ IfritAreaFire:
 		AffectsParent: true
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath, Incendiary
 		Delay: 80
+		ValidRelationships: Enemy, Neutral
 	Warhead@6Dam: SpreadDamage
 		Spread: 0c256
 		Damage: 300
@@ -1323,6 +1346,7 @@ IfritAreaFire:
 		AffectsParent: true
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath, Incendiary
 		Delay: 100
+		ValidRelationships: Enemy, Neutral
 	Warhead@7Dam: SpreadDamage
 		Spread: 0c256
 		Damage: 250
@@ -1339,6 +1363,125 @@ IfritAreaFire:
 		AffectsParent: true
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath, Incendiary
 		Delay: 120
+		ValidRelationships: Enemy, Neutral
+	Warhead@1Dam-a: SpreadDamage
+		Spread: 0c256
+		Damage: 50
+		Falloff: 500, 368, 135, 50, 18, 7, 0
+		ValidTargets: GroundActor, Trees,  WaterActor, Trees
+		Versus:
+			None: 100
+			Wood: 15
+			Light: 50
+			Medium: 30
+			Heavy: 20
+			Concrete: 5
+			FireArmor: 0
+		AffectsParent: true
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath, Incendiary
+		ValidRelationships: Ally
+	Warhead@2Dam-a: SpreadDamage
+		Spread: 0c256
+		Damage: 45
+		Falloff: 500, 368, 135, 50, 18, 7, 0
+		ValidTargets: GroundActor, Trees,  WaterActor, Trees
+		Versus:
+			None: 100
+			Wood: 15
+			Light: 50
+			Medium: 30
+			Heavy: 20
+			Concrete: 5
+			FireArmor: 0
+		AffectsParent: true
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath, Incendiary
+		Delay: 20
+		ValidRelationships: Ally
+	Warhead@3Dam-a: SpreadDamage
+		Spread: 0c256
+		Damage: 40
+		Falloff: 500, 368, 135, 50, 18, 7, 0
+		ValidTargets: GroundActor, Trees,  WaterActor, Trees
+		Versus:
+			None: 100
+			Wood: 15
+			Light: 50
+			Medium: 30
+			Heavy: 20
+			Concrete: 5
+			FireArmor: 0
+		AffectsParent: true
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath, Incendiary
+		Delay: 40
+		ValidRelationships: Ally
+	Warhead@4Dam-a: SpreadDamage
+		Spread: 0c256
+		Damage: 35
+		Falloff: 500, 368, 135, 50, 18, 7, 0
+		ValidTargets: GroundActor, Trees,  WaterActor, Trees
+		Versus:
+			None: 100
+			Wood: 15
+			Light: 50
+			Medium: 30
+			Heavy: 20
+			Concrete: 5
+			FireArmor: 0
+		AffectsParent: true
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath, Incendiary
+		Delay: 60
+		ValidRelationships: Ally
+	Warhead@5Dam-a: SpreadDamage
+		Spread: 0c256
+		Damage: 35
+		Falloff: 500, 368, 135, 50, 18, 7, 0
+		ValidTargets: GroundActor, Trees,  WaterActor, Trees
+		Versus:
+			None: 100
+			Wood: 15
+			Light: 50
+			Medium: 30
+			Heavy: 20
+			Concrete: 5
+			FireArmor: 0
+		AffectsParent: true
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath, Incendiary
+		Delay: 80
+		ValidRelationships: Ally
+	Warhead@6Dam-a: SpreadDamage
+		Spread: 0c256
+		Damage: 30
+		Falloff: 500, 368, 135, 50, 18, 7, 0
+		ValidTargets: GroundActor, Trees,  WaterActor, Trees
+		Versus:
+			None: 100
+			Wood: 15
+			Light: 50
+			Medium: 30
+			Heavy: 20
+			Concrete: 5
+			FireArmor: 0
+		AffectsParent: true
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath, Incendiary
+		Delay: 100
+		ValidRelationships: Ally
+	Warhead@7Dam-a: SpreadDamage
+		Spread: 0c256
+		Damage: 25
+		Falloff: 500, 368, 135, 50, 18, 7, 0
+		ValidTargets: GroundActor, Trees,  WaterActor, Trees
+		Versus:
+			None: 100
+			Wood: 15
+			Light: 50
+			Medium: 30
+			Heavy: 20
+			Concrete: 5
+			FireArmor: 0
+		AffectsParent: true
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath, Incendiary
+		Delay: 120
+		ValidRelationships: Ally
 	Warhead@StartExplosion: CreateEffect
 		Explosions: small_napalm
 	Warhead@2EffStart: CreateEffect

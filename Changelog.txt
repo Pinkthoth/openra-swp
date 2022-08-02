@@ -1,3 +1,74 @@
+0.016-pre-release
+Unit balance
+-Decreased Hind weapon dmg vs infantry by 10%.
+-Decreased Katyusha weapon dmg vs none armour by 5%.
+-Decreased Marauder weapon dmgs vs none armour by 5%.
+-Hind range decreased by 1c0.
+-Dive Bomber's weapon now tracks target for 3c0 while falling.
+-Dive Bomber now has to charge for it's diving effect for 4 seconds for maximum diving time.
+-Dive Bomber damage reduction while diving set to 25%.
+-Decreased Dive Bomber IdleTurnSpeed to 8, and TurnSpeed to 12.
+-Increased Dive Bomber starfing run distance to 10 cells.
+-Tactical Bomber turn speed set to 12 and idle turn speed set to 8.
+-Decreased all infantry health by 5%. (not done yet)
+-Increased Iron Man speed set to 71
+-Increased Iron Man health by 3000.
+-Increased all Fighter's damage by 10%.
+-Night Witch armor changed to light while in air.
+-Airborne Night Witch's health returned to 5500.
+-Decreased Night Witch weapon damage vs. light, medium and heavy armour by 10%.
+-Changed how Light Machine Gunner's weapon works. It now properly prones units 1c512 away from the target, but doesn't damage the units further than 1c0 away from the hit.
+-Increased inaccurate hits by the Light Machine gunner's weapon by 30% to compensate for the decreasd splash damage.
+-Saboteur now disables only the infiltrated building for 30 seconds, but is not consumed by the infiltration.
+-Decreased AT Gun Crew weapon damage by 200.
+-Decreased AT Gun Crew weapon range by 1c0.
+-Allies take 10% of the damage from area fires.
+-Allies take 10% of Ifrit's weapon's damage.
+-Changed Flame Tank explosion into a napalm explosion.
+-Mirage spawn camera decreased to 5 seconds.
+-Allies take no damage from Disruptor's weapon.
+-Cicada price decreased by 50$.
+-Infantry can also be stealthed by Phase Generator.
+-Increased all faction specific support power charging times by 1 minute, except Parabombs, Artillery Barrage and V3 Missile.
+-Aircraft now move 25% faster when landing and taking off to compensate for the higher cruising altitude.
+-Decreased Messerschmitt ammo pool to 20.
+-Sandbag Wall cost set to 30$.
+-Concrete Wall cost set to 200$.
+-Returned the cash stealing ability to spies.
+
+Bug fixes:
+-Katyusha locomotor corrected to wheeled.
+-Corrected Phase Shield name.
+-Radar Scan also detects units under phase type cloak.
+-Flak Cannon does not damage ground units under it's air target.
+-Fixed helicopter husks having the wrong exlosion type.
+
+Economy:
+-Starting money increased by 500$ in all categories.
+-Harvester capacity decreased from 20 to 15.
+-Decreased base value of ore from 30 to 40.
+-Decreased ore spawn rate by 25%.
+-Decreased Harvester ore search distance from 15 to 13.
+
+Features
+-Increased building placement range by 1c0.
+-Vehicle queue maxes at 33% production speed at 5 War Factories: 1000, 700, 500, 400, 330
+-Airplane and Helicopter queues max at 33% production speed at 8 production facilities: 1000, 850, 720, 610, 520, 450, 390, 330
+-Set global bounties on as default lobby option.
+-Set reusable engineer on as default lobby option.
+-Set explored map on as default lobby option.
+-Set crates off as default lobby option.
+
+Graphics and sound
+-Fixed wrong building art for Forward Construction Yard when damaged.
+-Iron Man now has cyborg voice.
+-Changed Iron Man animation to look like it's moving faster.
+-Increased piffs caused by Light Machine Gunner by 1.
+-Infantry corpses now slowly disintegrate.
+
+Maps
+-Added Ausgeflippt 3v3
+
 0.015-pre-release
 Unit balance
 -Legionaire cost reduced by 25$.
@@ -74,7 +145,7 @@ Unti balance
 -Decreased Disruptor cost by 150$.
 -Changed build time reductions for vehicles, ships, helicopters and aircraft to max out at 5 production buildings: 1000, 800, 650, 550, 500
 -Increased all ballistic and missile damage against concrete armor by 10, except for Mortar, Paladin, Czar, Khan, Katyusha, V2-Missile Launcher and others if the value was already at 100 or over that.
--Changed MAgnetic suspension's effect.
+-Changed Magnetic suspension's effect.
 
 Bug fixes
 -Wasp is rearmable on Helipads.

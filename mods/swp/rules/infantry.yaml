@@ -222,8 +222,10 @@ E11:
 	Health:
 		HP: 5000
 	Armament@PRIMARY:
+		Name: secondary
 		Weapon: LightMachineGun
 	Armament@secondary:
+		Name: primary
 		Weapon: LightMachineGun2
 	Armament@GARRISONED:
 		Name: garrisoned
@@ -1093,7 +1095,8 @@ SABOTEUR:
 		Types: SaboteurInfiltration
 		Notification: BuildingInfiltrated
 		PlayerExperience: 50
-		ValidRelationships: Enemy
+		ValidRelationships: Enemy, Ally
+		EnterBehaviour: Exit
 	AutoTarget:
 		InitialStance: HoldFire
 		InitialStanceAI: HoldFire
@@ -2312,7 +2315,7 @@ ATGUNNER:
 	RevealsShroud@GAPGEN:
 		Range: 4c0
 	Armament:
-		Weapon: 76mmOrdinanceQF
+		Weapon: 76mmOrdinanceQF-ATGUNNER
 		LocalOffset: 575,0,360
 		MuzzleSequence: muzzle
 		FireDelay: 15
@@ -2982,9 +2985,9 @@ NIGHTWITCHAIR:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Armor:
-		Type: None
+		Type: Light
 	Health:
-		HP: 4000
+		HP: 5500
 	Aircraft:
 		TurnSpeed: 20
 		Speed: 90
@@ -3498,17 +3501,17 @@ IRONMAN:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 80
 		Prerequisites: ~infantry.russia, adept
-		Description: Specialist infantry in heavy armor.\nMelee unit.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft
+		Description: Cyborg infantry in heavy armor.\nMelee unit.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft
 	Tooltip:
 		Name: Iron Man
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 12000
+		HP: 15000
 	Armor:
 		Type: Medium
 	Mobile:
-		Speed: 40
+		Speed: 71
 	AutoTarget:
 		ScanRadius: 5
 	Armament:
@@ -3528,7 +3531,9 @@ IRONMAN:
 		DeathType: SmallExplosionDeath
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
-		
+	Voiced:
+		VoiceSet: CyborgVoice
+
 IRONMAN.Corpse:
 	Inherits: ^InfantryCorpse
 	Tooltip:

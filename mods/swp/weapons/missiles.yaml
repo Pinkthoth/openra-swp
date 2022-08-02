@@ -698,7 +698,7 @@ IfritMissile:
 		Falloff: 180, 110, 75, 50, 15, 5, 0
 		ValidTargets: GroundActor, Trees,  WaterActor, AirborneActor
 		Versus:
-			None: 95
+			None: 90
 			Wood: 75
 			Light: 60
 			Medium: 50
@@ -735,7 +735,7 @@ IfritMissile:
 		Falloff: 150, 110, 75, 50, 15, 5, 0
 		ValidTargets: GroundActor, Trees,  WaterActor, AirborneActor
 		Versus:
-			None: 95
+			None: 90
 			Wood: 75
 			Light: 60
 			Medium: 50
@@ -749,7 +749,7 @@ IfritMissile:
 Hind227mm:
 	Inherits: ^AntiGroundMissile
 	ReloadDelay: 50
-	Range: 7c0
+	Range: 6c0
 	MinRange: 2c0
 	Burst: 6
 	BurstDelays: 4
@@ -772,7 +772,7 @@ Hind227mm:
 		Falloff: 250, 200, 150, 80, 60, 15, 5, 0
 		ValidTargets: GroundActor, Trees,  WaterActor, AirborneActor
 		Versus:
-			None: 55
+			None: 45
 			Wood: 40
 			Light: 80
 			Medium: 70
