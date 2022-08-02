@@ -18,10 +18,10 @@ HARV:
 	Selectable:
 		DecorationBounds: 42,42
 	Harvester:
-		Capacity: 15
+		Capacity: 17
 		Resources: Ore,Gems
 		BaleLoadDelay: 12
-		BaleUnloadDelay: 6
+		BaleUnloadDelay: 2
 		SearchFromProcRadius: 13
 		SearchFromHarvesterRadius: 8
 		HarvestFacings: 8

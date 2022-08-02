@@ -858,7 +858,7 @@ DOME:
 		Prerequisites: proc, ~techlevel.medium
 		Description: Provides an overview\nof the battlefield.\nProvides support powers.\nRequires power to operate.
 	Valued:
-		Cost: 1800
+		Cost: 1600
 	Tooltip:
 		Name: Radar Dome
 	Building:
@@ -2463,7 +2463,7 @@ PROC:
 		Prerequisites: anypower, ~techlevel.infonly
 		Description: Refines Ore and Gems\ninto credits.
 	Valued:
-		Cost: 1600
+		Cost: 1500
 	Tooltip:
 		Name: Ore Refinery
 	Building:
@@ -2493,7 +2493,7 @@ PROC:
 	StoresResources:
 		Capacity: 2000
 	CustomSellValue:
-		Value: 300
+		Value: 400
 	FreeActor:
 		Actor: HARV
 		SpawnOffset: 1,1

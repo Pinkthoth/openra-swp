@@ -1,3 +1,14 @@
+0.0165-pre-release
+Unit balance
+-Decreased Radar Dome cost from 1800$ to 1600$.
+-Decreased Ore Refinery cost from 1600$ to 1500$.
+-Ore Refinery custom sell value corrected to 400$ from 300$.
+
+Economy
+-Harvester carrying capacity increased from 15 to 17.
+-Harvester BaleUnloadDelay decreased from 6 to 2.
+-Ore mine and gem mine ore seeding interval decreased from 125 to 100.
+
 0.016-pre-release
 Unit balance
 -Decreased Hind weapon dmg vs infantry by 10%.
@@ -10,7 +21,7 @@ Unit balance
 -Decreased Dive Bomber IdleTurnSpeed to 8, and TurnSpeed to 12.
 -Increased Dive Bomber starfing run distance to 10 cells.
 -Tactical Bomber turn speed set to 12 and idle turn speed set to 8.
--Decreased all infantry health by 5%. (not done yet)
+-Decreased all infantry health by 5%.
 -Increased Iron Man speed set to 71
 -Increased Iron Man health by 3000.
 -Increased all Fighter's damage by 10%.

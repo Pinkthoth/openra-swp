@@ -116,8 +116,8 @@ Player:
 		InsufficientFundsNotification: InsufficientFunds
 		CashTickUpNotification: CashTickUp
 		CashTickDownNotification: CashTickDown
-		SelectableCash: 4500, 7000, 12000, 22000
-		DefaultCash: 7000
+		SelectableCash: 5000, 7500, 12500, 22500
+		DefaultCash: 7500
 	DeveloperMode:
 		CheckboxDisplayOrder: 10
 	GpsWatcher:
