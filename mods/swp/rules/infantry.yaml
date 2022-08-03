@@ -1097,6 +1097,7 @@ SABOTEUR:
 		PlayerExperience: 50
 		ValidRelationships: Enemy, Ally
 		EnterBehaviour: Exit
+		EnterCursor: c4
 	AutoTarget:
 		InitialStance: HoldFire
 		InitialStanceAI: HoldFire

@@ -163,6 +163,7 @@ MNLY:
 		Type: Heavy
 	Mobile:
 		Speed: 128
+		Locomotor: lighttracked
 	RevealsShroud:
 		MinRange: 4c0
 		Range: 5c0
@@ -726,7 +727,7 @@ ECTNK:
 		Type: Medium
 	Mobile:
 		Speed: 66
-		Locomotor: heavytracked
+		Locomotor: tracked
 		PauseOnCondition: notmobile || being-captured
 	RevealsShroud:
 		MinRange: 4c0
@@ -1387,6 +1388,7 @@ TEMPLAR:
 	Mobile:
 		Speed: 92
 		TurnSpeed: 40
+		Locomotor: hover
 	RevealsShroud:
 		MinRange: 4c0
 		Range: 6c0
@@ -2109,6 +2111,7 @@ APC:
 	Mobile:
 		Speed: 110
 		PauseOnCondition: notmobile || being-captured
+		Locomotor: lighttracked
 	RevealsShroud:
 		MinRange: 4c0
 		Range: 5c0
@@ -2217,7 +2220,7 @@ IFV:
 	Mobile:
 		TurnSpeed: 28
 		Speed: 100
-		Locomotor: lighttracked
+		Locomotor: wheeled
 		PauseOnCondition: notmobile || being-captured
 	Health:
 		HP: 29000
@@ -2312,6 +2315,7 @@ RTNK:
 		Type: Heavy
 	Mobile:
 		Speed: 110
+		Locomotor: lighttracked
 	RevealsShroud:
 		MinRange: 4c0
 		Range: 5c0
@@ -2438,6 +2442,7 @@ PAPC:
 	Mobile:
 		Speed: 120
 		PauseOnCondition: notmobile || being-captured
+		Locomotor: lighttracked
 	RevealsShroud:
 		MinRange: 4c0
 		Range: 5c0
@@ -2637,6 +2642,7 @@ TELEDRONE:
 	Mobile:
 		TurnSpeed: 40
 		Speed: 95
+		Locomotor: lighttracked
 	Health:
 		HP: 12000
 	Repairable:
@@ -2680,6 +2686,7 @@ LIMPETMINE:
 		Type: Light
 	Mobile:
 		Speed: 80
+		Locomotor: hover
 	RevealsShroud:
 		Range: 3c0
 	-WithFacingSpriteBody:
@@ -2983,7 +2990,7 @@ ARCHER.Husk:
 		Image: archer
 
 ENTENTEAA:
-	Inherits: ^Vehicle
+	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMovePlusBombers
 	Buildable:
@@ -3079,6 +3086,7 @@ HVRTNKTNK:
 		Type: Heavy
 	Mobile:
 		Speed: 85
+		Locomotor: lighttracked
 	RevealsShroud:
 		MinRange: 4c0
 		Range: 5c0
@@ -3217,6 +3225,7 @@ GRINDER:
 	Mobile:
 		Speed: 43
 		PauseOnCondition: being-captured
+		Locomotor: heavytracked
 	RevealsShroud:
 		MinRange: 4c0
 		Range: 5c0
@@ -3821,7 +3830,7 @@ ORDA:
 		Type: Medium
 	Mobile:
 		Speed: 50
-		Locomotor: wheeled
+		Locomotor: tracked
 		PauseOnCondition: being-captured
 	RevealsShroud:
 		MinRange: 4c0
@@ -3874,7 +3883,7 @@ ORDADEPLOYED:
 		Facing: 380
 	TransformsIntoMobile:
 		RequiresForceMove: True
-		Locomotor: wheeled
+		Locomotor: tracked
 	TransformsIntoPassenger:
 		CargoType: Vehicle
 	BaseProvider:

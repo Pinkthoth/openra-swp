@@ -1,3 +1,46 @@
+0.017-pre-release
+Unit balance
+-Saboteur now damages the infiltrated building by 20% of the maximum health after 4 seconds, after which the building is disabled for 30 seconds. Once the building has been infiltrated by a saboteur, infiltrating it again has no effect until the disabling effect has passed.
+-Global power down ability removed from Saboteur when entering power plants.
+-Increased parabomb fall speed from -50 to -80.
+-War Factory build time decreased by 10%, meaning a decrease from 44 seconds to 39 seconds in Normal speed.
+-Reversed infantry health nerf of 5%.
+-Ebi set to light tracked from tracked.
+-Squire locomotor set to light tracked from tracked.
+-APC locomotor set to light tracked from tracked.
+-Warthog locomotor set to wheeled from light tracked.
+-Minelayer locomotor set to light tracked.
+-Chrono APC locomotor set to tracked.
+-Templar locomotor set to hover.
+-Beetle locomotor set to light tracked.
+-Limpet mine locomotor set to hover.
+-Marksman locomotor set to tracked.
+-Maglev Tank locomotor set to light tracked.
+-Grinder locomotor set to heavy tracked.
+-Orda locomotor set to tracked.
+-Exploding Hornets do no damage.
+-Decreased Waste Tanker and Waste Warrior's weapon damage towards heavy armor from 10 to 5, medium armour from 20 to 15 and light armour from 30 to 25.
+-Decreased hind missile damage vs. heavy armour from 60 to 55, medium armour from 70 to 65 and light armour from 80 to 75.
+
+Sounds and graphics
+-Saboteur infiltrated buildings sounds a ticking noise before exploding
+-Saboteur has c4 cursor when hovering over infiltratable buildings.
+-Sell sound no longer plays when Saboteur infiltrates Ore Refinery or Arms Depot
+
+Bug fixes
+-On low power Forward Command no longer produces Militias.
+-On low power MI6 Command Post no longer produces spies.
+
+Economy
+-Ore value increased from 30 to 31
+-Gems value increased from 60 to 62
+-Ore regrowth interval decreased from 100 to 95.
+
+Maps
+-Added Kindergarten
+-Increased starting ore by around 10000 (5000 for each player) for all official maps.
+
+
 0.0165-pre-release
 Unit balance
 -Decreased Radar Dome cost from 1800$ to 1600$.

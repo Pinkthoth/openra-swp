@@ -251,6 +251,28 @@ EMPMine:
 		Condition: empdisable
 		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Water, Air, AirborneBomber, AirborneActor
 
+SaboteurBomb:
+	Inherits: ATMine
+	Report: empmineboom.aud
+	ReloadDelay: 1000
+	Warhead@1Dam: HealthPercentageDamage
+		Spread: 0c01
+		Damage: 20
+	Warhead@2Eff: CreateEffect
+		Explosions: empxpld
+		ExplosionPalette: swpeffects
+	Warhead@3Eff: CreateEffect
+		Explosions: emsurgexpld
+		ImpactSounds: mineblo1.aud
+		ImpactActors: false
+	Warhead@emp: GrantExternalCondition
+		Range: 0c256
+		Duration: 750
+		Condition: sabotagedtimer
+		ValidTargets: Structure
+		ValidRelationships: Enemy, Neutral, Ally
+		AffectsParent: True
+
 OreExplosion:
 	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor
 	Warhead@1Dam: SpreadDamage

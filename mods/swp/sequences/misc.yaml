@@ -499,6 +499,11 @@ litning2:
 		Length: 4
 		ZOffset: 1023
 
+c4bomb:
+	idle: mouse
+		Start: 116
+		Length: 3
+
 fb1:
 	idle:
 		Length: *

@@ -102,6 +102,7 @@ FACT:
 		IntoActor: mcv
 		Offset: 1,1
 		Facing: 384
+		TransformSounds: cashturn2.aud
 	TransformsIntoMobile:
 		RequiresCondition: factundeploy
 		Locomotor: heavywheeled
@@ -1416,13 +1417,13 @@ ACADEMY:
 		ProductionTypes: Clones
 	Production:
 		Produces: Clones
-		PauseOnCondition: being-captured || turnedoff
+		PauseOnCondition: being-captured || turnedoff || disabled
 	PeriodicProducer:
 		Actors: spy.mi6
 		Type: Clones
 		ChargeDuration: 3000
 		ShowSelectionBar: True
-		PauseOnCondition: being-captured || turnedoff
+		PauseOnCondition: being-captured || turnedoff || disabled
 		ReadyAudio: UnitReady
 	RenderSprites:
 		Image: ecom
@@ -1496,7 +1497,7 @@ RECRUITMENTOFFICE:
 		Price: 100
 		ChargeDuration: 750
 		ShowSelectionBar: True
-		PauseOnCondition: being-captured || turnedoff
+		PauseOnCondition: being-captured || turnedoff || disabled
 		ReadyAudio: UnitReady
 	RenderSprites:
 		Image: kcom
@@ -2100,6 +2101,7 @@ ADEPT:
 	Inherits@shape: ^3x2Shape
 	Inherits@rubbles: ^AdeptRubbles
 	Inherits@discount: ^BuildTimeDiscount
+	Inherits@sabotable: ^Sabotable
 	Valued:
 		Cost: 1600
 	Tooltip:
@@ -2166,11 +2168,9 @@ ADEPT:
 		Palette: terrain
 		Offset: 0,-0,-300
 		IsDecoration: True
-	Targetable@sabotable:
-		TargetTypes: SaboteurInfiltration
-	InfiltrateForTransform:
+	TransformOnCondition@sabotaged:
 		IntoActor: adept.disabled
-		Types: SaboteurInfiltration
+		RequiresCondition: sabotagedtimer
 
 ADEPT.disabled:
 	Inherits: ADEPT
@@ -2186,7 +2186,23 @@ ADEPT.disabled:
 	-FreeActor@CHARGEPOS2:
 	-ProximityExternalCondition:
 	-MapEditorData:
-	-GrantCondition@sabotaged:
+	-PeriodicExplosion@saboteurexplode:
+	GrantTimedCondition@sabotage-start:
+		Condition: sabotaged
+		Duration: 750
+	GrantTimedCondition@sabotagedtimer:
+		Condition: sabotagedtimer
+		Duration: 750
+	TransformOnCondition@sabotaged:
+		IntoActor: proc.resumed
+		RequiresCondition: !sabotaged
+	GrantCondition@sabotaged:
+		Condition: turnedoff
+		RequiresCondition: sabotaged
+	-Targetable@sabotable:
+	WithColoredOverlay@IDISABLE:
+		RequiresCondition: disabled || turnedoff
+		Palette: disabled
 
 ADEPTCHARGER:
 	Interactable: 
@@ -2314,6 +2330,8 @@ WEAP:
 	Inherits@sabotable: ^Sabotable
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	ProductionTimeMultiplier@basediscount:
+		Multiplier: 90
 	Selectable:
 		Bounds: 72,48
 	Buildable:
@@ -2455,6 +2473,7 @@ WEAP:
 PROC:
 	Inherits: ^Building
 	Inherits@rubbles: ^3x3Rubbles
+	Inherits@sabotable: ^Sabotable
 	ProductionTimeMultiplier@basediscount:
 		Multiplier: 85
 	Buildable:
@@ -2565,9 +2584,9 @@ PROC:
 		Palette: terrain
 		Offset: 0,-0,-300
 		IsDecoration: True
-	InfiltrateForTransform
+	TransformOnCondition@sabotaged:
 		IntoActor: proc.disabled
-		Types: SaboteurInfiltration
+		RequiresCondition: sabotagedtimer
 
 PROC.disabled:
 	Inherits: PROC
@@ -2575,14 +2594,24 @@ PROC.disabled:
 	GrantTimedCondition@sabotage-start:
 		Condition: sabotaged
 		Duration: 750
+	GrantTimedCondition@sabotagedtimer:
+		Condition: sabotagedtimer
+		Duration: 750
 	TransformOnCondition@sabotaged:
 		IntoActor: proc.resumed
 		RequiresCondition: !sabotaged
-	-GrantCondition@sabotaged:
+	GrantCondition@sabotaged:
+		Condition: turnedoff
+		RequiresCondition: sabotaged
+	-Targetable@sabotable:
+	WithColoredOverlay@IDISABLE:
+		RequiresCondition: disabled || turnedoff
+		Palette: disabled
 	-Refinery:
 	-Buildable:
 	-FreeActor:
 	-MapEditorData:
+	-PeriodicExplosion@saboteurexplode:
 
 PROC.resumed:
 	Inherits: PROC

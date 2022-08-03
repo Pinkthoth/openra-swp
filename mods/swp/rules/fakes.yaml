@@ -171,6 +171,8 @@ DOMF:
 	Inherits@IDISABLE: ^DisableOnLowPower
 	Inherits@infiltrate: ^InfiltratableFake
 	Inherits@shape: ^2x2Shape
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Selectable:
 		Bounds: 48,48
 	HitShape:
@@ -329,6 +331,8 @@ ATEF:
 	Inherits: ^FakeBuilding
 	Inherits@IDISABLE: ^DisableOnLowPower
 	Inherits@shape: ^2x2Shape
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Selectable:
 		Bounds: 48,48
 	Tooltip:
@@ -365,6 +369,8 @@ STHGENF:
 	Inherits: ^FakeBuilding
 	Inherits@IDISABLE: ^DisableOnLowPower
 	Inherits@shape: ^2x2Shape
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Selectable:
 		Bounds: 48,48
 	Tooltip:
@@ -402,6 +408,8 @@ STHGENF:
 EMPGUNF:
 	Inherits: ^FakeBuilding
 	Inherits@IDISABLE: ^DisableOnLowPower
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Inherits@shape: ^2x2Shape
 	Selectable:
 		Bounds: 48,48
@@ -444,6 +452,8 @@ EMPGUNF:
 MSLF:
 	Inherits: ^FakeBuilding
 	Inherits@IDISABLE: ^DisableOnLowPower
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Inherits@shape: ^2x1Shape
 	Selectable:
 		Bounds: 48,24

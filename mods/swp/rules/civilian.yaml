@@ -298,6 +298,8 @@ DISH:
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	-WithDecoration@POWERDOWN:
 	WithDecoration@POWERDOWN:
 		Image: poweroff
@@ -357,6 +359,8 @@ DISH:
 CIVNUKE:
 	Inherits: ^TechBuilding
 	Inherits@POWER_OUTAGE: ^DisabledByPowerOutage
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Inherits@shape: ^3x3Shape
 	Selectable:
 	HitShape:

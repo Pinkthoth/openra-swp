@@ -516,9 +516,8 @@ TELEKITE.Husk:
 		Image: telekite
 	WithFacingSpriteBody:
 		Sequence: turret
-	Explodes:
-		Weapon: UnitExplodeSmall
-		EmptyWeapon: UnitExplodeSmall
+	FallsToEarth:
+		Explosion: SmallUnitExplode
 
 KHAN.Husk:
 	Inherits: ^HelicopterHusk

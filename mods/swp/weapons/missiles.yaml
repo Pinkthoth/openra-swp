@@ -774,9 +774,9 @@ Hind227mm:
 		Versus:
 			None: 45
 			Wood: 40
-			Light: 80
-			Medium: 70
-			Heavy: 60
+			Light: 75
+			Medium: 65
+			Heavy: 55
 			Concrete: 45
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@3Eff: CreateEffect

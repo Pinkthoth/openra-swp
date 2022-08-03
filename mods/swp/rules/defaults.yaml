@@ -747,7 +747,6 @@
 		RequiresCondition: artilleryobserver
 
 ^Crew:
-	Inherits@infantryhealthnerf: ^InfantryHealthNerf
 	WithMoveAnimation:
 	WithAttackAnimation:
 		Sequence: attack
@@ -964,10 +963,6 @@
 	RenderSprites:
 		Palette: tempdecs
 
-^InfantryHealthNerf:
-	DamageMultiplier@infantrynerf:
-		Modifier: 105
-
 ^Infantry:
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^GainsExperience
@@ -986,7 +981,6 @@
 	Inherits@chronohaste: ^ChronoHasteable
 	Inherits@flarevision: ^FlareVision
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
-	Inherits@infantryhealthnerf: ^InfantryHealthNerf
 	Inherits@stealthable: ^Stealthable
 	AmbientSound@sliced:
 		SoundFiles: meatslice.wav, meastslice2.wav, meatslice3.wav, meatslice4.wav
@@ -1447,7 +1441,7 @@
 		Condition: being-demolished
 	Sellable:
 		RequiresCondition: !build-incomplete && !being-captured && !being-demolished
-		SellSounds: cashturn.aud
+		SellSounds: cashturn2.aud
 	WithBuildingRepairDecoration:
 		Image: allyrepair
 		Sequence: repair
@@ -1576,7 +1570,7 @@
 	Targetable:
 		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration
 	InfiltrateForDecoration:
-		Types: SpyInfiltrate
+		Types: SpyInfiltrate, SaboteurInfiltration
 		Position: Top
 		Margin: 0, 4
 		RequiresSelection: true
@@ -2152,7 +2146,7 @@
 
 ^DisableOnLowPower:
 	WithColoredOverlay@IDISABLE:
-		RequiresCondition: disabled
+		RequiresCondition: disabled || turnedoff
 		Palette: disabled
 	GrantConditionOnPowerState@LOWPOWER:
 		Condition: lowpower
@@ -2191,12 +2185,15 @@
 ^Sabotable:
 	GrantCondition@sabotaged:
 		Condition: turnedoff
-		RequiresCondition: sabotaged
-	WithColoredOverlay@SABOTAGED:
-		RequiresCondition: sabotaged
-		Palette: disabled
+		RequiresCondition: sabotaged && !saboteur-explode && sabotagedtimer
+	GrantCondition@sabotaged-disabled:
+		Condition: disabled
+		RequiresCondition: sabotaged && !saboteur-explode && sabotagedtimer
 	Targetable@sabotable:
 		TargetTypes: SaboteurInfiltration
+	WithColoredOverlay@IDISABLE:
+		RequiresCondition: disabled || turnedoff
+		Palette: disabled
 	WithDecoration@sabotaged:
 		Image: pips
 		Sequence: pip-sabotaged
@@ -2204,14 +2201,38 @@
 		Margin: 0, 0
 		BlinkInterval: 32
 		BlinkPattern: On, Off
-		RequiresCondition: sabotaged
+		RequiresCondition: sabotaged && !saboteur-explode
+	GrantConditionOnInfiltration@saboteur-explode:
+		Condition: saboteur-explode
+		Duration: 100
+		Types: SaboteurInfiltration
+		RequiresCondition: !sabotaged
 	GrantConditionOnInfiltration@saboteur:
 		Condition: sabotaged
-		Duration: 750
+		Duration: 850
 		Types: SaboteurInfiltration
+		RequiresCondition: !sabotaged
+	ExternalCondition@sabotaged-timer:
+		Condition: sabotagedtimer
 	TimedConditionBar@sabotaged:
-		Condition: sabotaged
+		Condition: sabotagedtimer
 		Color: 808080
+	PeriodicExplosion@saboteurexplode:
+		RequiresCondition: sabotaged && !saboteur-explode
+		Weapon: SaboteurBomb
+		InitialDelay: 0
+	AmbientSound@ticking:
+		RequiresCondition: saboteur-explode
+		Interval: 1000
+		SoundFiles: clocktick.wav
+	WithDecoration@saboteur-bomb:
+		Image: c4bomb
+		Sequence: idle
+		Position: Center
+		Margin: 0, 0
+		BlinkInterval: 12
+		BlinkPattern: On, Off
+		RequiresCondition: saboteur-explode
 
 ^FlameShield:
 	ExternalCondition@FLAMESHIELD:
@@ -2342,7 +2363,7 @@
 
 ^DisabledByPowerOutage:
 	WithColoredOverlay@IDISABLE:
-		RequiresCondition: disabled
+		RequiresCondition: disabled || turnedoff
 		Palette: disabled
 	GrantCondition@IDISABLE:
 		RequiresCondition: power-outage
@@ -2350,7 +2371,7 @@
 	AffectedByPowerOutage:
 		Condition: power-outage
 	InfiltrateForPowerOutage:
-		Types: SpyInfiltrate, SaboteurInfiltration
+		Types: SpyInfiltrate
 	Power:
 		RequiresCondition: !disabled
 
