@@ -2869,8 +2869,6 @@ NIGHTWITCHAIR.Husk:
 	FallsToEarth:
 		Explosion: NightWitchSquish
 		Velocity: 0c86
-	SpawnActorOnDeath@BulletDeath:
-		Actor: NIGHTWITCH.Corpse
 
 PNEER:
 	Inherits: ^Soldier

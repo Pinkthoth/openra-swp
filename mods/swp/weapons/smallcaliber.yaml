@@ -425,7 +425,7 @@ LightMachineGun:
 		Damage: 325
 		Spread: 0c512
 		Versus:
-			None: 30
+			None: 55
 			Wood: 5
 			Light: 15
 			Medium: 5
@@ -486,10 +486,10 @@ LightMachineGun2:
 	Projectile: InstantHit
 		Inaccuracy: 0c124
 	Warhead@1Dam: SpreadDamage
-		Damage: 150
-		Spread: 0c124
+		Spread: 0c512
+		Damage: 300
 		Versus:
-			None: 30
+			None: 55
 			Wood: 5
 			Light: 15
 			Medium: 5

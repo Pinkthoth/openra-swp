@@ -22,7 +22,7 @@
 		Explosions: napalm
 		ImpactSounds: firebl3.aud
 		ImpactActors: false
-		ValidTargets: GroundActor, WaterActor, Corpse, Trees
+		ValidTargets: Ground, GroundActor, WaterActor, Corpse, Trees
 		
 ^TeslaWeapon:
 	ReloadDelay: 3

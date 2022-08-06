@@ -21,9 +21,11 @@ Infantry
 -Increased Legionaire AA missile range to 7c0 from 5c0.
 -Increased Legionaire's AA missile's range limit to 10c0 from 5c0.
 -Decreased Light Machine Gunner splash damage from 650 to 325.
+-Increased Ligth Machine Gunner's central hit damage from 150 to 300.
 -Increased Light Machine Gunner central hit weapon inaccuracy from 0c0 to 0c124
 -Decreased Light Machine gunner splash damage vs. wood armour to 5 from 15, vs light armour to 15 from 25, vs medium armour to 5 from 15, vs heavy armour to 2 from 10 and vs concrete armour to 5 from 10.
 -Decreased Light Machine gunner central hit weapon damage vs. wood armour to 5 from 15, vs light armour to 15 from 25, vs medium armour to 5 from 15, vs heavy armour to 2 from 10 and vs concrete armour to 5 from 10.
+-Increased Light Machine Gunner's weapon damage vs none armour to 55 from 30. 
 
 Vehicles
 -Flame Tank weapon damage vs light armour set to 50 from 60, vs. medium armour set to 30 from 40 and vs. heavy armour set to 10 from 25, and vs wood armour from 50 to 25, and vs concrete armour to 15 from 35
@@ -74,7 +76,7 @@ Bug fixes
 Economy
 -Ore spawn interval set to 65 from 95.
 -Harvester capacity increased to 20 from 17.
--Maximum Ore density increased from 12 to 13, and maximum Gems density increased to 4 from 3.
+-Maximum Ore density increased from 12 to 14, and maximum Gems density increased to 4 from 3.
 
 Sounds and graphics
 -Changed Saucer position in the production palette.
@@ -84,9 +86,6 @@ Sounds and graphics
 
 Maps:
 -Increased the amount of ore in most maps to be around 100 000.
-
-To do:
--Add corpses to big explosion death
 
 0.017-pre-release
 Unit balance
