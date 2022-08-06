@@ -30,6 +30,7 @@ telekite:
 	muzzle: minigun
 		Length: 6
 		Facings: 8
+	die: art-exp1
 
 yak:
 	idle:

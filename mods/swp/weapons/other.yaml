@@ -22,6 +22,7 @@
 		Explosions: napalm
 		ImpactSounds: firebl3.aud
 		ImpactActors: false
+		ValidTargets: GroundActor, WaterActor, Corpse, Trees
 		
 ^TeslaWeapon:
 	ReloadDelay: 3
@@ -53,8 +54,8 @@
 			Light: 50
 			Medium: 60
 			Heavy: 40
-			Wood: 30
-			Concrete: 20
+			Wood: 40
+			Concrete: 30
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ElectricityDeath
 
 ^MagneticWeapon:
@@ -88,7 +89,7 @@ TraktorBeam:
 	Range: 7c512
 	ReloadDelay: 10
 	Projectile: Railgun
-		Duration: 10
+		Duration: 20
 	Warhead@1: SpreadDamage
 		Damage: 300
 	Warhead@2: GrantExternalCondition
@@ -175,7 +176,7 @@ ElectricBolt:
 		Explosions: thunderstruck, thunderstruck2
 		ExplosionPalette: tseffects
 		ImpactSounds: chrge1.aud
-		ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor
+		ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor, Corpse
 	Warhead@EMDamage: GrantExternalCondition
 		Range: 0c511
 		Duration: 200
@@ -251,7 +252,7 @@ SM_ElectricBolt:
 		Explosions: thunderstruck, thunderstruck2
 		ExplosionPalette: tseffects
 		ImpactSounds: chrge1.aud
-		ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor
+		ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor, Corpse
 	Warhead@EMDamage: GrantExternalCondition
 		Range: 0c511
 		Duration: 200
@@ -270,6 +271,25 @@ FireballLauncher:
 	Warhead@1Dam: SpreadDamage
 		Versus:
 			Light: 50
+
+TankFireballLauncher:
+	Inherits: ^FireWeapon
+	Burst: 2
+	Report: flamethrower2.aud
+	BurstDelays: 20
+	Projectile: Bullet
+		Speed: 250
+		TrailImage: fb2
+		Image: FB1
+	Warhead@1Dam: SpreadDamage
+		Versus:
+			None: 90
+			Wood: 25
+			Tree: 50
+			Light: 50
+			Medium: 30
+			Heavy: 10
+			Concrete: 15
 
 Flamer:
 	Inherits: ^FireWeapon
@@ -349,7 +369,7 @@ Toxxer:
 		ExplosionPalette: poisonpal
 		ImpactSounds: acid1.aud, acid2.aud, acid3.aud
 		ImpactActors: false
-		ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor, Trees
+		ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor, Trees, Corpse
 
 TruckToxxer:
 	Inherits: Toxxer
@@ -635,7 +655,7 @@ BomberParaBomb:
 	Warhead@3Eff: CreateEffect
 		Explosions: artillery_explosion
 		ImpactSounds: kaboom15.aud
-		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Trees
+		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Trees, Corpse
 	Warhead@4EffWater: CreateEffect
 		Explosions: small_splash
 		ImpactSounds: splash9.aud
@@ -671,7 +691,7 @@ BlimpParaBomb:
 	Warhead@3Eff: CreateEffect
 		Explosions: artillery_explosion
 		ImpactSounds: kaboom15.aud
-		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Trees
+		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Trees, Corpse
 	Warhead@4EffWater: CreateEffect
 		Explosions: small_splash
 		ImpactSounds: splash9.aud
@@ -708,7 +728,7 @@ DropBombs:
 	Warhead@3Eff: CreateEffect
 		Explosions: artillery_explosion
 		ImpactSounds: kaboom15.aud
-		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Trees
+		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Trees, Corpse
 	Warhead@4EffWater: CreateEffect
 		Explosions: small_splash
 		ImpactSounds: splash9.aud
@@ -746,7 +766,7 @@ Firebombs:
 	Warhead@3Eff: CreateEffect
 		Explosions: small_napalm
 		ImpactSounds: firebl3.aud
-		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Trees
+		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Trees, Corpse
 	Warhead@4EffWater: CreateEffect
 		Explosions: small_splash
 		ImpactSounds: splash9.aud
@@ -838,7 +858,7 @@ SPEMPPulse:
 		ExplosionPalette: tseffects
 		ImpactActors: false
 		ImpactSounds: empexpl1.wav
-		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Water
+		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Water, Corpse
 	Warhead@emp: GrantExternalCondition
 		Range: 3c0
 		Duration: 100
@@ -886,8 +906,8 @@ Prism:
 		Footprint: xxx x_x xxx
 
 PrismTower:
-	ReloadDelay: 200
-	Range: 7c512
+	ReloadDelay: 120
+	Range: 7c0
 	Report: prisray.aud
 	ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
 	Projectile: LaserZap
@@ -900,11 +920,11 @@ PrismTower:
 		Damage: 22500
 		Versus:
 			None: 100
-			Wood: 50
+			Wood: 60
 			Light: 100
 			Medium: 90
 			Heavy: 80
-			Concrete: 30
+			Concrete: 50
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath
 		ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
 	Warhead@2Smu: LeaveSmudge
@@ -1080,7 +1100,7 @@ DesolatorHandHeld_Effect:
 	Warhead@3Eff: CreateEffect
 		Explosions: napalm
 		ImpactSounds: firebl3.aud
-		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Trees
+		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Trees, Corpse
 
 Firelance:
 	ReloadDelay: 150
@@ -1097,11 +1117,11 @@ Firelance:
 		Falloff: 100,50,25,5
 		Versus:
 			None: 90
-			Wood: 80
+			Wood: 100
 			Light: 60
 			Medium: 50
 			Heavy: 25
-			Concrete: 25
+			Concrete: 40
 		ValidTargets: GroundActor, Trees,  WaterActor, Ground, Water
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath, Incendiary
 		ValidRelationships: Enemy, Neutral
@@ -1111,11 +1131,11 @@ Firelance:
 		Falloff: 100,50,25,5
 		Versus:
 			None: 90
-			Wood: 80
+			Wood: 100
 			Light: 60
 			Medium: 50
 			Heavy: 25
-			Concrete: 25
+			Concrete: 40
 		ValidTargets: GroundActor, Trees,  WaterActor, Ground, Water
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath, Incendiary
 		ValidRelationships: Ally
@@ -1129,7 +1149,7 @@ Firelance:
 		ValidTargets: Ground, GroundActor
 	Warhead@3Eff: CreateEffect
 		Explosions: napalm
-		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Trees
+		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Trees, Corpse
 
 DisruptionBeam:
 	ReloadDelay: 100
@@ -1156,7 +1176,7 @@ DisruptionBeam:
 		ValidRelationships: Enemy, Neutral
 	Warhead@3Eff: CreateEffect
 		Explosions: soundexplosion
-		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Trees
+		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Trees, Corpse
 		ExplosionPalette: tseffects
 	Warhead@condition: GrantExternalCondition
 		Duration: 100
@@ -1488,69 +1508,69 @@ IfritAreaFire:
 		Image: Fire
 		Explosions: firelong
 		Inaccuracy: 0c512
-		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees
+		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees, Corpse
 	Warhead@3EffStart: CreateEffect
 		Image: Fire
 		Explosions: firelong
 		Inaccuracy: 0c512
-		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees
+		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees, Corpse
 	Warhead@4EffStart: CreateEffect
 		Image: Fire
 		Explosions: firelong
 		Inaccuracy: 0c512
-		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees
+		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees, Corpse
 	Warhead@2Eff: CreateEffect
 		Image: Fire
 		Explosions: firelong
 		Inaccuracy: 0c512
-		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees
+		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees, Corpse
 	Warhead@3Eff: CreateEffect
 		Image: Fire
 		Explosions: firelong
 		Inaccuracy: 0c512
-		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees
+		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees, Corpse
 		Delay: 15
 	Warhead@4Eff: CreateEffect
 		Image: Fire
 		Explosions: firelong
 		Inaccuracy: 0c512
-		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees
+		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees, Corpse
 		Delay: 30
 	Warhead@5Eff: CreateEffect
 		Image: Fire
 		Explosions: firelong
 		Inaccuracy: 0c512
-		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees
+		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees, Corpse
 		Delay: 45
 	Warhead@6Eff: CreateEffect
 		Image: Fire
 		Explosions: firelong
 		Inaccuracy: 0c512
-		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees
+		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees, Corpse
 		Delay: 60
 	Warhead@7Eff: CreateEffect
 		Image: Fire
 		Explosions: firelong
 		Inaccuracy: 0c512
-		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees
+		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees, Corpse
 		Delay: 75
 	Warhead@8Eff: CreateEffect
 		Image: Fire
 		Explosions: firelong
 		Inaccuracy: 0c512
-		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees
+		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees, Corpse
 		Delay: 90
 	Warhead@9Eff: CreateEffect
 		Image: Fire
 		Explosions: firelong
 		Inaccuracy: 0c512
-		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees
+		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees, Corpse
 		Delay: 105
 	Warhead@10Eff: CreateEffect
 		Image: Fire
 		Explosions: firelong
 		Inaccuracy: 0c512
-		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees
+		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees, Corpse
 		Delay: 120
 	Warhead@Smu: LeaveSmudge
 		SmudgeType: Scorch

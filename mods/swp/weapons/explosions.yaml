@@ -65,6 +65,33 @@ SmallUnitExplode:
 	Warhead@1Dam: SpreadDamage
 		Damage: 0
 
+SmallPlaneExplode:
+	ValidTargets: Ground, Water, Air, GroundActor, Trees,  WaterActor, AirborneActor
+	Warhead@1Dam: SpreadDamage
+		Spread: 426
+		Damage: 0
+		ValidTargets: GroundActor, Trees, WaterActor, Air, AirborneActor, Vehicle
+		Versus:
+			None: 90
+			Wood: 75
+			Light: 60
+			Medium: 40
+			Heavy: 25
+			Concrete: 100
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@Smu: LeaveSmudge
+		SmudgeType: Crater
+		ValidTargets: Ground, Vehicle, Infantry
+	Warhead@2Eff: CreateEffect
+		Explosions: self_destruct
+		ImpactSounds: kaboom22.aud
+		ValidTargets: Ground, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees, Vehicle
+	Warhead@3EffWater: CreateEffect
+		Explosions: large_splash
+		ImpactSounds: splash9.aud
+		ValidTargets: Water, Underwater
+		InvalidTargets: Bridge
+
 UnitExplodePlane:
 	Inherits: UnitExplode
 	Warhead@2Eff: CreateEffect

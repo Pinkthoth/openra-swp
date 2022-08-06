@@ -18,8 +18,8 @@ HARV:
 	Selectable:
 		DecorationBounds: 42,42
 	Harvester:
-		Capacity: 17
 		Resources: Ore,Gems
+		Capacity: 20
 		BaleLoadDelay: 12
 		BaleUnloadDelay: 2
 		SearchFromProcRadius: 13
@@ -647,18 +647,18 @@ MSAM:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 220
-		Prerequisites: dome, ~vehicles.zentrum, ~techlevel.medium
+		Prerequisites: domeoradept, ~vehicles.zentrum, ~techlevel.medium
 		Description: Mobile surface to air missile platform.\n	Strong vs Aircraft\n  Weak vs Infantry, Vehicles.
 	Mobile:
 		Locomotor: lighttracked
-		Speed: 72
+		Speed: 80
 		TurnSpeed: 28
 	Health:
-		HP: 18000
+		HP: 20000
 	Repairable:
 		HpPerStep: 1364
 	Armor:
-		Type: Light
+		Type: Medium
 	RevealsShroud:
 		Range: 8c0
 	Turreted:
@@ -668,9 +668,7 @@ MSAM:
 	Armament:
 		Weapon: MSAMRedEye
 		LocalOffset: 0,-171,0, 0,171,0
-	AmmoPool:
-		Ammo: 2
-		AmmoCondition: ammo
+		PauseOnCondition: !ammo
 	AttackTurreted:
 		PauseOnCondition: turnedoff
 	WithSpriteTurret:
@@ -683,13 +681,19 @@ MSAM:
 		Sequence: turret0
 	AutoTarget:
 		InitialStanceAI: Defend
+	AmmoPool:
+		Ammo: 2
+		AmmoCondition: ammo
 	ReloadAmmoPool:
-		Delay: 80
+		Delay: 50
 		Count: 1
 	SpawnActorOnDeath:
 		Actor: MSAM.Husk
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
+	WithRangeCircle@anti-air:
+		Range: 8c512
+		Color: FFFF0080
 
 MSAM.Husk:
 	Inherits: ^Husk
@@ -1049,6 +1053,9 @@ FTRK:
 		DecorationBounds: 28,28
 	SpawnActorOnDeath:
 		Actor: FTRK.Husk
+	RenderRangeCircle@anti-air:
+		RangeCircleType: Anti-air
+		RangeCircleMode: Maximum
 
 FTRK.Husk:
 	Inherits: ^Husk
@@ -1149,7 +1156,7 @@ TRAKTOR:
 		Range: 4c0
 	Armament:
 		Weapon: TraktorBeam
-		LocalOffset: 350,0,290
+		LocalOffset: 350,0,290, 350,200,290, 350,0,290, 350,-200,290
 	AttackFrontal:
 		PauseOnCondition: turnedoff
 	ProducibleWithLevel:
@@ -2279,6 +2286,9 @@ IFV:
 		Actor: IFV.Husk
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
+	RenderRangeCircle@anti-air:
+		RangeCircleType: Anti-air
+		RangeCircleMode: Maximum
 
 IFV.Husk:
 	Inherits: ^Husk
@@ -2391,6 +2401,13 @@ RONIN:
 		Weapon: RoninDrake
 		RecoilRecovery: 25
 		LocalOffset: 730,60,25
+		PauseOnCondition: !ammo
+	Armament@aa:
+		Name: tertiary
+		Weapon: RoninDrakeAA
+		RecoilRecovery: 25
+		LocalOffset: 730,60,25
+		PauseOnCondition: !ammo
 	Armament@secondary:
 		Name: secondary
 		Weapon: M60mg-Ronin
@@ -2399,12 +2416,23 @@ RONIN:
 		MuzzleSequence: muzzle
 	AttackTurreted:
 		PauseOnCondition: turnedoff
+		Armaments: primary, secondary, tertiary
 	WithMuzzleOverlay:
 	WithSpriteTurret:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	SpawnActorOnDeath:
 		Actor: RONIN.Husk
+	AmmoPool:
+		Armaments: primary, tertiary
+		Ammo: 2
+		AmmoCondition: ammo
+	ReloadAmmoPool:
+		Delay: 90
+		Count: 2
+	WithRangeCircle@anti-air:
+		Range: 8c0
+		Color: FFFF0080
 
 RONIN.Husk:
 	Inherits: ^Husk
@@ -2657,12 +2685,27 @@ TELEDRONE:
 	Armament@PRIMARY:
 		Weapon: BeetleMissile
 		LocalOffset: 40,0,30
+		PauseOnCondition: !ammo
+	Armament@SECONDARY:
+		Name: secondary
+		Weapon: BeetleMissileAA
+		LocalOffset: 40,0,30
+		PauseOnCondition: !ammo
 	AttackMove:
 	AttackTurreted:
 		PauseOnCondition: turnedoff
 	WithSpriteTurret:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
+	AmmoPool:
+		Ammo: 1
+		AmmoCondition: ammo
+	ReloadAmmoPool:
+		Delay: 125
+		Count: 1
+	WithRangeCircle@anti-air:
+		Range: 8c0
+		Color: FFFF0080
 
 LIMPETMINE:
 	Inherits: ^Vehicle
@@ -3050,6 +3093,9 @@ ENTENTEAA:
 		Image: marksman
 	SpawnActorOnDeath:
 		Actor: ENTENTEAA.Husk
+	RenderRangeCircle@anti-air:
+		RangeCircleType: Anti-air
+		RangeCircleMode: Maximum
 
 ENTENTEAA.Husk:
 	Inherits: ^Husk
@@ -3106,12 +3152,11 @@ HVRTNKTNK:
 	WithSpriteTurret:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
-	Transforms:
+	GrantConditionOnDeploy:
+		DeployedCondition: deployed
+	TransformOnCondition:
 		IntoActor: hvrtnkhvr
-		Offset: 0,0
-		Facing: 384
-		TransformSounds: electr.aud, electr.aud
-		NoTransformNotification: BuildingCannotPlaceAudio
+		RequiresCondition: deployed
 	SpawnActorOnDeath:
 		Actor: HVRTNKTNK.Husk
 	Selectable:
@@ -3161,12 +3206,10 @@ HVRTNKHVR:
 		Actor: HVRTNKHVR.Husk
 	Selectable:
 		DecorationBounds: 40,36,0,-8
-	WithMakeAnimation:
 	-EjectOnDeath:
 	Transforms:
 		IntoActor: hvrtnktnk
 		Offset: 0,0
-		Facing: 384
 		TransformSounds: electr.aud, electr.aud
 		NoTransformNotification: BuildingCannotPlaceAudio
 	InstantTransforms:
@@ -3341,7 +3384,7 @@ FLMTNK:
 	RevealsShroud:
 		Range: 6c0
 	Armament:
-		Weapon: FireballLauncher
+		Weapon: TankFireballLauncher
 		LocalOffset: 300,180,100, 300,-180,100
 	AttackFrontal:
 		PauseOnCondition: turnedoff
@@ -3396,7 +3439,7 @@ FIRELANCER:
 	RevealsShroud:
 		Range: 6c0
 	Armament:
-		Weapon: firelance
+		Weapon: Firelance
 		LocalOffset: 900,0,0
 		MuzzleSequence: muzzle
 		MuzzlePalette: tseffects

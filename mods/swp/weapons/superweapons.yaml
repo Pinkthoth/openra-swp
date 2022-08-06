@@ -28,7 +28,7 @@ ParaBomb:
 	Warhead@3Eff: CreateEffect
 		Explosions: artillery_explosion
 		ImpactSounds: kaboom15.aud
-		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Trees
+		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Trees, Corpse
 	Warhead@4EffWater: CreateEffect
 		Explosions: small_splash
 		ImpactSounds: splash9.aud
@@ -79,7 +79,7 @@ Metempsychosis:
 		Explosions: metempsychosisburst
 		ExplosionPalette: poisons
 		ImpactSounds: curse.aud
-		ValidTargets: Ground, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees
+		ValidTargets: Ground, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees, Corpse
 	Warhead@3EffWater: CreateEffect
 		Explosions: large_splash
 		ImpactSounds: splash9.aud
@@ -105,7 +105,7 @@ LazareneRay:
 		Explosions: lazarusburst
 		ExplosionPalette: basic-alpha
 		ImpactSounds: holy.aud
-		ValidTargets: Ground, Air, GroundActor, Trees, AirborneActor, WaterActor, Trees, Water
+		ValidTargets: Ground, Air, GroundActor, Trees, AirborneActor, WaterActor, Trees, Water, Corpse
 
 Atomic:
 	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor, Underwater, AirborneActor, Trees
@@ -266,7 +266,7 @@ StukaBomb:
 	Warhead@3Eff: CreateEffect
 		Explosions: large_napalm
 		ImpactSounds: kaboom15.aud
-		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Trees
+		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Trees, Corpse
 	Warhead@4EffWater: CreateEffect
 		Explosions: small_splash
 		ImpactSounds: splash9.aud
@@ -377,7 +377,7 @@ V3Missile:
 		ExplosionPalette: tseffects
 		ImpactSounds: explosion_large_5.wav
 		ImpactActors: false
-		ValidTargets: Ground, Water, Air, GroundActor, Trees,  WaterActor
+		ValidTargets: Ground, Water, Air, GroundActor, Trees,  WaterActor, Corpse
 	Warhead@Cluster: FireCluster
 		Weapon: IfritAreaFire
 		RandomClusterCount: 20
@@ -435,7 +435,7 @@ SmokeBarrageShell:
 		ImpactSounds: kaboom15.aud
 		Explosions: smokeexp
 		ExplosionPalette: basic-alpha
-		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Trees
+		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Trees, Corpse
 
 SpawnSmoke:
 	Projectile: InstantHit

@@ -84,7 +84,7 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: True
-		BuildTimeSpeedReduction: 1000, 850, 720, 610, 520, 450, 390, 330
+		BuildTimeSpeedReduction: 1000, 825, 700, 620, 585, 555, 535, 520, 510, 500
 		BuildDurationModifier: 10
 	ClassicProductionQueue@Helicopter:
 		Type: Helicopter
@@ -97,7 +97,7 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: True
-		BuildTimeSpeedReduction: 1000, 850, 720, 610, 520, 450, 390, 330
+		BuildTimeSpeedReduction: 1000, 825, 700, 620, 585, 555, 535, 520, 510, 500
 		BuildDurationModifier: 10
 	PlaceBuilding:
 		NewOptionsNotification: NewOptions

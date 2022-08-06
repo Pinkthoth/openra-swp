@@ -1935,7 +1935,7 @@
 	Inherits@4: ^SpriteActor
 	-MapEditorData:
 	Targetable: 
-		TargetTypes: Corpse, GroundActor
+		TargetTypes: Corpse
 	Armor:
 		Type: None
 	Health:
@@ -2360,6 +2360,9 @@
 	SpeedMultiplier@magnetitrap:
 		RequiresCondition: magnetic-trap
 		Modifier: 25
+	ReloadDelayMultiplier@magnetictrap:
+		RequiresCondition: magnetic-trap
+		Modifier: 200
 
 ^DisabledByPowerOutage:
 	WithColoredOverlay@IDISABLE:

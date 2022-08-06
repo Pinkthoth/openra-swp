@@ -1,3 +1,93 @@
+0.018-pre-release
+Unit balance
+-Decreased Black Hawk damage vs. medium armour from 50 to 25 and heavy armour from 22 to 10.
+-Decreased Aguila damage vs. heavy armour from 25 to 15.
+
+Buildings
+-Helipad and Airfield cost increased from 700$ to 900$.
+-Ore Refinery cost decreased to 1400$ from 1500$, custom sell value set to 300$.
+-Powerplant price decreased from 500$ to 400$.
+-Advanced Powerplant price decreased from 850 to 650$.
+-Grand Cannon armour type changed from heavy to concrete.
+-Grand Cannon health increased from 60 000 to 80 000.
+-Decreased War Factory cost by to 1700$ from 1800$.
+-Decreased Refractor Tower range to 7c0 from 7c512.
+-Decreased Refractor Tower reload delay to 120 from 200.
+-Increased Refractor Tower damage vs. concrete armour to 50 from 30 and vs. wood armour to 60 from 50.
+
+Infantry
+-Increased AA Gun Crew range to 10c0 from 9c0.
+-Increased AA Gun Crew damage to 1100 from 1000.
+-Increased Legionaire AA missile range to 7c0 from 5c0.
+-Increased Legionaire's AA missile's range limit to 10c0 from 5c0.
+-Decreased Light Machine Gunner splash damage from 650 to 325.
+-Increased Light Machine Gunner central hit weapon inaccuracy from 0c0 to 0c124
+-Decreased Light Machine gunner splash damage vs. wood armour to 5 from 15, vs light armour to 15 from 25, vs medium armour to 5 from 15, vs heavy armour to 2 from 10 and vs concrete armour to 5 from 10.
+-Decreased Light Machine gunner central hit weapon damage vs. wood armour to 5 from 15, vs light armour to 15 from 25, vs medium armour to 5 from 15, vs heavy armour to 2 from 10 and vs concrete armour to 5 from 10.
+
+Vehicles
+-Flame Tank weapon damage vs light armour set to 50 from 60, vs. medium armour set to 30 from 40 and vs. heavy armour set to 10 from 25, and vs wood armour from 50 to 25, and vs concrete armour to 15 from 35
+-Decreased Mobile Sam reload time from 50 to 10.
+-Changed Mobile SAM armour type from ligth to medium.
+-Increased Mobile SAM health from 18 000 to 20 000.
+-Decreased Mobile SAM ammo reload time from 80 to 50.
+-Increased Mobile SAM range from 7c512 to 8c512.
+-Increased Mobile SAM speed from 72 to 80.
+-Increased Ronin AA missiles range to 8c0 from 5c0.
+-Mobile SAM is now buildable with both Radar Dome and Arms Depot.
+-Decreased Ranger and Bobcat damage vs none armour from 100 to 95.
+-Increased Ranger and Bobcat damage's delay from 2 to 3, 4 to 6 and 6 to 9.
+-Increased Beetle's AA missile's range to 8c0 from 5c0.
+-Increased Beetle's missile's maximun range to 10c0 from 5c0.
+-Increased Arc Thrower damage vs wood armour from 30 to 40, and concrete armour from 20 to 30.
+-Increased Ifrit damage vs. wood armour from 80 to 100, and vs concrete armour to 40 from 25.
+-Traktor increases the reload speed of the target unit by 200%.
+-Maglev Tank no longer needs to face a certain way before assuming levitating state.
+
+Air units
+-Decreased Hind weapon damage vs heavy armour from 55 to 20, vs medium armour from 65 to 40 and vs light armour from 75 to 50 and concrete armour from 45 to 40.
+-Increased Hind weapon damage vs wood armour from 40 to 45.
+-Increased Thunderbolt damage vs wood armour from 15 to 25, and concrete armour from 10 to 15.
+-Increased Spitfire turn speed to 20 from 17, Yak turn speed set to 19 from 16, Messerschmitt turn speed set to 18 from 16.
+-Longbows can no longer attack airplanes, but it can still attack other helicopters.
+-Decreased interceptin Aguila turn speed to 25 from 16.
+-Changed Comet's weapon to match Black Hawk's weapon, but decreased damage from 2500 to 2250.
+-Increased Hornet health to 15 000 from 10 000.
+-Hornet now explodes in air instead of falling to ground when destroyed.
+
+Features
+-Helicopter and Airplane queues now max out at 10 production facilities instead of 8: BuildTimeSpeedReduction: 1000, 825, 700, 620, 585, 555, 535, 520, 510, 500
+-All infantry death types leave a corpse.
+-Corpses take no damage from weapons.
+-Disabled Hornets now refuse orders and may stay in place or keep on flying.
+
+Bug fixes
+-Turkemnia can now build Salvagers.
+-Mobile SAM now cannot fire if it has no ammo.
+-Missile Silo hit shape corrected, so that damage is calculated properly.
+-Grand Cannon hit shape corrected, so that damage is calculated properly.
+-Med_splash explosion had wrong art, corrected it to the RA 1 one.
+-Shinobi leaves a corpse.
+-Night Witch that falls to earth and dies leaves a corpse.
+-Cavalry leaves a Militia corpse.
+
+Economy
+-Ore spawn interval set to 65 from 95.
+-Harvester capacity increased to 20 from 17.
+-Maximum Ore density increased from 12 to 13, and maximum Gems density increased to 4 from 3.
+
+Sounds and graphics
+-Changed Saucer position in the production palette.
+-Decreased the size of the Comet.
+-Every unit that can attack airplanes now has a range circle.
+-Decreased Hind & Marauder missile contrail width.
+
+Maps:
+-Increased the amount of ore in most maps to be around 100 000.
+
+To do:
+-Add corpses to big explosion death
+
 0.017-pre-release
 Unit balance
 -Saboteur now damages the infiltrated building by 20% of the maximum health after 4 seconds, after which the building is disabled for 30 seconds. Once the building has been infiltrated by a saboteur, infiltrating it again has no effect until the disabling effect has passed.

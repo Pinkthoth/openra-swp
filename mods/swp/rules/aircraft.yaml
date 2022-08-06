@@ -89,10 +89,11 @@ AGUILA.Interceptor:
 		PersistentTargeting: False
 		OpportunityFire: True
 	Aircraft:
-		TurnSpeed: 16
+		TurnSpeed: 25
 		Speed: 115
 		RepulsionSpeed: 40
 		MaximumPitch: 56
+		IdleTurnSpeed: 25
 	AmmoPool:
 		Armaments: primary, secondary, tertiary, quarternary
 		Ammo: 72
@@ -488,7 +489,7 @@ YAK:
 		PersistentTargeting: false
 		OpportunityFire: False
 	Aircraft:
-		TurnSpeed: 16
+		TurnSpeed: 19
 		Speed: 140
 		RepulsionSpeed: 40
 		MaximumPitch: 56
@@ -846,7 +847,7 @@ HELI:
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 40
 		Prerequisites: hpad, ~helicopter.allies, atek, ~techlevel.high
-		Description: Helicopter gunship armed\nwith multi-purpose missiles.\n  Strong vs Buildings, Vehicles, Aircraft\n  Weak vs Infantry
+		Description: Helicopter gunship armed\nwith multi-purpose missiles.\n  Strong vs Buildings, Vehicles, Helicopters\n  Weak vs Infantry, Airplanes
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -917,7 +918,7 @@ SAUCER:
 	Buildable:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
-		BuildPaletteOrder: 40
+		BuildPaletteOrder: 230
 		Prerequisites: hpad, ~helicopter.ukraine, stek, ~techlevel.high
 		Description: Levitating disc armed with magnetic rays.\nMay levitate just above ground for a while,\ndamaging nearby targets.\n  Strong vs Buildings, Vehicles, Aircraft\n  Weak vs Infantry
 	Valued:
@@ -1049,7 +1050,7 @@ HIND:
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 110
 		Prerequisites: hpad, ~helicopter.soviet, ~techlevel.medium
-		Description: Helicopter gunship armed with rockets.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
+		Description: Helicopter gunship armed with rockets.\n  Strong vs Infantry\n  Weak vs Aircraft
 	Valued:
 		Cost: 1750
 	Tooltip:
@@ -1384,7 +1385,7 @@ SPITFIRE:
 	AttackAircraft:
 		Armaments: primary, secondary
 	Aircraft:
-		TurnSpeed: 17
+		TurnSpeed: 20
 		Speed: 155
 	Valued:
 		Cost: 1500
@@ -1667,7 +1668,7 @@ MSRSMT:
 		OpportunityFire: False
 		Armaments: primary, secondary
 	Aircraft:
-		TurnSpeed: 16
+		TurnSpeed: 18
 		Speed: 130
 		RepulsionSpeed: 40
 		MaximumPitch: 56
@@ -1932,8 +1933,9 @@ STRMVGL.Husk:
 		Image: strmvgl
 
 TELEKITE:
-	Inherits: ^Helicopter
-	Inherits: ^Drone
+	Inherits: ^Vehicle
+	Inherits@drone: ^Drone
+	Inherits@experience: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Valued:
 		Cost: 500
@@ -1942,7 +1944,7 @@ TELEKITE:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 10000
+		HP: 15000
 	RevealsShroud:
 		MinRange: 3c0
 		Range: 5c0
@@ -1956,25 +1958,29 @@ TELEKITE:
 		Name: primary
 		LocalOffset: 300,130,260
 		MuzzleSequence: muzzle
+		PauseOnCondition: turnedoff
 	Armament@secondary:
 		Weapon: Uzi
 		Name: secondary
 		LocalOffset: 300,-130,260
 		MuzzleSequence: muzzle
+		PauseOnCondition: turnedoff
+	HiddenUnderFog:
+		Type: CenterPosition
 	AttackTurreted:
 	WithSpriteTurret:
 	Turreted:
 		TurnSpeed: 30
 		RealignDelay: 10
+	-Mobile:
 	Aircraft:
 		TurnSpeed: 16
 		Speed: 85
 		CruiseAltitude: 1c0
-		IdealSeparation: 0c216
+		IdealSeparation: 0c512
 		CanHover: False
+		PauseOnCondition: being-captured || turnedoff
 	WithMuzzleOverlay:
-	SpawnActorOnDeath:
-		Actor: TELEKITE.Husk
 	LeavesTrails:
 		Offsets: -427,0,0
 		Image: smokey
@@ -1992,10 +1998,12 @@ TELEKITE:
 		Condition: enable-smoke
 	Targetable:
 		TargetTypes: GroundActor, Vehicle
-	KillsSelf:
-		RequiresCondition: turnedoff
-	-EjectOnDeath:
-	-Targetable@AIRBORNE:
+	Explodes:
+		Weapon: SmallPlaneExplode
+		EmptyWeapon: SmallPlaneExplode
+	WithShadow:
+		Offset: 43, 128, 0
+		ZOffset: -129
 
 HARRIER:
 	Inherits: ^Plane

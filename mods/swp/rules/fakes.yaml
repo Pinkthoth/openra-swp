@@ -454,7 +454,7 @@ MSLF:
 	Inherits@IDISABLE: ^DisableOnLowPower
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
-	Inherits@shape: ^2x1Shape
+	Inherits@shape: ^2x2Shape
 	Selectable:
 		Bounds: 48,24
 	Tooltip:
@@ -555,8 +555,6 @@ e1.holospawn:
 	-Buildable:
 	-Passenger:
 	-SpawnActorOnDeath@BulletDeath:
-	-SpawnActorOnDeath@DefaultDeath:
-	-SpawnActorOnDeath@SmallExplosionDeath:
 	-GivesBounty:
 	-GivesExperience:
 	-GainsExperienceMultiplier:
@@ -582,8 +580,6 @@ e1.holo:
 	-Buildable:
 	-Passenger:
 	-SpawnActorOnDeath@BulletDeath:
-	-SpawnActorOnDeath@DefaultDeath:
-	-SpawnActorOnDeath@SmallExplosionDeath:
 	-GivesBounty:
 	-GivesExperience:
 	-GainsExperienceMultiplier:
@@ -618,8 +614,6 @@ e3.holospawn:
 	-Buildable:
 	-Passenger:
 	-SpawnActorOnDeath@BulletDeath:
-	-SpawnActorOnDeath@DefaultDeath:
-	-SpawnActorOnDeath@SmallExplosionDeath:
 	-GivesBounty:
 	-GivesExperience:
 	-GainsExperienceMultiplier:
@@ -655,8 +649,6 @@ e3.holo:
 	-Buildable:
 	-Passenger:
 	-SpawnActorOnDeath@BulletDeath:
-	-SpawnActorOnDeath@DefaultDeath:
-	-SpawnActorOnDeath@SmallExplosionDeath:
 	-GivesBounty:
 	-GivesExperience:
 	-GainsExperienceMultiplier:

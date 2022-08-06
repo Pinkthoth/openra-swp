@@ -316,8 +316,8 @@
 		TerrainType: Ore
 		Palette: player
 		Sequences: gold01,gold02,gold03,gold04
-		MaxDensity: 12
-		ValuePerUnit: 31
+		MaxDensity: 14
+		ValuePerUnit: 30
 		AllowedTerrainTypes: Clear,Road,Pavement,PavedRoad,TallGrass
 		AllowUnderActors: true
 	ResourceType@gem:
@@ -327,8 +327,8 @@
 		TerrainType: Gems
 		Palette: player
 		Sequences: gem01,gem02,gem03,gem04
-		MaxDensity: 3
-		ValuePerUnit: 62
+		MaxDensity: 4
+		ValuePerUnit: 60
 		AllowedTerrainTypes: Clear,Road,Pavement,PavedRoad,TallGrass
 		AllowUnderActors: true
 	ResourceRenderer:

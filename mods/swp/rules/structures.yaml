@@ -177,7 +177,7 @@ FACT:
 MSLO:
 	Inherits: ^ScienceBuilding
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
-	Inherits@shape: ^2x1Shape
+	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x1Rubbles
 	Inherits@sabotable: ^Sabotable
 	Inherits@EMPDISABLE: ^EmpDisable
@@ -890,6 +890,8 @@ DOME:
 	Power:
 		Amount: -40
 	ProvidesPrerequisite@buildingname:
+	ProvidesPrerequisite@domeoradept:
+		Prerequisite: domeoradept
 	ExternalCondition@JAMMED:
 		Condition: jammed
 	RenderSprites:
@@ -1905,6 +1907,7 @@ GRANDCANNON:
 	Inherits: ^Defense
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@rubbles: ^2x2Rubbles
+	Inherits@shape: ^2x2Shape
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Buildable:
@@ -1920,9 +1923,9 @@ GRANDCANNON:
 		Footprint: xx xx
 		Dimensions: 2,2
 	Health:
-		HP: 60000
+		HP: 80000
 	Armor:
-		Type: Heavy
+		Type: Concrete
 	RevealsShroud:
 		MinRange: 5c0
 		Range: 6c512
@@ -2130,6 +2133,8 @@ ADEPT:
 		Amount: -60
 	ProvidesPrerequisite@adept:
 		Prerequisite: adept
+	ProvidesPrerequisite@domeoradept:
+		Prerequisite: domeoradept
 	HitShape:
 		TargetableOffsets: 1273,939,0, -980,-640,0, -980,640,0
 		Type: Rectangle
@@ -2340,7 +2345,7 @@ WEAP:
 		Prerequisites: proc, ~techlevel.low
 		Description: Produces vehicles.
 	Valued:
-		Cost: 1800
+		Cost: 1700
 	Tooltip:
 		Name: War Factory
 	Building:
@@ -2474,15 +2479,13 @@ PROC:
 	Inherits: ^Building
 	Inherits@rubbles: ^3x3Rubbles
 	Inherits@sabotable: ^Sabotable
-	ProductionTimeMultiplier@basediscount:
-		Multiplier: 85
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 60
 		Prerequisites: anypower, ~techlevel.infonly
 		Description: Refines Ore and Gems\ninto credits.
 	Valued:
-		Cost: 1500
+		Cost: 1400
 	Tooltip:
 		Name: Ore Refinery
 	Building:
@@ -2512,7 +2515,7 @@ PROC:
 	StoresResources:
 		Capacity: 2000
 	CustomSellValue:
-		Value: 400
+		Value: 300
 	FreeActor:
 		Actor: HARV
 		SpawnOffset: 1,1
@@ -2742,7 +2745,7 @@ HPAD:
 		Prerequisites: dome, ~techlevel.medium
 		Description: Produces and reloads\nhelicopters.
 	Valued:
-		Cost: 700
+		Cost: 900
 	Tooltip:
 		Name: Helipad
 	Building:
@@ -2874,7 +2877,7 @@ AFLD:
 		Prerequisites: dome, ~techlevel.medium
 		Description: Produces and reloads aircraft.\n  Special Ability: Spy Plane\n  Special Ability: Paratroopers
 	Valued:
-		Cost: 700
+		Cost: 900
 	Tooltip:
 		Name: Airfield
 	Selectable:
@@ -3030,7 +3033,8 @@ POWR:
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@sabotable: ^Sabotable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
-	Inherits@discount: ^BuildTimeDiscount
+	ProductionTimeMultiplier@basediscount:
+		Multiplier: 85
 	Selectable:
 		Bounds: 48,48
 	HitShape:
@@ -3042,7 +3046,7 @@ POWR:
 		Prerequisites: ~techlevel.infonly
 		Description: Provides power for other structures.
 	Valued:
-		Cost: 500
+		Cost: 400
 	Tooltip:
 		Name: Power Plant
 	ProvidesPrerequisite:
@@ -3094,7 +3098,8 @@ APWR:
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@sabotable: ^Sabotable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
-	Inherits@discount: ^BuildTimeDiscount
+	ProductionTimeMultiplier@basediscount:
+		Multiplier: 85
 	HitShape:
 		TargetableOffsets: -355,-1024,0
 	Buildable:
@@ -3103,7 +3108,7 @@ APWR:
 		Prerequisites: dome, ~techlevel.medium
 		Description: Provides double the power of\na standard Power Plant.
 	Valued:
-		Cost: 850
+		Cost: 650
 	Tooltip:
 		Name: Advanced Power Plant
 	ProvidesPrerequisite:
@@ -3911,3 +3916,11 @@ ANYPOWER:
 		Name: Power Plant
 	Buildable:
 		Description: Power Plant
+
+DOMEORADEPT:
+	AlwaysVisible:
+	Interactable:
+	Tooltip:
+		Name: Radar Dome or Arms Depot
+	Buildable:
+		Description: Radar Dome or Arms Depot
