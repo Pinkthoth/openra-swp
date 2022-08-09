@@ -352,12 +352,12 @@ Toxxer:
 		Falloff: 120, 80, 50, 25, 10, 5
 		Damage: 1500
 		Versus:
-			None: 30
+			None: 60
 			Wood: 10
 			Tree: 10
-			Light: 25
-			Medium: 15
-			Heavy: 5
+			Light: 35
+			Medium: 25
+			Heavy: 15
 			Concrete: 5
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, AcidDeath
 		ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor, Trees
@@ -375,6 +375,7 @@ TruckToxxer:
 	Inherits: Toxxer
 	Range: 5c512
 	Burst: 20
+	ReloadDelay: 75
 	Warhead@1Dam: SpreadDamage
 		Damage: 2000
 		Falloff: 200, 100, 150, 100, 50, 25, 10, 5
@@ -402,6 +403,7 @@ ChainTesla1:
 	Warhead@1Dam: SpreadDamage
 		Spread: 156
 		Damage: 2000
+		ValidRelationships: Enemy, Neutral
 	Warhead@Chain: FireCluster
 		Weapon: ChainTesla2
 		RandomClusterCount: 1
@@ -414,6 +416,7 @@ ChainTesla2:
 	Warhead@1Dam: SpreadDamage
 		Spread: 156
 		Damage: 1000
+		ValidRelationships: Enemy, Neutral
 	-Warhead@Chain:
 
 PortaTesla:
@@ -450,6 +453,7 @@ PortaChainTesla1:
 	Warhead@1Dam: SpreadDamage
 		Spread: 156
 		Damage: 250
+		ValidRelationships: Enemy, Neutral
 	Warhead@Chain: FireCluster
 		Weapon: PortaChainTesla2
 		RandomClusterCount: 1
@@ -462,6 +466,7 @@ PortaChainTesla2:
 	Warhead@1Dam: SpreadDamage
 		Spread: 156
 		Damage: 100
+		ValidRelationships: Enemy, Neutral
 	-Warhead@Chain:
 
 HindPortaTesla:
@@ -876,7 +881,7 @@ SPEMPPulse:
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne
 
 Prism:
-	ReloadDelay: 150
+	ReloadDelay: 130
 	Range: 7c512
 	Report: prisray.aud
 	ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
@@ -1262,6 +1267,14 @@ ThunderFist:
 			Heavy: 40
 			Concrete: 15
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, DefaultDeath
+
+ThunderFistSupercharged:
+	Inherits: ThunderFist
+	Warhead@Chain: FireCluster
+		Weapon: PortaChainTesla1
+		RandomClusterCount: 1
+		Dimensions: 3,3
+		Footprint: xxx x_x xxx
 
 IfritAreaFire:
 	Projectile: InstantHit

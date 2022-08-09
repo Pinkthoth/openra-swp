@@ -226,7 +226,7 @@ MINE:
 	AppearsOnMapPreview:
 		Terrain: Ore
 	SeedsResource:
-		Interval: 65
+		Interval: 75
 	MapEditorData:
 		Categories: Resource spawn
 	RequiresSpecificOwners:
@@ -251,7 +251,7 @@ GMINE:
 		Terrain: Gems
 	SeedsResource:
 		ResourceType: Gems
-		Interval: 65
+		Interval: 75
 	MapEditorData:
 		Categories: Resource spawn
 	RequiresSpecificOwners:

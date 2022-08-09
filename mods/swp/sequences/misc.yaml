@@ -119,6 +119,9 @@ magneticshield:
 		Length: 28
 		Tick: 100
 
+spydish:
+	idle:
+
 explosion:
 	Defaults:
 		Length: *

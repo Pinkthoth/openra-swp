@@ -280,15 +280,15 @@ ArtilleryBarrage:
 	Warhead@Cluster2nd: FireCluster
 		Weapon: ArtilleryBarrageSecondary
 		RandomClusterCount: 30
-		Dimensions: 15,7
-		Footprint:  ___________x___ __________xxx__ ________xxxxxx_ ________xxxxxxx ________xxxxxx_ __________xxx__ ___________x___
+		Dimensions: 7,7
+		Footprint:  __xxx__ _xxxxx_ _xxxxx_ xxxxxxx _xxxxx_ _xxxxx_ __xxx__
 
 ArtilleryBarrageSecondary:
 	Inherits: ^Artillery
 	ValidTargets: Ground, Water, Air
 	-Report:
 	Projectile: Bullet
-		Speed: 0c20, 0c30
+		Speed: 0c20, 0c40
 		AirburstAltitude: 25c0
 		Image: empty
 		LaunchAngle: 0
@@ -296,8 +296,8 @@ ArtilleryBarrageSecondary:
 	-Warhead@1Dam:
 	Warhead@Cluster1: FireCluster
 		Weapon: ArtilleryBarrageShell
-		Dimensions: 9,1
-		Footprint: x________
+		Dimensions: 1,1
+		Footprint: x
 	-Warhead@2Smu:
 	-Warhead@3Eff:
 	-Warhead@4EffWater:

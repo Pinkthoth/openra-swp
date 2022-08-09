@@ -73,7 +73,7 @@
 			Wood: 52
 			Light: 80
 			Medium: 105
-			Heavy: 48
+			Heavy: 55
 			Concrete: 57
 	-Warhead@2Smu:
 	Warhead@3Eff: CreateEffect
@@ -94,8 +94,8 @@
 		Versus:
 			None: 37
 			Wood: 52
-			Light: 95
-			Medium: 55
+			Light: 105
+			Medium: 65
 			Heavy: 42
 			Concrete: 45
 	-Warhead@2Smu:
@@ -119,7 +119,7 @@
 			Wood: 52
 			Light: 85
 			Medium: 85
-			Heavy: 33
+			Heavy: 50
 			Concrete: 40
 	-Warhead@2Smu:
 	Warhead@3Eff: CreateEffect
@@ -488,11 +488,11 @@ ltnkfire:
 		Falloff: 100, 50
 		Versus:
 			None: 30
-			Wood: 75
+			Wood: 65
 			Light: 75
 			Medium: 95
-			Heavy: 165
-			Concrete: 70
+			Heavy: 170
+			Concrete: 60
 
 76mmOrdinanceQF-ATGUNNER:
 	Range: 7c0

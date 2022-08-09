@@ -1,3 +1,100 @@
+0.019-pre-release
+Infantry
+-Increased Cavalry range from 5c512 to 6c0
+-Increased Waste Warrior and Waste Tanker weapon damage vs none armour increased from 30 to 60.
+-Increased Waste Warrior and Waste Tanker weapon damage vs. heavy armour from 5 to 15, vs medium armour from 15 to 25 and vs light armour from 25 to 35.
+-Gatling Gunner no longer needs to wait for a while for it's weapon to start firing.
+-Increased Gatling Gunner weapon damage vs none armour to 75 from 70, vs light armour to 30 from 25, vs medium armour to 22 from 15 vs heavy armour to 17 from 15 vs wood armour to 20 from 15 and vs concrete armour to 17 from 15.
+-Decreased Stormtrooper cost to 350 from 400.
+-Decreased Officer experience gain from 22 to 15.
+-Iron Man is no longer crushable.
+-Iron Man can be supercharged, giving it's melee attack a chain lightning effect.
+
+Support powers
+-Artillery Barrage falls straight down to prevent shells from not entering the map when using the power close to the eastern border of the map.
+
+Aircraft
+-Increased Thunderbolt damage vs heavy armour to 40 from 30.
+-Increased Yak speed to 160 from 140.
+-Increased Messerschmitt speed to 155 from 130.
+-Increased Spitfire speed to 165 from 150.
+-Increased MIG speed to 195 from 165.
+-Increased Sturmvogel speed to 200 from 170.
+-Increased Dive Bomber speed to 145 from 130.
+-Increased Tactical Bomber speed to 120 from 110.
+-Increased Hospitaller speed to 200 from 160.
+-Increased Thunderbolt speed to 180 from 160
+-Increased Harrier speed to 190 from 165.
+-Increased Aguila speed to 140 from 115.
+-Dive Bomber now flies 20% slower from 4 seconds after dropping a load.
+-Increased Aguila weapon damage vs. none armour to 160 from 100.
+-Increased Iblis weapon damage vs none armour from 50 to 125
+-Increased Iblis weapon damage by to 3000 from 1500.
+-Decreased Iblis weapon damage vs wood armour from 250 to 125 and vs medium armour from 70 to 60
+-Increased Iblis weapon falloff from Falloff: 110, 85, 60, 30, 10 to Falloff: 110, 95, 85, 60, 30, 10
+
+Vehicles
+-Caballero now displays a detection circle if a spy is inside, giving 7c0 vision and 7c0 detection of stealthed units
+-Caballero now displays AA range circle when Legionaire or Flak Trooper is inside.
+-Caballero's weapons now reload 10% faster and do 5% more damage than the infantry's weapon that is inside it does.
+-Caballero has proper weaponry when a Legionaire is inside.
+-Caballero has proper weaponry when a Desolator is inside.
+-Caballero price decreased to 500$ from 600$.
+-Warthog weapon range increased to 6c0 from 5c0.
+-Warthog weapon damage vs none armour increased to 80 from 75, vs wood armour to 15 from 10, vs light armour to 40 from 30, vs medium armour to 30 from 20, vs heavy armour to 15 from 10.
+-Recon Bike speed increased from 160 to 175.
+-Armoured Car speed increased from 115 to 130.
+-Puma speed increased from 110 to 125.
+-Puma damage vs heavy armour increased from 48 to 55.
+-Transport Truck speed increased from 130 to 135.
+-Transport Truck price decreased from 400 to 350.
+-Mobile Flak speed increased from 120 to 125.
+-Tankette speed increased from 113 to 115.
+-Bronetransporter speed increased from 110 to 120.
+-Marauder speed increased from 115 to 125.
+-Caballero speed increased from 110 to 120.
+-Ranger speed increased from 135 to 145.
+-Warthog speed increased from 100 to 120.
+-Squire speed increased from 110 to 120.
+-Squire weapon damage vs heavy armour increased from 33 to 50.
+-Kitsune speed increased from 100 to 110.
+-Beelte speed increased from 95 to 105.
+-Sapper speed decreased from 80 to 65.
+-Raider speed increased from 130 to 135
+-Gatling Car speed increased from 110 to 125.
+-Crusader speed increased from 75 to 85.
+-Cossack speed increased from 66 to 77.
+-Tiger speed increased from 60 to 70.
+-Ronin speed increased from 75 to 90.
+-Arc Thrower speed increased from 65 to 70.
+-Paladin damage vs heavy armour increased from 165 to 170
+-Paladin damage vs concrete armour decreased from 70 to 60, and vs wood armour from 75 to 65.
+-Refractor Cannon reload time decresed from to 130 from 150.
+-Bronetransporter price decreased from 775 to 750.
+-Bronetransporter damage increased vs medium armour from 55 to 65, and vs light armour from 95 to 105
+-Waste Tanker reload time increased to 75 from 50.
+
+Bug fixes
+-Light Machine Gunner now properly prones units in a 2c0 radius, even though it deals no damage against all of the infantry.
+-Flak Trooper has a range circle for the AA weapon.
+-All fake buildings are infiltrable and reveal the "FAKE" decoration.
+-Testudo leaves a husk.
+
+Features
+-Changed experience levels to 100,200,30,400,500,600,700 from 200,400,600,800,1200,1600,2000.
+
+Economy
+-Harvester bale unload delay decreased to 1 from 2.
+-Ore spawn interval increased to 75 from 65.
+-Maximum Ore density increased from 14 to 10, and maximum Gems density increased to 3 from 4.
+
+Graphics and sounds
+-Caballero with a Gatling Gunner inside uses Gatling Car turret.
+-Caballero with Night Witch inside has Testudo turret.
+-Aguila has two contrails and two damaged smoke trails.
+-Changed Light Machine Gunner sound effect.
+-Light Machine Gunner firing animation stops correctly now.
+
 0.018-pre-release
 Unit balance
 -Decreased Black Hawk damage vs. medium armour from 50 to 25 and heavy armour from 22 to 10.

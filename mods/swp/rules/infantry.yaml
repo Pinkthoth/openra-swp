@@ -217,6 +217,10 @@ E11:
 		Name: garrisoned
 		Weapon: LightMachineGun
 		MuzzleSequence: garrison-muzzle
+	Armament@GARRISONED2:
+		Name: garrisoned
+		Weapon: LightMachineGun2
+		MuzzleSequence: garrison-muzzle
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
 		RequiresCondition: !parachute
@@ -256,29 +260,25 @@ HVGATLING:
 		AddToArmyValue: true
 	Health:
 		HP: 5000
-	Armament@gatling-start-0:
-		Weapon: AGGatlingStart-handheld
-		RequiresCondition: !gatling
-		PauseOnCondition: turnedoff
 	Armament@ag-0:
 		Weapon: AGGatling
 		LocalOffset: 480,-100,200
-		RequiresCondition: gatling == 1
+		RequiresCondition: !gatling
 		PauseOnCondition: turnedoff
 	Armament@ag-1:
 		Weapon: AGGatling2
 		LocalOffset: 480,-100,200
-		RequiresCondition: gatling == 2
+		RequiresCondition: gatling == 1
 		PauseOnCondition: turnedoff
 	Armament@ag-2:
 		Weapon: AGGatling3
 		LocalOffset: 480,-100,200
-		RequiresCondition: gatling == 3
+		RequiresCondition: gatling == 2
 		PauseOnCondition: turnedoff
 	Armament@ag-3:
 		Weapon: AGGatling4
 		LocalOffset: 480,-100,200
-		RequiresCondition: gatling >= 4
+		RequiresCondition: gatling >= 3
 		PauseOnCondition: turnedoff
 	GrantConditionOnAttack:
 		Condition: gatling
@@ -1293,7 +1293,7 @@ TNKCMNDR:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 90
-		Prerequisites: ~barracks, dome, ~infantry.germany, ~techlevel.infonly
+		Prerequisites: dome, ~infantry.germany, ~techlevel.infonly
 		Description: Can enter vehicles to \nenhance fighting capabilities.\n  Weak vs Everything
 	Valued:
 		Cost: 400
@@ -2388,6 +2388,9 @@ FLKTRP:
 		Prerequisites: barracks.upgraded
 	SpawnActorOnDeath@BulletDeath:
 		Actor: FLKTRP.Husk
+	WithRangeCircle@anti-air:
+		Range: 8c0
+		Color: FFFF0080
 		
 FLKTRP.Husk:
 	Inherits: ^InfantryCorpse
@@ -3295,6 +3298,7 @@ GUERILLA.Corpse:
 IRONMAN:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@supercharged: ^SuperchargeTesla
 	Valued:
 		Cost: 400
 	Buildable:
@@ -3318,7 +3322,13 @@ IRONMAN:
 	Armament:
 		Weapon: ThunderFist
 		FireDelay: 6
+		RequiresCondition: !supercharged
+	Armament@supercharged:
+		Weapon: ThunderFistSupercharged
+		FireDelay: 6
+		RequiresCondition: supercharged
 	-TakeCover:
+	-Crushable:
 	ProducibleWithLevel:
 		Prerequisites: barracks.upgraded
 	SpawnActorOnDeath@BulletDeath:
@@ -3400,7 +3410,7 @@ GRENADELAUNCHER:
 		Prerequisites: adept, ~infantry.germany, ~techlevel.infonly
 		Description: Infantry armed with a grenade launcher.\n  Strong vs Buildings, Infantry\n  Weak vs Vehicles, Aircraft
 	Valued:
-		Cost: 400
+		Cost: 350
 	Tooltip:
 		Name: Stormtrooper
 	UpdatesPlayerStatistics:

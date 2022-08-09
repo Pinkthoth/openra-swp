@@ -78,12 +78,12 @@
 	Warhead@1Dam: SpreadDamage
 		Damage: 900
 		Versus:
-			None: 70
-			Light: 25
-			Medium: 17
-			Heavy: 15
-			Wood: 15
-			Concrete: 15
+			None: 75
+			Light: 30
+			Medium: 22
+			Heavy: 7
+			Wood: 20
+			Concrete: 17
 	Warhead@2Eff: CreateEffect
 		Explosions: piff
 
@@ -129,18 +129,6 @@ AGGatling4:
 	Inherits: AGGatling
 	ReloadDelay: 2
 	BurstDelays: 1
-
-AGGatlingStart-handheld:
-	Inherits: ^Gatling
-	-Report:
-	ReloadDelay: 1
-	BurstDelays: 1
-	Range: 5c0
-	Burst: 2
-	Warhead@1Dam: SpreadDamage
-		Damage: 0
-	-Warhead@2Eff:
-	-Warhead@3EffWater:
 
 AGGatling-handheld:
 	Inherits: ^Gatling
@@ -432,33 +420,6 @@ LightMachineGun:
 			Heavy: 2
 			Concrete: 5
 		Falloff: 220, 35
-	Warhead@1Dam-prone: SpreadDamage
-		Damage: 1
-		Spread: 1c512
-		Versus:
-			None: 100
-			Light: 0
-			Medium: 0
-			Heavy: 0
-			Wood: 0
-			Concrete: 0
-		Falloff: 100
-		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, DefaultDeath
-		ValidTargets: Infantry
-	Warhead@1Dam-anti: SpreadDamage
-		Damage: -1
-		Delay: 1
-		Spread: 1c512
-		Versus:
-			None: 100
-			Light: 0
-			Medium: 0
-			Heavy: 0
-			Wood: 0
-			Concrete: 0
-		Falloff: 100
-		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, DefaultDeath
-		ValidTargets: Infantry
 	Warhead@2Eff: CreateEffect
 		Explosions: piff
 		Inaccuracy: 0
@@ -482,7 +443,7 @@ LightMachineGun2:
 	-Report:
 	Range: 5c0
 	BurstDelays: 4
-	Report: lmg_s1.aud, lmg_s2.aud, lmg_s3.aud
+	Report: lmg_1.aud, lmg_2.aud, lmg_3.aud
 	Projectile: InstantHit
 		Inaccuracy: 0c124
 	Warhead@1Dam: SpreadDamage
@@ -497,6 +458,32 @@ LightMachineGun2:
 			Concrete: 5
 		Falloff: 220, 35
 		ValidTargets: Ground, GroundActor, WaterActor, Water
+	Warhead@Prone: SpreadDamage
+		Damage: 10
+		Spread: 2c0
+		Versus:
+			None: 100
+			Light: 0
+			Medium: 0
+			Heavy: 0
+			Wood: 0
+			Concrete: 0
+		DamageTypes: NotCrushDeath, Prone50Percent, TriggerProne, DefaultDeath
+		ValidTargets: GroundActor
+		ValidRelationships: Enemy, Neutral
+	Warhead@AntiProne: SpreadDamage
+		Damage: -10
+		Spread: 2c0
+		Versus:
+			None: 100
+			Light: 0
+			Medium: 0
+			Heavy: 0
+			Wood: 0
+			Concrete: 0
+		DamageTypes: NotCrushDeath, Prone50Percent, TriggerProne, DefaultDeath
+		ValidTargets: GroundActor
+		ValidRelationships: Enemy, Neutral
 	Warhead@2Eff: CreateEffect
 		Explosions: piff
 		Inaccuracy: 0c124
@@ -586,7 +573,7 @@ ChainGun.HVF.AG:
 	Warhead@1Dam: SpreadDamage
 		Damage: 1000
 		Versus:
-			None: 100
+			None: 160
 			Wood: 50
 			Light: 60
 			Heavy: 15
@@ -642,7 +629,7 @@ ChainGun.A10:
 			Wood: 25
 			Light: 70
 			Medium: 50
-			Heavy: 30
+			Heavy: 40
 			Concrete: 15
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 		ValidTargets: Ground, GroundActor, Trees, Water, WaterActor
@@ -681,12 +668,12 @@ ChainGun.A10.SingleShot:
 		Falloff: 100, 50, 25, 5
 		Spread: 0c124
 		Versus:
-			None: 90
-			Wood: 15
+			None: 200
+			Wood: 25
 			Light: 70
-			Medium: 40
-			Heavy: 20
-			Concrete: 10
+			Medium: 50
+			Heavy: 40
+			Concrete: 15
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 		ValidTargets: Ground, GroundActor, Trees, Water, WaterActor
 	ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
@@ -786,6 +773,11 @@ WitchMG:
 		InvalidTargets: Bridge
 		Explosions: water_piff
 		Inaccuracy: 171
+
+WitchMG_Caballero:
+	Inherits: WitchMG
+	Warhead@1Dam: SpreadDamage
+		Damage: 2500
 
 Uzi:
 	Inherits: ^LightMG
@@ -1280,39 +1272,6 @@ HLFTRKGUN:
 		Explosions: water_piff
 		Inaccuracy: 171
 		
-TNKMG:
-	Inherits: ^LightMG
-	ReloadDelay: 45
-	Range: 5c0
-	Report: mgun2_171.aud
-	ValidTargets: Infantry
-	Warhead@1Dam: SpreadDamage
-		Damage: 2450
-		Versus:
-			Wood: 20
-	Warhead@2Eff2: CreateEffect
-		Delay: 2
-		Explosions: piff
-		ValidTargets: Infantry
-		Inaccuracy: 171
-	Warhead@3EffWater2: CreateEffect
-		Delay: 2
-		ValidTargets: Water, Underwater
-		InvalidTargets: Bridge
-		Explosions: water_piff
-		Inaccuracy: 171
-	Warhead@2Eff3: CreateEffect
-		Delay: 4
-		Explosions: piff
-		ValidTargets: Infantry
-		Inaccuracy: 171
-	Warhead@3EffWater3: CreateEffect
-		Delay: 4
-		ValidTargets: Water, Underwater
-		InvalidTargets: Bridge
-		Explosions: water_piff
-		Inaccuracy: 171
-		
 TNKT:
 	Inherits: ^HeavyMG
 	ReloadDelay: 30
@@ -1450,7 +1409,7 @@ TESTUDOGUN:
 APCGun:
 	Inherits: ^HeavyMG
 	ReloadDelay: 9
-	Range: 5c0
+	Range: 6c0
 	Report: gun20.aud
 	Projectile: Bullet
 		Speed: 900
@@ -1458,16 +1417,17 @@ APCGun:
 		Spread: 128
 		Damage: 1500
 		Versus:
-			None: 75
-			Wood: 10
-			Light: 30
-			Medium: 20
-			Heavy: 10
+			None: 80
+			Wood: 15
+			Light: 40
+			Medium: 30
+			Heavy: 15
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, DefaultDeath
 	Warhead@2Eff: CreateEffect
 		ValidTargets: Ground, Water, Air, GroundActor, Corpse
 		ImpactActors: false
-		Explosions: piffs
+		Explosions: small_explosion_air
+		Inaccuracy: 0c124
 		
 APCGun.AA:
 	Inherits: ^AACannon
@@ -1565,7 +1525,7 @@ MosinNagant44:
 MosinNagant44-Cavalry:
 	Inherits: MosinNagant44
 	ReloadDelay: 30
-	Range: 5c512
+	Range: 6c0
 	Warhead@1Dam: SpreadDamage
 		Damage: 900
 

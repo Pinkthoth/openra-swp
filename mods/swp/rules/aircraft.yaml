@@ -90,7 +90,7 @@ AGUILA.Interceptor:
 		OpportunityFire: True
 	Aircraft:
 		TurnSpeed: 25
-		Speed: 115
+		Speed: 140
 		RepulsionSpeed: 40
 		MaximumPitch: 56
 		IdleTurnSpeed: 25
@@ -160,7 +160,7 @@ HOSPITALLER:
 		OpportunityFire: False
 	Aircraft:
 		TurnSpeed: 16
-		Speed: 165
+		Speed: 200
 		RepulsionSpeed: 40
 		MaximumPitch: 56
 		TakeOffOnResupply: True
@@ -344,7 +344,7 @@ ANT40:
 		EmptySequence: pip-emptyammo
 		FullSequence: pip-bomb
 	Aircraft:
-		Speed: 110
+		Speed: 120
 		IdleTurnSpeed: 8 
 		TurnSpeed: 12
 	-WithMuzzleOverlay:
@@ -413,7 +413,7 @@ MIG:
 		OpportunityFire: False
 	Aircraft:
 		TurnSpeed: 16
-		Speed: 165
+		Speed: 195
 		RepulsionSpeed: 40
 		MaximumPitch: 56
 	AutoTarget:
@@ -490,7 +490,7 @@ YAK:
 		OpportunityFire: False
 	Aircraft:
 		TurnSpeed: 19
-		Speed: 140
+		Speed: 160
 		RepulsionSpeed: 40
 		MaximumPitch: 56
 	AutoTarget:
@@ -765,11 +765,16 @@ HEAVYFIGHTER:
 		AmmoCondition: ammo
 	WithMuzzleOverlay:
 	Contrail:
-		Offset: -853,0,0
+		Offset: -53,-300,-100
+	Contrail@contrail2:
+		Offset: -53,300,-100
 	SpawnActorOnDeath:
 		Actor: HEAVYFIGHTER.Husk
 	SmokeTrailWhenDamaged:
-		Offset: -853,0,0
+		Offset: -53,-300,-100
+		Interval: 2
+	SmokeTrailWhenDamaged@2:
+		Offset: -53,300,-100
 		Interval: 2
 	ProducibleWithLevel:
 		Prerequisites: aircraft.upgraded
@@ -1386,7 +1391,7 @@ SPITFIRE:
 		Armaments: primary, secondary
 	Aircraft:
 		TurnSpeed: 20
-		Speed: 155
+		Speed: 165
 	Valued:
 		Cost: 1500
 	Buildable:
@@ -1669,7 +1674,7 @@ MSRSMT:
 		Armaments: primary, secondary
 	Aircraft:
 		TurnSpeed: 18
-		Speed: 130
+		Speed: 155
 		RepulsionSpeed: 40
 		MaximumPitch: 56
 	AutoTarget:
@@ -1766,7 +1771,7 @@ A10:
 		OpportunityFire: False
 	Aircraft:
 		TurnSpeed: 16
-		Speed: 160
+		Speed: 185
 		RepulsionSpeed: 40
 		MaximumPitch: 56
 	AutoTarget:
@@ -1872,7 +1877,7 @@ STRMVGL:
 		OpportunityFire: False
 	Aircraft:
 		TurnSpeed: 22
-		Speed: 170
+		Speed: 200
 		RepulsionSpeed: 40
 		MaximumPitch: 56
 	AutoTarget:
@@ -2040,7 +2045,7 @@ HARRIER:
 		OpportunityFire: False
 	Aircraft:
 		TurnSpeed: 22
-		Speed: 165
+		Speed: 190
 		RepulsionSpeed: 40
 		MaximumPitch: 56
 		VTOL: True
@@ -2130,6 +2135,9 @@ STUKA:
 	AttackAircraft:
 		StrafeRunLength: 10c0
 		Armaments: primary, tertiary, quarternary, quinary
+	SpeedMultiplier@nocharge:
+		Modifier: 75
+		RequiresCondition: justfired && !firing
 	SpeedMultiplier@TERTIARY:
 		Modifier: 135
 		RequiresCondition: speedup1 && charged
@@ -2142,6 +2150,13 @@ STUKA:
 	DamageMultiplier@speedup:
 		Modifier: 75
 		RequiresCondition: speedup1 && charged
+	GrantConditionOnAttack@justfired:
+		Condition: justfired
+		ArmamentNames: tertiary
+		RevokeDelay: 200
+	GrantConditionOnAttack@firing:
+		Condition: firing
+		ArmamentNames: tertiary
 	GrantConditionOnAttack@TERTIARY:
 		Condition: speedup1
 		ArmamentNames: tertiary
@@ -2165,7 +2180,7 @@ STUKA:
 		EmptySequence: pip-emptyammo
 		FullSequence: pip-bomb
 	Aircraft:
-		Speed: 130
+		Speed: 145
 		IdleTurnSpeed: 8 
 		TurnSpeed: 12
 	-WithMuzzleOverlay:

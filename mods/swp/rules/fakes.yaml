@@ -226,6 +226,9 @@ DOMF:
 
 FIXF:
 	Inherits: ^FakeBuilding
+	Inherits@infiltrate: ^InfiltratableFake
+	InfiltrateForDecoration:
+		Types: SpyInfiltrate, SaboteurInfiltration
 	Selectable:
 		Bounds: 68,34,0,3
 		DecorationBounds: 72,48
@@ -333,6 +336,7 @@ ATEF:
 	Inherits@shape: ^2x2Shape
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Inherits@infiltrate: ^InfiltratableFake
 	Selectable:
 		Bounds: 48,48
 	Tooltip:
@@ -371,6 +375,7 @@ STHGENF:
 	Inherits@shape: ^2x2Shape
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Inherits@infiltrate: ^InfiltratableFake
 	Selectable:
 		Bounds: 48,48
 	Tooltip:
@@ -410,6 +415,7 @@ EMPGUNF:
 	Inherits@IDISABLE: ^DisableOnLowPower
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Inherits@infiltrate: ^InfiltratableFake
 	Inherits@shape: ^2x2Shape
 	Selectable:
 		Bounds: 48,48
@@ -454,6 +460,7 @@ MSLF:
 	Inherits@IDISABLE: ^DisableOnLowPower
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Inherits@infiltrate: ^InfiltratableFake
 	Inherits@shape: ^2x2Shape
 	Selectable:
 		Bounds: 48,24
@@ -491,6 +498,9 @@ MSLF:
 
 FACF:
 	Inherits: ^FakeBuilding
+	Inherits@infiltrate: ^InfiltratableFake
+	InfiltrateForDecoration:
+		Types: SpyInfiltrate, SaboteurInfiltration
 	Selectable:
 		Bounds: 72,72
 	Buildable:

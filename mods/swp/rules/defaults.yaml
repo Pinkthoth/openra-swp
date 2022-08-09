@@ -330,13 +330,13 @@
 	GainsExperience:
 		LevelUpNotification: LevelUp
 		Conditions:
+			100: rank-veteran
 			200: rank-veteran
+			300: rank-veteran
 			400: rank-veteran
+			500: rank-veteran
 			600: rank-veteran
-			800: rank-veteran
-			1200: rank-veteran
-			1600: rank-veteran
-			2000: rank-veteran
+			700: rank-veteran
 		LevelUpImage: crate-effects
 	DamageMultiplier@RANK-1:
 		RequiresCondition: rank-veteran == 1
@@ -468,7 +468,7 @@
 ^OfficerNearby:
 	ExperienceTrickler@OfficerNearby:
 		Interval: 1
-		Amount: 22
+		Amount: 15
 		RequiresCondition: officer-nearby
 	ExternalCondition@OfficerNearby:
 		Condition: officer-nearby

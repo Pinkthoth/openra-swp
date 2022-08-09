@@ -21,7 +21,7 @@ HARV:
 		Resources: Ore,Gems
 		Capacity: 20
 		BaleLoadDelay: 12
-		BaleUnloadDelay: 2
+		BaleUnloadDelay: 1
 		SearchFromProcRadius: 13
 		SearchFromHarvesterRadius: 8
 		HarvestFacings: 8
@@ -260,7 +260,7 @@ BIKE:
 	Armor:
 		Type: Light
 	Mobile:
-		Speed: 160
+		Speed: 175
 		TurnSpeed: 25
 		Locomotor: smallwheels
 		PauseOnCondition: being-captured
@@ -311,7 +311,7 @@ ARMCR:
 		Type: Medium
 	Mobile:
 		TurnSpeed: 40
-		Speed: 115
+		Speed: 130
 		PauseOnCondition: being-captured
 	RevealsShroud:
 		MinRange: 4c0
@@ -433,7 +433,7 @@ PUMA:
 	Armor:
 		Type: Medium
 	Mobile:
-		Speed: 100
+		Speed: 125
 	RevealsShroud:
 		MinRange: 4c0
 		Range: 5c0
@@ -538,7 +538,7 @@ HVTNK:
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 60
+		Speed: 70
 	RevealsShroud:
 		MinRange: 4c0
 		Range: 6c0
@@ -967,7 +967,7 @@ TRNSPRT:
 		Prerequisites: ~vehicles.komintern, ~techlevel.low
 		Description: Fast unarmed transport vehicle.\n	Weak vs All Unit Types.
 	Valued:
-		Cost: 400
+		Cost: 350
 	Tooltip:
 		Name: Transport Truck
 	Health:
@@ -975,7 +975,7 @@ TRNSPRT:
 	Armor:
 		Type: Light
 	Mobile:
-		Speed: 130
+		Speed: 135
 		PauseOnCondition: notmobile || being-captured
 	RevealsShroud:
 		Range: 4c0
@@ -1023,7 +1023,7 @@ FTRK:
 		Type: Light
 	Mobile:
 		TurnSpeed: 40
-		Speed: 120
+		Speed: 130
 	RevealsShroud:
 		MinRange: 4c0
 		Range: 6c0
@@ -1091,7 +1091,7 @@ TNKT:
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 113
+		Speed: 115
 		TurnSpeed: 10
 		Locomotor: lighttracked
 		PauseOnCondition: being-captured
@@ -1195,7 +1195,7 @@ BTR:
 		Prerequisites: ~vehicles.komintern, adept, ~techlevel.low
 		Description: Tough infantry transport.\n  Strong vs Light armor\n  Weak vs Infantry, Tanks, Aircraft
 	Valued:
-		Cost: 775
+		Cost: 750
 	Tooltip:
 		Name: Bronetransporter
 	UpdatesPlayerStatistics:
@@ -1205,7 +1205,7 @@ BTR:
 	Armor:
 		Type: Medium
 	Mobile:
-		Speed: 110
+		Speed: 125
 		Locomotor: wheeled
 		PauseOnCondition: notmobile || being-captured
 	RevealsShroud:
@@ -1272,7 +1272,7 @@ MARAUDER:
 		Type: Light
 	Mobile:
 		TurnSpeed: 40
-		Speed: 115
+		Speed: 125
 		PauseOnCondition: being-captured
 	RevealsShroud:
 		MinRange: 4c0
@@ -1329,7 +1329,7 @@ MTNK:
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 66
+		Speed: 77
 	RevealsShroud:
 		MinRange: 4c0
 		Range: 6c0
@@ -1618,7 +1618,7 @@ SIPAHI:
 		Prerequisites: ~vehicles.serbia, adept, ~techlevel.low
 		Description: Versatile infantry fighting vehicle\nChanges weapons depending on cargo.\n	 Strengths and weaknesses depend on cargo.
 	Valued:
-		Cost: 600
+		Cost: 500
 	Tooltip:
 		Name: Caballero
 	UpdatesPlayerStatistics:
@@ -1629,7 +1629,7 @@ SIPAHI:
 		Type: Medium
 	Mobile:
 		TurnSpeed: 40
-		Speed: 110
+		Speed: 120
 		PauseOnCondition: being-captured
 	RevealsShroud:
 		MinRange: 4c0
@@ -1640,11 +1640,18 @@ SIPAHI:
 	Turreted:
 		TurnSpeed: 40
 		Offset: -60,0,350
+	AmmoPool:
+		Armaments: secondary
+		Ammo: 1
+		AmmoCondition: ammo
+	ReloadAmmoPool:
+		Delay: 180
+		Count: 1
 	Armament:
 		Weapon: M1Carbine_elite
 		MuzzleSequence: muzzle
 		LocalOffset: 210,0,190
-		RequiresCondition: nochange || !hascargo || passpy || paslegionaire || passhinobi
+		RequiresCondition: nochange || !hascargo || paslegionaire || passhinobi || pasofficer
 	AmbientSound@gatlingspinning:
 		SoundFiles: turret_loop_11.wav
 		RequiresCondition: gatling && aiming && pashvgat
@@ -1681,11 +1688,18 @@ SIPAHI:
 		ReloadingCondition: secondary-reloading
 		PauseOnCondition: primary-reloading
 		RequiresCondition: pase3
-	Armament@SECONDARY:
+	Armament@legionairemissile:
 		Name: secondary
 		Weapon: LegionMissile
 		LocalOffset: 0,0,555
 		RequiresCondition: paslegionaire
+		PauseOnCondition: !ammo
+	Armament@legionaireaamissile:
+		Name: secondarary
+		Weapon: LegionMissileAA
+		LocalOffset: 0,0,555
+		RequiresCondition: paslegionaire
+		PauseOnCondition: !ammo
 	Armament@medic:
 		Weapon: Heal
 		Cursor: heal
@@ -1749,12 +1763,30 @@ SIPAHI:
 		LocalOffset: 427,0,341
 		RequiresCondition: passniper
 	Armament@nightwitch:
-		Weapon: WitchMG
+		Weapon: WitchMG_Caballero
 		LocalOffset: 427,0,341
 		RequiresCondition: pasngwtch
-	Armament@desolator:
-		Weapon: DesolatorHandHeld
+		MuzzleSequence: muzzle
+	Armament@nightwitch2:
+		Name: secondary
+		Weapon: WitchMG_Caballero
 		LocalOffset: 427,0,341
+		RequiresCondition: pasngwtch
+		MuzzleSequence: muzzle
+	Armament@desolator:
+		Name: primary
+		Weapon: DesolatorHandHeld
+		LocalOffset: 120,0,600
+		RequiresCondition: psngdesolator
+	Armament@desolator_linedamage:
+		Name: secondary
+		Weapon: DesolatorHandHeld_LineDamage
+		LocalOffset: 120,0,600
+		RequiresCondition: psngdesolator
+	Armament@desolator_effect:
+		Name: primary
+		Weapon: DesolatorHandHeld_Effect
+		LocalOffset: 120,0,600
 		RequiresCondition: psngdesolator
 	Armament@grenadelauncher:
 		Weapon: GrenadeLauncher
@@ -1780,30 +1812,30 @@ SIPAHI:
 		FireDelay: 65
 		RequiresCondition: pasarz
 	Armament@gatling-start-0:
-		Weapon: AGGatlingStart-handheld
+		Weapon: AGGatlingStart
 		RequiresCondition: pashvgat && !gatling
 		PauseOnCondition: turnedoff
 	Armament@ag-0:
 		Weapon: AGGatling-handheld
-		LocalOffset: 350,0,130
+		LocalOffset: 350,-100,130, 350,100,130
 		MuzzleSequence: muzzle
 		RequiresCondition: pashvgat && gatling == 1
 		PauseOnCondition: turnedoff
 	Armament@ag-1:
 		Weapon: AGGatling2-handheld
-		LocalOffset: 350,0,130
+		LocalOffset: 350,-100,130, 350,100,130
 		MuzzleSequence: muzzle
 		RequiresCondition: pashvgat && gatling == 2
 		PauseOnCondition: turnedoff
 	Armament@ag-2:
 		Weapon: AGGatling3-handheld
-		LocalOffset: 350,0,130
+		LocalOffset: 350,-100,130, 350,100,130
 		MuzzleSequence: muzzle
 		RequiresCondition: pashvgat && gatling == 3
 		PauseOnCondition: turnedoff
 	Armament@ag-3:
 		Weapon: AGGatling4-handheld
-		LocalOffset: 350,0,130
+		LocalOffset: 350,-100,130, 350,100,130
 		MuzzleSequence: muzzle
 		RequiresCondition: pashvgat && gatling >= 4
 		PauseOnCondition: turnedoff
@@ -1824,7 +1856,7 @@ SIPAHI:
 		RequiresCondition: !hascargo
 	WithSpriteTurret@rifle:
 		Sequence: turret-rifle
-		RequiresCondition: nochange || passpy || passhinobi
+		RequiresCondition: nochange || passhinobi || pasofficer
 	WithSpriteTurret@missile:
 		Sequence: turret-missile
 		RequiresCondition: pase3
@@ -1860,14 +1892,14 @@ SIPAHI:
 		Sequence: turret-sniper
 		RequiresCondition: passniper || psngdesolator
 	WithSpriteTurret@nightwitch:
-		Sequence: turret-sniper
+		Sequence: turret-testudo
 		RequiresCondition: pasngwtch
 	WithSpriteTurret@heavygatling:
-		Sequence: turret-sniper
+		Sequence: turret-gatling
 		RequiresCondition: pashvgat
 	WithIdleOverlay@spy:
-		Sequence: spinner-mrj
-		Offset: -256,0,320
+		Sequence: spydish
+		Offset: -100,0,400
 		RequiresCondition: passpy
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
@@ -1900,6 +1932,19 @@ SIPAHI:
 	GrantConditionOnDamageState@UNCLOAK:
 		Condition: cloak-force-disabled
 		ValidDamageStates: Critical
+	RenderDetectionCircleSWP:
+		Visible: Always
+		TrailCount: 1
+		UpdateLineTick: 4092
+		BorderWidth: 5
+		Width: 3
+	DetectCloaked@phase:
+		CloakTypes: Phase
+		Range: 7c0
+		RequiresCondition: passpy
+	RevealsShroud:
+		Range: 7c0
+		RequiresCondition: passpy
 	Cargo:
 		Types: Infantry
 		MaxWeight: 1
@@ -1966,6 +2011,14 @@ SIPAHI:
 		RequiresCondition: paspolitruk
 	SpawnActorOnDeath:
 		Actor: SIPAHI.Husk
+	WithRangeCircle@anti-air:
+		Range: 8c0
+		Color: FFFF0080
+		RequiresCondition: paslegionaire || pasflktrp
+	ReloadDelayMultiplier@baseboost:
+		Modifier: 90
+	FirepowerMultiplier@baseboost:
+		Modifier: 105
 
 SIPAHI.Husk:
 	Inherits: ^Husk
@@ -2226,7 +2279,7 @@ IFV:
 		Description: Tough infantry transport armed\nwith a small AA-cannon.\n	 Strong vs Light armour, Aircraft\n	 Weak vs Tanks
 	Mobile:
 		TurnSpeed: 28
-		Speed: 100
+		Speed: 120
 		Locomotor: wheeled
 		PauseOnCondition: notmobile || being-captured
 	Health:
@@ -2324,7 +2377,7 @@ RTNK:
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 110
+		Speed: 120
 		Locomotor: lighttracked
 	RevealsShroud:
 		MinRange: 4c0
@@ -2386,7 +2439,7 @@ RONIN:
 		Type: Medium
 	Mobile:
 		Locomotor: lighttracked
-		Speed: 75
+		Speed: 90
 	RevealsShroud:
 		MinRange: 4c0
 		Range: 5c0
@@ -2540,7 +2593,7 @@ PTNK:
 		Type: Medium
 	Mobile:
 		Locomotor: lighttracked
-		Speed: 100
+		Speed: 110
 	RevealsShroud:
 		MinRange: 4c0
 		Range: 5c0
@@ -2609,7 +2662,7 @@ LTNK:
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 75
+		Speed: 85
 	RevealsShroud:
 		MinRange: 4c0
 		Range: 5c0
@@ -2669,7 +2722,7 @@ TELEDRONE:
 		Description: Radio controlled fast scout.\nArmed with anti-tank and anti-air rockets.\n  Strong vs Heavy armor\n  Weak vs Infantry, Tanks, Aircraft
 	Mobile:
 		TurnSpeed: 40
-		Speed: 95
+		Speed: 105
 		Locomotor: lighttracked
 	Health:
 		HP: 12000
@@ -2822,7 +2875,7 @@ ARC:
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 65
+		Speed: 70
 	RevealsShroud:
 		MinRange: 4c0
 		Range: 5c0
@@ -3593,7 +3646,7 @@ SAPPER:
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 80
+		Speed: 65
 		Locomotor: subterranean
 		PauseOnCondition: notmobile || being-captured
 	RevealsShroud:
@@ -3794,6 +3847,8 @@ TESTUDO:
 		Bounds: 28,28,0,-2
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
+	SpawnActorOnDeath:
+		Actor: TESTUDO.Husk
 
 RACER:
 	Inherits: ^TrackedVehicle
@@ -3815,7 +3870,7 @@ RACER:
 	Armor:
 		Type: Light
 	Mobile:
-		Speed: 130
+		Speed: 135
 		TurnSpeed: 19
 		Locomotor: superlighttracked
 	RevealsShroud:
@@ -3971,7 +4026,7 @@ GATLINGCAR:
 		Type: Medium
 	Mobile:
 		TurnSpeed: 40
-		Speed: 115
+		Speed: 125
 		PauseOnCondition: being-captured
 	RevealsShroud:
 		MinRange: 4c0

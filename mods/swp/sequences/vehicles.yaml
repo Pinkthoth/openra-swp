@@ -458,6 +458,15 @@ sipahi:
 	spinner-mrj: mrj
 		Start: 32
 		Length: 32
+	spydish: spydish
+		Start: 0
+		Length: 32
+	turret-gatling: gatlingcar
+		Start: 32
+		Facings: 32
+	turret-testudo: testudo
+		Start: 100
+		Facings: 32
 	muzzle: minigun
 		Length: 6
 		Facings: 8

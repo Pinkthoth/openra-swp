@@ -580,16 +580,16 @@ IblisMissile:
 		Shadow: True
 		LaunchAngle: 62
 	Warhead@1Dam: SpreadDamage
-		Spread: 256
-		Damage: 1500
-		Falloff: 110, 85, 60, 30, 10
+		Spread: 0c256
+		Damage: 3000
+		Falloff: 110, 95, 85, 60, 30, 10
 		ValidTargets: GroundActor, Trees,  WaterActor, Trees
 		Versus:
-			None: 50
-			Wood: 250
+			None: 125
+			Wood: 125
 			Tree: 75
 			Light: 150
-			Medium: 70
+			Medium: 60
 			Heavy: 50
 			Concrete: 180
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, SmallExplosionDeath, Incendiary

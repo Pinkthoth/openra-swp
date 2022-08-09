@@ -1078,9 +1078,22 @@ e11:
 		Tick: 80
 	shoot:
 		Start: 120
-		Length: 6
+		Length: 2
+		Stride: 6
 		Facings: 8
-		Tick: 50
+		Tick: 70
+	shoot2:
+		Start: 122
+		Length: 2
+		Stride: 6
+		Facings: 8
+		Tick: 70
+	shoot3:
+		Start: 124
+		Length: 2
+		Stride: 6
+		Facings: 8
+		Tick: 70
 	prone-stand:
 		Start: 16
 		Facings: 8
@@ -1100,7 +1113,20 @@ e11:
 		Facings: 8
 	prone-shoot:
 		Start: 168
-		Length: 6
+		Length: 2
+		Stride: 4
+		Facings: 8
+		Tick: 50
+	prone-shoot2:
+		Start: 170
+		Length: 2
+		Stride: 4
+		Facings: 8
+		Tick: 50
+	prone-shoot3:
+		Start: 172
+		Length: 2
+		Stride: 4
 		Facings: 8
 		Tick: 50
 	idle1:
