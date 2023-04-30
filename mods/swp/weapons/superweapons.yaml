@@ -72,9 +72,6 @@ Metempsychosis:
 			Heavy: 25
 			Concrete: 100
 		DamageTypes: Zombiefy, NotCrushDeath
-	Warhead@Smu: LeaveSmudge
-		SmudgeType: Crater
-		ValidTargets: Ground, Vehicle, Infantry
 	Warhead@2Eff: CreateEffect
 		Explosions: metempsychosisburst
 		ExplosionPalette: poisons
@@ -230,9 +227,33 @@ EMPulseCannon:
 		ExplosionPalette: tseffects
 		ImpactActors: false
 		ImpactSounds: empexpl1.wav
+		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Water, Air, AirborneBomber, AirborneActor
 	Warhead@emp: GrantExternalCondition
 		Range: 6c0
 		Duration: 250
+		Condition: empdisable
+		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Water, Air, AirborneBomber, AirborneActor
+
+EMPBomb:
+	ReloadDelay: 100
+	Range: 3c0
+	Report: vkiratta.wav
+	Projectile: GravityBomb
+		Image: dropbombs
+		Velocity: 40, 0, -74
+		Acceleration: 0, 0, 0
+		Shadow: true
+	Warhead@2Eff: CreateEffect
+		Explosions: empxpld
+		ExplosionPalette: swpeffects
+		ImpactActors: false
+	Warhead@3Eff: CreateEffect
+		Explosions: emsurgexpld
+		ImpactActors: false
+		ImpactSounds: empexpl1.wav
+	Warhead@emp: GrantExternalCondition
+		Range: 3c0
+		Duration: 150
 		Condition: empdisable
 		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Water, Air, AirborneBomber, AirborneActor
 
@@ -241,7 +262,7 @@ StukaBomb:
 	Range: 2c5
 	Burst: 2
 	BurstDelays: 4
-	Report: chute1.aud
+	Report: vkiratta.wav
 	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor
 	Projectile: GravityBomb
 		Image: PARABOMB
@@ -281,7 +302,7 @@ ArtilleryBarrage:
 		Weapon: ArtilleryBarrageSecondary
 		RandomClusterCount: 30
 		Dimensions: 7,7
-		Footprint:  __xxx__ _xxxxx_ _xxxxx_ xxxxxxx _xxxxx_ _xxxxx_ __xxx__
+		Footprint: __xxx__ _xxxxx_ _xxxxx_ xxxxxxx _xxxxx_ _xxxxx_ __xxx__
 
 ArtilleryBarrageSecondary:
 	Inherits: ^Artillery
@@ -402,7 +423,7 @@ SmokeBarrage:
 		Weapon: SmokeBarrageShell
 		RandomClusterCount: 5
 		Dimensions: 5,5
-		Footprint:  __X__ _____ X_X_X _____ __X__
+		Footprint: __X__ _____ X_X_X _____ __X__
 
 SmokeBarrageShell:
 	Inherits: ^Artillery
@@ -437,6 +458,32 @@ SmokeBarrageShell:
 		ExplosionPalette: basic-alpha
 		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Trees, Corpse
 
+MindBlaster:
+	Inherits: ^Explosion
+	ValidTargets: Ground, GroundActor, Trees,  WaterActor, Trees
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c256
+		Damage: 6000
+		Falloff: 1000, 500, 368, 200, 135, 80, 50, 18, 7, 0
+		ValidTargets: GroundActor, Trees,  WaterActor, Trees
+		Versus:
+			None: 200
+			Wood: 10
+			Light: 30
+			Medium: 20
+			Heavy: 10
+			Concrete: 5
+		AffectsParent: true
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@2Eff: CreateEffect
+		Explosions: psychexpld
+		ExplosionPalette: neweffects
+		ImpactSounds: schrlo1.wav
+		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees
+	-Warhead@3EffWater:
+	Warhead@Smu: LeaveSmudge
+		SmudgeType: Scorch
+
 SpawnSmoke:
 	Projectile: InstantHit
 	ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
@@ -444,3 +491,14 @@ SpawnSmoke:
 		Delay: 20
 		Actors: smokecloud
 		ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
+
+Empty:
+	ReloadDelay: 30
+	Range: 1c0
+	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor
+	Projectile: InstantHit
+		Blockable: true
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 0
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath

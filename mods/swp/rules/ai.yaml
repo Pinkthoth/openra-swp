@@ -208,6 +208,7 @@ Player:
 		BuildingDelays:
 			dome: 9000
 			adept: 6000
+		DefenseTypes: tsla, reftwr, agun, cagun, pbox, hbox, gun, camogun, gatlinggun, grandcannon, ftur, sam, flkgun, empgun, trench
 	BuildingRepairBotModule:
 		RequiresCondition: enable-normal-ai
 	McvManagerBotModule:
@@ -226,6 +227,8 @@ Player:
 		ProtectionScanRadius: 59
 		MaxBaseRadius: 59
 		NavalProductionTypes: spen,syrd
+		AirUnitsTypes: hospitaller, ant40, mig, yak, teslahind, iblis, heavyfighter, heli, saucer, hind, gebard, comet, spitfire, mh60, teuton, wasp, msrsmt, a10, strmvgl, harrier, stuka, zeppelin
+		ProtectionTypes: harv, mcv, mcv.new, fact, mslo, gap, syrd, iron, pdox, tsla, reftwr, agun, cagun, dome, academy, recruitmentoffice, pbox, hbox, gun, camogun, gatlinggun, grandcannon, ftur, sam, adept, mtek, atek, weap, proc, silo, lazarusplatform, hpad, afld, powr, apwr, stek, barr, fix, flkgun, uplink, sthgen, empgun, srimp, fpwr, tenf, weaf, domf, fixf, fapw, atef, sthgenf, empgunf, mslf, facf
 	UnitBuilderBotModule@normal:
 		UnitQueues: Vehicle, Infantry, Plane, Aircraft, Helicopter
 		IdleBaseUnitsMaximum: 500

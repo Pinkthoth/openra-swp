@@ -1,10 +1,6 @@
 shroud:
-	Defaults:
-		Offset: 0, -1
-		ZRamp: 1
-	shroud:
-		Length: *
-	fog: fog
+	shroud: shadow
+		Filename: shadow.shp
 		Length: *
 
 bib_1x1:
@@ -28,7 +24,7 @@ bib_2x2:
 		ZOffset: -1023
 
 bib_3x3:
-	idle: bibs 
+	idle: bibs
 		Start: 2
 		ZOffset: -1023
 
@@ -110,14 +106,17 @@ magneticshield:
 		Start: 22
 		Length: 90
 		Tick: 150
+		Scale: 0.6
 	make:
 		Start: 0
 		Length: 22
 		Tick: 150
+		Scale: 0.6
 	die:
 		Start: 112
 		Length: 28
 		Tick: 100
+		Scale: 0.6
 
 spydish:
 	idle:
@@ -184,6 +183,9 @@ explosion:
 		Length: *
 		Tick: 80
 	empxpld: empxpld
+	initexplode: empxpld
+		Scale: 0.25
+		Offset: 0,0,4
 	l_holoexpld: l_holoexpld
 		Tick: 20
 		Length: *
@@ -221,11 +223,20 @@ explosion:
 	holoexplode: holoexplode
 		Tick: 5
 		Offset: 4,0,0
-
-flameshield:
-	idle:
-		ZOffset: 10
-		Length: *
+	chronoexp: chronoar
+		Scale: 0.25
+	chronoexpsm: chronoar
+		Scale: 0.15
+	chronoexpbg: chronoar
+		Scale: 0.4
+	enslave: enslave
+		Offset: 0,-9,0
+	dmexpld: dmexpld
+		Scale: 0.55
+		Tick: 10
+		Offset: 0,-5
+	psychexpld: psychexpld
+		Tick: 10
 
 cloud:
 	idle:
@@ -301,7 +312,7 @@ nanoshield:
 
 pips:
 	groups:
-		Start: 8
+		Frames: 9,10,11,12,13,14,15,16,17,8
 		Length: 10
 		Offset: 9, 5
 	medic:
@@ -318,6 +329,7 @@ pips:
 	tag-fake:
 		Start: 18
 		Offset: 0, 2
+	terror-tag: terror-tag
 	tag-primary:
 		Start: 2
 		Offset: 0, 2
@@ -420,10 +432,19 @@ beacon:
 	paraminebeacon: paraminebeacon
 		Length: *
 		Offset: 0,-42
+	empbombbeacon: empbombbeacon
+		Length: *
+		Offset: 0,-42
 	interceptionbeacon: interceptionbeacon
 		Length: *
 		Offset: 0,-42
 	swarmbeacon: swarmbeacon
+		Length: *
+		Offset: 0,-42
+	ifvdropbeacon: ifvdropbeacon
+		Length: *
+		Offset: 0,-42
+	blizzardbeacon: blizzardbeacon
 		Length: *
 		Offset: 0,-42
 
@@ -746,6 +767,13 @@ fire:
 		Offset: 0,-3
 		ZOffset: 1023
 
+helios:
+	idle:
+		Start: 60
+		Scale: 0.60
+		Length: 83
+		ZOffset: -200
+
 rank:
 	Defaults:
 		Offset: 0, 3
@@ -833,8 +861,10 @@ icon:
 	chrono: warpicon
 	spyplane: smigicon
 	paratroopers: pinficon
+	ifvdropicon: ifvdropicon
 	gps: gpssicon
 	parabombs: pbmbicon
+	empbombicon: empbombicon
 	sonar: sonricon
 	airstrike: bombicon
 	barrageicon: barrageicon
@@ -861,6 +891,8 @@ icon:
 	intercepticon: intercepticon
 	swarmicon: swarmicon
 	mirageicon: mirageicon
+	mindblasticon: mindblasticon
+	blizzardicon: blizzardicon
 
 smokebarrage:
 	idle: empty
@@ -891,8 +923,7 @@ minv:
 	icon: jmin
 
 overlay:
-	Defaults: placementicon.shp
-		Offset: 0, -12, 1
+	Defaults: trans.icn
 		AddExtension: False
 	build-valid:
 	build-invalid:
@@ -904,8 +935,7 @@ overlay:
 		Start: 2
 
 editor-overlay:
-	Defaults: placementicon.shp
-		Offset: 0, -12, 1
+	Defaults: trans.icn
 		AddExtension: False
 	copy:
 	paste:
@@ -1082,3 +1112,21 @@ holobase:
 	damaged-idle:
 		Start: 33
 		Length: 32
+
+twinkle:
+	Defaults:
+		Length: *
+	twinkle1: twinkle1
+	twinkle2: twinkle2
+	twinkle3: twinkle3
+
+snowing:
+	idle:
+		Start: 0
+		Length: *
+
+blizzard:
+	idle: snowing
+		Start: 0
+		Length: *
+		Tick: 30

@@ -1,10 +1,15 @@
 Metadata:
 	Title: Red Alert Schwerpunkt
-	Version: release-20210321
+	Version: 0.019-pre-release
 	Website: https://www.openra.net
 	WebIcon32: https://www.openra.net/images/icons/ra_32x32.png
+	WindowTitle: OpenRA - Schwerpunkt
 
 PackageFormats: Mix
+
+MapGrid:
+	TileSize: 24,24
+	Type: Rectangular
 
 Packages:
 	~^SupportDir|Content/ra/v2/
@@ -30,6 +35,8 @@ Packages:
 	~expand2.mix
 	~hires1.mix
 	~desert.mix
+	~general.mix
+	common|scripts
 	swp|bits
 	swp|bits/desert
 	swp|bits/scripts
@@ -38,7 +45,7 @@ Packages:
 
 MapFolders:
 	swp|maps: System
-	~^SupportDir|maps/swp/release-20210321: User
+	~^SupportDir|maps/swp/release-20230225: User
 
 Rules:
 	swp|rules/misc.yaml
@@ -83,12 +90,14 @@ Assemblies:
 ChromeLayout:
 	common|chrome/ingame.yaml
 	common|chrome/ingame-chat.yaml
+	common|chrome/ingame-transients.yaml
 	common|chrome/ingame-fmvplayer.yaml
 	common|chrome/ingame-info.yaml
 	common|chrome/ingame-infoscripterror.yaml
 	common|chrome/ingame-infobriefing.yaml
 	common|chrome/ingame-infoobjectives.yaml
 	common|chrome/ingame-infostats.yaml
+	common|chrome/ingame-info-lobby-options.yaml
 	common|chrome/ingame-menu.yaml
 	swp|chrome/ingame-observer.yaml
 	swp|chrome/ingame-player.yaml
@@ -99,6 +108,11 @@ ChromeLayout:
 	common|chrome/mainmenu.yaml
 	common|chrome/mainmenu-prompts.yaml
 	common|chrome/settings.yaml
+	common|chrome/settings-display.yaml
+	common|chrome/settings-audio.yaml
+	common|chrome/settings-input.yaml
+	common|chrome/settings-hotkeys.yaml
+	common|chrome/settings-advanced.yaml
 	common|chrome/credits.yaml
 	common|chrome/lobby.yaml
 	common|chrome/lobby-mappreview.yaml
@@ -125,6 +139,10 @@ ChromeLayout:
 	common|chrome/confirmation-dialogs.yaml
 	common|chrome/editor.yaml
 	common|chrome/playerprofile.yaml
+	common|chrome/text-notifications.yaml
+
+Translations:
+	common|languages/en.ftl
 
 Weapons:
 	swp|weapons/explosions.yaml
@@ -143,8 +161,8 @@ Notifications:
 Music:
 	swp|audio/music.yaml
 
-Translations:
-	swp|languages/english.yaml
+Missions:
+	swp|missions.yaml
 
 Hotkeys:
 	common|hotkeys/game.yaml
@@ -152,6 +170,9 @@ Hotkeys:
 	common|hotkeys/production-common.yaml
 	common|hotkeys/supportpowers.yaml
 	common|hotkeys/viewport.yaml
+	common|hotkeys/chat.yaml
+	common|hotkeys/editor.yaml
+	common|hotkeys/control-groups.yaml
 	swp|hotkeys.yaml
 
 LoadScreen: LogoStripeLoadScreen
@@ -207,17 +228,17 @@ Fonts:
 Missions:
 	swp|missions.yaml
 
-MapGrid:
-	TileSize: 48,24
-	Type: RectangularIsometric
-	SubCellOffsets: 0,0,0, -362,0,0, 0,362,0, 362,0,0, 0,-362,0
-	DefaultSubCell: 2
+DefaultOrderGenerator: UnitOrderGenerator
 
 SupportsMapsFrom: swp
 
 SoundFormats: Aud, Wav
 
-SpriteFormats: ShpD2, ShpTD, TmpRA, TmpTD, ShpTS, TmpTS
+SpriteFormats: ShpD2, ShpTD, TmpRA, TmpTD, ShpTS
+
+VideoFormats: Vqa, Wsa
+
+TerrainFormat: DefaultTerrain
 
 SpriteSequenceFormat: ClassicTilesetSpecificSpriteSequence
 	TilesetExtensions:
@@ -229,39 +250,40 @@ SpriteSequenceFormat: ClassicTilesetSpecificSpriteSequence
 ModelSequenceFormat: PlaceholderModelSequence
 
 AssetBrowser:
-	SupportedExtensions: .shp, .tmp, .tem, .des, .sno, .int, .vqa
+	SpriteExtensions: .shp, .tmp, .tem, .des, .sno, .int
+	AudioExtensions: .aud, .wav, .r00, .r01, .r02, .r03, .v00, .v01, .v02, .v03
+	VideoExtensions: .vqa, .wsa
 
 GameSpeeds:
-	slowest:
-		Name: Slowest
-		Timestep: 80
-		OrderLatency: 2
-	slower:
-		Name: Slower
-		Timestep: 50
-		OrderLatency: 3
-	default:
-		Name: Normal
-		Timestep: 40
-		OrderLatency: 3
-	fast:
-		Name: Fast
-		Timestep: 35
-		OrderLatency: 4
-	faster:
-		Name: Faster
-		Timestep: 30
-		OrderLatency: 4
-	fastest:
-		Name: Fastest
-		Timestep: 20
-		OrderLatency: 6
-
-ColorValidator:
-	TeamColorPresets: f7b3b3, f50606, 98331f, f57606, f7bb06, f861a4, da06f3, ddb8ff, 06f739, cef7b2, 200738, 280df6, 2f86f2, 76d2f8, 34ba93, 391d1d
+	DefaultSpeed: default
+	Speeds:
+		slowest:
+			Name: slowest
+			Timestep: 80
+			OrderLatency: 2
+		slower:
+			Name: slower
+			Timestep: 50
+			OrderLatency: 3
+		default:
+			Name: normal
+			Timestep: 40
+			OrderLatency: 3
+		fast:
+			Name: fast
+			Timestep: 35
+			OrderLatency: 4
+		faster:
+			Name: faster
+			Timestep: 30
+			OrderLatency: 4
+		fastest:
+			Name: fastest
+			Timestep: 20
+			OrderLatency: 6
 
 ModContent:
-	InstallPromptMessage: Red Alert Schwerpunkt requires artwork and audio from the original game.\n\nQuick Install will automatically download this content (without music\nor videos) from a mirror of the 2008 Red Alert freeware release.\n\nAdvanced Install includes options for copying the music, videos, and\nother content from an original game disc or digital installation.
+	InstallPromptMessage: Red Alert - Schwerpunkt requires artwork and audio from the original game.\n\nQuick Install will automatically download this content (without music\nor videos) from a mirror of the 2008 Red Alert freeware release.\n\nAdvanced Install includes options for copying the music, videos, and\nother content from an original game disc or digital installation.
 	QuickDownload: quickinstall
 	HeaderMessage: Game content may be extracted from the original game discs or an\nexisting digital install. OpenRA can also download the base game\nfiles from an online mirror of the 2008 freeware release of RA.
 	Packages:

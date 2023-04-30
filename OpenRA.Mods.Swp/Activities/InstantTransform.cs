@@ -11,11 +11,11 @@
 
 using System.Collections.Generic;
 using OpenRA.Activities;
+using OpenRA.Mods.Swp.Traits;
 using OpenRA.Mods.Common;
 using OpenRA.Mods.Common.Activities;
 using OpenRA.Mods.Common.Traits;
 using OpenRA.Mods.Common.Traits.Render;
-using OpenRA.Mods.Swp.Traits;
 using OpenRA.Primitives;
 using OpenRA.Traits;
 
@@ -86,7 +86,7 @@ namespace OpenRA.Mods.Swp.Activities
 					nt.OnTransform(self);
 
 				var selected = w.Selection.Contains(self);
-				var controlgroup = w.Selection.GetControlGroupForActor(self);
+				var controlgroup = w.ControlGroups.GetControlGroupForActor(self);
 
 				self.Dispose();
 				foreach (var s in Sounds)
@@ -140,7 +140,7 @@ namespace OpenRA.Mods.Swp.Activities
 					w.Selection.Add(a);
 
 				if (controlgroup.HasValue)
-					w.Selection.AddToControlGroup(a, controlgroup.Value);
+					w.ControlGroups.AddToControlGroup(a, controlgroup.Value);
 			});
 		}
 	}

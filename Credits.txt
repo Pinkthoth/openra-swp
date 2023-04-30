@@ -20,6 +20,9 @@ Graphics:
 -Chrono Haste effect: Volkov T-666
 -Magnetic suspension effect: ppap11404
 -A10 Piffs: Volkov T-666
+-Flameshield effect: ppap114+4
+-Demo Truck explosion: LovesPhobos=true
+-Mind Blast effect: Volkot T-666
 
 Tech Oil Pump & Hospital
 -EoralMilk

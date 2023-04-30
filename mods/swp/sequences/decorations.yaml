@@ -308,6 +308,41 @@ trees30:
 		Start: 92
 		ZOffset: -1024
 
+leaf_sapling1:
+	Defaults: leaf_sapling
+	idle:
+		Start: 0
+	damaged-idle:
+		Start: 1
+	husk-idle:
+		Start: 2
+		ZOffset: -1024
+
+leaf_sapling2:
+	Defaults: leaf_sapling
+	idle:
+		Start: 3
+	damaged-idle:
+		Start: 4
+	husk-idle:
+		Start: 5
+		ZOffset: -1024
+
+treegrouphusk1:
+	Defaults: treegrouphusk
+	idle:
+		Start: 0
+
+treegrouphusk2:
+	Defaults: treegrouphusk
+	idle:
+		Start: 1
+
+treegrouphusk3:
+	Defaults: treegrouphusk
+	idle:
+		Start: 2
+
 tree1:
 	idle: trees
 		Start: 0
@@ -372,78 +407,78 @@ cypr1:
 	idle: cypr
 		Start: 0
 		Offset: -13,-13,0
-    
+	
 cypr1.husk:
 	idle: cypr
 		Start: 1
 		Offset: -13,-13,0
-        
+		
 cypr2:
 	idle: cypr
 		Start: 2
 		Offset: -13,-13,0
-    
+	
 cypr2.husk:
 	idle: cypr
 		Start: 3
 		Offset: -13,-13,0
-        
+		
 tg1:
 	idle: tg
 		Start: 0
 		Offset: 16, -13
-        
+		
 tg1.husk:
 	idle: tg
 		Start: 1
 		Offset: 16, -13
-        
+		
 tg2:
 	idle: tg
 		Start: 2
 		Offset: 16, -13
-    
+	
 tg2.husk:
 	idle: tg
 		Start: 3
 		Offset: 16, -13
-        
+		
 tgc1:
 	idle: tgc
 		Start: 0
-        
+		
 tgc1.husk:
 	idle: tgc
 		Start: 1
-        
+		
 tgc2:
 	idle: tgc
 		Start: 2
-        
+		
 tgc2.husk:
 	idle: tgc
 		Start: 3
-        
+		
 tgb:
 	idle: tgb
 		Start: 0
-        
+		
 tgb.husk:
 	idle: tgb
 		Start: 1
-        
+		
 tgd:
 	idle: tgd
 		Start: 0
-        
+		
 tgd.husk:
 	idle: tgd
 		Start: 1
-        
+		
 tgd2:
 	idle: tgd
 		Start: 2
-        
+		
 tgd2.husk:
 	idle: tgd
 		Start: 3
@@ -957,6 +992,7 @@ fhousea:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 0.75
 	idle:
 	damaged-idle:
 		Start: 1
@@ -966,6 +1002,7 @@ fhouseb:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 0.75
 	idle:
 		Start: 2
 	damaged-idle:
@@ -976,6 +1013,7 @@ fhousec:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 0.75
 	idle:
 		Start: 4
 	damaged-idle:
@@ -986,6 +1024,7 @@ fhoused:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 0.75
 	idle:
 		Start: 6
 	damaged-idle:
@@ -996,6 +1035,7 @@ fhousee:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 0.75
 	idle:
 		Start: 8
 	damaged-idle:
@@ -1006,6 +1046,7 @@ fhousef:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 0.75
 	idle:
 		Start: 10
 	damaged-idle:
@@ -1016,6 +1057,7 @@ fhouseg:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 0.75
 	idle:
 		Start: 12
 	damaged-idle:
@@ -1026,6 +1068,7 @@ fhouseh:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 0.75
 	idle:
 		Start: 14
 	damaged-idle:
@@ -1036,6 +1079,7 @@ fhousei:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 0.75
 	idle:
 		Start: 16
 	damaged-idle:
@@ -1046,6 +1090,7 @@ fhousej:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 0.75
 	idle:
 		Start: 18
 	damaged-idle:
@@ -1056,6 +1101,7 @@ fhousek:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 0.75
 	idle:
 		Start: 20
 	damaged-idle:
@@ -1066,6 +1112,7 @@ fhousel:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 0.75
 	idle:
 		Start: 22
 	damaged-idle:
@@ -1076,6 +1123,7 @@ fhousem:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 0.75
 	idle:
 		Start: 24
 	damaged-idle:
@@ -1086,6 +1134,7 @@ fhousen:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 0.75
 	idle:
 		Start: 26
 	damaged-idle:
@@ -1096,6 +1145,7 @@ fhouseo:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 0.75
 	idle:
 		Start: 28
 	damaged-idle:
@@ -1106,6 +1156,7 @@ fhousep:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 0.75
 	idle:
 		Start: 30
 	damaged-idle:
@@ -1116,6 +1167,7 @@ fhouseq:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 0.75
 	idle:
 		Start: 32
 	damaged-idle:
@@ -1126,6 +1178,7 @@ fhouser:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 0.75
 	idle:
 		Start: 34
 	damaged-idle:
@@ -1136,6 +1189,7 @@ fhouses:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 0.75
 	idle:
 		Start: 36
 	damaged-idle:
@@ -1146,6 +1200,7 @@ fhouset:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+		Scale: 0.75
 	idle:
 		Start: 38
 	damaged-idle:
@@ -1157,6 +1212,7 @@ church:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,12,0
+		Scale: 0.75
 	idle:
 	damaged-idle:
 		Start: 0
@@ -1167,6 +1223,7 @@ flat1:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 	damaged-idle:
 		Start: 0
@@ -1177,6 +1234,7 @@ flat1a:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 1
 	damaged-idle:
@@ -1188,28 +1246,31 @@ flat1b:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 2
 	damaged-idle:
 		Start: 2
 
 flat2:
-	Defaults:flat1
+	Defaults: flat1
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 4
 	damaged-idle:
 		Start: 4
 
 flat2a:
-	Defaults:flat1
+	Defaults: flat1
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 6
 	damaged-idle:
@@ -1221,6 +1282,7 @@ flat3:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 3
 	damaged-idle:
@@ -1232,50 +1294,55 @@ flat4:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 5
 	damaged-idle:
 		Start: 5
 
 flat5:
-	Defaults:flat1
+	Defaults: flat1
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 7
 	damaged-idle:
 		Start: 7
 
 flat5a:
-	Defaults:flat1
+	Defaults: flat1
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 8
 	damaged-idle:
 		Start: 8
 
 flat6:
-	Defaults:flat1
+	Defaults: flat1
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 9
 	damaged-idle:
 		Start: 9
 
 flat6a:
-	Defaults:flat1
+	Defaults: flat1
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 10
 	damaged-idle:
@@ -1287,6 +1354,7 @@ detached1:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 0
 	damaged-idle:
@@ -1298,6 +1366,7 @@ detached2:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 2
 	damaged-idle:
@@ -1309,6 +1378,7 @@ detached3:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 4
 	damaged-idle:
@@ -1320,6 +1390,7 @@ detached4:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 6
 	damaged-idle:
@@ -1331,6 +1402,7 @@ detached5:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 8
 	damaged-idle:
@@ -1342,6 +1414,7 @@ detached6:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 10
 	damaged-idle:
@@ -1353,6 +1426,7 @@ detached7:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 12
 	damaged-idle:
@@ -1364,6 +1438,7 @@ detached8:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 14
 	damaged-idle:
@@ -1375,6 +1450,7 @@ detached9:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 16
 	damaged-idle:
@@ -1386,6 +1462,7 @@ detached10:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 18
 	damaged-idle:
@@ -1397,6 +1474,7 @@ detached11:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 20
 	damaged-idle:
@@ -1408,6 +1486,7 @@ detached12:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 22
 	damaged-idle:
@@ -1419,6 +1498,7 @@ detached13:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 24
 	damaged-idle:
@@ -1430,6 +1510,7 @@ detached14:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 26
 	damaged-idle:
@@ -1441,6 +1522,7 @@ detached15:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 28
 	damaged-idle:
@@ -1452,6 +1534,7 @@ detached16:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 30
 	damaged-idle:
@@ -1463,6 +1546,7 @@ detached17:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 32
 	damaged-idle:
@@ -1474,6 +1558,7 @@ detached18:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 34
 	damaged-idle:
@@ -1485,6 +1570,7 @@ detached19:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 36
 	damaged-idle:
@@ -1496,6 +1582,7 @@ detached20:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 38
 	damaged-idle:
@@ -1507,6 +1594,7 @@ detached21:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 40
 	damaged-idle:
@@ -1518,6 +1606,7 @@ detached22:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 42
 	damaged-idle:
@@ -1529,6 +1618,7 @@ detached23:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 44
 	damaged-idle:
@@ -1540,6 +1630,7 @@ detached24:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 46
 	damaged-idle:
@@ -1551,6 +1642,7 @@ detached25:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 48
 	damaged-idle:
@@ -1562,6 +1654,7 @@ detached26:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 50
 	damaged-idle:
@@ -1573,6 +1666,7 @@ shops1:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 0
 	damaged-idle:
@@ -1584,6 +1678,7 @@ shops2:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 2
 	damaged-idle:
@@ -1595,6 +1690,7 @@ shops3:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 4
 	damaged-idle:
@@ -1606,6 +1702,7 @@ shops4:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 		Offset: 0,0,0
+		Scale: 0.75
 	idle:
 		Start: 6
 	damaged-idle:
@@ -1934,12 +2031,12 @@ stmp1:
 	idle: stmp
 		Start: 0
 	ZOffset: -10000
-        
+		
 stmp2:
 	idle: stmp
 		Start: 1
 	ZOffset: -10000
-        
+		
 stmp3:
 	idle: stmp
 		Start: 2
@@ -1948,15 +2045,25 @@ stmp3:
 cypr1:
 	idle: cypr
 		Start: 0
-    
+	
 cypr1.husk:
 	idle: cypr
 		Start: 1
-        
+		
 cypr2:
 	idle: cypr
 		Start: 2
-    
+	
 cypr2.husk:
 	idle: cypr
 		Start: 3
+
+treetoolconf:
+	idle: treetool
+		Start: 0
+	ingame: empty
+
+treetoolconfsap:
+	idle: treetool
+		Start: 1
+	ingame: empty

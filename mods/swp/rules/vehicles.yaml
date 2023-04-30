@@ -16,7 +16,7 @@ HARV:
 		Name: Ore Truck
 		GenericName: Harvester
 	Selectable:
-		DecorationBounds: 42,42
+		DecorationBounds: 1589, 1589
 	Harvester:
 		Resources: Ore,Gems
 		Capacity: 20
@@ -40,6 +40,7 @@ HARV:
 	GpsDot:
 		String: Harvester
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: HARV.EmptyHusk
 	HarvesterHuskModifier:
 		FullHuskActor: HARV.FullHusk
@@ -85,7 +86,7 @@ MCV:
 	Tooltip:
 		Name: Mobile Construction Vehicle
 	Selectable:
-		DecorationBounds: 42,42
+		DecorationBounds: 1589, 1589
 	Health:
 		HP: 73500
 	Armor:
@@ -105,6 +106,7 @@ MCV:
 		RequiredForShortGame: true
 	BaseBuilding:
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: MCV.Husk
 	TransferTimedExternalConditionOnTransform:
 		Condition: invulnerability
@@ -180,7 +182,7 @@ MNLY:
 		RearmSound: minelay1.aud
 	DetectCloaked:
 		Range: 5c0
-		CloakTypes: Mine
+		DetectionTypes: Mine
 	RenderDetectionCircle:
 	Explodes:
 		Weapon: ATMine
@@ -195,6 +197,7 @@ MNLY:
 		Margin: 4, 3
 		RequiresSelection: true
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: MNLY.Husk
 
 MNLY.Husk:
@@ -237,7 +240,43 @@ TRUK:
 		Payload: 500
 		PlayerExperience: 50
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: moneycrate
+
+PROPTRUCK:
+	Inherits: ^Vehicle
+	Inherits@selection: ^SelectableSupportUnit
+	-ExperienceTrickler@OfficerNearby:
+	-GainsExperienceMultiplier@OfficerNearby:
+	-ExternalCondition@OfficerNearby:
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 167
+		Prerequisites: ~techlevel.low, ~vehicles.china, dome
+		Description: Can be deployed to temporarily increase\nthe morale of nearby infantry.\n  Unarmed
+	Valued:
+		Cost: 700
+	Tooltip:
+		Name: Propaganda Truck
+	Health:
+		HP: 18000
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 110
+	RevealsShroud:
+		Range: 4c0
+	DetonateWeaponOnDeploy:
+		Weapon: PropagandaBurstTruck
+		Voice: Action
+		StartsFullyCharged: False
+		OverlaySequence: idle
+		OverlayPalette: player
+		IsPlayerPalette: True
+		ChargeTicks: 750
+		SelectionBarColor: FF0000
+	Selectable:
+		DecorationBounds: 1260, 1260,0,-100
 
 #zentrum units
 BIKE:
@@ -246,7 +285,7 @@ BIKE:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 95
+		BuildPaletteOrder: 71
 		Prerequisites: ~vehicles.japan, ~techlevel.low
 		Description: Fast scouting unit.\n	Strong vs Infantry\n  Weak vs Tanks, Aircraft
 	Valued:
@@ -283,6 +322,7 @@ BIKE:
 	AttackFrontal:
 		PauseOnCondition: turnedoff
 		Armaments: primary, secondary
+		FacingTolerance: 0
 	WithMuzzleOverlay:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
@@ -321,7 +361,7 @@ ARMCR:
 		Range: 4c0
 	Turreted:
 		TurnSpeed: 40
-		Offset: -30,0,330
+		Offset: -30,0,310
 	Armament:
 		Weapon: M60mg-Bobcat
 		MuzzleSequence: muzzle
@@ -333,6 +373,7 @@ ARMCR:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: ARMCR.Husk
 
 ARMCR.Husk:
@@ -381,7 +422,7 @@ HLFTRK:
 		Range: 4c0
 	Turreted:
 		TurnSpeed: 40
-		Offset: -60,0,330
+		Offset: -60,0,270
 	Armament:
 		Weapon: HLFTRKGUN
 		MuzzleSequence: muzzle
@@ -397,6 +438,7 @@ HLFTRK:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: HLFTRK.Husk
 
 HLFTRK.Husk:
@@ -420,7 +462,7 @@ PUMA:
 		Queue: Vehicle
 		BuildPaletteOrder: 40
 		Prerequisites: ~vehicles.zentrum, ~techlevel.low
-		Description: Strong armoured car,\good against light armour.\n	Strong vs Light armor\n	 Weak vs Infantry, Tanks, Aircraft
+		Description: Strong armoured car, good against light armour.\n	Strong vs Light armor\n	 Weak vs Infantry, Tanks, Aircraft
 	Valued:
 		Cost: 700
 	Tooltip:
@@ -442,7 +484,7 @@ PUMA:
 		Range: 4c0
 	Turreted:
 		TurnSpeed: 28
-		Offset: 100,0,300
+		Offset: 100,0,270
 	Armament:
 		Weapon: 25mm
 		Recoil: 85
@@ -456,9 +498,10 @@ PUMA:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: PUMA.Husk
 	Selectable:
-		DecorationBounds: 32,32,0,-2
+		DecorationBounds: 1289, 1289, 0, -120
 
 PUMA.Husk:
 	Inherits: ^Husk
@@ -479,7 +522,7 @@ PRISMCANNON:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 330
+		BuildPaletteOrder: 332
 		Prerequisites: mtek, ~vehicles.austria, ~techlevel.high
 		Description: Long range direct energy cannon.\n  Strong vs Infantry, Vehicles, Defenses\n  Weak vs Aircraft
 	Valued:
@@ -510,11 +553,13 @@ PRISMCANNON:
 		MuzzleSequence: muzzle
 	AttackFrontal:
 		PauseOnCondition: turnedoff
+		FacingTolerance: 0
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	Selectable:
-		DecorationBounds: 34,34
+		DecorationBounds: 1589, 1589
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: PRISMCANNON.Husk
 
 HVTNK:
@@ -525,7 +570,7 @@ HVTNK:
 		Queue: Vehicle
 		BuildPaletteOrder: 113
 		Prerequisites: adept, ~vehicles.zentrum, ~techlevel.medium
-		Description: Zentrum main battle tank.\nSlow but strudy.\n	 Strong vs Vehicles\n  Weak vs Infantry, Aircraft
+		Description: Zentrum main battle tank.\nSlow but strudy.\n	Armed with a secondary machine gun.\n	 Strong vs Vehicles\n  Weak vs Infantry, Aircraft
 	Valued:
 		Cost: 1200
 	Tooltip:
@@ -547,7 +592,7 @@ HVTNK:
 		Range: 4c0
 	Turreted:
 		TurnSpeed: 20
-		Offset: 30,0,300
+		Offset: 20,0,260
 	Armament:
 		Weapon: hvtnkfire
 		Name: primary
@@ -555,16 +600,24 @@ HVTNK:
 		RecoilRecovery: 38
 		LocalOffset: 850,0,0
 		MuzzleSequence: muzzle
+	Armament@secondary:
+		Name: secondary
+		Weapon: TankMachineGun
+		Recoil: 0
+		RecoilRecovery: 38
+		LocalOffset: 200,-160,50
+		MuzzleSequence: muzzle-mg
 	AttackTurreted:
 		PauseOnCondition: turnedoff
 	WithMuzzleOverlay:
 	WithSpriteTurret:
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: HVTNK.Husk
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	Selectable:
-		DecorationBounds: 28,28
+		DecorationBounds: 1289, 1289
 
 HVTNK.Husk:
 	Inherits: ^Husk
@@ -620,6 +673,7 @@ V2RL:
 		TargetFrozenActors: True
 		ForceFireIgnoresActors: True
 		PauseOnCondition: turnedoff
+		FacingTolerance: 0
 	WithFacingSpriteBody:
 		RequiresCondition: !reloading
 		Name: loaded
@@ -632,7 +686,7 @@ V2RL:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	Selectable:
-		DecorationBounds: 20, 20
+		DecorationBounds: 1289, 1289
 		
 MSAM:
 	Inherits: ^TrackedVehicle
@@ -688,6 +742,7 @@ MSAM:
 		Delay: 50
 		Count: 1
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: MSAM.Husk
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
@@ -715,7 +770,7 @@ ECTNK:
 	Inherits@CARGOPIPS: ^CargoPips
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 330
+		BuildPaletteOrder: 331
 		Prerequisites: mtek, ~vehicles.germany, ~techlevel.high
 		Description: Specially insulated chrono APC.\nKeeps the cargoed infantry alive.\nTeleports to areas within range.\n  Weak vs Everything\n  Special ability: Can teleport
 	Valued:
@@ -746,6 +801,7 @@ ECTNK:
 		PauseOnCondition: turnedoff
 	AttackFrontal:
 		PauseOnCondition: turnedoff
+		FacingTolerance: 0
 	WithMuzzleOverlay:
 	PortableChrono:
 		ChargeDelay: 250
@@ -753,12 +809,13 @@ ECTNK:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	Selectable:
-		DecorationBounds: 44,38,0,-4
+		DecorationBounds: 1489, 1489, 0, -241
 	Cargo:
 		Types: Infantry
 		MaxWeight: 5
 		LoadingCondition: notmobile
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: ECTNK.Husk
 
 ECTNK.Husk:
@@ -780,7 +837,7 @@ CTNK:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 330
+		BuildPaletteOrder: 332
 		Prerequisites: mtek, ~vehicles.germany, ~techlevel.high
 		Description: Armed with anti-ground missiles.\nTeleports to areas within range.\n  Strong vs Vehicles, Buildings\n  Weak vs Infantry, Aircraft\n  Special ability: Can teleport
 	Valued:
@@ -821,8 +878,9 @@ CTNK:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	Selectable:
-		DecorationBounds: 30, 30
+		DecorationBounds: 1289, 1289
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: CTNK.Husk
 
 CTNK.Husk:
@@ -859,7 +917,7 @@ MAUS:
 		Type: Heavy
 	Mobile:
 		Speed: 45
-		TurnSpeed: 17
+		TurnSpeed: 12
 		PauseOnCondition: being-captured
 	RevealsShroud:
 		MinRange: 4c0
@@ -875,12 +933,14 @@ MAUS:
 		MuzzleSequence: muzzle
 	AttackFrontal:
 		PauseOnCondition: turnedoff
+		FacingTolerance: 0
 	WithMuzzleOverlay:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	Selectable:
-		DecorationBounds: 32,34
+		DecorationBounds: 1589, 1589
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: MAUS.Husk
 
 MAUS.Husk:
@@ -939,6 +999,7 @@ MRJ:
 		RequiresCondition: !turnedoff
 	RenderJammerCircle:
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: MRJ.Husk
 
 MRJ.Husk:
@@ -984,6 +1045,7 @@ TRNSPRT:
 		MaxWeight: 7
 		LoadingCondition: notmobile
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: TRNSPRT.Husk
 
 TRNSPRT.Husk:
@@ -1012,7 +1074,6 @@ FTRK:
 		Cost: 600
 	RenderSprites:
 		Image: ftrk
-		Scale: 0.9
 	Tooltip:
 		Name: Mobile Flak
 	UpdatesPlayerStatistics:
@@ -1050,8 +1111,9 @@ FTRK:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	Selectable:
-		DecorationBounds: 28,28
+		DecorationBounds: 1289, 1289
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: FTRK.Husk
 	RenderRangeCircle@anti-air:
 		RangeCircleType: Anti-air
@@ -1069,7 +1131,6 @@ FTRK.Husk:
 		IntoActor: FTRK
 	RenderSprites:
 		Image: ftrk
-		Scale: 0.9
 
 TNKT:
 	Inherits: ^TrackedVehicle
@@ -1107,10 +1168,12 @@ TNKT:
 		MuzzleSequence: muzzle
 	AttackFrontal:
 		PauseOnCondition: turnedoff
+		FacingTolerance: 0
 	WithMuzzleOverlay:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: TNKT.Husk
 		
 TNKT.Husk:
@@ -1136,7 +1199,7 @@ TRAKTOR:
 		Prerequisites: stek, ~vehicles.ukraine, ~techlevel.high
 		Description: Heavy magnetic tank that debilitates it's target.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
 	Valued:
-		Cost: 2000
+		Cost: 1500
 	Tooltip:
 		Name: Traktor
 	UpdatesPlayerStatistics:
@@ -1159,9 +1222,11 @@ TRAKTOR:
 		LocalOffset: 350,0,290, 350,200,290, 350,0,290, 350,-200,290
 	AttackFrontal:
 		PauseOnCondition: turnedoff
+		FacingTolerance: 0
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: TRAKTOR.Husk
 	AmbientSound:
 		SoundFiles: magnetic_sound.aud
@@ -1170,6 +1235,8 @@ TRAKTOR:
 		RequiresCondition: attacking
 	GrantConditionOnAttack:
 		Condition: attacking
+	Selectable:
+		Bounds: 1589, 1589
 
 TRAKTOR.Husk:
 	Inherits: ^Husk
@@ -1221,7 +1288,7 @@ BTR:
 		LocalOffset: 250,0,30
 		MuzzleSequence: muzzle
 	Turreted:
-		Offset: 120,0,310
+		Offset: 120,0,250
 		TurnSpeed: 28
 	AttackTurreted:
 		PauseOnCondition: turnedoff
@@ -1234,6 +1301,7 @@ BTR:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: BTR.Husk
 
 BTR.Husk:
@@ -1255,7 +1323,7 @@ MARAUDER:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 97
+		BuildPaletteOrder: 261
 		Prerequisites: dome, ~vehicles.mongolia, ~techlevel.medium
 		Description: Fast scout & anti-infantry vehicle.\nArmed with a small rocket launcher.\n	 Strong vs Infantry\n  Weak vs Vehicles, Aircraft
 	Valued:
@@ -1276,13 +1344,13 @@ MARAUDER:
 		PauseOnCondition: being-captured
 	RevealsShroud:
 		MinRange: 4c0
-		Range: 8c0
+		Range: 6c0
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 4c0
 	Turreted:
 		TurnSpeed: 40
-		Offset: -250,0,200
+		Offset: -250,0,190
 	Armament:
 		Weapon: 227mm-Marauder
 		LocalOffset: 171,0,43
@@ -1293,6 +1361,7 @@ MARAUDER:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: MARAUDER.Husk
 
 MARAUDER.Husk:
@@ -1316,7 +1385,7 @@ MTNK:
 		Queue: Vehicle
 		BuildPaletteOrder: 112
 		Prerequisites: adept, ~vehicles.komintern, ~techlevel.medium
-		Description: Komintern main battle tank.\n Heavy armoured but versatile.\n	Strong vs Vehicles\n	Weak vs Infantry, Aircraft
+		Description: Komintern main battle tank.\n Heavy armoured but versatile.\n	Armed with a secondary machine gun.\n	Strong vs Vehicles\n	Weak vs Infantry, Aircraft
 	Valued:
 		Cost: 1025
 	Tooltip:
@@ -1345,16 +1414,24 @@ MTNK:
 		RecoilRecovery: 38
 		LocalOffset: 750,0,50
 		MuzzleSequence: muzzle
+	Armament@secondary:
+		Name: secondary
+		Weapon: TankMachineGun
+		Recoil: 0
+		RecoilRecovery: 38
+		LocalOffset: 200,-140,50
+		MuzzleSequence: muzzle-mg
 	AttackTurreted:
 		PauseOnCondition: turnedoff
 	WithMuzzleOverlay:
 	WithSpriteTurret:
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: MTNK.Husk
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	Selectable:
-		DecorationBounds: 28,28
+		DecorationBounds: 1289, 1289
 
 MTNK.Husk:
 	Inherits: ^Husk
@@ -1370,6 +1447,69 @@ MTNK.Husk:
 		IntoActor: MTNK
 	RenderSprites:
 		Image: mtnk
+
+MAROZILNIK:
+	Inherits: ^TrackedVehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 271
+		Prerequisites: stek, ~vehicles.belarus, ~techlevel.medium
+		Description: Tank armed with cryo thrower.\n Heavy armoured.\n	Strong vs Infantry\n	Weak vs Vehicles, Aircraft
+	Valued:
+		Cost: 1300
+	Tooltip:
+		Name: Marozilnik
+		GenericName: Tank
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 43000
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 77
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 6c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	Turreted:
+		TurnSpeed: 20
+		Offset: -100,0,250
+	Armament:
+		Weapon: Marozzer
+		Recoil: 0
+		RecoilRecovery: 38
+		LocalOffset: 290,0,180
+		MuzzleSequence: muzzle
+	AttackTurreted:
+		PauseOnCondition: turnedoff
+	WithSpriteTurret:
+	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
+		Actor: MAROZILNIK.Husk
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
+	Selectable:
+		DecorationBounds: 1289, 1289
+
+MAROZILNIK.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Cossack)
+	ThrowsParticle@turret:
+		Anim: turret
+	TransformOnCapture@Mechanic:
+		IntoActor: MAROZILNIK
+	TransformOnCapture@Engineer:
+		IntoActor: MAROZILNIK
+	InfiltrateForTransform:
+		IntoActor: MAROZILNIK
+	RenderSprites:
+		Image: marozilnik
 
 TEMPLAR:
 	Inherits: ^TrackedVehicle
@@ -1394,7 +1534,7 @@ TEMPLAR:
 		Type: Medium
 	Mobile:
 		Speed: 92
-		TurnSpeed: 40
+		TurnSpeed: 30
 		Locomotor: hover
 	RevealsShroud:
 		MinRange: 4c0
@@ -1403,7 +1543,7 @@ TEMPLAR:
 	RevealsShroud@GAPGEN:
 		Range: 4c0
 	Turreted:
-		TurnSpeed: 30
+		TurnSpeed: 15
 		Offset: 0,0,0
 	Armament:
 		Weapon: TTankZap
@@ -1417,11 +1557,12 @@ TEMPLAR:
 		PauseOnCondition: turnedoff
 	WithSpriteTurret:
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: TEMPLAR.Husk
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	Selectable:
-		DecorationBounds: 28,28
+		DecorationBounds: 1289, 1289
 	Hovers:
 		InitialHeight: 0c25
 	WithShadow:
@@ -1458,7 +1599,7 @@ KATYA:
 		Queue: Vehicle
 		BuildPaletteOrder: 260
 		Prerequisites: dome, ~vehicles.komintern, ~techlevel.medium
-		Description: Long range rocket artillery.\n	 Strong vs infantry.\n Weak vs Tanks, Aircraft. 
+		Description: Long range rocket artillery.\n	 Strong vs infantry.\n Weak vs Tanks, Aircraft.
 	Mobile:
 		Speed: 85
 		TurnSpeed: 16
@@ -1482,6 +1623,7 @@ KATYA:
 		TargetFrozenActors: True
 		ForceFireIgnoresActors: True
 		PauseOnCondition: turnedoff
+		FacingTolerance: 0
 	Explodes:
 		Weapon: ArtilleryExplode
 		EmptyWeapon: UnitExplodeSmall
@@ -1489,7 +1631,7 @@ KATYA:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	Selectable:
-		DecorationBounds: 32,32,0,0
+		DecorationBounds: 1289, 1289, 0, 0
 
 MGG:
 	Inherits: ^Vehicle
@@ -1529,6 +1671,7 @@ MGG:
 		Range: 4c0
 	RenderShroudCircle:
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: MGG.Husk
 
 MGG.Husk:
@@ -1595,6 +1738,7 @@ T100:
 	WithMuzzleOverlay:
 	WithSpriteTurret:
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: T100.Husk
 	ChangesHealth:
 		Step: 100
@@ -1604,7 +1748,7 @@ T100:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	Selectable:
-		DecorationBounds: 32, 30, 0, 0
+		DecorationBounds: 1589, 1589, 0, 0
 
 #Entente units
 SIPAHI:
@@ -1639,7 +1783,7 @@ SIPAHI:
 		Range: 4c0
 	Turreted:
 		TurnSpeed: 40
-		Offset: -60,0,350
+		Offset: -60,0,330
 	AmmoPool:
 		Armaments: secondary
 		Ammo: 1
@@ -1792,6 +1936,9 @@ SIPAHI:
 		Weapon: GrenadeLauncher
 		LocalOffset: 427,0,341
 		RequiresCondition: pasgrenlnchr
+	Armament@initiate:
+		Weapon: MindBlast
+		RequiresCondition: pasinitiate || pasishmaelite
 	Armament@scavenger:
 		Weapon: HuskBreaker
 		Cursor: repair
@@ -1803,6 +1950,16 @@ SIPAHI:
 		Weapon: SM_ElectricBolt
 		LocalOffset: 427,0,341
 		RequiresCondition: pasbolter
+	Armament@maroznik:
+		Weapon: Marozzer
+		LocalOffset: 427,0,341
+		RequiresCondition: pasmaroznik
+	Armament@chronotrooper:
+		Weapon: NeutronCannon
+		FireDelay: 8
+		LocalOffset: 390,-60,300
+		PauseOnCondition: being-warped
+		RequiresCondition: paschronotrooper
 	Armament@arz:
 		Weapon: Resurrect
 		Cursor: heal
@@ -1877,7 +2034,7 @@ SIPAHI:
 		RequiresCondition: pastox || pasnerveagent
 	WithSpriteTurret@flame:
 		Sequence: turret-flame
-		RequiresCondition: pase4
+		RequiresCondition: pase4 || pasmaroznik
 	WithSpriteTurret@mortar:
 		Sequence: turret-mortar
 		RequiresCondition: pase2 || pasmolotov || pasgrenlnchr
@@ -1887,7 +2044,7 @@ SIPAHI:
 		RequiresCondition: passhktrp
 	WithSpriteTurret@passtrmtrpr:
 		Sequence: turret-sniper
-		RequiresCondition: passtrmtrpr
+		RequiresCondition: passtrmtrpr || paschronotrooper
 	WithSpriteTurret@sniper:
 		Sequence: turret-sniper
 		RequiresCondition: passniper || psngdesolator
@@ -1939,7 +2096,7 @@ SIPAHI:
 		BorderWidth: 5
 		Width: 3
 	DetectCloaked@phase:
-		CloakTypes: Phase
+		DetectionTypes: Phase
 		Range: 7c0
 		RequiresCondition: passpy
 	RevealsShroud:
@@ -1966,7 +2123,7 @@ SIPAHI:
 			mech: pasmech
 			politruk: paspolitruk
 			officer: pasofficer
-			artilleryobserver : nochange
+			artilleryobserver: nochange
 			strmtrpr: passtrmtrpr
 			specop: nochange
 			flktrp: pasflktrp
@@ -1989,6 +2146,12 @@ SIPAHI:
 			desolator: psngdesolator
 			legionaire: paslegionaire
 			e1: nochange
+			e1r3: nochange
+			ishmaelite: pasishmaelite
+			chronotrooper: paschronotrooper
+			maroznik: pasmaroznik
+			terrorist: nochange
+			initiate: pasinitiate
 	ProximityExternalCondition@OfficerNearby:
 		Range: 4c0
 		ValidRelationships: Ally
@@ -2010,6 +2173,7 @@ SIPAHI:
 		Color: FF5432
 		RequiresCondition: paspolitruk
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: SIPAHI.Husk
 	WithRangeCircle@anti-air:
 		Range: 8c0
@@ -2064,11 +2228,13 @@ SONIQUE:
 		LocalOffset: 900,0,0
 	AttackFrontal:
 		PauseOnCondition: turnedoff
+		FacingTolerance: 0
 	Explodes:
 		Weapon: V2Explode
 	Selectable:
-		DecorationBounds: 32,32
+		DecorationBounds: 1289, 1289
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: SONIQUE.Husk
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
@@ -2094,12 +2260,11 @@ JEEP:
 		Queue: Vehicle
 		BuildPaletteOrder: 50
 		Prerequisites: ~vehicles.entente, ~techlevel.low
-		Description: Fast scout & anti-infantry vehicle. Strong vs Infantry\n  Weak vs Vehicles, Aircraft
+		Description: Fast scout & anti-infantry vehicle.\n Strong vs Infantry\n  Weak vs Vehicles, Aircraft
 	Valued:
 		Cost: 500
 	RenderSprites:
 		Image: jeep
-		Scale: 0.9
 	Tooltip:
 		Name: Ranger
 	UpdatesPlayerStatistics:
@@ -2132,6 +2297,7 @@ JEEP:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: JEEP.Husk
 
 JEEP.Husk:
@@ -2146,7 +2312,6 @@ JEEP.Husk:
 		IntoActor: JEEP
 	RenderSprites:
 		Image: jeep
-		Scale: 0.9
 
 APC:
 	Inherits: ^TrackedVehicle
@@ -2184,6 +2349,7 @@ APC:
 		MuzzleSequence: muzzle
 	AttackFrontal:
 		PauseOnCondition: turnedoff
+		FacingTolerance: 0
 	WithMuzzleOverlay:
 	Cargo:
 		Types: Infantry
@@ -2192,8 +2358,8 @@ APC:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	RenderSprites:
-		Scale: 0.9
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: APC.Husk
 
 APC.Husk:
@@ -2208,7 +2374,155 @@ APC.Husk:
 		IntoActor: APC
 	RenderSprites:
 		Image: apc
-		Scale: 0.9
+
+HOVERCRAFT:
+	Inherits: ^TrackedVehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CARGOPIPS: ^CargoPips
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 225
+		Prerequisites: dome, ~vehicles.england, ~techlevel.low
+		Description: Tough infantry transport armed with two rocket launchers.\nHovers.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: Hovercraft
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 30000
+	Armor:
+		Type: Medium
+	Mobile:
+		Speed: 110
+		PauseOnCondition: notmobile || being-captured
+		Locomotor: hover
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 5c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	Armament:
+		Weapon: APTusk
+		LocalOffset: 85,150,250, 85,-150,250
+	AttackFrontal:
+		PauseOnCondition: turnedoff
+		FacingTolerance: 0
+	Cargo:
+		Types: Infantry
+		MaxWeight: 4
+		LoadingCondition: notmobile
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
+	RenderSprites:
+	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
+		Actor: HOVERCRAFT.Husk
+	Hovers:
+		InitialHeight: 0c25
+	WithShadow:
+		Offset: 0,0,-100
+
+HOVERCRAFT.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Armored Personnel Carrier)
+	TransformOnCapture@Mechanic:
+		IntoActor: HOVERCRAFT
+	TransformOnCapture@Engineer:
+		IntoActor: HOVERCRAFT
+	InfiltrateForTransform:
+		IntoActor: HOVERCRAFT
+	RenderSprites:
+		Image: hovercraft
+
+SHAH:
+	Inherits: ^TrackedVehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	AutoTargetPriority@DEFAULT:
+		RequiresCondition: !stance-attackanything && !assault-move && !maxcontrolled
+	AutoTargetPriority@ATTACKANYTHING:
+		RequiresCondition: stance-attackanything || assault-move && !maxcontrolled
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 331
+		Prerequisites: mtek, ~vehicles.persia, ~techlevel.high
+		Description: Psychic enslavement vehicle.\nCan control up to three units.\n  Strong vs Everything
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Shahanshah
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 25000
+	Armor:
+		Type: Medium
+	Mobile:
+		Speed: 55
+		PauseOnCondition: empdisable || being-captured || being-warped
+		Locomotor: hover
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 5c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	AttackFrontal:
+		PauseOnCondition: turnedoff
+		FacingTolerance: 0
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
+	RenderSprites:
+	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
+		Actor: SHAH.Husk
+	Armament@PRIMARY:
+		Weapon: EnslaveInfantry
+		LocalOffset: 150,0,400
+		PauseOnCondition: !ammo
+	Armament@SECONDARY:
+		Name: secondary
+		Weapon: EnslaveVehicle
+		LocalOffset: 150,0,400
+		PauseOnCondition: !ammo
+	MindController:
+		ArmamentNames: primary, secondary
+		Capacity: 3
+		ControlSounds: iyurat1a.aud
+		ReleaseSounds: yuri-release.aud
+		ControllingCondition: mindcontrolling
+		MaxControlledCondition: maxcontrolled
+		ManualReleaseEnabled: true
+	WithMindControlArc@MC:
+		Color: c71585
+		Transparency: 55
+		Offset: 0,0,511
+		Angle: 32
+		Width: 116
+	AmmoPool:
+		Ammo: 1
+		AmmoCondition: ammo
+	ReloadAmmoPool:
+		Delay: 35
+		Count: 1
+
+SHAH.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Shahanshah)
+	TransformOnCapture@Mechanic:
+		IntoActor: SHAH
+	TransformOnCapture@Engineer:
+		IntoActor: SHAH
+	InfiltrateForTransform:
+		IntoActor: SHAH
+	RenderSprites:
+		Image: shah
 
 WASTETANKER:
 	Inherits: ^TrackedVehicle
@@ -2218,7 +2532,7 @@ WASTETANKER:
 		Queue: Vehicle
 		BuildPaletteOrder: 331
 		Prerequisites: dome, ~vehicles.kazakhstan, ~techlevel.high
-		Description: Tough tank that shoots toxic materials.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+		Description: Tough tank that shoots corrosive acid.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
 	Valued:
 		Cost: 1600
 	Tooltip:
@@ -2243,9 +2557,11 @@ WASTETANKER:
 		LocalOffset: 710,0,350
 	AttackFrontal:
 		PauseOnCondition: turnedoff
+		FacingTolerance: 0
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: WASTETANKER.Husk
 
 WASTETANKER.Husk:
@@ -2296,24 +2612,24 @@ IFV:
 		Range: 4c0
 	Turreted:
 		TurnSpeed: 40
-		Offset: -150,0,420
+		Offset: -150,0,310
 	AutoTargetPriority@Air:
 		ValidTargets: Air
 		Priority: 2
 	Armament@PRIMARY:
 		Weapon: APCGun
-		Recoil: 48
+		Recoil: 20
 		RecoilRecovery: 18
-		LocalOffset: 270,100,0, 270,-100,50
+		LocalOffset: 270,110,50, 270,-110,50
 		MuzzleSequence: muzzle
 		PauseOnCondition: reload-air
 		ReloadingCondition: reload-ground
 	Armament@SECONDARY:
 		Name: secondary
 		Weapon: APCGun.AA
-		Recoil: 48
+		Recoil: 20
 		RecoilRecovery: 18
-		LocalOffset: 175,100,299, 175,-100,299
+		LocalOffset: 175,110,299, 175,-110,299
 		MuzzleSequence: muzzle-air
 		PauseOnCondition: reload-ground
 		ReloadingCondition: reload-air
@@ -2336,6 +2652,7 @@ IFV:
 		MaxWeight: 3
 		LoadingCondition: notmobile
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: IFV.Husk
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
@@ -2388,7 +2705,7 @@ RTNK:
 	Turreted:
 		TurnSpeed: 28
 	Turreted:
-		Offset: -100,0,130
+		Offset: -100,0,90
 	Armament:
 		Weapon: 25mm-recon
 		Recoil: 85
@@ -2402,6 +2719,7 @@ RTNK:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: RTNK.Husk
 
 RTNK.Husk:
@@ -2475,6 +2793,7 @@ RONIN:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: RONIN.Husk
 	AmmoPool:
 		Armaments: primary, tertiary
@@ -2536,6 +2855,7 @@ PAPC:
 		MuzzleSequence: muzzle
 	AttackFrontal:
 		PauseOnCondition: turnedoff
+		FacingTolerance: 0
 	WithMuzzleOverlay:
 	Cargo:
 		Types: Infantry
@@ -2556,6 +2876,7 @@ PAPC:
 		Condition: cloak-force-disabled
 		ValidDamageStates: Critical
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: PAPC.Husk
 
 PAPC.Husk:
@@ -2626,6 +2947,7 @@ PTNK:
 		Condition: cloak-force-disabled
 		ValidDamageStates: Critical
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: PTNK.Husk
 
 PTNK.Husk:
@@ -2649,7 +2971,7 @@ LTNK:
 		Queue: Vehicle
 		BuildPaletteOrder: 111
 		Prerequisites: adept, ~vehicles.entente, ~techlevel.low
-		Description: Entente main battle tank. \n Fast tank, good for fast manouvers.\n	Strong vs Light armor, Tanks\n	Weak vs Infantry, Aircraft
+		Description: Entente main battle tank. \n Fast tank, good for fast manouvers.\n	Armed with a secondary machine gun.\nStrong vs Light armor, Tanks\n	Weak vs Infantry, Aircraft
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -2678,16 +3000,24 @@ LTNK:
 		RecoilRecovery: 38
 		LocalOffset: 720,0,90
 		MuzzleSequence: muzzle
+	Armament@secondary:
+		Name: secondary
+		Weapon: TankMachineGun
+		Recoil: 0
+		RecoilRecovery: 38
+		LocalOffset: 200,-140,50
+		MuzzleSequence: muzzle-mg
 	AttackTurreted:
 		PauseOnCondition: turnedoff
 	WithMuzzleOverlay:
 	WithSpriteTurret:
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: LTNK.Husk
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	Selectable:
-		DecorationBounds: 28,28
+		DecorationBounds: 1289, 1289
 		
 LTNK.Husk:
 	Inherits: ^Husk
@@ -2769,7 +3099,7 @@ LIMPETMINE:
 	-ExternalCondition@OfficerNearby:
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 710
+		BuildPaletteOrder: 691
 		Prerequisites: dome, ~vehicles.usa, ~techlevel.medium
 		Description: Tele controlled deployable mine. Explodes in an EMP burst.\nCan be detonated manually.\n  Unarmed
 	Valued:
@@ -2788,7 +3118,7 @@ LIMPETMINE:
 	-WithFacingSpriteBody:
 	WithSpriteBody:
 	Selectable:
-		DecorationBounds: 24,30,0,-4
+		DecorationBounds: 1289, 1289, 0, -241
 	Transforms:
 		IntoActor: limpetmine.deployed
 		Offset: 0,0
@@ -2811,6 +3141,8 @@ LIMPETMINE.DEPLOYED:
 	-Interactable:
 	Selectable:
 	SelectionDecorations:
+	ExternalCondition@temporal:
+		Condition: being-warped
 	Health:
 		HP: 20000
 	RenderSprites:
@@ -2892,11 +3224,12 @@ ARC:
 		PauseOnCondition: turnedoff
 	WithSpriteTurret:
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: ARC.Husk
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	Selectable:
-		DecorationBounds: 28,28
+		DecorationBounds: 1289, 1289
 		
 ARC.Husk:
 	Inherits: ^Husk
@@ -2965,7 +3298,7 @@ EMPDEVICE:
 	Targetable:
 		TargetTypes: GroundActor, MADTank, Vehicle
 	Selectable:
-		DecorationBounds: 44,38,0,-4
+		DecorationBounds: 1289, 1289, 0, -241
 	AmbientSound@deploy:
 		Delay: 0
 		Interval: 100
@@ -3019,6 +3352,7 @@ ARTY:
 		TargetFrozenActors: True
 		ForceFireIgnoresActors: True
 		PauseOnCondition: turnedoff
+		FacingTolerance: 0
 	WithMuzzleOverlay:
 	Explodes:
 		Weapon: ArtilleryExplode
@@ -3043,7 +3377,7 @@ ARCHER:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 28000
+		HP: 30000
 	Armor:
 		Type: Heavy
 	Mobile:
@@ -3064,12 +3398,14 @@ ARCHER:
 		MuzzleSequence: muzzle
 	AttackFrontal:
 		PauseOnCondition: turnedoff
+		FacingTolerance: 0
 	WithMuzzleOverlay:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	Selectable:
-		DecorationBounds: 32,34
+		DecorationBounds: 1289, 1289
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: ARCHER.Husk
 
 ARCHER.Husk:
@@ -3118,12 +3454,12 @@ ENTENTEAA:
 		Offset: -80,0,220
 	Armament@AA:
 		Weapon: Archer-AA
-		LocalOffset: 750,-190,502, 750,190,502
+		LocalOffset: 750,-190,532, 750,190,532
 		MuzzleSequence: muzzle
 	Armament@AG:
 		Name: secondary
 		Weapon: Archer-AG
-		LocalOffset: 800,-190,100, 800,190,100
+		LocalOffset: 840,-200,150, 840,200,150
 		MuzzleSequence: muzzle
 		RequiresCondition: !aa-firing
 	GrantConditionOnAttack@aafiring:
@@ -3141,10 +3477,11 @@ ENTENTEAA:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	Selectable:
-		DecorationBounds: 28,28
+		DecorationBounds: 1589, 1589
 	RenderSprites:
 		Image: marksman
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: ENTENTEAA.Husk
 	RenderRangeCircle@anti-air:
 		RangeCircleType: Anti-air
@@ -3194,7 +3531,7 @@ HVRTNKTNK:
 		Range: 4c0
 	Turreted:
 		TurnSpeed: 28
-		Offset: -200,0,280
+		Offset: -200,0,230
 	Armament:
 		Weapon: MagneticBolt
 		Recoil: 0
@@ -3211,9 +3548,10 @@ HVRTNKTNK:
 		IntoActor: hvrtnkhvr
 		RequiresCondition: deployed
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: HVRTNKTNK.Husk
 	Selectable:
-		DecorationBounds: 32,32
+		DecorationBounds: 1289, 1289
 
 HVRTNKTNK.Husk:
 	Inherits: ^Husk
@@ -3256,9 +3594,10 @@ HVRTNKHVR:
 		AltitudeVelocity: 0c58
 		AirborneCondition: airborne
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: HVRTNKHVR.Husk
 	Selectable:
-		DecorationBounds: 40,36,0,-8
+		DecorationBounds: 1889, 1889, 0, -482
 	-EjectOnDeath:
 	Transforms:
 		IntoActor: hvrtnktnk
@@ -3280,9 +3619,14 @@ HVRTNKHVR.Husk:
 	Aircraft:
 		TurnSpeed: 16
 		Speed: 112
-	SmokeTrailWhenDamaged:
-		Offset: -427,0,0
-		MinDamage: Undamaged
+	LeavesTrails:
+		Offsets: -427,0,0
+		Image: smokey
+		MovingInterval: 3
+		StationaryInterval: 3
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
 	RevealsShroud:
 		MinRange: 8c0
 		Range: 10c0
@@ -3294,20 +3638,21 @@ HVRTNKHVR.Husk:
 	RenderSprites:
 		Image: hvrtnkhvrhusk
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: HVRTNKTNK.Husk
 
 GRINDER:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
-	-ExternalCondition@CRUSHATTEMPT
-	-ExternalCondition@CRUSHSUCCESFUL
-	-SpeedMultiplier@CRUSHATTEMPT
-	-SpeedMultiplier@CRUSHSUCCESFUL
+	-ExternalCondition@CRUSHATTEMPT:
+	-ExternalCondition@CRUSHSUCCESFUL:
+	-SpeedMultiplier@CRUSHATTEMPT:
+	-SpeedMultiplier@CRUSHSUCCESFUL:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 330
 		Prerequisites: ~weap, stek, adept, ~vehicles.russia, ~techlevel.low
-		Description: Portable Iron Curtain vehicle armed\na massive meat grinder.\nDoes not slow down while crushing.\nCan deploy to activate Iron Curtain before exploding after a while\n.Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+		Description: Portable Iron Curtain vehicle armed\na massive metal grinder.\nDoes not slow down while crushing.\nCan deploy to activate Iron Curtain before exploding after a while\n.Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
 	Valued:
 		Cost: 2300
 	Tooltip:
@@ -3347,6 +3692,8 @@ GRINDER:
 		PauseOnCondition: !invulnerability-trigger
 	KillsSelf:
 		RequiresCondition: charged
+	Selectable:
+		DecorationBounds: 1589, 1589
 
 TTNK:
 	Inherits: ^TrackedVehicle
@@ -3393,8 +3740,9 @@ TTNK:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	Selectable:
-		DecorationBounds: 30,30
+		DecorationBounds: 1289, 1289
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: TTNK.Husk
 
 TTNK.Husk:
@@ -3441,11 +3789,13 @@ FLMTNK:
 		LocalOffset: 300,180,100, 300,-180,100
 	AttackFrontal:
 		PauseOnCondition: turnedoff
+		FacingTolerance: 0
 	Explodes:
 		Weapon: CrateNapalm
 	Selectable:
-		DecorationBounds: 32,32
+		DecorationBounds: 1289, 1289
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: FLMTNK.Husk
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
@@ -3498,12 +3848,14 @@ FIRELANCER:
 		MuzzlePalette: tseffects
 	AttackFrontal:
 		PauseOnCondition: turnedoff
+		FacingTolerance: 0
 	Explodes:
 		Weapon: V2Explode
 	Selectable:
-		DecorationBounds: 32,32
+		DecorationBounds: 1289, 1289
 	WithMuzzleOverlay:
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: FIRELANCER.Husk
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
@@ -3546,7 +3898,7 @@ HELGA:
 	Armor:
 		Type: Heavy
 	Selectable:
-		DecorationBounds: 44,38,0,-4
+		DecorationBounds: 1289, 1289, 0, -241
 	Mobile:
 		Speed: 45
 		TurnSpeed: 10
@@ -3607,6 +3959,7 @@ HELGA:
 		RequiresCondition: deployed
 		Range: 13c512
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: HELGA.Husk
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
@@ -3685,6 +4038,7 @@ SAPPER:
 		Position: Center
 		IsPlayerPalette: True
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: SAPPER.Husk
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
@@ -3693,7 +4047,7 @@ SAPPER:
 		Interval: 250
 		RequiresCondition: attacking
 	Selectable:
-		DecorationBounds: 32, 30, 0, -4
+		DecorationBounds: 1589, 1589, 0, -241
 
 SAPPER.Husk:
 	Inherits: ^Husk
@@ -3727,10 +4081,10 @@ TESTUDO:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	-ExternalCondition@CRUSHATTEMPT
-	-ExternalCondition@CRUSHSUCCESFUL
-	-SpeedMultiplier@CRUSHATTEMPT
-	-SpeedMultiplier@CRUSHSUCCESFUL
+	-ExternalCondition@CRUSHATTEMPT:
+	-ExternalCondition@CRUSHSUCCESFUL:
+	-SpeedMultiplier@CRUSHATTEMPT:
+	-SpeedMultiplier@CRUSHSUCCESFUL:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 114
@@ -3778,12 +4132,12 @@ TESTUDO:
 	Turreted@editor:
 		Turret: editor
 		TurnSpeed: 28
-		Offset: -180,0,350
+		Offset: -180,0,250
 		RequiresCondition: !undeployed || !deployed
 	Turreted@undeployed:
 		Turret: undeployed-turret
 		TurnSpeed: 28
-		Offset: -180,0,350
+		Offset: -180,0,250
 		RequiresCondition: undeployed
 	Turreted@deployed:
 		Turret: deployed-turret
@@ -3844,10 +4198,11 @@ TESTUDO:
 	WithMoveAnimation:
 		MoveSequence: move
 	Selectable:
-		Bounds: 28,28,0,-2
+		Bounds: 844, 1689, 0, -120
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: TESTUDO.Husk
 
 RACER:
@@ -3884,12 +4239,14 @@ RACER:
 		LocalOffset: 120,150,200, 120,-150,200
 	AttackFrontal:
 		PauseOnCondition: turnedoff
+		FacingTolerance: 0
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	WithMoveAnimation:
 		MoveSequence: move
 		ValidMovementTypes: Horizontal, Turn
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: RACER.Husk
 
 RACER.Husk:
@@ -3904,7 +4261,6 @@ RACER.Husk:
 		IntoActor: RACER
 	RenderSprites:
 		Image: racer
-		Scale: 0.9
 
 ORDA:
 	Inherits: ^TrackedVehicle
@@ -3944,8 +4300,9 @@ ORDA:
 		NoTransformNotification: BuildingCannotPlaceAudio
 	Selectable:
 		Class: ORDA
-		DecorationBounds: 44,38,0,-4
+		DecorationBounds: 1589, 1589, 0, -241
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: ORDA.Husk
 		
 ORDADEPLOYED:
@@ -3963,7 +4320,7 @@ ORDADEPLOYED:
 		HP: 50000
 	Selectable:
 		Class: ORDA
-		Bounds: 72,60,0,-4
+		Bounds: 2172, 3620, 0, -241
 	Armor:
 		Type: Medium
 	RevealsShroud:
@@ -3988,6 +4345,7 @@ ORDADEPLOYED:
 		PauseOnCondition: being-captured
 		Range: 7c0
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: ORDA.Husk
 	HitShape:
 		Type: Polygon
@@ -3997,12 +4355,6 @@ ORDADEPLOYED:
 	-Sellable:
 	-WithBuildingRepairDecoration:
 	-WithBuildingBib:
-	WithIdleOverlay@bip:
-		Image: bib_1x1
-		Sequence: idle
-		Palette: terrain
-		Offset: -1700,1100,-300
-		IsDecoration: True
 	-MapEditorData:
 
 GATLINGCAR:
@@ -4012,7 +4364,7 @@ GATLINGCAR:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 98
-		Prerequisites: ~vehicles.china, adept, ~techlevel.low
+		Prerequisites: ~vehicles.belarus, adept, ~techlevel.low
 		Description: Heavy scout & anti-infantry vehicle.\n	 Strong vs Infantry\n  Weak vs Vehicles, Aircraft
 	Valued:
 		Cost: 700
@@ -4036,7 +4388,7 @@ GATLINGCAR:
 		Range: 4c0
 	Turreted:
 		TurnSpeed: 40
-		Offset: -50,0,290
+		Offset: -50,0,270
 	Armament@gatling-start-0:
 		Weapon: AGGatlingStart
 		RequiresCondition: !gatling
@@ -4128,6 +4480,7 @@ GATLINGCAR:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: GATLINGCAR.Husk
 
 GATLINGCAR.Husk:
@@ -4186,6 +4539,49 @@ LOUCHUAN:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: LOUCHUAN.Husk
 	Selectable:
-		DecorationBounds: 38,38
+		Bounds: 1589, 1589
+
+DTRK:
+	Inherits: ^Vehicle
+	-ExperienceTrickler@OfficerNearby:
+	-GainsExperienceMultiplier@OfficerNearby:
+	-ExternalCondition@OfficerNearby:
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 330
+		Prerequisites: mtek, ~vehicles.persia, ~techlevel.high
+		Description: Truck with actively armed nuclear\nexplosives. Has very weak armor.
+	Valued:
+		Cost: 2500
+	Tooltip:
+		Name: Demolition Truck
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 2800
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 67
+	RevealsShroud:
+		Range: 4c0
+	Explodes:
+		Weapon: DemoTruckExplosion
+		EmptyWeapon: DemoTruckExplosion
+		DamageSource: Killer
+	AttackFrontal:
+		FacingTolerance: 512
+	Armament@PRIMARY:
+		Weapon: DemoTruckTargeting
+	GrantConditionOnAttack:
+		Condition: triggered
+	GrantConditionOnDeploy:
+		DeployedCondition: triggered
+	-DamageMultiplier@IRONCURTAIN:
+	KillsSelf:
+		RequiresCondition: invulnerability || triggered
+	Chronoshiftable:
+		ExplodeInstead: true

@@ -478,6 +478,386 @@ TREES30.STUMP:
 	WithSpriteBody:
 		Sequence: husk-idle
 
+LEAF_SAPLING1:
+	Inherits: ^CellTree
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	SpawnActorOnDeath@stump:
+		Actor: leaf_sapling1.stump
+
+LEAF_SAPLING1.STUMP:
+	Inherits: ^CellTreeHusk
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	RenderSprites:
+		Image: leaf_sapling1
+	WithSpriteBody:
+		Sequence: husk-idle
+
+LEAF_SAPLING2:
+	Inherits: ^CellTree
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	SpawnActorOnDeath@stump:
+		Actor: leaf_sapling2.stump
+
+LEAF_SAPLING2.STUMP:
+	Inherits: ^CellTreeHusk
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	RenderSprites:
+		Image: leaf_sapling2
+	WithSpriteBody:
+		Sequence: husk-idle
+
+CONFEROUSCELLTREE:
+	Inherits: ^WholeCellTree
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	SpawnActorOnDeath@stump:
+		Actor: trees21.stump
+	SpawnActorOnDeath@stump2:
+		Actor: trees13.stump
+	GrantRandomCondition@0:
+		Conditions: treeaa, treeab, treeac
+	GrantRandomCondition@1:
+		Conditions: treeba, treebb, treebc
+	GrantRandomCondition@2:
+		Conditions: treeca, treecb, treecc
+	GrantCondition:
+		Condition: in-game
+	RenderSprites:
+		Image: treetoolconf
+	WithSpriteBody:
+		RequiresCondition: !in-game
+		Sequence: idle
+	WithSpriteBody@1:
+		RequiresCondition: in-game
+		Sequence: ingame
+		Name: body2
+	Interactable:
+		Bounds: 1024,1024
+	WithIdleOverlay@0:
+		Image: trees9
+		Sequence: idle
+		RequiresCondition: treeaa
+		Offset: 712,-200,0
+	WithIdleOverlay@1:
+		Image: trees11
+		Sequence: idle
+		RequiresCondition: treeba
+		Offset: 0,512,2
+	WithIdleOverlay@2:
+		Image: trees10
+		Sequence: idle
+		RequiresCondition: treeca
+		Offset: -712,0,4
+	WithIdleOverlay@3:
+		Image: trees14
+		Sequence: idle
+		RequiresCondition: treeab
+		Offset: 712,-200,0
+	WithIdleOverlay@4:
+		Image: trees18
+		Sequence: idle
+		RequiresCondition: treebb
+		Offset: 0,512,2
+	WithIdleOverlay@5:
+		Image: trees28
+		Sequence: idle
+		RequiresCondition: treecb
+		Offset: -712,0,4
+	WithIdleOverlay@6:
+		Image: trees29
+		Sequence: idle
+		RequiresCondition: treeac
+		Offset: 712,-200,0
+	WithIdleOverlay@7:
+		Image: trees4
+		Sequence: idle
+		RequiresCondition: treebc
+		Offset: 0,512,2
+	WithIdleOverlay@8:
+		Image: trees9
+		Sequence: idle
+		RequiresCondition: treecc
+		Offset: -712,0,4
+	SpawnActorOnDeath@1:
+		RequiresCondition: treeaa
+		Actor: treegrouphusk1
+	SpawnActorOnDeath@2:
+		RequiresCondition: treeab
+		Actor: treegrouphusk2
+	SpawnActorOnDeath@3:
+		RequiresCondition: treeac
+		Actor: treegrouphusk3
+
+CONFEROUSCELLSAPLING:
+	Inherits: ^WholeCellTree
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	SpawnActorOnDeath@stump:
+		Actor: trees19.stump
+	GrantRandomCondition@0:
+		Conditions: treeaa, treeab, treeac
+	GrantRandomCondition@1:
+		Conditions: treeba, treebb, treebc
+	GrantRandomCondition@2:
+		Conditions: treeca, treecb, treecc
+	GrantCondition:
+		Condition: in-game
+	RenderSprites:
+		Image: treetoolconfsap
+	WithSpriteBody:
+		RequiresCondition: !in-game
+		Sequence: idle
+	WithSpriteBody@1:
+		RequiresCondition: in-game
+		Sequence: ingame
+		Name: body2
+	Interactable:
+		Bounds: 1024,1024
+	WithIdleOverlay@0:
+		Image: trees18
+		Sequence: idle
+		RequiresCondition: treeaa
+		Offset: 712,-200,0
+	WithIdleOverlay@1:
+		Image: trees29
+		Sequence: idle
+		RequiresCondition: treeba
+		Offset: 0,512,2
+	WithIdleOverlay@2:
+		Image: trees30
+		Sequence: idle
+		RequiresCondition: treeca
+		Offset: -712,0,4
+	WithIdleOverlay@3:
+		Image: trees14
+		Sequence: idle
+		RequiresCondition: treeab
+		Offset: 712,-200,0
+	WithIdleOverlay@4:
+		Image: trees30
+		Sequence: idle
+		RequiresCondition: treebb
+		Offset: 0,512,2
+	WithIdleOverlay@5:
+		Image: trees18
+		Sequence: idle
+		RequiresCondition: treebc
+		Offset: -712,0,4
+	WithIdleOverlay@6:
+		Image: trees18
+		Sequence: idle
+		RequiresCondition: treeac
+		Offset: 712,-200,0
+	WithIdleOverlay@7:
+		Image: trees9
+		Sequence: idle
+		RequiresCondition: treebc
+		Offset: 0,512,2
+	WithIdleOverlay@8:
+		Image: trees30
+		Sequence: idle
+		RequiresCondition: treecc
+		Offset: -712,0,4
+	SpawnActorOnDeath@1:
+		RequiresCondition: treeaa
+		Actor: treegrouphusk1
+	SpawnActorOnDeath@2:
+		RequiresCondition: treeab
+		Actor: treegrouphusk2
+	SpawnActorOnDeath@3:
+		RequiresCondition: treeac
+		Actor: treegrouphusk3
+
+LEAFCELLTREE:
+	Inherits: ^WholeCellTree
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	SpawnActorOnDeath@stump:
+		Actor: trees21.stump
+	SpawnActorOnDeath@stump2:
+		Actor: trees13.stump
+	GrantRandomCondition@0:
+		Conditions: treeaa, treeab, treeac
+	GrantRandomCondition@1:
+		Conditions: treeba, treebb, treebc
+	GrantRandomCondition@2:
+		Conditions: treeca, treecb, treecc
+	GrantCondition:
+		Condition: in-game
+	RenderSprites:
+		Image: treetoolconf
+	WithSpriteBody:
+		RequiresCondition: !in-game
+		Sequence: idle
+	WithSpriteBody@1:
+		RequiresCondition: in-game
+		Sequence: ingame
+		Name: body2
+	Interactable:
+		Bounds: 1024,1024
+	WithIdleOverlay@0:
+		Image: leaf_sapling1
+		Sequence: idle
+		RequiresCondition: treeaa
+		Offset: 712,-200,0
+	WithIdleOverlay@1:
+		Image: trees6
+		Sequence: idle
+		RequiresCondition: treeba
+		Offset: 0,512,2
+	WithIdleOverlay@2:
+		Image: leaf_sapling2
+		Sequence: idle
+		RequiresCondition: treeca
+		Offset: -712,0,4
+	WithIdleOverlay@3:
+		Image: leaf_sapling2
+		Sequence: idle
+		RequiresCondition: treeab
+		Offset: 712,-200,0
+	WithIdleOverlay@4:
+		Image: leaf_sapling1
+		Sequence: idle
+		RequiresCondition: treebb
+		Offset: 0,512,2
+	WithIdleOverlay@5:
+		Image: trees7
+		Sequence: idle
+		RequiresCondition: treecb
+		Offset: -712,0,4
+	WithIdleOverlay@6:
+		Image: trees19
+		Sequence: idle
+		RequiresCondition: treeac
+		Offset: 712,-200,0
+	WithIdleOverlay@7:
+		Image: leaf_sapling2
+		Sequence: idle
+		RequiresCondition: treebc
+		Offset: 0,512,2
+	WithIdleOverlay@8:
+		Image: leaf_sapling1
+		Sequence: idle
+		RequiresCondition: treecc
+		Offset: -712,0,4
+	SpawnActorOnDeath@1:
+		RequiresCondition: treeaa
+		Actor: treegrouphusk1
+	SpawnActorOnDeath@2:
+		RequiresCondition: treeab
+		Actor: treegrouphusk2
+	SpawnActorOnDeath@3:
+		RequiresCondition: treeac
+		Actor: treegrouphusk3
+
+LEAFCELLSAPLING:
+	Inherits: ^WholeCellTree
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	SpawnActorOnDeath@stump:
+		Actor: trees19.stump
+	GrantRandomCondition@0:
+		Conditions: treeaa, treeab, treeac
+	GrantRandomCondition@1:
+		Conditions: treeba, treebb, treebc
+	GrantRandomCondition@2:
+		Conditions: treeca, treecb, treecc
+	GrantCondition:
+		Condition: in-game
+	RenderSprites:
+		Image: treetoolconfsap
+	WithSpriteBody:
+		RequiresCondition: !in-game
+		Sequence: idle
+	WithSpriteBody@1:
+		RequiresCondition: in-game
+		Sequence: ingame
+		Name: body2
+	Interactable:
+		Bounds: 1024,1024
+	WithIdleOverlay@0:
+		Image: leaf_sapling1
+		Sequence: idle
+		RequiresCondition: treeaa
+		Offset: 712,-200,0
+	WithIdleOverlay@1:
+		Image: leaf_sapling2
+		Sequence: idle
+		RequiresCondition: treeba
+		Offset: 0,512,2
+	WithIdleOverlay@2:
+		Image: trees25
+		Sequence: idle
+		RequiresCondition: treeca
+		Offset: -712,0,4
+	WithIdleOverlay@3:
+		Image: trees24
+		Sequence: idle
+		RequiresCondition: treeab
+		Offset: 712,-200,0
+	WithIdleOverlay@4:
+		Image: trees25
+		Sequence: idle
+		RequiresCondition: treebb
+		Offset: 0,512,2
+	WithIdleOverlay@5:
+		Image: leaf_sapling1
+		Sequence: idle
+		RequiresCondition: treebc
+		Offset: -712,0,4
+	WithIdleOverlay@6:
+		Image: leaf_sapling2
+		Sequence: idle
+		RequiresCondition: treeac
+		Offset: 712,-200,0
+	WithIdleOverlay@7:
+		Image: leaf_sapling1
+		Sequence: idle
+		RequiresCondition: treebc
+		Offset: 0,512,2
+	WithIdleOverlay@8:
+		Image: leaf_sapling2
+		Sequence: idle
+		RequiresCondition: treecc
+		Offset: -712,0,4
+	SpawnActorOnDeath@1:
+		RequiresCondition: treeaa
+		Actor: treegrouphusk1
+	SpawnActorOnDeath@2:
+		RequiresCondition: treeab
+		Actor: treegrouphusk2
+	SpawnActorOnDeath@3:
+		RequiresCondition: treeac
+		Actor: treegrouphusk3
+
+TREEGROUPHUSK1:
+	Inherits: ^CellTreeHusk
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	RenderSprites:
+		Image: treegrouphusk1
+	WithSpriteBody:
+
+TREEGROUPHUSK2:
+	Inherits: ^CellTreeHusk
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	RenderSprites:
+		Image: treegrouphusk2
+	WithSpriteBody:
+
+TREEGROUPHUSK3:
+	Inherits: ^CellTreeHusk
+	MapEditorData:
+		ExcludeTilesets: DESERT, INTERIOR
+	RenderSprites:
+		Image: treegrouphusk3
+	WithSpriteBody:
+
 tg1:
 	Inherits: ^Tree
 	Building:
@@ -485,7 +865,7 @@ tg1:
 		Dimensions: 1,2
 	SpawnActorOnDeath:
 		Actor: tg1.Husk
-        
+		
 tg2:
 	Inherits: ^Tree
 	Building:
@@ -494,7 +874,7 @@ tg2:
 		Dimensions: 1,2
 	SpawnActorOnDeath:
 		Actor: tg2.Husk
-        
+		
 tg1.Husk:
 	Inherits: ^TreeHusk
 	Building:
@@ -503,7 +883,7 @@ tg1.Husk:
 		Dimensions: 1,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-        
+		
 tg2.Husk:
 	Inherits: ^TreeHusk
 	Building:
@@ -512,15 +892,44 @@ tg2.Husk:
 		Dimensions: 1,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-        
+		
 tgc1:
 	Inherits: ^Tree
 	Building:
 		Footprint: __ x_ x_
 		Dimensions: 2,3
+	GrantRandomCondition:
+		Conditions: one, two, three
+	KillsSelf:
 	SpawnActorOnDeath:
-		Actor: tgc1.Husk
-        
+		Actor: trees27
+		Offset: 0,1
+		RequiresCondition: one
+	SpawnActorOnDeath@1:
+		Actor: trees28
+		Offset: 0,1
+		RequiresCondition: one
+	SpawnActorOnDeath@2:
+		Actor: trees27
+		Offset: 0,2
+		RequiresCondition: one
+	SpawnActorOnDeath@1two:
+		Actor: trees4
+		Offset: 0,1
+		RequiresCondition: two
+	SpawnActorOnDeath@2two:
+		Actor: trees11
+		Offset: 0,2
+		RequiresCondition: two
+	SpawnActorOnDeath@1three:
+		Actor: trees15
+		Offset: 0,1
+		RequiresCondition: three
+	SpawnActorOnDeath@2three:
+		Actor: trees27
+		Offset: 0,2
+		RequiresCondition: three
+		
 tgc1.Husk:
 	Inherits: ^TreeHusk
 	Building:
@@ -529,15 +938,46 @@ tgc1.Husk:
 		Dimensions: 2,3
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-        
+		
 tgc2:
 	Inherits: ^Tree
 	Building:
 		Footprint: __ x_ x_
 		Dimensions: 2,3
+	GrantRandomCondition:
+		Conditions: one, two, three
+	KillsSelf:
 	SpawnActorOnDeath:
 		Actor: tgc2.Husk
-        
+	SpawnActorOnDeath:
+		Actor: trees27
+		Offset: 0,0
+		RequiresCondition: one
+	SpawnActorOnDeath@1:
+		Actor: trees28
+		Offset: 0,1
+		RequiresCondition: one
+	SpawnActorOnDeath@2:
+		Actor: trees15
+		Offset: 0,2
+		RequiresCondition: one
+	SpawnActorOnDeath@1two:
+		Actor: trees15
+		Offset: 0,1
+		RequiresCondition: two
+	SpawnActorOnDeath@2two:
+		Actor: trees11
+		Offset: 0,2
+		RequiresCondition: two
+	SpawnActorOnDeath@1three:
+		Actor: trees27
+		Offset: 0,1
+		RequiresCondition: three
+	SpawnActorOnDeath@2three:
+		Actor: trees15
+		Offset: 0,2
+		RequiresCondition: three
+		
 tgc2.Husk:
 	Inherits: ^TreeHusk
 	Building:
@@ -546,7 +986,7 @@ tgc2.Husk:
 		Dimensions: 2,3
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-        
+		
 tgb:
 	Inherits: ^Tree
 	Building:
@@ -556,7 +996,7 @@ tgb:
 		ExcludeTilesets: DESERT, INTERIOR
 	SpawnActorOnDeath:
 		Actor: tgb.Husk
-        
+		
 tgb.Husk:
 	Inherits: ^TreeHusk
 	Building:
@@ -565,7 +1005,7 @@ tgb.Husk:
 		Dimensions: 4,3
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-        
+		
 tgd:
 	Inherits: ^Tree
 	Building:
@@ -575,7 +1015,7 @@ tgd:
 		ExcludeTilesets: DESERT, INTERIOR
 	SpawnActorOnDeath:
 		Actor: tgd.Husk
-        
+		
 tgd.Husk:
 	Inherits: ^TreeHusk
 	Building:
@@ -584,7 +1024,7 @@ tgd.Husk:
 		Dimensions: 3,3
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-        
+		
 tgd2:
 	Inherits: ^Tree
 	Building:
@@ -594,7 +1034,7 @@ tgd2:
 		ExcludeTilesets: DESERT, INTERIOR
 	SpawnActorOnDeath:
 		Actor: tgd2.Husk
-        
+		
 tgd2.Husk:
 	Inherits: ^TreeHusk
 	Building:
@@ -607,52 +1047,109 @@ tgd2.Husk:
 TC01:
 	Inherits: ^Tree
 	Building:
-		Footprint: xx x_
-		Dimensions: 2,2
-	MapEditorData:
-		ExcludeTilesets: INTERIOR
+		Footprint: ___ xx_
+		Dimensions: 3,2
+	-MapEditorData:
 	SpawnActorOnDeath:
 		Actor: TC01.Husk
+	KillsSelf:
+	SpawnActorOnDeath@1:
+		Actor: conferouscelltree
+		Offset: 0,1
+	SpawnActorOnDeath@2:
+		Actor: conferouscelltree
+		Offset: 1,1
 
 TC02:
 	Inherits: ^Tree
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+	-MapEditorData:
 	SpawnActorOnDeath:
 		Actor: TC02.Husk
+	KillsSelf:
+	SpawnActorOnDeath@1:
+		Actor: conferouscelltree
+		Offset: 0,0
+	SpawnActorOnDeath@2:
+		Actor: conferouscelltree
+		Offset: 1,0
+	SpawnActorOnDeath@3:
+		Actor: conferouscelltree
+		Offset: 0,1
+	SpawnActorOnDeath@4:
+		Actor: conferouscelltree
+		Offset: 1,1
 
 TC03:
 	Inherits: ^Tree
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-	SpawnActorOnDeath:
-		Actor: TC03.Husk
+	-MapEditorData:
+	KillsSelf:
+	-SpawnActorOnDeath:
+	SpawnActorOnDeath@1:
+		Actor: conferouscellsapling
+		Offset: 0,0
+	SpawnActorOnDeath@2:
+		Actor: conferouscellsapling
+		Offset: 1,0
+	SpawnActorOnDeath@3:
+		Actor: conferouscellsapling
+		Offset: 0,1
+	SpawnActorOnDeath@4:
+		Actor: conferouscellsapling
+		Offset: 1,1
 
 TC04:
 	Inherits: ^Tree
 	Building:
-		Footprint: xxx __x __x
-		Dimensions: 3,3
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-	SpawnActorOnDeath:
-		Actor: TC04.Husk
+		Footprint: ____ xxx_ x___
+		Dimensions: 4,3
+	-MapEditorData:
+	KillsSelf:
+	-SpawnActorOnDeath:
+	SpawnActorOnDeath@1:
+		Actor: conferouscelltree
+		Offset: 1,1
+	SpawnActorOnDeath@2:
+		Actor: conferouscelltree
+		Offset: 2,1
+	SpawnActorOnDeath@3:
+		Actor: conferouscelltree
+		Offset: 3,1
+	SpawnActorOnDeath@4:
+		Actor: conferouscelltree
+		Offset: 1,2
 
 TC05:
 	Inherits: ^Tree
 	Building:
-		Footprint: ____ _xx_ _xxx
+		Footprint: __x_ xxx_ _xx_
 		Dimensions: 4,3
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-	SpawnActorOnDeath:
-		Actor: TC05.Husk
+	-MapEditorData:
+	KillsSelf:
+	-SpawnActorOnDeath:
+	SpawnActorOnDeath@0:
+		Actor: conferouscelltree
+		Offset: 2,0
+	SpawnActorOnDeath@1:
+		Actor: conferouscelltree
+		Offset: 0,1
+	SpawnActorOnDeath@2:
+		Actor: conferouscelltree
+		Offset: 1,1
+	SpawnActorOnDeath@3:
+		Actor: conferouscelltree
+		Offset: 2,1
+	SpawnActorOnDeath@4:
+		Actor: conferouscelltree
+		Offset: 2,2
+	SpawnActorOnDeath@5:
+		Actor: conferouscelltree
+		Offset: 1,2
 
 BOXES01:
 	Inherits: ^Box
@@ -810,6 +1307,8 @@ UTILPOL2:
 TANKTRAP1:
 	Inherits: ^Rock
 	Inherits@rubbles: ^1x1Rubbles
+	ExternalCondition@temporal:
+		Condition: being-warped
 	RenderSprites:
 		Palette: player
 	Building:
@@ -830,6 +1329,8 @@ TANKTRAP1:
 TANKTRAP2:
 	Inherits: ^Rock
 	Inherits@rubbles: ^1x1Rubbles
+	ExternalCondition@temporal:
+		Condition: being-warped
 	RenderSprites:
 		Palette: player
 	Building:
@@ -855,3 +1356,89 @@ stmp2:
 
 stmp3:
 	Inherits: ^TreeStump
+
+#Conversion trees
+t01:
+	Inherits: TREES10
+	RenderSprites:
+		Image: trees10
+
+t02:
+	Inherits: TREES11
+	RenderSprites:
+		Image: trees11
+
+t03:
+	Inherits: TREES12
+	RenderSprites:
+		Image: trees12
+
+t04:
+	Inherits: TREES13
+	RenderSprites:
+		Image: trees13
+
+t05:
+	Inherits: TREES14
+	RenderSprites:
+		Image: trees14
+
+t06:
+	Inherits: TREES15
+	RenderSprites:
+		Image: trees15
+
+t07:
+	Inherits: TREES16
+	RenderSprites:
+		Image: trees16
+
+t08:
+	Inherits: TREES17
+	RenderSprites:
+		Image: trees17
+
+t09:
+	Inherits: TREES18
+	RenderSprites:
+		Image: trees18
+
+t10:
+	Inherits: TREES19
+	RenderSprites:
+		Image: trees19
+
+t11:
+	Inherits: TREES20
+	RenderSprites:
+		Image: trees20
+
+t12:
+	Inherits: TREES10
+	RenderSprites:
+		Image: trees10
+
+t13:
+	Inherits: TREES11
+	RenderSprites:
+		Image: trees11
+
+t14:
+	Inherits: TREES12
+	RenderSprites:
+		Image: trees12
+
+t15:
+	Inherits: TREES13
+	RenderSprites:
+		Image: trees13
+
+t16:
+	Inherits: TREES14
+	RenderSprites:
+		Image: trees14
+
+t17:
+	Inherits: TREES15
+	RenderSprites:
+		Image: trees15

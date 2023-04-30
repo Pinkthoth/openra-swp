@@ -4,6 +4,7 @@
 	ActorMap:
 	ScreenMap:
 	Selection:
+	ControlGroups:
 	MusicPlaylist:
 		VictoryMusic: score
 		DefeatMusic: map
@@ -189,12 +190,10 @@
 		Name: immobile
 		TerrainSpeeds:
 	TerrainRenderer:
-	SubterraneanActorLayer:
 	ShroudRenderer:
+		FogVariants: shroud
 		Index: 255, 16, 32, 48, 64, 80, 96, 112, 128, 144, 160, 176, 192, 208, 224, 240, 20, 40, 56, 65, 97, 130, 148, 194, 24, 33, 66, 132, 28, 41, 67, 134, 1, 2, 4, 8, 3, 6, 12, 9, 7, 14, 13, 11, 5, 10, 15, 255
 		UseExtendedIndex: true
-		ShroudPalette: shroud
-		FogPalette: shroud
 	Faction@0:
 		Name: Entente
 		InternalName: allies
@@ -214,7 +213,12 @@
 		Name: Germany
 		InternalName: germany
 		Side: Zentrum
-		Description: German Empire\nFocus: Blitzkrieg and Chrono Technology\n\nSpecial Infantry: Tank Commander\nSpecial Vehicle: Chrono APC\nSpecial Vehicle: Chrono Tank\nSpecial Infantry: Stormtrooper\nSpecial Helicopter: Gebard\nSpecial Ability: Chrono Haste
+		Description: German Empire\nFocus: Blitzkrieg and Chrono Technology\n\nSpecial Infantry: Tank Commander\nSpecial Vehicle: Chrono APC\nSpecial Vehicle: Chrono Tank\nSpecial Infantry: Chronotrooper\nSpecial Helicopter: Gebard\nSpecial Ability: Chrono Haste
+	Faction@18:
+		Name: Persia
+		InternalName: persia
+		Side: Zentrum
+		Description: Persian Empire\nFocus: Mind Control\n\nSpecial Infantry: Fanatic\nSpecial Vehicle: Hashashin\nSpecial Vehicle: Demo Truck\nSpecial Infantry: Ishmaelite\nSpecial Vehicle: Mastermind\nSpecial Ability: TBA
 	Faction@4:
 		Name: Komintern
 		InternalName: soviet
@@ -244,12 +248,12 @@
 		Name: Spain
 		InternalName: serbia
 		Side: Entente
-		Description: Spanish Republic\nFocus: Heavy Weaponry\n\nSpecial Infantry: Anti-Tank Crew\nSpecial Vehicle: Caballero\nSpecial Infantry: AA Gun Crew\nSpecial Building: Grand Cannon\nSpecial Plane: Aguila\nSpecial Ability: Intercept
+		Description: Spanish Republic\nFocus: Versatility\n\nSpecial Infantry: Radist\nSpecial Vehicle: Caballero\nSpecial Helicopter: Colibri\nSpecial Vehicle: Hovercraft\nSpecial TBA\nSpecial Ability: Caballero Drop
 	Faction@9:
 		Name: China
 		InternalName: china
 		Side: Komintern
-		Description: People's Republic of China\nFocus: Infantry Focus\n\nSpecial Infantry: Militia\nSpecial Vehicle: Louchuan\nSpecial Vehicle: Gatling Car\nSpecial Infantry: Flaktrooper\nSpecial Building: Forward Command\nSpecial Ability: Propaganda
+		Description: People's Republic of China\nFocus: Infantry Focus\n\nSpecial Infantry: Militia\nSpecial Vehicle: Louchuan\nSpecial Vehicle: Propaganda Truck\nSpecial Infantry: Flaktrooper\nSpecial Building: Forward Command\nSpecial Ability: Propaganda
 	Faction@16:
 		Name: Turkmenia
 		InternalName: kazakhstan
@@ -279,12 +283,22 @@
 		Name: Bulgaria
 		InternalName: bulgaria
 		Side: Zentrum
-		Description: Tsardom of Bulgaria\nFocus: Indirect Fire\n\nSpecial Infantry: Mortar\nSpecial Vehicle: Czar\nSpecial Aircraft: Zeppelin\nSpecial Infantry: Heavy Machine Gun Crew\nSpecial Infantry: Artillery Observer\nSpecial Ability: Flare
+		Description: Tsardom of Bulgaria\nFocus: Indirect Fire\n\nSpecial Infantry: Mortar\nSpecial Vehicle: Czar\nSpecial Aircraft: Zeppelin\nSpecial Infantry: Stormtrooper\nSpecial Infantry: Artillery Observer\nSpecial Ability: Flare
 	Faction@14:
 		Name: Zentrum
 		InternalName: zentrum
 		Side: Zentrum
 		Selectable: False
+	Faction@19:
+		Name: Belarus
+		InternalName: belarus
+		Side: Komintern
+		Description: Belarussian Soviet Socialist Republic\nFocus: Cryo and Gatling Technology\n\nSpecial Infantry: Maroznik\nSpecial Vehicle: Maroz Tank\nSpecial Vehicle: Gatling Car\nSpecial Infantry: Morozko\nSpecial TBA\nSpecial Ability: Father Frost
+	Faction@20:
+		Name: The Raj
+		InternalName: raj
+		Side: Entente
+		Description: The British Raj\nFocus: Heavy Weaponry\n\nSpecial Infantry: Anti-Tank Crew\nSpecial Infantry: Heavy Machine Gun Crew\nSpecial Infantry: AA Gun Crew\nSpecial Building: Grand Cannon\nSpecial Plane: Aguila\nSpecial Ability: Intercept
 	Faction@random:
 		Name: Any
 		InternalName: Random
@@ -294,60 +308,49 @@
 	Faction@randomallies:
 		Name: Entente
 		InternalName: RandomAllies
-		RandomFactionMembers: england, france, usa, japan, serbia
+		RandomFactionMembers: england, france, usa, japan, serbia, raj
 		Side: Random
 		Description: Random Entente Country\nA random Allied country will be chosen when the game starts.
 	Faction@randomsoviet:
 		Name: Komintern
 		InternalName: RandomSoviet
-		RandomFactionMembers: russia, ukraine, china, mongolia, kazakhstan
+		RandomFactionMembers: russia, ukraine, china, mongolia, kazakhstan, belarus
 		Side: Random
 		Description: Random Komintern Country\nA random Soviet country will be chosen when the game starts.
 	Faction@randomzentrum:
 		Name: Zentrum
 		InternalName: Randomzentrum
-		RandomFactionMembers: germany, austria, turkey, italy, bulgaria
+		RandomFactionMembers: germany, austria, turkey, italy, bulgaria, persia
 		Side: Random
 		Description: Random Zentrum Country\nA random Zentrum country will be chosen when the game starts.
-	ResourceType@ore:
-		Type: Ore
-		Name: Valuable Minerals
-		ResourceType: 1
-		TerrainType: Ore
-		Palette: player
-		Sequences: gold01,gold02,gold03,gold04
-		MaxDensity: 10
-		ValuePerUnit: 30
-		AllowedTerrainTypes: Clear,Road,Pavement,PavedRoad,TallGrass
-		AllowUnderActors: true
-	ResourceType@gem:
-		Type: Gems
-		Name: Valuable Minerals
-		ResourceType: 2
-		TerrainType: Gems
-		Palette: player
-		Sequences: gem01,gem02,gem03,gem04
-		MaxDensity: 3
-		ValuePerUnit: 60
-		AllowedTerrainTypes: Clear,Road,Pavement,PavedRoad,TallGrass
-		AllowUnderActors: true
 	ResourceRenderer:
-		RenderTypes: Ore, Gems
+		ResourceTypes:
+			Ore:
+				Sequences: gold01, gold02, gold03, gold04
+				Palette: player
+				Name: Valuable Minerals
+			Gems:
+				Sequences: gem01, gem02, gem03, gem04
+				Palette: player
+				Name: Valuable Minerals
 
 World:
 	Inherits: ^BaseWorld
 	ChatCommands:
 	DevCommands:
 	DebugVisualizationCommands:
+	PathFinderOverlay:
+	HierarchicalPathFinderOverlay:
 	PlayerCommands:
 	HelpCommand:
 	ScreenShaker:
 	BuildingInfluence:
+	SubterraneanActorLayer:
 	ProductionQueueFromSelection:
 		ProductionPaletteWidget: PRODUCTION_PALETTE
 	LegacyBridgeLayer:
+		Bridges: bridge1, bridge2, bridge3, bridge4, br1, br2, br3, sbridge1, sbridge2, sbridge3, sbridge4
 	CustomTerrainDebugOverlay:
-	JumpjetActorLayer:
 	CrateSpawner:
 		DeliveryAircraft: badr
 		QuantizedFacings: 16
@@ -357,24 +360,37 @@ World:
 		WaterChance: 20
 		InitialSpawnDelay: 1500
 		CheckboxDisplayOrder: 1
-		CheckboxEnabled: False
-	DomainIndex:
 	SmudgeLayer@SCORCH:
 		Type: Scorch
 		Sequence: scorches
 		SmokeChance: 50
 		SmokeImage: smoke_m
 		SmokeSequences: idle
-		Palette: craters
 	SmudgeLayer@CRATER:
 		Type: Crater
 		Sequence: craters
 		SmokeChance: 25
 		SmokeImage: smoke_m
 		SmokeSequences: idle
-		Palette: craters
 	ResourceLayer:
+		RecalculateResourceDensity: true
+		ResourceTypes:
+			Ore:
+				ResourceIndex: 1
+				TerrainType: Ore
+				AllowedTerrainTypes: Clear, Road
+				MaxDensity: 12
+			Gems:
+				ResourceIndex: 2
+				TerrainType: Gems
+				AllowedTerrainTypes: Clear, Road
+				MaxDensity: 3
 	ResourceClaimLayer:
+	WithResourceAnimation@GEMS:
+		Types: Gems
+		Image: twinkle
+		Sequences: twinkle1, twinkle2, twinkle3
+		Palette: effect
 	WarheadDebugOverlay:
 	SpawnMapActors:
 	MapBuildRadius:
@@ -383,17 +399,16 @@ World:
 	MapOptions:
 		ShortGameCheckboxDisplayOrder: 2
 		TechLevelDropdownDisplayOrder: 2
-		GameSpeedDropdownDisplayOrder: 3
-	CreateMPPlayers:
-	MPStartUnits@mcvonly:
+		GameSpeedDropdownDisplayOrder: 1
+	CreateMapPlayers:
+	StartingUnits@mcvonly:
 		Class: none
 		ClassName: MCV Only
-		Factions: allies, england, france, germany, soviet, russia, ukraine, china, mongolia, usa, japan, austria, italy, turkey, serbia, bulgaria, kazakhstan
+		Factions: allies, england, france, germany, soviet, russia, ukraine, china, mongolia, usa, japan, austria, italy, turkey, serbia, bulgaria, kazakhstan, raj, belarus, persia
 		BaseActor: mcv
-	MPStartLocations:
+	MapStartingLocations:
 		SeparateTeamSpawnsCheckboxDisplayOrder: 6
-	SpawnMPUnits:
-		DropdownDisplayOrder: 1
+	SpawnStartingUnits:
 	PathFinder:
 	ValidateOrder:
 	DebugPauseState:
@@ -403,7 +418,9 @@ World:
 		PanelName: SKIRMISH_STATS
 	LoadWidgetAtGameStart:
 	ScriptTriggers:
+	CellTriggerOverlay:
 	TimeLimitManager:
+		TimeLimitDisplayOrder: 2
 		TimeLimitWarnings:
 			40: FourtyMinutesRemaining
 			30: ThirtyMinutesRemaining
@@ -414,14 +431,34 @@ World:
 			3: WarningThreeMinutesRemaining
 			2: WarningTwoMinutesRemaining
 			1: WarningOneMinuteRemaining
-	TerrainLighting:
+	ColorPickerManager:
+		PreviewActor: fact.colorpicker
+		PresetHues: 0, 0.125, 0.22, 0.375, 0.5, 0.56, 0.8, 0.88, 0, 0.15, 0.235, 0.4, 0.47, 0.55, 0.75, 0.85
+		PresetSaturations: 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.4, 0.5, 0.4, 0.5, 0.4, 0.5, 0.4, 0.5
+	OrderEffects:
+		TerrainFlashImage: moveflsh
+		TerrainFlashSequence: idle
+		TerrainFlashPalette: moveflash
 
 EditorWorld:
 	Inherits: ^BaseWorld
 	EditorActorLayer:
 	EditorCursorLayer:
 	EditorResourceLayer:
+		RecalculateResourceDensity: true
+		ResourceTypes:
+			Ore:
+				ResourceIndex: 1
+				TerrainType: Ore
+				AllowedTerrainTypes: Clear, Road
+				MaxDensity: 12
+			Gems:
+				ResourceIndex: 2
+				TerrainType: Gems
+				AllowedTerrainTypes: Clear, Road
+				MaxDensity: 3
 	EditorSelectionLayer:
 	LoadWidgetAtGameStart:
 	EditorActionManager:
-	TerrainLighting:
+	BuildableTerrainOverlay:
+		AllowedTerrainTypes: Clear, Road

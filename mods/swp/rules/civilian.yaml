@@ -124,7 +124,7 @@ FCOM:
 	Inherits: ^TechBuilding
 	Inherits@shape: ^2x2Shape
 	Selectable:
-		Bounds: 48,48
+		Bounds: 1448, 2896
 	OwnerLostAction:
 		Action: ChangeOwner
 	Building:
@@ -169,12 +169,7 @@ FCOM:
 		String: Forward
 	RenderSprites:
 		Image: fcom
-	WithIdleOverlay@bip:
-		Image: bib_2x2
-		Sequence: idle
-		Palette: terrain
-		Offset: -1100,500,-300
-		IsDecoration: True
+	WithBuildingBib:
 
 HOSP:
 	Inherits: ^TechBuilding
@@ -184,7 +179,7 @@ HOSP:
 		Action: ChangeOwner
 	Selectable:
 		Priority: 0
-		Bounds: 48,48
+		Bounds: 1448, 2896
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3,3
@@ -233,7 +228,7 @@ SPORT:
 		Name: Civilian Airfield
 	Selectable:
 		Class: afld
-		Bounds: 72,48
+		Bounds: 2172, 2896
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 3,2
@@ -267,8 +262,8 @@ SPORT:
 		UnitType: transportplane
 		Icon: paratroopers_civ
 		ChargeInterval: 7500
-		Description: Paratroopers
-		LongDesc: A transport plane drops a squad of infantry\nanywhere on the map.
+		Name: Paratroopers
+		Description: A transport plane drops a squad of infantry\nanywhere on the map.
 		DropItems: E1,E1,E1,E3,E3
 		ReinforcementsArrivedSpeechNotification: ReinforcementsArrived
 		SelectTargetSpeechNotification: SelectTarget
@@ -292,6 +287,7 @@ SPORT:
 	CapturableProgressBar:
 	CapturableProgressBlink:
 	EngineerRepairable:
+	-WithBuildingBib:
 
 DISH:
 	Inherits: ^TechBuilding
@@ -308,15 +304,15 @@ DISH:
 		RequiresCondition: powerdown
 		Position: Center
 	Selectable:
-		Bounds: 48,48
+		Bounds: 1448, 2896
 	HitShape:
 		UseTargetableCellsOffsets: false
 		TargetableOffsets: 0,0,0, 630,-384,0, 630,384,0, -700,-512,0, -700,512,0
 	Tooltip:
 		Name: Radar Dish
 	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
+		Footprint: xxx xxx
+		Dimensions: 3,2
 		LocalCenterOffset: 0,-512,0
 	Targetable:
 		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration
@@ -341,12 +337,6 @@ DISH:
 		Types: SpyInfiltrate
 	ExternalCondition@JAMMED:
 		Condition: jammed
-	WithIdleOverlay@bip:
-		Image: bib_2x2
-		Sequence: idle
-		Palette: terrain
-		Offset: -1100,500,-300
-		IsDecoration: True
 	-RepairableBuilding:
 	-WithBuildingRepairDecoration:
 	CaptureManager:
@@ -355,6 +345,7 @@ DISH:
 	CapturableProgressBar:
 	CapturableProgressBlink:
 	EngineerRepairable:
+	WithBuildingBib:
 
 CIVNUKE:
 	Inherits: ^TechBuilding
@@ -367,8 +358,8 @@ CIVNUKE:
 	Tooltip:
 		Name: Nuclear Powerplant
 	Building:
-		Footprint: xxx xxx xxx
-		Dimensions: 3,3
+		Footprint: xxxx xxxx xxxx xxxx
+		Dimensions: 4,4
 	Targetable:
 		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration
 	Health:
@@ -381,12 +372,6 @@ CIVNUKE:
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 2c0
-	WithIdleOverlay@bip:
-		Image: bib_3x3
-		Sequence: idle
-		Palette: terrain
-		Offset: 0,0,0
-		IsDecoration: True
 	Power:
 		Amount: 300
 	ScalePowerWithHealth:
@@ -398,18 +383,21 @@ CIVNUKE:
 	CapturableProgressBar:
 	CapturableProgressBlink:
 	EngineerRepairable:
+	WithBuildingBib:
+		HasMinibib: True
+	AppearsOnMapPreview:
 
 CIVNUKE.exploding:
 	Inherits: ^TechBuilding
-	Inherits@rubbles: ^3x3Rubbles
+	Inherits@rubbles: ^4x4Rubbles
 	-Selectable:
 	Interactable:
 	HitShape:
 	Tooltip:
 		Name: Nuclear Powerplant (Unstable)
 	Building:
-		Footprint: xxx xxx xxx
-		Dimensions: 3,3
+		Footprint: xxxx xxxx xxxx xxxx
+		Dimensions: 4,4
 	Targetable:
 		TargetTypes: NoAutoTarget
 	Health:
@@ -422,12 +410,6 @@ CIVNUKE.exploding:
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 3c0
-	WithIdleOverlay@bip:
-		Image: bib_3x3
-		Sequence: idle
-		Palette: terrain
-		Offset: 0,0,0
-		IsDecoration: True
 	GrantStackingCondition:
 		Condition: exploding
 		DelayPerInstance: 50
@@ -448,21 +430,14 @@ CIVNUKE.exploding:
 	WithSpriteBody:
 		Sequence: dead
 	-MapEditorData:
+	WithBuildingBib:
+		HasMinibib: True
 
 FHOUSEA:
 	Inherits: ^GarrisonableCivBuilding
 	Inherits@Rubbles: ^1x1Rubbles
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_1x1
-		Sequence: idle
-		Palette: terrain
-		Offset: -1700,1100,-300
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 1
 
@@ -471,15 +446,6 @@ FHOUSEB:
 	Inherits@Rubbles: ^1x1Rubbles
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_1x1
-		Sequence: idle
-		Palette: terrain
-		Offset: -1700,1100,-300
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 1
 
@@ -488,15 +454,6 @@ FHOUSEC:
 	Inherits@Rubbles: ^1x1Rubbles
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_1x1
-		Sequence: idle
-		Palette: terrain
-		Offset: -1700,1100,-300
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 1
 
@@ -505,15 +462,6 @@ FHOUSED:
 	Inherits@Rubbles: ^1x1Rubbles
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_1x1
-		Sequence: idle
-		Palette: terrain
-		Offset: -1700,1100,-300
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 1
 
@@ -522,15 +470,6 @@ FHOUSEE:
 	Inherits@Rubbles: ^1x1Rubbles
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_1x1
-		Sequence: idle
-		Palette: terrain
-		Offset: -1700,1100,-300
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 1
 
@@ -539,15 +478,6 @@ FHOUSEF:
 	Inherits@Rubbles: ^1x1Rubbles
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_1x1
-		Sequence: idle
-		Palette: terrain
-		Offset: -1700,1100,-300
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 1
 
@@ -556,15 +486,6 @@ FHOUSEG:
 	Inherits@Rubbles: ^1x1Rubbles
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_1x1
-		Sequence: idle
-		Palette: terrain
-		Offset: -1700,1100,-300
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 1
 
@@ -573,15 +494,6 @@ FHOUSEH:
 	Inherits@Rubbles: ^1x1Rubbles
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_1x1
-		Sequence: idle
-		Palette: terrain
-		Offset: -1700,1100,-300
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 1
 
@@ -590,15 +502,6 @@ FHOUSEI:
 	Inherits@Rubbles: ^1x1Rubbles
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_1x1
-		Sequence: idle
-		Palette: terrain
-		Offset: -1700,1100,-300
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 1
 
@@ -607,13 +510,6 @@ FHOUSEJ:
 	Inherits@Rubbles: ^1x1Rubbles
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_1x1
-		Sequence: idle
-		Palette: terrain
-		Offset: -1700,1100,-300
-		IsDecoration: True
-		RequiresCondition: exists
 	GrantCondition@exists:
 		Condition: exists
 	Cargo:
@@ -624,15 +520,6 @@ FHOUSEK:
 	Inherits@Rubbles: ^1x1Rubbles
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_1x1
-		Sequence: idle
-		Palette: terrain
-		Offset: -1700,1100,-300
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 1
 
@@ -641,15 +528,6 @@ FHOUSEL:
 	Inherits@Rubbles: ^1x1Rubbles
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_1x1
-		Sequence: idle
-		Palette: terrain
-		Offset: -1700,1100,-300
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 1
 
@@ -658,15 +536,6 @@ FHOUSEM:
 	Inherits@Rubbles: ^1x1Rubbles
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_1x1
-		Sequence: idle
-		Palette: terrain
-		Offset: -1700,1100,-300
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 1
 
@@ -675,15 +544,6 @@ FHOUSEN:
 	Inherits@Rubbles: ^1x1Rubbles
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_1x1
-		Sequence: idle
-		Palette: terrain
-		Offset: -1700,1100,-300
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 1
 
@@ -692,15 +552,6 @@ FHOUSEO:
 	Inherits@Rubbles: ^1x1Rubbles
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_1x1
-		Sequence: idle
-		Palette: terrain
-		Offset: -1700,1100,-300
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 1
 
@@ -709,15 +560,6 @@ FHOUSEP:
 	Inherits@Rubbles: ^1x1Rubbles
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_1x1
-		Sequence: idle
-		Palette: terrain
-		Offset: -1700,1100,-300
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 1
 
@@ -726,15 +568,6 @@ FHOUSEQ:
 	Inherits@Rubbles: ^1x1Rubbles
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_1x1
-		Sequence: idle
-		Palette: terrain
-		Offset: -1700,1100,-300
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 1
 
@@ -743,15 +576,6 @@ FHOUSER:
 	Inherits@Rubbles: ^1x1Rubbles
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_1x1
-		Sequence: idle
-		Palette: terrain
-		Offset: -1700,1100,-300
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 1
 
@@ -760,15 +584,6 @@ FHOUSES:
 	Inherits@Rubbles: ^1x1Rubbles
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_1x1
-		Sequence: idle
-		Palette: terrain
-		Offset: -1700,1100,-300
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 1
 
@@ -777,15 +592,6 @@ FHOUSET:
 	Inherits@Rubbles: ^1x1Rubbles
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_1x1
-		Sequence: idle
-		Palette: terrain
-		Offset: -1700,1100,-300
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 1
 
@@ -798,14 +604,6 @@ SHOPS1:
 		Dimensions: 2,3
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_1x2
-		Sequence: idle
-		Palette: terrain
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 6
 
@@ -818,14 +616,6 @@ SHOPS2:
 		Dimensions: 3,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_1x2
-		Sequence: idle
-		Palette: terrain
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 6
 
@@ -838,14 +628,6 @@ SHOPS3:
 		Dimensions: 2,3
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_1x2
-		Sequence: idle
-		Palette: terrain
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 6
 
@@ -858,14 +640,6 @@ SHOPS4:
 		Dimensions: 3,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_1x2
-		Sequence: idle
-		Palette: terrain
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 6
 
@@ -878,14 +652,6 @@ DETACHED1:
 		Dimensions: 1,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_1x2
-		Sequence: idle
-		Palette: terrain
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 2
 
@@ -898,14 +664,6 @@ DETACHED2:
 		Dimensions: 1,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_1x2
-		Sequence: idle
-		Palette: terrain
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 2
 
@@ -918,14 +676,6 @@ DETACHED3:
 		Dimensions: 2,1
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_2x1
-		Sequence: idle
-		Palette: terrain
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 2
 
@@ -938,14 +688,6 @@ DETACHED4:
 		Dimensions: 2,1
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_2x1
-		Sequence: idle
-		Palette: terrain
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 2
 
@@ -958,14 +700,6 @@ DETACHED5:
 		Dimensions: 1,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_1x2
-		Sequence: idle
-		Palette: terrain
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 2
 
@@ -978,14 +712,6 @@ DETACHED6:
 		Dimensions: 1,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_1x2
-		Sequence: idle
-		Palette: terrain
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 2
 
@@ -998,14 +724,6 @@ DETACHED7:
 		Dimensions: 2,1
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_2x1
-		Sequence: idle
-		Palette: terrain
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 2
 
@@ -1018,14 +736,6 @@ DETACHED8:
 		Dimensions: 2,1
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_2x1
-		Sequence: idle
-		Palette: terrain
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 2
 
@@ -1038,14 +748,6 @@ DETACHED9:
 		Dimensions: 1,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_1x2
-		Sequence: idle
-		Palette: terrain
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 2
 
@@ -1058,14 +760,6 @@ DETACHED10:
 		Dimensions: 1,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_1x2
-		Sequence: idle
-		Palette: terrain
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 2
 
@@ -1078,14 +772,6 @@ DETACHED11:
 		Dimensions: 2,1
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_2x1
-		Sequence: idle
-		Palette: terrain
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 2
 
@@ -1098,14 +784,6 @@ DETACHED12:
 		Dimensions: 2,1
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_2x1
-		Sequence: idle
-		Palette: terrain
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 2
 
@@ -1118,14 +796,6 @@ DETACHED13:
 		Dimensions: 2,1
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_2x1
-		Sequence: idle
-		Palette: terrain
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 2
 
@@ -1138,14 +808,6 @@ DETACHED14:
 		Dimensions: 2,1
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_2x1
-		Sequence: idle
-		Palette: terrain
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 2
 
@@ -1158,14 +820,6 @@ DETACHED15:
 		Dimensions: 1,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_1x2
-		Sequence: idle
-		Palette: terrain
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 2
 
@@ -1178,14 +832,6 @@ DETACHED16:
 		Dimensions: 1,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_1x2
-		Sequence: idle
-		Palette: terrain
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 2
 
@@ -1198,15 +844,6 @@ DETACHED17:
 		Dimensions: 2,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_2x2
-		Sequence: idle
-		Offset: -1100,500,-300
-		Palette: terrain
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 4
 
@@ -1219,15 +856,6 @@ DETACHED18:
 		Dimensions: 2,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_2x2
-		Sequence: idle
-		Offset: -1100,500,-300
-		Palette: terrain
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 4
 
@@ -1240,15 +868,6 @@ DETACHED19:
 		Dimensions: 2,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_2x2
-		Sequence: idle
-		Offset: -1100,500,-300
-		Palette: terrain
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 4
 
@@ -1261,15 +880,6 @@ DETACHED20:
 		Dimensions: 2,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_2x2
-		Sequence: idle
-		Offset: -1100,500,-300
-		Palette: terrain
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 4
 
@@ -1282,15 +892,6 @@ DETACHED21:
 		Dimensions: 2,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_2x2
-		Sequence: idle
-		Offset: -1100,500,-300
-		Palette: terrain
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 4
 
@@ -1303,15 +904,6 @@ DETACHED22:
 		Dimensions: 2,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_2x2
-		Sequence: idle
-		Offset: -1100,500,-300
-		Palette: terrain
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 4
 
@@ -1324,15 +916,6 @@ DETACHED23:
 		Dimensions: 2,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_2x2
-		Offset: -1100,500,-300
-		Sequence: idle
-		Palette: terrain
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 4
 
@@ -1345,15 +928,6 @@ DETACHED24:
 		Dimensions: 2,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_2x2
-		Offset: -1100,500,-300
-		Sequence: idle
-		Palette: terrain
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 4
 
@@ -1366,14 +940,6 @@ DETACHED25:
 		Dimensions: 2,1
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_2x1
-		Sequence: idle
-		Palette: terrain
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 2
 
@@ -1386,14 +952,6 @@ DETACHED26:
 		Dimensions: 1,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
-	WithIdleOverlay@bip:
-		Image: bib_1x2
-		Sequence: idle
-		Palette: terrain
-		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 	Cargo:
 		MaxWeight: 2
 
@@ -1417,7 +975,8 @@ BARL:
 	MapEditorData:
 		Categories: Decoration
 	Interactable:
-		Bounds: 24,24
+		Bounds: 724, 1448
+	-WithBuildingBib:
 
 BRL3:
 	Inherits: ^TechBuilding
@@ -1439,7 +998,8 @@ BRL3:
 	MapEditorData:
 		Categories: Decoration
 	Interactable:
-		Bounds: 24,24
+		Bounds: 724, 1448
+	-WithBuildingBib:
 
 AMMOBOX1:
 	Inherits: ^AmmoBox
@@ -1458,7 +1018,7 @@ MISS:
 		TargetableOffsets: 0,0,0, 840,0,0, 840,-1024,0, 420,768,0, -840,0,0, -840,-1024,0, -840,1024,0
 	Selectable:
 		Priority: 0
-		Bounds: 72,48
+		Bounds: 2172, 2896
 	OwnerLostAction:
 		Action: ChangeOwner
 	Building:
@@ -1502,7 +1062,7 @@ BIO:
 	Inherits: ^TechBuilding
 	Inherits@shape: ^2x2Shape
 	Selectable:
-		Bounds: 48,48
+		Bounds: 1448, 2896
 	OwnerLostAction:
 		Action: ChangeOwner
 	Building:
@@ -1541,7 +1101,7 @@ OILB:
 		TargetableOffsets: 0,0,0, 630,-300,0, 420,512,0, -420,-512,0, -630,300,0
 	Selectable:
 		Priority: 0
-		Bounds: 48,48
+		Bounds: 1448, 2896
 	OwnerLostAction:
 		Action: ChangeOwner
 	Building:
@@ -1579,8 +1139,6 @@ OILB:
 	UpdatesDerrickCount:
 	GrantConditionOnCombatantOwner:
 		Condition: enabled
-	RenderSprites:
-		Image: derrick
 
 BR1:
 	Inherits: ^Bridge
@@ -1634,7 +1192,7 @@ BRIDGE1:
 		Actor: bridgehut
 		SpawnOffset: 0,1
 	Interactable:
-		Bounds: 120,72
+		Bounds: 3620, 4344
 
 BRIDGE2:
 	Inherits: ^Bridge
@@ -1652,7 +1210,7 @@ BRIDGE2:
 		Actor: bridgehut
 		SpawnOffset: 2,1
 	Interactable:
-		Bounds: 120,48
+		Bounds: 3620, 2896
 
 BRIDGE3:
 	Inherits: ^Bridge
@@ -1670,7 +1228,7 @@ BRIDGE3:
 		Actor: bridgehut
 		SpawnOffset: 0,1
 	Interactable:
-		Bounds: 96,48
+		Bounds: 2896, 2896
 
 BRIDGE4:
 	Inherits: ^Bridge
@@ -1688,7 +1246,7 @@ BRIDGE4:
 		Actor: bridgehut
 		SpawnOffset: 2,1
 	Interactable:
-		Bounds: 96,48
+		Bounds: 2896, 2896
 
 SBRIDGE1:
 	Inherits: ^Bridge
@@ -1706,7 +1264,7 @@ SBRIDGE1:
 		Actor: bridgehut.small
 		SpawnOffset: 1,1
 	Interactable:
-		Bounds: 72,48
+		Bounds: 2172, 2896
 
 SBRIDGE2:
 	Inherits: ^Bridge
@@ -1724,7 +1282,7 @@ SBRIDGE2:
 		Actor: bridgehut.small
 		SpawnOffset: 1,1
 	Interactable:
-		Bounds: 48,72
+		Bounds: 1448, 4344
 
 SBRIDGE3:
 	Inherits: ^Bridge
@@ -1758,7 +1316,7 @@ BRIDGEHUT:
 		Footprint: __ __
 		Dimensions: 2,2
 	Selectable:
-		Bounds: 48,48
+		Bounds: 1448, 2896
 		Priority: 2
 	LegacyBridgeHut:
 	Targetable:
@@ -1770,7 +1328,7 @@ BRIDGEHUT.small:
 		Footprint: _
 		Dimensions: 1,1
 	Selectable:
-		Bounds: 24,24
+		Bounds: 724, 1448
 		Priority: 2
 	LegacyBridgeHut:
 	Targetable:

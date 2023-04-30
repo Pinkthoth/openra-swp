@@ -508,7 +508,7 @@ MausCannon:
 	Projectile: Bullet
 		Speed: 1565
 		ContrailLength: 10
-		ContrailColor: C1A100
+		ContrailStartColor: C1A100
 		ContrailWidth: 0c45
 		ContrailDelay: 1
 	Warhead@1Dam: SpreadDamage
@@ -577,7 +577,7 @@ Mortar:
 bigberthagun:
 	Inherits: ^Artillery
 	MinRange: 4c0
-	Range: 14c0
+	Range: 13c0
 	ReloadDelay: 240
 	Report: 120mmf.aud
 	TargetActorCenter: true
@@ -605,7 +605,7 @@ bigberthagun:
 
 GrenadeLauncher:
 	Inherits: ^Artillery
-	ReloadDelay: 130
+	ReloadDelay: 110
 	Report: glnch4.aud
 	Range: 5c512
 	Projectile: Bullet

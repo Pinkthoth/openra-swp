@@ -223,7 +223,7 @@ stek:
 		Start: 1
 	make: stekmake
 		Length: *
-	bib: bib2
+	bib: bib3
 		Length: *
 		UseTilesetExtension: true
 		TilesetOverrides:
@@ -233,7 +233,7 @@ stek:
 kcom:
 	Defaults:
 		Offset: 0,-4,0
-	idle: fcom 
+	idle: fcom
 	damaged-idle: fcom
 		Start: 1
 	make: fcommake
@@ -288,6 +288,7 @@ hpad:
 	make: hpadmake
 		Length: *
 	bib: bib3
+		ZOffset: -1025
 		Length: *
 		UseTilesetExtension: true
 		TilesetOverrides:
@@ -441,7 +442,7 @@ gatlinggun:
 	idle: gunmake # Empty first frame. We need WithSpriteBody for the make anim, and WSB needs at least a placeholder default sequence to work
 	make:
 		Start: 64
-		Length: 20 
+		Length: 20
 		Tick: 60
 	turret:
 		Facings: 32
@@ -682,6 +683,100 @@ pbox:
 		UseTilesetExtension: true
 	icon: pboxicon
 
+morozko:
+	idle:
+		Length: 30
+	damaged-idle: morozkobrk
+		Start: 0
+		Length: 40
+	make: morozkomake
+		Length: *
+	bib: mbPBOX
+		Length: *
+		Offset: 0,-2
+		UseTilesetExtension: true
+	icon: morozkoicon
+
+
+spainbunker:
+	idle:
+	damaged-idle:
+		Start: 1
+	make:
+		Start: 2
+		Length: *
+	muzzle: minigun
+		Length: 6
+		Facings: 8
+	bib: mbPBOX
+		Length: *
+		Offset: 0,-2
+		UseTilesetExtension: true
+	idle-medic: sipahimed
+		Facings: 32
+		UseClassicFacings: True
+	idle-mech: sipahimech
+		Facings: 32
+		UseClassicFacings: True
+	turret-rifle: armcr
+		Start: 33
+		Facings: 32
+		UseClassicFacings: True
+	turret-flame: sipahiflm
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+	turret-missile: khanlauncher
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+	turret-ronin: ronin
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	turret-arc: arctower
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+	turret-flak: ftrk
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	turret-mortar: sipahimortar
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+	turret-sniper: sipahisniper
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+	turret-lmg: sipahilmg
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+	turret-tox: sipahitox
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+	spinner-ttnk: ttnk
+		Start: 32
+		Length: 1
+	spinner-mrj: mrj
+		Start: 32
+		Length: 32
+	spydish: spydish
+		Start: 0
+		Length: 32
+	turret-gatling: gatlingcar
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	turret-testudo: testudo
+		Start: 100
+		Facings: 32
+		UseClassicFacings: True
+	icon: bunkericon
+
 hbox:
 	Defaults:
 		UseTilesetExtension: true
@@ -698,6 +793,10 @@ hbox:
 		UseTilesetExtension: false
 	icon: hboxicon
 		UseTilesetExtension: false
+	bib: mbPBOX
+		Length: *
+		Offset: 0,-2
+		UseTilesetExtension: true
 
 gap:
 	idle:
@@ -776,6 +875,10 @@ mslo:
 		UseTilesetExtension: false
 	fake-icon: mslficon
 		UseTilesetExtension: false
+	bib: mbIRON
+		Length: *
+		Offset: -1,-1
+		UseTilesetExtension: true
 
 miss:
 	idle:
@@ -921,16 +1024,16 @@ eproc:
 	dead: eproc
 		Start: 2
 		Tick: 800
-	topsolid: 
+	topsolid:
 		Start: 1
 		ZOffset: 0c912
 	damaged-topsolid:
 		Start: 3
 		ZOffset: 0c912
-	opaquetop: 
+	opaquetop:
 		Start: 1
 		ZOffset: 0c912
-	damaged-opaquetop: 
+	damaged-opaquetop:
 		Start: 3
 		ZOffset: 0c912
 	bib: bib2
@@ -956,19 +1059,19 @@ mproc:
 	make: mprocmake
 		Length: *
 		ZOffset: -1000
-	dead: 
+	dead:
 		Start: 1
 		Tick: 800
-	topsolid: 
+	topsolid:
 		ZOffset: 0c912
 		Start: 2
-	damaged-topsolid: 
+	damaged-topsolid:
 		ZOffset: 0c912
 		Start: 3
-	opaquetop: 
+	opaquetop:
 		ZOffset: 0c912
 		Start: 2
-	damaged-opaquetop: 
+	damaged-opaquetop:
 		ZOffset: 0c912
 		Start: 3
 	bib: bib2
@@ -1118,16 +1221,16 @@ kdome:
 mtek:
 	Defaults:
 		Offset: 0,-8,0
-	idle: 
+	idle:
 		Start: 0
-	damaged-idle: 
+	damaged-idle:
 		Start: 1
 	dead:
 		Start: 2
 		Tick: 800
 	make: mtekmake
 		Length: *
-	bib: bib2
+	bib: bib3
 		Length: *
 		UseTilesetExtension: true
 		TilesetOverrides:
@@ -1136,13 +1239,13 @@ mtek:
 		Offset: 0,0,0
 
 mafld:
-	idle: 
+	idle:
 		Start: 0
 		Length: 8
 		Tick: 100
 		ZOffset: -1020
 		Offset: 0,-4
-	damaged-idle: 
+	damaged-idle:
 		Start: 8
 		Length: 8
 		Tick: 100
@@ -1172,13 +1275,13 @@ mafld:
 	icon: afldicon
 
 eafld:
-	idle: 
+	idle:
 		Start: 0
 		Length: 8
 		Tick: 100
 		ZOffset: -1020
 		Offset: 0,-4
-	damaged-idle: 
+	damaged-idle:
 		Start: 8
 		Length: 8
 		Tick: 100
@@ -1273,9 +1376,9 @@ eadept:
 ecom:
 	Defaults:
 		Offset: 0,-6,0
-	idle: 
+	idle:
 		Start: 0
-	damaged-idle: 
+	damaged-idle:
 		Start: 1
 	dead:
 		Start: 2
@@ -1292,7 +1395,7 @@ ecom:
 	
 flkgun:
 	idle: gunmake # Empty first frame (agunmake has no empty frames). We need WithSpriteBody for the make anim, and WSB needs at least a placeholder default sequence to work
-	make: 
+	make:
 		Start: 256
 		Length: 25
 		Offset: 0,4
@@ -1328,15 +1431,15 @@ flkgun:
 	icon: flkicon
 	
 uplink:
-	idle: 
+	idle:
 		Start: 0
 		Length: 32
 		Tick: 120
-	damaged-idle: 
+	damaged-idle:
 		Start: 32
 		Length: 32
 		Tick: 120
-	dead: 
+	dead:
 		Start: 64
 	make: uplinkmake
 		Length: *
@@ -1347,19 +1450,19 @@ uplink:
 	icon: uplinkicon
 	
 sthgen:
-	idle: 
+	idle:
 		Start: 0
-	active: 
+	active:
 		Start: 0
 		Length: 25
 		Tick: 80
-	damaged-active: 
+	damaged-active:
 		Start: 25
 		Length: 25
 		Tick: 80
-	damaged-idle: 
+	damaged-idle:
 		Start: 25
-	dead: 
+	dead:
 		Start: 50
 	make: sthgenmake
 		Length: *
@@ -1396,26 +1499,30 @@ empgun:
 		Offset: 0,0
 	fake-icon: empgunficon
 		Offset: 0,0
+	bib: mbPDOX
+		Length: *
+		Offset: 0,-4
+		UseTilesetExtension: true
 
 efact:
-	idle: 
+	idle:
 		Start: 0
 	make: efactmake
 		Length: *
-	build: 
+	build:
 		Start: 0
 		Length: 1
 	pdox: factpdox
 		Length: 80
-	damaged-idle: 
+	damaged-idle:
 		Start: 1
-	damaged-build: 
+	damaged-build:
 		Start: 1
 		Length: 1
 	damaged-pdox: factpdox
 		Start: 80
 		Length: 80
-	dead: 
+	dead:
 		Start: 1
 		Tick: 800
 	bib: bib2
@@ -1427,24 +1534,24 @@ efact:
 	fake-icon: facficon
 
 mfact:
-	idle: 
+	idle:
 		Start: 0
 	make: mfactmake
 		Length: *
-	build: 
+	build:
 		Start: 0
 		Length: 1
 	pdox: factpdox
 		Length: 80
-	damaged-idle: 
+	damaged-idle:
 		Start: 1
-	damaged-build: 
+	damaged-build:
 		Start: 1
 		Length: 1
 	damaged-pdox: factpdox
 		Start: 80
 		Length: 80
-	dead: 
+	dead:
 		Start: 1
 		Tick: 800
 	bib: bib2
@@ -1456,24 +1563,24 @@ mfact:
 	fake-icon: facficon
 	
 kfact:
-	idle: 
+	idle:
 		Start: 0
 	make: kfactmake
 		Length: *
-	build: 
+	build:
 		Start: 0
 		Length: 1
 	pdox: factpdox
 		Length: 80
-	damaged-idle: 
+	damaged-idle:
 		Start: 1
-	damaged-build: 
+	damaged-build:
 		Start: 1
 		Length: 1
 	damaged-pdox: factpdox
 		Start: 80
 		Length: 80
-	dead: 
+	dead:
 		Start: 1
 		Tick: 800
 	bib: bib2
@@ -1566,7 +1673,7 @@ srimp:
 		Length: *
 		Offset: 0,-9
 	bib: mbPDOX
-		Length: * 
+		Length: *
 		Offset: 0,0
 		UseTilesetExtension: true
 	icon: srimpicon
@@ -1586,6 +1693,10 @@ trench:
 	damaged-idle:
 		Start: 32
 		Length: 16
+	bib: mbPBOX
+		Length: *
+		Offset: 0,-2
+		UseTilesetExtension: true
 	icon: trenchicon
 	
 shpad:
@@ -1611,26 +1722,27 @@ shpad:
 		UseTilesetExtension: true
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
+		ZOffset: -1020
 	icon: hpadicon
 	
 mhpad:
-	idle: 
+	idle:
 		Start: 15
 		ZOffset: -1000
-	damaged-idle: 
+	damaged-idle:
 		Start: 24
 		ZOffset: -1000
-	active: 
+	active:
 		Start: 15
 		Length: 9
 		Tick: 100
 		ZOffset: -1000
-	damaged-active: 
+	damaged-active:
 		Start: 24
 		Length: 9
 		Tick: 100
 		ZOffset: -1000
-	make: 
+	make:
 		Start: 0
 		Length: 15
 	bib: bib3
@@ -1638,13 +1750,14 @@ mhpad:
 		UseTilesetExtension: true
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
+		ZOffset: -1020
 	icon: hpadicon
 	
 sbunker:
 	idle:
-	damaged-idle: 
+	damaged-idle:
 		Start: 1
-	make: 
+	make:
 		Start: 2
 		Length: 25
 	muzzle: minigun
@@ -1699,7 +1812,7 @@ atek:
 	active: sputdoor
 		Length: *
 		Offset: -4,-4
-	bib: bib2
+	bib: bib3
 		Length: *
 		UseTilesetExtension: true
 		TilesetOverrides:
@@ -1712,8 +1825,10 @@ atek:
 #Neutral
 fcom:
 	idle: fcon
+		Offset: 0,0
 	damaged-idle: fcon
 		Start: 1
+		Offset: 0,0
 	bib: bib3
 		Length: *
 		UseTilesetExtension: true
@@ -1754,29 +1869,37 @@ sport:
 		Offset: 0,-4
 
 dish:
+	Defaults:
+		Offset: -2,16,0
 	idle:
 		Length: 32
-		Offset: 0,8
-     	Tick: 160
+		Tick: 160
 	damaged-idle:
 		Start: 32
 		Length: 32
-		Offset: 0,8
 		Tick: 160
-	bib: bib3
+	bib: bib2
 		Length: *
 		UseTilesetExtension: true
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
+		Offset: 0,4,0
 
 civnuke:
 	Defaults:
-		Offset: -12,5
+		Offset: -12,14
+		Scale: 0.92
 	idle:
 	damaged-idle:
 		Start: 1
 	dead:
 		Start: 2
+	bib: bib2
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+		Offset: 0,0,0
 
 bio:
 	idle:
@@ -1787,22 +1910,27 @@ bio:
 		Tick: 800
 	make: biomake
 		Length: *
-
-derrick:
-	Defaults:
-		Offset: 0,-25
-	idle:
-		Length: 20
-	damaged-idle:
-		Start: 20
-		Length: 20
-	make:
-	bib: bib3
+	bib: bib2
 		Length: *
-		Offset: 0,0
 		UseTilesetExtension: true
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
+		Offset: 0,0,0
+
+oilb:
+	Defaults:
+		Offset: 0,-6
+	idle:
+	damaged-idle:
+		Start: 1
+		Length: *
+	make:
+	bib: bib3
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+		Offset: 0,0,0
 
 brik:
 	idle:

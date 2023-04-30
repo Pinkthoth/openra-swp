@@ -59,6 +59,45 @@ teslahind:
 		Facings: 8
 	icon: teslahindicon
 
+gatlinghind:
+	Defaults:
+	idle: empty32
+		Start: 0
+		Facings: 32
+	turret:
+		Facings: 32
+		UseClassicFacings: False
+	rotor: lrotorlg
+		Length: 4
+		ZOffset: 5
+	slow-rotor: lrotorlg
+		Start: 4
+		Length: 8
+		ZOffset: 5
+	muzzle: minigun
+		Length: 6
+		Facings: 8
+	icon: gatlinghindicon
+
+colibri:
+	idle: empty32
+		Start: 0
+		Facings: 32
+	turret:
+		Facings: 32
+		UseClassicFacings: False
+	rotor: lrotorlg
+		Length: 4
+		ZOffset: 5
+	slow-rotor: lrotorlg
+		Start: 4
+		Length: 8
+		ZOffset: 5
+	muzzle: minigun
+		Length: 6
+		Facings: 8
+	icon: colibriicon
+
 tengrii:
 	idle:
 		Start: 0
@@ -366,7 +405,7 @@ msrsmt:
 		Length: 6
 		Facings: 8
 	icon: msrsmticon
-    
+	
 strmvgl:
 	idle:
 		Facings: 32
@@ -402,7 +441,7 @@ douglas:
 		Facings: 16
 
 mi26:
-	idle: 
+	idle:
 		Start: 0
 		Facings: 32
 		UseClassicFacings: False
@@ -426,7 +465,7 @@ mi26:
 	icon: mi26icon
 
 aircrane:
-	idle: 
+	idle:
 		Start: 0
 		Facings: 32
 		UseClassicFacings: False

@@ -130,6 +130,39 @@ AGGatling4:
 	ReloadDelay: 2
 	BurstDelays: 1
 
+AGGatling_Hind:
+	Inherits: ^Gatling
+	ReloadDelay: 8
+	BurstDelays: 4
+	Range: 6c0
+	Burst: 2
+	Warhead@1Dam: SpreadDamage
+		Damage: 900
+		Falloff: 100, 50, 25, 15
+		Spread: 0c256
+		Versus:
+			None: 90
+			Light: 45
+			Medium: 35
+			Heavy: 27
+			Wood: 35
+			Concrete: 30
+
+AGGatling2_Hind:
+	Inherits: AGGatling_Hind
+	ReloadDelay: 6
+	BurstDelays: 3
+
+AGGatling3_Hind:
+	Inherits: AGGatling_Hind
+	ReloadDelay: 4
+	BurstDelays: 2
+
+AGGatling4_Hind:
+	Inherits: AGGatling_Hind
+	ReloadDelay: 2
+	BurstDelays: 1
+
 AGGatling-handheld:
 	Inherits: ^Gatling
 	Range: 5c0
@@ -244,9 +277,9 @@ Archer-AG:
 	Warhead@1Dam: SpreadDamage
 		Damage: 1200
 		Versus:
-			None: 82
+			None: 75
 			Wood: 20
-			Light: 60
+			Light: 50
 			Medium: 20
 			Heavy: 10
 			Concrete: 10
@@ -267,7 +300,7 @@ Archer-AA:
 	Warhead@1Dam: SpreadDamage
 		Damage: 700
 		Versus:
-			None: 82
+			None: 75
 			Wood: 20
 			Light: 60
 			Medium: 40
@@ -510,7 +543,7 @@ ChainGun:
 		Blockable: false
 	Warhead@1Dam: SpreadDamage
 		Versus:
-			None: 144
+			None: 165
 			Wood: 50
 			Light: 62
 			Medium: 25
@@ -544,7 +577,7 @@ ChainGun.HVF.AA:
 	ReloadDelay: 8
 	Range: 6c0
 	MinRange: 0c128
-	Report: gun5.aud
+	Report: bsenatta.wav, bsenattb.wav, bsenattc.wav, bsenattd.wav
 	ValidTargets: AirborneActor, AirborneBomber
 	Projectile: InstantHit
 		Blockable: false
@@ -566,14 +599,14 @@ ChainGun.HVF.AG:
 	Inherits: ^HeavyMG
 	ReloadDelay: 8
 	Range: 5c0
-	Report: gun5.aud
+	Report: bsenatta.wav, bsenattb.wav, bsenattc.wav, bsenattd.wav
 	MinRange: 1c0
 	Projectile: InstantHit
 		Blockable: false
 	Warhead@1Dam: SpreadDamage
 		Damage: 1000
 		Versus:
-			None: 160
+			None: 200
 			Wood: 50
 			Light: 60
 			Heavy: 15
@@ -609,7 +642,7 @@ MesserschmittAutocannon.AA:
 
 ChainGun.A10:
 	Inherits: ChainGun.Yak.AA
-	Range: 7c0
+	Range: 8c0
 	FirstBurstTargetOffset: -1c0,0,0
 	FollowingBurstTargetOffset: 0c512,0,0
 	ReloadDelay: 75
@@ -737,13 +770,21 @@ M1Carbine_elite:
 	Warhead@1Dam: SpreadDamage
 		Damage: 1100
 
+TankMachineGun:
+	Inherits: M1Carbine
+	ReloadDelay: 55
+	Report: iarnattb.wav
+	Warhead@1Dam: SpreadDamage
+		Damage: 2000
+
+
 WitchMG:
 	Inherits: ^LightMG
-	ReloadDelay: 30
+	ReloadDelay: 45
 	Range: 5c0
 	Report: mgun3_204.aud
 	Warhead@1Dam: SpreadDamage
-		Damage: 1500
+		Damage: 1300
 		Versus:
 			None: 200
 			Concrete: 25
@@ -815,14 +856,14 @@ M60mg-Comet:
 	Inherits: ^HeavyMG
 	ReloadDelay: 10
 	Range: 6c0
-	Report: gun5.aud
+	Report: vblhatta.wav, vblhattb.wav
 	MinRange: 0c128
 	Projectile: InstantHit
 		Blockable: false
 	Warhead@1Dam: SpreadDamage
 		Damage: 2250
 		Versus:
-			None: 144
+			None: 155
 			Wood: 50
 			Light: 62
 			Medium: 25
@@ -1046,14 +1087,16 @@ M60mg-apc:
 
 HeavyMachineGun:
 	Inherits: ^LightMG
-	ReloadDelay: 50
+	ReloadDelay: 75
 	Range: 6c0
-	Burst: 10
-	BurstDelays: 16
-	Report: hvmgsound.wav
+	Burst: 20
+	BurstDelays: 7
+	Report: bpilattb.wav, bpilattc.wav
 	Warhead@1Dam: SpreadDamage
 		Delay: 0
-		Damage: 500
+		Damage: 300
+		Spread: 0c256
+		Falloff: 100, 30, 15
 		Versus:
 			None: 150
 			Wood: 30
@@ -1065,7 +1108,9 @@ HeavyMachineGun:
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@2Dam: SpreadDamage
 		Delay: 3
-		Damage: 500
+		Damage: 300
+		Spread: 0c256
+		Falloff: 100, 30, 15
 		Versus:
 			None: 150
 			Wood: 30
@@ -1077,7 +1122,9 @@ HeavyMachineGun:
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@3Dam: SpreadDamage
 		Delay: 6
-		Damage: 500
+		Damage: 300
+		Spread: 0c256
+		Falloff: 100, 30, 15
 		Versus:
 			None: 150
 			Wood: 30
@@ -1089,7 +1136,9 @@ HeavyMachineGun:
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@4Dam: SpreadDamage
 		Delay: 9
-		Damage: 500
+		Damage: 300
+		Spread: 0c256
+		Falloff: 100, 30, 15
 		Versus:
 			None: 150
 			Wood: 30
@@ -1101,7 +1150,9 @@ HeavyMachineGun:
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@5Dam: SpreadDamage
 		Delay: 13
-		Damage: 500
+		Damage: 300
+		Spread: 0c256
+		Falloff: 100, 30, 15
 		Versus:
 			None: 150
 			Wood: 30
@@ -1115,79 +1166,79 @@ HeavyMachineGun:
 		Delay: 0
 		Explosions: piff
 		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees, Corpse
-		Inaccuracy: 171
+		Inaccuracy: 0c512
 	Warhead@2Eff3: CreateEffect
 		Delay: 3
 		Explosions: piff
 		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees, Corpse
-		Inaccuracy: 171
+		Inaccuracy: 0c512
 	Warhead@3EffWater2: CreateEffect
 		Delay: 0
 		ValidTargets: Water, Underwater
 		InvalidTargets: Bridge
 		Explosions: water_piff
-		Inaccuracy: 171
+		Inaccuracy: 0c512
 	Warhead@3EffWater3: CreateEffect
 		Delay: 3
 		ValidTargets: Water, Underwater
 		InvalidTargets: Bridge
 		Explosions: water_piff
-		Inaccuracy: 171
+		Inaccuracy: 0c512
 	Warhead@2Eff2: CreateEffect
 		Delay: 0
 		Explosions: piff
 		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees, Corpse
-		Inaccuracy: 171
+		Inaccuracy: 0c512
 	Warhead@2Eff3: CreateEffect
 		Delay: 3
 		Explosions: piff
 		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees, Corpse
-		Inaccuracy: 171
+		Inaccuracy: 0c512
 	Warhead@3EffWater2: CreateEffect
 		Delay: 0
 		ValidTargets: Water, Underwater
 		InvalidTargets: Bridge
 		Explosions: water_piff
-		Inaccuracy: 171
+		Inaccuracy: 0c512
 	Warhead@3EffWater3: CreateEffect
 		Delay: 3
 		ValidTargets: Water, Underwater
 		InvalidTargets: Bridge
 		Explosions: water_piff
-		Inaccuracy: 171
+		Inaccuracy: 0c512
 	Warhead@4Eff2: CreateEffect
 		Delay: 6
 		Explosions: piff
 		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees, Corpse
-		Inaccuracy: 171
+		Inaccuracy: 0c512
 	Warhead@4Eff3: CreateEffect
 		Delay: 9
 		Explosions: piff
 		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees, Corpse
-		Inaccuracy: 171
+		Inaccuracy: 0c512
 	Warhead@5EffWater2: CreateEffect
 		Delay: 6
 		ValidTargets: Water, Underwater
 		InvalidTargets: Bridge
 		Explosions: water_piff
-		Inaccuracy: 171
+		Inaccuracy: 0c512
 	Warhead@5EffWater3: CreateEffect
 		Delay: 9
 		ValidTargets: Water, Underwater
 		InvalidTargets: Bridge
 		Explosions: water_piff
-		Inaccuracy: 171
+		Inaccuracy: 0c512
 	Warhead@6Eff2: CreateEffect
 		Delay: 13
 		Explosions: piff
 		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees, Corpse
-		Inaccuracy: 171
+		Inaccuracy: 0c512
 	Warhead@7EffWater2: CreateEffect
 		Delay: 13
 		ValidTargets: Water, Underwater
 		InvalidTargets: Bridge
 		Explosions: water_piff
-		Inaccuracy: 171
+		Inaccuracy: 0c512
 
 ^SnipeWeapon:
 	ReloadDelay: 80

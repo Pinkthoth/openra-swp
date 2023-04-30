@@ -166,7 +166,7 @@ HornetMissile:
 		Image: hornetmissile
 		Palette: player
 		IsPlayerPalette: True
-		ContrailUsePlayerColor: True
+		ContrailStartColorUsePlayerColor: True
 		RangeLimit: 15c0
 		Speed: 240
 		CruiseAltitude: 1c256
@@ -754,7 +754,7 @@ IfritMissile:
 	MinRange: 3c0
 	Burst: 4
 	BurstDelays: 4
-	Report: aatrooperattack.wav
+	Report: iggiat2a.wav, iggiat2b.wav
 	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor
 	TargetActorCenter: true
 	-Projectile:
@@ -774,16 +774,16 @@ IfritMissile:
 		Falloff: 150, 110, 75, 50, 15, 5, 0
 		ValidTargets: GroundActor, Trees,  WaterActor, AirborneActor
 		Versus:
-			None: 90
-			Wood: 75
-			Light: 60
-			Medium: 50
-			Heavy: 40
-			Concrete: 70
+			None: 85
+			Wood: 70
+			Light: 55
+			Medium: 45
+			Heavy: 35
+			Concrete: 65
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@3Eff: CreateEffect
 		Explosions: med_explosion
-		ImpactSounds: explosion_small_1.wav
+		ImpactSounds: vgriatta.wav, vgriattb.wav
 
 Hind227mm:
 	Inherits: ^AntiGroundMissile
@@ -812,7 +812,7 @@ Hind227mm:
 		Falloff: 250, 200, 150, 80, 60, 15, 5, 0
 		ValidTargets: GroundActor, Trees,  WaterActor, AirborneActor
 		Versus:
-			None: 45
+			None: 35
 			Wood: 50
 			Light: 50
 			Medium: 40
@@ -851,9 +851,9 @@ GebardMissile:
 		Versus:
 			None: 10
 			Wood: 30
-			Light: 60
-			Medium: 70
-			Heavy: 40
+			Light: 55
+			Medium: 65
+			Heavy: 35
 			Concrete: 40
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@3Eff: CreateEffect

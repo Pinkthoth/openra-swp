@@ -7,8 +7,10 @@ GenericVoice:
 		russia: .r01,.r03
 		kazakhstan: .r01,.r03
 		ukraine: .r01,.r03
+		belarus: .r01,.r03
 		japan: .v01,.v03
 		usa: .v01,.v03
+		raj: .v01,.v03
 		serbia: .v01,.v03
 		china: .r01,.r03
 		mongolia: .r01,.r03
@@ -17,11 +19,13 @@ GenericVoice:
 		germany: .c01
 		italy: .c01
 		bulgaria: .c01
+		persia: .c01
 		zentrum: .c01
 	Voices:
 		Select: await1,ready,report1,yessir1
 		Action: ackno,affirm1,noprob,overout,ritaway,roger,ugotit
 		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8
+		Freezed: freezedie1
 		Burned: dedman10
 		Zapped: dedman6
 		Move: ackno
@@ -31,10 +35,12 @@ VehicleVoice:
 	Variants:
 		allies: .v00,.v02
 		england: .v00,.v02
+		raj: .v00,.v02
 		france: .v00,.v02
 		soviet: .r00,.r02
 		russia: .r00,.r02
 		kazakhstan: .r00,.r02
+		belarus: .r00,.r02
 		ukraine: .r00,.r02
 		japan: .v00,.v02
 		usa: .v00,.v02
@@ -46,6 +52,7 @@ VehicleVoice:
 		austria: .c00
 		turkey: .c00
 		bulgaria: .c00
+		persia: .c00
 		zentrum: .c00
 	Voices:
 		Select: vehic1,yessir1,report1,await1
@@ -69,6 +76,7 @@ CyborgVoice:
 		Burned: dedman10
 		Zapped: dedman6
 		Move: volkata
+		Freezed: freezedie1
 
 EngineerVoice:
 	Voices:
@@ -77,6 +85,7 @@ EngineerVoice:
 		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8
 		Burned: dedman10
 		Zapped: dedman6
+		Freezed: freezedie1
 
 MedicVoice:
 	Voices:
@@ -85,6 +94,7 @@ MedicVoice:
 		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8
 		Burned: dedman10
 		Zapped: dedman6
+		Freezed: freezedie1
 
 MechanicVoice:
 	Voices:
@@ -94,6 +104,7 @@ MechanicVoice:
 		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8
 		Burned: dedman10
 		Zapped: dedman6
+		Freezed: freezedie1
 
 ZombieVoice:
 	Voices:
@@ -103,6 +114,7 @@ ZombieVoice:
 		Die: zombiedie1, zombiedie2
 		Burned: zombieburned1
 		Zapped: zombiezapped1
+		Freezed: freezedie1
 
 TanyaVoice:
 	Voices:
@@ -115,6 +127,7 @@ TanyaVoice:
 		Build: laugh1
 		Kill: gotit1,lefty1
 		Demolish: keepem1,tuffguy1
+		Freezed: freezedie1
 
 DogVoice:
 	Voices:
@@ -124,6 +137,7 @@ DogVoice:
 		Die: dogw5,dogw7
 		Burned: dogw6
 		Zapped: dogw6
+		Freezed: freezedie1
 
 SpyVoice:
 	Voices:
@@ -133,6 +147,7 @@ SpyVoice:
 		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8
 		Burned: dedman10
 		Zapped: dedman6
+		Freezed: freezedie1
 
 ThiefVoice:
 	Voices:
@@ -141,6 +156,7 @@ ThiefVoice:
 		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8
 		Burned: dedman10
 		Zapped: dedman6
+		Freezed: freezedie1
 
 CivilianMaleVoice:
 	Voices:
@@ -149,6 +165,7 @@ CivilianMaleVoice:
 		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8
 		Burned: dedman10
 		Zapped: dedman6
+		Freezed: freezedie1
 
 CivilianFemaleVoice:
 	Voices:
@@ -157,6 +174,7 @@ CivilianFemaleVoice:
 		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8
 		Burned: dedman10
 		Zapped: dedman6
+		Freezed: freezedie1
 
 EinsteinVoice:
 	Voices:
@@ -165,6 +183,7 @@ EinsteinVoice:
 		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8
 		Burned: dedman10
 		Zapped: dedman6
+		Freezed: freezedie1
 
 ShokVoice:
 	Voices:
@@ -174,6 +193,7 @@ ShokVoice:
 		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8
 		Burned: dedman10
 		Zapped: dedman6
+		Freezed: freezedie1
 
 AntVoice:
 	Voices:
@@ -182,6 +202,7 @@ AntVoice:
 		Die: antdie
 		Burned: antdie
 		Zapped: antdie
+		Freezed: freezedie1
 
 StavrosVoice:
 	Voices:
@@ -191,6 +212,7 @@ StavrosVoice:
 		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8
 		Burned: dedman10
 		Zapped: dedman6
+		Freezed: freezedie1
 
 VirusVoices:
 	Voices:
@@ -201,6 +223,7 @@ VirusVoices:
 		Die: virdie1, virdie2, virdie3
 		Burned: virdie4
 		Zapped: virdie5
+		Freezed: freezedie1
 
 RusFemVoices:
 	Voices:
@@ -211,3 +234,4 @@ RusFemVoices:
 		Die: femdie2
 		Burned: femdie1
 		Zapped: femdie1
+		Freezed: freezedie1

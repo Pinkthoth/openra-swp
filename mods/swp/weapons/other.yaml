@@ -50,10 +50,10 @@
 		Damage: 10000
 		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
-			None: 30
+			None: 35
 			Light: 50
 			Medium: 60
-			Heavy: 40
+			Heavy: 50
 			Wood: 40
 			Concrete: 30
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ElectricityDeath
@@ -100,7 +100,7 @@ TraktorBeam:
 
 MagneticBolt:
 	Inherits: ^MagneticWeapon
-	ReloadDelay: 100
+	ReloadDelay: 65
 	Range: 6c0
 	Report: magray.aud
 	Projectile: Railgun
@@ -117,6 +117,11 @@ MagneticBolt:
 		Damage: 7500
 		Versus:
 			None: 70
+			Light: 75
+			Medium: 90
+			Heavy: 105
+			Wood: 40
+			Concrete: 40
 
 NightWitchBolt:
 	Inherits: ^MagneticWeapon
@@ -171,7 +176,12 @@ ElectricBolt:
 		Falloff: 100, 50, 25, 5
 		Versus:
 			None: 40
-		Damage: 9000
+			Light: 55
+			Medium: 65
+			Heavy: 55
+			Wood: 40
+			Concrete: 30
+		Damage: 9500
 	Warhead@3Eff: CreateEffect
 		Explosions: thunderstruck, thunderstruck2
 		ExplosionPalette: tseffects
@@ -238,12 +248,12 @@ SM_ElectricBolt:
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c256
 		Falloff: 100, 50, 25, 5
-		Damage: 6000
+		Damage: 6500
 		Versus:
-			None: 40
+			None: 30
 			Light: 40
-			Medium: 50
-			Heavy: 30
+			Medium: 60
+			Heavy: 50
 			Wood: 30
 			Concrete: 20
 		ValidTargets: GroundActor, Trees,  WaterActor
@@ -310,9 +320,9 @@ Flamer:
 			None: 70
 			Wood: 70
 			Tree: 80
-			Light: 40
-			Medium: 30
-			Heavy: 20
+			Light: 25
+			Medium: 15
+			Heavy: 5
 			Concrete: 30
 	Warhead@3Eff: CreateEffect
 		Explosions: small_napalm
@@ -331,6 +341,47 @@ Napalm:
 		Versus:
 			Wood: 100
 			Concrete: 50
+
+Marozzer:
+	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor, Trees
+	ReloadDelay: 50
+	Report: icebolt1.aud, icebolt2.aud, icebolt3.aud
+	Range: 5c0
+	Burst: 15
+	BurstDelays: 1
+	Projectile: Bullet
+		Speed: 170
+		TrailImage: toxb4
+		TrailPalette: frostpal
+		Image: toxb3
+		Palette: frostpal
+		LaunchAngle: 62
+		Inaccuracy: 1c0
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c126
+		Falloff: 120, 80, 50, 25, 10, 5
+		Damage: 1500
+		Versus:
+			None: 30
+			Wood: 10
+			Tree: 10
+			Light: 15
+			Medium: 10
+			Heavy: 5
+			Concrete: 5
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FreezeDeath
+		ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor, Trees
+	Warhead@3Eff: CreateEffect
+		Explosions: small_tox
+		ExplosionPalette: frostpal
+		ImpactSounds: icespike1.aud, icespike2.aud, icespike3.aud
+		ImpactActors: false
+		ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor, Trees, Corpse
+	Warhead@ExternalCondition: GrantExternalCondition
+		Condition: frozen
+		Duration: 50
+		Range: 1c0
+		ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor, Trees
 
 Toxxer:
 	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor, Trees
@@ -706,7 +757,7 @@ DropBombs:
 	TargetActorCenter: true
 	ReloadDelay: 75
 	Range: 3c0
-	Report: chute1.aud
+	Report: vkiratta.wav
 	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor
 	Projectile: Missile
 		RangeLimit: 3c0
@@ -881,7 +932,7 @@ SPEMPPulse:
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne
 
 Prism:
-	ReloadDelay: 130
+	ReloadDelay: 120
 	Range: 7c512
 	Report: prisray.aud
 	ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
@@ -978,9 +1029,9 @@ PrismHandHeld:
 		Versus:
 			None: 100
 			Wood: 45
-			Light: 90
-			Medium: 80
-			Heavy: 60
+			Light: 80
+			Medium: 70
+			Heavy: 50
 			Concrete: 25
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath
 		ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
@@ -1261,11 +1312,11 @@ ThunderFist:
 		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
 			None: 150
-			Wood: 40
+			Wood: 45
 			Light: 60
 			Medium: 50
 			Heavy: 40
-			Concrete: 15
+			Concrete: 25
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, DefaultDeath
 
 ThunderFistSupercharged:
@@ -1587,3 +1638,93 @@ IfritAreaFire:
 		Delay: 120
 	Warhead@Smu: LeaveSmudge
 		SmudgeType: Scorch
+
+DemoTruckTargeting:
+	ValidTargets: DetonateAttack
+	Range: 2c0
+	Projectile: InstantHit
+	Warhead@1Dam: TargetDamage
+		ValidTargets: DetonateAttack
+
+EnslaveInfantry:
+	Range: 7c0
+	ReloadDelay: 35
+	Projectile: InstantHit
+	ValidTargets: MindControllable
+	InvalidTargets: Vehicle, Ship, Defense, MindControlImmune
+	Warhead@1Dam: TargetDamage
+		ValidTargets: MindControllable
+	Warhead@2Eff: CreateEffect
+		ImpactSounds: spsylo2a.wav
+		ValidTargets: Ground, Infantry
+		ValidRelationships: Neutral, Enemy
+		Explosions: enslave
+
+EnslaveVehicle:
+	Range: 5c512
+	ReloadDelay: 100
+	Projectile: InstantHit
+	ValidTargets: MindControllable
+	InvalidTargets: Infantry, Defense, MindControlImmune
+	Warhead@1Dam: TargetDamage
+		ValidTargets: MindControllable
+	Warhead@2Eff: CreateEffect
+		ImpactSounds: spsylo2a.wav
+		ValidTargets: Ground, Vehicle
+		ValidRelationships: Neutral, Enemy
+		Explosions: enslave
+
+NeutronCannon:
+	ValidTargets: Infantry, Structure, Vehicle, Temporal
+	ReloadDelay: 5
+	Burst: 22
+	BurstDelays: 10
+	Range: 5c0
+	Projectile: LaserZap
+		Color: 9BE4FF
+		Duration: 20
+		Width: 0c40
+		SecondaryBeam: True
+		SecondaryBeamWidth: 0c80
+		SecondaryBeamColor: 0094FF
+	TargetActorCenter: true
+	Warhead@Damage: WarpPercentDamage
+		Damage: 1
+		Spread: 1
+		Versus:
+			Wood: 15
+			Concrete: 50
+			Heavy: 75
+			Light: 75
+			Brick: 5
+		ValidTargets: Infantry, Structure, Vehicle, Temporal
+		DamageTypes: ChronoDeath
+
+MindBlast:
+	ReloadDelay: 30
+	Range: 6c0
+	Report: byubatta.wav
+	ValidTargets: Ground, Water, Infantry, Trees, WaterActor
+	Projectile: InstantHit
+		Blockable: true
+	Warhead@1Dam: HealthPercentageDamage
+		Spread: 128
+		Damage: 25
+		ValidTargets: Infantry
+		Versus:
+			None: 120
+			Wood: 60
+			Light: 72
+			Medium: 60
+			Heavy: 28
+			Concrete: 30
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath
+	Warhead@2Eff: CreateEffect
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees, Corpse
+		Explosions: initexplode
+		ExplosionPalette: swpeffects
+	Warhead@3EffWater: CreateEffect
+		ValidTargets: Water, Underwater
+		InvalidTargets: Bridge
+		Explosions: initexplode
+		ExplosionPalette: swpeffects

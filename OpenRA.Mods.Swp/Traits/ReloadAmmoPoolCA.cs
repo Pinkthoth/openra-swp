@@ -17,7 +17,9 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.Swp.Traits
 {
-	[Desc("Reloads an ammo pool.")]
+	[Desc("Reloads an ammo pool.",
+		"CA version adds a progress bar, allows for reload to only begin below a certain ammo threshold",
+		"and allows reload to be delayed on fire/reset (as opposed to just resetting on firing).")]
 	public class ReloadAmmoPoolCAInfo : PausableConditionalTraitInfo
 	{
 		[Desc("Reload ammo pool with this name.")]
@@ -121,7 +123,7 @@ namespace OpenRA.Mods.Swp.Traits
 			if (Info.ReloadWhenAmmoReaches > -1 && ammoPool.CurrentAmmoCount > Info.ReloadWhenAmmoReaches)
 				return;
 
-			if (!ammoPool.HasFullAmmo && --remainingTicks == 0)
+			if (((reloadCount > 0 && !ammoPool.HasFullAmmo) || (reloadCount < 0 && ammoPool.HasAmmo)) && --remainingTicks == 0)
 			{
 				remainingTicks = Util.ApplyPercentageModifiers(reloadDelay, modifiers.Select(m => m.GetReloadAmmoModifier()));
 				if (!string.IsNullOrEmpty(sound))

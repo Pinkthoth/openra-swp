@@ -12,7 +12,7 @@
 	PaletteFromFile@terrain-temperat:
 		Name: terrain
 		Tileset: TEMPERAT
-		Filename: isopal.pal
+		Filename: temperat.pal
 		ShadowIndex: 3, 4
 	PaletteFromFile@terrain-desert:
 		Name: terrain
@@ -131,8 +131,9 @@
 		G: 0
 		B: 0
 		A: 180
-	TSShroudPalette@shroud:
+	ShroudPalette@shroud:
 		Name: shroud
+		Fog: false
 	ShroudPalette@fog:
 		Name: fog
 		Fog: true
@@ -147,13 +148,10 @@
 		Name: basic-alpha
 		BasePalette: chrome
 		Alpha: 0.55
-	PlayerHighlightPalette:
 	MenuPaletteEffect:
 	RotationPaletteEffect@defaultwater:
 		Palettes: terrain
 		ExcludeTilesets: DESERT
-		RotationBase: 32
-		RotationRange: 7
 	RotationPaletteEffect@actorswater:
 		Palettes: player, effect
 	RotationPaletteEffect@desertwater:
@@ -232,6 +230,9 @@
 	PaletteFromFile@POISONPAL:
 		Name: poisonpal
 		Filename: poisonpal.pal
+	PaletteFromFile@FROSTPAL:
+		Name: frostpal
+		Filename: frostpal.pal
 	PaletteFromFile@temperat-civilians:
 		Name: temperat-civilian
 		Filename: temperat-civilian.pal
@@ -283,15 +284,15 @@
 		BasePalette: playercloak
 		RemapIndex: 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95
 	RotationPaletteEffect@CLOAKROTATEPLAYER:
-		Palettes: newcloak
+		Palettes: newcloak, temporal
 		RotationBase: 80
 		RotationRange: 15
 	RotationPaletteEffect@CLOAKROTATE1:
-		Palettes: newcloak
+		Palettes: newcloak, temporal
 		RotationBase: 1
 		RotationRange: 79
 	RotationPaletteEffect@CLOAKROTATE2:
-		Palettes: newcloak
+		Palettes: newcloak, temporal
 		RotationBase: 96
 		RotationRange: 158
 	PaletteFromPlayerPaletteWithAlpha@newcloak:
@@ -322,3 +323,11 @@
 		BaseName: newholo
 		BasePalette: player-holo
 		Alpha: 0.55
+	PaletteFromFile@temporal:
+		Name: temporalbase
+		Filename: playercloak.pal
+		ShadowIndex: 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 144, 146, 148, 150, 152, 154, 156, 158, 160, 162, 164, 166, 168, 170, 172, 174, 176, 178, 2, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 144, 146, 148, 150, 152, 154, 156, 158, 160, 162, 164, 166, 168, 170, 172, 174, 176, 178
+	PaletteFromPaletteWithAlpha@temporal:
+		Name: temporal
+		BasePalette: temporalbase
+		Alpha: 0.75

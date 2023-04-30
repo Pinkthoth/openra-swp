@@ -72,111 +72,132 @@
 		Actor: rubble
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 
 ^2x1Rubbles:
 	SpawnActorOnDeath@1:
 		Actor: rubble
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 	SpawnActorOnDeath@2:
 		Actor: rubble
 		Offset: 1,0
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 
 ^1x2Rubbles:
 	SpawnActorOnDeath@1:
 		Actor: rubble
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 	SpawnActorOnDeath@2:
 		Actor: rubble
 		Offset: 0,1
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 
 ^2x2Rubbles:
 	SpawnActorOnDeath@1:
 		Actor: rubble
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 	SpawnActorOnDeath@2:
 		Actor: rubble
 		Offset: 1,0
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 	SpawnActorOnDeath@3:
 		Actor: rubble
 		Offset: 0,1
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 	SpawnActorOnDeath@4:
 		Actor: rubble
 		Offset: 1,1
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 
 ^3x2Rubbles:
 	SpawnActorOnDeath@1:
 		Actor: rubble
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 	SpawnActorOnDeath@2:
 		Actor: rubble
 		Offset: 1,0
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 	SpawnActorOnDeath@3:
 		Actor: rubble
 		Offset: 2,0
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 	SpawnActorOnDeath@4:
 		Actor: rubble
 		Offset: 0,1
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 	SpawnActorOnDeath@5:
 		Actor: rubble
 		Offset: 1,1
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 	SpawnActorOnDeath@6:
 		Actor: rubble
 		Offset: 2,1
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 
 ^2x3Rubbles:
 	SpawnActorOnDeath@1:
 		Actor: rubble
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 	SpawnActorOnDeath@2:
 		Actor: rubble
 		Offset: 1,0
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 	SpawnActorOnDeath@3:
 		Actor: rubble
 		Offset: 0,1
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 	SpawnActorOnDeath@4:
 		Actor: rubble
 		Offset: 1,1
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 	SpawnActorOnDeath@5:
 		Actor: rubble
 		Offset: 0,2
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 	SpawnActorOnDeath@6:
 		Actor: rubble
 		Offset: 1,2
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 
 ^3x3Rubbles:
 	SpawnActorOnDeath@1:
@@ -184,46 +205,153 @@
 		Offset: 0,0
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 	SpawnActorOnDeath@2:
 		Actor: rubble
 		Offset: 1,0
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 	SpawnActorOnDeath@3:
 		Actor: rubble
 		Offset: 2,0
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 	SpawnActorOnDeath@4:
 		Actor: rubble
 		Offset: 0,1
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 	SpawnActorOnDeath@5:
 		Actor: rubble
 		Offset: 1,1
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 	SpawnActorOnDeath@6:
 		Actor: rubble
 		Offset: 2,1
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 	SpawnActorOnDeath@7:
 		Actor: rubble
 		Offset: 0,2
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 	SpawnActorOnDeath@8:
 		Actor: rubble
 		Offset: 1,2
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 	SpawnActorOnDeath@9:
 		Actor: rubble
 		Offset: 2,2
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
+
+^4x4Rubbles:
+	SpawnActorOnDeath@1:
+		Actor: rubble
+		Offset: 0,0
+		OwnerType: InternalName
+		InternalOwner: Neutral
+		RequiresCondition: !being-warped
+	SpawnActorOnDeath@2:
+		Actor: rubble
+		Offset: 1,0
+		OwnerType: InternalName
+		InternalOwner: Neutral
+		RequiresCondition: !being-warped
+	SpawnActorOnDeath@3:
+		Actor: rubble
+		Offset: 2,0
+		OwnerType: InternalName
+		InternalOwner: Neutral
+		RequiresCondition: !being-warped
+	SpawnActorOnDeath@4:
+		Actor: rubble
+		Offset: 3,0
+		OwnerType: InternalName
+		InternalOwner: Neutral
+		RequiresCondition: !being-warped
+	SpawnActorOnDeath@5:
+		Actor: rubble
+		Offset: 0,1
+		OwnerType: InternalName
+		InternalOwner: Neutral
+		RequiresCondition: !being-warped
+	SpawnActorOnDeath@6:
+		Actor: rubble
+		Offset: 1,1
+		OwnerType: InternalName
+		InternalOwner: Neutral
+		RequiresCondition: !being-warped
+	SpawnActorOnDeath@7:
+		Actor: rubble
+		Offset: 2,1
+		OwnerType: InternalName
+		InternalOwner: Neutral
+		RequiresCondition: !being-warped
+	SpawnActorOnDeath@8:
+		Actor: rubble
+		Offset: 3,1
+		OwnerType: InternalName
+		InternalOwner: Neutral
+		RequiresCondition: !being-warped
+	SpawnActorOnDeath@9:
+		Actor: rubble
+		Offset: 0,2
+		OwnerType: InternalName
+		InternalOwner: Neutral
+		RequiresCondition: !being-warped
+	SpawnActorOnDeath@10:
+		Actor: rubble
+		Offset: 1,2
+		OwnerType: InternalName
+		InternalOwner: Neutral
+		RequiresCondition: !being-warped
+	SpawnActorOnDeath@11:
+		Actor: rubble
+		Offset: 2,2
+		OwnerType: InternalName
+		InternalOwner: Neutral
+		RequiresCondition: !being-warped
+	SpawnActorOnDeath@12:
+		Actor: rubble
+		Offset: 3,2
+		OwnerType: InternalName
+		InternalOwner: Neutral
+		RequiresCondition: !being-warped
+	SpawnActorOnDeath@13:
+		Actor: rubble
+		Offset: 0,3
+		OwnerType: InternalName
+		InternalOwner: Neutral
+		RequiresCondition: !being-warped
+	SpawnActorOnDeath@14:
+		Actor: rubble
+		Offset: 1,3
+		OwnerType: InternalName
+		InternalOwner: Neutral
+		RequiresCondition: !being-warped
+	SpawnActorOnDeath@15:
+		Actor: rubble
+		Offset: 2,3
+		OwnerType: InternalName
+		InternalOwner: Neutral
+		RequiresCondition: !being-warped
+	SpawnActorOnDeath@16:
+		Actor: rubble
+		Offset: 3,3
+		OwnerType: InternalName
+		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 
 ^FixRubbles:
 	SpawnActorOnDeath@1:
@@ -231,26 +359,31 @@
 		Offset: 1,0
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 	SpawnActorOnDeath@2:
 		Actor: rubble
 		Offset: 0,1
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 	SpawnActorOnDeath@3:
 		Actor: rubble
 		Offset: 1,1
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 	SpawnActorOnDeath@4:
 		Actor: rubble
 		Offset: 2,1
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 	SpawnActorOnDeath@5:
 		Actor: rubble
 		Offset: 1,2
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 
 ^AdeptRubbles:
 	SpawnActorOnDeath@1:
@@ -258,31 +391,37 @@
 		Offset: 0,2
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 	SpawnActorOnDeath@2:
 		Actor: rubble
 		Offset: 1,2
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 	SpawnActorOnDeath@3:
 		Actor: rubble
 		Offset: 2,2
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 	SpawnActorOnDeath@4:
 		Actor: rubble
 		Offset: 0,3
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 	SpawnActorOnDeath@5:
 		Actor: rubble
 		Offset: 1,3
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 	SpawnActorOnDeath@6:
 		Actor: rubble
 		Offset: 2,3
 		OwnerType: InternalName
 		InternalOwner: Neutral
+		RequiresCondition: !being-warped
 
 ^Confusable:
 	ExternalCondition@CONFUSION:
@@ -299,7 +438,7 @@
 	FirepowerMultiplier@CONFUSION:
 		Modifier: 90
 		RequiresCondition: confusion
-	WithDecoration@CONFUSION
+	WithDecoration@CONFUSION:
 		Image: pips
 		Sequence: pip-question
 		Position: TopLeft
@@ -326,17 +465,42 @@
 	ExternalCondition@flarevision:
 		Condition: flarevision
 
+^MindControllableBase:
+	MindControllable:
+		ControlledConditions:
+			ishmaelite: mindcontrolled
+			shah: mindcontrolled
+		RevokingConditions:
+			ishmaelite: restoring
+			shah: mindcontrolled
+	GivesExperienceToMaster:
+	Targetable@mindcontrolled:
+		TargetTypes: MindControlled
+		RequiresCondition: mindcontrolled
+
+^MindControllable:
+	Inherits: ^MindControllableBase
+	Targetable@MINDCONTROL:
+		TargetTypes: MindControllable
+		RequiresCondition: !mindcontrolled && !restoring
+	PeriodicExplosion@mindblast:
+		RequiresCondition: mindcontrolled && mindblast
+		Weapon: MindBlaster
+		InitialDelay: 0
+	ExternalCondition@mindblast:
+		Condition: mindblast
+
 ^GainsExperience:
 	GainsExperience:
 		LevelUpNotification: LevelUp
 		Conditions:
-			100: rank-veteran
 			200: rank-veteran
-			300: rank-veteran
-			400: rank-veteran
+			350: rank-veteran
 			500: rank-veteran
-			600: rank-veteran
-			700: rank-veteran
+			650: rank-veteran
+			800: rank-veteran
+			950: rank-veteran
+			1100: rank-veteran
 		LevelUpImage: crate-effects
 	DamageMultiplier@RANK-1:
 		RequiresCondition: rank-veteran == 1
@@ -468,7 +632,7 @@
 ^OfficerNearby:
 	ExperienceTrickler@OfficerNearby:
 		Interval: 1
-		Amount: 15
+		Amount: 17
 		RequiresCondition: officer-nearby
 	ExternalCondition@OfficerNearby:
 		Condition: officer-nearby
@@ -534,7 +698,7 @@
 		IsPlayerPalette: true
 		RequiresCondition: stealth
 		Palette: newcloak
-		CloakTypes: Phase
+		CloakType: Phase
 		PauseOnCondition: cloak-force-disabled
 		UncloakOn: Attack, Heal, Dock
 	GrantConditionOnDamageState@UNCLOAK:
@@ -546,6 +710,22 @@
 	ExternalCondition@STEALTH:
 		Condition: stealth
 
+^Freezable:
+	ExternalCondition@frozen:
+		Condition: frozen
+	SpeedMultiplier@frozen:
+		Modifier: 75
+		RequiresCondition: frozen
+	ReloadDelayMultiplier@frozen:
+		RequiresCondition: frozen
+		Modifier: 125
+	WithColoredOverlay@frozen:
+		RequiresCondition: frozen
+		Color: AAF2FF50
+	RevealsShroudMultiplier@frozen:
+		RequiresCondition: frozen
+		Modifier: 75
+
 ^Smoked:
 	ExternalCondition@smoked:
 		Condition: smoked
@@ -554,12 +734,12 @@
 		RequiresCondition: smoked
 	WithColoredOverlay@smoked:
 		RequiresCondition: smoked
-		Palette: smoked
+		Color: 49494975
 
 ^EmpDisable:
 	WithColoredOverlay@EMPDISABLE:
-		RequiresCondition: empdisable
-		Palette: disabled
+		RequiresCondition: empdisable && !being-warped
+		Color: 000000B4
 	TimedConditionBar@EMPDISABLE:
 		Condition: empdisable
 		Color: FFFFFF
@@ -570,7 +750,7 @@
 		Image: empsparks
 		Sequence: emp-overlay
 		Palette: tseffects
-		RequiresCondition: empdisable
+		RequiresCondition: empdisable && !being-warped
 	ExternalCondition@empdisable:
 		Condition: empdisable
 	GrantCondition@ifempdisable:
@@ -585,7 +765,7 @@
 		RequiresCondition: magneticsuspension
 	WithColoredOverlay@MAGNETICSUSPENSION:
 		RequiresCondition: magneticsuspension
-		Palette: magnet
+		Color: 7F006E75
 	DamageMultiplier@magneticsuspension:
 		RequiresCondition: magneticsuspension
 		Modifier: 0
@@ -754,10 +934,10 @@
 		MoveSequence: turn
 		ValidMovementTypes: Turn
 		RequiresCondition: !not-in-place
-	GrantConditionOnMovement@horizontal
+	GrantConditionOnMovement@horizontal:
 		Condition: not-in-place
 		ValidMovementTypes: Horizontal
-	GrantConditionOnMovement@vertical
+	GrantConditionOnMovement@vertical:
 		Condition: not-in-place
 		ValidMovementTypes: Vertical
 	Passenger:
@@ -771,6 +951,7 @@
 		Actor: e1crew
 	Targetable@infantry:
 		TargetTypes: Infantry
+		RequiresCondition: !being-warped
 
 ^Commanderable:
 	GrantConditionOnInfiltration@commandered:
@@ -782,7 +963,7 @@
 		Sequence: pip-commander
 		Position: TopRight
 		ValidRelationships: Ally, Neutral
-		RequiresCondition:  commandered
+		RequiresCondition: commandered
 	Targetable@commandered:
 		TargetTypes: CommanderInfiltration
 		RequiresCondition: !commandered
@@ -827,8 +1008,11 @@
 	Inherits@lazarus: ^Lazarus
 	Inherits@chronohaste: ^ChronoHasteable
 	Inherits@flarevision: ^FlareVision
+	Inherits@mindcontrol: ^MindControllable
+	Inherits@warp: ^Warpable
+	Inherits@freezable: ^Freezable
 	DetectCloaked@phase:
-		CloakTypes: Phase
+		DetectionTypes: Phase
 		Range: 1c0
 	Carryable:
 	Huntable:
@@ -840,12 +1024,12 @@
 		Locomotor: wheeled
 		TurnSpeed: 20
 	Selectable:
-		Bounds: 24, 24
+		Bounds: 1024, 1024
 	Targetable:
-		RequiresCondition: !parachute
-		TargetTypes: GroundActor, Vehicle
+		RequiresCondition: !parachute && !being-warped
+		TargetTypes: GroundActor, Vehicle, MindControllable
 	Targetable@REPAIR:
-		RequiresCondition: !parachute && damaged
+		RequiresCondition: !parachute && damaged && !being-warped
 		TargetTypes: Repair
 	GrantConditionOnDamageState@DAMAGED:
 		Condition: damaged
@@ -889,6 +1073,11 @@
 	Explodes:
 		Weapon: UnitExplodeSmall
 		EmptyWeapon: UnitExplodeSmall
+		RequiresCondition: !being-warped
+	Explodes@chrono:
+		Weapon: ChronoExplosion
+		EmptyWeapon: ChronoExplosion
+		DeathTypes: ChronoDeath
 	WithFacingSpriteBody:
 	WithParachute:
 		ShadowImage: parach-shadow
@@ -901,14 +1090,14 @@
 	HitShape:
 	MapEditorData:
 		Categories: Vehicle
-	ExternalCondition@CRUSHATTEMPT
+	ExternalCondition@CRUSHATTEMPT:
 		Condition: crush-attempt
-	ExternalCondition@CRUSHSUCCESFUL
+	ExternalCondition@CRUSHSUCCESFUL:
 		Condition: crush-succesful
-	SpeedMultiplier@CRUSHATTEMPT
+	SpeedMultiplier@CRUSHATTEMPT:
 		RequiresCondition: crush-attempt
 		Modifier: 85
-	SpeedMultiplier@CRUSHSUCCESFUL
+	SpeedMultiplier@CRUSHSUCCESFUL:
 		RequiresCondition: crush-succesful
 		Modifier: 60
 
@@ -948,6 +1137,11 @@
 		WarnCrushDuration: 15
 		OnCrushCondition: crush-succesful
 		OnCrushDuration: 30
+	AppearsOnRadar:
+	RadarColorFromTerrain:
+		Terrain: Tree
+	AppearsOnMapPreview:
+		Terrain: Tree
 
 ^CellTreeHusk:
 	Inherits@1: ^ExistsInWorld
@@ -962,6 +1156,88 @@
 		Categories: Tree
 	RenderSprites:
 		Palette: tempdecs
+
+^WholeCellTree:
+	Inherits@1: ^ExistsInWorld
+	Inherits@4: ^SpriteActor
+	AlwaysVisible:
+	Armor:
+		Type: Wood
+	Health:
+		HP: 30000
+	Building:
+		Footprint: x
+		Dimensions: 1,1
+	Targetable:
+		TargetTypes: Trees
+	WithSpriteBody:
+	HitShape:
+		Type: Circle
+			Radius: 128
+	MapEditorData:
+		Categories: Tree
+	SpawnActorOnDeath@stump:
+		Actor: trees1.stump
+	RenderSprites:
+		Palette: tempdecs
+	Crushable:
+		CrushSound: hdgcrsh.aud
+		CrushClasses: tree
+	GrantExternalConditionToCrusher:
+		WarnCrushCondition: crush-attempt
+		WarnCrushDuration: 15
+		OnCrushCondition: crush-succesful
+		OnCrushDuration: 30
+	AppearsOnRadar:
+	RadarColorFromTerrain:
+		Terrain: Tree
+	AppearsOnMapPreview:
+		Terrain: Tree
+
+^WholeCellTreeHusk:
+	Inherits@1: ^ExistsInWorld
+	Inherits@4: ^SpriteActor
+	HiddenUnderFog:
+		Type: CenterPosition
+	Aircraft:
+		Repulsable: False
+		Speed: 0
+	WithSpriteBody:
+	MapEditorData:
+		Categories: Tree
+	RenderSprites:
+		Palette: tempdecs
+
+^Warpable:
+	Warpable:
+		Condition: being-warped
+		RevokeDelay: 25
+		RevokeRate: 250
+		DamageTypes: ChronoDeath
+		ScaleWithCurrentHealthPercentage: true
+		ShowSelectionBar: true
+		SelectionBarColor: 40FFFF
+	Targetable@TEMPORAL:
+		TargetTypes: Temporal
+	WithColoredOverlay@TEMPORAL2:
+		RequiresCondition: being-warped
+		Color: 00000060
+	ExternalCondition@TEMPORAL:
+		Condition: being-warped
+	GrantCondition@warped:
+		RequiresCondition: being-warped
+		Condition: empdisable
+	SpeedMultiplier@TEMPORAL:
+		Modifier: 0
+		RequiresCondition: being-warped
+	RejectsOrders@TEMPORAL:
+		RequiresCondition: being-warped
+	WithModifiedPalette@warped:
+		Palette: temporal
+		RequiresCondition: being-warped
+	WithColoredOverlay@warpable:
+		RequiresCondition: being-warped
+		Color: AAF2FF
 
 ^Infantry:
 	Inherits@1: ^ExistsInWorld
@@ -982,6 +1258,13 @@
 	Inherits@flarevision: ^FlareVision
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Inherits@stealthable: ^Stealthable
+	Inherits@mindcontrol: ^MindControllable
+	Inherits@warp: ^Warpable
+	Inherits@freezable: ^Freezable
+	Explodes@chrono:
+		Weapon: ChronoExplosionSM
+		EmptyWeapon: ChronoExplosionSM
+		DeathTypes: ChronoDeath
 	AmbientSound@sliced:
 		SoundFiles: meatslice.wav, meastslice2.wav, meatslice3.wav, meatslice4.wav
 	Huntable:
@@ -1000,13 +1283,13 @@
 		Locomotor: foot
 		RequiresCondition: !turnedoff
 	Selectable:
-		Bounds: 18,20,0,-6
-		DecorationBounds: 12,18,0,-8
+		Bounds: 768, 853, 0, -256
+		DecorationBounds: 512, 768, 0, -341
 	Targetable:
-		RequiresCondition: !parachute
-		TargetTypes: GroundActor, Infantry, Disguise
+		RequiresCondition: !parachute && !being-warped
+		TargetTypes: GroundActor, Infantry, Disguise, MindControllable
 	Targetable@HEAL:
-		RequiresCondition: !parachute && damaged
+		RequiresCondition: !parachute && damaged && !being-warped
 		TargetTypes: Heal
 	GrantConditionOnDamageState@DAMAGED:
 		Condition: damaged
@@ -1023,6 +1306,7 @@
 			FireDeath: 5
 			ElectricityDeath: 6
 			AcidDeath: 7
+			FreezeDeath: 8
 			Zombiefy: 1
 		CrushedSequence: die-crushed
 	AttackMove:
@@ -1076,6 +1360,9 @@
 	DeathSounds@ZAPPED:
 		Voice: Zapped
 		DeathTypes: ElectricityDeath
+	DeathSounds@ZAPPED:
+		Voice: Freezed
+		DeathTypes: FreezeDeath
 	Parachutable:
 		FallRate: 26
 		KilledOnImpassableTerrain: true
@@ -1103,10 +1390,10 @@
 		Categories: Infantry
 	EdibleByLeap:
 	DetectCloaked:
-		CloakTypes: Cloak
+		DetectionTypes: Cloak
 		Range: 2c0
 	DetectCloaked@phase:
-		CloakTypes: Phase
+		DetectionTypes: Phase
 		Range: 2c0
 	GrantExternalConditionToCrusher:
 		WarnCrushCondition: crush-attempt
@@ -1138,6 +1425,7 @@
 		StandSequences: stand,stand2
 	AttackFrontal:
 		RequiresCondition: !turnedoff
+		FacingTolerance: 0
 
 ^CivInfantry:
 	Inherits: ^Infantry
@@ -1186,6 +1474,8 @@
 	Inherits@lazarus: ^Lazarus
 	Inherits@chronohaste: ^ChronoHasteable
 	Inherits@flarevision: ^FlareVision
+	Inherits@warpable: ^Warpable
+	Inherits@freezable: ^Freezable
 	Huntable:
 	OwnerLostAction:
 		Action: Kill
@@ -1197,11 +1487,11 @@
 		RequiresCondition: turnedoff
 		Modifier: 0
 	Selectable:
-		Bounds: 24,24
+		Bounds: 1024, 1024
 	Targetable:
-		TargetTypes: WaterActor, Ship
+		TargetTypes: WaterActor, Ship && !being-warped
 	Targetable@REPAIR:
-		RequiresCondition: damaged
+		RequiresCondition: damaged && !being-warped
 		TargetTypes: Repair
 	GrantConditionOnDamageState@DAMAGED:
 		Condition: damaged
@@ -1222,6 +1512,11 @@
 	Explodes:
 		Weapon: UnitExplodeShip
 		EmptyWeapon: UnitExplodeShip
+		RequiresCondition: !being-warped
+	Explodes@chrono:
+		Weapon: ChronoExplosion
+		EmptyWeapon: ChronoExplosion
+		DeathTypes: ChronoDeath
 	Guard:
 	Guardable:
 	Tooltip:
@@ -1244,6 +1539,8 @@
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@chronohaste: ^ChronoHasteable
 	Inherits@flarevision: ^FlareVision
+	Inherits@warpable: ^Warpable
+	Inherits@freezable: ^Freezable
 	RejectsOrders:
 		RequiresCondition: turnedoff
 	Huntable:
@@ -1255,7 +1552,7 @@
 	AppearsOnRadar:
 		UseLocation: true
 	Selectable:
-		Bounds: 24,24
+		Bounds: 1024, 1024
 	Aircraft:
 		AirborneCondition: airborne
 		CruiseAltitude: 4c0
@@ -1264,13 +1561,13 @@
 		RequiresCondition: !cruising
 		Modifier: 125
 	Targetable@GROUND:
-		RequiresCondition: !airborne
+		RequiresCondition: !airborne && !being-warped
 		TargetTypes: GroundActor, Vehicle
 	Targetable@AIRBORNE:
-		RequiresCondition: airborne
+		RequiresCondition: airborne && !being-warped
 		TargetTypes: AirborneActor
 	Targetable@REPAIR:
-		RequiresCondition: !airborne && damaged
+		RequiresCondition: !airborne && damaged && !being-warped
 		TargetTypes: Repair
 	GrantConditionOnDamageState@DAMAGED:
 		Condition: damaged
@@ -1309,7 +1606,11 @@
 		RequiresCondition: airborne
 	Explodes:
 		Weapon: UnitExplode
-		RequiresCondition: !airborne
+		RequiresCondition: !being-warped && !airborne
+	Explodes@chrono:
+		Weapon: ChronoExplosion
+		EmptyWeapon: ChronoExplosion
+		DeathTypes: ChronoDeath
 	CaptureManager:
 	Capturable:
 		Types: aircraft
@@ -1328,7 +1629,7 @@
 	Repairable:
 		RepairActors: fix
 	Targetable@AIRBORNE:
-		RequiresCondition: airborne
+		RequiresCondition: airborne && !being-warped
 		TargetTypes: AirborneBomber
 	Aircraft:
 		TakeOffOnResupply: true
@@ -1352,7 +1653,7 @@
 	Hovers@CRUISING:
 		RequiresCondition: cruising
 	Targetable@AIRBORNE:
-		RequiresCondition: airborne
+		RequiresCondition: airborne && !being-warped
 		TargetTypes: AirborneActor
 	BodyOrientation:
 		QuantizedFacings: 0
@@ -1368,8 +1669,16 @@
 	Inherits@selection: ^SelectableBuilding
 	Inherits@handicaps: ^PlayerHandicaps
 	Inherits@sliced: ^Sliced
+	Inherits@warp: ^Warpable
+	Inherits@freezable: ^Freezable
+	Explodes@chrono:
+		Weapon: ChronoExplosionBG
+		EmptyWeapon: ChronoExplosionBG
+		DeathTypes: ChronoDeath
+	WithBuildingBib:
 	Targetable:
 		TargetTypes: GroundActor, C4, DetonateAttack, Structure
+		RequiresCondition:  !being-warped
 	Building:
 		Dimensions: 1,1
 		Footprint: x
@@ -1379,7 +1688,6 @@
 		UndeploySounds: cashturn.aud
 	SequencePlaceBuildingPreview:
 		Sequence: idle
-		SequencePalette: placebuilding
 	RequiresBuildableArea:
 		AreaTypes: building
 		Adjacent: 3
@@ -1391,6 +1699,7 @@
 		Type: Footprint
 		Weapon: BuildingExplode
 		EmptyWeapon: BuildingExplode
+		RequiresCondition: !being-warped
 	CaptureNotification:
 	ShakeOnDeath:
 	ProximityCaptor:
@@ -1409,7 +1718,6 @@
 ^Building:
 	Inherits: ^BasicBuilding
 	Inherits@flarevision: ^FlareVision
-	Inherits@withbib: ^WithSpriteBib
 	Huntable:
 	OwnerLostAction:
 		Action: Kill
@@ -1458,9 +1766,10 @@
 	Inherits: ^Building
 	Inherits@selection: ^SelectableCombatBuilding
 	Selectable:
-		Bounds: 24,24
+		Bounds: 1024, 1024
 	Targetable:
 		TargetTypes: GroundActor, C4, DetonateAttack, Structure, Defense
+		RequiresCondition:  !being-warped
 	MustBeDestroyed:
 		RequiredForShortGame: false
 	-GivesBuildableArea:
@@ -1473,16 +1782,19 @@
 		Categories: Defense
 	-CommandBarBlacklist:
 	DetectCloaked@phase:
-		CloakTypes: Phase
+		DetectionTypes: Phase
 		Range: 4c0
+	WithBuildingBib:
+		HasMinibib: True
 
 ^Wall:
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^SpriteActor
 	Inherits@shape: ^1x1Shape
 	Inherits@handicaps: ^PlayerHandicaps
+	Inherits@warp: ^Warpable
 	Interactable:
-		Bounds: 24,24
+		Bounds: 1024, 1024
 	OwnerLostAction:
 		Action: ChangeOwner
 	Building:
@@ -1492,7 +1804,6 @@
 		TerrainTypes: Clear,Road, TallGrass, Pavement, PavedRoad
 		UndeploySounds: cashturn.aud
 	FootprintPlaceBuildingPreview:
-		LineBuildSegmentPalette: placelinesegment
 	RequiresBuildableArea:
 		AreaTypes: building
 		Adjacent: 7
@@ -1508,6 +1819,7 @@
 		Types: wall
 	Targetable:
 		TargetTypes: GroundActor, DetonateAttack, Wall, NoAutoTarget
+		RequiresCondition:  !being-warped
 	-GivesExperience:
 	RenderSprites:
 		Palette: effect
@@ -1565,10 +1877,12 @@
 	-MustBeDestroyed:
 	MapEditorData:
 		Categories: Fake
+	WithBuildingBib:
 
 ^InfiltratableFake:
 	Targetable:
 		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration
+		RequiresCondition:  !being-warped
 	InfiltrateForDecoration:
 		Types: SpyInfiltrate, SaboteurInfiltration
 		Position: Top
@@ -1588,18 +1902,21 @@
 		Name: Ammo Box
 	Targetable:
 		TargetTypes: GroundActor, C4, DetonateAttack, Structure, NoAutoTarget
+		RequiresCondition:  !being-warped
 	Armor:
 		Type: Light
 	MapEditorData:
 		Categories: Decoration
 	Interactable:
-		Bounds: 24,24
+		Bounds: 1024, 1024
+	-WithBuildingBib:
 
 ^GarrisonableCivBuilding:
 	Inherits: ^CivBuilding
 	Inherits@pips: ^CargoPips
 	Inherits@selection: ^SelectableCombatBuilding
 	Inherits@AUTOTARGET: ^AutoTargetAll
+	-WithBuildingBib:
 	Cargo:
 		Types: Infantry
 		MaxWeight: 4
@@ -1609,8 +1926,10 @@
 		PortOffsets: 384,0,128, 224,-341,128, -224,-341,128, -384,0,128, -224,341,128, 224,341,128
 		PortYaws: 0, 176, 341, 512, 682, 853
 		PortCones: 88, 88, 88, 88, 88, 88
+		RequiresCondition: !being-warped && !empdisable
 	Turreted:
-		TurnSpeed: 512
+		TurnSpeed: 2048
+		RequiresCondition: !being-warped && !empdisable
 	ProximityCapturableSwp:
 		Range: 2c0
 		CaptorTypes: Infantry
@@ -1632,8 +1951,9 @@
 	RevealsShroud@GAPGEN:
 		Range: 1c0
 		Type: GroundPosition
-	Targetable@target
+	Targetable@target:
 		TargetTypes: Defense
+		RequiresCondition:  !being-warped
 
 ^CivBuilding:
 	Inherits: ^TechBuilding
@@ -1860,6 +2180,8 @@
 		Type: GroundPosition
 
 ^BasicHusk:
+	ExternalCondition@temporal:
+		Condition: being-warped
 	Interactable:
 	Health:
 		HP: 28000
@@ -1906,10 +2228,11 @@
 		Types: Husk
 		ForceHealthPercentage: 25
 	WithColoredOverlay@IDISABLE:
-		Palette: disabled
+		Color: 000000B4
 	Targetable:
 		TargetTypes: GroundActor, Husk, NoAutoTarget
 		RequiresForceFire: false
+		RequiresCondition:  !being-warped
 	Chronoshiftable:
 		ReturnToOrigin: False
 	Tooltip:
@@ -1934,7 +2257,7 @@
 	Inherits: ^BasicHusk
 	Inherits@4: ^SpriteActor
 	-MapEditorData:
-	Targetable: 
+	Targetable:
 		TargetTypes: Corpse
 	Armor:
 		Type: None
@@ -1954,7 +2277,7 @@
 		Type: Circle
 			Radius: 128
 	Interactable:
-		Bounds: 5, 5
+		Bounds: 500, 500
 	EdibleByLeap:
 	RenderSprites:
 		Image: deadinfantry
@@ -1993,7 +2316,7 @@
 
 ^HighAltitudePlane:
 	Targetable@AIRBORNE:
-		RequiresCondition: airborne
+		RequiresCondition: airborne && !being-warped
 		TargetTypes: AirborneBomber
 
 ^HelicopterHusk:
@@ -2037,7 +2360,7 @@
 	BodyOrientation:
 		QuantizedFacings: 1
 	Interactable:
-		Bounds: 96,48
+		Bounds: 4096, 2048
 	ShakeOnDeath:
 		Duration: 15
 		Intensity: 6
@@ -2077,14 +2400,14 @@
 ^Crate:
 	Inherits@1: ^SpriteActor
 	Interactable:
-		Bounds: 24,24
+		Bounds: 1024, 1024
 	HiddenUnderFog:
 	Tooltip:
 		Name: Crate
 		GenericName: Crate
 		ShowOwnerRow: false
 	Crate:
-		Lifetime: 180
+		Duration: 180
 		TerrainTypes: Clear, Rough, Road, Ore, Beach, Water, TallGrass, Pavement, PavedRoad
 	RenderSprites:
 		Palette: effect
@@ -2111,7 +2434,7 @@
 ^Mine:
 	Inherits: ^SpriteActor
 	Interactable:
-		Bounds: 24,24
+		Bounds: 1024, 1024
 	WithSpriteBody:
 	HiddenUnderFog:
 	Mine:
@@ -2128,7 +2451,7 @@
 		CloakSound:
 		UncloakSound:
 		Palette:
-		CloakTypes: Mine
+		CloakType: Mine
 		InitialDelay: 0
 	Tooltip:
 		Name: Mine
@@ -2146,8 +2469,8 @@
 
 ^DisableOnLowPower:
 	WithColoredOverlay@IDISABLE:
-		RequiresCondition: disabled || turnedoff
-		Palette: disabled
+		RequiresCondition: disabled || turnedoff && !being-warped
+		Color: 000000B4
 	GrantConditionOnPowerState@LOWPOWER:
 		Condition: lowpower
 		ValidPowerStates: Low, Critical
@@ -2193,7 +2516,7 @@
 		TargetTypes: SaboteurInfiltration
 	WithColoredOverlay@IDISABLE:
 		RequiresCondition: disabled || turnedoff
-		Palette: disabled
+		Color: 000000B4
 	WithDecoration@sabotaged:
 		Image: pips
 		Sequence: pip-sabotaged
@@ -2201,6 +2524,7 @@
 		Margin: 0, 0
 		BlinkInterval: 32
 		BlinkPattern: On, Off
+		ValidRelationships: Ally, Neutral, Enemy
 		RequiresCondition: sabotaged && !saboteur-explode
 	GrantConditionOnInfiltration@saboteur-explode:
 		Condition: saboteur-explode
@@ -2233,6 +2557,7 @@
 		BlinkInterval: 12
 		BlinkPattern: On, Off
 		RequiresCondition: saboteur-explode
+		ValidRelationships: Ally, Neutral, Enemy
 
 ^FlameShield:
 	ExternalCondition@FLAMESHIELD:
@@ -2244,8 +2569,8 @@
 	DamageMultiplier@flameshield:
 		Modifier: 50
 		RequiresCondition: flameshield
-	WithIdleOverlay@flameshield
-		Image: flameshield
+	WithIdleOverlay@flameshield:
+		Image: helios
 		Sequence: idle
 		RequiresCondition: flameshield
 		Offset: 0,0,150
@@ -2254,7 +2579,7 @@
 		RequiresCondition: flameshield
 
 ^SuperchargePower:
-	TimedConditionBar@supercharged
+	TimedConditionBar@supercharged:
 		Condition: supercharged
 		Color: 266AFF
 	PowerMultiplier@supercharged:
@@ -2271,7 +2596,7 @@
 		Color: 266AFF
 
 ^Lazarus:
-	ExternalCondition@lazarus
+	ExternalCondition@lazarus:
 		Condition: lazarus
 	ChangesHealth@lazarus:
 		Step: 60
@@ -2281,7 +2606,7 @@
 		RequiresCondition: lazarus
 	WithColoredOverlay@LAZARUS:
 		RequiresCondition: lazarus && damaged
-		Palette: lazarusheal
+		Color: 9EFFFF50
 
 ^Drone:
 	GrantConditionOnPrerequisite@radaronline:
@@ -2289,7 +2614,7 @@
 		Prerequisites: !radaronline
 	WithColoredOverlay@EMPDISABLE:
 		RequiresCondition: turnedoff
-		Palette: disabled
+		Color: 000000B4
 	GrantCondition@iamdisabled:
 		Condition: turnedoff
 		RequiresCondition: tobedisabled && !spawned
@@ -2316,7 +2641,7 @@
 	RejectsOrders@nervegas:
 		RequiresCondition: nervegas
 	WithColoredOverlay@nervegas:
-		Palette: berserk
+		Color: 88008875
 		RequiresCondition: nervegas
 	TimedConditionBar@nervegas:
 		Color: 880088
@@ -2348,7 +2673,6 @@
 		Modifier: 90
 		RequiresCondition: propaganda
 	WithColoredOverlay@PROPAGANDA:
-		Palette: propaganda
 		RequiresCondition: propaganda
 
 ^MagneticTrap:
@@ -2356,7 +2680,7 @@
 		Condition: magnetic-trap
 	WithColoredOverlay@MAGNETICTRAP:
 		RequiresCondition: magnetic-trap
-		Palette: magnet
+		Color: B200FF75
 	SpeedMultiplier@magnetitrap:
 		RequiresCondition: magnetic-trap
 		Modifier: 25
@@ -2367,7 +2691,7 @@
 ^DisabledByPowerOutage:
 	WithColoredOverlay@IDISABLE:
 		RequiresCondition: disabled || turnedoff
-		Palette: disabled
+		Color: 000000B4
 	GrantCondition@IDISABLE:
 		RequiresCondition: power-outage
 		Condition: disabled
@@ -2428,6 +2752,7 @@
 	PrimaryBuilding:
 		PrimaryCondition: primary
 		SelectionNotification: PrimaryBuildingSelected
+		SelectionTextNotification: Primary building selected.
 	WithDecoration@primary:
 		RequiresCondition: primary
 		Position: Top

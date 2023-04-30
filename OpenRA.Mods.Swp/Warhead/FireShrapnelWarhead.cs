@@ -41,6 +41,9 @@ namespace OpenRA.Mods.Swp.Warheads
 		[Desc("Should the weapons be fired around the intended target or at the explosion's epicenter.")]
 		public readonly bool AroundTarget = false;
 
+		[Desc("Does this weapon aim at the target's center regardless of other targetable offsets?")]
+		public readonly bool TargetActorCenter = false;
+
 		WeaponInfo weapon;
 
 		public void RulesetLoaded(Ruleset rules, WeaponInfo info)
@@ -83,7 +86,7 @@ namespace OpenRA.Mods.Swp.Warheads
 			var availableTargetActors = world.FindActorsOnCircle(epicenter, weapon.Range)
 				.Where(x => (AllowDirectHit || !directActors.Contains(x))
 					&& weapon.IsValidAgainst(Target.FromActor(x), firedBy.World, firedBy)
-					&& AimTargetStances.HasStance(firedBy.Owner.RelationshipWith(x.Owner)))
+					&& AimTargetStances.HasRelationship(firedBy.Owner.RelationshipWith(x.Owner)))
 				.Where(x =>
 				{
 					var activeShapes = x.TraitsImplementing<HitShape>().Where(Exts.IsTraitEnabled);
@@ -149,7 +152,7 @@ namespace OpenRA.Mods.Swp.Warheads
 					CurrentSource = () => centerPosition,
 					SourceActor = firedBy,
 					GuidedTarget = shrapnelTarget,
-					PassiveTarget = shrapnelTarget.CenterPosition
+					PassiveTarget = TargetActorCenter ? shrapnelTarget.CenterPosition : shrapnelTarget.Positions.PositionClosestTo(epicenter)
 				};
 
 				if (projectileArgs.Weapon.Projectile != null)
@@ -158,7 +161,7 @@ namespace OpenRA.Mods.Swp.Warheads
 					if (projectile != null)
 						firedBy.World.AddFrameEndTask(w => w.Add(projectile));
 
-					if (projectileArgs.Weapon.Report != null && projectileArgs.Weapon.Report.Any())
+					if (projectileArgs.Weapon.Report != null && projectileArgs.Weapon.Report.Length > 0)
 						Game.Sound.Play(SoundType.World, projectileArgs.Weapon.Report.Random(firedBy.World.SharedRandom), target.CenterPosition);
 				}
 			}
