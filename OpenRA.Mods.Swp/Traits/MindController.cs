@@ -11,8 +11,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using OpenRA.Mods.Swp.Orders;
 using OpenRA.Mods.Common.Traits;
+using OpenRA.Mods.Swp.Orders;
 using OpenRA.Traits;
 
 namespace OpenRA.Mods.Swp.Traits

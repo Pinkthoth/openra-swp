@@ -8,9 +8,9 @@
  */
 #endregion
 
-using OpenRA.Mods.Swp.Activities;
 using OpenRA.Mods.Common;
 using OpenRA.Mods.Common.Traits;
+using OpenRA.Mods.Swp.Activities;
 using OpenRA.Traits;
 
 namespace OpenRA.Mods.Swp.Traits

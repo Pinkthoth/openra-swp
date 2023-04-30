@@ -11,11 +11,11 @@
 
 using System.Collections.Generic;
 using OpenRA.Activities;
-using OpenRA.Mods.Swp.Traits;
 using OpenRA.Mods.Common;
 using OpenRA.Mods.Common.Activities;
 using OpenRA.Mods.Common.Traits;
 using OpenRA.Mods.Common.Traits.Render;
+using OpenRA.Mods.Swp.Traits;
 using OpenRA.Primitives;
 using OpenRA.Traits;
 

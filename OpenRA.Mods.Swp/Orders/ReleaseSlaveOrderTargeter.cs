@@ -10,8 +10,8 @@
 #endregion
 
 using System;
-using OpenRA.Mods.Swp.Traits;
 using OpenRA.Mods.Common.Orders;
+using OpenRA.Mods.Swp.Traits;
 using OpenRA.Traits;
 
 namespace OpenRA.Mods.Swp.Orders
