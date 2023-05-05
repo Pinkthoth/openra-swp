@@ -383,9 +383,8 @@ CIVNUKE:
 	CapturableProgressBar:
 	CapturableProgressBlink:
 	EngineerRepairable:
-	WithBuildingBib:
-		HasMinibib: True
 	AppearsOnMapPreview:
+	-WithBuildingBib:
 
 CIVNUKE.exploding:
 	Inherits: ^TechBuilding
@@ -429,9 +428,8 @@ CIVNUKE.exploding:
 		Interval: 1000
 	WithSpriteBody:
 		Sequence: dead
+	-WithBuildingBib:
 	-MapEditorData:
-	WithBuildingBib:
-		HasMinibib: True
 
 FHOUSEA:
 	Inherits: ^GarrisonableCivBuilding

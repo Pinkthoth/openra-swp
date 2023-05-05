@@ -265,8 +265,12 @@ PortaCannon:
 
 8Inch-Grand-Cannon:
 	Inherits: 8Inch
+	FirstBurstTargetOffset: -1c0,0,0
+	FollowingBurstTargetOffset: 1c0,0,0
 	ReloadDelay: 200
 	Range: 12c0
+	Projectile: Bullet
+		Inaccuracy: 0c512
 	Warhead@1Dam: SpreadDamage
 		Spread: 213
 		Damage: 2500
@@ -600,7 +604,7 @@ bigberthagun:
 			Heavy: 30
 			Concrete: 65
 	Warhead@3Eff: CreateEffect
-		Explosions: berthaexpld
+		Explosions: dmexpld_sm
 		ImpactSounds: explode1.aud
 
 GrenadeLauncher:

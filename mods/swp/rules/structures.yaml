@@ -272,8 +272,8 @@ GAP:
 		Prerequisites: stek, ~structures.ukraine, ~techlevel.high
 		Description: Obscures the enemy's view with shroud.\nRequires power to operate.
 	Selectable:
-		Bounds: 724, 1448
-		DecorationBounds: 724, 2896, 0, -724
+		Bounds: 924, 1448
+		DecorationBounds: 1024, 2896, 0, -724
 	WithSpriteBody:
 		PauseOnCondition: disabled || turnedoff
 	Health:
@@ -641,8 +641,8 @@ REFTWR:
 	Tooltip:
 		Name: Refractor Tower
 	Selectable:
-		Bounds: 724, 1448
-		DecorationBounds: 724, 2896, 0, -965
+		Bounds: 924, 1448
+		DecorationBounds: 1024, 2896, 0, -724
 	Health:
 		HP: 40000
 	Armor:
@@ -656,7 +656,7 @@ REFTWR:
 	WithTeslaChargeAnimation:
 	Armament:
 		Weapon: PrismTower
-		LocalOffset: 0,0,2000
+		LocalOffset: 0,0,1700
 		PauseOnCondition: disabled || turnedoff
 	AttackCharges:
 		PauseOnCondition: disabled || build-incomplete || turnedoff
@@ -902,6 +902,9 @@ DOME:
 	ProvidesPrerequisite@japan:
 		Factions: japan
 		Prerequisite: support.japan
+	ProvidesPrerequisite@bulgaria:
+		Factions: bulgaria
+		Prerequisite: support.bulgaria
 	ProvidesPrerequisite@persia:
 		Factions: persia
 		Prerequisite: support.persia
@@ -1083,7 +1086,7 @@ DOME:
 		Prerequisites: support.belarus
 		ChargeInterval: 8500
 		Name: Blizzard
-		Description: A squad of Badgers drop parachuted\nbombs on your target.
+		Description: A freezing blizzard approaches the map\nfrom the chosen direction.
 		SelectTargetSpeechNotification: SelectTarget
 		CameraActor: camera
 		CameraRemoveDelay: 150
@@ -1140,7 +1143,7 @@ DOME:
 		SelectTargetSpeechNotification: SelectTarget
 		CameraActor: camera
 		CameraRemoveDelay: 150
-		UnitType: badr.bomber
+		UnitType: support.bomber
 		QuantizedFacings: 8
 		DisplayBeacon: true
 		BeaconPoster: pbmbicon
@@ -1338,7 +1341,7 @@ DOME:
 		SelectTargetSpeechNotification: SelectTarget
 		CameraActor: camera
 		CameraRemoveDelay: 150
-		UnitType: junkers.bomber
+		UnitType: support.bomber
 		QuantizedFacings: 8
 		DisplayBeacon: true
 		BeaconPoster: paraminebeacon
@@ -1564,9 +1567,9 @@ MOROZKO:
 		Queue: Defense
 		BuildPaletteOrder: 111
 		Prerequisites: dome, ~structures.belarus, ~techlevel.medium
-		Description: Static anti-infantry base defense.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+		Description: Static blizzard generating structure.\nCan detect cloaked units.
 	Valued:
-		Cost: 1300
+		Cost: 1150
 	CustomSellValue:
 		Value: 400
 	Health:
@@ -1577,6 +1580,8 @@ MOROZKO:
 		MinRange: 5c0
 		Range: 6c0
 		RevealGeneratedShroud: False
+	WithSpriteBody:
+		PauseOnCondition: disabled || turnedoff
 	RevealsShroud@GAPGEN:
 		Range: 5c0
 	-QuantizeFacingsFromSequence:
@@ -1600,9 +1605,11 @@ MOROZKO:
 	WithIdleOverlay@snowing:
 		Image: snowing
 		Sequence: idle
-		RequiresCondition: !disabled && !empdisable && !being-warped
+		RequiresCondition: !disabled && !empdisable && !being-warped && in-game
 	WithBuildingBib:
 		HasMinibib: True
+	GrantCondition@start:
+		Condition: in-game
 
 PBOX:
 	Inherits: ^Defense
@@ -2407,7 +2414,7 @@ GRANDCANNON:
 		Prerequisites: atek, ~structures.raj, ~techlevel.medium
 		Description: Extra long ranged stationary artillery.\nCan detect cloaked units.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
 	Valued:
-		Cost: 1850
+		Cost: 2000
 	Tooltip:
 		Name: Grand Cannon
 	Building:
@@ -2733,7 +2740,7 @@ MTEK:
 	RevealsShroud@GAPGEN:
 		Range: 4c0
 	Targetable:
-		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate
+		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
 	Power:
 		Amount: -200
 	ProvidesPrerequisite@buildingname:
@@ -2778,7 +2785,7 @@ ATEK:
 	RevealsShroud@GAPGEN:
 		Range: 4c0
 	Targetable:
-		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate
+		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
 	Power:
 		Amount: -200
 	ProvidesPrerequisite@buildingname:
@@ -2958,7 +2965,7 @@ PROC:
 	Building:
 		Footprint: =x= =+= =x=
 		Dimensions: 3,3
-		LocalCenterOffset: 0,-512,0
+		LocalCenterOffset: 0,0,0
 	Selectable:
 		Bounds: 2672, 2615, 0, -241
 		DecorationBounds: 2825, 2825, 30, -241
@@ -3001,19 +3008,9 @@ PROC:
 		UseDeathTypeSuffix: false
 	ProvidesPrerequisite@buildingname:
 	HitShape:
-		Type: Rectangle
-			TopLeft: -1536, -512
-			BottomRight: 1536, 598
-	HitShape@TOP:
-		TargetableOffsets: 1680,0,0
-		Type: Rectangle
-			TopLeft: -512, -1536
-			BottomRight: 512, -512
-	HitShape@BOTTOMLEFT:
-		TargetableOffsets: -1260,-1024,0
-		Type: Rectangle
-			TopLeft: -1536, 598
-			BottomRight: -512, 1280
+		TargetableOffsets: 840,0,0, 598,-640,0, 598,640,0, -1060,0,0, -768,-640,0, -768,640,0
+		Type: Polygon
+			Points: -1536,-300, -640,-811, 640,-811, 1536,-300, 1536,555, 640,1110, -640,1110, -1536,555
 	SequencePlaceBuildingPreview:
 		Sequence: idle
 	WithResourceStoragePipsDecoration:
@@ -3643,7 +3640,7 @@ STEK:
 	Power:
 		Amount: -100
 	Targetable:
-		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate
+		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
 	ProvidesPrerequisite@buildingname:
 	InfiltrateForSupportPower@stektech:
 		Types: SpyInfiltrate

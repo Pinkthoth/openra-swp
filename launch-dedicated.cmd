@@ -2,7 +2,7 @@
 
 @echo on
 
-set Name="Dedicated Server"
+set Name="SWP Server"
 set ListenPort=1234
 set AdvertiseOnline=True
 set Password=""
@@ -37,7 +37,7 @@ if not exist %ENGINE_DIRECTORY%\bin\OpenRA.exe goto noengine
 cd %ENGINE_DIRECTORY%
 
 :loop
-bin\OpenRA.Server.exe Game.Mod=%MOD_ID% Engine.EngineDir=".." Server.Name=%Name% Server.ListenPort=%ListenPort% Server.AdvertiseOnline=%AdvertiseOnline% Server.EnableSingleplayer=%EnableSingleplayer% Server.Password=%Password% Server.RequireAuthentication=%RequireAuthentication% Server.RecordReplays=%RecordReplays% Server.ProfileIDBlacklist=%ProfileIDBlacklist% Server.ProfileIDWhitelist=%ProfileIDWhitelist% Server.EnableSyncReports=%EnableSyncReports% Server.EnableGeoIP=%EnableGeoIP% Server.ShareAnonymizedIPs=%ShareAnonymizedIPs% Server.EnableLintChecks=%EnableLintChecks% Engine.SupportDir=%SupportDir% Server.JoinChatDelay=%JoinChatDelay%
+bin\OpenRA.Server.exe Game.Mod="swp" Engine.EngineDir=".." Server.Name=%Name% Server.ListenPort=%ListenPort% Server.AdvertiseOnline=%AdvertiseOnline% Server.EnableSingleplayer=%EnableSingleplayer% Server.Password=%Password% Server.RequireAuthentication=%RequireAuthentication% Server.RecordReplays=%RecordReplays% Server.ProfileIDBlacklist=%ProfileIDBlacklist% Server.ProfileIDWhitelist=%ProfileIDWhitelist% Server.EnableSyncReports=%EnableSyncReports% Server.EnableGeoIP=%EnableGeoIP% Server.ShareAnonymizedIPs=%ShareAnonymizedIPs% Server.EnableLintChecks=%EnableLintChecks% Engine.SupportDir=%SupportDir% Server.JoinChatDelay=%JoinChatDelay%
 goto loop
 
 :noengine

@@ -684,18 +684,22 @@ pbox:
 	icon: pboxicon
 
 morozko:
+	Defaults:
+		Offset: 0,-9,0
 	idle:
 		Length: 30
-	damaged-idle: morozkobrk
-		Start: 0
-		Length: 40
-	make: morozkomake
-		Length: *
+	damaged-idle:
+		Start: 30
+		Length: 39
+	make:
+		Start: 70
+		Length: 35
 	bib: mbPBOX
 		Length: *
 		Offset: 0,-2
 		UseTilesetExtension: true
 	icon: morozkoicon
+		Offset: 0,0,0
 
 
 spainbunker:
@@ -1894,7 +1898,7 @@ civnuke:
 		Start: 1
 	dead:
 		Start: 2
-	bib: bib2
+	bib: bib_1
 		Length: *
 		UseTilesetExtension: true
 		TilesetOverrides:

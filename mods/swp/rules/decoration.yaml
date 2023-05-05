@@ -929,6 +929,7 @@ tgc1:
 		Actor: trees27
 		Offset: 0,2
 		RequiresCondition: three
+	-MapEditorData:
 		
 tgc1.Husk:
 	Inherits: ^TreeHusk
@@ -938,6 +939,7 @@ tgc1.Husk:
 		Dimensions: 2,3
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
+	-MapEditorData:
 		
 tgc2:
 	Inherits: ^Tree
@@ -977,6 +979,7 @@ tgc2:
 		Actor: trees15
 		Offset: 0,2
 		RequiresCondition: three
+	-MapEditorData:
 		
 tgc2.Husk:
 	Inherits: ^TreeHusk
@@ -986,6 +989,7 @@ tgc2.Husk:
 		Dimensions: 2,3
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
+	-MapEditorData:
 		
 tgb:
 	Inherits: ^Tree
@@ -996,6 +1000,7 @@ tgb:
 		ExcludeTilesets: DESERT, INTERIOR
 	SpawnActorOnDeath:
 		Actor: tgb.Husk
+	-MapEditorData:
 		
 tgb.Husk:
 	Inherits: ^TreeHusk
@@ -1005,6 +1010,7 @@ tgb.Husk:
 		Dimensions: 4,3
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
+	-MapEditorData:
 		
 tgd:
 	Inherits: ^Tree
@@ -1015,6 +1021,7 @@ tgd:
 		ExcludeTilesets: DESERT, INTERIOR
 	SpawnActorOnDeath:
 		Actor: tgd.Husk
+	-MapEditorData:
 		
 tgd.Husk:
 	Inherits: ^TreeHusk
@@ -1024,6 +1031,7 @@ tgd.Husk:
 		Dimensions: 3,3
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
+	-MapEditorData:
 		
 tgd2:
 	Inherits: ^Tree
@@ -1034,6 +1042,7 @@ tgd2:
 		ExcludeTilesets: DESERT, INTERIOR
 	SpawnActorOnDeath:
 		Actor: tgd2.Husk
+	-MapEditorData:
 		
 tgd2.Husk:
 	Inherits: ^TreeHusk
@@ -1043,6 +1052,7 @@ tgd2.Husk:
 		Dimensions: 3,3
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
+	-MapEditorData:
 
 TC01:
 	Inherits: ^Tree
@@ -1362,83 +1372,100 @@ t01:
 	Inherits: TREES10
 	RenderSprites:
 		Image: trees10
+	-MapEditorData:
 
 t02:
 	Inherits: TREES11
 	RenderSprites:
 		Image: trees11
+	-MapEditorData:
 
 t03:
 	Inherits: TREES12
 	RenderSprites:
 		Image: trees12
+	-MapEditorData:
 
 t04:
 	Inherits: TREES13
 	RenderSprites:
 		Image: trees13
+	-MapEditorData:
 
 t05:
 	Inherits: TREES14
 	RenderSprites:
 		Image: trees14
+	-MapEditorData:
 
 t06:
 	Inherits: TREES15
 	RenderSprites:
 		Image: trees15
+	-MapEditorData:
 
 t07:
 	Inherits: TREES16
 	RenderSprites:
 		Image: trees16
+	-MapEditorData:
 
 t08:
 	Inherits: TREES17
 	RenderSprites:
 		Image: trees17
+	-MapEditorData:
 
 t09:
 	Inherits: TREES18
 	RenderSprites:
 		Image: trees18
+	-MapEditorData:
 
 t10:
 	Inherits: TREES19
 	RenderSprites:
 		Image: trees19
+	-MapEditorData:
 
 t11:
 	Inherits: TREES20
 	RenderSprites:
 		Image: trees20
+	-MapEditorData:
 
 t12:
 	Inherits: TREES10
 	RenderSprites:
 		Image: trees10
+	-MapEditorData:
 
 t13:
 	Inherits: TREES11
 	RenderSprites:
 		Image: trees11
+	-MapEditorData:
 
 t14:
 	Inherits: TREES12
 	RenderSprites:
 		Image: trees12
+	-MapEditorData:
 
 t15:
 	Inherits: TREES13
 	RenderSprites:
 		Image: trees13
+	-MapEditorData:
 
 t16:
 	Inherits: TREES14
 	RenderSprites:
 		Image: trees14
+	-MapEditorData:
 
 t17:
 	Inherits: TREES15
 	RenderSprites:
 		Image: trees15
+	-MapEditorData:

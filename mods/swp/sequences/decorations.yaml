@@ -332,16 +332,19 @@ treegrouphusk1:
 	Defaults: treegrouphusk
 	idle:
 		Start: 0
+		ZOffset: -9999
 
 treegrouphusk2:
 	Defaults: treegrouphusk
 	idle:
 		Start: 1
+		ZOffset: -9999
 
 treegrouphusk3:
 	Defaults: treegrouphusk
 	idle:
 		Start: 2
+		ZOffset: -9999
 
 tree1:
 	idle: trees

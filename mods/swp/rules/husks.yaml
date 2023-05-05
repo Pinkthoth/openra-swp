@@ -785,41 +785,35 @@ TC01.Husk:
 	Building:
 		Footprint: xx x_
 		Dimensions: 2,2
-	MapEditorData:
-		ExcludeTilesets: INTERIOR
+	-MapEditorData:
 
 TC02.Husk:
 	Inherits: ^TreeHusk
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+	-MapEditorData:
 
 TC03.Husk:
 	Inherits: ^TreeHusk
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+	-MapEditorData:
 
 TC04.Husk:
 	Inherits: ^TreeHusk
 	Building:
 		Footprint: xxx __x __x
 		Dimensions: 3,3
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+	-MapEditorData:
 
 TC05.Husk:
 	Inherits: ^TreeHusk
 	Building:
 		Footprint: ____ _xx_ _xxx
 		Dimensions: 4,3
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-
+	-MapEditorData:
 MH60.Husk:
 	Inherits: ^HelicopterHusk
 	Tooltip:

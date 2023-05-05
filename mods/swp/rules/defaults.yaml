@@ -910,6 +910,9 @@
 	RangeMultiplier@observer:
 		RequiresCondition: artilleryobserver
 		Modifier: 120
+	ReloadDelayMultiplier@observer:
+		RequiresCondition: artilleryobserver
+		Modifier: 85
 	WithDecoration@artilleryobserver:
 		Image: pips
 		Sequence: pip-observer
@@ -2407,7 +2410,7 @@
 		GenericName: Crate
 		ShowOwnerRow: false
 	Crate:
-		Duration: 180
+		Duration: 4500
 		TerrainTypes: Clear, Rough, Road, Ore, Beach, Water, TallGrass, Pavement, PavedRoad
 	RenderSprites:
 		Palette: effect

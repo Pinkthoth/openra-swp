@@ -203,7 +203,7 @@
 		Name: Britain
 		InternalName: england
 		Side: Entente
-		Description: Kingdom of Great Britain\nFocus: Special Operations and Intelligence\n\nSpecial Infantry: Commando\nSpecial Vehicle: Warthog\nSpecial Infantry: Sniper\nSpecial Aircraft: Harrier\nSpecial Building: MI6 Command Post\nSpecial Ability: Radar Scan
+		Description: Kingdom of Great Britain\nFocus: Special Operations and Intelligence\n\nSpecial Infantry: Commando\nSpecial Vehicle: Warthog\nSpecial Vehicle: Hovercraft\nSpecial Aircraft: Harrier\nSpecial Building: MI6 Command Post\nSpecial Ability: Radar Scan
 	Faction@2:
 		Name: France
 		InternalName: france
@@ -218,7 +218,7 @@
 		Name: Persia
 		InternalName: persia
 		Side: Zentrum
-		Description: Persian Empire\nFocus: Mind Control\n\nSpecial Infantry: Fanatic\nSpecial Vehicle: Hashashin\nSpecial Vehicle: Demo Truck\nSpecial Infantry: Ishmaelite\nSpecial Vehicle: Mastermind\nSpecial Ability: TBA
+		Description: Persian Empire\nFocus: Psychich Energy\n\nSpecial Infantry: Fanatic\nSpecial Infantry: Ishmaelite\nSpecial Vehicle: Demo Truck\nSpecial Infantry: Initiate\nSpecial Vehicle: Shahanshah\nSpecial Ability: Mind Blast
 	Faction@4:
 		Name: Komintern
 		InternalName: soviet
@@ -248,7 +248,7 @@
 		Name: Spain
 		InternalName: serbia
 		Side: Entente
-		Description: Spanish Republic\nFocus: Versatility\n\nSpecial Infantry: Radist\nSpecial Vehicle: Caballero\nSpecial Helicopter: Colibri\nSpecial Vehicle: Hovercraft\nSpecial TBA\nSpecial Ability: Caballero Drop
+		Description: Spanish Republic\nFocus: Versatility\n\nSpecial Infantry: Radist\nSpecial Infantry: Sniper\nSpecial Vehicle: Caballero\nSpecial Helicopter: Colibri\nSpecial TBA\nSpecial Ability: Caballero Drop
 	Faction@9:
 		Name: China
 		InternalName: china
@@ -283,7 +283,7 @@
 		Name: Bulgaria
 		InternalName: bulgaria
 		Side: Zentrum
-		Description: Tsardom of Bulgaria\nFocus: Indirect Fire\n\nSpecial Infantry: Mortar\nSpecial Vehicle: Czar\nSpecial Aircraft: Zeppelin\nSpecial Infantry: Stormtrooper\nSpecial Infantry: Artillery Observer\nSpecial Ability: Flare
+		Description: Tsardom of Bulgaria\nFocus: Indirect Fire\n\nSpecial Infantry: Mortar Crew\nSpecial Vehicle: Czar\nSpecial Aircraft: Zeppelin\nSpecial Infantry: Stormtrooper\nSpecial Infantry: Artillery Observer\nSpecial Ability: Flare
 	Faction@14:
 		Name: Zentrum
 		InternalName: zentrum
@@ -293,16 +293,16 @@
 		Name: Belarus
 		InternalName: belarus
 		Side: Komintern
-		Description: Belarussian Soviet Socialist Republic\nFocus: Cryo and Gatling Technology\n\nSpecial Infantry: Maroznik\nSpecial Vehicle: Maroz Tank\nSpecial Vehicle: Gatling Car\nSpecial Infantry: Morozko\nSpecial TBA\nSpecial Ability: Father Frost
+		Description: Belarussian Soviet Socialist Republic\nFocus: Cryo and Gatling Technology\n\nSpecial Infantry: Maroznik\nSpecial Vehicle: Marozilnik\nSpecial Vehicle: Gatling Car\nSpecial Helicopter: Gatling Hind\nSpecial Building: Morozko\nSpecial Ability: Blizzard
 	Faction@20:
 		Name: The Raj
 		InternalName: raj
 		Side: Entente
-		Description: The British Raj\nFocus: Heavy Weaponry\n\nSpecial Infantry: Anti-Tank Crew\nSpecial Infantry: Heavy Machine Gun Crew\nSpecial Infantry: AA Gun Crew\nSpecial Building: Grand Cannon\nSpecial Plane: Aguila\nSpecial Ability: Intercept
+		Description: The British Raj\nFocus: Heavy Weaponry\n\nSpecial Infantry: Anti-Tank Crew\nSpecial Infantry: Heavy Machine Gun Crew\nSpecial Infantry: AA Gun Crew\nSpecial Building: Grand Cannon\nSpecial Plane: Garud Heavy Fighter\nSpecial Ability: Intercept
 	Faction@random:
 		Name: Any
 		InternalName: Random
-		RandomFactionMembers: RandomAllies, RandomSoviet
+		RandomFactionMembers: RandomAllies, RandomSoviet, Randomzentrum
 		Side: Random
 		Description: Random Country\nA random country will be chosen when the game starts.
 	Faction@randomallies:

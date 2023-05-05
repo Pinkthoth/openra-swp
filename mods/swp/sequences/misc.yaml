@@ -235,6 +235,10 @@ explosion:
 		Scale: 0.55
 		Tick: 10
 		Offset: 0,-5
+	dmexpld_sm: dmexpld
+		Scale: 0.3
+		Tick: 7
+		Offset: 0,-5
 	psychexpld: psychexpld
 		Tick: 10
 
@@ -1129,4 +1133,4 @@ blizzard:
 	idle: snowing
 		Start: 0
 		Length: *
-		Tick: 30
+		Tick: 15

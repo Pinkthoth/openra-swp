@@ -258,8 +258,8 @@ ARDITI:
 	GrantConditionOnDeploy:
 		DeployedCondition: deployed
 		UndeployedCondition: undeployed
-		DeploySounds: sbagdeploy.wav
-		UndeploySounds: sbagdeploy.wav
+		DeploySounds: igidepa.wav, igidepb.wav
+		UndeploySounds: igidepa.wav, igidepb.wav
 		UndeployOnMove: true
 		UndeployOnPickup: true
 	SpawnActorOnDeath@BulletDeath:
@@ -1821,7 +1821,7 @@ ISHMAELITE:
 		Prerequisites: ~barracks, mtek, ~infantry.persia, ~techlevel.high
 		Description: Can enslave one enemy unit.\n  Weak vs Everything
 	Valued:
-		Cost: 1500
+		Cost: 2000
 	Health:
 		HP: 7000
 	RevealsShroud:
@@ -2013,7 +2013,7 @@ ARTILLERYOBSERVER:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 76
 		Prerequisites: ~barracks, mtek, ~infantry.bulgaria, ~techlevel.infonly
-		Description: Increases range of infiltrated artillery units\nHeals infiltrated artillery unit to 20% health..\n  Weak vs Everything
+		Description: Increases range and fire rate of infiltrated artillery units\nHeals infiltrated artillery unit up to 20% health..\n  Weak vs Everything
 	Valued:
 		Cost: 400
 	Health:
@@ -2321,10 +2321,10 @@ SPECOP:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 80
-		Prerequisites: ~techlevel.medium, ~infantry.england, adept, ~barr
+		Prerequisites: ~techlevel.medium, ~infantry.england, dome, ~barr
 		Description: Elite rifleman armed with\na rifle and grenades.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft
 	Valued:
-		Cost: 225
+		Cost: 200
 	Tooltip:
 		Name: Commando
 	UpdatesPlayerStatistics:

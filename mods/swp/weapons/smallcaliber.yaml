@@ -772,7 +772,7 @@ M1Carbine_elite:
 
 TankMachineGun:
 	Inherits: M1Carbine
-	ReloadDelay: 55
+	ReloadDelay: 75
 	Report: iarnattb.wav
 	Warhead@1Dam: SpreadDamage
 		Damage: 2000

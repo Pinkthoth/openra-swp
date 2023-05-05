@@ -61,8 +61,9 @@ ParaMine:
 Metempsychosis:
 	ValidTargets: Ground, Water, Air, Corpse
 	Warhead@1Dam: SpreadDamage
-		Spread: 2c0
+		Spread: 1c0
 		Damage: 50000
+		Falloff: 100, 0
 		ValidTargets: Corpse
 		Versus:
 			None: 90
@@ -86,7 +87,8 @@ Metempsychosis:
 LazareneRay:
 	ValidTargets: Ground, Water, Air, Corpse
 	Warhead@1Dam: SpreadDamage
-		Spread: 2c0
+		Spread: 1c0
+		Falloff: 100, 0
 		Damage: 50000
 		ValidTargets: Corpse
 		ValidRelationships: Ally

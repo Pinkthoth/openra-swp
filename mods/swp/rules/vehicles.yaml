@@ -1784,6 +1784,9 @@ SIPAHI:
 	Turreted:
 		TurnSpeed: 40
 		Offset: -60,0,330
+	AttackTurreted:
+		PauseOnCondition: turnedoff
+		Armaments: primary, secondary, tertiary
 	AmmoPool:
 		Armaments: secondary
 		Ammo: 1
@@ -1820,7 +1823,7 @@ SIPAHI:
 		LocalOffset: 210,0,190
 		RequiresCondition: pasnerveagent
 	Armament@prim_e3:
-		Weapon: RedEye
+		Weapon: CaballeroRedEye
 		LocalOffset: 0,0,555
 		ReloadingCondition: primary-reloading
 		PauseOnCondition: secondary-reloading
@@ -1839,7 +1842,7 @@ SIPAHI:
 		RequiresCondition: paslegionaire
 		PauseOnCondition: !ammo
 	Armament@legionaireaamissile:
-		Name: secondarary
+		Name: tertiary
 		Weapon: LegionMissileAA
 		LocalOffset: 0,0,555
 		RequiresCondition: paslegionaire
@@ -2005,8 +2008,6 @@ SIPAHI:
 		IsCyclic: false
 		RevokeOnNewTarget: false
 		RequiresCondition: pashvgat
-	AttackTurreted:
-		PauseOnCondition: turnedoff
 	WithMuzzleOverlay:
 	WithSpriteTurret@editor:
 		Sequence: turret-rifle
@@ -2178,7 +2179,7 @@ SIPAHI:
 	WithRangeCircle@anti-air:
 		Range: 8c0
 		Color: FFFF0080
-		RequiresCondition: paslegionaire || pasflktrp
+		RequiresCondition: paslegionaire || pasflktrp || pase3
 	ReloadDelayMultiplier@baseboost:
 		Modifier: 90
 	FirepowerMultiplier@baseboost:
@@ -2453,7 +2454,7 @@ SHAH:
 		Prerequisites: mtek, ~vehicles.persia, ~techlevel.high
 		Description: Psychic enslavement vehicle.\nCan control up to three units.\n  Strong vs Everything
 	Valued:
-		Cost: 2000
+		Cost: 4000
 	Tooltip:
 		Name: Shahanshah
 	UpdatesPlayerStatistics:

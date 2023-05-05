@@ -88,7 +88,7 @@ DEDMAROZ:
 		Weapon: Empty
 	AmbientSound@storm:
 		SoundFiles: winterstorm.aud
-		Interval: 1000
+		Interval: 1500
 
 AGUILA.Interceptor:
 	Inherits: ^NeutralPlane
@@ -322,6 +322,54 @@ BADR.Bomber:
 		Ammo: 10
 	Armament:
 		Weapon: ParaBomb
+
+SUPPORT.Bomber:
+	Inherits: BADR
+	-ParaDrop:
+	-Cargo:
+	-MapEditorData:
+	RenderSprites:
+		Image: badr
+	AttackBomber:
+		FacingTolerance: 8
+	AmmoPool:
+		Ammo: 10
+	Armament:
+		Weapon: ParaBomb
+	GrantConditionOnFaction@komintern:
+		Factions: russia, ukraine, china, mongolia, kazakhstan, belarus
+		Condition: komintern
+	GrantConditionOnFaction@zentrum:
+		Factions: germany, austria, italy, turkey, bulgaria, persia
+		Condition: zentrum
+	GrantConditionOnFaction@entente:
+		Factions: usa, france, england, japan, serbia, raj
+		Condition: entente
+	RenderSprites:
+		Image: transportplane
+	WithFacingSpriteBody:
+		Name: kombody
+		Sequence: badr-idle
+		RequiresCondition: komintern
+	WithFacingSpriteBody@entente:
+		Name: entbody
+		Sequence: douglas-idle
+		RequiresCondition: entente
+	WithFacingSpriteBody@zentrum:
+		Name: zentbody
+		Sequence: junkers-idle
+		RequiresCondition: zentrum
+	Tooltip:
+		Name: Badger
+		RequiresCondition: komintern
+	Tooltip@entente:
+		Name: Douglas
+		RequiresCondition: entente
+	Tooltip@komintern:
+		Name: Junkers
+		RequiresCondition: zentrum
+	SpawnActorOnDeath:
+		Actor: TRANSPORTPLANE.Husk
 
 JUNKERS.Bomber:
 	Inherits: BADR
@@ -3211,7 +3259,8 @@ TRANSUPPORT:
 	Aircraft:
 		TurnSpeed: 20
 		Speed: 128
-		AltitudeVelocity: 0c58
+		AltitudeVelocity: 1c0
+		Repulsable: False
 	-WithFacingSpriteBody:
 	WithShadow:
 		RequiresCondition: airborne

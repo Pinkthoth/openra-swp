@@ -1312,11 +1312,11 @@ ThunderFist:
 		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
 			None: 150
-			Wood: 45
-			Light: 60
-			Medium: 50
-			Heavy: 40
-			Concrete: 25
+			Wood: 35
+			Light: 55
+			Medium: 45
+			Heavy: 35
+			Concrete: 20
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, DefaultDeath
 
 ThunderFistSupercharged:
