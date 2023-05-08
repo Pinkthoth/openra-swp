@@ -598,8 +598,8 @@ SHOPS1:
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x3Rubbles
 	Building:
-		Footprint: xx xx xx
-		Dimensions: 2,3
+		Footprint: xxx xxx
+		Dimensions: 3,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
 	Cargo:
@@ -622,8 +622,8 @@ SHOPS3:
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x3Rubbles
 	Building:
-		Footprint: xx xx xx
-		Dimensions: 2,3
+		Footprint: xxx xxx
+		Dimensions: 3,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
 	Cargo:
@@ -646,8 +646,8 @@ DETACHED1:
 	Inherits@shape: ^1x2Shape
 	Inherits@rubbles: ^1x2Rubbles
 	Building:
-		Footprint: x x
-		Dimensions: 1,2
+		Footprint: xx xx
+		Dimensions: 2,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
 	Cargo:
@@ -658,8 +658,8 @@ DETACHED2:
 	Inherits@shape: ^1x2Shape
 	Inherits@rubbles: ^1x2Rubbles
 	Building:
-		Footprint: x x
-		Dimensions: 1,2
+		Footprint: xx xx
+		Dimensions: 2,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
 	Cargo:
@@ -670,8 +670,8 @@ DETACHED3:
 	Inherits@shape: ^2x1Shape
 	Inherits@rubbles: ^2x1Rubbles
 	Building:
-		Footprint: xx
-		Dimensions: 2,1
+		Footprint: xx xx
+		Dimensions: 2,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
 	Cargo:
@@ -682,8 +682,8 @@ DETACHED4:
 	Inherits@shape: ^2x1Shape
 	Inherits@rubbles: ^2x1Rubbles
 	Building:
-		Footprint: xx
-		Dimensions: 2,1
+		Footprint: xx xx
+		Dimensions: 2,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
 	Cargo:
@@ -694,8 +694,8 @@ DETACHED5:
 	Inherits@shape: ^1x2Shape
 	Inherits@rubbles: ^1x2Rubbles
 	Building:
-		Footprint: x x
-		Dimensions: 1,2
+		Footprint: xx xx
+		Dimensions: 2,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
 	Cargo:
@@ -706,8 +706,8 @@ DETACHED6:
 	Inherits@shape: ^1x2Shape
 	Inherits@rubbles: ^1x2Rubbles
 	Building:
-		Footprint: x x
-		Dimensions: 1,2
+		Footprint: xx xx
+		Dimensions: 2,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
 	Cargo:
@@ -718,8 +718,8 @@ DETACHED7:
 	Inherits@shape: ^2x1Shape
 	Inherits@rubbles: ^2x1Rubbles
 	Building:
-		Footprint: xx
-		Dimensions: 2,1
+		Footprint: xx xx
+		Dimensions: 2,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
 	Cargo:
@@ -730,8 +730,8 @@ DETACHED8:
 	Inherits@shape: ^2x1Shape
 	Inherits@rubbles: ^2x1Rubbles
 	Building:
-		Footprint: xx
-		Dimensions: 2,1
+		Footprint: xx xx
+		Dimensions: 2,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
 	Cargo:
@@ -742,8 +742,8 @@ DETACHED9:
 	Inherits@shape: ^1x2Shape
 	Inherits@rubbles: ^1x2Rubbles
 	Building:
-		Footprint: x x
-		Dimensions: 1,2
+		Footprint: xx xx
+		Dimensions: 2,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
 	Cargo:
@@ -754,8 +754,8 @@ DETACHED10:
 	Inherits@shape: ^1x2Shape
 	Inherits@rubbles: ^1x2Rubbles
 	Building:
-		Footprint: x x
-		Dimensions: 1,2
+		Footprint: xx xx
+		Dimensions: 2,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
 	Cargo:
@@ -766,8 +766,8 @@ DETACHED11:
 	Inherits@shape: ^2x1Shape
 	Inherits@rubbles: ^2x1Rubbles
 	Building:
-		Footprint: xx
-		Dimensions: 2,1
+		Footprint: xx xx
+		Dimensions: 2,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
 	Cargo:
@@ -778,8 +778,8 @@ DETACHED12:
 	Inherits@shape: ^2x1Shape
 	Inherits@rubbles: ^2x1Rubbles
 	Building:
-		Footprint: xx
-		Dimensions: 2,1
+		Footprint: xx xx
+		Dimensions: 2,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
 	Cargo:
@@ -790,8 +790,8 @@ DETACHED13:
 	Inherits@shape: ^2x1Shape
 	Inherits@rubbles: ^2x1Rubbles
 	Building:
-		Footprint: xx
-		Dimensions: 2,1
+		Footprint: xx xx
+		Dimensions: 2,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
 	Cargo:
@@ -802,8 +802,8 @@ DETACHED14:
 	Inherits@shape: ^2x1Shape
 	Inherits@rubbles: ^2x1Rubbles
 	Building:
-		Footprint: xx
-		Dimensions: 2,1
+		Footprint: xx xx
+		Dimensions: 2,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
 	Cargo:
@@ -814,8 +814,8 @@ DETACHED15:
 	Inherits@shape: ^1x2Shape
 	Inherits@rubbles: ^1x2Rubbles
 	Building:
-		Footprint: x x
-		Dimensions: 1,2
+		Footprint: xx xx
+		Dimensions: 2,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
 	Cargo:
@@ -826,8 +826,8 @@ DETACHED16:
 	Inherits@shape: ^1x2Shape
 	Inherits@rubbles: ^1x2Rubbles
 	Building:
-		Footprint: x x
-		Dimensions: 1,2
+		Footprint: xx xx
+		Dimensions: 2,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
 	Cargo:
@@ -934,8 +934,8 @@ DETACHED25:
 	Inherits@shape: ^2x1Shape
 	Inherits@rubbles: ^2x1Rubbles
 	Building:
-		Footprint: xx
-		Dimensions: 2,1
+		Footprint: xx xx
+		Dimensions: 2,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
 	Cargo:
@@ -946,8 +946,8 @@ DETACHED26:
 	Inherits@shape: ^1x2Shape
 	Inherits@rubbles: ^1x2Rubbles
 	Building:
-		Footprint: x x
-		Dimensions: 1,2
+		Footprint: xx xx
+		Dimensions: 2,2
 	MapEditorData:
 		ExcludeTilesets: DESERT, INTERIOR
 	Cargo:
@@ -1245,6 +1245,24 @@ BRIDGE4:
 		SpawnOffset: 2,1
 	Interactable:
 		Bounds: 2896, 2896
+
+WBRIDGE1:
+	Inherits: ^Bridge
+	Bridge:
+		Template: 1531
+		DamagedTemplate: 1532
+		DestroyedTemplate: 1533
+	Building:
+		Footprint: __ __ __ __
+		Dimensions: 2,4
+	FreeActor@west:
+		Actor: bridgehut.small
+		SpawnOffset: 0,1
+	FreeActor@east:
+		Actor: bridgehut.small
+		SpawnOffset: 1,1
+	Interactable:
+		Bounds: 1448, 4344
 
 SBRIDGE1:
 	Inherits: ^Bridge

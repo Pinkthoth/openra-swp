@@ -9,7 +9,10 @@ HARV:
 		Queue: Vehicle
 		BuildPaletteOrder: 10
 		Prerequisites: proc, ~techlevel.infonly
-		Description: Collects Ore and Gems for processing.\n  Unarmed
+		Description: Collects Ore and Gems for processing.
+	TooltipExtras:
+		Weaknesses: • Unarmed.
+		Attributes: • Collects resources.
 	Valued:
 		Cost: 1100
 	Tooltip:
@@ -80,7 +83,10 @@ MCV:
 		BuildPaletteOrder: 700
 		Prerequisites: fix, ~mcvexists, ~techlevel.medium
 		BuildDurationModifier: 50
-		Description: Deploys into another Construction Yard.\n	Unarmed
+		Description: Construction vehicle.
+	TooltipExtras:
+		Weaknesses: • Unarmed.
+		Attributes: • Deployes into a Construction Yard.
 	Valued:
 		Cost: 2500
 	Tooltip:
@@ -152,7 +158,10 @@ MNLY:
 		Queue: Vehicle
 		BuildPaletteOrder: 690
 		Prerequisites: fix, ~techlevel.medium
-		Description: Lays mines to destroy\nunwary enemy units.\nCan detect mines.\n  Unarmed
+		Description: Lays mines to destroy\nunwary enemy units.
+	TooltipExtras:
+		Weaknesses: • Unarmed.
+		Attributes: • Can detect mines.
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -223,7 +232,10 @@ TRUK:
 		Queue: Vehicle
 		BuildPaletteOrder: 710
 		Prerequisites: ~techlevel.low
-		Description: Transports cash to other players.\n  Unarmed
+		Description: Transports cash to other players.
+	TooltipExtras:
+		Weaknesses: • Unarmed.
+		Attributes: • Transports 500$ to targeted player.
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -253,7 +265,10 @@ PROPTRUCK:
 		Queue: Vehicle
 		BuildPaletteOrder: 167
 		Prerequisites: ~techlevel.low, ~vehicles.china, dome
-		Description: Can be deployed to temporarily increase\nthe morale of nearby infantry.\n  Unarmed
+		Description: Temporarily increases\nthe morale of nearby infantry.
+	TooltipExtras:
+		Weaknesses: • Unarmed.
+		Attributes: • Deploy to increase morale of nearby infantry.
 	Valued:
 		Cost: 700
 	Tooltip:
@@ -288,6 +303,9 @@ BIKE:
 		BuildPaletteOrder: 71
 		Prerequisites: ~vehicles.japan, ~techlevel.low
 		Description: Fast scouting unit.\n	Strong vs Infantry\n  Weak vs Tanks, Aircraft
+	TooltipExtras:
+		Strengths: • Strong vs Infantry.
+		Weaknesses: • Weak vs Tanks, Aircraft.
 	Valued:
 		Cost: 375
 	Tooltip:
@@ -338,7 +356,10 @@ ARMCR:
 		Queue: Vehicle
 		BuildPaletteOrder: 20
 		Prerequisites: ~vehicles.zentrum, ~techlevel.low
-		Description: Heavy scout & anti-infantry vehicle.\n	 Strong vs Infantry\n  Weak vs Vehicles, Aircraft
+		Description: Heavy scout & anti-infantry vehicle.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry.
+		Weaknesses: • Weak vs Tanks, Aircraft.
 	Valued:
 		Cost: 650
 	Tooltip:
@@ -399,6 +420,10 @@ HLFTRK:
 		BuildPaletteOrder: 19
 		Prerequisites: ~vehicles.zentrum, ~techlevel.low
 		Description: Armoured transport vehicle.\nCan carry infantry.\n	 Weak vs Vehicles, Aircraft
+	TooltipExtras:
+		Strengths: • Strong vs Infantry.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Attributes: • Can transport 5 infantry units.
 	Valued:
 		Cost: 550
 	Tooltip:
@@ -462,7 +487,10 @@ PUMA:
 		Queue: Vehicle
 		BuildPaletteOrder: 40
 		Prerequisites: ~vehicles.zentrum, ~techlevel.low
-		Description: Strong armoured car, good against light armour.\n	Strong vs Light armor\n	 Weak vs Infantry, Tanks, Aircraft
+		Description: Strong armoured car.
+	TooltipExtras:
+		Strengths: • Strong vs Vehicles.
+		Weaknesses: • Weak vs Infantry, Aircraft.
 	Valued:
 		Cost: 700
 	Tooltip:
@@ -524,7 +552,10 @@ PRISMCANNON:
 		Queue: Vehicle
 		BuildPaletteOrder: 332
 		Prerequisites: mtek, ~vehicles.austria, ~techlevel.high
-		Description: Long range direct energy cannon.\n  Strong vs Infantry, Vehicles, Defenses\n  Weak vs Aircraft
+		Description: Long range direct energy cannon.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry, Vehicles.
+		Weaknesses: • Weak vs Aircraft.
 	Valued:
 		Cost: 1400
 	Tooltip:
@@ -570,7 +601,11 @@ HVTNK:
 		Queue: Vehicle
 		BuildPaletteOrder: 113
 		Prerequisites: adept, ~vehicles.zentrum, ~techlevel.medium
-		Description: Zentrum main battle tank.\nSlow but strudy.\n	Armed with a secondary machine gun.\n	 Strong vs Vehicles\n  Weak vs Infantry, Aircraft
+		Description: Zentrum main battle tank.\nSlow but strudy.
+	TooltipExtras:
+		Strengths: • Strong vs Tanks.
+		Weaknesses: • Weak vs Aircraft.
+		Attributes: • Armed with a secondary machine gun.
 	Valued:
 		Cost: 1200
 	Tooltip:
@@ -643,7 +678,10 @@ V2RL:
 		Queue: Vehicle
 		BuildPaletteOrder: 230
 		Prerequisites: dome, ~vehicles.zentrum, ~techlevel.medium
-		Description: Long-range rocket artillery.\n	 Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft
+		Description: Long-range rocket artillery.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry, Buildings, Defenses.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -703,6 +741,9 @@ MSAM:
 		BuildPaletteOrder: 220
 		Prerequisites: domeoradept, ~vehicles.zentrum, ~techlevel.medium
 		Description: Mobile surface to air missile platform.\n	Strong vs Aircraft\n  Weak vs Infantry, Vehicles.
+	TooltipExtras:
+		Strengths: • Strong vs Aircraft.
+		Weaknesses: • Weak vs Vehicles, Infantry.
 	Mobile:
 		Locomotor: lighttracked
 		Speed: 80
@@ -772,7 +813,11 @@ ECTNK:
 		Queue: Vehicle
 		BuildPaletteOrder: 331
 		Prerequisites: mtek, ~vehicles.germany, ~techlevel.high
-		Description: Specially insulated chrono APC.\nKeeps the cargoed infantry alive.\nTeleports to areas within range.\n  Weak vs Everything\n  Special ability: Can teleport
+		Description: Specially insulated chrono APC.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Attributes: • Equiped with a portable chronosphere.\n• Can transport up to 3 infantry units.\n• Keeps transported infantry alive while chronoshifting.
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -840,6 +885,10 @@ CTNK:
 		BuildPaletteOrder: 332
 		Prerequisites: mtek, ~vehicles.germany, ~techlevel.high
 		Description: Armed with anti-ground missiles.\nTeleports to areas within range.\n  Strong vs Vehicles, Buildings\n  Weak vs Infantry, Aircraft\n  Special ability: Can teleport
+	TooltipExtras:
+		Strengths: • Strong vs Vehicles.
+		Weaknesses: • Weak vs Infantry, Aircraft.
+		Attributes: • Equiped with a portable chronosphere.
 	Valued:
 		Cost: 1350
 	Tooltip:
@@ -904,7 +953,10 @@ MAUS:
 		Queue: Vehicle
 		BuildPaletteOrder: 330
 		Prerequisites: mtek, adept, ~vehicles.zentrum, ~techlevel.high
-		Description: Tough tank destroyer.\n  Strong vs Vehicles, Defenses\n  Weak vs Infantry, Aircraft
+		Description: Tough tank destroyer.
+	TooltipExtras:
+		Strengths: • Strong vs Vehicles, Defenses.
+		Weaknesses: • Weak vs Infantry, Aircraft.
 	Valued:
 		Cost: 1850
 	Tooltip:
@@ -973,7 +1025,10 @@ MRJ:
 		Queue: Vehicle
 		BuildPaletteOrder: 321
 		Prerequisites: atek, ~vehicles.france, ~techlevel.high
-		Description: Jams nearby enemy radar domes\nand deflects incoming missiles.\n  Unarmed
+		Description: Radar and homing missile jamming vehicle.
+	TooltipExtras:
+		Weaknesses: • Unarmed.
+		Attributes: • Jams nearby enemy Radar Domes.\n• Deflects incoming missiles.
 	Health:
 		HP: 22000
 	Armor:
@@ -1026,7 +1081,10 @@ TRNSPRT:
 		Queue: Vehicle
 		BuildPaletteOrder: 90
 		Prerequisites: ~vehicles.komintern, ~techlevel.low
-		Description: Fast unarmed transport vehicle.\n	Weak vs All Unit Types.
+		Description: Fast transport vehicle.
+	TooltipExtras:
+		Weaknesses: • Unarmed.
+		Attributes: • Can transport up to 7 infantry units.
 	Valued:
 		Cost: 350
 	Tooltip:
@@ -1069,7 +1127,10 @@ FTRK:
 		Queue: Vehicle
 		BuildPaletteOrder: 91
 		Prerequisites: ~vehicles.komintern, ~techlevel.low
-		Description: Mobile unit with mounted Flak cannon.\n  Strong vs Infantry, Light armor, Aircraft\n  Weak vs Tanks
+		Description: Mobile unit with mounted Flak cannon.
+	TooltipExtras:
+		Strengths: • Strong vs Aircraft.
+		Weaknesses: • Weak vs Vehicles, Infantry.
 	Valued:
 		Cost: 600
 	RenderSprites:
@@ -1140,7 +1201,10 @@ TNKT:
 		Queue: Vehicle
 		BuildPaletteOrder: 92
 		Prerequisites: ~vehicles.komintern, ~techlevel.low
-		Description: Tough infantry support vehicle.\n	Strong vs Infantry, light armour\n  Weak vs Tanks, Aircraft
+		Description: Tough fighting vehicle.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry, Vehicles.
+		Weaknesses: • Weak vs Tanks, Aircraft.
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -1197,7 +1261,11 @@ TRAKTOR:
 		Queue: Vehicle
 		BuildPaletteOrder: 332
 		Prerequisites: stek, ~vehicles.ukraine, ~techlevel.high
-		Description: Heavy magnetic tank that debilitates it's target.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
+		Description: Heavy magnetic tank that debilitates it's target.
+	TooltipExtras:
+		Strengths: • Strong vs Vehicles.
+		Weaknesses: • Weak vs Infantry, Aircraft.
+		Attributes: • Slows targeted unit to a crawl.
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -1260,7 +1328,11 @@ BTR:
 		Queue: Vehicle
 		BuildPaletteOrder: 120
 		Prerequisites: ~vehicles.komintern, adept, ~techlevel.low
-		Description: Tough infantry transport.\n  Strong vs Light armor\n  Weak vs Infantry, Tanks, Aircraft
+		Description: Tough infantry transport.
+	TooltipExtras:
+		Strengths: • Strong vs Vehicles.
+		Weaknesses: • Weak vs Tanks, Infantry, Aircraft.
+		Attributes: • Can transport up to 4 infantry units.
 	Valued:
 		Cost: 750
 	Tooltip:
@@ -1325,7 +1397,10 @@ MARAUDER:
 		Queue: Vehicle
 		BuildPaletteOrder: 261
 		Prerequisites: dome, ~vehicles.mongolia, ~techlevel.medium
-		Description: Fast scout & anti-infantry vehicle.\nArmed with a small rocket launcher.\n	 Strong vs Infantry\n  Weak vs Vehicles, Aircraft
+		Description: Fast scouting vehicle armed with a long range missile launcher.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
 	Valued:
 		Cost: 750
 	RenderSprites:
@@ -1385,7 +1460,11 @@ MTNK:
 		Queue: Vehicle
 		BuildPaletteOrder: 112
 		Prerequisites: adept, ~vehicles.komintern, ~techlevel.medium
-		Description: Komintern main battle tank.\n Heavy armoured but versatile.\n	Armed with a secondary machine gun.\n	Strong vs Vehicles\n	Weak vs Infantry, Aircraft
+		Description: Komintern main battle tank.\n Heavily armoured, but versatile.
+	TooltipExtras:
+		Strengths: • Strong vs Tanks.
+		Weaknesses: • Weak vs Aircraft.
+		Attributes: • Armed with a secondary machine gun.
 	Valued:
 		Cost: 1025
 	Tooltip:
@@ -1456,7 +1535,11 @@ MAROZILNIK:
 		Queue: Vehicle
 		BuildPaletteOrder: 271
 		Prerequisites: stek, ~vehicles.belarus, ~techlevel.medium
-		Description: Tank armed with cryo thrower.\n Heavy armoured.\n	Strong vs Infantry\n	Weak vs Vehicles, Aircraft
+		Description: Tank armed with a cryo spray thrower.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Attributes: • Slows enemy units down, decreases their vision and fire rate.
 	Valued:
 		Cost: 1300
 	Tooltip:
@@ -1520,7 +1603,11 @@ TEMPLAR:
 		Queue: Vehicle
 		BuildPaletteOrder: 510
 		Prerequisites: ~weap, techcenter, ~stektech, ~techlevel.medium
-		Description: Magneticly levitating tesla tank.\n	Strong vs Infantry, Medium and Light armor\n	Weak vs Heavy armor, Aircraft
+		Description: Magneticly levitating tesla tank.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry, Vehicles.
+		Weaknesses: • Weak vs Aircraft.
+		Attributes: • Hovers.\n• Only available by spying a komintern tech center.
 	Valued:
 		Cost: 1025
 	Tooltip:
@@ -1599,7 +1686,10 @@ KATYA:
 		Queue: Vehicle
 		BuildPaletteOrder: 260
 		Prerequisites: dome, ~vehicles.komintern, ~techlevel.medium
-		Description: Long range rocket artillery.\n	 Strong vs infantry.\n Weak vs Tanks, Aircraft.
+		Description: Long range rocket artillery.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry, Buildings, Defenses.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
 	Mobile:
 		Speed: 85
 		TurnSpeed: 16
@@ -1614,11 +1704,11 @@ KATYA:
 		Range: 5c0
 	Armament@PRIMARY:
 		Weapon: 227mm
-		LocalOffset: 213,128,200, 213,-128,200
+		LocalOffset: 213,128,230, 213,-128,230
 	Armament@SECONDARY:
 		Name: secondary
 		Weapon: 227mm
-		LocalOffset: 213,-128,200, 213,128,200
+		LocalOffset: 213,-128,230, 213,128,230
 	AttackFrontal:
 		TargetFrozenActors: True
 		ForceFireIgnoresActors: True
@@ -1642,7 +1732,10 @@ MGG:
 		Queue: Vehicle
 		BuildPaletteOrder: 270
 		Prerequisites: dome, ~vehicles.ukraine, ~techlevel.medium
-		Description: Regenerates the shroud nearby, \nobscuring the area.\n	 Unarmed
+		Description: Veil generating vehicle.
+	TooltipExtras:
+		Weaknesses: • Unarmed.
+		Attributes: • Generates veil around it obscuring the area.
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -1695,7 +1788,10 @@ T100:
 		Queue: Vehicle
 		BuildPaletteOrder: 320
 		Prerequisites: adept, stek, ~vehicles.komintern, ~techlevel.high
-		Description: Big and slow tank, with anti-air capability.\nCan crush concrete walls.\n	Strong vs Vehicles, Infantry, Aircraft\n  Weak vs Nothing
+	TooltipExtras:
+		Strengths: • Strong vs Infantry, Tanks.
+		Weaknesses: • Weak vs Nothing.
+		Attributes: • Can crush concrete walls.
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -1760,7 +1856,11 @@ SIPAHI:
 		Queue: Vehicle
 		BuildPaletteOrder: 196
 		Prerequisites: ~vehicles.serbia, adept, ~techlevel.low
-		Description: Versatile infantry fighting vehicle\nChanges weapons depending on cargo.\n	 Strengths and weaknesses depend on cargo.
+		Description: Versatile infantry fighting vehicle.
+	TooltipExtras:
+		Strengths: • Strength depends on the cargo.
+		Weaknesses: • Weakness depends on the cargo.
+		Attributes: • Weapon depends on the cargo.
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -2206,13 +2306,17 @@ SONIQUE:
 		Cost: 1600
 	Tooltip:
 		Name: Disruptor
+	TooltipExtras:
+		Strengths: • Strong vs Infantry, Buildings, Defenses.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Attributes: • Attacked units become confused and disoriented.
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 340
 		Prerequisites: atek, ~vehicles.france, ~techlevel.medium
-		Description: Emits a beam of harmonic resonance sound.\nUnits under it's influence are damaged and confused.\n Strong vs. Infantry.\n Weak vs. Tanks, Aircraft.
+		Description: Emits a beam of harmonic resonance sound.
 	Mobile:
 		TurnSpeed: 20
 		Speed: 56
@@ -2261,7 +2365,10 @@ JEEP:
 		Queue: Vehicle
 		BuildPaletteOrder: 50
 		Prerequisites: ~vehicles.entente, ~techlevel.low
-		Description: Fast scout & anti-infantry vehicle.\n Strong vs Infantry\n  Weak vs Vehicles, Aircraft
+		Description: Fast scout & anti-infantry vehicle.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
 	Valued:
 		Cost: 500
 	RenderSprites:
@@ -2323,7 +2430,11 @@ APC:
 		Queue: Vehicle
 		BuildPaletteOrder: 49
 		Prerequisites: ~vehicles.entente, ~techlevel.low
-		Description: Tough infantry transport.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+		Description: Tough infantry transport.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Attributes: • Can transport up to 4 infantry units.
 	Valued:
 		Cost: 750
 	Tooltip:
@@ -2385,7 +2496,11 @@ HOVERCRAFT:
 		Queue: Vehicle
 		BuildPaletteOrder: 225
 		Prerequisites: dome, ~vehicles.england, ~techlevel.low
-		Description: Tough infantry transport armed with two rocket launchers.\nHovers.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
+		Description: Tough infantry transport armed with two rocket launchers.
+	TooltipExtras:
+		Strengths: • Strong vs Vehicles.
+		Weaknesses: • Weak vs Infantry, Aircraft.
+		Attributes: • Hovers.\n• Can transport up to 4 infantry units.
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -2452,7 +2567,10 @@ SHAH:
 		Queue: Vehicle
 		BuildPaletteOrder: 331
 		Prerequisites: mtek, ~vehicles.persia, ~techlevel.high
-		Description: Psychic enslavement vehicle.\nCan control up to three units.\n  Strong vs Everything
+		Description: Psychic enslavement vehicle.
+	TooltipExtras:
+		Weaknesses: • Unarmed.
+		Attributes: • Can mind control up to three enemy units.
 	Valued:
 		Cost: 4000
 	Tooltip:
@@ -2533,7 +2651,10 @@ WASTETANKER:
 		Queue: Vehicle
 		BuildPaletteOrder: 331
 		Prerequisites: dome, ~vehicles.kazakhstan, ~techlevel.high
-		Description: Tough tank that shoots corrosive acid.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+		Description: Tough tank that shoots corrosive acid.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry, Vehicles.
+		Weaknesses: • Weak vs Tanks, Aircraft.
 	Valued:
 		Cost: 1600
 	Tooltip:
@@ -2593,7 +2714,11 @@ IFV:
 		Queue: Vehicle
 		BuildPaletteOrder: 195
 		Prerequisites: adept, ~vehicles.england, ~techlevel.low
-		Description: Tough infantry transport armed\nwith a small AA-cannon.\n	 Strong vs Light armour, Aircraft\n	 Weak vs Tanks
+		Description: Tough infantry transport armed\nwith a small AA-cannon.
+	TooltipExtras:
+		Strengths: • Strong vs Aircraft.
+		Weaknesses: • Weak vs Vehicles.
+		Attributes: • Can transport up to 3 infantry units.
 	Mobile:
 		TurnSpeed: 28
 		Speed: 120
@@ -2682,7 +2807,10 @@ RTNK:
 		Queue: Vehicle
 		BuildPaletteOrder: 70
 		Prerequisites: ~vehicles.entente, ~techlevel.low
-		Description: Fast tank, good for scouting.\n  Strong vs Light armor\n  Weak vs Infantry, Tanks, Aircraft
+		Description: Fast tank, good for scouting.
+	TooltipExtras:
+		Strengths: • Strong vs Vehicles.
+		Weaknesses: • Weak vs Tanks, Infantry, Aircraft.
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -2744,7 +2872,10 @@ RONIN:
 		Queue: Vehicle
 		BuildPaletteOrder: 70
 		Prerequisites: adept, ~vehicles.japan, ~techlevel.low
-		Description: Multipurpose tank, jack of all trades, master of none.\n  Strong vs Light armor\n  Weak vs Infantry, Tanks, Aircraft
+		Description: Multipurpose tank, jack of all trades, master of none.
+	TooltipExtras:
+		Strengths: • Strong vs Vehicles, Aircraft, Infantry.
+		Weaknesses: • Weak vs Tanks.
 	Valued:
 		Cost: 850
 	Tooltip:
@@ -2829,7 +2960,11 @@ PAPC:
 		Queue: Vehicle
 		BuildPaletteOrder: 335
 		Prerequisites: atek, ~vehicles.japan, ~techlevel.high
-		Description: Infantry transport.\nCapable of becoming invisible.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+		Description: Phase infantry transport.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Attributes: • Can phase out of vision.
 	Valued:
 		Cost: 850
 	Tooltip:
@@ -2901,7 +3036,11 @@ PTNK:
 		Queue: Vehicle
 		BuildPaletteOrder: 336
 		Prerequisites: atek, ~vehicles.japan, ~techlevel.low
-		Description: Fast tank, capable of becoming invisible.\n  Strong vs Heavy armor\n  Weak vs Infantry, Tanks, Aircraft
+		Description: Fast phase tank, armed with a rocket launcher.
+	TooltipExtras:
+		Strengths: • Strong vs Vehicles.
+		Weaknesses: • Weak vs Infantry, Tanks, Aircraft.
+		Attributes: • Can phase out of vision.
 	Valued:
 		Cost: 1250
 	Tooltip:
@@ -2972,7 +3111,11 @@ LTNK:
 		Queue: Vehicle
 		BuildPaletteOrder: 111
 		Prerequisites: adept, ~vehicles.entente, ~techlevel.low
-		Description: Entente main battle tank. \n Fast tank, good for fast manouvers.\n	Armed with a secondary machine gun.\nStrong vs Light armor, Tanks\n	Weak vs Infantry, Aircraft
+		Description: Entente main battle tank.\n Fast tank, good for fast manouvers.
+	TooltipExtras:
+		Strengths: • Strong vs Tanks.
+		Weaknesses: • Weak vs Aircraft.
+		Attributes: • Armed with a secondary machine gun.
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -3050,7 +3193,11 @@ TELEDRONE:
 		BuildPaletteOrder: 271
 		Prerequisites: ~weap, ~vehicles.usa, dome, ~techlevel.medium
 		Queue: Vehicle
-		Description: Radio controlled fast scout.\nArmed with anti-tank and anti-air rockets.\n  Strong vs Heavy armor\n  Weak vs Infantry, Tanks, Aircraft
+		Description: Radio controlled fast scout.\nArmed with anti-tank and anti-air rockets.
+	TooltipExtras:
+		Strengths: • Strong vs Vehicles, Aircraft.
+		Weaknesses: • Weak vs Infantry.
+		Attributes: • Requires a functioning Radar Dome.
 	Mobile:
 		TurnSpeed: 40
 		Speed: 105
@@ -3102,7 +3249,10 @@ LIMPETMINE:
 		Queue: Vehicle
 		BuildPaletteOrder: 691
 		Prerequisites: dome, ~vehicles.usa, ~techlevel.medium
-		Description: Tele controlled deployable mine. Explodes in an EMP burst.\nCan be detonated manually.\n  Unarmed
+		Description: Tele controlled deployable mine. Explodes in an EMP burst.
+	TooltipExtras:
+		Weaknesses: • Unarmed.
+		Attributes: • Requires a functioning Radar Dome.\n• Deploy to dig into ground.\n• Deploy once digged to force explode.
 	Valued:
 		Cost: 375
 	Tooltip:
@@ -3195,7 +3345,11 @@ ARC:
 		Queue: Vehicle
 		BuildPaletteOrder: 337
 		Prerequisites: atek, adept, ~vehicles.usa, ~techlevel.low
-		Description: Fires arcs that slow down enemy vehicles.\n	Strong vs Vehicles\n	Weak vs Infantry, Aircraft
+		Description: Fires arcs that slow down enemy vehicles.
+	TooltipExtras:
+		Strengths: • Strong vs Vehicles.
+		Weaknesses: • Weak vs Infantry, Aircraft.
+		Attributes: • Arcs slow down enemy vehicles.
 	Valued:
 		Cost: 1150
 	Tooltip:
@@ -3257,7 +3411,10 @@ EMPDEVICE:
 		Queue: Vehicle
 		BuildPaletteOrder: 420
 		Prerequisites: atek, ~vehicles.usa, ~techlevel.high
-		Description: Radio controlled device.\nExplodes as an EM pulse.\n  Strong vs Vehicles, Buildings\n  Weak vs Infantry, Aircraft
+		Description: Radio controlled device.\nExplodes as an EM pulse.
+	TooltipExtras:
+		Weaknesses: • Unarmed.
+		Attributes: • Requires a functioning Radar Dome.\n• Deploy to explode the EM pulse.
 	Valued:
 		Cost: 2250
 	Tooltip:
@@ -3322,7 +3479,10 @@ ARTY:
 		Queue: Vehicle
 		BuildPaletteOrder: 230
 		Prerequisites: dome, ~vehicles.entente, ~techlevel.medium
-		Description: Long-range artillery.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft
+		Description: Long-range artillery.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry, Buildings, Defenses.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
 	Valued:
 		Cost: 850
 	RenderSprites:
@@ -3370,7 +3530,10 @@ ARCHER:
 		Queue: Vehicle
 		BuildPaletteOrder: 261
 		Prerequisites: dome, adept, ~vehicles.entente, ~techlevel.high
-		Description: Long range tank destroyer.\n  Strong vs Vehicles, Defenses\n  Weak vs Infantry, Aircraft
+		Description: Long range tank destroyer.
+	TooltipExtras:
+		Strengths: • Strong vs Tanks.
+		Weaknesses: • Weak vs Infantry, Aircraft.
 	Valued:
 		Cost: 1300
 	Tooltip:
@@ -3430,7 +3593,10 @@ ENTENTEAA:
 		Queue: Vehicle
 		BuildPaletteOrder: 320
 		Prerequisites: atek, adept, ~vehicles.entente, ~techlevel.low
-		Description: Mobile unit with a double\nbarreled AA cannon.\n  Strong vs Infantry, Light armor, Aircraft\n  Weak vs Tanks
+		Description: Mobile unit with a double\nbarreled AA cannon.
+	TooltipExtras:
+		Strengths: • Strong vs Aircraft.
+		Weaknesses: • Weak vs Tanks.
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -3460,7 +3626,7 @@ ENTENTEAA:
 	Armament@AG:
 		Name: secondary
 		Weapon: Archer-AG
-		LocalOffset: 840,-200,150, 840,200,150
+		LocalOffset: 870,-200,100, 870,200,100
 		MuzzleSequence: muzzle
 		RequiresCondition: !aa-firing
 	GrantConditionOnAttack@aafiring:
@@ -3509,7 +3675,11 @@ HVRTNKTNK:
 		Queue: Vehicle
 		BuildPaletteOrder: 335
 		Prerequisites: dome, ~vehicles.ukraine, ~techlevel.unrestricted
-		Description: Manipulates Earth's magnetosphere\nto assume a levitating state.\n  Strong vs Heavy armor\n	Weak vs Infantry, Tanks, Aircraft
+		Description: Manipulates Earth's magnetosphere\nto assume a levitating state.
+	TooltipExtras:
+		Strengths: • Strong vs Vehicles.
+		Weaknesses: • Weak vs Infantry, Aircraft.
+		Attributes: • Deploy to enter levitating state.\n• Can not shoot while levitating.
 	Valued:
 		Cost: 1200
 	Tooltip:
@@ -3653,7 +3823,10 @@ GRINDER:
 		Queue: Vehicle
 		BuildPaletteOrder: 330
 		Prerequisites: ~weap, stek, adept, ~vehicles.russia, ~techlevel.low
-		Description: Portable Iron Curtain vehicle armed\na massive metal grinder.\nDoes not slow down while crushing.\nCan deploy to activate Iron Curtain before exploding after a while\n.Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+		Description: Portable Iron Curtain vehicle armed\na massive metal grinder.
+	TooltipExtras:
+		Weaknesses: • Unarmed.
+		Attributes: • Deploy to activate Iron Curtain.\n• Once the Iron Curtain runs out, the vehicle explodes.\n• Does not slow down while crushing.
 	Valued:
 		Cost: 2300
 	Tooltip:
@@ -3705,7 +3878,10 @@ TTNK:
 		Queue: Vehicle
 		BuildPaletteOrder: 330
 		Prerequisites: stek, ~vehicles.russia, ~techlevel.high
-		Description: Tank with mounted Tesla coil.\n  Strong vs Infantry, Vehicles, Buildings\n	 Weak vs Aircraft
+		Description: Tank with mounted Tesla coil.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry, Vehicles.
+		Weaknesses: • Weak vs Aircraft.
 	Valued:
 		Cost: 1350
 	Tooltip:
@@ -3773,7 +3949,10 @@ FLMTNK:
 		Queue: Vehicle
 		BuildPaletteOrder: 210
 		Prerequisites: dome, ~vehicles.turkey, ~techlevel.medium
-		Description: Shoots balls of napalm.\n Strong vs. Infantry, Buildings.\n Weak vs. Tanks, Aircraft.
+		Description: Shoots balls of napalm.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry, Buildings.
+		Weaknesses: • Weak vs Tanks, Aircraft.
 	Mobile:
 		TurnSpeed: 28
 		Speed: 85
@@ -3828,7 +4007,11 @@ FIRELANCER:
 		Queue: Vehicle
 		BuildPaletteOrder: 340
 		Prerequisites: mtek, ~vehicles.turkey, ~techlevel.medium
-		Description: Shoots a long cone of flame\nand leaves the ground burning.\n Strong vs. Infantry, Buildings.\n Weak vs. Tanks, Aircraft.
+		Description: Shoots a long cone of flame\nand leaves the ground burning.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry, Buildings.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Attributes: • Leaves the ground burning.
 	Mobile:
 		TurnSpeed: 20
 		Speed: 56
@@ -3891,7 +4074,11 @@ HELGA:
 		Queue: Vehicle
 		BuildPaletteOrder: 330
 		Prerequisites: mtek, adept, ~vehicles.bulgaria, ~techlevel.high
-		Description: Huge extra long range\ndeployable artillery.\n  Strong vs Infantry, Defences\n  Weak vs Tanks, Aircraft
+		Description: Huge extra long range artillery.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry, Buildings, Defenses.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Attributes: • Deploy to enter firing or mobile states.
 	Valued:
 		Cost: 1800
 	Health:
@@ -3990,7 +4177,11 @@ SAPPER:
 		Queue: Vehicle
 		BuildPaletteOrder: 340
 		Prerequisites: mtek, ~vehicles.italy, ~techlevel.low
-		Description: Subterranean transport vehicle.\nArmed with a huge drill.\n	Strong vs. Buildings.\nWeak vs All Unit Types.
+		Description: Subterranean transport vehicle armed with a huge drill.
+	TooltipExtras:
+		Strengths: • Strong vs Buildings, Defenses.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Attributes: • Can move under ground.\n• Can transport up to 3 infantry units.
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -4090,7 +4281,11 @@ TESTUDO:
 		Queue: Vehicle
 		BuildPaletteOrder: 114
 		Prerequisites: adept, ~vehicles.italy, ~techlevel.low
-		Description: Modified trench digger armed with dual machine guns.\nMay entrench itself to reduce damage intake by 30%.\nDoes not slow down while crushing.\n	Strong vs Infantry, Light Armor\n	Weak vs Tanks, Aircraft
+		Description: Modified trench digger armed with dual machine guns.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry.
+		Weaknesses: • Weak vs Tanks, Aircraft.
+		Attributes: • Deploy to dig into ground.\n• Does not slow down while crushing.
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -4214,7 +4409,10 @@ RACER:
 		Queue: Vehicle
 		BuildPaletteOrder: 96
 		Prerequisites: ~vehicles.mongolia, ~techlevel.medium
-		Description: Lightly armoured tracked motorbike.\nArmed with two rocket launchers.\n  Strong vs Heavy armor\n  Weak vs Tanks, Aircraft
+		Description: Lightly armoured tracked motorbike.\nArmed with two rocket launchers.
+	TooltipExtras:
+		Strengths: • Strong vs Vehicles.
+		Weaknesses: • Weak vs Infantry, Aircraft.
 	Valued:
 		Cost: 700
 	Tooltip:
@@ -4272,7 +4470,10 @@ ORDA:
 		Queue: Vehicle
 		BuildPaletteOrder: 335
 		Prerequisites: stek, ~vehicles.mongolia, ~techlevel.high
-		Description: Unarmed deployable construction platform.\n  Provides building radius.\n  Weak vs Everything
+		Description: Deployable construction platform.
+	TooltipExtras:
+		Weaknesses: • Unarmed.
+		Attributes: • Provides build radius once deployed.
 	Valued:
 		Cost: 1750
 	Tooltip:
@@ -4366,7 +4567,11 @@ GATLINGCAR:
 		Queue: Vehicle
 		BuildPaletteOrder: 98
 		Prerequisites: ~vehicles.belarus, adept, ~techlevel.low
-		Description: Heavy scout & anti-infantry vehicle.\n	 Strong vs Infantry\n  Weak vs Vehicles, Aircraft
+		Description: Heavy scout & anti-infantry vehicle.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Attributes: • Gatling guns speed up while firing increasing fire rate.
 	Valued:
 		Cost: 700
 	Tooltip:
@@ -4506,7 +4711,11 @@ LOUCHUAN:
 		Queue: Vehicle
 		BuildPaletteOrder: 330
 		Prerequisites: stek, adept, ~vehicles.china, ~techlevel.high
-		Description: Strong infantry transport.\nInfantry may shoot from inside.\n  Strong vs Everything.
+		Description: Very strong infantry transport.
+	TooltipExtras:
+		Strengths: • Strength depends on the cargo.
+		Weaknesses: • Weakness depends on the cargo.
+		Attributes: • Can transport up to 5 infantry units.\n• Transported infantry can shoot from inside.
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -4554,7 +4763,10 @@ DTRK:
 		Queue: Vehicle
 		BuildPaletteOrder: 330
 		Prerequisites: mtek, ~vehicles.persia, ~techlevel.high
-		Description: Truck with actively armed nuclear\nexplosives. Has very weak armor.
+		Description: Truck loaded with highly explosive cargo.
+	TooltipExtras:
+		Weaknesses: • Unarmed.
+		Attributes: • Deploy to explode the cargo.
 	Valued:
 		Cost: 2500
 	Tooltip:

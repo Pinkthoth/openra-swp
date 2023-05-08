@@ -1,3 +1,12 @@
+FIELDS1:
+	Inherits: ^Field
+
+FIELDS2:
+	Inherits: ^Field
+
+FIELDS3:
+	Inherits: ^Field
+
 TREES1:
 	Inherits: ^CellTree
 	MapEditorData:

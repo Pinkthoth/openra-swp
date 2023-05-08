@@ -182,7 +182,11 @@ HOSPITALLER:
 		BuildAtProductionType: Plane
 		BuildPaletteOrder: 800
 		Prerequisites: ~afld, techcenter, ~atektech, ~techlevel.high
-		Description: Anti-vehicle attack plane.\nSlows down enemy vehicles.\nCan become invisible.\n  Strong vs Buildings, Vehicles\n  Weak vs Infantry, Aircraft
+		Description: Phase anti-vehicle attack plane.
+	TooltipExtras:
+		Strengths: • Strong vs Vehicles.
+		Weaknesses: • Weak vs Infantry, Aircraft.
+		Attributes: • Buildable only by spying an entente tech center.\n• Can phase out of vision.\n• Arcs slow down enemy vehicles.
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -521,8 +525,11 @@ ANT40:
 		Offset: 0,553,0
 	Buildable:
 		Prerequisites: ~afld, stek, ~aircraft.komintern, ~techlevel.high
-		Description: Drops incendiary bombs.\nHigh altitude aircraft.\n  Strong vs Infantry, Light armor\n  Weak vs Aircraft
+		Description: Slow bomber that drops incendiary bombs.
 		BuildPaletteOrder: 450
+	TooltipExtras:
+		Strengths: • Strong vs Buildings, Defenses.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
 	Valued:
 		Cost: 2200
 	Selectable:
@@ -538,7 +545,10 @@ MIG:
 		BuildAtProductionType: Plane
 		BuildPaletteOrder: 410
 		Prerequisites: ~afld, stek, ~aircraft.komintern, ~techlevel.high
-		Description: Fast general purpose a plane.\n  Strong vs Buildings, Vehicles\n  Weak vs Infantry
+		Description: Fast general purpose a plane.
+	TooltipExtras:
+		Strengths: • Strong vs Vehicles, Aircraft.
+		Weaknesses: • Weak vs Infantry.
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -622,7 +632,10 @@ YAK:
 		BuildAtProductionType: Plane
 		BuildPaletteOrder: 400
 		Prerequisites: ~afld, ~aircraft.komintern, ~techlevel.medium
-		Description: Attack Plane armed with\ndual machine guns.\n  Strong vs Aircraft\n  Weak vs Tanks, Infantry
+		Description: Attack Plane armed with\ndual machine guns.
+	TooltipExtras:
+		Strengths: • Strong vs Aircraft.
+		Weaknesses: • Weak vs Vehicles, Infantry.
 	Valued:
 		Cost: 1350
 	Tooltip:
@@ -707,7 +720,11 @@ TESLAHIND:
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 225
 		Prerequisites: hpad, stek, ~helicopter.russia, ~techlevel.high
-		Description: Helicopter gunship armed with\nsmall dual tesla coils.\nRecharges ammo automatically.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+		Description: Helicopter gunship armed with\nsmall dual tesla coils.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry, Vehicles.
+		Weaknesses: • Weak vs Aircraft.
+		Attributes: • Recharges ammo automatically.
 	Valued:
 		Cost: 1800
 	Tooltip:
@@ -792,7 +809,11 @@ GATLINGHIND:
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 225
 		Prerequisites: hpad, ~helicopter.belarus, ~techlevel.high
-		Description: Helicopter gunship armed with\nsmall dual gatling guns.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+		Description: Helicopter gunship armed with\nsmall dual gatling guns.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Attributes: • Gatling guns speed up over time increasing fire rate.
 	Valued:
 		Cost: 1800
 	Tooltip:
@@ -958,6 +979,10 @@ COLIBRI:
 		BuildPaletteOrder: 225
 		Prerequisites: hpad, ~helicopter.serbia, ~techlevel.high
 		Description: Small helicopter, which changes\nit's weapon depending on the infantry inside.\n  Weak vs Aircraft
+	TooltipExtras:
+		Strengths: • Strength depends on the cargo.
+		Weaknesses: • Weakness depends on the cargo.
+		Attributes: • Weapon depends on the cargo.\n• Does not use ammo.
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -1358,7 +1383,11 @@ IBLIS:
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 225
 		Prerequisites: hpad, mtek, ~helicopter.turkey, ~techlevel.high
-		Description: Helicopter gunship armed with\nIncendiary missiles.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+		Description: Helicopter gunship armed with\nIncendiary missiles.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry, Buildings.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Attributes: • Leaves the ground burning.
 	Valued:
 		Cost: 1850
 	Tooltip:
@@ -1440,7 +1469,10 @@ HEAVYFIGHTER:
 		BuildAtProductionType: Plane
 		BuildPaletteOrder: 501
 		Prerequisites: ~afld, adept, ~aircraft.raj, ~techlevel.medium
-		Description: Attack Plane armed with\nquadruble machine guns.\nMay attack air or ground targets.\n Strong vs Aircraft, Infantry\n  Weak vs Tanks
+		Description: Attack Plane armed with\nquadruble machine guns.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry, Aircraft.
+		Weaknesses: • Weak vs Tanks.
 	Valued:
 		Cost: 1600
 	Tooltip:
@@ -1463,12 +1495,14 @@ HEAVYFIGHTER:
 		LocalOffset: 326,-413,0
 		MuzzleSequence: muzzle
 		PauseOnCondition: !ammo || !airborne
+		FireDelay: 2
 	Armament@SECONDARY:
 		Name: secondary
 		Weapon: ChainGun.HVF.AA
 		LocalOffset: 326,413,0
 		MuzzleSequence: muzzle
 		PauseOnCondition: !ammo || !airborne
+		FireDelay: 2
 	Armament@TERTIARY:
 		Name: tertiary
 		Weapon: ChainGun.HVF.AA
@@ -1487,12 +1521,14 @@ HEAVYFIGHTER:
 		LocalOffset: 326,-413,0
 		MuzzleSequence: muzzle
 		PauseOnCondition: !ammo || !airborne
+		FireDelay: 2
 	Armament@SENARY:
 		Name: senary
 		Weapon: ChainGun.HVF.AG
 		LocalOffset: 326,413,0
 		MuzzleSequence: muzzle
 		PauseOnCondition: !ammo || !airborne
+		FireDelay: 2
 	Armament@OCTONARY:
 		Name: octonary
 		Weapon: ChainGun.HVF.AG
@@ -1572,7 +1608,10 @@ TRAN:
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 10
 		Prerequisites: hpad, ~helicopter.allies, ~techlevel.medium
-		Description: Fast Infantry Transport Helicopter.\n  Unarmed
+		Description: Fast Infantry Transport Helicopter.
+	TooltipExtras:
+		Weaknesses: • Unarmed
+		Attributes: • Can transport up to 8 infantry units.
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -1626,7 +1665,10 @@ HELI:
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 40
 		Prerequisites: hpad, ~helicopter.allies, atek, ~techlevel.high
-		Description: Helicopter gunship armed\nwith multi-purpose missiles.\n  Strong vs Buildings, Vehicles, Helicopters\n  Weak vs Infantry, Airplanes
+		Description: Helicopter gunship armed\nwith multi-purpose missiles.
+	TooltipExtras:
+		Strengths: • Strong vs Vehicles, Aircraft.
+		Weaknesses: • Weak vs Infantry.
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -1708,7 +1750,11 @@ SAUCER:
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 230
 		Prerequisites: hpad, ~helicopter.ukraine, stek, ~techlevel.high
-		Description: Levitating disc armed with magnetic rays.\nMay levitate just above ground for a while,\ndamaging nearby targets.\n  Strong vs Buildings, Vehicles, Aircraft\n  Weak vs Infantry
+		Description: Levitating disc armed with magnetic rays.
+	TooltipExtras:
+		Strengths: • Strong vs Vehicles.
+		Weaknesses: • Weak vs Aircraft.
+		Attributes: • Deploy to levitate just above ground damaging nearby target.\n• Does not use ammo.
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -1847,7 +1893,10 @@ HIND:
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 110
 		Prerequisites: hpad, ~helicopter.soviet, ~techlevel.medium
-		Description: Helicopter gunship armed with rockets.\n  Strong vs Infantry\n  Weak vs Aircraft
+		Description: Helicopter gunship armed with rockets.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
 	Valued:
 		Cost: 1750
 	Tooltip:
@@ -1929,7 +1978,11 @@ TENGRII:
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 110
 		Prerequisites: hpad, stek, ~helicopter.mongolia, ~techlevel.high
-		Description: Helicopter gunship armed with long range rockets.\nMust be deployed to fire.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
+		Description: Helicopter gunship armed with long range rockets.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry, Buildings, Defenses.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Attributes: • Deploy to enter firing or mobile states.
 	Valued:
 		Cost: 2250
 	Tooltip:
@@ -2031,7 +2084,10 @@ GEBARD:
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 220
 		Prerequisites: hpad, adept, ~helicopter.germany, ~techlevel.medium
-		Description: Fast helicopter gunship armed with rockets.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
+		Description: Fast helicopter gunship armed with rockets.
+	TooltipExtras:
+		Strengths: • Strong vs Vehicles.
+		Weaknesses: • Weak vs Infantry, Aircraft.
 	Valued:
 		Cost: 1800
 	Tooltip:
@@ -2122,7 +2178,11 @@ COMET:
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 200
 		Prerequisites: hpad, ~helicopter.zentrum, ~techlevel.medium
-		Description: Helicopter gunship armed\nwith dual chainguns.\nCan transport infantry.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+		Description: Helicopter gunship armed\nwith dual chainguns.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Attributes: • Can transport up to 4 infantry units.
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -2247,7 +2307,10 @@ MH60:
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 20
 		Prerequisites: hpad, ~helicopter.allies, ~techlevel.medium
-		Description: Helicopter gunship armed\nwith dual chainguns.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+		Description: Helicopter gunship armed\nwith dual chainguns.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -2332,7 +2395,11 @@ TEUTON:
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 230
 		Prerequisites: ~hpad, ~mtektech, techcenter, ~techlevel.medium
-		Description: Helicopter gunship armed\nwith dual refractor cannons.\nCan chronoshift\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+		Description: Helicopter gunship armed\nwith dual refractor cannons.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Attributes: • Buildable only by spying a zentrum tech center.\n• Equipped with a portable chronosphere.
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -2413,7 +2480,11 @@ WASP:
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 220
 		Prerequisites: hpad, mtek, ~helicopter.austria, ~techlevel.high
-		Description: Helicopter gunship armed\nwith a direct energy weapon.\nSlowly recharges ammo.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
+		Description: Helicopter gunship armed\nwith a direct energy weapon.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry, Vehicles.
+		Weaknesses: • Weak vs Aircraft.
+		Attributes: • Slowly recharges ammo.
 	Valued:
 		Cost: 1900
 	Tooltip:
@@ -2495,7 +2566,10 @@ MSRSMT:
 		BuildAtProductionType: Plane
 		BuildPaletteOrder: 600
 		Prerequisites: ~afld, ~aircraft.zentrum, ~techlevel.medium
-		Description: Attack Plane armed with\ndual machine guns.\n  Strong vs Aircraft\n  Weak vs Tanks, Infantry
+		Description: Attack Plane armed with\ndual machine guns.
+	TooltipExtras:
+		Strengths: • Strong vs Aircraft.
+		Weaknesses: • Weak vs Vehicles, Infantry.
 	Valued:
 		Cost: 1400
 	Tooltip:
@@ -2604,7 +2678,10 @@ A10:
 		BuildAtProductionType: Plane
 		BuildPaletteOrder: 510
 		Prerequisites: ~afld, ~aircraft.entente, atek, ~techlevel.high
-		Description: Attack Plane armed with\na powerful autocannon.\n	Strong vs Infantry, Vehicles\n  Weak vs Aircraft
+		Description: Attack Plane armed with\na powerful autocannon.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry, Vehicles, Buildings.
+		Weaknesses: • Weak vs Aircraft.
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -2721,7 +2798,10 @@ STRMVGL:
 		BuildAtProductionType: Plane
 		BuildPaletteOrder: 650
 		Prerequisites: mtek, ~afld, ~aircraft.zentrum, ~techlevel.medium
-		Description: Anti-aircraft fighter.\n  Strong vs Aircraft\n	 Weak vs Infantry, Vehicles.
+		Description: Fast anti-aircraft fighter.
+	TooltipExtras:
+		Strengths: • Strong vs Aircraft.
+		Weaknesses: • Weak vs Vehicles, Infantry.
 	Valued:
 		Cost: 2100
 	Tooltip:
@@ -2898,7 +2978,11 @@ HARRIER:
 		BuildAtProductionType: Plane
 		BuildPaletteOrder: 610
 		Prerequisites: atek, ~afld, ~aircraft.england, ~techlevel.medium
-		Description: Anti-aircraft fighter.\n  Strong vs Aircraft\n	 Weak vs Infantry, Vehicles.
+		Description: Fast anti-aircraft fighter.
+	TooltipExtras:
+		Strengths: • Strong vs Aircraft.
+		Weaknesses: • Weak vs Vehicles, Infantry.
+		Attributes: • Can rearm in a helipad.
 	Valued:
 		Cost: 2100
 	Tooltip:
@@ -3087,8 +3171,12 @@ STUKA:
 		BuildPaletteOrder: 500
 	Buildable:
 		Prerequisites: ~afld, ~aircraft.zentrum, ~techlevel.high
-		Description: Drops highly effective bombs on a\nsmall target area. Dives fast on it's target.\n  Strong vs Infantry, Light armor, Tanks\n  Weak vs Aircraft
+		Description: Dive bomber that drops highly\neffective bombs on a small target area.
 		BuildPaletteOrder: 610
+	TooltipExtras:
+		Strengths: • Strong vs Vehicles, Buildings, Defenses.
+		Weaknesses: • Weak vs Infantry, Aircraft.
+		Attributes: • Dives when attacking, increasing speed and reducing damage intake.
 	Valued:
 		Cost: 1900
 	Selectable:
@@ -3139,7 +3227,10 @@ MI26:
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 100
 		Prerequisites: hpad, ~helicopter.soviet, ~techlevel.medium
-		Description: Infantry Transport Helicopter.\n	Unarmed
+		Description: Infantry Transport Helicopter.
+	TooltipExtras:
+		Weaknesses: • Unarmed.
+		Attributes: • Can transport up to 8 infantry units.
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -3199,7 +3290,10 @@ AIRCRANE:
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 199
 		Prerequisites: hpad, ~helicopter.zentrum, ~techlevel.medium
-		Description: Vehicle Transport Helicopter.\n	Unarmed
+		Description: Vehicle Transport Helicopter.
+	TooltipExtras:
+		Weaknesses: • Unarmed.
+		Attributes: • Can transport one vehicle.
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -3311,7 +3405,11 @@ ZEPPELIN:
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 700
 		Prerequisites: ~afld, mtek, ~aircraft.bulgaria, ~techlevel.high
-		Description: Slow moving bomber zeppelin.\n  Strong vs Buildings, Vehicles, Aircraft\n  Weak vs Infantry
+		Description: Slow moving bomber zeppelin.
+	TooltipExtras:
+		Strengths: • Strong vs Buildings, Defenses.
+		Weaknesses: • Weak vs Infantry, Vehicles, Aircraft.
+		Attributes: • Slowly recharges ammo.
 	Valued:
 		Cost: 2000
 	Tooltip:

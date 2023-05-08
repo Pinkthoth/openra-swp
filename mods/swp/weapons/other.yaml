@@ -735,11 +735,11 @@ BlimpParaBomb:
 		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
 			None: 80
-			Wood: 40
+			Wood: 50
 			Light: 75
 			Medium: 60
 			Heavy: 50
-			Concrete: 30
+			Concrete: 40
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Crater
@@ -771,12 +771,12 @@ DropBombs:
 		Falloff: 180, 150, 100, 75, 50, 25, 15, 5, 0
 		ValidTargets: GroundActor, Trees,  WaterActor
 		Versus:
-			None: 40
+			None: 45
 			Wood: 70
 			Light: 70
 			Medium: 80
 			Heavy: 100
-			Concrete: 60
+			Concrete: 65
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Crater
@@ -1029,9 +1029,9 @@ PrismHandHeld:
 		Versus:
 			None: 100
 			Wood: 45
-			Light: 80
-			Medium: 70
-			Heavy: 50
+			Light: 75
+			Medium: 65
+			Heavy: 45
 			Concrete: 25
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath
 		ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
@@ -1054,10 +1054,12 @@ TeutonPrism:
 		Spread: 42
 		Damage: 8000
 		Versus:
-			Wood: 50
-			Light: 90
-			Medium: 85
-			Heavy: 80
+			None: 100
+			Wood: 45
+			Light: 75
+			Medium: 65
+			Heavy: 45
+			Concrete: 25
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath
 		ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
 	Warhead@2Smu: LeaveSmudge
@@ -1705,8 +1707,10 @@ MindBlast:
 	Range: 6c0
 	Report: byubatta.wav
 	ValidTargets: Ground, Water, Infantry, Trees, WaterActor
-	Projectile: InstantHit
-		Blockable: true
+	Projectile: LaserZap
+		Blockable: false
+		Width: 0c40
+		Color: FF4CD550
 	Warhead@1Dam: HealthPercentageDamage
 		Spread: 128
 		Damage: 25

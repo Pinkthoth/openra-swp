@@ -574,10 +574,10 @@ ChainGun.Yak.AA:
 
 ChainGun.HVF.AA:
 	Inherits: ^HeavyMG
-	ReloadDelay: 8
+	ReloadDelay: 6
 	Range: 6c0
 	MinRange: 0c128
-	Report: bsenatta.wav, bsenattb.wav, bsenattc.wav, bsenattd.wav
+	Report: chaingn1.aud
 	ValidTargets: AirborneActor, AirborneBomber
 	Projectile: InstantHit
 		Blockable: false
@@ -597,9 +597,9 @@ ChainGun.HVF.AA:
 
 ChainGun.HVF.AG:
 	Inherits: ^HeavyMG
-	ReloadDelay: 8
+	ReloadDelay: 6
 	Range: 5c0
-	Report: bsenatta.wav, bsenattb.wav, bsenattc.wav, bsenattd.wav
+	Report: chaingn1.aud
 	MinRange: 1c0
 	Projectile: InstantHit
 		Blockable: false
@@ -766,16 +766,16 @@ M1Carbine:
 
 M1Carbine_elite:
 	Inherits: M1Carbine
-	Report: at_light_infantry_1.wav
+	Report: carbine2.wav
 	Warhead@1Dam: SpreadDamage
 		Damage: 1100
 
 TankMachineGun:
 	Inherits: M1Carbine
-	ReloadDelay: 75
+	ReloadDelay: 85
 	Report: iarnattb.wav
 	Warhead@1Dam: SpreadDamage
-		Damage: 2000
+		Damage: 1800
 
 
 WitchMG:
@@ -1295,7 +1295,7 @@ HLFTRKGUN:
 	Inherits: ^LightMG
 	ReloadDelay: 45
 	Range: 5c0
-	Report: mgun2cnc.aud
+	Report: at_light_infantry_1.wav
 	Warhead@1Dam: SpreadDamage
 		Damage: 2450
 		Versus:
@@ -1525,7 +1525,7 @@ GuerillaCarbine:
 	Inherits: ^LightMG
 	ReloadDelay: 20
 	Range: 5c0
-	Report: carbine2.wav
+	Report: mgun2cnc.aud
 	Warhead@1Dam: SpreadDamage
 		Damage: 1250
 		Versus:

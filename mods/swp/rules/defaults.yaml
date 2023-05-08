@@ -445,6 +445,23 @@
 		ValidRelationships: Ally, Neutral, Enemy
 		RequiresCondition: confusion
 
+^Field:
+	AppearsOnRadar:
+	ScriptTriggers:
+	RenderDebugState:
+	BodyOrientation:
+		QuantizedFacings: 1
+	WithSpriteBody:
+	RenderSprites:
+		Palette: terrain
+	MapEditorData:
+		Categories: Decoration
+	AlwaysVisible:
+	Immobile:
+		OccupiesSpace: false
+	ChangesTerrain:
+		TerrainType: River
+
 ^ChronoHasteable:
 	ExternalCondition@chronohaste:
 		Condition: chronohaste
@@ -1279,7 +1296,7 @@
 	Armor:
 		Type: None
 	RevealsShroud:
-		Range: 5c0
+		Range: 4c0
 	Mobile:
 		Speed: 56
 		AlwaysTurnInPlace: true
@@ -1944,7 +1961,7 @@
 		Sequence: flag
 		RequiresCondition: garrisoned
 		IsPlayerPalette: True
-		Offset: 0,0,1700
+		Offset: 0,0,1000
 		Palette: player
 	-CommandBarBlacklist:
 	SoundOnDamageTransition:
@@ -2252,9 +2269,6 @@
 		Palette: terrain
 		Offset: -1100,500,-300
 		IsDecoration: True
-		RequiresCondition: exists
-	GrantCondition@exists:
-		Condition: exists
 
 ^InfantryCorpse:
 	Inherits: ^BasicHusk
@@ -2577,9 +2591,6 @@
 		Sequence: idle
 		RequiresCondition: flameshield
 		Offset: 0,0,150
-	Armor@firearmor:
-		Type: FireArmor
-		RequiresCondition: flameshield
 
 ^SuperchargePower:
 	TimedConditionBar@supercharged:

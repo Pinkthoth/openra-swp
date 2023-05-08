@@ -1842,6 +1842,7 @@ fcom:
 hospital:
 	Defaults:
 		Offset: 8,-28,0
+		Scale: 0.76
 	idle:
 	damaged-idle:
 		Start: 1
@@ -1853,7 +1854,8 @@ hospital:
 		Tick: 800
 	make: hospmake
 		Length: *
-	bib: mbHOSP
+	bib: bib2
+		Scale: 1
 		Length: *
 		Offset: 0,1
 		UseTilesetExtension: true

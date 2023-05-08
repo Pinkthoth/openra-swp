@@ -5,12 +5,16 @@ DOG:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 42
 		Prerequisites: ~infantry.zentrum, ~techlevel.infonly
-		Description: Anti-infantry unit.\nCan detect spies.\n  Strong vs Infantry\n	 Weak vs Vehicles, Aircraft
+		Description: Anti-infantry unit.
 	Valued:
 		Cost: 200
 	Tooltip:
 		Name: Attack Dog
 		GenericName: Dog
+	TooltipExtras:
+		Strengths: • Strong vs Infantry.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Attributes: • Can detect disquised and phased units.
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Selectable:
@@ -77,7 +81,10 @@ E1:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 10
 		Prerequisites: ~barr, ~techlevel.infonly
-		Description: General-purpose infantry.\n  Strong vs Infantry\n	Weak vs Vehicles, Aircraft
+		Description: General-purpose infantry.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
 	Selectable:
 		Class: E1
 	Valued:
@@ -122,7 +129,11 @@ INITIATE:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 75
 		Prerequisites: ~barr, dome, ~infantry.persia, ~techlevel.infonly
-		Description: Anti-infantry psychic infantry.\nCan only attack infantry.\n  Strong vs Infantry\n	Weak vs Vehicles, Aircraft
+		Description: Anti-infantry psychic unit.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Attributes: • Can attack infantry only.
 	Valued:
 		Cost: 300
 	Tooltip:
@@ -133,6 +144,7 @@ INITIATE:
 		HP: 5000
 	Armament@PRIMARY:
 		Weapon: MindBlast
+		LocalOffset: 0,0,500
 	Armament@GARRISONED:
 		Name: garrisoned
 		Weapon: MindBlast
@@ -164,11 +176,17 @@ RADIST:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 45
 		Prerequisites: ~barr, ~techlevel.infonly, ~infantry.serbia
-		Description: General-purpose infantry\nwith increased vision.\n  Strong vs Infantry\n	Weak vs Vehicles, Aircraft
+		Description: General-purpose infantry\nwith increased vision.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Attributes: • Large vision.
 	Selectable:
 		Class: E1
 	Valued:
 		Cost: 145
+	RevealsShroud:
+		Range: 6c0
 	Tooltip:
 		Name: Radist
 	UpdatesPlayerStatistics:
@@ -209,7 +227,11 @@ ARDITI:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 74
 		Prerequisites: ~barr, adept, ~infantry.italy, ~techlevel.infonly
-		Description: General-purpose infantry capable\nof placing sand bags, which\ndecrease damage intake by 66%.\n  Strong vs Infantry\n	Weak vs Vehicles, Aircraft
+		Description: General-purpose infantry capable\nof entrenching itself.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Attributes: • Can deploy to entrench itself.\n• Deploying decreases damge intake.\n• Deploying makes unit uncrushable.
 	Valued:
 		Cost: 150
 	Tooltip:
@@ -282,7 +304,11 @@ E11:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 71
 		Prerequisites: ~barracks, adept, ~infantry.entente, ~techlevel.infonly
-		Description: General-purpose infantry.\nSuppresses a group of infantry.\n  Strong vs Infantry\n	Weak vs Vehicles, Aircraft
+		Description: Heavily armed general-purpose infantry.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Attributes: • Prones a large group of infantry.
 	Valued:
 		Cost: 275
 	Mobile:
@@ -340,7 +366,11 @@ HVGATLING:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 71
 		Prerequisites: ~barracks, adept, ~infantry.komintern, ~techlevel.infonly
-		Description: General-purpose infantry.\n  Strong vs Infantry, Light armor\n	Weak vs Vehicles, Aircraft
+		Description: Heavily armed general-purpose infantry.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry, Vehicles.
+		Weaknesses: • Weak vs Tanks, Aircraft.
+		Attributes: • Gatling gun speeds up increasing fire rate.
 	Valued:
 		Cost: 275
 	Mobile:
@@ -414,7 +444,11 @@ MAROZNIK:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 92
 		Prerequisites: ~barracks, stek, ~infantry.belarus, ~techlevel.infonly
-		Description: Shoots bursts of cryo spray,\nslowing and decreasing enemy unit's vision.\n Strong vs Infantry\n	Weak vs Vehicle, Aircraft
+		Description: Shoots bursts of cryo spray.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Attributes: • Slows down enemies, decreases their vision and fire rate.
 	Valued:
 		Cost: 350
 	Mobile:
@@ -460,7 +494,10 @@ WASTETROOPER:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 92
 		Prerequisites: ~barracks, dome, ~infantry.kazakhstan, ~techlevel.infonly
-		Description: Shoots bursts of corrosive acid.\n  Strong vs Infantry, Vehicles\n	Weak vs Aircraft
+		Description: Shoots bursts of corrosive acid.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry, Vehicles.
+		Weaknesses: • Weak vs Aircraft.
 	Valued:
 		Cost: 325
 	Mobile:
@@ -587,7 +624,10 @@ KULAK:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 45
 		Prerequisites: ~barr, ~infantry.kazakhstan, ~techlevel.infonly
-		Description: Can pick up any weapon or tool from a corpse.\nUnarmed.
+		Description: Unarmed conscript fresh off the boot camp.
+	TooltipExtras:
+		Weaknesses: • Unarmed.
+		Attributes: • Can pick up any infantry weapon from a corpse.
 	Valued:
 		Cost: 40
 	RenderSprites:
@@ -756,7 +796,11 @@ MLTVTHRWR:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 45
 		Prerequisites: ~infantry.turkey, ~techlevel.infonly
-		Description: Infantry armed with molotovs.\n  Strong vs Buildings, Infantry\n  Weak vs Vehicles, Aircraft
+		Description: Infantry armed with molotovs.
+	TooltipExtras:
+		Strengths: • Strong vs Buildings, Infantry.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Attributes: • Leaves ground burning.
 	Valued:
 		Cost: 160
 	Tooltip:
@@ -797,7 +841,10 @@ ARZ:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 76
 		Prerequisites: dome, ~infantry.austria, ~techlevel.medium
-		Description: Resurrects nearby dead infantry.\n	Unarmed
+		Description: Operates a portable lazarus device.
+	TooltipExtras:
+		Weaknesses: • Unarmed.
+		Attributes: • Can resurrect infantry.
 	Valued:
 		Cost: 350
 	Tooltip:
@@ -851,7 +898,10 @@ E2:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 43
 		Prerequisites: ~infantry.komintern, ~techlevel.infonly
-		Description: Infantry armed with grenades.\n  Strong vs Buildings, Infantry\n  Weak vs Vehicles, Aircraft
+		Description: Infantry armed with grenades.
+	TooltipExtras:
+		Strengths: • Strong vs Buildings, Infantry.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
 	Valued:
 		Cost: 160
 	Tooltip:
@@ -900,7 +950,10 @@ E3:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 30
 		Prerequisites: ~barracks, ~techlevel.infonly
-		Description: Anti-tank/Anti-aircraft infantry.\n  Strong vs Vehicles, Aircraft\n  Weak vs Infantry
+		Description: Anti-tank/Anti-aircraft infantry.
+	TooltipExtras:
+		Strengths: • Strong vs Vehicles, Helicopters.
+		Weaknesses: • Weak vs Infantry, Airplanes.
 	Selectable:
 		Class: E3
 	Valued:
@@ -957,7 +1010,10 @@ E6:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 40
 		Prerequisites: ~barracks, ~techlevel.infonly
-		Description: Infiltrates and captures\nenemy structures.\n  Unarmed
+		Description: Military engineer.
+	TooltipExtras:
+		Weaknesses: • Unarmed.
+		Attributes: • Infiltrates and captures enemy structures.\n• Restores husks to working condition.
 	Valued:
 		Cost: 400
 	Tooltip:
@@ -1086,7 +1142,10 @@ SPY:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 100
 		Prerequisites: ~!mi6academy, ~infantry.entente, dome, ~barracks, ~techlevel.medium
-		Description: Infiltrates enemy structures for experience, intel or tech.\nExact effect depends on the building infiltrated.\nLoses disguise when attacking.\nCan detect spies.\n  Strong vs Infantry\n	 Weak vs Vehicles, Aircraft\n  Special Ability: Disguised
+		Description: Infiltrates enemy structures for experience, intel or tech.
+	TooltipExtras:
+		Weaknesses: • Weak vs Everything.
+		Attributes: • Can disguise as any infantry.\n• Detects disguised units.\n• Can infiltrate enemy structures, the effect depends on the building.
 	Valued:
 		Cost: 500
 	-Tooltip:
@@ -1153,7 +1212,6 @@ SPY.MI6:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 100
 		Prerequisites: ~mi6academy, ~infantry.entente, dome, ~barracks, ~techlevel.medium
-		Description: Infiltrates enemy structures for experience, intel or tech.\nExact effect depends on the building infiltrated.\nLoses disguise when attacking.\nCan detect spies.\n  Strong vs Infantry\n	 Weak vs Vehicles, Aircraft\n  Special Ability: Disguised
 	Cloneable:
 		Types: spy.mi6
 	ProducibleWithLevel:
@@ -1169,7 +1227,11 @@ SABOTEUR:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 100
 		Prerequisites: ~infantry.zentrum, dome, ~barracks, ~techlevel.medium
-		Description: Infiltrates enemy structures damaging and disabling the buidling for a while.\nCan detect spies.\n  Strong vs Infantry\n	 Weak vs Vehicles, Aircraft
+		Description: Infiltrates enemy structures damaging and disabling the buidling for a while.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Attributes: • Infiltrates enemy buildings damaging and disabling them.
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -1220,7 +1282,10 @@ MEDI:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 44
 		Prerequisites: ~barr, ~infantry.entente, ~techlevel.infonly
-		Description: Heals nearby infantry.\n  Unarmed
+		Description: Military medic.
+	TooltipExtras:
+		Weaknesses: • Unarmed.
+		Attributes: • Heals damaged infantry units.
 	Valued:
 		Cost: 200
 	Tooltip:
@@ -1269,7 +1334,10 @@ MECH:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 90
 		Prerequisites: ~barr, adept, ~infantry.entente, ~techlevel.medium
-		Description: Repairs nearby vehicles and restores\nhusks to working condition by capturing them.\n	Unarmed
+		Description: Military mechanic.
+	TooltipExtras:
+		Weaknesses: • Unarmed.
+		Attributes: • Repairs nearby vehicles.\n• Restores husks to working condition.
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -1331,7 +1399,10 @@ THF:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 95
 		Prerequisites: ~barr, dome, ~infantry.komintern, ~techlevel.medium
-		Description: Steals enemy credits.\nHijacks enemy vehicles.\n  Unarmed
+		Description: Professional thief.
+	TooltipExtras:
+		Weaknesses: • Unarmed.
+		Attributes: • Steals enemy credits.\n• Hijacks enemy vehicles.\n• Becomes hidden while immobile.
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -1456,7 +1527,10 @@ TNKCMNDR:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 90
 		Prerequisites: dome, ~infantry.germany, ~techlevel.infonly
-		Description: Can enter vehicles to \nenhance fighting capabilities.\n  Weak vs Everything
+		Description: Crack tank crew commander.
+	TooltipExtras:
+		Weaknesses: • Weak vs Everything.
+		Attributes: • Can enter vehicles to increase fighting abilities.
 	Valued:
 		Cost: 400
 	Health:
@@ -1565,7 +1639,10 @@ POLITRUK:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 75
 		Prerequisites: ~barracks, adept, ~infantry.komintern, ~techlevel.infonly
-		Description: Increases the fighting capabilities of infantry.\n  Weak vs Everything
+		Description: Communist party political officer.
+	TooltipExtras:
+		Weaknesses: • Weak vs Everything.
+		Attributes: • Increases the fighting abilities of nearby infantry.
 	Valued:
 		Cost: 400
 	Health:
@@ -1692,7 +1769,10 @@ OFFICER:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 76
 		Prerequisites: ~barracks, adept, ~infantry.zentrum, ~techlevel.infonly
-		Description: Increases the experience gained by\nnearby units. Slowly increases experience.\n  Weak vs Everything
+		Description: Commissioned officer.
+	TooltipExtras:
+		Weaknesses: • Weak vs Everything.
+		Attributes: • Increases the experience gained by nearby units.\n• Slowly gives experience to nearby units.
 	Valued:
 		Cost: 300
 	Health:
@@ -1819,7 +1899,10 @@ ISHMAELITE:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 150
 		Prerequisites: ~barracks, mtek, ~infantry.persia, ~techlevel.high
-		Description: Can enslave one enemy unit.\n  Weak vs Everything
+		Description: Devoted follower of the psychic prophet Ishmael.
+	TooltipExtras:
+		Weaknesses: • Weak vs Everything.
+		Attributes: • Can mind control one enemy unit.
 	Valued:
 		Cost: 2000
 	Health:
@@ -1909,7 +1992,10 @@ HVMG:
 		Queue: Infantry
 		BuildPaletteOrder: 49
 		Prerequisites: ~barr, adept, ~infantry.raj, ~techlevel.infonly
-		Description: Infantry operated heavy machine gun.\n  Strong vs Infantry, Light armor.\n  Weak vs Tanks, Aircraft
+		Description: Infantry operated heavy machine gun.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -2013,7 +2099,10 @@ ARTILLERYOBSERVER:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 76
 		Prerequisites: ~barracks, mtek, ~infantry.bulgaria, ~techlevel.infonly
-		Description: Increases range and fire rate of infiltrated artillery units\nHeals infiltrated artillery unit up to 20% health..\n  Weak vs Everything
+		Description: Highly trained artillery observer.
+	TooltipExtras:
+		Weaknesses: • Weak vs Everything.
+		Attributes: • Can enter artillery units to increase fighting abilities.
 	Valued:
 		Cost: 400
 	Health:
@@ -2069,7 +2158,10 @@ SCVN:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 76
 		Prerequisites: ~barr, adept, ~infantry.kazakhstan, ~techlevel.medium
-		Description: Extracts resources from\ndestroyed husks and rubble.\n	Unarmed
+		Description: Military scavanger.
+	TooltipExtras:
+		Weaknesses: • Unarmed.
+		Attributes: • Can extract resources from rubble and husks.
 	Valued:
 		Cost: 200
 	Tooltip:
@@ -2131,7 +2223,10 @@ STRMTRPR:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 130
 		Prerequisites: mtek, ~infantry.austria, ~techlevel.high
-		Description: Elite infantry with a hand-held\ndirect energy weapon.\n  Strong vs Infantry, Vehicles\n  Weak vs Aircraft
+		Description: Elite infantry with a hand-held\ndirect energy weapon.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry, Vehicles.
+		Weaknesses: • Weak vs Aircraft.
 	Valued:
 		Cost: 400
 	Tooltip:
@@ -2180,7 +2275,10 @@ LEGIONAIRE:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 72
 		Prerequisites: ~barracks, adept, ~infantry.france, ~techlevel.infonly
-		Description: General-purpose infantry. Armed with an\nassault rifle and a stinger.\n  Strong vs Infantry\n	Weak vs Vehicles, Aircraft
+		Description: General-purpose infantry.
+	TooltipExtras:
+		Strengths: • Strong vs Everything.
+		Attributes: • Armed with a secondary stinger.
 	Valued:
 		Cost: 300
 	Tooltip:
@@ -2300,7 +2398,10 @@ TERRORIST:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 76
 		Prerequisites: ~techlevel.medium, ~infantry.persia, dome
-		Description: An ishmaelite fanatic strapped with\nC4 explosives.\n  Strong vs Structures\n  Weak vs Everything\n  Special Ability: Cloaks while immobile.
+		Description: An fanatical follower of the prophet Ishmael.
+	TooltipExtras:
+		Weaknesses: • Weak vs Unarmed.
+		Attributes: • Strapped with dynamite.\n• Becomes hidden while immobile.
 	Valued:
 		Cost: 250
 	Cloak:
@@ -2322,7 +2423,11 @@ SPECOP:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 80
 		Prerequisites: ~techlevel.medium, ~infantry.england, dome, ~barr
-		Description: Elite rifleman armed with\na rifle and grenades.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft
+		Description: Elite rifleman.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry, Buildings, Defenses.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Attributes: • Armed with secondary grenades.
 	Valued:
 		Cost: 200
 	Tooltip:
@@ -2383,7 +2488,11 @@ SNIPER:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 91
 		Prerequisites: ~barracks, atek, ~infantry.serbia, ~techlevel.medium
-		Description: Elite sniper infantry unit.\nCan detect cloaked units.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
+		Description: Elite sniper infantry unit.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Attributes: • Becomes hidden while immobile.
 	Health:
 		HP: 8000
 	Passenger:
@@ -2438,7 +2547,10 @@ E4:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 70
 		Prerequisites: adept, ~infantry.zentrum, ~techlevel.infonly
-		Description: Advanced anti-infantry and structure unit.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft
+		Description: Advanced anti-infantry and structure unit.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry, Buildings, Defenses.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
 	Valued:
 		Cost: 275
 	Tooltip:
@@ -2499,7 +2611,11 @@ ATGUNNER:
 		Queue: Infantry
 		BuildPaletteOrder: 49
 		Prerequisites: ~barr, adept, ~infantry.raj, ~techlevel.infonly
-		Description: Infantry operated anti-tank gun.\n  Strong vs Heavy armor.\n  Weak vs Infantry, Aircraft
+		Description: Infantry operated anti-tank gun.
+	TooltipExtras:
+		Strengths: • Strong vs Vehicles.
+		Weaknesses: • Weak vs Infantry, Aircraft.
+		Attributes: • Has stronger armour in the front.
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -2543,7 +2659,7 @@ ATGUNNER:
 		Name: garrisoned
 		Weapon: 76mmOrdinanceQF
 	AttackFrontal:
-		FacingTolerance: 100
+		FacingTolerance: 30
 	WithMuzzleOverlay:
 	ProducibleWithLevel:
 		Prerequisites: infantry.upgraded
@@ -2566,7 +2682,11 @@ AAGUNCREW:
 		Queue: Infantry
 		BuildPaletteOrder: 49
 		Prerequisites: ~barr, adept, ~infantry.raj, ~techlevel.infonly
-		Description: Infantry operated anti-air gun.\n  Strong vs Aircraft.\n  Weak vs Infantry, Vehicles
+		Description: Infantry operated anti-air gun.
+	TooltipExtras:
+		Strengths: • Strong vs Aircraft.
+		Weaknesses: • Weak vs Vehicles, Infantry.
+		Attributes: • Has stronger armour in the front.
 	Valued:
 		Cost: 550
 	Tooltip:
@@ -2610,7 +2730,7 @@ AAGUNCREW:
 		Name: garrisoned
 		Weapon: AACrewGun
 	AttackFrontal:
-		FacingTolerance: 100
+		FacingTolerance: 30
 	WithMuzzleOverlay:
 	ProducibleWithLevel:
 		Prerequisites: infantry.upgraded
@@ -2636,7 +2756,10 @@ MORTARCREW:
 		Queue: Infantry
 		BuildPaletteOrder: 49
 		Prerequisites: ~barr, ~infantry.bulgaria, adept, ~techlevel.infonly
-		Description: Infantry operated mortar.\n  Strong vs Infantry.\n  Weak vs Vehicles, Aircraft
+		Description: Infantry operated mortar.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry, Buildings, Defenses.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -2665,7 +2788,7 @@ MORTARCREW:
 		Name: garrisoned
 		Weapon: Mortar
 	AttackFrontal:
-		FacingTolerance: 100
+		FacingTolerance: 30
 	ProducibleWithLevel:
 		Prerequisites: infantry.upgraded
 
@@ -2677,7 +2800,10 @@ MILITIA:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 41
 		Prerequisites: ~barr, ~infantry.china, ~techlevel.infonly
-		Description: Light general-purpose infantry.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
+		Description: Light general-purpose infantry.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
 	Selectable:
 	Valued:
 		Cost: 80
@@ -2721,7 +2847,10 @@ FLKTRP:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 42
 		Prerequisites: ~barr, adept, ~infantry.china, ~techlevel.infonly
-		Description: General-purpose anti-air and\n anti-ground infantry.\n  Strong vs Light Armor, Aircraft\n	Weak vs Vehicles
+		Description: General-purpose anti-air and\n anti-ground infantry.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry, Aircraft.
+		Weaknesses: • Weak vs Vehicles.
 	Valued:
 		Cost: 250
 	Tooltip:
@@ -2779,7 +2908,11 @@ DESOLATOR:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 136
 		Prerequisites: ~barr, mtek, ~infantry.turkey, ~techlevel.infonly
-		Description: Anti-infantry unit, capable of creating\na large burning area around it by deploying.\n  Strong vs Infantry\n	Weak vs Vehicles
+		Description: Anti-infantry unit, capable of creating\na large burning area around it by deploying.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry, Buildings.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Attributes: • Can deploy to engulf the surrounding are in fire.
 	Valued:
 		Cost: 400
 	Mobile:
@@ -2790,8 +2923,6 @@ DESOLATOR:
 		AddToArmyValue: true
 	Health:
 		HP: 5000
-	Armor@firearmor:
-		Type: FireArmor
 	Armament:
 		Name: primary
 		Weapon: DesolatorHandHeld
@@ -2881,7 +3012,10 @@ SHKTRP:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 135
 		Prerequisites: stek, ~infantry.russia, ~techlevel.high
-		Description: Elite infantry with a portable Tesla coil.\n  Strong vs Infantry, Vehicles\n  Weak vs Aircraft
+		Description: Elite infantry with a portable Tesla coil.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry, Vehicles.
+		Weaknesses: • Weak vs Aircraft.
 	Valued:
 		Cost: 350
 	Tooltip:
@@ -2964,7 +3098,11 @@ CHRONOTROOPER:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 135
 		Prerequisites: mtek, ~infantry.germany, ~techlevel.high
-		Description: Elite infantry with a portable chronoshpere and\na chrono gun capable of disappering enemies.\n  Strong vs Infantry, Vehicles\n  Weak vs Aircraft
+		Description: Elite infantry with a portable chronoshpere and\na chrono gun capable of disappering enemies.
+	TooltipExtras:
+		Strengths: • Strong vs Vehicles.
+		Weaknesses: • Weak vs Aircraft.
+		Attributes: • Equipped with a portable chronosphere.\n• Freezes target unit in time.
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -3099,7 +3237,11 @@ NERVEAGENT:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 75
 		Prerequisites: ~barracks, stek, ~infantry.kazakhstan, ~techlevel.infonly
-		Description: Unleashes a nerve toxin that makes units\nattack anything on sight. Zombifies units\nit kills with it's weapon.\nAbility: Disquises\n  Weak vs Everything
+		Description: Nerve toxin specialist.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Attributes: • Detects disquised units.\n• Zombifies killed infantry.\n• Deploy to spread disorienting nerve gas.\n• Can disguise as any infantry.
 	Valued:
 		Cost: 550
 	Health:
@@ -3177,9 +3319,13 @@ NIGHTWITCH:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 77
 		Prerequisites: dome, ~infantry.ukraine, ~techlevel.high
-		Description: Elite infantry capable of levitation.\n  Strong vs Infantry, Vehicles\n  Weak vs Aircraft
+		Description: Elite infantry capable of magnetic levitation.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Attributes: • Deploy to enter levitating state.
 	Valued:
-		Cost: 350
+		Cost: 300
 	Tooltip:
 		Name: Night Witch
 	UpdatesPlayerStatistics:
@@ -3242,7 +3388,7 @@ NIGHTWITCHAIR:
 	RenderSprites:
 		Image: nightwitch
 	Valued:
-		Cost: 350
+		Cost: 300
 	Tooltip:
 		Name: Nightwitch
 	UpdatesPlayerStatistics:
@@ -3250,7 +3396,7 @@ NIGHTWITCHAIR:
 	Armor:
 		Type: Light
 	Health:
-		HP: 5500
+		HP: 6000
 	Aircraft:
 		TurnSpeed: 80
 		Speed: 90
@@ -3369,6 +3515,9 @@ PNEER:
 		BuildPaletteOrder: 76
 		Prerequisites: adept, ~infantry.italy, ~techlevel.medium
 		Description: Lays anti-infantry mines.\n	Unarmed
+	TooltipExtras:
+		Weaknesses: • Unarmed.
+		Attributes: • Detects mines.\n• Lays anti-infantry mines.
 	Valued:
 		Cost: 450
 	Tooltip:
@@ -3492,7 +3641,10 @@ CAVALRY:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 46
 		Prerequisites: ~infantry.mongolia, ~techlevel.low
-		Description: General purpose infantry\non horseback.\n	Strong vs Infantry\n	Weak vs Tanks, Aircraft
+		Description: Light general purpose infantry\non horseback.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
 	Valued:
 		Cost: 200
 	Tooltip:
@@ -3513,10 +3665,10 @@ CAVALRY:
 		Locomotor: foot
 	RevealsShroud:
 		MinRange: 4c0
-		Range: 6c512
+		Range: 5c0
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
-		Range: 5c0
+		Range: 4c0
 	WithMoveAnimation:
 		MoveSequence: run
 		ValidMovementTypes: Horizontal, Turn
@@ -3572,6 +3724,10 @@ BOLTER:
 		BuildPaletteOrder: 130
 		Prerequisites: ~barr, atek, ~infantry.usa, ~techlevel.high
 		Description: Elite infantry with portable arc throwers.\n  Strong vs Infantry, Vehicles\n  Weak vs Aircraft
+	TooltipExtras:
+		Strengths: • Strong vs Vehicles.
+		Weaknesses: • Weak vs Aircraft.
+		Attributes: • Arcs slow down enemy vehicles.
 	Valued:
 		Cost: 350
 	Tooltip:
@@ -3633,7 +3789,10 @@ SHINOBI:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 120
 		Prerequisites: atek, ~infantry.japan, ~techlevel.high
-		Description: Spying infantry capable of becoming invisible.\nLays invisible spy cameras.\n  Weak vs Everything
+		Description: Elite spying phase infantry.
+	TooltipExtras:
+		Weaknesses: • Unarmed
+		Attributes: • Can pahes out of vision.\n• Lays phased spy cameras.
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -3763,7 +3922,10 @@ IRONMAN:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 80
 		Prerequisites: ~infantry.russia, adept, dome
-		Description: Cyborg infantry in heavy armor.\nMelee unit.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft
+		Description: Melee cyborg infantry in heavy armor.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry, Vehicles.
+		Weaknesses: • Weak vs Aircraft.
 	Tooltip:
 		Name: Iron Man
 	UpdatesPlayerStatistics:
@@ -3864,8 +4026,11 @@ GRENADELAUNCHER:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 73
-		Prerequisites: adept, dome, ~infantry.bulgaria, ~techlevel.infonly
-		Description: Infantry armed with a grenade launcher.\n  Strong vs Buildings, Infantry\n  Weak vs Vehicles, Aircraft
+		Prerequisites: mtek, ~infantry.bulgaria, ~techlevel.infonly
+		Description: Infantry armed with a grenade launcher.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry, Buildings, Defenses.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
 	Valued:
 		Cost: 350
 	Tooltip:

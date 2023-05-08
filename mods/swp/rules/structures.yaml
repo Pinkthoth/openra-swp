@@ -583,6 +583,9 @@ TSLA:
 		BuildPaletteOrder: 43
 		Prerequisites: weap, ~structures.komintern, ~techlevel.medium
 		Description: Advanced base defense.\nRequires power to operate.\nCan detect cloaked units.\n  Strong vs Vehicles, Infantry\n  Weak vs Aircraft
+	TooltipExtras:
+		Strengths: • Strong vs Infantry, Vehicles.
+		Weaknesses: • Weak vs Aircraft.
 	Valued:
 		Cost: 1400
 	Tooltip:
@@ -635,7 +638,11 @@ REFTWR:
 		Queue: Defense
 		BuildPaletteOrder: 101
 		Prerequisites: weap, ~structures.zentrum, ~techlevel.medium
-		Description: Advanced base defense.\nRequires power to operate.\nCan detect cloaked units.\n  Strong vs Vehicles, Infantry\n  Weak vs Aircraft
+		Description: Advanced base defense.\nRequires power to operate.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry, Vehicles.
+		Weaknesses: • Weak vs Aircraft.
+		Attributes: • Can detect phased units.
 	Valued:
 		Cost: 1400
 	Tooltip:
@@ -656,7 +663,7 @@ REFTWR:
 	WithTeslaChargeAnimation:
 	Armament:
 		Weapon: PrismTower
-		LocalOffset: 0,0,1700
+		LocalOffset: 0,0,1500
 		PauseOnCondition: disabled || turnedoff
 	AttackCharges:
 		PauseOnCondition: disabled || build-incomplete || turnedoff
@@ -702,7 +709,11 @@ AGUN:
 		Queue: Defense
 		BuildPaletteOrder: 75
 		Prerequisites: dome, ~structures.entente, ~techlevel.medium
-		Description: Anti-Air base defense.\nRequires power to operate.\n  Strong vs Aircraft\n  Weak vs Ground units
+		Description: Anti-Air base defense.\nRequires power to operate.
+	TooltipExtras:
+		Strengths: • Strong vs Aircraft.
+		Weaknesses: • Weak vs Vehicles, Infantry.
+		Attributes: • Can detect phased units.
 	Valued:
 		Cost: 850
 	Tooltip:
@@ -758,6 +769,10 @@ CAGUN:
 		BuildPaletteOrder: 83
 		Prerequisites: dome, ~structures.france, ~techlevel.medium
 		Description: Anti-Air base defense.\nRequires power to operate.\n  Strong vs Aircraft\n  Weak vs Ground units
+	TooltipExtras:
+		Strengths: • Strong vs Aircraft.
+		Weaknesses: • Weak vs Vehicles, Infantry.
+		Attributes: • Can detect phased units.
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -1624,7 +1639,11 @@ PBOX:
 		Queue: Defense
 		BuildPaletteOrder: 60
 		Prerequisites: barr, ~structures.entente, ~techlevel.low
-		Description: Static anti-infantry base defense.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+		Description: Static anti-infantry base defense.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Attributes: • Can detect phased units.
 	Valued:
 		Cost: 800
 	CustomSellValue:
@@ -1680,11 +1699,15 @@ SPAINBUNKER:
 		Queue: Defense
 		BuildPaletteOrder: 60
 		Prerequisites: barr, ~structures.serbia, ~techlevel.low
-		Description: Static anti-infantry base defense.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+		Description: Static anti-infantry base defense.
+	TooltipExtras:
+		Strengths: • Strength depends on the cargo.
+		Weaknesses: • Weakness depends on the cargo.
+		Attributes: • Weapon depends on the cargo.\n• Can hold 4 infantry units inside.\n• Can detect phased units.
 	Valued:
-		Cost: 500
+		Cost: 400
 	CustomSellValue:
-		Value: 400
+		Value: 300
 	Health:
 		HP: 40000
 	Armor:
@@ -1695,405 +1718,34 @@ SPAINBUNKER:
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 5c0
+	WithBuildingBib:
+		HasMinibib: true
+	Turreted:
+		TurnSpeed: 512
 	-QuantizeFacingsFromSequence:
 	BodyOrientation:
 		QuantizedFacings: 8
-	EngineerRepairable:
-		RequiresCondition: damaged
 	GrantConditionOnDamageState@DAMAGED:
 		Condition: damaged
 		ValidDamageStates: Light, Medium, Heavy, Critical
-	SpawnActorsOnSell:
+	Cargo:
+		Types: Infantry
+		MaxWeight: 4
+		InitialUnits: e1
+		EjectOnDeath: True
+	-SpawnActorsOnSell:
+	AttackGarrisoned:
+		PauseOnCondition: build-incomplete
+		Armaments: garrisoned
+		PortOffsets: 384,0,128, 224,-341,128, -224,-341,128, -384,0,128, -224,341,128, 224,341,128
+		PortYaws: 0, 176, 341, 512, 682, 853
+		PortCones: 88, 88, 88, 88, 88, 88
 	RenderRangeCircle:
 		FallbackRange: 6c0
 	Power:
 		Amount: -20
 	DetectCloaked:
 		Range: 6c0
-	Turreted:
-		TurnSpeed: 40
-		Offset: -60,0,240
-	AmmoPool:
-		Armaments: secondary
-		Ammo: 1
-		AmmoCondition: ammo
-	ReloadAmmoPool:
-		Delay: 180
-		Count: 1
-	Armament:
-		Weapon: M1Carbine_elite
-		MuzzleSequence: muzzle
-		LocalOffset: 210,0,190
-		RequiresCondition: nochange || !hascargo || paslegionaire || passhinobi || pasofficer
-	AmbientSound@gatlingspinning:
-		SoundFiles: turret_loop_11.wav
-		RequiresCondition: gatling && aiming && pashvgat
-	AmbientSound@loopstart:
-		SoundFiles: turret_start_11.wav
-		RequiresCondition: !gatling && aiming && pashvgat
-		Interval: 100
-		Delay: 0
-	AmbientSound@loopend:
-		SoundFiles: turret_end_11.wav
-		RequiresCondition: gatling && !aiming && pashvgat
-		Interval: 100
-		Delay: 0
-	GrantConditionWhileAiming@aiming:
-		Condition: aiming
-	Armament@prism:
-		Weapon: PrismHandHeld
-		LocalOffset: 210,0,190
-		RequiresCondition: passtrmtrpr
-	Armament@pasnerveagent:
-		Weapon: ZombieGun
-		LocalOffset: 210,0,190
-		RequiresCondition: pasnerveagent
-	Armament@prim_e3:
-		Weapon: RedEye
-		LocalOffset: 0,0,555
-		ReloadingCondition: primary-reloading
-		PauseOnCondition: secondary-reloading
-		RequiresCondition: pase3
-	Armament@sec_e3:
-		Name: secondary
-		Weapon: Dragon
-		LocalOffset: 0,0,555
-		ReloadingCondition: secondary-reloading
-		PauseOnCondition: primary-reloading
-		RequiresCondition: pase3
-	Armament@legionairemissile:
-		Name: secondary
-		Weapon: LegionMissile
-		LocalOffset: 0,0,555
-		RequiresCondition: paslegionaire
-		PauseOnCondition: !ammo
-	Armament@legionaireaamissile:
-		Name: secondarary
-		Weapon: LegionMissileAA
-		LocalOffset: 0,0,555
-		RequiresCondition: paslegionaire
-		PauseOnCondition: !ammo
-	Armament@medic:
-		Weapon: Heal
-		Cursor: heal
-		OutsideRangeCursor: heal
-		TargetRelationships: Ally
-		ForceTargetRelationships: None
-		RequiresCondition: pasmedic
-	Armament@lmg:
-		Weapon: LightMachineGun
-		LocalOffset: 300,0,0
-		MuzzleSequence: muzzle
-		RequiresCondition: pase11
-	Armament@secondary:
-		Name: secondary
-		LocalOffset: 300,0,0
-		Weapon: LightMachineGun2
-		RequiresCondition: pase11
-	Armament@tesla:
-		Weapon: PortaTesla
-		LocalOffset: 427,0,341
-		RequiresCondition: passhktrp
-	Armament@tox:
-		Weapon: Toxxer
-		LocalOffset: 427,0,341
-		RequiresCondition: pastox
-	Armament@mech:
-		Weapon: Repair
-		Cursor: repair
-		OutsideRangeCursor: repair
-		TargetRelationships: Ally
-		ForceTargetRelationships: None
-		RequiresCondition: pasmech
-	Armament@flame:
-		Weapon: Flamer
-		LocalOffset: 427,0,341
-		RequiresCondition: pase4 || pasmaroznik
-	Armament@AA:
-		Weapon: FLAK-23-AA
-		Recoil: 85
-		LocalOffset: 512,0,192
-		MuzzleSequence: muzzle
-		RequiresCondition: pasflktrp
-	Armament@AG:
-		Weapon: FLAK-23-AG
-		Recoil: 85
-		LocalOffset: 512,0,192
-		MuzzleSequence: muzzle
-		RequiresCondition: pasflktrp
-	Armament@grenade:
-		Weapon: Grenade
-		LocalOffset: 0,0,555
-		FireDelay: 15
-		RequiresCondition: pase2
-	Armament@molotov:
-		Weapon: Molotov
-		LocalOffset: 0,0,555
-		FireDelay: 15
-		RequiresCondition: pasmolotov
-	Armament@sniper:
-		Weapon: Sniper
-		LocalOffset: 427,0,341
-		RequiresCondition: passniper
-	Armament@nightwitch:
-		Weapon: WitchMG_Caballero
-		LocalOffset: 427,0,341
-		RequiresCondition: pasngwtch
-		MuzzleSequence: muzzle
-	Armament@nightwitch2:
-		Name: secondary
-		Weapon: WitchMG_Caballero
-		LocalOffset: 427,0,341
-		RequiresCondition: pasngwtch
-		MuzzleSequence: muzzle
-	Armament@desolator:
-		Name: primary
-		Weapon: DesolatorHandHeld
-		LocalOffset: 120,0,600
-		RequiresCondition: psngdesolator
-	Armament@desolator_linedamage:
-		Name: secondary
-		Weapon: DesolatorHandHeld_LineDamage
-		LocalOffset: 120,0,600
-		RequiresCondition: psngdesolator
-	Armament@desolator_effect:
-		Name: primary
-		Weapon: DesolatorHandHeld_Effect
-		LocalOffset: 120,0,600
-		RequiresCondition: psngdesolator
-	Armament@grenadelauncher:
-		Weapon: GrenadeLauncher
-		LocalOffset: 427,0,341
-		RequiresCondition: pasgrenlnchr
-	Armament@scavenger:
-		Weapon: HuskBreaker
-		Cursor: repair
-		OutsideRangeCursor: repair
-		TargetRelationships: Ally, Neutral, Enemy
-		RequiresCondition: passcvn
-		ReloadingCondition: reloading-wrench
-	Armament@bolter:
-		Weapon: SM_ElectricBolt
-		LocalOffset: 427,0,341
-		RequiresCondition: pasbolter
-	Armament@arz:
-		Weapon: Resurrect
-		Cursor: heal
-		OutsideRangeCursor: heal
-		TargetRelationships: Ally
-		ForceTargetRelationships: None
-		FireDelay: 65
-		RequiresCondition: pasarz
-	Armament@gatling-start-0:
-		Weapon: AGGatlingStart
-		RequiresCondition: pashvgat && !gatling
-		PauseOnCondition: turnedoff
-	Armament@ag-0:
-		Weapon: AGGatling-handheld
-		LocalOffset: 350,-100,130, 350,100,130
-		MuzzleSequence: muzzle
-		RequiresCondition: pashvgat && gatling == 1
-		PauseOnCondition: turnedoff
-	Armament@ag-1:
-		Weapon: AGGatling2-handheld
-		LocalOffset: 350,-100,130, 350,100,130
-		MuzzleSequence: muzzle
-		RequiresCondition: pashvgat && gatling == 2
-		PauseOnCondition: turnedoff
-	Armament@ag-2:
-		Weapon: AGGatling3-handheld
-		LocalOffset: 350,-100,130, 350,100,130
-		MuzzleSequence: muzzle
-		RequiresCondition: pashvgat && gatling == 3
-		PauseOnCondition: turnedoff
-	Armament@ag-3:
-		Weapon: AGGatling4-handheld
-		LocalOffset: 350,-100,130, 350,100,130
-		MuzzleSequence: muzzle
-		RequiresCondition: pashvgat && gatling >= 4
-		PauseOnCondition: turnedoff
-	Armament@initiate:
-		Weapon: MindBlast
-		RequiresCondition: pasinitiate || pasishmaelite
-	Armament@maroznik:
-		Weapon: Marozzer
-		LocalOffset: 427,0,341
-		RequiresCondition: pasmaroznik
-	Armament@chronotrooper:
-		Weapon: NeutronCannon
-		FireDelay: 8
-		LocalOffset: 390,-60,300
-		PauseOnCondition: being-warped
-		RequiresCondition: paschronotrooper
-	GrantConditionOnAttack@gatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 12, 24
-		MaximumInstances: 2
-		RevokeDelay: 25
-		RevokeAll: true
-		IsCyclic: false
-		RevokeOnNewTarget: false
-		RequiresCondition: pashvgat
-	AttackTurreted:
-		PauseOnCondition: turnedoff
-	WithMuzzleOverlay:
-	WithSpriteTurret@editor:
-		Sequence: turret-rifle
-		RequiresCondition: !hascargo
-	WithSpriteTurret@rifle:
-		Sequence: turret-rifle
-		RequiresCondition: nochange || passhinobi || pasofficer
-	WithSpriteTurret@missile:
-		Sequence: turret-missile
-		RequiresCondition: pase3
-	WithSpriteTurret@pasbolter:
-		Sequence: turret-arc
-		RequiresCondition: pasbolter
-	WithSpriteTurret@legionaire:
-		Sequence: turret-ronin
-		RequiresCondition: paslegionaire
-	WithSpriteTurret@flak:
-		Sequence: turret-flak
-		RequiresCondition: pasflktrp
-	WithSpriteTurret@lmg:
-		Sequence: turret-lmg
-		RequiresCondition: pase11
-	WithSpriteTurret@tox:
-		Sequence: turret-tox
-		RequiresCondition: pastox || pasnerveagent
-	WithSpriteTurret@flame:
-		Sequence: turret-flame
-		RequiresCondition: pase4
-	WithSpriteTurret@mortar:
-		Sequence: turret-mortar
-		RequiresCondition: pase2 || pasmolotov || pasgrenlnchr
-	WithIdleOverlay@Shok:
-		Sequence: spinner-ttnk
-		Offset: 0,0,0
-		RequiresCondition: passhktrp
-	WithSpriteTurret@passtrmtrpr:
-		Sequence: turret-sniper
-		RequiresCondition: passtrmtrpr
-	WithSpriteTurret@sniper:
-		Sequence: turret-sniper
-		RequiresCondition: passniper || psngdesolator
-	WithSpriteTurret@nightwitch:
-		Sequence: turret-testudo
-		RequiresCondition: pasngwtch
-	WithSpriteTurret@heavygatling:
-		Sequence: turret-gatling
-		RequiresCondition: pashvgat
-	WithIdleOverlay@spy:
-		Sequence: spydish
-		Offset: -100,0,400
-		RequiresCondition: passpy
-	CashTrickler:
-		Interval: 80
-		InitialDelay: 0
-		Amount: 50
-		RequiresCondition: reloading-wrench
-	Cloak@shinobi:
-		Palette: newcloak
-		InitialDelay: 125
-		CloakDelay: 175
-		CloakSound: appear1.aud
-		UncloakSound: appear1.aud
-		IsPlayerPalette: true
-		PauseOnCondition: cloak-force-disabled || turnedoff
-		UncloakOn: Attack, Heal, Dock
-		RequiresCondition: passhinobi
-	GrantConditionOnDamageState@UNCLOAK:
-		Condition: cloak-force-disabled
-		ValidDamageStates: Critical
-	DetectCloaked@phase:
-		DetectionTypes: Phase
-		Range: 7c0
-		RequiresCondition: passpy
-	RevealsShroud:
-		Range: 7c0
-		RequiresCondition: passpy
-	Cargo:
-		Types: Infantry
-		MaxWeight: 1
-		LoadedCondition: hascargo
-		PassengerConditions:
-			dog: nochange
-			kulak: nochange
-			saboteur: nochange
-			scvn: passcvn
-			thf: nochange
-			pneer: nochange
-			shinobi: passhinobi
-			mltvthrwr: pasmolotov
-			arz: pasarz
-			e6: nochange
-			spy: passpy
-			spy.mi6: passpy
-			medi: pasmedic
-			mech: pasmech
-			politruk: paspolitruk
-			officer: pasofficer
-			artilleryobserver: nochange
-			strmtrpr: passtrmtrpr
-			specop: nochange
-			flktrp: pasflktrp
-			bolter: pasbolter
-			e2: pase2
-			e3: pase3
-			e4: pase4
-			e11: pase11
-			hvgatling: pashvgat
-			sniper: passniper
-			wastetrooper: pastox
-			nerveagent: pasnerveagent
-			shktrp: passhktrp
-			militia: nochange
-			nightwitch: pasngwtch
-			ironman: nochange
-			grenadelauncher: pasgrenlnchr
-			guerilla: nochange
-			arditi: nochange
-			desolator: psngdesolator
-			legionaire: paslegionaire
-			e1: nochange
-			e1r3: nochange
-			ishmaelite: pasishmaelite
-			chronotrooper: paschronotrooper
-			maroznik: pasmaroznik
-			terrorist: nochange
-			initiate: pasinitiate
-	ProximityExternalCondition@OfficerNearby:
-		Range: 4c0
-		ValidRelationships: Ally
-		Condition: officer-nearby
-		RequiresCondition: pasofficer
-	WithRangeCircle@OFFICER:
-		Type: jammer
-		Range: 4c0
-		Color: FFD700
-		RequiresCondition: pasofficer
-	ProximityExternalCondition@KOMMISSABLE:
-		Range: 4c0
-		ValidRelationships: Ally
-		Condition: kommissable
-		RequiresCondition: paspolitruk
-	WithRangeCircle@KOMMISSABLE:
-		Type: jammer
-		Range: 4c0
-		Color: FF5432
-		RequiresCondition: paspolitruk
-	SpawnActorOnDeath:
-		Actor: SIPAHI.Husk
-	WithRangeCircle@anti-air:
-		Range: 8c0
-		Color: FFFF0080
-		RequiresCondition: paslegionaire || pasflktrp
-	ReloadDelayMultiplier@baseboost:
-		Modifier: 90
-	FirepowerMultiplier@baseboost:
-		Modifier: 105
-	RangeMultiplier@bunkerrange:
-		Modifier: 125
 
 HBOX:
 	Inherits: ^Defense
@@ -2108,7 +1760,11 @@ HBOX:
 		Queue: Defense
 		BuildPaletteOrder: 81
 		Prerequisites: barr, ~structures.france, ~techlevel.medium
-		Description: Static anti-infantry base defense.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+		Description: Static anti-infantry base defense.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Attributes: • Can detect phased units.
 	Valued:
 		Cost: 850
 	CustomSellValue:
@@ -2169,7 +1825,11 @@ GUN:
 		Queue: Defense
 		BuildPaletteOrder: 70
 		Prerequisites: barr, ~structures.entente, ~techlevel.medium
-		Description: Anti-Armor base defense.\nCan detect cloaked units.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
+		Description: Anti-Armor base defense.
+	TooltipExtras:
+		Strengths: • Strong vs Vehicles.
+		Weaknesses: • Weak vs Infantry, Aircraft.
+		Attributes: • Can detect phased units.
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -2222,7 +1882,11 @@ CAMOGUN:
 		Queue: Defense
 		BuildPaletteOrder: 82
 		Prerequisites: barr, ~structures.france, ~techlevel.medium
-		Description: Anti-Armor base defense.\nCan detect cloaked units.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
+		Description: Anti-Armor base defense.
+	TooltipExtras:
+		Strengths: • Strong vs Vehicles.
+		Weaknesses: • Weak vs Vehicles, Infantry.
+		Attributes: • Can detect phased units.
 	Valued:
 		Cost: 950
 	Tooltip:
@@ -2280,7 +1944,11 @@ GATLINGGUN:
 		Queue: Defense
 		BuildPaletteOrder: 40
 		Prerequisites: barr, ~structures.komintern, ~techlevel.medium
-		Description: Anti-infantry base defense.\nCan detect cloaked units.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
+		Description: Anti-infantry base defense.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Attributes: • Gatling guns speed up increasing fire rate.\n• Can detect phased units.
 	Valued:
 		Cost: 825
 	Tooltip:
@@ -2413,6 +2081,10 @@ GRANDCANNON:
 		BuildPaletteOrder: 76
 		Prerequisites: atek, ~structures.raj, ~techlevel.medium
 		Description: Extra long ranged stationary artillery.\nCan detect cloaked units.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
+	TooltipExtras:
+		Strengths: • Strong vs Infantry, Buildings, Defenses.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Attributes: • Can detect phased units.
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -2470,7 +2142,11 @@ FTUR:
 		Queue: Defense
 		BuildPaletteOrder: 100
 		Prerequisites: barr, ~structures.zentrum, ~techlevel.low
-		Description: Anti-Infantry base defense.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+		Description: Anti-Infantry base defense.
+	TooltipExtras:
+		Strengths: • Strong vs Infantry.
+		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Attributes: • Can detect phased units.
 	Valued:
 		Cost: 850
 	Tooltip:
@@ -2535,7 +2211,11 @@ SAM:
 		Queue: Defense
 		BuildPaletteOrder: 102
 		Prerequisites: dome, ~structures.zentrum, ~techlevel.medium
-		Description: Anti-Air base defense.\nRequires power to operate.\n  Strong vs Aircraft\n  Weak vs Ground units
+		Description: Anti-Air base defense.
+	TooltipExtras:
+		Strengths: • Strong vs Aircraft.
+		Weaknesses: • Weak vs Vehicles, Infantry.
+		Attributes: • Can detect phased units.
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -2814,13 +2494,13 @@ WEAP:
 		Prerequisites: proc, ~techlevel.low
 		Description: Produces vehicles.
 	Valued:
-		Cost: 1700
+		Cost: 1650
 	Tooltip:
 		Name: War Factory
 	Building:
-		Footprint: +x= xxx =x+
+		Footprint: xxx xxx xxx
 		Dimensions: 3,3
-		LocalCenterOffset: 0,-512,0
+		LocalCenterOffset: 0,0,0
 	Health:
 		HP: 150000
 	Armor:
@@ -3900,6 +3580,10 @@ FLKGUN:
 		BuildPaletteOrder: 44
 		Prerequisites: dome, ~structures.komintern, ~techlevel.medium
 		Description: Anti-Air base defense.\nRequires power to operate.\n  Strong vs Aircraft\n  Weak vs Ground units
+	TooltipExtras:
+		Strengths: • Strong vs Aircraft.
+		Weaknesses: • Weak vs Vehicles, Infantry..
+		Attributes: • Can detect phased units.
 
 UPLINK:
 	Inherits: ^ScienceBuilding
@@ -4307,6 +3991,40 @@ WOOD:
 	WithWallSpriteBody:
 		Type: woodfence
 
+DSDY:
+	Inherits: ^Wall
+	Tooltip:
+		Name: Drystone wall
+	SoundOnDamageTransition:
+		DestroyedSounds: crmble2.aud
+	Health:
+		HP: 15000
+	Armor:
+		Type: Concrete
+	LineBuild:
+		NodeTypes: dsdy
+	LineBuildNode:
+		Types: dsdy
+	WithWallSpriteBody:
+		Type: dsdy
+
+HDG:
+	Inherits: ^Wall
+	Tooltip:
+		Name: Hedge wall
+	SoundOnDamageTransition:
+		DestroyedSounds: hdgcrsh.aud
+	Health:
+		HP: 15000
+	Armor:
+		Type: Wood
+	LineBuild:
+		NodeTypes: hdg
+	LineBuildNode:
+		Types: hdg
+	WithWallSpriteBody:
+		Type: hdg
+
 BRIK:
 	Inherits: ^Wall
 	Buildable:
@@ -4348,6 +4066,10 @@ TRENCH:
 		BuildPaletteOrder: 30
 		Prerequisites: fact, ~structures.italy, ~techlevel.medium
 		Description: Stop units and blocks enemy fire.
+	TooltipExtras:
+		Strengths: • Strength depends on cargo.
+		Weaknesses: • Weakness depends on cargo.
+		Attributes: • Garrisoned infantry may shoot from inside.\n• Nearby Trenches link to each other.
 	Valued:
 		Cost: 400
 	CustomSellValue:
