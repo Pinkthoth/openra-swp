@@ -638,7 +638,7 @@ tsla:
 
 reftwr:
 	Defaults:
-		Offset: 0,-13
+		Offset: 0,-6
 	idle:
 	damaged-idle:
 		Start: 0

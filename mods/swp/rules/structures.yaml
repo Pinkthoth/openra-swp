@@ -199,7 +199,9 @@ MSLO:
 		BuildPaletteOrder: 200
 		Prerequisites: techcenter, ~techlevel.unrestricted
 		BuildLimit: 1
-		Description: Provides an atomic bomb.\nRequires power to operate.\nMaximum 1 can be built.\n  Special Ability: Atom Bomb
+		Description: Provides an atomic bomb.\nRequires power to operate.
+	TooltipExtras:
+		Attributes: • Build limit 1.\n• Support Power: Atom Bomb
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -271,6 +273,8 @@ GAP:
 		BuildPaletteOrder: 110
 		Prerequisites: stek, ~structures.ukraine, ~techlevel.high
 		Description: Obscures the enemy's view with shroud.\nRequires power to operate.
+	TooltipExtras:
+		Attributes: • Passive Ability: Passively generates veil around itself.
 	Selectable:
 		Bounds: 924, 1448
 		DecorationBounds: 1024, 2896, 0, -724
@@ -446,7 +450,9 @@ IRON:
 		BuildPaletteOrder: 160
 		Prerequisites: stek, ~structures.komintern, ~techlevel.unrestricted
 		BuildLimit: 1
-		Description: Makes a group of units invulnerable\nfor a short time.\nRequires power to operate.\nMaximum 1 can be built.\n  Special Ability: Invulnerability
+		Description: Makes a group of units invulnerable\nfor a short time.\nRequires power to operate.
+	TooltipExtras:
+		Attributes: • Build limit 1.\n• Support Power: Invulnerability.
 	Valued:
 		Cost: 1600
 	Tooltip:
@@ -517,7 +523,9 @@ PDOX:
 		BuildPaletteOrder: 140
 		Prerequisites: mtek, ~structures.zentrum, ~techlevel.unrestricted
 		BuildLimit: 1
-		Description: Teleports a group of units across the\nmap for a short time.\nRequires power to operate.\nMaximum 1 can be built.\n  Special Ability: Chronoshift
+		Description: Teleports a group of units across the\nmap for a short time.\nRequires power to operate.
+	TooltipExtras:
+		Attributes: • Build limit 1.\n• Support Power: Chronoshift.
 	Valued:
 		Cost: 1600
 	Tooltip:
@@ -591,8 +599,8 @@ TSLA:
 	Tooltip:
 		Name: Tesla Coil
 	Selectable:
-		Bounds: 724, 1448
-		DecorationBounds: 724, 2413, 0, -482
+		Bounds: 1024, 1448
+		DecorationBounds: 1024, 2413, 0, -482
 	Health:
 		HP: 40000
 	Armor:
@@ -648,8 +656,8 @@ REFTWR:
 	Tooltip:
 		Name: Refractor Tower
 	Selectable:
-		Bounds: 924, 1448
-		DecorationBounds: 1024, 2896, 0, -724
+		Bounds: 1024, 1448
+		DecorationBounds: 1124, 2296, 0, -624
 	Health:
 		HP: 40000
 	Armor:
@@ -719,8 +727,8 @@ AGUN:
 	Tooltip:
 		Name: AA Gun
 	Selectable:
-		Bounds: 724, 1448
-		DecorationBounds: 724, 1930, 0, -241
+		Bounds: 1024, 1448
+		DecorationBounds: 1024, 1930, 0, -241
 	Health:
 		HP: 40000
 	Armor:
@@ -778,8 +786,8 @@ CAGUN:
 	Tooltip:
 		Name: Camo AA Gun
 	Selectable:
-		Bounds: 724, 1448
-		DecorationBounds: 724, 1930, 0, -241
+		Bounds: 1024, 1448
+		DecorationBounds: 1024, 1930, 0, -241
 	Health:
 		HP: 40000
 	Armor:
@@ -842,7 +850,9 @@ DOME:
 		Queue: Building
 		BuildPaletteOrder: 90
 		Prerequisites: proc, ~techlevel.medium
-		Description: Provides an overview\nof the battlefield.\nProvides support powers.\nRequires power to operate.
+		Description: Provides an overview of the battlefield.\nRequires power to operate.
+	TooltipExtras:
+		Attributes: • Support Power: Provides a subfaction specific support power.\n• Support Power: Provides a faction specific support power.
 	Valued:
 		Cost: 1600
 	Tooltip:
@@ -987,7 +997,7 @@ DOME:
 		Icon: intercepticon
 		ChargeInterval: 6750
 		Name: Intercept
-		Description: A squadron of fighters\nengages enemy aircraft within\nover a selected area.
+		Description: Two Garud heavy fighters\nengages enemy aircraft within\nover a selected area.
 		SelectTargetSpeechNotification: SelectTarget
 		EndChargeSpeechNotification: SupportPowerReady
 		CameraActor: camera
@@ -1011,7 +1021,7 @@ DOME:
 		Prerequisites: ~support.usa
 		ChargeInterval: 8500
 		Name: EMP Bomb
-		Description: A squad of Badgers drop parachuted\nbombs on your target.
+		Description: A Thunderbolt drops an EMP bomb\ndisabling mechanical units.
 		SelectTargetSpeechNotification: SelectTarget
 		CameraActor: camera
 		CameraRemoveDelay: 150
@@ -1037,7 +1047,7 @@ DOME:
 		ChargeInterval: 6000
 		Icon: flareicon
 		Name: Flare
-		Description: Fires a flare that increases\nthe vision of units in it's vicinity.
+		Description: Fires a flare that increases\nthe vision of allied units in it's vicinity.
 		Cursor: attack
 		DeploySound: at_drone_rocket_1.wav
 		OrderName: FlareOrder
@@ -1126,7 +1136,7 @@ DOME:
 		Icon: barrageicon
 		Prerequisites: support.entente
 		Name: Artillery Barrage
-		Description: Fires an artillery barrage.
+		Description: An artillery battery fires a barrage\non the selected area.
 		SelectTargetSpeechNotification: SelectTarget
 		MissileWeapon: ArtilleryBarrage
 		ChargeInterval: 8500
@@ -1154,7 +1164,7 @@ DOME:
 		Prerequisites: support.komintern
 		ChargeInterval: 8500
 		Name: Parabombs
-		Description: A squad of Badgers drop parachuted\nbombs on your target.
+		Description: A squad of bombers drop parachuted\nbombs on your target.
 		SelectTargetSpeechNotification: SelectTarget
 		CameraActor: camera
 		CameraRemoveDelay: 150
@@ -1179,7 +1189,7 @@ DOME:
 		Icon: v3icon
 		ChargeInterval: 8500
 		Name: V3 Missile
-		Description: Launches an explosive and incendiary\nwarhead at a target location.
+		Description: Launches an explosive and incendiary\nwarhead at the target location.
 		SelectTargetSpeechNotification: SelectTarget
 		EndChargeSpeechNotification: V3Ready
 		IncomingSpeechNotification: V3Incoming
@@ -1209,7 +1219,7 @@ DOME:
 		Name: Mirage
 		EndChargeSpeechNotification: SupportPowerReady
 		ActivationDelay: 1
-		Description: Creates a hologram army at\nselected area.
+		Description: Creates a hologram army at\nthe selected area.
 		Weapon: MirageInit
 		AirburstAltitude: 4c512
 		AllowMultiple: false
@@ -1231,7 +1241,7 @@ DOME:
 		Icon: mindblasticon
 		ChargeInterval: 3000
 		Name: Mind Blast
-		Description: Sends a psychic shockwave from\nenslaved units within the area.
+		Description: Sends a damaging psychic shockwave from\nenslaved units within the area.
 		Duration: 500
 		SelectTargetSpeechNotification: SelectTarget
 		InsufficientPowerSpeechNotification: InsufficientPower
@@ -1273,7 +1283,7 @@ DOME:
 		Icon: propagandaicon
 		ChargeInterval: 7500
 		Name: Propaganda
-		Description: Makes a group of infantry move faster, \ntake less damage and not prone for 20 seconds.
+		Description: Makes a group of infantry move faster,\ntake less damage and not prone for 20 seconds.
 		Duration: 500
 		SelectTargetSpeechNotification: SelectTarget
 		InsufficientPowerSpeechNotification: InsufficientPower
@@ -1297,7 +1307,7 @@ DOME:
 		Icon: magneticsuspensionicon
 		IconPalette: tseffects
 		Name: Magnetic Suspension
-		Description: Disabled all units within an area\nmakes them untargetable, invulnerable\nand unable to fire.\nBlocks off the whole are from movement.
+		Description: Disables all units within an area,\nmakes them untargetable, invulnerable\nand unable to fire.\nBlocks off the whole are from movement.
 		Cursor: ability
 		OrderName: MagneticSuspension
 		PauseOnCondition: disabled || turnedoff
@@ -1352,7 +1362,7 @@ DOME:
 		Prerequisites: support.italy
 		ChargeInterval: 7500
 		Name: Paramine
-		Description: A squad of Junkers drop parachuted mines\non your target.
+		Description: A squad of bombers drop parachuted mines\non the selected target.
 		SelectTargetSpeechNotification: SelectTarget
 		CameraActor: camera
 		CameraRemoveDelay: 150
@@ -1377,7 +1387,7 @@ DOME:
 		Name: Metempsychosis
 		EndChargeSpeechNotification: SupportPowerReady
 		ActivationDelay: 1
-		Description: Raises the dead as zombies.
+		Description: Raises dead infantry corpses as zombies.
 		Weapon: Metempsychosis
 		AirburstAltitude: 0c0
 		AllowMultiple: false
@@ -1401,7 +1411,7 @@ DOME:
 		Name: Lazarene Ray
 		EndChargeSpeechNotification: SupportPowerReady
 		ActivationDelay: 1
-		Description: Resurrects dead allied units.
+		Description: Resurrects dead allied infantry corpses.
 		Weapon: LazareneRay
 		AirburstAltitude: 0c0
 		AllowMultiple: false
@@ -1464,8 +1474,10 @@ ACADEMY:
 		Queue: Building
 		BuildPaletteOrder: 600
 		Prerequisites: ~structures.england, dome, ~techlevel.medium
-		Description: Produces an additional spy for every trained spy\n and produces a free spy every two minutes.\nPromotes produced spies.
+		Description: Forward office of the British secret service.
 		BuildLimit: 1
+	TooltipExtras:
+		Attributes: • Build limit 1.\n• Passive Ability: Produces an additional spy for every trained spy.\n• Passive Ability: Produces a free spy every two minutes for free.\n• Passive Ability: Promotes produced spies.
 	Valued:
 		Cost: 700
 	Tooltip:
@@ -1507,7 +1519,7 @@ RECRUITMENTOFFICE:
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Selectable:
-		Bounds: 1448, 2896
+		Bounds: 2496, 2496
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -1521,10 +1533,12 @@ RECRUITMENTOFFICE:
 		Queue: Building
 		BuildPaletteOrder: 600
 		Prerequisites: ~structures.china, weap, ~techlevel.medium
-		Description: Produces a two Militias\n every 30 seconds for 100$.
+		Description: Forward recruitmend and command office\nof the Chinese Red Guards.
 		BuildLimit: 1
+	TooltipExtras:
+		Attributes: • Build limit 1.\n• Passive Ability: Produces two Militia units every 30 seconds for 100$.
 	Valued:
-		Cost: 800
+		Cost: 600
 	Tooltip:
 		Name: Forward Command
 	ProvidesPrerequisite@buildingname:
@@ -1583,6 +1597,8 @@ MOROZKO:
 		BuildPaletteOrder: 111
 		Prerequisites: dome, ~structures.belarus, ~techlevel.medium
 		Description: Static blizzard generating structure.\nCan detect cloaked units.
+	TooltipExtras:
+		Attributes: • Passive Ability: Passively slows down surrounding units and decreases their vision.
 	Valued:
 		Cost: 1150
 	CustomSellValue:
@@ -2126,7 +2142,7 @@ GRANDCANNON:
 	-BodyOrientation:
 	ClassicFacingBodyOrientation:
 	Selectable:
-		Bounds: 1810, 3620, 0, -120
+		Bounds: 2510, 3020, 0, -320
 	SequencePlaceBuildingPreview:
 		Sequence: build
 	RenderSprites:
@@ -2758,7 +2774,7 @@ SILO:
 	Inherits: ^Building
 	Inherits@rubbles: ^1x1Rubbles
 	Selectable:
-		Bounds: 724, 1448
+		Bounds: 1024, 1448
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 35
@@ -2820,6 +2836,8 @@ LAZARUSPLATFORM:
 		BuildPaletteOrder: 180
 		Prerequisites: mtek, ~structures.austria, ~techlevel.medium
 		Description: Slowly heals or repairs surrounding units\nby gathering bits of their past selves\nfrom the space-time continuum.
+	TooltipExtras:
+		Attributes: • Passive Ability: Passively heals surrounding units.
 	Valued:
 		Cost: 1500
 	Targetable:
@@ -3006,7 +3024,9 @@ AFLD:
 		Queue: Building
 		BuildPaletteOrder: 130
 		Prerequisites: dome, ~techlevel.medium
-		Description: Produces and reloads aircraft.\n  Special Ability: Spy Plane\n  Special Ability: Paratroopers
+		Description: Produces and reloads aircraft.
+	TooltipExtras:
+		Attributes: • Support Power: Paratroopers.
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -3296,7 +3316,7 @@ STEK:
 		Queue: Building
 		BuildPaletteOrder: 150
 		Prerequisites: dome, ~structures.komintern, ~techlevel.high
-		Description: Provides Soviet advanced technologies.
+		Description: Provides Komintern advanced technologies.
 	Valued:
 		Cost: 1600
 	Tooltip:
@@ -3599,7 +3619,9 @@ UPLINK:
 		BuildPaletteOrder: 150
 		Prerequisites: mtek, ~structures.zentrum, ~techlevel.unrestricted
 		BuildLimit: 1
-		Description: Reveals the map and enemy positions..\nMaximum 1 can be built.\n  Special Ability: GPS Satellite
+		Description: Reveals the map and enemy positions.
+	TooltipExtras:
+		Attributes: • Build limit 1.\n• Support Power: GPS Satellite
 	Valued:
 		Cost: 1600
 	Tooltip:
@@ -3701,7 +3723,9 @@ STHGEN:
 		BuildPaletteOrder: 130
 		Prerequisites: atek, ~structures.entente, ~techlevel.unrestricted
 		BuildLimit: 1
-		Description: Makes vehicles and buildings invisible for a 20 seconds.\nRequires power to operate.\nMaximum 1 can be built.\n  Special Ability: Phase Shield
+		Description: Makes vehicles and buildings invisible for a 20 seconds.\nRequires power to operate.
+	TooltipExtras:
+		Attributes: • Build limit 1.\n• Support Power: Phase Shield.
 	Valued:
 		Cost: 1600
 	Tooltip:
@@ -3776,7 +3800,9 @@ EMPGUN:
 		Queue: Defense
 		BuildPaletteOrder: 112
 		Prerequisites: atek, ~structures.entente, ~techlevel.unrestricted
-		Description: Disables mechanical units in an area.\nLimited range. \nMaximum 1 can be built.\nRequires power to operate.
+		Description: Disables mechanical units in an area.\nLimited range.\nRequires power to operate.
+	TooltipExtras:
+		Attributes: • Build limit 1.\n• Support Power: EM Pulse
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -3836,7 +3862,9 @@ SRIMP:
 		BuildPaletteOrder: 170
 		Prerequisites: stek, ~structures.komintern, ~techlevel.unrestricted
 		BuildLimit: 1
-		Description: Provides a local shroud veil.\nRequires power to operate.\nMaximum 1 can be built.\n	 Special Ability: Veil
+		Description: Provides a local shroud veil.\nRequires power to operate.
+	TooltipExtras:
+		Attributes: • Build limit 1.\n• Support Power: Veil.
 	RevealsShroud:
 		MinRange: 5c0
 		Range: 6c0

@@ -1471,8 +1471,8 @@ APCGun:
 			None: 80
 			Wood: 15
 			Light: 40
-			Medium: 30
-			Heavy: 15
+			Medium: 20
+			Heavy: 10
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, DefaultDeath
 	Warhead@2Eff: CreateEffect
 		ValidTargets: Ground, Water, Air, GroundActor, Corpse

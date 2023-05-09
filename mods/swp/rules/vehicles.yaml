@@ -265,7 +265,7 @@ PROPTRUCK:
 		Queue: Vehicle
 		BuildPaletteOrder: 167
 		Prerequisites: ~techlevel.low, ~vehicles.china, dome
-		Description: Temporarily increases\nthe morale of nearby infantry.
+		Description: Red Army propaganda vehicle.
 	TooltipExtras:
 		Weaknesses: • Unarmed.
 		Attributes: • Deploy to increase morale of nearby infantry.
@@ -302,10 +302,11 @@ BIKE:
 		Queue: Vehicle
 		BuildPaletteOrder: 71
 		Prerequisites: ~vehicles.japan, ~techlevel.low
-		Description: Fast scouting unit.\n	Strong vs Infantry\n  Weak vs Tanks, Aircraft
+		Description: Fast scouting motorcycle.
 	TooltipExtras:
 		Strengths: • Strong vs Infantry.
 		Weaknesses: • Weak vs Tanks, Aircraft.
+		Attributes: • Occupies a subcell. 
 	Valued:
 		Cost: 375
 	Tooltip:
@@ -419,7 +420,7 @@ HLFTRK:
 		Queue: Vehicle
 		BuildPaletteOrder: 19
 		Prerequisites: ~vehicles.zentrum, ~techlevel.low
-		Description: Armoured transport vehicle.\nCan carry infantry.\n	 Weak vs Vehicles, Aircraft
+		Description: Armoured transport vehicle.
 	TooltipExtras:
 		Strengths: • Strong vs Infantry.
 		Weaknesses: • Weak vs Vehicles, Aircraft.
@@ -601,7 +602,7 @@ HVTNK:
 		Queue: Vehicle
 		BuildPaletteOrder: 113
 		Prerequisites: adept, ~vehicles.zentrum, ~techlevel.medium
-		Description: Zentrum main battle tank.\nSlow but strudy.
+		Description: Zentrum main battle tank. Slow but strudy.
 	TooltipExtras:
 		Strengths: • Strong vs Tanks.
 		Weaknesses: • Weak vs Aircraft.
@@ -678,7 +679,7 @@ V2RL:
 		Queue: Vehicle
 		BuildPaletteOrder: 230
 		Prerequisites: dome, ~vehicles.zentrum, ~techlevel.medium
-		Description: Long-range rocket artillery.
+		Description: Extra long-range rocket artillery.
 	TooltipExtras:
 		Strengths: • Strong vs Infantry, Buildings, Defenses.
 		Weaknesses: • Weak vs Vehicles, Aircraft.
@@ -740,7 +741,7 @@ MSAM:
 		Queue: Vehicle
 		BuildPaletteOrder: 220
 		Prerequisites: domeoradept, ~vehicles.zentrum, ~techlevel.medium
-		Description: Mobile surface to air missile platform.\n	Strong vs Aircraft\n  Weak vs Infantry, Vehicles.
+		Description: Mobile surface to air missile platform.
 	TooltipExtras:
 		Strengths: • Strong vs Aircraft.
 		Weaknesses: • Weak vs Vehicles, Infantry.
@@ -884,7 +885,7 @@ CTNK:
 		Queue: Vehicle
 		BuildPaletteOrder: 332
 		Prerequisites: mtek, ~vehicles.germany, ~techlevel.high
-		Description: Armed with anti-ground missiles.\nTeleports to areas within range.\n  Strong vs Vehicles, Buildings\n  Weak vs Infantry, Aircraft\n  Special ability: Can teleport
+		Description: Chrono tank armed with anti-ground missiles.
 	TooltipExtras:
 		Strengths: • Strong vs Vehicles.
 		Weaknesses: • Weak vs Infantry, Aircraft.
@@ -953,7 +954,7 @@ MAUS:
 		Queue: Vehicle
 		BuildPaletteOrder: 330
 		Prerequisites: mtek, adept, ~vehicles.zentrum, ~techlevel.high
-		Description: Tough tank destroyer.
+		Description: Super heavy tank destroyer.
 	TooltipExtras:
 		Strengths: • Strong vs Vehicles, Defenses.
 		Weaknesses: • Weak vs Infantry, Aircraft.
@@ -1201,7 +1202,7 @@ TNKT:
 		Queue: Vehicle
 		BuildPaletteOrder: 92
 		Prerequisites: ~vehicles.komintern, ~techlevel.low
-		Description: Tough fighting vehicle.
+		Description: Tough anti-infantry vehicle.
 	TooltipExtras:
 		Strengths: • Strong vs Infantry, Vehicles.
 		Weaknesses: • Weak vs Tanks, Aircraft.
@@ -1397,7 +1398,7 @@ MARAUDER:
 		Queue: Vehicle
 		BuildPaletteOrder: 261
 		Prerequisites: dome, ~vehicles.mongolia, ~techlevel.medium
-		Description: Fast scouting vehicle armed with a long range missile launcher.
+		Description: Fast scouting vehicle armed with a\nlong range missile launcher.
 	TooltipExtras:
 		Strengths: • Strong vs Infantry.
 		Weaknesses: • Weak vs Vehicles, Aircraft.
@@ -1460,7 +1461,7 @@ MTNK:
 		Queue: Vehicle
 		BuildPaletteOrder: 112
 		Prerequisites: adept, ~vehicles.komintern, ~techlevel.medium
-		Description: Komintern main battle tank.\n Heavily armoured, but versatile.
+		Description: Komintern main battle tank.Heavily armoured,\nbut versatile.
 	TooltipExtras:
 		Strengths: • Strong vs Tanks.
 		Weaknesses: • Weak vs Aircraft.
@@ -1686,7 +1687,7 @@ KATYA:
 		Queue: Vehicle
 		BuildPaletteOrder: 260
 		Prerequisites: dome, ~vehicles.komintern, ~techlevel.medium
-		Description: Long range rocket artillery.
+		Description: Long range multiple rocket launcher.
 	TooltipExtras:
 		Strengths: • Strong vs Infantry, Buildings, Defenses.
 		Weaknesses: • Weak vs Vehicles, Aircraft.
@@ -1788,6 +1789,7 @@ T100:
 		Queue: Vehicle
 		BuildPaletteOrder: 320
 		Prerequisites: adept, stek, ~vehicles.komintern, ~techlevel.high
+		Description: Big and slow tank, with anti-air capability.
 	TooltipExtras:
 		Strengths: • Strong vs Infantry, Tanks.
 		Weaknesses: • Weak vs Nothing.
@@ -2316,7 +2318,7 @@ SONIQUE:
 		Queue: Vehicle
 		BuildPaletteOrder: 340
 		Prerequisites: atek, ~vehicles.france, ~techlevel.medium
-		Description: Emits a beam of harmonic resonance sound.
+		Description: Heavy tank that emits a beam of\nharmonic resonance sound.
 	Mobile:
 		TurnSpeed: 20
 		Speed: 56
@@ -2496,7 +2498,7 @@ HOVERCRAFT:
 		Queue: Vehicle
 		BuildPaletteOrder: 225
 		Prerequisites: dome, ~vehicles.england, ~techlevel.low
-		Description: Tough infantry transport armed with two rocket launchers.
+		Description: Tough infantry transport armed with\ntwo rocket launchers.
 	TooltipExtras:
 		Strengths: • Strong vs Vehicles.
 		Weaknesses: • Weak vs Infantry, Aircraft.
@@ -2714,7 +2716,7 @@ IFV:
 		Queue: Vehicle
 		BuildPaletteOrder: 195
 		Prerequisites: adept, ~vehicles.england, ~techlevel.low
-		Description: Tough infantry transport armed\nwith a small AA-cannon.
+		Description: Tough infantry transport, armed\nwith a small AA-cannon.
 	TooltipExtras:
 		Strengths: • Strong vs Aircraft.
 		Weaknesses: • Weak vs Vehicles.
@@ -2872,7 +2874,7 @@ RONIN:
 		Queue: Vehicle
 		BuildPaletteOrder: 70
 		Prerequisites: adept, ~vehicles.japan, ~techlevel.low
-		Description: Multipurpose tank, jack of all trades, master of none.
+		Description: Multipurpose tank, jack of all trades,\nmaster of none.
 	TooltipExtras:
 		Strengths: • Strong vs Vehicles, Aircraft, Infantry.
 		Weaknesses: • Weak vs Tanks.
@@ -3111,7 +3113,7 @@ LTNK:
 		Queue: Vehicle
 		BuildPaletteOrder: 111
 		Prerequisites: adept, ~vehicles.entente, ~techlevel.low
-		Description: Entente main battle tank.\n Fast tank, good for fast manouvers.
+		Description: Entente main battle tank.Fast tank,\ngood for fast manouvers.
 	TooltipExtras:
 		Strengths: • Strong vs Tanks.
 		Weaknesses: • Weak vs Aircraft.
@@ -3193,7 +3195,7 @@ TELEDRONE:
 		BuildPaletteOrder: 271
 		Prerequisites: ~weap, ~vehicles.usa, dome, ~techlevel.medium
 		Queue: Vehicle
-		Description: Radio controlled fast scout.\nArmed with anti-tank and anti-air rockets.
+		Description: Radio controlled fast scout. Armed with\nanti-tank and anti-air rockets.
 	TooltipExtras:
 		Strengths: • Strong vs Vehicles, Aircraft.
 		Weaknesses: • Weak vs Infantry.
@@ -3345,7 +3347,7 @@ ARC:
 		Queue: Vehicle
 		BuildPaletteOrder: 337
 		Prerequisites: atek, adept, ~vehicles.usa, ~techlevel.low
-		Description: Fires arcs that slow down enemy vehicles.
+		Description: Heavy tank that fires electromagnetic arcs\nthat slow down enemy vehicles.
 	TooltipExtras:
 		Strengths: • Strong vs Vehicles.
 		Weaknesses: • Weak vs Infantry, Aircraft.
@@ -3411,7 +3413,7 @@ EMPDEVICE:
 		Queue: Vehicle
 		BuildPaletteOrder: 420
 		Prerequisites: atek, ~vehicles.usa, ~techlevel.high
-		Description: Radio controlled device.\nExplodes as an EM pulse.
+		Description: Radio controlled devicethat explodes as an EM pulse.
 	TooltipExtras:
 		Weaknesses: • Unarmed.
 		Attributes: • Requires a functioning Radar Dome.\n• Deploy to explode the EM pulse.
@@ -3593,7 +3595,7 @@ ENTENTEAA:
 		Queue: Vehicle
 		BuildPaletteOrder: 320
 		Prerequisites: atek, adept, ~vehicles.entente, ~techlevel.low
-		Description: Mobile unit with a double\nbarreled AA cannon.
+		Description: Mobile unit with a double barreled AA cannon.
 	TooltipExtras:
 		Strengths: • Strong vs Aircraft.
 		Weaknesses: • Weak vs Tanks.
@@ -3949,7 +3951,7 @@ FLMTNK:
 		Queue: Vehicle
 		BuildPaletteOrder: 210
 		Prerequisites: dome, ~vehicles.turkey, ~techlevel.medium
-		Description: Shoots balls of napalm.
+		Description: Tank that shoots balls of napalm.
 	TooltipExtras:
 		Strengths: • Strong vs Infantry, Buildings.
 		Weaknesses: • Weak vs Tanks, Aircraft.
@@ -4007,7 +4009,7 @@ FIRELANCER:
 		Queue: Vehicle
 		BuildPaletteOrder: 340
 		Prerequisites: mtek, ~vehicles.turkey, ~techlevel.medium
-		Description: Shoots a long cone of flame\nand leaves the ground burning.
+		Description: Heavy tank that shoots a long cone of flame\nand leaves the ground burning.
 	TooltipExtras:
 		Strengths: • Strong vs Infantry, Buildings.
 		Weaknesses: • Weak vs Vehicles, Aircraft.
@@ -4281,7 +4283,7 @@ TESTUDO:
 		Queue: Vehicle
 		BuildPaletteOrder: 114
 		Prerequisites: adept, ~vehicles.italy, ~techlevel.low
-		Description: Modified trench digger armed with dual machine guns.
+		Description: Modified trench digger armed with\ndual machine guns.
 	TooltipExtras:
 		Strengths: • Strong vs Infantry.
 		Weaknesses: • Weak vs Tanks, Aircraft.
@@ -4409,7 +4411,7 @@ RACER:
 		Queue: Vehicle
 		BuildPaletteOrder: 96
 		Prerequisites: ~vehicles.mongolia, ~techlevel.medium
-		Description: Lightly armoured tracked motorbike.\nArmed with two rocket launchers.
+		Description: Tracked motorbike,\narmed with two rocket launchers.
 	TooltipExtras:
 		Strengths: • Strong vs Vehicles.
 		Weaknesses: • Weak vs Infantry, Aircraft.
@@ -4763,10 +4765,10 @@ DTRK:
 		Queue: Vehicle
 		BuildPaletteOrder: 330
 		Prerequisites: mtek, ~vehicles.persia, ~techlevel.high
-		Description: Truck loaded with highly explosive cargo.
+		Description: Truck loaded with highly explosive materials.
 	TooltipExtras:
 		Weaknesses: • Unarmed.
-		Attributes: • Deploy to explode the cargo.
+		Attributes: • Deploy to detonate cargo.
 	Valued:
 		Cost: 2500
 	Tooltip:

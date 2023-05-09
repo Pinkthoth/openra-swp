@@ -124,7 +124,7 @@ FCOM:
 	Inherits: ^TechBuilding
 	Inherits@shape: ^2x2Shape
 	Selectable:
-		Bounds: 1448, 2896
+		Bounds: 2896, 2896
 	OwnerLostAction:
 		Action: ChangeOwner
 	Building:
@@ -228,7 +228,7 @@ SPORT:
 		Name: Civilian Airfield
 	Selectable:
 		Class: afld
-		Bounds: 2172, 2896
+		Bounds: 2972, 2896
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 3,2
@@ -1099,7 +1099,7 @@ OILB:
 		TargetableOffsets: 0,0,0, 630,-300,0, 420,512,0, -420,-512,0, -630,300,0
 	Selectable:
 		Priority: 0
-		Bounds: 1448, 2896
+		Bounds: 2496, 2496
 	OwnerLostAction:
 		Action: ChangeOwner
 	Building:

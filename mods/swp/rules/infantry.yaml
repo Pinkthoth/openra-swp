@@ -950,7 +950,7 @@ E3:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 30
 		Prerequisites: ~barracks, ~techlevel.infonly
-		Description: Anti-tank/Anti-aircraft infantry.
+		Description: Anti-tank and -aircraft infantry.
 	TooltipExtras:
 		Strengths: • Strong vs Vehicles, Helicopters.
 		Weaknesses: • Weak vs Infantry, Airplanes.
@@ -1142,10 +1142,10 @@ SPY:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 100
 		Prerequisites: ~!mi6academy, ~infantry.entente, dome, ~barracks, ~techlevel.medium
-		Description: Infiltrates enemy structures for experience, intel or tech.
+		Description: Military intelligence service specialist.
 	TooltipExtras:
 		Weaknesses: • Weak vs Everything.
-		Attributes: • Can disguise as any infantry.\n• Detects disguised units.\n• Can infiltrate enemy structures, the effect depends on the building.
+		Attributes: • Can disguise as any infantry.\n• Can detect disguised units.\n• Can infiltrate enemy structures, the effect depends on the building.
 	Valued:
 		Cost: 500
 	-Tooltip:
@@ -1227,7 +1227,7 @@ SABOTEUR:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 100
 		Prerequisites: ~infantry.zentrum, dome, ~barracks, ~techlevel.medium
-		Description: Infiltrates enemy structures damaging and disabling the buidling for a while.
+		Description: Military saboteur.
 	TooltipExtras:
 		Strengths: • Strong vs Infantry.
 		Weaknesses: • Weak vs Vehicles, Aircraft.
@@ -1399,7 +1399,7 @@ THF:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 95
 		Prerequisites: ~barr, dome, ~infantry.komintern, ~techlevel.medium
-		Description: Professional thief.
+		Description: Professional procurer.
 	TooltipExtras:
 		Weaknesses: • Unarmed.
 		Attributes: • Steals enemy credits.\n• Hijacks enemy vehicles.\n• Becomes hidden while immobile.
@@ -1530,7 +1530,7 @@ TNKCMNDR:
 		Description: Crack tank crew commander.
 	TooltipExtras:
 		Weaknesses: • Weak vs Everything.
-		Attributes: • Can enter vehicles to increase fighting abilities.
+		Attributes: • Can enter vehicles to increase fighting abilities.\n• Can detect disguised units.
 	Valued:
 		Cost: 400
 	Health:
@@ -1642,7 +1642,7 @@ POLITRUK:
 		Description: Communist party political officer.
 	TooltipExtras:
 		Weaknesses: • Weak vs Everything.
-		Attributes: • Increases the fighting abilities of nearby infantry.
+		Attributes: • Increases the fighting abilities of nearby infantry.\n• Can detect disguised units.
 	Valued:
 		Cost: 400
 	Health:
@@ -1772,7 +1772,7 @@ OFFICER:
 		Description: Commissioned officer.
 	TooltipExtras:
 		Weaknesses: • Weak vs Everything.
-		Attributes: • Increases the experience gained by nearby units.\n• Slowly gives experience to nearby units.
+		Attributes: • Increases the experience gained by nearby units.\n• Slowly gives experience to nearby units.\n• Can detect disguised units.
 	Valued:
 		Cost: 300
 	Health:
@@ -1902,7 +1902,7 @@ ISHMAELITE:
 		Description: Devoted follower of the psychic prophet Ishmael.
 	TooltipExtras:
 		Weaknesses: • Weak vs Everything.
-		Attributes: • Can mind control one enemy unit.
+		Attributes: • Can mind control one enemy unit.\n• Can detect disguised units.
 	Valued:
 		Cost: 2000
 	Health:
@@ -2102,7 +2102,7 @@ ARTILLERYOBSERVER:
 		Description: Highly trained artillery observer.
 	TooltipExtras:
 		Weaknesses: • Weak vs Everything.
-		Attributes: • Can enter artillery units to increase fighting abilities.
+		Attributes: • Can enter artillery units to increase fighting abilities.\n• Can detect disguised units.
 	Valued:
 		Cost: 400
 	Health:
@@ -2275,7 +2275,7 @@ LEGIONAIRE:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 72
 		Prerequisites: ~barracks, adept, ~infantry.france, ~techlevel.infonly
-		Description: General-purpose infantry.
+		Description: Elite general-purpose infantry.
 	TooltipExtras:
 		Strengths: • Strong vs Everything.
 		Attributes: • Armed with a secondary stinger.
@@ -2398,9 +2398,9 @@ TERRORIST:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 76
 		Prerequisites: ~techlevel.medium, ~infantry.persia, dome
-		Description: An fanatical follower of the prophet Ishmael.
+		Description: A fanatical follower of the psychic prophet Ishmael.
 	TooltipExtras:
-		Weaknesses: • Weak vs Unarmed.
+		Weaknesses: • Unarmed.
 		Attributes: • Strapped with dynamite.\n• Becomes hidden while immobile.
 	Valued:
 		Cost: 250
@@ -2847,7 +2847,7 @@ FLKTRP:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 42
 		Prerequisites: ~barr, adept, ~infantry.china, ~techlevel.infonly
-		Description: General-purpose anti-air and\n anti-ground infantry.
+		Description: Anti-air and -ground infantry.
 	TooltipExtras:
 		Strengths: • Strong vs Infantry, Aircraft.
 		Weaknesses: • Weak vs Vehicles.
@@ -3241,7 +3241,7 @@ NERVEAGENT:
 	TooltipExtras:
 		Strengths: • Strong vs Infantry.
 		Weaknesses: • Weak vs Vehicles, Aircraft.
-		Attributes: • Detects disquised units.\n• Zombifies killed infantry.\n• Deploy to spread disorienting nerve gas.\n• Can disguise as any infantry.
+		Attributes: • Can detect disguised units..\n• Zombifies killed infantry.\n• Deploy to spread disorienting nerve gas.\n• Can disguise as any infantry.
 	Valued:
 		Cost: 550
 	Health:
@@ -3514,7 +3514,7 @@ PNEER:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 76
 		Prerequisites: adept, ~infantry.italy, ~techlevel.medium
-		Description: Lays anti-infantry mines.\n	Unarmed
+		Description: Military pioneer.
 	TooltipExtras:
 		Weaknesses: • Unarmed.
 		Attributes: • Detects mines.\n• Lays anti-infantry mines.
@@ -3723,7 +3723,7 @@ BOLTER:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 130
 		Prerequisites: ~barr, atek, ~infantry.usa, ~techlevel.high
-		Description: Elite infantry with portable arc throwers.\n  Strong vs Infantry, Vehicles\n  Weak vs Aircraft
+		Description: Elite infantry with portable electromagnetic\narc thrower.
 	TooltipExtras:
 		Strengths: • Strong vs Vehicles.
 		Weaknesses: • Weak vs Aircraft.
@@ -3792,7 +3792,7 @@ SHINOBI:
 		Description: Elite spying phase infantry.
 	TooltipExtras:
 		Weaknesses: • Unarmed
-		Attributes: • Can pahes out of vision.\n• Lays phased spy cameras.
+		Attributes: • Can pahes out of vision.\n• Lays phased spy cameras.\n• Can detect disguised units.
 	Valued:
 		Cost: 500
 	Tooltip:

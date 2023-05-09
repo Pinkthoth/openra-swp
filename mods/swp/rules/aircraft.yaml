@@ -188,7 +188,7 @@ HOSPITALLER:
 		Weaknesses: • Weak vs Infantry, Aircraft.
 		Attributes: • Buildable only by spying an entente tech center.\n• Can phase out of vision.\n• Arcs slow down enemy vehicles.
 	Valued:
-		Cost: 2000
+		Cost: 2100
 	Tooltip:
 		Name: Phase Hospitaller
 	UpdatesPlayerStatistics:
@@ -225,7 +225,7 @@ HOSPITALLER:
 		InitialStance: HoldFire
 		InitialStanceAI: HoldFire
 	AmmoPool:
-		Ammo: 15
+		Ammo: 12
 		AmmoCondition: ammo
 	Selectable:
 		Bounds: 1406, 1406, 0, 120
@@ -255,7 +255,7 @@ HOSPITALLER:
 		RequiresSelection: true
 		EmptySequence: pip-emptyammo
 		FullSequence: pip-tech
-		PipCount: 5
+		PipCount: 4
 	GrantConditionOnMovement:
 		ValidMovementTypes: Horizontal, Turn, Vertical
 		Condition: moving
@@ -726,7 +726,7 @@ TESLAHIND:
 		Weaknesses: • Weak vs Aircraft.
 		Attributes: • Recharges ammo automatically.
 	Valued:
-		Cost: 1800
+		Cost: 1900
 	Tooltip:
 		Name: Tesla Hind
 	UpdatesPlayerStatistics:
@@ -815,7 +815,7 @@ GATLINGHIND:
 		Weaknesses: • Weak vs Vehicles, Aircraft.
 		Attributes: • Gatling guns speed up over time increasing fire rate.
 	Valued:
-		Cost: 1800
+		Cost: 1500
 	Tooltip:
 		Name: Gatling Hind
 	UpdatesPlayerStatistics:
@@ -2225,7 +2225,7 @@ COMET:
 		Offset: 0,0,300
 		RequiresCondition: !airborne
 	AmmoPool:
-		Ammo: 18
+		Ammo: 16
 		ReloadDelay: 11
 		AmmoCondition: ammo
 	WithMuzzleOverlay:
@@ -2250,7 +2250,7 @@ COMET:
 		Position: BottomLeft
 		Margin: 4, 3
 		RequiresSelection: true
-		PipCount: 6
+		PipCount: 5
 		EmptySequence: pip-emptyammo
 		FullSequence: pip-bullet
 	GrantConditionOnDamageState@SmokeTrail:
@@ -2486,7 +2486,7 @@ WASP:
 		Weaknesses: • Weak vs Aircraft.
 		Attributes: • Slowly recharges ammo.
 	Valued:
-		Cost: 1900
+		Cost: 1950
 	Tooltip:
 		Name: Wasp
 	UpdatesPlayerStatistics:
