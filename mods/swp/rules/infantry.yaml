@@ -318,7 +318,7 @@ E11:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 5000
+		HP: 5500
 	Armament@PRIMARY:
 		Name: secondary
 		Weapon: LightMachineGun
@@ -380,7 +380,7 @@ HVGATLING:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 5000
+		HP: 5500
 	Armament@ag-0:
 		Weapon: AGGatling
 		LocalOffset: 480,-100,200
@@ -2558,7 +2558,7 @@ E4:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 4500
+		HP: 5500
 	Armament@PRIMARY:
 		Weapon: Flamer
 		LocalOffset: 700,0,500
@@ -3241,7 +3241,7 @@ NERVEAGENT:
 	TooltipExtras:
 		Strengths: • Strong vs Infantry.
 		Weaknesses: • Weak vs Vehicles, Aircraft.
-		Attributes: • Can detect disguised units..\n• Zombifies killed infantry.\n• Deploy to spread disorienting nerve gas.\n• Can disguise as any infantry.
+		Attributes: • Can detect disguised units.\n• Zombifies killed infantry.\n• Deploy to spread disorienting nerve gas.\n• Can disguise as any infantry.
 	Valued:
 		Cost: 550
 	Health:
@@ -3792,7 +3792,7 @@ SHINOBI:
 		Description: Elite spying phase infantry.
 	TooltipExtras:
 		Weaknesses: • Unarmed
-		Attributes: • Can pahes out of vision.\n• Lays phased spy cameras.\n• Can detect disguised units.
+		Attributes: • Can pahes out of vision.\n• Lays phased spy cameras that cost 10 Power each.\n• Can detect disguised units.
 	Valued:
 		Cost: 500
 	Tooltip:

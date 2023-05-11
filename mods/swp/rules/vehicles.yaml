@@ -141,7 +141,6 @@ MCV.new:
 		BuildPaletteOrder: 700
 		Prerequisites: ~!mcvexists, ~techlevel.medium
 		BuildDurationModifier: 50
-		Description: Deploys into another Construction Yard.\n	Unarmed
 	-ProductionTimeMultiplier@basediscount:
 	ProductionCostMultiplier@costicrease:
 		Multiplier: 120
@@ -500,7 +499,7 @@ PUMA:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 25000
+		HP: 25500
 	Armor:
 		Type: Medium
 	Mobile:
@@ -2514,7 +2513,7 @@ HOVERCRAFT:
 	Armor:
 		Type: Medium
 	Mobile:
-		Speed: 110
+		Speed: 95
 		PauseOnCondition: notmobile || being-captured
 		Locomotor: hover
 	RevealsShroud:
@@ -2658,13 +2657,13 @@ WASTETANKER:
 		Strengths: • Strong vs Infantry, Vehicles.
 		Weaknesses: • Weak vs Tanks, Aircraft.
 	Valued:
-		Cost: 1600
+		Cost: 1500
 	Tooltip:
 		Name: Waste Tanker
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 38000
+		HP: 35000
 	Armor:
 		Type: Heavy
 	Mobile:
@@ -2821,7 +2820,7 @@ RTNK:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 25000
+		HP: 22500
 	Armor:
 		Type: Heavy
 	Mobile:
@@ -4770,7 +4769,7 @@ DTRK:
 		Weaknesses: • Unarmed.
 		Attributes: • Deploy to detonate cargo.
 	Valued:
-		Cost: 2500
+		Cost: 1500
 	Tooltip:
 		Name: Demolition Truck
 	UpdatesPlayerStatistics:

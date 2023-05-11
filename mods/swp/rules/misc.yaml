@@ -488,7 +488,7 @@ SPYCAMERA:
 		IsPlayerPalette: true
 		RequiresCondition: !disabled && !turnedoff
 	Power:
-		Amount: -5
+		Amount: -10
 
 SMOKECLOUD:
 	Inherits@helicopter: ^Helicopter

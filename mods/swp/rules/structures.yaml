@@ -590,10 +590,11 @@ TSLA:
 		Queue: Defense
 		BuildPaletteOrder: 43
 		Prerequisites: weap, ~structures.komintern, ~techlevel.medium
-		Description: Advanced base defense.\nRequires power to operate.\nCan detect cloaked units.\n  Strong vs Vehicles, Infantry\n  Weak vs Aircraft
+		Description: Advanced base defense.\nRequires power to operate.
 	TooltipExtras:
 		Strengths: • Strong vs Infantry, Vehicles.
 		Weaknesses: • Weak vs Aircraft.
+		Attributes: • Detects phased units.
 	Valued:
 		Cost: 1400
 	Tooltip:
@@ -776,7 +777,7 @@ CAGUN:
 		Queue: Defense
 		BuildPaletteOrder: 83
 		Prerequisites: dome, ~structures.france, ~techlevel.medium
-		Description: Anti-Air base defense.\nRequires power to operate.\n  Strong vs Aircraft\n  Weak vs Ground units
+		Description: Anti-Air base defense.\nRequires power to operate.
 	TooltipExtras:
 		Strengths: • Strong vs Aircraft.
 		Weaknesses: • Weak vs Vehicles, Infantry.
@@ -1596,9 +1597,9 @@ MOROZKO:
 		Queue: Defense
 		BuildPaletteOrder: 111
 		Prerequisites: dome, ~structures.belarus, ~techlevel.medium
-		Description: Static blizzard generating structure.\nCan detect cloaked units.
+		Description: Static blizzard generating structure.
 	TooltipExtras:
-		Attributes: • Passive Ability: Passively slows down surrounding units and decreases their vision.
+		Attributes: • Passive Ability: Passively slows down surrounding units and decreases their vision.\n• Can detect phased units.
 	Valued:
 		Cost: 1150
 	CustomSellValue:
@@ -1715,7 +1716,7 @@ SPAINBUNKER:
 		Queue: Defense
 		BuildPaletteOrder: 60
 		Prerequisites: barr, ~structures.serbia, ~techlevel.low
-		Description: Static anti-infantry base defense.
+		Description: Static base defense.
 	TooltipExtras:
 		Strengths: • Strength depends on the cargo.
 		Weaknesses: • Weakness depends on the cargo.
@@ -2096,7 +2097,7 @@ GRANDCANNON:
 		Queue: Defense
 		BuildPaletteOrder: 76
 		Prerequisites: atek, ~structures.raj, ~techlevel.medium
-		Description: Extra long ranged stationary artillery.\nCan detect cloaked units.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
+		Description: Extra long ranged stationary artillery.
 	TooltipExtras:
 		Strengths: • Strong vs Infantry, Buildings, Defenses.
 		Weaknesses: • Weak vs Vehicles, Aircraft.
@@ -3599,10 +3600,10 @@ FLKGUN:
 		Queue: Defense
 		BuildPaletteOrder: 44
 		Prerequisites: dome, ~structures.komintern, ~techlevel.medium
-		Description: Anti-Air base defense.\nRequires power to operate.\n  Strong vs Aircraft\n  Weak vs Ground units
+		Description: Anti-Air base defense.\nRequires power to operate.
 	TooltipExtras:
 		Strengths: • Strong vs Aircraft.
-		Weaknesses: • Weak vs Vehicles, Infantry..
+		Weaknesses: • Weak vs Vehicles, Infantry.
 		Attributes: • Can detect phased units.
 
 UPLINK:

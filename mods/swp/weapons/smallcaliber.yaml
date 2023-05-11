@@ -269,13 +269,17 @@ FLAK-23-AA-Inf:
 Archer-AG:
 	Inherits: ZSU-23
 	Burst: 8
-	BurstDelays: 3
+	BurstDelays: 2
 	ReloadDelay: 15
 	Report: shilka.aud
 	Range: 5c512
 	ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
+	Projectile: InstantHit
+		Inaccuracy: 0c256
 	Warhead@1Dam: SpreadDamage
-		Damage: 1200
+		Damage: 900
+		Falloff: 100, 50, 25, 10, 0
+		Spread: 0c124
 		Versus:
 			None: 75
 			Wood: 20
@@ -292,13 +296,13 @@ Archer-AG:
 Archer-AA:
 	Inherits: ZSU-23
 	Burst: 8
-	BurstDelays: 3
+	BurstDelays: 2
 	ReloadDelay: 15
 	Report: shilka.aud
 	Range: 7c0
 	ValidTargets: AirborneActor, AirborneBomber
 	Warhead@1Dam: SpreadDamage
-		Damage: 700
+		Damage: 500
 		Versus:
 			None: 75
 			Wood: 20

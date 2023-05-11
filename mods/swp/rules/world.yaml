@@ -166,9 +166,11 @@
 		Crushes: wall, infantry, crate
 		TerrainSpeeds:
 			Clear: 100
-			Pavement: 90
+			Pavement: 100
 			Rough: 100
 			Road: 100
+			River: 100
+			Water: 100
 			TallGrass: 100
 			PavedRoad: 100
 			Bridge: 100

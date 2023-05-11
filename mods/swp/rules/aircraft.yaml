@@ -215,7 +215,7 @@ HOSPITALLER:
 		OpportunityFire: False
 	Aircraft:
 		TurnSpeed: 16
-		Speed: 200
+		Speed: 170
 		RepulsionSpeed: 40
 		MaximumPitch: 56
 		TakeOffOnResupply: True
@@ -583,7 +583,7 @@ MIG:
 		OpportunityFire: False
 	Aircraft:
 		TurnSpeed: 16
-		Speed: 195
+		Speed: 185
 		RepulsionSpeed: 40
 		MaximumPitch: 56
 	AutoTarget:
@@ -2828,7 +2828,7 @@ STRMVGL:
 		OpportunityFire: False
 	Aircraft:
 		TurnSpeed: 22
-		Speed: 200
+		Speed: 190
 		RepulsionSpeed: 40
 		MaximumPitch: 56
 	AutoTarget:
@@ -3009,7 +3009,7 @@ HARRIER:
 		OpportunityFire: False
 	Aircraft:
 		TurnSpeed: 22
-		Speed: 190
+		Speed: 175
 		RepulsionSpeed: 40
 		MaximumPitch: 56
 		VTOL: True
