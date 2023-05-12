@@ -92,11 +92,12 @@ TraktorBeam:
 		Duration: 20
 	Warhead@1: SpreadDamage
 		Damage: 300
+		ValidTargets: Vehicle
 	Warhead@2: GrantExternalCondition
 		Range: 0c63
 		Condition: magnetic-trap
 		Duration: 14
-		ValidTargets: GroundActor, Trees,  WaterActor
+		ValidTargets: Vehicle
 
 MagneticBolt:
 	Inherits: ^MagneticWeapon
@@ -123,9 +124,9 @@ MagneticBolt:
 			Wood: 40
 			Concrete: 40
 
-NightWitchBolt:
+SaucerBolt:
 	Inherits: ^MagneticWeapon
-	ReloadDelay: 100
+	ReloadDelay: 120
 	Range: 6c0
 	Report: magray.aud
 	Projectile: Railgun

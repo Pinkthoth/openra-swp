@@ -26,6 +26,12 @@ Terrain:
 		AcceptsSmudgeType: Crater, Scorch
 		Color: 865F45
 		RestrictPlayerColor: true
+	TerrainType@Sand:
+		Type: Sand
+		TargetTypes: Ground
+		AcceptsSmudgeType: Crater, Scorch
+		Color: AA8649
+		RestrictPlayerColor: true
 	TerrainType@Gems:
 		Type: Gems
 		TargetTypes: Ground
@@ -95,6 +101,826 @@ Templates:
 			13: Clear
 			14: Clear
 			15: Clear
+	Template@1000:
+		Id: 1000
+		Images: sands.shp
+		Frames: 0,1,2,3,4,5,6,7
+		Size: 1,1
+		PickAny: True
+		Categories: Terrain
+		Tiles:
+			0: Sand
+			1: Sand
+			2: Sand
+			3: Sand
+			4: Sand
+			5: Sand
+			6: Sand
+			7: Sand
+	Template@3000:
+		Id: 3000
+		Images: desert_grass.shp
+		Size: 1,1
+		Frames: 0,1,2,3,10,11,12,13,20,21,22,23
+		PickAny: True
+		Categories: Terrain
+		Tiles:
+			0: Clear
+			1: Clear
+			2: Clear
+			3: Clear
+			4: Clear
+			5: Clear
+			6: Clear
+			7: Clear
+			8: Clear
+			9: Clear
+			10: Clear
+			11: Clear
+	Template@1001:
+		Id: 1001
+		Images: sands.shp
+		Frames: 16
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@1002:
+		Id: 1002
+		Images: sands.shp
+		Frames: 17
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@1003:
+		Id: 1003
+		Images: sands.shp
+		Frames: 18
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@1004:
+		Id: 1004
+		Images: sands.shp
+		Frames: 19,20
+		Size: 2,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+			1: Clear
+	Template@1005:
+		Id: 1005
+		Images: sands.shp
+		Frames: 21
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@1006:
+		Id: 1006
+		Images: sands.shp
+		Frames: 24
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@1007:
+		Id: 1007
+		Images: sands.shp
+		Frames: 25
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@1008:
+		Id: 1008
+		Images: sands.shp
+		Frames: 26
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@1009:
+		Id: 1009
+		Images: sands.shp
+		Frames: 27,28
+		Size: 2,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+			1: Clear
+	Template@1010:
+		Id: 1010
+		Images: sands.shp
+		Frames: 29
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@1011:
+		Id: 1011
+		Images: sands.shp
+		Frames: 23
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@1012:
+		Id: 1012
+		Images: sands.shp
+		Frames: 22
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@1013:
+		Id: 1013
+		Images: sands.shp
+		Frames: 30
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@1014:
+		Id: 1014
+		Images: sands.shp
+		Frames: 31
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@1015:
+		Id: 1015
+		Images: sands.shp
+		Frames: 32
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@1016:
+		Id: 1016
+		Images: sands.shp
+		Frames: 33
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@1017:
+		Id: 1017
+		Images: sands.shp
+		Frames: 34
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@1018:
+		Id: 1018
+		Images: sands.shp
+		Frames: 34
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@1019:
+		Id: 1019
+		Images: sands.shp
+		Frames: 35
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@1020:
+		Id: 1020
+		Images: sands.shp
+		Frames: 36,42
+		Size: 1,2
+		Categories: Terrain
+		Tiles:
+			0: Clear
+			1: Clear
+	Template@1021:
+		Id: 1021
+		Images: sands.shp
+		Frames: 37,43
+		Size: 1,2
+		Categories: Terrain
+		Tiles:
+			0: Clear
+			1: Clear
+	Template@1022:
+		Id: 1022
+		Images: sands.shp
+		Frames: 38
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@1023:
+		Id: 1023
+		Images: sands.shp
+		Frames: 39
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@1024:
+		Id: 1024
+		Images: sands.shp
+		Frames: 40
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@1025:
+		Id: 1025
+		Images: sands.shp
+		Frames: 41
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@1026:
+		Id: 1026
+		Images: sands.shp
+		Frames: 42
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@1029:
+		Id: 1029
+		Images: sands.shp
+		Frames: 45
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@1030:
+		Id: 1030
+		Images: sands.shp
+		Frames: 46
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@1031:
+		Id: 1032
+		Images: sands.shp
+		Frames: 54
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@1033:
+		Id: 1033
+		Images: sands.shp
+		Frames: 55
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@1034:
+		Id: 1034
+		Images: sands.shp
+		Frames: 62
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@1035:
+		Id: 1035
+		Images: sands.shp
+		Frames: 63
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear	
+	Template@1101:
+		Id: 1101
+		Images: bigsands.shp
+		Frames: 0,1,10,11
+		Size: 2,2
+		Categories: Terrain
+		Tiles:
+			0: Sand
+			1: Sand
+			2: Sand
+			3: Sand
+	Template@1102:
+		Id: 1102
+		Images: bigsands.shp
+		Frames: 2,3,12,13
+		Size: 2,2
+		Categories: Terrain
+		Tiles:
+			0: Sand
+			1: Sand
+			2: Sand
+			3: Sand
+	Template@1103:
+		Id: 1103
+		Images: bigsands.shp
+		Frames: 4,5,14,15
+		Size: 2,2
+		Categories: Terrain
+		Tiles:
+			0: Sand
+			1: Sand
+			2: Sand
+			3: Sand
+	Template@1104:
+		Id: 1104
+		Images: bigsands.shp
+		Frames: 6,7,16,17
+		Size: 2,2
+		Categories: Terrain
+		Tiles:
+			0: Sand
+			1: Sand
+			2: Sand
+			3: Sand
+	Template@1105:
+		Id: 1105
+		Images: bigsands.shp
+		Frames: 8,9,18,19
+		Size: 2,2
+		Categories: Terrain
+		Tiles:
+			0: Sand
+			1: Sand
+			2: Sand
+			3: Sand
+	Template@1106:
+		Id: 1106
+		Images: bigsands.shp
+		Frames: 20,21,30,31
+		Size: 2,2
+		Categories: Terrain
+		Tiles:
+			0: Sand
+			1: Sand
+			2: Sand
+			3: Sand
+	Template@1107:
+		Id: 1107
+		Images: bigsands.shp
+		Frames: 22,23,32,33
+		Size: 2,2
+		Categories: Terrain
+		Tiles:
+			0: Sand
+			1: Sand
+			2: Sand
+			3: Sand
+	Template@1108:
+		Id: 1108
+		Images: bigsands.shp
+		Frames: 24,25,34,35
+		Size: 2,2
+		Categories: Terrain
+		Tiles:
+			0: Sand
+			1: Sand
+			2: Sand
+			3: Sand
+	Template@1109:
+		Id: 1109
+		Images: bigsands.shp
+		Frames: 26,27,36,37
+		Size: 2,2
+		Categories: Terrain
+		Tiles:
+			0: Sand
+			1: Sand
+			2: Sand
+			3: Sand
+	Template@1110:
+		Id: 1110
+		Images: bigsands.shp
+		Frames: 28,29,38,39
+		Size: 2,2
+		Categories: Terrain
+		Tiles:
+			0: Sand
+			1: Sand
+			2: Sand
+			3: Sand
+	Template@1111:
+		Id: 1111
+		Images: bigsands.shp
+		Frames: 40,41,50,51
+		Size: 2,2
+		Categories: Terrain
+		Tiles:
+			0: Sand
+			1: Sand
+			2: Sand
+			3: Sand
+	Template@1112:
+		Id: 1112
+		Images: bigsands.shp
+		Frames: 42,43,52,53
+		Size: 2,2
+		Categories: Terrain
+		Tiles:
+			0: Sand
+			1: Sand
+			2: Sand
+			3: Sand
+	Template@1113:
+		Id: 1113
+		Images: bigsands.shp
+		Frames: 44,45,54,55
+		Size: 2,2
+		Categories: Terrain
+		Tiles:
+			0: Sand
+			1: Sand
+			2: Sand
+			3: Sand
+	Template@1114:
+		Id: 1114
+		Images: bigsands.shp
+		Frames: 46,47,56,57
+		Size: 2,2
+		Categories: Terrain
+		Tiles:
+			0: Sand
+			1: Sand
+			2: Sand
+			3: Sand
+	Template@1115:
+		Id: 1115
+		Images: bigsands.shp
+		Frames: 48,49,58,59
+		Size: 2,2
+		Categories: Terrain
+		Tiles:
+			0: Sand
+			1: Sand
+			2: Sand
+			3: Sand
+	Template@1116:
+		Id: 1116
+		Images: bigsands.shp
+		Frames: 60,61,70,71
+		Size: 2,2
+		Categories: Terrain
+		Tiles:
+			0: Sand
+			1: Sand
+			2: Sand
+			3: Sand
+	Template@1117:
+		Id: 1117
+		Images: bigsands.shp
+		Frames: 62,63,72,73
+		Size: 2,2
+		Categories: Terrain
+		Tiles:
+			0: Sand
+			1: Sand
+			2: Sand
+			3: Sand
+	Template@1118:
+		Id: 1118
+		Images: bigsands.shp
+		Frames: 64,65,74,75
+		Size: 2,2
+		Categories: Terrain
+		Tiles:
+			0: Sand
+			1: Sand
+			2: Sand
+			3: Sand
+	Template@1119:
+		Id: 1119
+		Images: bigsands.shp
+		Frames: 66,67,76,77
+		Size: 2,2
+		Categories: Terrain
+		Tiles:
+			0: Sand
+			1: Sand
+			2: Sand
+			3: Sand
+	Template@1120:
+		Id: 1120
+		Images: bigsands.shp
+		Frames: 68,69,78,79
+		Size: 2,2
+		Categories: Terrain
+		Tiles:
+			0: Sand
+			1: Sand
+			2: Sand
+			3: Sand
+	Template@1121:
+		Id: 1121
+		Images: bigsands.shp
+		Frames: 80,81,90,91
+		Size: 2,2
+		Categories: Terrain
+		Tiles:
+			0: Sand
+			1: Sand
+			2: Sand
+			3: Sand
+	Template@1122:
+		Id: 1122
+		Images: bigsands.shp
+		Frames: 82,83,92,93
+		Size: 2,2
+		Categories: Terrain
+		Tiles:
+			0: Sand
+			1: Sand
+			2: Sand
+			3: Sand
+	Template@1123:
+		Id: 1123
+		Images: bigsands.shp
+		Frames: 84,85,94,95
+		Size: 2,2
+		Categories: Terrain
+		Tiles:
+			0: Sand
+			1: Sand
+			2: Sand
+			3: Sand
+	Template@1124:
+		Id: 1124
+		Images: bigsands.shp
+		Frames: 86,87,96,97
+		Size: 2,2
+		Categories: Terrain
+		Tiles:
+			0: Sand
+			1: Sand
+			2: Sand
+			3: Sand
+	Template@3001:
+		Id: 3001
+		Images: desert_grasses.shp
+		Frames: 16
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@3002:
+		Id: 3002
+		Images: desert_grasses.shp
+		Frames: 17
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@3003:
+		Id: 3003
+		Images: desert_grasses.shp
+		Frames: 18
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@3004:
+		Id: 3004
+		Images: desert_grasses.shp
+		Frames: 19,20
+		Size: 2,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+			1: Clear
+	Template@3005:
+		Id: 3005
+		Images: desert_grasses.shp
+		Frames: 21
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@3006:
+		Id: 3006
+		Images: desert_grasses.shp
+		Frames: 24
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@3007:
+		Id: 3007
+		Images: desert_grasses.shp
+		Frames: 25
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@3008:
+		Id: 3008
+		Images: desert_grasses.shp
+		Frames: 26
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@3009:
+		Id: 3009
+		Images: desert_grasses.shp
+		Frames: 27,28
+		Size: 2,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+			1: Clear
+	Template@3010:
+		Id: 3010
+		Images: desert_grasses.shp
+		Frames: 29
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@3011:
+		Id: 3011
+		Images: desert_grasses.shp
+		Frames: 23
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@3012:
+		Id: 3012
+		Images: desert_grasses.shp
+		Frames: 22
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@3013:
+		Id: 3013
+		Images: desert_grasses.shp
+		Frames: 30
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@3014:
+		Id: 3014
+		Images: desert_grasses.shp
+		Frames: 31
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@3015:
+		Id: 3015
+		Images: desert_grasses.shp
+		Frames: 32
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@3016:
+		Id: 3016
+		Images: desert_grasses.shp
+		Frames: 33
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@3017:
+		Id: 3017
+		Images: desert_grasses.shp
+		Frames: 34
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@3018:
+		Id: 3018
+		Images: desert_grasses.shp
+		Frames: 34
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@3019:
+		Id: 3019
+		Images: desert_grasses.shp
+		Frames: 35
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@3020:
+		Id: 3020
+		Images: desert_grasses.shp
+		Frames: 36,42
+		Size: 1,2
+		Categories: Terrain
+		Tiles:
+			0: Clear
+			1: Clear
+	Template@3021:
+		Id: 3021
+		Images: desert_grasses.shp
+		Frames: 37,43
+		Size: 1,2
+		Categories: Terrain
+		Tiles:
+			0: Clear
+			1: Clear
+	Template@3022:
+		Id: 3022
+		Images: desert_grasses.shp
+		Frames: 38
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@3023:
+		Id: 3023
+		Images: desert_grasses.shp
+		Frames: 39
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@3024:
+		Id: 3024
+		Images: desert_grasses.shp
+		Frames: 40
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@3025:
+		Id: 3025
+		Images: desert_grasses.shp
+		Frames: 41
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@3026:
+		Id: 3026
+		Images: desert_grasses.shp
+		Frames: 42
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@3029:
+		Id: 3029
+		Images: desert_grasses.shp
+		Frames: 45
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@3030:
+		Id: 3030
+		Images: desert_grasses.shp
+		Frames: 46
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@3031:
+		Id: 3032
+		Images: desert_grasses.shp
+		Frames: 54
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@3033:
+		Id: 3033
+		Images: desert_grasses.shp
+		Frames: 55
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@3034:
+		Id: 3034
+		Images: desert_grasses.shp
+		Frames: 62
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
+	Template@3035:
+		Id: 3035
+		Images: desert_grasses.shp
+		Frames: 63
+		Size: 1,1
+		Categories: Terrain
+		Tiles:
+			0: Clear
 	Template@65535:
 		Id: 65535
 		Images: clear1.des
@@ -767,6 +1593,158 @@ Templates:
 			3: Clear
 			4: Clear
 			5: Clear
+	Template@2000:
+		Id: 2000
+		Images: desert_stuff.shp
+		Size: 1,1
+		Frames: 0
+		Categories: Debris
+		Tiles:
+			0: Clear
+	Template@2001:
+		Id: 2001
+		Images: desert_stuff.shp
+		Size: 1,1
+		Frames: 1
+		Categories: Debris
+		Tiles:
+			0: Clear
+	Template@2002:
+		Id: 2002
+		Images: desert_stuff.shp
+		Size: 1,1
+		Frames: 2
+		Categories: Debris
+		Tiles:
+			0: Clear
+	Template@2003:
+		Id: 2003
+		Images: desert_stuff.shp
+		Size: 1,1
+		Frames: 3
+		Categories: Debris
+		Tiles:
+			0: Clear
+	Template@2004:
+		Id: 2004
+		Images: desert_stuff.shp
+		Size: 1,1
+		Frames: 4
+		Categories: Debris
+		Tiles:
+			0: Clear
+	Template@2005:
+		Id: 2005
+		Images: desert_stuff.shp
+		Size: 1,1
+		Frames: 5
+		Categories: Debris
+		Tiles:
+			0: Clear
+	Template@2006:
+		Id: 2006
+		Images: desert_stuff.shp
+		Size: 1,1
+		Frames: 6
+		Categories: Debris
+		Tiles:
+			0: Clear
+	Template@2007:
+		Id: 2007
+		Images: desert_stuff.shp
+		Size: 1,1
+		Frames: 7
+		Categories: Debris
+		Tiles:
+			0: Clear
+	Template@2016:
+		Id: 2016
+		Images: desert_stuff.shp
+		Size: 2,1
+		Frames: 20,21
+		Categories: Debris
+		Tiles:
+			0: Rock
+			1: Rock
+	Template@2017:
+		Id: 2017
+		Images: desert_stuff.shp
+		Size: 2,1
+		Frames: 22,23
+		Categories: Debris
+		Tiles:
+			0: Rock
+			1: Rock
+	Template@2008:
+		Id: 2008
+		Images: desert_stuff.shp
+		Size: 2,1
+		Frames: 10,11
+		Categories: Debris
+		Tiles:
+			0: Rough
+			1: Rough
+	Template@2009:
+		Id: 2009
+		Images: desert_stuff.shp
+		Size: 2,1
+		Frames: 12,13
+		Categories: Debris
+		Tiles:
+			0: Rough
+			1: Rough
+	Template@2010:
+		Id: 2010
+		Images: desert_stuff.shp
+		Size: 2,1
+		Frames: 14,15
+		Categories: Debris
+		Tiles:
+			0: Rough
+			1: Rough
+	Template@2011:
+		Id: 2011
+		Images: desert_stuff.shp
+		Size: 1,2
+		Frames: 16,26
+		Categories: Debris
+		Tiles:
+			0: Rough
+			1: Rough
+	Template@2012:
+		Id: 2012 
+		Images: desert_stuff.shp
+		Size: 1,2
+		Frames: 17,27
+		Categories: Debris
+		Tiles:
+			0: Rough
+			1: Rough
+	Template@2013:
+		Id: 2013
+		Images: desert_stuff.shp
+		Size: 1,2
+		Frames: 18,28
+		Categories: Debris
+		Tiles:
+			0: Rough
+			1: Rough
+	Template@2014:
+		Id: 2014
+		Images: desert_stuff.shp
+		Size: 1,1
+		Frames: 25
+		Categories: Debris
+		Tiles:
+			0: Rough
+	Template@2015:
+		Id: 2015
+		Images: desert_stuff.shp
+		Size: 1,1
+		Frames: 26
+		Categories: Debris
+		Tiles:
+			0: Rough
 	Template@73:
 		Id: 73
 		Images: rv26.des

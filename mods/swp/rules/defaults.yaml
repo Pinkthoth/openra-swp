@@ -477,7 +477,7 @@
 
 ^FlareVision:
 	RevealsShroudMultiplier@flare:
-		Modifier: 125
+		Modifier: 150
 		RequiresCondition: flarevision
 	ExternalCondition@flarevision:
 		Condition: flarevision
@@ -972,6 +972,8 @@
 	Targetable@infantry:
 		TargetTypes: Infantry
 		RequiresCondition: !being-warped
+	Voiced:
+		VoiceSet: GenericVoice
 
 ^Commanderable:
 	GrantConditionOnInfiltration@commandered:
@@ -1444,7 +1446,7 @@
 		IdleSequences: idle1,idle2
 		StandSequences: stand,stand2
 	AttackFrontal:
-		RequiresCondition: !turnedoff
+		RequiresCondition: !turnedoff && !being-warped
 		FacingTolerance: 0
 
 ^CivInfantry:
@@ -1573,6 +1575,8 @@
 		UseLocation: true
 	Selectable:
 		Bounds: 1024, 1024
+	Voiced:
+		VoiceSet: VehicleVoice
 	Aircraft:
 		AirborneCondition: airborne
 		CruiseAltitude: 4c0
@@ -1617,8 +1621,6 @@
 		ZOffset: -129
 	WithFacingSpriteBody:
 	MustBeDestroyed:
-	Voiced:
-		VoiceSet: GenericVoice
 	HitShape:
 	MapEditorData:
 		Categories: Aircraft
@@ -1974,6 +1976,11 @@
 	Targetable@target:
 		TargetTypes: Defense
 		RequiresCondition:  !being-warped
+
+^GarrisonableCivBuildingDesert:
+	Inherits: ^GarrisonableCivBuilding
+	RenderSprites:
+		Palette: tempdecs
 
 ^CivBuilding:
 	Inherits: ^TechBuilding

@@ -11,7 +11,7 @@ HARV:
 		Prerequisites: proc, ~techlevel.infonly
 		Description: Collects Ore and Gems for processing.
 	TooltipExtras:
-		Weaknesses: • Unarmed.
+		Weaknesses: - Strength.
 		Attributes: • Collects resources.
 	Valued:
 		Cost: 1100
@@ -85,7 +85,7 @@ MCV:
 		BuildDurationModifier: 50
 		Description: Construction vehicle.
 	TooltipExtras:
-		Weaknesses: • Unarmed.
+		Weaknesses: - Strength.
 		Attributes: • Deployes into a Construction Yard.
 	Valued:
 		Cost: 2500
@@ -159,7 +159,7 @@ MNLY:
 		Prerequisites: fix, ~techlevel.medium
 		Description: Lays mines to destroy\nunwary enemy units.
 	TooltipExtras:
-		Weaknesses: • Unarmed.
+		Weaknesses: - Strength.
 		Attributes: • Can detect mines.
 	Valued:
 		Cost: 800
@@ -233,7 +233,7 @@ TRUK:
 		Prerequisites: ~techlevel.low
 		Description: Transports cash to other players.
 	TooltipExtras:
-		Weaknesses: • Unarmed.
+		Weaknesses: - Strength.
 		Attributes: • Transports 500$ to targeted player.
 	Valued:
 		Cost: 500
@@ -266,7 +266,7 @@ PROPTRUCK:
 		Prerequisites: ~techlevel.low, ~vehicles.china, dome
 		Description: Red Army propaganda vehicle.
 	TooltipExtras:
-		Weaknesses: • Unarmed.
+		Weaknesses: - Strength.
 		Attributes: • Deploy to increase morale of nearby infantry.
 	Valued:
 		Cost: 700
@@ -303,8 +303,8 @@ BIKE:
 		Prerequisites: ~vehicles.japan, ~techlevel.low
 		Description: Fast scouting motorcycle.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry.
-		Weaknesses: • Weak vs Tanks, Aircraft.
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Tanks, Aircraft.
 		Attributes: • Occupies a subcell. 
 	Valued:
 		Cost: 375
@@ -330,12 +330,12 @@ BIKE:
 	Armament@primary:
 		Weapon: Uzi
 		Name: primary
-		LocalOffset: 300,130,260
+		LocalOffset: 350,130,240
 		MuzzleSequence: muzzle
 	Armament@secondary:
 		Weapon: Uzi
 		Name: secondary
-		LocalOffset: 300,-130,260
+		LocalOffset: 350,-130,240
 		MuzzleSequence: muzzle
 	AttackFrontal:
 		PauseOnCondition: turnedoff
@@ -358,8 +358,8 @@ ARMCR:
 		Prerequisites: ~vehicles.zentrum, ~techlevel.low
 		Description: Heavy scout & anti-infantry vehicle.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry.
-		Weaknesses: • Weak vs Tanks, Aircraft.
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Tanks, Aircraft.
 	Valued:
 		Cost: 650
 	Tooltip:
@@ -386,7 +386,7 @@ ARMCR:
 	Armament:
 		Weapon: M60mg-Bobcat
 		MuzzleSequence: muzzle
-		LocalOffset: 230,0,50
+		LocalOffset: 240,0,65
 	AttackTurreted:
 		PauseOnCondition: turnedoff
 	WithMuzzleOverlay:
@@ -421,8 +421,8 @@ HLFTRK:
 		Prerequisites: ~vehicles.zentrum, ~techlevel.low
 		Description: Armoured transport vehicle.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 		Attributes: • Can transport 5 infantry units.
 	Valued:
 		Cost: 550
@@ -489,8 +489,8 @@ PUMA:
 		Prerequisites: ~vehicles.zentrum, ~techlevel.low
 		Description: Strong armoured car.
 	TooltipExtras:
-		Strengths: • Strong vs Vehicles.
-		Weaknesses: • Weak vs Infantry, Aircraft.
+		Strengths: + Strong vs Vehicles.
+		Weaknesses: - Weak vs Infantry, Aircraft.
 	Valued:
 		Cost: 700
 	Tooltip:
@@ -517,7 +517,7 @@ PUMA:
 		Weapon: 25mm
 		Recoil: 85
 		RecoilRecovery: 25
-		LocalOffset: 500,0,30
+		LocalOffset: 600,0,40
 		MuzzleSequence: muzzle
 	AttackTurreted:
 		PauseOnCondition: turnedoff
@@ -554,8 +554,8 @@ PRISMCANNON:
 		Prerequisites: mtek, ~vehicles.austria, ~techlevel.high
 		Description: Long range direct energy cannon.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry, Vehicles.
-		Weaknesses: • Weak vs Aircraft.
+		Strengths: + Strong vs Infantry, Vehicles.
+		Weaknesses: - Weak vs Aircraft.
 	Valued:
 		Cost: 1400
 	Tooltip:
@@ -580,7 +580,7 @@ PRISMCANNON:
 		Weapon: Prism
 		Recoil: 128
 		RecoilRecovery: 38
-		LocalOffset: 800,0,240
+		LocalOffset: 860,0,280
 		MuzzleSequence: muzzle
 	AttackFrontal:
 		PauseOnCondition: turnedoff
@@ -603,8 +603,8 @@ HVTNK:
 		Prerequisites: adept, ~vehicles.zentrum, ~techlevel.medium
 		Description: Zentrum main battle tank. Slow but strudy.
 	TooltipExtras:
-		Strengths: • Strong vs Tanks.
-		Weaknesses: • Weak vs Aircraft.
+		Strengths: + Strong vs Tanks.
+		Weaknesses: - Weak vs Aircraft.
 		Attributes: • Armed with a secondary machine gun.
 	Valued:
 		Cost: 1200
@@ -627,7 +627,7 @@ HVTNK:
 		Range: 4c0
 	Turreted:
 		TurnSpeed: 20
-		Offset: 20,0,260
+		Offset: 20,0,240
 	Armament:
 		Weapon: hvtnkfire
 		Name: primary
@@ -680,8 +680,8 @@ V2RL:
 		Prerequisites: dome, ~vehicles.zentrum, ~techlevel.medium
 		Description: Extra long-range rocket artillery.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry, Buildings, Defenses.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry, Buildings, Defenses.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -742,8 +742,8 @@ MSAM:
 		Prerequisites: domeoradept, ~vehicles.zentrum, ~techlevel.medium
 		Description: Mobile surface to air missile platform.
 	TooltipExtras:
-		Strengths: • Strong vs Aircraft.
-		Weaknesses: • Weak vs Vehicles, Infantry.
+		Strengths: + Strong vs Aircraft.
+		Weaknesses: - Weak vs Vehicles, Infantry.
 	Mobile:
 		Locomotor: lighttracked
 		Speed: 80
@@ -815,8 +815,8 @@ ECTNK:
 		Prerequisites: mtek, ~vehicles.germany, ~techlevel.high
 		Description: Specially insulated chrono APC.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 		Attributes: • Equiped with a portable chronosphere.\n• Can transport up to 3 infantry units.\n• Keeps transported infantry alive while chronoshifting.
 	Valued:
 		Cost: 1000
@@ -886,8 +886,8 @@ CTNK:
 		Prerequisites: mtek, ~vehicles.germany, ~techlevel.high
 		Description: Chrono tank armed with anti-ground missiles.
 	TooltipExtras:
-		Strengths: • Strong vs Vehicles.
-		Weaknesses: • Weak vs Infantry, Aircraft.
+		Strengths: + Strong vs Vehicles.
+		Weaknesses: - Weak vs Infantry, Aircraft.
 		Attributes: • Equiped with a portable chronosphere.
 	Valued:
 		Cost: 1350
@@ -955,8 +955,8 @@ MAUS:
 		Prerequisites: mtek, adept, ~vehicles.zentrum, ~techlevel.high
 		Description: Super heavy tank destroyer.
 	TooltipExtras:
-		Strengths: • Strong vs Vehicles, Defenses.
-		Weaknesses: • Weak vs Infantry, Aircraft.
+		Strengths: + Strong vs Vehicles, Defenses.
+		Weaknesses: - Weak vs Infantry, Aircraft.
 	Valued:
 		Cost: 1850
 	Tooltip:
@@ -981,7 +981,7 @@ MAUS:
 		Weapon: MausCannon
 		Recoil: 128
 		RecoilRecovery: 38
-		LocalOffset: 1000,60,100
+		LocalOffset: 1200,60,100
 		MuzzleSequence: muzzle
 	AttackFrontal:
 		PauseOnCondition: turnedoff
@@ -1027,7 +1027,7 @@ MRJ:
 		Prerequisites: atek, ~vehicles.france, ~techlevel.high
 		Description: Radar and homing missile jamming vehicle.
 	TooltipExtras:
-		Weaknesses: • Unarmed.
+		Weaknesses: - Strength.
 		Attributes: • Jams nearby enemy Radar Domes.\n• Deflects incoming missiles.
 	Health:
 		HP: 22000
@@ -1083,7 +1083,7 @@ TRNSPRT:
 		Prerequisites: ~vehicles.komintern, ~techlevel.low
 		Description: Fast transport vehicle.
 	TooltipExtras:
-		Weaknesses: • Unarmed.
+		Weaknesses: - Strength.
 		Attributes: • Can transport up to 7 infantry units.
 	Valued:
 		Cost: 350
@@ -1129,8 +1129,8 @@ FTRK:
 		Prerequisites: ~vehicles.komintern, ~techlevel.low
 		Description: Mobile unit with mounted Flak cannon.
 	TooltipExtras:
-		Strengths: • Strong vs Aircraft.
-		Weaknesses: • Weak vs Vehicles, Infantry.
+		Strengths: + Strong vs Aircraft.
+		Weaknesses: - Weak vs Vehicles, Infantry.
 	Valued:
 		Cost: 600
 	RenderSprites:
@@ -1203,8 +1203,8 @@ TNKT:
 		Prerequisites: ~vehicles.komintern, ~techlevel.low
 		Description: Tough anti-infantry vehicle.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry, Vehicles.
-		Weaknesses: • Weak vs Tanks, Aircraft.
+		Strengths: + Strong vs Infantry, Vehicles.
+		Weaknesses: - Weak vs Tanks, Aircraft.
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -1228,7 +1228,7 @@ TNKT:
 		Range: 4c0
 	Armament:
 		Weapon: TNKT
-		LocalOffset: 280,0,310
+		LocalOffset: 290,0,305
 		MuzzleSequence: muzzle
 	AttackFrontal:
 		PauseOnCondition: turnedoff
@@ -1263,9 +1263,9 @@ TRAKTOR:
 		Prerequisites: stek, ~vehicles.ukraine, ~techlevel.high
 		Description: Heavy magnetic tank that debilitates it's target.
 	TooltipExtras:
-		Strengths: • Strong vs Vehicles.
-		Weaknesses: • Weak vs Infantry, Aircraft.
-		Attributes: • Slows targeted unit to a crawl.
+		Strengths: + Strong vs Vehicles.
+		Weaknesses: - Weak vs Infantry, Aircraft.
+		Attributes: • Slows targeted unit to a crawl.\• Can only target vehicles.
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -1330,8 +1330,8 @@ BTR:
 		Prerequisites: ~vehicles.komintern, adept, ~techlevel.low
 		Description: Tough infantry transport.
 	TooltipExtras:
-		Strengths: • Strong vs Vehicles.
-		Weaknesses: • Weak vs Tanks, Infantry, Aircraft.
+		Strengths: + Strong vs Vehicles.
+		Weaknesses: - Weak vs Tanks, Infantry, Aircraft.
 		Attributes: • Can transport up to 4 infantry units.
 	Valued:
 		Cost: 750
@@ -1355,9 +1355,9 @@ BTR:
 		Range: 4c0
 	Armament:
 		Weapon: 25mm-btr
-		Recoil: 85
+		Recoil: 60
 		RecoilRecovery: 25
-		LocalOffset: 250,0,30
+		LocalOffset: 480,0,30
 		MuzzleSequence: muzzle
 	Turreted:
 		Offset: 120,0,250
@@ -1399,8 +1399,8 @@ MARAUDER:
 		Prerequisites: dome, ~vehicles.mongolia, ~techlevel.medium
 		Description: Fast scouting vehicle armed with a\nlong range missile launcher.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 	Valued:
 		Cost: 750
 	RenderSprites:
@@ -1425,10 +1425,10 @@ MARAUDER:
 		Range: 4c0
 	Turreted:
 		TurnSpeed: 40
-		Offset: -250,0,190
+		Offset: -300,0,190
 	Armament:
 		Weapon: 227mm-Marauder
-		LocalOffset: 171,0,43
+		LocalOffset: 171,0,60
 		PauseOnCondition: turnedoff
 	AttackTurreted:
 		PauseOnCondition: turnedoff
@@ -1462,8 +1462,8 @@ MTNK:
 		Prerequisites: adept, ~vehicles.komintern, ~techlevel.medium
 		Description: Komintern main battle tank.Heavily armoured,\nbut versatile.
 	TooltipExtras:
-		Strengths: • Strong vs Tanks.
-		Weaknesses: • Weak vs Aircraft.
+		Strengths: + Strong vs Tanks.
+		Weaknesses: - Weak vs Aircraft.
 		Attributes: • Armed with a secondary machine gun.
 	Valued:
 		Cost: 1025
@@ -1491,7 +1491,7 @@ MTNK:
 		Weapon: 90mm
 		Recoil: 128
 		RecoilRecovery: 38
-		LocalOffset: 750,0,50
+		LocalOffset: 770,0,50
 		MuzzleSequence: muzzle
 	Armament@secondary:
 		Name: secondary
@@ -1537,8 +1537,8 @@ MAROZILNIK:
 		Prerequisites: stek, ~vehicles.belarus, ~techlevel.medium
 		Description: Tank armed with a cryo spray thrower.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 		Attributes: • Slows enemy units down, decreases their vision and fire rate.
 	Valued:
 		Cost: 1300
@@ -1566,7 +1566,7 @@ MAROZILNIK:
 		Weapon: Marozzer
 		Recoil: 0
 		RecoilRecovery: 38
-		LocalOffset: 290,0,180
+		LocalOffset: 560,0,350
 		MuzzleSequence: muzzle
 	AttackTurreted:
 		PauseOnCondition: turnedoff
@@ -1605,8 +1605,8 @@ TEMPLAR:
 		Prerequisites: ~weap, techcenter, ~stektech, ~techlevel.medium
 		Description: Magneticly levitating tesla tank.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry, Vehicles.
-		Weaknesses: • Weak vs Aircraft.
+		Strengths: + Strong vs Infantry, Vehicles.
+		Weaknesses: - Weak vs Aircraft.
 		Attributes: • Hovers.\n• Only available by spying a komintern tech center.
 	Valued:
 		Cost: 1025
@@ -1688,8 +1688,8 @@ KATYA:
 		Prerequisites: dome, ~vehicles.komintern, ~techlevel.medium
 		Description: Long range multiple rocket launcher.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry, Buildings, Defenses.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry, Buildings, Defenses.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 	Mobile:
 		Speed: 85
 		TurnSpeed: 16
@@ -1704,11 +1704,11 @@ KATYA:
 		Range: 5c0
 	Armament@PRIMARY:
 		Weapon: 227mm
-		LocalOffset: 213,128,230, 213,-128,230
+		LocalOffset: 213,128,330, 213,-128,330
 	Armament@SECONDARY:
 		Name: secondary
 		Weapon: 227mm
-		LocalOffset: 213,-128,230, 213,128,230
+		LocalOffset: 213,-128,330, 213,128,330
 	AttackFrontal:
 		TargetFrozenActors: True
 		ForceFireIgnoresActors: True
@@ -1734,7 +1734,7 @@ MGG:
 		Prerequisites: dome, ~vehicles.ukraine, ~techlevel.medium
 		Description: Veil generating vehicle.
 	TooltipExtras:
-		Weaknesses: • Unarmed.
+		Weaknesses: - Strength.
 		Attributes: • Generates veil around it obscuring the area.
 	Valued:
 		Cost: 1000
@@ -1790,8 +1790,8 @@ T100:
 		Prerequisites: adept, stek, ~vehicles.komintern, ~techlevel.high
 		Description: Big and slow tank, with anti-air capability.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry, Tanks.
-		Weaknesses: • Weak vs Nothing.
+		Strengths: + Strong vs Infantry, Tanks.
+		Weaknesses: - Weak vs Nothing.
 		Attributes: • Can crush concrete walls.
 	Valued:
 		Cost: 2000
@@ -1851,7 +1851,7 @@ T100:
 SIPAHI:
 	Inherits: ^Vehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMovePlusBombers
 	Inherits@CARGOPIPS: ^CargoPips
 	Buildable:
 		Queue: Vehicle
@@ -1859,8 +1859,8 @@ SIPAHI:
 		Prerequisites: ~vehicles.serbia, adept, ~techlevel.low
 		Description: Versatile infantry fighting vehicle.
 	TooltipExtras:
-		Strengths: • Strength depends on the cargo.
-		Weaknesses: • Weakness depends on the cargo.
+		Strengths: + Strength depends on the cargo.
+		Weaknesses: - Weakness depends on the cargo.
 		Attributes: • Weapon depends on the cargo.
 	Valued:
 		Cost: 500
@@ -2078,25 +2078,25 @@ SIPAHI:
 		PauseOnCondition: turnedoff
 	Armament@ag-0:
 		Weapon: AGGatling-handheld
-		LocalOffset: 350,-100,130, 350,100,130
+		LocalOffset: 350,-100,110, 350,100,110
 		MuzzleSequence: muzzle
 		RequiresCondition: pashvgat && gatling == 1
 		PauseOnCondition: turnedoff
 	Armament@ag-1:
 		Weapon: AGGatling2-handheld
-		LocalOffset: 350,-100,130, 350,100,130
+		LocalOffset: 350,-100,110, 350,100,110
 		MuzzleSequence: muzzle
 		RequiresCondition: pashvgat && gatling == 2
 		PauseOnCondition: turnedoff
 	Armament@ag-2:
 		Weapon: AGGatling3-handheld
-		LocalOffset: 350,-100,130, 350,100,130
+		LocalOffset: 350,-100,110, 350,100,110
 		MuzzleSequence: muzzle
 		RequiresCondition: pashvgat && gatling == 3
 		PauseOnCondition: turnedoff
 	Armament@ag-3:
 		Weapon: AGGatling4-handheld
-		LocalOffset: 350,-100,130, 350,100,130
+		LocalOffset: 350,-100,110, 350,100,110
 		MuzzleSequence: muzzle
 		RequiresCondition: pashvgat && gatling >= 4
 		PauseOnCondition: turnedoff
@@ -2232,6 +2232,8 @@ SIPAHI:
 			bolter: pasbolter
 			e2: pase2
 			e3: pase3
+			e3r3: pase3
+			e1r3: nochange
 			e4: pase4
 			e11: pase11
 			hvgatling: pashvgat
@@ -2248,7 +2250,6 @@ SIPAHI:
 			desolator: psngdesolator
 			legionaire: paslegionaire
 			e1: nochange
-			e1r3: nochange
 			ishmaelite: pasishmaelite
 			chronotrooper: paschronotrooper
 			maroznik: pasmaroznik
@@ -2308,8 +2309,8 @@ SONIQUE:
 	Tooltip:
 		Name: Disruptor
 	TooltipExtras:
-		Strengths: • Strong vs Infantry, Buildings, Defenses.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry, Buildings, Defenses.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 		Attributes: • Attacked units become confused and disoriented.
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
@@ -2368,8 +2369,8 @@ JEEP:
 		Prerequisites: ~vehicles.entente, ~techlevel.low
 		Description: Fast scout & anti-infantry vehicle.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 	Valued:
 		Cost: 500
 	RenderSprites:
@@ -2433,8 +2434,8 @@ APC:
 		Prerequisites: ~vehicles.entente, ~techlevel.low
 		Description: Tough infantry transport.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 		Attributes: • Can transport up to 4 infantry units.
 	Valued:
 		Cost: 750
@@ -2496,11 +2497,11 @@ HOVERCRAFT:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 225
-		Prerequisites: dome, ~vehicles.england, ~techlevel.low
+		Prerequisites: dome, ~vehicles.serbia, ~techlevel.low
 		Description: Tough infantry transport armed with\ntwo rocket launchers.
 	TooltipExtras:
-		Strengths: • Strong vs Vehicles.
-		Weaknesses: • Weak vs Infantry, Aircraft.
+		Strengths: + Strong vs Vehicles.
+		Weaknesses: - Weak vs Infantry, Aircraft.
 		Attributes: • Hovers.\n• Can transport up to 4 infantry units.
 	Valued:
 		Cost: 900
@@ -2570,7 +2571,7 @@ SHAH:
 		Prerequisites: mtek, ~vehicles.persia, ~techlevel.high
 		Description: Psychic enslavement vehicle.
 	TooltipExtras:
-		Weaknesses: • Unarmed.
+		Weaknesses: - Strength.
 		Attributes: • Can mind control up to three enemy units.
 	Valued:
 		Cost: 4000
@@ -2579,7 +2580,7 @@ SHAH:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 25000
+		HP: 20000
 	Armor:
 		Type: Medium
 	Mobile:
@@ -2630,6 +2631,15 @@ SHAH:
 	ReloadAmmoPool:
 		Delay: 35
 		Count: 1
+		RequiresCondition: mindcontrolling == 0
+	ReloadAmmoPool@1:
+		Delay: 70
+		Count: 1
+		RequiresCondition: mindcontrolling == 1
+	ReloadAmmoPool@2:
+		Delay: 140
+		Count: 1
+		RequiresCondition: mindcontrolling == 2
 
 SHAH.Husk:
 	Inherits: ^Husk
@@ -2654,8 +2664,8 @@ WASTETANKER:
 		Prerequisites: dome, ~vehicles.kazakhstan, ~techlevel.high
 		Description: Tough tank that shoots corrosive acid.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry, Vehicles.
-		Weaknesses: • Weak vs Tanks, Aircraft.
+		Strengths: + Strong vs Infantry, Vehicles.
+		Weaknesses: - Weak vs Tanks, Aircraft.
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -2677,7 +2687,7 @@ WASTETANKER:
 		Range: 4c0
 	Armament:
 		Weapon: TruckToxxer
-		LocalOffset: 710,0,350
+		LocalOffset: 770,0,385
 	AttackFrontal:
 		PauseOnCondition: turnedoff
 		FacingTolerance: 0
@@ -2717,8 +2727,8 @@ IFV:
 		Prerequisites: adept, ~vehicles.england, ~techlevel.low
 		Description: Tough infantry transport, armed\nwith a small AA-cannon.
 	TooltipExtras:
-		Strengths: • Strong vs Aircraft.
-		Weaknesses: • Weak vs Vehicles.
+		Strengths: + Strong vs Aircraft.
+		Weaknesses: - Weak vs Vehicles.
 		Attributes: • Can transport up to 3 infantry units.
 	Mobile:
 		TurnSpeed: 28
@@ -2810,10 +2820,10 @@ RTNK:
 		Prerequisites: ~vehicles.entente, ~techlevel.low
 		Description: Fast tank, good for scouting.
 	TooltipExtras:
-		Strengths: • Strong vs Vehicles.
-		Weaknesses: • Weak vs Tanks, Infantry, Aircraft.
+		Strengths: + Strong vs Vehicles.
+		Weaknesses: - Weak vs Tanks, Infantry, Aircraft.
 	Valued:
-		Cost: 800
+		Cost: 775
 	Tooltip:
 		Name: Squire
 		GenericName: Tank
@@ -2838,9 +2848,9 @@ RTNK:
 		Offset: -100,0,90
 	Armament:
 		Weapon: 25mm-recon
-		Recoil: 85
+		Recoil: 60
 		RecoilRecovery: 25
-		LocalOffset: 500,0,70
+		LocalOffset: 560,0,70
 		MuzzleSequence: muzzle
 	AttackTurreted:
 		PauseOnCondition: turnedoff
@@ -2875,8 +2885,8 @@ RONIN:
 		Prerequisites: adept, ~vehicles.japan, ~techlevel.low
 		Description: Multipurpose tank, jack of all trades,\nmaster of none.
 	TooltipExtras:
-		Strengths: • Strong vs Vehicles, Aircraft, Infantry.
-		Weaknesses: • Weak vs Tanks.
+		Strengths: + Strong vs Vehicles, Aircraft, Infantry.
+		Weaknesses: - Weak vs Tanks.
 	Valued:
 		Cost: 850
 	Tooltip:
@@ -2963,8 +2973,8 @@ PAPC:
 		Prerequisites: atek, ~vehicles.japan, ~techlevel.high
 		Description: Phase infantry transport.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 		Attributes: • Can phase out of vision.
 	Valued:
 		Cost: 850
@@ -2988,7 +2998,7 @@ PAPC:
 		Range: 4c0
 	Armament:
 		Weapon: M60mg-apc
-		LocalOffset: 190,0,270
+		LocalOffset: 290,0,300
 		MuzzleSequence: muzzle
 	AttackFrontal:
 		PauseOnCondition: turnedoff
@@ -3039,8 +3049,8 @@ PTNK:
 		Prerequisites: atek, ~vehicles.japan, ~techlevel.low
 		Description: Fast phase tank, armed with a rocket launcher.
 	TooltipExtras:
-		Strengths: • Strong vs Vehicles.
-		Weaknesses: • Weak vs Infantry, Tanks, Aircraft.
+		Strengths: + Strong vs Vehicles.
+		Weaknesses: - Weak vs Infantry, Tanks, Aircraft.
 		Attributes: • Can phase out of vision.
 	Valued:
 		Cost: 1250
@@ -3114,8 +3124,8 @@ LTNK:
 		Prerequisites: adept, ~vehicles.entente, ~techlevel.low
 		Description: Entente main battle tank.Fast tank,\ngood for fast manouvers.
 	TooltipExtras:
-		Strengths: • Strong vs Tanks.
-		Weaknesses: • Weak vs Aircraft.
+		Strengths: + Strong vs Tanks.
+		Weaknesses: - Weak vs Aircraft.
 		Attributes: • Armed with a secondary machine gun.
 	Valued:
 		Cost: 900
@@ -3196,8 +3206,8 @@ TELEDRONE:
 		Queue: Vehicle
 		Description: Radio controlled fast scout. Armed with\nanti-tank and anti-air rockets.
 	TooltipExtras:
-		Strengths: • Strong vs Vehicles, Aircraft.
-		Weaknesses: • Weak vs Infantry.
+		Strengths: + Strong vs Vehicles, Aircraft.
+		Weaknesses: - Weak vs Infantry.
 		Attributes: • Requires a functioning Radar Dome.
 	Mobile:
 		TurnSpeed: 40
@@ -3252,7 +3262,7 @@ LIMPETMINE:
 		Prerequisites: dome, ~vehicles.usa, ~techlevel.medium
 		Description: Tele controlled deployable mine. Explodes in an EMP burst.
 	TooltipExtras:
-		Weaknesses: • Unarmed.
+		Weaknesses: - Strength.
 		Attributes: • Requires a functioning Radar Dome.\n• Deploy to dig into ground.\n• Deploy once digged to force explode.
 	Valued:
 		Cost: 375
@@ -3348,9 +3358,9 @@ ARC:
 		Prerequisites: atek, adept, ~vehicles.usa, ~techlevel.low
 		Description: Heavy tank that fires electromagnetic arcs\nthat slow down enemy vehicles.
 	TooltipExtras:
-		Strengths: • Strong vs Vehicles.
-		Weaknesses: • Weak vs Infantry, Aircraft.
-		Attributes: • Arcs slow down enemy vehicles.
+		Strengths: + Strong vs Vehicles.
+		Weaknesses: - Weak vs Infantry, Aircraft.
+		Attributes: • Arcs slow down enemy vehicles.\n• With enough Arcs, the target is disabled for a while.
 	Valued:
 		Cost: 1150
 	Tooltip:
@@ -3414,7 +3424,7 @@ EMPDEVICE:
 		Prerequisites: atek, ~vehicles.usa, ~techlevel.high
 		Description: Radio controlled devicethat explodes as an EM pulse.
 	TooltipExtras:
-		Weaknesses: • Unarmed.
+		Weaknesses: - Strength.
 		Attributes: • Requires a functioning Radar Dome.\n• Deploy to explode the EM pulse.
 	Valued:
 		Cost: 2250
@@ -3482,8 +3492,8 @@ ARTY:
 		Prerequisites: dome, ~vehicles.entente, ~techlevel.medium
 		Description: Long-range artillery.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry, Buildings, Defenses.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry, Buildings, Defenses.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 	Valued:
 		Cost: 850
 	RenderSprites:
@@ -3533,8 +3543,8 @@ ARCHER:
 		Prerequisites: dome, adept, ~vehicles.entente, ~techlevel.high
 		Description: Long range tank destroyer.
 	TooltipExtras:
-		Strengths: • Strong vs Tanks.
-		Weaknesses: • Weak vs Infantry, Aircraft.
+		Strengths: + Strong vs Tanks.
+		Weaknesses: - Weak vs Infantry, Aircraft.
 	Valued:
 		Cost: 1300
 	Tooltip:
@@ -3559,7 +3569,7 @@ ARCHER:
 		Weapon: 76mmOrdinanceQF
 		Recoil: 128
 		RecoilRecovery: 38
-		LocalOffset: 820,0,210
+		LocalOffset: 900,0,140
 		MuzzleSequence: muzzle
 	AttackFrontal:
 		PauseOnCondition: turnedoff
@@ -3596,8 +3606,8 @@ ENTENTEAA:
 		Prerequisites: atek, adept, ~vehicles.entente, ~techlevel.low
 		Description: Mobile unit with a double barreled AA cannon.
 	TooltipExtras:
-		Strengths: • Strong vs Aircraft.
-		Weaknesses: • Weak vs Tanks.
+		Strengths: + Strong vs Aircraft.
+		Weaknesses: - Weak vs Tanks.
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -3622,7 +3632,7 @@ ENTENTEAA:
 		Offset: -80,0,220
 	Armament@AA:
 		Weapon: Archer-AA
-		LocalOffset: 750,-190,532, 750,190,532
+		LocalOffset: 750,-190,552, 750,190,552
 		MuzzleSequence: muzzle
 	Armament@AG:
 		Name: secondary
@@ -3678,8 +3688,8 @@ HVRTNKTNK:
 		Prerequisites: dome, ~vehicles.ukraine, ~techlevel.unrestricted
 		Description: Manipulates Earth's magnetosphere\nto assume a levitating state.
 	TooltipExtras:
-		Strengths: • Strong vs Vehicles.
-		Weaknesses: • Weak vs Infantry, Aircraft.
+		Strengths: + Strong vs Vehicles.
+		Weaknesses: - Weak vs Infantry, Aircraft.
 		Attributes: • Deploy to enter levitating state.\n• Can not shoot while levitating.
 	Valued:
 		Cost: 1200
@@ -3826,7 +3836,7 @@ GRINDER:
 		Prerequisites: ~weap, stek, adept, ~vehicles.russia, ~techlevel.low
 		Description: Portable Iron Curtain vehicle armed\na massive metal grinder.
 	TooltipExtras:
-		Weaknesses: • Unarmed.
+		Weaknesses: - Strength.
 		Attributes: • Deploy to activate Iron Curtain.\n• Once the Iron Curtain runs out, the vehicle explodes.\n• Does not slow down while crushing.
 	Valued:
 		Cost: 2300
@@ -3881,8 +3891,8 @@ TTNK:
 		Prerequisites: stek, ~vehicles.russia, ~techlevel.high
 		Description: Tank with mounted Tesla coil.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry, Vehicles.
-		Weaknesses: • Weak vs Aircraft.
+		Strengths: + Strong vs Infantry, Vehicles.
+		Weaknesses: - Weak vs Aircraft.
 	Valued:
 		Cost: 1350
 	Tooltip:
@@ -3952,8 +3962,8 @@ FLMTNK:
 		Prerequisites: dome, ~vehicles.turkey, ~techlevel.medium
 		Description: Tank that shoots balls of napalm.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry, Buildings.
-		Weaknesses: • Weak vs Tanks, Aircraft.
+		Strengths: + Strong vs Infantry, Buildings.
+		Weaknesses: - Weak vs Tanks, Aircraft.
 	Mobile:
 		TurnSpeed: 28
 		Speed: 85
@@ -3967,7 +3977,7 @@ FLMTNK:
 		Range: 6c0
 	Armament:
 		Weapon: TankFireballLauncher
-		LocalOffset: 300,180,100, 300,-180,100
+		LocalOffset: 330,180,100, 330,-180,100
 	AttackFrontal:
 		PauseOnCondition: turnedoff
 		FacingTolerance: 0
@@ -4010,8 +4020,8 @@ FIRELANCER:
 		Prerequisites: mtek, ~vehicles.turkey, ~techlevel.medium
 		Description: Heavy tank that shoots a long cone of flame\nand leaves the ground burning.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry, Buildings.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry, Buildings.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 		Attributes: • Leaves the ground burning.
 	Mobile:
 		TurnSpeed: 20
@@ -4077,8 +4087,8 @@ HELGA:
 		Prerequisites: mtek, adept, ~vehicles.bulgaria, ~techlevel.high
 		Description: Huge extra long range artillery.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry, Buildings, Defenses.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry, Buildings, Defenses.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 		Attributes: • Deploy to enter firing or mobile states.
 	Valued:
 		Cost: 1800
@@ -4087,7 +4097,7 @@ HELGA:
 	Armor:
 		Type: Heavy
 	Selectable:
-		DecorationBounds: 1289, 1289, 0, -241
+		DecorationBounds: 1589, 1589, 0, -221
 	Mobile:
 		Speed: 45
 		TurnSpeed: 10
@@ -4137,7 +4147,7 @@ HELGA:
 		Name: deployed
 		Turret: deployed
 		Weapon: bigberthagun
-		LocalOffset: 1012,0,900
+		LocalOffset: 1012,0,750
 		RequiresCondition: deployed
 		MuzzleSequence: muzzle
 	WithMuzzleOverlay:
@@ -4180,8 +4190,8 @@ SAPPER:
 		Prerequisites: mtek, ~vehicles.italy, ~techlevel.low
 		Description: Subterranean transport vehicle armed with a huge drill.
 	TooltipExtras:
-		Strengths: • Strong vs Buildings, Defenses.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Buildings, Defenses.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 		Attributes: • Can move under ground.\n• Can transport up to 3 infantry units.
 	Valued:
 		Cost: 1500
@@ -4284,8 +4294,8 @@ TESTUDO:
 		Prerequisites: adept, ~vehicles.italy, ~techlevel.low
 		Description: Modified trench digger armed with\ndual machine guns.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry.
-		Weaknesses: • Weak vs Tanks, Aircraft.
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Tanks, Aircraft.
 		Attributes: • Deploy to dig into ground.\n• Does not slow down while crushing.
 	Valued:
 		Cost: 1000
@@ -4412,8 +4422,8 @@ RACER:
 		Prerequisites: ~vehicles.mongolia, ~techlevel.medium
 		Description: Tracked motorbike,\narmed with two rocket launchers.
 	TooltipExtras:
-		Strengths: • Strong vs Vehicles.
-		Weaknesses: • Weak vs Infantry, Aircraft.
+		Strengths: + Strong vs Vehicles.
+		Weaknesses: - Weak vs Infantry, Aircraft.
 	Valued:
 		Cost: 700
 	Tooltip:
@@ -4473,7 +4483,7 @@ ORDA:
 		Prerequisites: stek, ~vehicles.mongolia, ~techlevel.high
 		Description: Deployable construction platform.
 	TooltipExtras:
-		Weaknesses: • Unarmed.
+		Weaknesses: - Strength.
 		Attributes: • Provides build radius once deployed.
 	Valued:
 		Cost: 1750
@@ -4570,8 +4580,8 @@ GATLINGCAR:
 		Prerequisites: ~vehicles.belarus, adept, ~techlevel.low
 		Description: Heavy scout & anti-infantry vehicle.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 		Attributes: • Gatling guns speed up while firing increasing fire rate.
 	Valued:
 		Cost: 700
@@ -4602,25 +4612,25 @@ GATLINGCAR:
 		PauseOnCondition: turnedoff
 	Armament@ag-0:
 		Weapon: AGGatling
-		LocalOffset: 300,-100,180
+		LocalOffset: 350,-100,160
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling == 1
 		PauseOnCondition: turnedoff
 	Armament@ag-1:
 		Weapon: AGGatling2
-		LocalOffset: 300,-100,180
+		LocalOffset: 350,-100,160
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling == 2
 		PauseOnCondition: turnedoff
 	Armament@ag-2:
 		Weapon: AGGatling3
-		LocalOffset: 300,-100,180
+		LocalOffset: 350,-100,160
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling == 3
 		PauseOnCondition: turnedoff
 	Armament@ag-3:
 		Weapon: AGGatling4
-		LocalOffset: 300,-100,180
+		LocalOffset: 350,-100,160
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling >= 4
 		PauseOnCondition: turnedoff
@@ -4632,28 +4642,28 @@ GATLINGCAR:
 	Armament@ag-0s:
 		Name: secondary
 		Weapon: AGGatling
-		LocalOffset: 300,100,180
+		LocalOffset: 350,100,160
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling == 1
 		PauseOnCondition: turnedoff
 	Armament@ag-1s:
 		Name: secondary
 		Weapon: AGGatling2
-		LocalOffset: 300,100,180
+		LocalOffset: 350,100,160
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling == 2
 		PauseOnCondition: turnedoff
 	Armament@ag-2s:
 		Name: secondary
 		Weapon: AGGatling3
-		LocalOffset: 300,100,180
+		LocalOffset: 350,100,160
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling == 3
 		PauseOnCondition: turnedoff
 	Armament@ag-3s:
 		Name: secondary
 		Weapon: AGGatling4
-		LocalOffset: 300,100,180
+		LocalOffset: 350,100,160
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling >= 4
 		PauseOnCondition: turnedoff
@@ -4714,8 +4724,8 @@ LOUCHUAN:
 		Prerequisites: stek, adept, ~vehicles.china, ~techlevel.high
 		Description: Very strong infantry transport.
 	TooltipExtras:
-		Strengths: • Strength depends on the cargo.
-		Weaknesses: • Weakness depends on the cargo.
+		Strengths: + Strength depends on the cargo.
+		Weaknesses: - Weakness depends on the cargo.
 		Attributes: • Can transport up to 5 infantry units.\n• Transported infantry can shoot from inside.
 	Valued:
 		Cost: 1500
@@ -4766,7 +4776,7 @@ DTRK:
 		Prerequisites: mtek, ~vehicles.persia, ~techlevel.high
 		Description: Truck loaded with highly explosive materials.
 	TooltipExtras:
-		Weaknesses: • Unarmed.
+		Weaknesses: - Strength.
 		Attributes: • Deploy to detonate cargo.
 	Valued:
 		Cost: 1500

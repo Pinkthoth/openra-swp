@@ -215,7 +215,7 @@ MINE:
 	Tooltip:
 		Name: Ore Mine
 	RenderSprites:
-		Palette: tempdecs
+		Palette: terrain
 	WithSpriteBody:
 	Building:
 		Footprint: x
@@ -226,7 +226,6 @@ MINE:
 	AppearsOnMapPreview:
 		Terrain: Ore
 	SeedsResource:
-		Interval: 75
 	MapEditorData:
 		Categories: Resource spawn
 	RequiresSpecificOwners:
@@ -251,7 +250,6 @@ GMINE:
 		Terrain: Gems
 	SeedsResource:
 		ResourceType: Gems
-		Interval: 75
 	MapEditorData:
 		Categories: Resource spawn
 	RequiresSpecificOwners:

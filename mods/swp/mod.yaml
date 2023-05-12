@@ -75,6 +75,7 @@ Sequences:
 
 TileSets:
 	swp|tilesets/temperat.yaml
+	swp|tilesets/desert.yaml
 
 Cursors:
 	swp|cursors.yaml

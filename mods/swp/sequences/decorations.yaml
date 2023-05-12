@@ -1729,6 +1729,336 @@ shops4:
 	damaged-idle:
 		Start: 7
 
+mebld1a:
+	idle: meblds
+		Start: 2
+		Offset: 2,-1
+	damaged-idle: meblds
+		Start: 3
+		Offset: 2,-1
+
+mebld1b:
+	idle: meblds
+		Start: 4
+		Offset: 2,-1
+	damaged-idle: meblds
+		Start: 5
+		Offset: 2,-1
+	
+mebld2:
+	idle: meblds
+		Start: 0
+		Offset: 0,2
+	damaged-idle: meblds
+		Start: 1
+		Offset: 0,2
+		
+mebld3a:
+	idle: meblds
+		Start: 6
+		Offset: 2,-1
+	damaged-idle: meblds
+		Start: 7
+		Offset: 2,-1
+
+mebld3b:
+	idle: meblds
+		Start: 8
+	damaged-idle: meblds
+		Start: 9
+		
+mebld3c:
+	idle: meblds
+		Start: 10
+	damaged-idle: meblds
+		Start: 11
+		
+mosque:
+	idle: meblds
+		Start: 12
+	damaged-idle: meblds
+		Start: 13
+		
+mebld4a:
+	idle: meblds
+		Start: 14
+	damaged-idle: meblds
+		Start: 15
+
+mebld4b:
+	idle: meblds
+		Start: 16
+	damaged-idle: meblds
+		Start: 17
+		
+mebld4c:
+	idle: meblds
+		Start: 18
+		Offset: 2,-1
+	damaged-idle: meblds
+		Start: 19
+		Offset: 2,-1
+		
+mebld5a:
+	idle: meblds
+		Start: 20
+		Offset: 2,-1
+	damaged-idle: meblds
+		Start: 21
+		Offset: 2,-1
+
+mebld5b:
+	idle: meblds
+		Start: 22
+	damaged-idle: meblds
+		Start: 23
+		
+mebld5c:
+	idle: meblds
+		Start: 24
+		Offset: 2,-1
+	damaged-idle: meblds
+		Start: 25
+		Offset: 2,-1
+		
+mebld5d:
+	idle: meblds
+		Start: 26
+		Offset: 2,-1
+	damaged-idle: meblds
+		Start: 27
+		Offset: 2,-1
+		
+mebld5e:
+	idle: meblds
+		Start: 28
+		Offset: 2,-1
+	damaged-idle: meblds
+		Start: 29
+		Offset: 2,-1
+		
+mebld6:
+	idle:
+		Start: 0
+	damaged-idle:
+		Start: 1
+		
+tuareg:
+	stand:
+		Facings: 8
+	panic-stand:
+		Facings: 8
+	panic-run:
+		Start: 8
+		Length: 6
+		Facings: 8
+	die1:
+		Start: 104
+		Length: 30
+		Tick: 40
+	die2:
+		Start: 104
+		Length: 30
+		Tick: 40
+	die3:
+		Start: 134
+		Length: 30
+		Tick: 60
+	die4:
+		Start: 134
+		Length: 30
+		Tick: 60
+	die5: e1
+		Start: 324
+		Length: 18
+		Tick: 80
+	die6: electro
+		Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+		Length: *
+		Tick: 80
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	die-crushed: corpse1
+		Length: 6
+		Tick: 1600
+		ZOffset: -511
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	run:
+		Start: 56
+		Length: 6
+		Facings: 8
+		Tick: 80
+		
+arab:
+	stand:
+		Facings: 8
+	panic-stand:
+		Facings: 8
+	panic-run:
+		Start: 8
+		Length: 6
+		Facings: 8
+	die1:
+		Start: 104
+		Length: 30
+		Tick: 40
+	die2:
+		Start: 104
+		Length: 30
+		Tick: 40
+	die3:
+		Start: 134
+		Length: 30
+		Tick: 60
+	die4:
+		Start: 134
+		Length: 30
+		Tick: 60
+	die5: e1
+		Start: 324
+		Length: 18
+		Tick: 80
+	die6: electro
+		Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+		Length: *
+		Tick: 80
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	die-crushed: corpse1
+		Length: 6
+		Tick: 1600
+		ZOffset: -511
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	run:
+		Start: 56
+		Length: 6
+		Facings: 8
+		Tick: 80
+
+v23:
+	idle:
+		Filename: v23.des
+		Length: 3
+		Tick: 120
+	damaged-idle:
+		Filename: v23.des
+		Start: 3
+		Length: 3
+		Tick: 120
+	
+burka:
+	stand:
+		Facings: 8
+	panic-stand:
+		Facings: 8
+	panic-run:
+		Start: 8
+		Length: 6
+		Facings: 8
+	die1:
+		Start: 104
+		Length: 30
+		Tick: 40
+	die2:
+		Start: 104
+		Length: 30
+		Tick: 40
+	die3:
+		Start: 134
+		Length: 30
+		Tick: 60
+	die4:
+		Start: 134
+		Length: 30
+		Tick: 60
+	die5: e1
+		Start: 324
+		Length: 18
+		Tick: 80
+	die6: electro
+		Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+		Length: *
+		Tick: 80
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	die-crushed: corpse1
+		Length: 6
+		Tick: 1600
+		ZOffset: -511
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	run:
+		Start: 56
+		Length: 6
+		Facings: 8
+		Tick: 80
+		
+niqab:
+	stand:
+		Facings: 8
+	panic-stand:
+		Facings: 8
+	panic-run:
+		Start: 8
+		Length: 6
+		Facings: 8
+	die1:
+		Start: 104
+		Length: 30
+		Tick: 40
+	die2:
+		Start: 104
+		Length: 30
+		Tick: 40
+	die3:
+		Start: 134
+		Length: 30
+		Tick: 60
+	die4:
+		Start: 134
+		Length: 30
+		Tick: 60
+	die5: e1
+		Start: 324
+		Length: 18
+		Tick: 80
+	die6: electro
+		Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+		Length: *
+		Tick: 80
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	die-crushed: corpse1
+		Length: 6
+		Tick: 1600
+		ZOffset: -511
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	run:
+		Start: 56
+		Length: 6
+		Facings: 8
+		Tick: 80
+
+
 utilpol1:
 	idle:
 	damaged-idle:

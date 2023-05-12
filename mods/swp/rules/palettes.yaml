@@ -21,7 +21,6 @@
 		ShadowIndex: 3, 4
 	PaletteFromFile@temperat-decorations:
 		Name: tempdecs
-		Tileset: TEMPERAT
 		Filename: temperat.pal
 		ShadowIndex: 3, 4
 	PaletteFromFile@craters:

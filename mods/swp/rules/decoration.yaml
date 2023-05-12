@@ -10,14 +10,14 @@ FIELDS3:
 TREES1:
 	Inherits: ^CellTree
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath@stump:
 		Actor: trees1.stump
 
 TREES1.STUMP:
 	Inherits: ^CellTreeHusk
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	RenderSprites:
 		Image: trees1
 	WithSpriteBody:
@@ -26,14 +26,14 @@ TREES1.STUMP:
 TREES2:
 	Inherits: ^CellTree
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath@stump:
 		Actor: trees2.stump
 
 TREES2.STUMP:
 	Inherits: ^CellTreeHusk
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	RenderSprites:
 		Image: trees2
 	WithSpriteBody:
@@ -42,14 +42,14 @@ TREES2.STUMP:
 TREES3:
 	Inherits: ^CellTree
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath@stump:
 		Actor: trees3.stump
 
 TREES3.STUMP:
 	Inherits: ^CellTreeHusk
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	RenderSprites:
 		Image: trees3
 	WithSpriteBody:
@@ -58,14 +58,14 @@ TREES3.STUMP:
 TREES4:
 	Inherits: ^CellTree
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath@stump:
 		Actor: trees4.stump
 
 TREES4.STUMP:
 	Inherits: ^CellTreeHusk
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	RenderSprites:
 		Image: trees4
 	WithSpriteBody:
@@ -74,14 +74,14 @@ TREES4.STUMP:
 TREES5:
 	Inherits: ^CellTree
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath@stump:
 		Actor: trees5.stump
 
 TREES5.STUMP:
 	Inherits: ^CellTreeHusk
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	RenderSprites:
 		Image: trees5
 	WithSpriteBody:
@@ -90,14 +90,14 @@ TREES5.STUMP:
 TREES6:
 	Inherits: ^CellTree
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath@stump:
 		Actor: trees6.stump
 
 TREES6.STUMP:
 	Inherits: ^CellTreeHusk
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	RenderSprites:
 		Image: trees6
 	WithSpriteBody:
@@ -106,14 +106,14 @@ TREES6.STUMP:
 TREES7:
 	Inherits: ^CellTree
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath@stump:
 		Actor: trees7.stump
 
 TREES7.STUMP:
 	Inherits: ^CellTreeHusk
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	RenderSprites:
 		Image: trees7
 	WithSpriteBody:
@@ -122,14 +122,14 @@ TREES7.STUMP:
 TREES8:
 	Inherits: ^CellTree
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath@stump:
 		Actor: trees8.stump
 
 TREES8.STUMP:
 	Inherits: ^CellTreeHusk
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	RenderSprites:
 		Image: trees8
 	WithSpriteBody:
@@ -138,14 +138,14 @@ TREES8.STUMP:
 TREES9:
 	Inherits: ^CellTree
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath@stump:
 		Actor: trees9.stump
 
 TREES9.STUMP:
 	Inherits: ^CellTreeHusk
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	RenderSprites:
 		Image: trees9
 	WithSpriteBody:
@@ -154,14 +154,14 @@ TREES9.STUMP:
 TREES10:
 	Inherits: ^CellTree
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath@stump:
 		Actor: trees10.stump
 
 TREES10.STUMP:
 	Inherits: ^CellTreeHusk
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	RenderSprites:
 		Image: trees10
 	WithSpriteBody:
@@ -170,14 +170,14 @@ TREES10.STUMP:
 TREES11:
 	Inherits: ^CellTree
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath@stump:
 		Actor: trees11.stump
 
 TREES11.STUMP:
 	Inherits: ^CellTreeHusk
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	RenderSprites:
 		Image: trees11
 	WithSpriteBody:
@@ -186,14 +186,14 @@ TREES11.STUMP:
 TREES12:
 	Inherits: ^CellTree
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath@stump:
 		Actor: trees12.stump
 
 TREES12.STUMP:
 	Inherits: ^CellTreeHusk
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	RenderSprites:
 		Image: trees12
 	WithSpriteBody:
@@ -202,14 +202,14 @@ TREES12.STUMP:
 TREES13:
 	Inherits: ^CellTree
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath@stump:
 		Actor: trees13.stump
 
 TREES13.STUMP:
 	Inherits: ^CellTreeHusk
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	RenderSprites:
 		Image: trees13
 	WithSpriteBody:
@@ -218,14 +218,14 @@ TREES13.STUMP:
 TREES14:
 	Inherits: ^CellTree
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath@stump:
 		Actor: trees14.stump
 
 TREES14.STUMP:
 	Inherits: ^CellTreeHusk
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	RenderSprites:
 		Image: trees14
 	WithSpriteBody:
@@ -234,14 +234,14 @@ TREES14.STUMP:
 TREES15:
 	Inherits: ^CellTree
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath@stump:
 		Actor: trees15.stump
 
 TREES15.STUMP:
 	Inherits: ^CellTreeHusk
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	RenderSprites:
 		Image: trees15
 	WithSpriteBody:
@@ -250,14 +250,14 @@ TREES15.STUMP:
 TREES16:
 	Inherits: ^CellTree
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath@stump:
 		Actor: trees16.stump
 
 TREES16.STUMP:
 	Inherits: ^CellTreeHusk
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	RenderSprites:
 		Image: trees16
 	WithSpriteBody:
@@ -266,14 +266,14 @@ TREES16.STUMP:
 TREES17:
 	Inherits: ^CellTree
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath@stump:
 		Actor: trees17.stump
 
 TREES17.STUMP:
 	Inherits: ^CellTreeHusk
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	RenderSprites:
 		Image: trees17
 	WithSpriteBody:
@@ -282,14 +282,14 @@ TREES17.STUMP:
 TREES18:
 	Inherits: ^CellTree
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath@stump:
 		Actor: trees18.stump
 
 TREES18.STUMP:
 	Inherits: ^CellTreeHusk
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	RenderSprites:
 		Image: trees18
 	WithSpriteBody:
@@ -298,14 +298,14 @@ TREES18.STUMP:
 TREES19:
 	Inherits: ^CellTree
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath@stump:
 		Actor: trees19.stump
 
 TREES19.STUMP:
 	Inherits: ^CellTreeHusk
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	RenderSprites:
 		Image: trees19
 	WithSpriteBody:
@@ -314,14 +314,14 @@ TREES19.STUMP:
 TREES20:
 	Inherits: ^CellTree
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath@stump:
 		Actor: trees20.stump
 
 TREES20.STUMP:
 	Inherits: ^CellTreeHusk
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	RenderSprites:
 		Image: trees20
 	WithSpriteBody:
@@ -330,14 +330,14 @@ TREES20.STUMP:
 TREES21:
 	Inherits: ^CellTree
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath@stump:
 		Actor: trees21.stump
 
 TREES21.STUMP:
 	Inherits: ^CellTreeHusk
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	RenderSprites:
 		Image: trees21
 	WithSpriteBody:
@@ -346,14 +346,14 @@ TREES21.STUMP:
 TREES22:
 	Inherits: ^CellTree
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath@stump:
 		Actor: trees22.stump
 
 TREES22.STUMP:
 	Inherits: ^CellTreeHusk
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	RenderSprites:
 		Image: trees22
 	WithSpriteBody:
@@ -362,14 +362,14 @@ TREES22.STUMP:
 TREES23:
 	Inherits: ^CellTree
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath@stump:
 		Actor: trees23.stump
 
 TREES23.STUMP:
 	Inherits: ^CellTreeHusk
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	RenderSprites:
 		Image: trees23
 	WithSpriteBody:
@@ -378,14 +378,14 @@ TREES23.STUMP:
 TREES24:
 	Inherits: ^CellTree
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath@stump:
 		Actor: trees24.stump
 
 TREES24.STUMP:
 	Inherits: ^CellTreeHusk
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	RenderSprites:
 		Image: trees24
 	WithSpriteBody:
@@ -394,14 +394,14 @@ TREES24.STUMP:
 TREES25:
 	Inherits: ^CellTree
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath@stump:
 		Actor: trees25.stump
 
 TREES25.STUMP:
 	Inherits: ^CellTreeHusk
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	RenderSprites:
 		Image: trees25
 	WithSpriteBody:
@@ -410,14 +410,14 @@ TREES25.STUMP:
 TREES26:
 	Inherits: ^CellTree
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath@stump:
 		Actor: trees26.stump
 
 TREES26.STUMP:
 	Inherits: ^CellTreeHusk
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	RenderSprites:
 		Image: trees26
 	WithSpriteBody:
@@ -426,14 +426,14 @@ TREES26.STUMP:
 TREES27:
 	Inherits: ^CellTree
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath@stump:
 		Actor: trees27.stump
 
 TREES27.STUMP:
 	Inherits: ^CellTreeHusk
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	RenderSprites:
 		Image: trees27
 	WithSpriteBody:
@@ -442,14 +442,14 @@ TREES27.STUMP:
 TREES28:
 	Inherits: ^CellTree
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath@stump:
 		Actor: trees28.stump
 
 TREES28.STUMP:
 	Inherits: ^CellTreeHusk
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	RenderSprites:
 		Image: trees28
 	WithSpriteBody:
@@ -458,14 +458,14 @@ TREES28.STUMP:
 TREES29:
 	Inherits: ^CellTree
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath@stump:
 		Actor: trees29.stump
 
 TREES29.STUMP:
 	Inherits: ^CellTreeHusk
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	RenderSprites:
 		Image: trees29
 	WithSpriteBody:
@@ -474,14 +474,14 @@ TREES29.STUMP:
 TREES30:
 	Inherits: ^CellTree
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath@stump:
 		Actor: trees30.stump
 
 TREES30.STUMP:
 	Inherits: ^CellTreeHusk
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	RenderSprites:
 		Image: trees30
 	WithSpriteBody:
@@ -490,14 +490,14 @@ TREES30.STUMP:
 LEAF_SAPLING1:
 	Inherits: ^CellTree
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath@stump:
 		Actor: leaf_sapling1.stump
 
 LEAF_SAPLING1.STUMP:
 	Inherits: ^CellTreeHusk
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	RenderSprites:
 		Image: leaf_sapling1
 	WithSpriteBody:
@@ -506,14 +506,14 @@ LEAF_SAPLING1.STUMP:
 LEAF_SAPLING2:
 	Inherits: ^CellTree
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath@stump:
 		Actor: leaf_sapling2.stump
 
 LEAF_SAPLING2.STUMP:
 	Inherits: ^CellTreeHusk
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	RenderSprites:
 		Image: leaf_sapling2
 	WithSpriteBody:
@@ -522,7 +522,7 @@ LEAF_SAPLING2.STUMP:
 CONFEROUSCELLTREE:
 	Inherits: ^WholeCellTree
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath@stump:
 		Actor: trees21.stump
 	SpawnActorOnDeath@stump2:
@@ -604,7 +604,7 @@ CONFEROUSCELLTREE:
 CONFEROUSCELLSAPLING:
 	Inherits: ^WholeCellTree
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath@stump:
 		Actor: trees19.stump
 	GrantRandomCondition@0:
@@ -684,7 +684,7 @@ CONFEROUSCELLSAPLING:
 LEAFCELLTREE:
 	Inherits: ^WholeCellTree
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath@stump:
 		Actor: trees21.stump
 	SpawnActorOnDeath@stump2:
@@ -766,7 +766,7 @@ LEAFCELLTREE:
 LEAFCELLSAPLING:
 	Inherits: ^WholeCellTree
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath@stump:
 		Actor: trees19.stump
 	GrantRandomCondition@0:
@@ -846,7 +846,7 @@ LEAFCELLSAPLING:
 TREEGROUPHUSK1:
 	Inherits: ^CellTreeHusk
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	RenderSprites:
 		Image: treegrouphusk1
 	WithSpriteBody:
@@ -854,7 +854,7 @@ TREEGROUPHUSK1:
 TREEGROUPHUSK2:
 	Inherits: ^CellTreeHusk
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	RenderSprites:
 		Image: treegrouphusk2
 	WithSpriteBody:
@@ -862,7 +862,7 @@ TREEGROUPHUSK2:
 TREEGROUPHUSK3:
 	Inherits: ^CellTreeHusk
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	RenderSprites:
 		Image: treegrouphusk3
 	WithSpriteBody:
@@ -874,6 +874,7 @@ tg1:
 		Dimensions: 1,2
 	SpawnActorOnDeath:
 		Actor: tg1.Husk
+	-MapEditorData:
 		
 tg2:
 	Inherits: ^Tree
@@ -883,6 +884,7 @@ tg2:
 		Dimensions: 1,2
 	SpawnActorOnDeath:
 		Actor: tg2.Husk
+	-MapEditorData:
 		
 tg1.Husk:
 	Inherits: ^TreeHusk
@@ -891,7 +893,7 @@ tg1.Husk:
 		Footprint: x_
 		Dimensions: 1,2
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 		
 tg2.Husk:
 	Inherits: ^TreeHusk
@@ -900,7 +902,7 @@ tg2.Husk:
 		Footprint: x_
 		Dimensions: 1,2
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 		
 tgc1:
 	Inherits: ^Tree
@@ -947,7 +949,7 @@ tgc1.Husk:
 		Footprint: __ x_ x_
 		Dimensions: 2,3
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	-MapEditorData:
 		
 tgc2:
@@ -997,7 +999,7 @@ tgc2.Husk:
 		Footprint: __ x_ x_
 		Dimensions: 2,3
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	-MapEditorData:
 		
 tgb:
@@ -1006,7 +1008,7 @@ tgb:
 		Footprint: ____ __x_ xxx_
 		Dimensions: 4,3
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath:
 		Actor: tgb.Husk
 	-MapEditorData:
@@ -1018,7 +1020,7 @@ tgb.Husk:
 		Footprint: ____ __x_ xxx_
 		Dimensions: 4,3
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	-MapEditorData:
 		
 tgd:
@@ -1027,7 +1029,7 @@ tgd:
 		Footprint: ___ xx_ xx_
 		Dimensions: 3,3
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath:
 		Actor: tgd.Husk
 	-MapEditorData:
@@ -1039,7 +1041,7 @@ tgd.Husk:
 		Footprint: ___ xx_ xx_
 		Dimensions: 3,3
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	-MapEditorData:
 		
 tgd2:
@@ -1048,7 +1050,7 @@ tgd2:
 		Footprint: ___ xx_ xx_
 		Dimensions: 3,3
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	SpawnActorOnDeath:
 		Actor: tgd2.Husk
 	-MapEditorData:
@@ -1060,7 +1062,7 @@ tgd2.Husk:
 		Footprint: ___ xx_ xx_
 		Dimensions: 3,3
 	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
+		ExcludeTilesets: INTERIOR
 	-MapEditorData:
 
 TC01:
@@ -1336,7 +1338,7 @@ TANKTRAP1:
 	Tooltip:
 		Name: Tank Trap
 	MapEditorData:
-		RequireTilesets: TEMPERAT, SNOW, DESERT, INTERIOR
+		RequireTilesets: TEMPERAT, SNOW, INTERIOR
 	Health:
 		HP: 20000
 	Armor:
@@ -1358,7 +1360,7 @@ TANKTRAP2:
 	Tooltip:
 		Name: Tank Trap
 	MapEditorData:
-		RequireTilesets: TEMPERAT, SNOW, DESERT, INTERIOR
+		RequireTilesets: TEMPERAT, SNOW, INTERIOR
 	Health:
 		HP: 20000
 	Armor:

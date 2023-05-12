@@ -501,6 +501,9 @@ DemoTruckExplosion:
 		ValidTargets: Ground, Infantry
 		Size: 3
 		Delay: 15
+	Warhead@14Eff: CreateEffect
+		Explosions: large_napalm
+		ValidTargets: Ground, GroundActor, Trees, WaterActor
 
 NerveGas:
 	Inherits: ^Explosion

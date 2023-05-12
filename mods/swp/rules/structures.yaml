@@ -592,8 +592,8 @@ TSLA:
 		Prerequisites: weap, ~structures.komintern, ~techlevel.medium
 		Description: Advanced base defense.\nRequires power to operate.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry, Vehicles.
-		Weaknesses: • Weak vs Aircraft.
+		Strengths: + Strong vs Infantry, Vehicles.
+		Weaknesses: - Weak vs Aircraft.
 		Attributes: • Detects phased units.
 	Valued:
 		Cost: 1400
@@ -649,8 +649,8 @@ REFTWR:
 		Prerequisites: weap, ~structures.zentrum, ~techlevel.medium
 		Description: Advanced base defense.\nRequires power to operate.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry, Vehicles.
-		Weaknesses: • Weak vs Aircraft.
+		Strengths: + Strong vs Infantry, Vehicles.
+		Weaknesses: - Weak vs Aircraft.
 		Attributes: • Can detect phased units.
 	Valued:
 		Cost: 1400
@@ -720,8 +720,8 @@ AGUN:
 		Prerequisites: dome, ~structures.entente, ~techlevel.medium
 		Description: Anti-Air base defense.\nRequires power to operate.
 	TooltipExtras:
-		Strengths: • Strong vs Aircraft.
-		Weaknesses: • Weak vs Vehicles, Infantry.
+		Strengths: + Strong vs Aircraft.
+		Weaknesses: - Weak vs Vehicles, Infantry.
 		Attributes: • Can detect phased units.
 	Valued:
 		Cost: 850
@@ -779,8 +779,8 @@ CAGUN:
 		Prerequisites: dome, ~structures.france, ~techlevel.medium
 		Description: Anti-Air base defense.\nRequires power to operate.
 	TooltipExtras:
-		Strengths: • Strong vs Aircraft.
-		Weaknesses: • Weak vs Vehicles, Infantry.
+		Strengths: + Strong vs Aircraft.
+		Weaknesses: - Weak vs Vehicles, Infantry.
 		Attributes: • Can detect phased units.
 	Valued:
 		Cost: 900
@@ -1658,8 +1658,8 @@ PBOX:
 		Prerequisites: barr, ~structures.entente, ~techlevel.low
 		Description: Static anti-infantry base defense.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 		Attributes: • Can detect phased units.
 	Valued:
 		Cost: 800
@@ -1718,8 +1718,8 @@ SPAINBUNKER:
 		Prerequisites: barr, ~structures.serbia, ~techlevel.low
 		Description: Static base defense.
 	TooltipExtras:
-		Strengths: • Strength depends on the cargo.
-		Weaknesses: • Weakness depends on the cargo.
+		Strengths: + Strength depends on the cargo.
+		Weaknesses: - Weakness depends on the cargo.
 		Attributes: • Weapon depends on the cargo.\n• Can hold 4 infantry units inside.\n• Can detect phased units.
 	Valued:
 		Cost: 400
@@ -1779,8 +1779,8 @@ HBOX:
 		Prerequisites: barr, ~structures.france, ~techlevel.medium
 		Description: Static anti-infantry base defense.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 		Attributes: • Can detect phased units.
 	Valued:
 		Cost: 850
@@ -1844,8 +1844,8 @@ GUN:
 		Prerequisites: barr, ~structures.entente, ~techlevel.medium
 		Description: Anti-Armor base defense.
 	TooltipExtras:
-		Strengths: • Strong vs Vehicles.
-		Weaknesses: • Weak vs Infantry, Aircraft.
+		Strengths: + Strong vs Vehicles.
+		Weaknesses: - Weak vs Infantry, Aircraft.
 		Attributes: • Can detect phased units.
 	Valued:
 		Cost: 900
@@ -1901,8 +1901,8 @@ CAMOGUN:
 		Prerequisites: barr, ~structures.france, ~techlevel.medium
 		Description: Anti-Armor base defense.
 	TooltipExtras:
-		Strengths: • Strong vs Vehicles.
-		Weaknesses: • Weak vs Vehicles, Infantry.
+		Strengths: + Strong vs Vehicles.
+		Weaknesses: - Weak vs Vehicles, Infantry.
 		Attributes: • Can detect phased units.
 	Valued:
 		Cost: 950
@@ -1963,9 +1963,9 @@ GATLINGGUN:
 		Prerequisites: barr, ~structures.komintern, ~techlevel.medium
 		Description: Anti-infantry base defense.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
-		Attributes: • Gatling guns speed up increasing fire rate.\n• Can detect phased units.
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
+		Attributes: • Gatling guns speed up while firing increasing fire rate.\n• Can detect phased units.
 	Valued:
 		Cost: 825
 	Tooltip:
@@ -2099,8 +2099,8 @@ GRANDCANNON:
 		Prerequisites: atek, ~structures.raj, ~techlevel.medium
 		Description: Extra long ranged stationary artillery.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry, Buildings, Defenses.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry, Buildings, Defenses.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 		Attributes: • Can detect phased units.
 	Valued:
 		Cost: 2000
@@ -2161,8 +2161,8 @@ FTUR:
 		Prerequisites: barr, ~structures.zentrum, ~techlevel.low
 		Description: Anti-Infantry base defense.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 		Attributes: • Can detect phased units.
 	Valued:
 		Cost: 850
@@ -2230,8 +2230,8 @@ SAM:
 		Prerequisites: dome, ~structures.zentrum, ~techlevel.medium
 		Description: Anti-Air base defense.
 	TooltipExtras:
-		Strengths: • Strong vs Aircraft.
-		Weaknesses: • Weak vs Vehicles, Infantry.
+		Strengths: + Strong vs Aircraft.
+		Weaknesses: - Weak vs Vehicles, Infantry.
 		Attributes: • Can detect phased units.
 	Valued:
 		Cost: 800
@@ -3602,8 +3602,8 @@ FLKGUN:
 		Prerequisites: dome, ~structures.komintern, ~techlevel.medium
 		Description: Anti-Air base defense.\nRequires power to operate.
 	TooltipExtras:
-		Strengths: • Strong vs Aircraft.
-		Weaknesses: • Weak vs Vehicles, Infantry.
+		Strengths: + Strong vs Aircraft.
+		Weaknesses: - Weak vs Vehicles, Infantry.
 		Attributes: • Can detect phased units.
 
 UPLINK:
@@ -3810,7 +3810,7 @@ EMPGUN:
 	Health:
 		HP: 100000
 	Armor:
-		Type: Heavy
+		Type: Wood
 	RevealsShroud:
 		Range: 8c0
 	Turreted:
@@ -4096,8 +4096,8 @@ TRENCH:
 		Prerequisites: fact, ~structures.italy, ~techlevel.medium
 		Description: Stop units and blocks enemy fire.
 	TooltipExtras:
-		Strengths: • Strength depends on cargo.
-		Weaknesses: • Weakness depends on cargo.
+		Strengths: + Strength depends on cargo.
+		Weaknesses: - Weakness depends on cargo.
 		Attributes: • Garrisoned infantry may shoot from inside.\n• Nearby Trenches link to each other.
 	Valued:
 		Cost: 400

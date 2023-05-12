@@ -1026,9 +1026,8 @@ marksman:
 		Start: 63
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: minigun
-		Length: 6
-		Facings: 8
+	muzzle: gunfire2
+		Length: 2
 	icon: marksmanicon
 
 tsqtnk:

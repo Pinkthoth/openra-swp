@@ -184,8 +184,8 @@ HOSPITALLER:
 		Prerequisites: ~afld, techcenter, ~atektech, ~techlevel.high
 		Description: Phase anti-vehicle attack plane.
 	TooltipExtras:
-		Strengths: • Strong vs Vehicles.
-		Weaknesses: • Weak vs Infantry, Aircraft.
+		Strengths: + Strong vs Vehicles.
+		Weaknesses: - Weak vs Infantry, Aircraft.
 		Attributes: • Buildable only by spying an entente tech center.\n• Can phase out of vision.\n• Arcs slow down enemy vehicles.
 	Valued:
 		Cost: 2100
@@ -528,8 +528,8 @@ ANT40:
 		Description: Slow bomber that drops incendiary bombs.
 		BuildPaletteOrder: 450
 	TooltipExtras:
-		Strengths: • Strong vs Buildings, Defenses.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Buildings, Defenses.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 	Valued:
 		Cost: 2200
 	Selectable:
@@ -547,8 +547,8 @@ MIG:
 		Prerequisites: ~afld, stek, ~aircraft.komintern, ~techlevel.high
 		Description: Fast general purpose a plane.
 	TooltipExtras:
-		Strengths: • Strong vs Vehicles, Aircraft.
-		Weaknesses: • Weak vs Infantry.
+		Strengths: + Strong vs Vehicles, Aircraft.
+		Weaknesses: - Weak vs Infantry.
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -634,8 +634,8 @@ YAK:
 		Prerequisites: ~afld, ~aircraft.komintern, ~techlevel.medium
 		Description: Attack Plane armed with\ndual machine guns.
 	TooltipExtras:
-		Strengths: • Strong vs Aircraft.
-		Weaknesses: • Weak vs Vehicles, Infantry.
+		Strengths: + Strong vs Aircraft.
+		Weaknesses: - Weak vs Vehicles, Infantry.
 	Valued:
 		Cost: 1350
 	Tooltip:
@@ -722,9 +722,9 @@ TESLAHIND:
 		Prerequisites: hpad, stek, ~helicopter.russia, ~techlevel.high
 		Description: Helicopter gunship armed with\nsmall dual tesla coils.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry, Vehicles.
-		Weaknesses: • Weak vs Aircraft.
-		Attributes: • Recharges ammo automatically.
+		Strengths: + Strong vs Infantry, Vehicles.
+		Weaknesses: - Weak vs Aircraft.
+		Attributes: • Slowly recharges ammo.
 	Valued:
 		Cost: 1900
 	Tooltip:
@@ -811,9 +811,9 @@ GATLINGHIND:
 		Prerequisites: hpad, ~helicopter.belarus, ~techlevel.high
 		Description: Helicopter gunship armed with\nsmall dual gatling guns.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
-		Attributes: • Gatling guns speed up over time increasing fire rate.
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
+		Attributes: • Gatling guns speed up while firing increasing fire rate.
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -980,8 +980,8 @@ COLIBRI:
 		Prerequisites: hpad, ~helicopter.serbia, ~techlevel.high
 		Description: Small helicopter, which changes\nit's weapon depending on the infantry inside.\n  Weak vs Aircraft
 	TooltipExtras:
-		Strengths: • Strength depends on the cargo.
-		Weaknesses: • Weakness depends on the cargo.
+		Strengths: + Strength depends on the cargo.
+		Weaknesses: - Weakness depends on the cargo.
 		Attributes: • Weapon depends on the cargo.\n• Does not use ammo.
 	Valued:
 		Cost: 1000
@@ -1385,8 +1385,8 @@ IBLIS:
 		Prerequisites: hpad, mtek, ~helicopter.turkey, ~techlevel.high
 		Description: Helicopter gunship armed with\nIncendiary missiles.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry, Buildings.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry, Buildings.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 		Attributes: • Leaves the ground burning.
 	Valued:
 		Cost: 1850
@@ -1471,8 +1471,8 @@ HEAVYFIGHTER:
 		Prerequisites: ~afld, adept, ~aircraft.raj, ~techlevel.medium
 		Description: Attack Plane armed with\nquadruble machine guns.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry, Aircraft.
-		Weaknesses: • Weak vs Tanks.
+		Strengths: + Strong vs Infantry, Aircraft.
+		Weaknesses: - Weak vs Tanks.
 	Valued:
 		Cost: 1600
 	Tooltip:
@@ -1610,7 +1610,7 @@ TRAN:
 		Prerequisites: hpad, ~helicopter.allies, ~techlevel.medium
 		Description: Fast Infantry Transport Helicopter.
 	TooltipExtras:
-		Weaknesses: • Unarmed
+		Weaknesses: - Strength
 		Attributes: • Can transport up to 8 infantry units.
 	Valued:
 		Cost: 900
@@ -1667,8 +1667,8 @@ HELI:
 		Prerequisites: hpad, ~helicopter.allies, atek, ~techlevel.high
 		Description: Helicopter gunship armed\nwith multi-purpose missiles.
 	TooltipExtras:
-		Strengths: • Strong vs Vehicles, Aircraft.
-		Weaknesses: • Weak vs Infantry.
+		Strengths: + Strong vs Vehicles, Aircraft.
+		Weaknesses: - Weak vs Infantry.
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -1752,8 +1752,8 @@ SAUCER:
 		Prerequisites: hpad, ~helicopter.ukraine, stek, ~techlevel.high
 		Description: Levitating disc armed with magnetic rays.
 	TooltipExtras:
-		Strengths: • Strong vs Vehicles.
-		Weaknesses: • Weak vs Aircraft.
+		Strengths: + Strong vs Vehicles.
+		Weaknesses: - Weak vs Aircraft, Infantry.
 		Attributes: • Deploy to levitate just above ground damaging nearby target.\n• Does not use ammo.
 	Valued:
 		Cost: 2000
@@ -1774,7 +1774,7 @@ SAUCER:
 		Range: 10c0
 		Type: GroundPosition
 	Armament@PRIMARY:
-		Weapon: NightWitchBolt
+		Weapon: SaucerBolt
 		LocalOffset: 0,0,-50
 	AttackTurreted:
 	Turreted:
@@ -1783,10 +1783,10 @@ SAUCER:
 		PauseOnCondition: !airborne
 	Aircraft:
 		TurnSpeed: 40
-		Speed: 90
+		Speed: 80
 	AutoTarget:
-		InitialStance: HoldFire
-		InitialStanceAI: HoldFire
+		InitialStance: AttackAnything
+		InitialStanceAI: AttackAnything
 	SpawnActorOnDeath:
 		Actor: SAUCER.Husk
 	LeavesTrails:
@@ -1895,8 +1895,8 @@ HIND:
 		Prerequisites: hpad, ~helicopter.soviet, ~techlevel.medium
 		Description: Helicopter gunship armed with rockets.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 	Valued:
 		Cost: 1750
 	Tooltip:
@@ -1980,8 +1980,8 @@ TENGRII:
 		Prerequisites: hpad, stek, ~helicopter.mongolia, ~techlevel.high
 		Description: Helicopter gunship armed with long range rockets.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry, Buildings, Defenses.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry, Buildings, Defenses.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 		Attributes: • Deploy to enter firing or mobile states.
 	Valued:
 		Cost: 2250
@@ -2086,8 +2086,8 @@ GEBARD:
 		Prerequisites: hpad, adept, ~helicopter.germany, ~techlevel.medium
 		Description: Fast helicopter gunship armed with rockets.
 	TooltipExtras:
-		Strengths: • Strong vs Vehicles.
-		Weaknesses: • Weak vs Infantry, Aircraft.
+		Strengths: + Strong vs Vehicles.
+		Weaknesses: - Weak vs Infantry, Aircraft.
 	Valued:
 		Cost: 1800
 	Tooltip:
@@ -2180,8 +2180,8 @@ COMET:
 		Prerequisites: hpad, ~helicopter.zentrum, ~techlevel.medium
 		Description: Helicopter gunship armed\nwith dual chainguns.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 		Attributes: • Can transport up to 4 infantry units.
 	Valued:
 		Cost: 1500
@@ -2309,8 +2309,8 @@ MH60:
 		Prerequisites: hpad, ~helicopter.allies, ~techlevel.medium
 		Description: Helicopter gunship armed\nwith dual chainguns.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -2397,8 +2397,8 @@ TEUTON:
 		Prerequisites: ~hpad, ~mtektech, techcenter, ~techlevel.medium
 		Description: Helicopter gunship armed\nwith dual refractor cannons.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 		Attributes: • Buildable only by spying a zentrum tech center.\n• Equipped with a portable chronosphere.
 	Valued:
 		Cost: 2000
@@ -2482,8 +2482,8 @@ WASP:
 		Prerequisites: hpad, mtek, ~helicopter.austria, ~techlevel.high
 		Description: Helicopter gunship armed\nwith a direct energy weapon.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry, Vehicles.
-		Weaknesses: • Weak vs Aircraft.
+		Strengths: + Strong vs Infantry, Vehicles.
+		Weaknesses: - Weak vs Aircraft.
 		Attributes: • Slowly recharges ammo.
 	Valued:
 		Cost: 1950
@@ -2568,8 +2568,8 @@ MSRSMT:
 		Prerequisites: ~afld, ~aircraft.zentrum, ~techlevel.medium
 		Description: Attack Plane armed with\ndual machine guns.
 	TooltipExtras:
-		Strengths: • Strong vs Aircraft.
-		Weaknesses: • Weak vs Vehicles, Infantry.
+		Strengths: + Strong vs Aircraft.
+		Weaknesses: - Weak vs Vehicles, Infantry.
 	Valued:
 		Cost: 1400
 	Tooltip:
@@ -2680,8 +2680,8 @@ A10:
 		Prerequisites: ~afld, ~aircraft.entente, atek, ~techlevel.high
 		Description: Attack Plane armed with\na powerful autocannon.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry, Vehicles, Buildings.
-		Weaknesses: • Weak vs Aircraft.
+		Strengths: + Strong vs Infantry, Vehicles, Buildings.
+		Weaknesses: - Weak vs Aircraft.
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -2800,8 +2800,8 @@ STRMVGL:
 		Prerequisites: mtek, ~afld, ~aircraft.zentrum, ~techlevel.medium
 		Description: Fast anti-aircraft fighter.
 	TooltipExtras:
-		Strengths: • Strong vs Aircraft.
-		Weaknesses: • Weak vs Vehicles, Infantry.
+		Strengths: + Strong vs Aircraft.
+		Weaknesses: - Weak vs Vehicles, Infantry.
 	Valued:
 		Cost: 2100
 	Tooltip:
@@ -2980,8 +2980,8 @@ HARRIER:
 		Prerequisites: atek, ~afld, ~aircraft.england, ~techlevel.medium
 		Description: Fast anti-aircraft fighter.
 	TooltipExtras:
-		Strengths: • Strong vs Aircraft.
-		Weaknesses: • Weak vs Vehicles, Infantry.
+		Strengths: + Strong vs Aircraft.
+		Weaknesses: - Weak vs Vehicles, Infantry.
 		Attributes: • Can rearm in a helipad.
 	Valued:
 		Cost: 2100
@@ -3174,8 +3174,8 @@ STUKA:
 		Description: Dive bomber that drops highly\neffective bombs on a small target area.
 		BuildPaletteOrder: 610
 	TooltipExtras:
-		Strengths: • Strong vs Vehicles, Buildings, Defenses.
-		Weaknesses: • Weak vs Infantry, Aircraft.
+		Strengths: + Strong vs Vehicles, Buildings, Defenses.
+		Weaknesses: - Weak vs Infantry, Aircraft.
 		Attributes: • Dives when attacking, increasing speed and reducing damage intake.
 	Valued:
 		Cost: 1900
@@ -3229,7 +3229,7 @@ MI26:
 		Prerequisites: hpad, ~helicopter.soviet, ~techlevel.medium
 		Description: Infantry Transport Helicopter.
 	TooltipExtras:
-		Weaknesses: • Unarmed.
+		Weaknesses: - Strength.
 		Attributes: • Can transport up to 8 infantry units.
 	Valued:
 		Cost: 900
@@ -3292,7 +3292,7 @@ AIRCRANE:
 		Prerequisites: hpad, ~helicopter.zentrum, ~techlevel.medium
 		Description: Vehicle Transport Helicopter.
 	TooltipExtras:
-		Weaknesses: • Unarmed.
+		Weaknesses: - Strength.
 		Attributes: • Can transport one vehicle.
 	Valued:
 		Cost: 1000
@@ -3407,8 +3407,8 @@ ZEPPELIN:
 		Prerequisites: ~afld, mtek, ~aircraft.bulgaria, ~techlevel.high
 		Description: Slow moving bomber zeppelin.
 	TooltipExtras:
-		Strengths: • Strong vs Buildings, Defenses.
-		Weaknesses: • Weak vs Infantry, Vehicles, Aircraft.
+		Strengths: + Strong vs Buildings, Defenses.
+		Weaknesses: - Weak vs Infantry, Vehicles, Aircraft.
 		Attributes: • Slowly recharges ammo.
 	Valued:
 		Cost: 2000

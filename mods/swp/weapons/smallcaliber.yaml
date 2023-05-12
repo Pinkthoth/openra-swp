@@ -108,10 +108,10 @@ AGGatling:
 	Warhead@1Dam: SpreadDamage
 		Damage: 900
 		Versus:
-			None: 75
-			Light: 35
-			Medium: 25
-			Heavy: 17
+			None: 80
+			Light: 40
+			Medium: 30
+			Heavy: 20
 			Wood: 25
 			Concrete: 20
 
@@ -218,7 +218,7 @@ FLAK-23-AA-Static:
 	Inherits: FLAK-23-AA
 	Warhead@1Dam: SpreadDamage
 		Spread: 213
-		Damage: 3000
+		Damage: 2500
 		Versus:
 			None: 25
 			Wood: 75
@@ -459,7 +459,7 @@ LightMachineGun:
 		Falloff: 220, 35
 	Warhead@2Eff: CreateEffect
 		Explosions: piff
-		Inaccuracy: 0
+		Inaccuracy: 0c54
 		ValidTargets: Ground, GroundActor, Corpse
 	Warhead@3Eff: CreateEffect
 		Explosions: piff
@@ -467,10 +467,10 @@ LightMachineGun:
 		ValidTargets: Ground, GroundActor, Corpse
 	Warhead@3EffWater: CreateEffect
 		Explosions: water_piff
-		Inaccuracy: 0
+		Inaccuracy: 0c124
 	Warhead@4EffWater: CreateEffect
 		Explosions: water_piff
-		Inaccuracy: 0
+		Inaccuracy: 0c124
 		ValidTargets: Water, WaterActor
 
 LightMachineGun2:
@@ -773,6 +773,8 @@ M1Carbine_elite:
 	Report: carbine2.wav
 	Warhead@1Dam: SpreadDamage
 		Damage: 1100
+		Versus:
+			None: 150
 
 TankMachineGun:
 	Inherits: M1Carbine

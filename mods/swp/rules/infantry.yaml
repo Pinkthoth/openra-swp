@@ -12,8 +12,8 @@ DOG:
 		Name: Attack Dog
 		GenericName: Dog
 	TooltipExtras:
-		Strengths: • Strong vs Infantry.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 		Attributes: • Can detect disquised and phased units.
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
@@ -83,8 +83,8 @@ E1:
 		Prerequisites: ~barr, ~techlevel.infonly
 		Description: General-purpose infantry.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 	Selectable:
 		Class: E1
 	Valued:
@@ -131,8 +131,8 @@ INITIATE:
 		Prerequisites: ~barr, dome, ~infantry.persia, ~techlevel.infonly
 		Description: Anti-infantry psychic unit.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 		Attributes: • Can attack infantry only.
 	Valued:
 		Cost: 300
@@ -178,8 +178,8 @@ RADIST:
 		Prerequisites: ~barr, ~techlevel.infonly, ~infantry.serbia
 		Description: General-purpose infantry\nwith increased vision.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 		Attributes: • Large vision.
 	Selectable:
 		Class: E1
@@ -229,8 +229,8 @@ ARDITI:
 		Prerequisites: ~barr, adept, ~infantry.italy, ~techlevel.infonly
 		Description: General-purpose infantry capable\nof entrenching itself.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 		Attributes: • Can deploy to entrench itself.\n• Deploying decreases damge intake.\n• Deploying makes unit uncrushable.
 	Valued:
 		Cost: 150
@@ -239,7 +239,7 @@ ARDITI:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 5500
+		HP: 6000
 	Armament@PRIMARY:
 		Weapon: M1Carbine_elite
 	Crushable:
@@ -306,8 +306,8 @@ E11:
 		Prerequisites: ~barracks, adept, ~infantry.entente, ~techlevel.infonly
 		Description: Heavily armed general-purpose infantry.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 		Attributes: • Prones a large group of infantry.
 	Valued:
 		Cost: 275
@@ -368,9 +368,9 @@ HVGATLING:
 		Prerequisites: ~barracks, adept, ~infantry.komintern, ~techlevel.infonly
 		Description: Heavily armed general-purpose infantry.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry, Vehicles.
-		Weaknesses: • Weak vs Tanks, Aircraft.
-		Attributes: • Gatling gun speeds up increasing fire rate.
+		Strengths: + Strong vs Infantry, Vehicles.
+		Weaknesses: - Weak vs Tanks, Aircraft.
+		Attributes: • Gatling gun speeds up while firing increasing fire rate.
 	Valued:
 		Cost: 275
 	Mobile:
@@ -380,7 +380,7 @@ HVGATLING:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 5500
+		HP: 6000
 	Armament@ag-0:
 		Weapon: AGGatling
 		LocalOffset: 480,-100,200
@@ -446,8 +446,8 @@ MAROZNIK:
 		Prerequisites: ~barracks, stek, ~infantry.belarus, ~techlevel.infonly
 		Description: Shoots bursts of cryo spray.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 		Attributes: • Slows down enemies, decreases their vision and fire rate.
 	Valued:
 		Cost: 350
@@ -496,8 +496,8 @@ WASTETROOPER:
 		Prerequisites: ~barracks, dome, ~infantry.kazakhstan, ~techlevel.infonly
 		Description: Shoots bursts of corrosive acid.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry, Vehicles.
-		Weaknesses: • Weak vs Aircraft.
+		Strengths: + Strong vs Infantry, Vehicles.
+		Weaknesses: - Weak vs Aircraft.
 	Valued:
 		Cost: 325
 	Mobile:
@@ -626,7 +626,7 @@ KULAK:
 		Prerequisites: ~barr, ~infantry.kazakhstan, ~techlevel.infonly
 		Description: Unarmed conscript fresh off the boot camp.
 	TooltipExtras:
-		Weaknesses: • Unarmed.
+		Weaknesses: - Strength.
 		Attributes: • Can pick up any infantry weapon from a corpse.
 	Valued:
 		Cost: 40
@@ -798,8 +798,8 @@ MLTVTHRWR:
 		Prerequisites: ~infantry.turkey, ~techlevel.infonly
 		Description: Infantry armed with molotovs.
 	TooltipExtras:
-		Strengths: • Strong vs Buildings, Infantry.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Buildings, Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 		Attributes: • Leaves ground burning.
 	Valued:
 		Cost: 160
@@ -843,7 +843,7 @@ ARZ:
 		Prerequisites: dome, ~infantry.austria, ~techlevel.medium
 		Description: Operates a portable lazarus device.
 	TooltipExtras:
-		Weaknesses: • Unarmed.
+		Weaknesses: - Strength.
 		Attributes: • Can resurrect infantry.
 	Valued:
 		Cost: 350
@@ -900,8 +900,8 @@ E2:
 		Prerequisites: ~infantry.komintern, ~techlevel.infonly
 		Description: Infantry armed with grenades.
 	TooltipExtras:
-		Strengths: • Strong vs Buildings, Infantry.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Buildings, Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 	Valued:
 		Cost: 160
 	Tooltip:
@@ -950,10 +950,10 @@ E3:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 30
 		Prerequisites: ~barracks, ~techlevel.infonly
-		Description: Anti-tank and -aircraft infantry.
+		Description: Anti-tank and -helicopter infantry.
 	TooltipExtras:
-		Strengths: • Strong vs Vehicles, Helicopters.
-		Weaknesses: • Weak vs Infantry, Airplanes.
+		Strengths: + Strong vs Vehicles, Helicopters.
+		Weaknesses: - Weak vs Infantry, Airplanes.
 	Selectable:
 		Class: E3
 	Valued:
@@ -1012,7 +1012,7 @@ E6:
 		Prerequisites: ~barracks, ~techlevel.infonly
 		Description: Military engineer.
 	TooltipExtras:
-		Weaknesses: • Unarmed.
+		Weaknesses: - Strength.
 		Attributes: • Infiltrates and captures enemy structures.\n• Restores husks to working condition.
 	Valued:
 		Cost: 400
@@ -1144,7 +1144,7 @@ SPY:
 		Prerequisites: ~!mi6academy, ~infantry.entente, dome, ~barracks, ~techlevel.medium
 		Description: Military intelligence service specialist.
 	TooltipExtras:
-		Weaknesses: • Weak vs Everything.
+		Weaknesses: - Weak vs Everything.
 		Attributes: • Can disguise as any infantry.\n• Can detect disguised units.\n• Can infiltrate enemy structures, the effect depends on the building.
 	Valued:
 		Cost: 500
@@ -1229,9 +1229,9 @@ SABOTEUR:
 		Prerequisites: ~infantry.zentrum, dome, ~barracks, ~techlevel.medium
 		Description: Military saboteur.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
-		Attributes: • Infiltrates enemy buildings damaging and disabling them.
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
+		Attributes: • Infiltrates enemy buildings damaging and disabling them.\n• Can detect disguised units.
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -1261,7 +1261,11 @@ SABOTEUR:
 	IgnoresDisguise:
 	Armament:
 		Name: primary
-		Weapon: Uzi
+		Weapon: GuerillaCarbine
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: GuerillaCarbine
+		MuzzleSequence: garrison-muzzle
 	AttackMove:
 	SpawnActorOnDeath@BulletDeath:
 		Actor: SABOTEUR.Husk
@@ -1284,7 +1288,7 @@ MEDI:
 		Prerequisites: ~barr, ~infantry.entente, ~techlevel.infonly
 		Description: Military medic.
 	TooltipExtras:
-		Weaknesses: • Unarmed.
+		Weaknesses: - Strength.
 		Attributes: • Heals damaged infantry units.
 	Valued:
 		Cost: 200
@@ -1336,7 +1340,7 @@ MECH:
 		Prerequisites: ~barr, adept, ~infantry.entente, ~techlevel.medium
 		Description: Military mechanic.
 	TooltipExtras:
-		Weaknesses: • Unarmed.
+		Weaknesses: - Strength.
 		Attributes: • Repairs nearby vehicles.\n• Restores husks to working condition.
 	Valued:
 		Cost: 500
@@ -1401,8 +1405,8 @@ THF:
 		Prerequisites: ~barr, dome, ~infantry.komintern, ~techlevel.medium
 		Description: Professional procurer.
 	TooltipExtras:
-		Weaknesses: • Unarmed.
-		Attributes: • Steals enemy credits.\n• Hijacks enemy vehicles.\n• Becomes hidden while immobile.
+		Weaknesses: - Strength.
+		Attributes: • Steals enemy credits.\n• Hijacks enemy vehicles.\n• Becomes hidden while immobile.\n• Can detect disguised units.
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -1529,7 +1533,7 @@ TNKCMNDR:
 		Prerequisites: dome, ~infantry.germany, ~techlevel.infonly
 		Description: Crack tank crew commander.
 	TooltipExtras:
-		Weaknesses: • Weak vs Everything.
+		Weaknesses: - Weak vs Everything.
 		Attributes: • Can enter vehicles to increase fighting abilities.\n• Can detect disguised units.
 	Valued:
 		Cost: 400
@@ -1641,7 +1645,7 @@ POLITRUK:
 		Prerequisites: ~barracks, adept, ~infantry.komintern, ~techlevel.infonly
 		Description: Communist party political officer.
 	TooltipExtras:
-		Weaknesses: • Weak vs Everything.
+		Weaknesses: - Weak vs Everything.
 		Attributes: • Increases the fighting abilities of nearby infantry.\n• Can detect disguised units.
 	Valued:
 		Cost: 400
@@ -1771,7 +1775,7 @@ OFFICER:
 		Prerequisites: ~barracks, adept, ~infantry.zentrum, ~techlevel.infonly
 		Description: Commissioned officer.
 	TooltipExtras:
-		Weaknesses: • Weak vs Everything.
+		Weaknesses: - Weak vs Everything.
 		Attributes: • Increases the experience gained by nearby units.\n• Slowly gives experience to nearby units.\n• Can detect disguised units.
 	Valued:
 		Cost: 300
@@ -1901,7 +1905,7 @@ ISHMAELITE:
 		Prerequisites: ~barracks, mtek, ~infantry.persia, ~techlevel.high
 		Description: Devoted follower of the psychic prophet Ishmael.
 	TooltipExtras:
-		Weaknesses: • Weak vs Everything.
+		Weaknesses: - Unarmed.
 		Attributes: • Can mind control one enemy unit.\n• Can detect disguised units.
 	Valued:
 		Cost: 2000
@@ -1964,6 +1968,7 @@ ISHMAELITE:
 	ReloadAmmoPool:
 		Delay: 35
 		Count: 1
+		RequiresCondition: !mindcontrolling
 
 ISHMAELITE.Husk:
 	Inherits: ^InfantryCorpse
@@ -1994,8 +1999,8 @@ HVMG:
 		Prerequisites: ~barr, adept, ~infantry.raj, ~techlevel.infonly
 		Description: Infantry operated heavy machine gun.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -2101,7 +2106,7 @@ ARTILLERYOBSERVER:
 		Prerequisites: ~barracks, mtek, ~infantry.bulgaria, ~techlevel.infonly
 		Description: Highly trained artillery observer.
 	TooltipExtras:
-		Weaknesses: • Weak vs Everything.
+		Weaknesses: - Weak vs Everything.
 		Attributes: • Can enter artillery units to increase fighting abilities.\n• Can detect disguised units.
 	Valued:
 		Cost: 400
@@ -2160,7 +2165,7 @@ SCVN:
 		Prerequisites: ~barr, adept, ~infantry.kazakhstan, ~techlevel.medium
 		Description: Military scavanger.
 	TooltipExtras:
-		Weaknesses: • Unarmed.
+		Weaknesses: - Strength.
 		Attributes: • Can extract resources from rubble and husks.
 	Valued:
 		Cost: 200
@@ -2225,8 +2230,8 @@ STRMTRPR:
 		Prerequisites: mtek, ~infantry.austria, ~techlevel.high
 		Description: Elite infantry with a hand-held\ndirect energy weapon.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry, Vehicles.
-		Weaknesses: • Weak vs Aircraft.
+		Strengths: + Strong vs Infantry, Vehicles.
+		Weaknesses: - Weak vs Aircraft.
 	Valued:
 		Cost: 400
 	Tooltip:
@@ -2277,7 +2282,7 @@ LEGIONAIRE:
 		Prerequisites: ~barracks, adept, ~infantry.france, ~techlevel.infonly
 		Description: Elite general-purpose infantry.
 	TooltipExtras:
-		Strengths: • Strong vs Everything.
+		Strengths: + Strong vs Everything.
 		Attributes: • Armed with a secondary stinger.
 	Valued:
 		Cost: 300
@@ -2286,7 +2291,7 @@ LEGIONAIRE:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 5500
+		HP: 6000
 	RevealsShroud:
 		MinRange: 4c0
 		Range: 5c0
@@ -2400,7 +2405,7 @@ TERRORIST:
 		Prerequisites: ~techlevel.medium, ~infantry.persia, dome
 		Description: A fanatical follower of the psychic prophet Ishmael.
 	TooltipExtras:
-		Weaknesses: • Unarmed.
+		Weaknesses: - Strength.
 		Attributes: • Strapped with dynamite.\n• Becomes hidden while immobile.
 	Valued:
 		Cost: 250
@@ -2425,8 +2430,8 @@ SPECOP:
 		Prerequisites: ~techlevel.medium, ~infantry.england, dome, ~barr
 		Description: Elite rifleman.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry, Buildings, Defenses.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry, Buildings, Defenses.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 		Attributes: • Armed with secondary grenades.
 	Valued:
 		Cost: 200
@@ -2435,22 +2440,32 @@ SPECOP:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 5500
+		HP: 6000
 	Mobile:
 	RevealsShroud:
 		Range: 6c0
 	Armament@PRIMARY:
 		Name: primary
 		Weapon: M1Carbine_elite
+		PauseOnCondition: grenade_attacking
 	Armament@SECONDARY:
 		Name: secondary
 		Weapon: BuildingGrenade
 		LocalOffset: 0,0,555
 		FireDelay: 15
+		PauseOnCondition: rifle_attacking
 	Armament@GARRISONED:
 		Name: garrisoned
 		Weapon: M1Carbine_elite
 		MuzzleSequence: garrison-muzzle
+	GrantConditionOnAttack@rifle:
+		ArmamentNames: primary
+		Condition: rifle_attacking
+		RevokeDelay: 2
+	GrantConditionOnAttack@grenade:
+		ArmamentNames: secondary
+		Condition: grenade_attacking
+		RevokeDelay: 2
 	WithInfantryBody:
 		AttackSequences:
 			primary: shoot
@@ -2487,12 +2502,12 @@ SNIPER:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 91
-		Prerequisites: ~barracks, atek, ~infantry.serbia, ~techlevel.medium
+		Prerequisites: ~barracks, atek, ~infantry.england, ~techlevel.medium
 		Description: Elite sniper infantry unit.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
-		Attributes: • Becomes hidden while immobile.
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
+		Attributes: • Becomes hidden while immobile.\n• Can detect disquised units.\n• Can only target infantry.
 	Health:
 		HP: 8000
 	Passenger:
@@ -2549,8 +2564,8 @@ E4:
 		Prerequisites: adept, ~infantry.zentrum, ~techlevel.infonly
 		Description: Advanced anti-infantry and structure unit.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry, Buildings, Defenses.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry, Buildings, Defenses.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 	Valued:
 		Cost: 275
 	Tooltip:
@@ -2613,8 +2628,8 @@ ATGUNNER:
 		Prerequisites: ~barr, adept, ~infantry.raj, ~techlevel.infonly
 		Description: Infantry operated anti-tank gun.
 	TooltipExtras:
-		Strengths: • Strong vs Vehicles.
-		Weaknesses: • Weak vs Infantry, Aircraft.
+		Strengths: + Strong vs Vehicles.
+		Weaknesses: - Weak vs Infantry, Aircraft.
 		Attributes: • Has stronger armour in the front.
 	Valued:
 		Cost: 600
@@ -2652,7 +2667,7 @@ ATGUNNER:
 		Range: 4c0
 	Armament:
 		Weapon: 76mmOrdinanceQF-ATGUNNER
-		LocalOffset: 575,0,360
+		LocalOffset: 675,0,360
 		MuzzleSequence: muzzle
 		FireDelay: 15
 	Armament@GARRISONED:
@@ -2684,8 +2699,8 @@ AAGUNCREW:
 		Prerequisites: ~barr, adept, ~infantry.raj, ~techlevel.infonly
 		Description: Infantry operated anti-air gun.
 	TooltipExtras:
-		Strengths: • Strong vs Aircraft.
-		Weaknesses: • Weak vs Vehicles, Infantry.
+		Strengths: + Strong vs Aircraft.
+		Weaknesses: - Weak vs Vehicles, Infantry.
 		Attributes: • Has stronger armour in the front.
 	Valued:
 		Cost: 550
@@ -2724,7 +2739,7 @@ AAGUNCREW:
 	Armament:
 		Weapon: AACrewGun
 		RecoilRecovery: 18
-		LocalOffset: 325,120,410, 325,-120,410
+		LocalOffset: 525,120,410, 525,-120,410
 		MuzzleSequence: muzzle
 	Armament@GARRISONED:
 		Name: garrisoned
@@ -2758,8 +2773,8 @@ MORTARCREW:
 		Prerequisites: ~barr, ~infantry.bulgaria, adept, ~techlevel.infonly
 		Description: Infantry operated mortar.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry, Buildings, Defenses.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry, Buildings, Defenses.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -2802,8 +2817,8 @@ MILITIA:
 		Prerequisites: ~barr, ~infantry.china, ~techlevel.infonly
 		Description: Light general-purpose infantry.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 	Selectable:
 	Valued:
 		Cost: 80
@@ -2849,8 +2864,8 @@ FLKTRP:
 		Prerequisites: ~barr, adept, ~infantry.china, ~techlevel.infonly
 		Description: Anti-air and -ground infantry.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry, Aircraft.
-		Weaknesses: • Weak vs Vehicles.
+		Strengths: + Strong vs Infantry, Aircraft.
+		Weaknesses: - Weak vs Vehicles.
 	Valued:
 		Cost: 250
 	Tooltip:
@@ -2858,7 +2873,7 @@ FLKTRP:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 5000
+		HP: 5500
 	Armament@AA:
 		Name: primary
 		Weapon: FLAK-23-AA-Inf
@@ -2910,8 +2925,8 @@ DESOLATOR:
 		Prerequisites: ~barr, mtek, ~infantry.turkey, ~techlevel.infonly
 		Description: Anti-infantry unit, capable of creating\na large burning area around it by deploying.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry, Buildings.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry, Buildings.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 		Attributes: • Can deploy to engulf the surrounding are in fire.
 	Valued:
 		Cost: 400
@@ -2922,7 +2937,7 @@ DESOLATOR:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 5000
+		HP: 6000
 	Armament:
 		Name: primary
 		Weapon: DesolatorHandHeld
@@ -3014,8 +3029,8 @@ SHKTRP:
 		Prerequisites: stek, ~infantry.russia, ~techlevel.high
 		Description: Elite infantry with a portable Tesla coil.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry, Vehicles.
-		Weaknesses: • Weak vs Aircraft.
+		Strengths: + Strong vs Infantry, Vehicles.
+		Weaknesses: - Weak vs Aircraft.
 	Valued:
 		Cost: 350
 	Tooltip:
@@ -3023,7 +3038,7 @@ SHKTRP:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 5000
+		HP: 5500
 	Mobile:
 		Voice: Move
 		Speed: 40
@@ -3100,8 +3115,8 @@ CHRONOTROOPER:
 		Prerequisites: mtek, ~infantry.germany, ~techlevel.high
 		Description: Elite infantry with a portable chronoshpere and\na chrono gun capable of disappering enemies.
 	TooltipExtras:
-		Strengths: • Strong vs Vehicles.
-		Weaknesses: • Weak vs Aircraft.
+		Strengths: + Strong vs Vehicles.
+		Weaknesses: - Weak vs Aircraft.
 		Attributes: • Equipped with a portable chronosphere.\n• Freezes target unit in time.
 	Valued:
 		Cost: 500
@@ -3110,7 +3125,7 @@ CHRONOTROOPER:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 5000
+		HP: 5500
 	Mobile:
 		Voice: Move
 		Speed: 40
@@ -3239,8 +3254,8 @@ NERVEAGENT:
 		Prerequisites: ~barracks, stek, ~infantry.kazakhstan, ~techlevel.infonly
 		Description: Nerve toxin specialist.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 		Attributes: • Can detect disguised units.\n• Zombifies killed infantry.\n• Deploy to spread disorienting nerve gas.\n• Can disguise as any infantry.
 	Valued:
 		Cost: 550
@@ -3321,8 +3336,8 @@ NIGHTWITCH:
 		Prerequisites: dome, ~infantry.ukraine, ~techlevel.high
 		Description: Elite infantry capable of magnetic levitation.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 		Attributes: • Deploy to enter levitating state.
 	Valued:
 		Cost: 300
@@ -3333,7 +3348,7 @@ NIGHTWITCH:
 	Selectable:
 		Class: NIGHTWITCH
 	Health:
-		HP: 5500
+		HP: 6000
 	Mobile:
 		Voice: Move
 		Speed: 40
@@ -3516,8 +3531,8 @@ PNEER:
 		Prerequisites: adept, ~infantry.italy, ~techlevel.medium
 		Description: Military pioneer.
 	TooltipExtras:
-		Weaknesses: • Unarmed.
-		Attributes: • Detects mines.\n• Lays anti-infantry mines.
+		Weaknesses: - Strength.
+		Attributes: • Detects mines.\n• Lays anti-infantry mines.\n• Rearms at an Arms Depot.
 	Valued:
 		Cost: 450
 	Tooltip:
@@ -3643,8 +3658,8 @@ CAVALRY:
 		Prerequisites: ~infantry.mongolia, ~techlevel.low
 		Description: Light general purpose infantry\non horseback.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 	Valued:
 		Cost: 200
 	Tooltip:
@@ -3725,9 +3740,9 @@ BOLTER:
 		Prerequisites: ~barr, atek, ~infantry.usa, ~techlevel.high
 		Description: Elite infantry with portable electromagnetic\narc thrower.
 	TooltipExtras:
-		Strengths: • Strong vs Vehicles.
-		Weaknesses: • Weak vs Aircraft.
-		Attributes: • Arcs slow down enemy vehicles.
+		Strengths: + Strong vs Vehicles.
+		Weaknesses: - Weak vs Aircraft.
+		Attributes: • Arcs slow down enemy vehicles.\n• With enough arcs, the target is disabled for a while.
 	Valued:
 		Cost: 350
 	Tooltip:
@@ -3791,8 +3806,8 @@ SHINOBI:
 		Prerequisites: atek, ~infantry.japan, ~techlevel.high
 		Description: Elite spying phase infantry.
 	TooltipExtras:
-		Weaknesses: • Unarmed
-		Attributes: • Can pahes out of vision.\n• Lays phased spy cameras that cost 10 Power each.\n• Can detect disguised units.
+		Weaknesses: - Strength
+		Attributes: • Can pahes out of vision.\n• Lays phased spy cameras that cost 10 Power each.\n• Can detect disguised units.\n• Rearms at an Arms Depot.
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -3915,6 +3930,7 @@ IRONMAN:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@supercharged: ^SuperchargeTesla
+	Inherits@ironcurtainable: ^IronCurtainable
 	Valued:
 		Cost: 400
 	Buildable:
@@ -3924,8 +3940,9 @@ IRONMAN:
 		Prerequisites: ~infantry.russia, adept, dome
 		Description: Melee cyborg infantry in heavy armor.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry, Vehicles.
-		Weaknesses: • Weak vs Aircraft.
+		Strengths: + Strong vs Infantry, Vehicles.
+		Weaknesses: - Weak vs Aircraft.
+		Attributes: • Can be Iron Curtained.
 	Tooltip:
 		Name: Iron Man
 	UpdatesPlayerStatistics:
@@ -4029,8 +4046,8 @@ GRENADELAUNCHER:
 		Prerequisites: mtek, ~infantry.bulgaria, ~techlevel.infonly
 		Description: Infantry armed with a grenade launcher.
 	TooltipExtras:
-		Strengths: • Strong vs Infantry, Buildings, Defenses.
-		Weaknesses: • Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry, Buildings, Defenses.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
 	Valued:
 		Cost: 350
 	Tooltip:
@@ -4038,10 +4055,10 @@ GRENADELAUNCHER:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 4500
+		HP: 5000
 	Armament@PRIMARY:
 		Weapon: GrenadeLauncher
-		LocalOffset: 0,0,555
+		LocalOffset: 120,0,250
 	Armament@GARRISONED:
 		Name: garrisoned
 		Weapon: GrenadeLauncher

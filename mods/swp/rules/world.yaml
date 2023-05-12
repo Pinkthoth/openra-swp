@@ -17,6 +17,7 @@
 			Clear: 55
 			Pavement: 55
 			Rough: 45
+			Sand: 45
 			TallGrass: 50
 			Road: 75
 			PavedRoad: 100
@@ -39,6 +40,7 @@
 			Clear: 90
 			Pavement: 90
 			Rough: 80
+			Sand: 90
 			TallGrass: 85
 			Road: 100
 			PavedRoad: 100
@@ -54,6 +56,7 @@
 			Clear: 80
 			Pavement: 90
 			Rough: 40
+			Sand: 60
 			TallGrass: 70
 			Road: 100
 			PavedRoad: 100
@@ -68,6 +71,7 @@
 			Clear: 90
 			Pavement: 90
 			Rough: 80
+			Sand: 85
 			TallGrass: 85
 			Road: 100
 			PavedRoad: 100
@@ -82,6 +86,7 @@
 			Clear: 80
 			Pavement: 90
 			Rough: 40
+			Sand: 70
 			TallGrass: 70
 			Road: 100
 			PavedRoad: 100
@@ -96,6 +101,7 @@
 			Clear: 80
 			Pavement: 90
 			Rough: 40
+			Sand: 60
 			TallGrass: 70
 			Road: 100
 			PavedRoad: 100
@@ -110,6 +116,7 @@
 			Clear: 80
 			Pavement: 90
 			Rough: 70
+			Sand: 60
 			TallGrass: 75
 			Road: 100
 			PavedRoad: 100
@@ -125,6 +132,7 @@
 			Clear: 80
 			Pavement: 90
 			Rough: 70
+			Sand: 55
 			TallGrass: 75
 			Road: 100
 			PavedRoad: 100
@@ -140,6 +148,7 @@
 			Clear: 80
 			Pavement: 90
 			Rough: 70
+			Sand: 40
 			TallGrass: 75
 			Road: 100
 			PavedRoad: 100
@@ -154,6 +163,7 @@
 			Clear: 80
 			Pavement: 90
 			Rough: 70
+			Sand: 75
 			TallGrass: 75
 			Road: 100
 			PavedRoad: 100
@@ -168,6 +178,7 @@
 			Clear: 100
 			Pavement: 100
 			Rough: 100
+			Sand: 100
 			Road: 100
 			River: 100
 			Water: 100
@@ -205,7 +216,7 @@
 		Name: Britain
 		InternalName: england
 		Side: Entente
-		Description: Kingdom of Great Britain\nFocus: Special Operations and Intelligence\n\nSpecial Infantry: Commando\nSpecial Vehicle: Warthog\nSpecial Vehicle: Hovercraft\nSpecial Aircraft: Harrier\nSpecial Building: MI6 Command Post\nSpecial Ability: Radar Scan
+		Description: Kingdom of Great Britain\nFocus: Special Operations and Intelligence\n\nSpecial Infantry: Commando\nSpecial Vehicle: Warthog\nSpecial Infantry: Sniper\nSpecial Aircraft: Harrier\nSpecial Building: MI6 Command Post\nSpecial Ability: Radar Scan
 	Faction@2:
 		Name: France
 		InternalName: france
@@ -250,7 +261,7 @@
 		Name: Spain
 		InternalName: serbia
 		Side: Entente
-		Description: Spanish Republic\nFocus: Versatility\n\nSpecial Infantry: Radist\nSpecial Infantry: Sniper\nSpecial Vehicle: Caballero\nSpecial Helicopter: Colibri\nSpecial Building: Bunker\nSpecial Ability: Caballero Drop
+		Description: Spanish Republic\nFocus: Versatility\n\nSpecial Infantry: Radist\nSpecial Vehicle: Hovercraft\nSpecial Vehicle: Caballero\nSpecial Helicopter: Colibri\nSpecial Building: Bunker\nSpecial Ability: Caballero Drop
 	Faction@9:
 		Name: China
 		InternalName: china
