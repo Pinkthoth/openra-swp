@@ -783,7 +783,7 @@ CAGUN:
 		Weaknesses: - Weak vs Vehicles, Infantry.
 		Attributes: • Can detect phased units.
 	Valued:
-		Cost: 900
+		Cost: 1000
 	Tooltip:
 		Name: Camo AA Gun
 	Selectable:
@@ -1367,7 +1367,7 @@ DOME:
 		SelectTargetSpeechNotification: SelectTarget
 		CameraActor: camera
 		CameraRemoveDelay: 150
-		UnitType: support.bomber
+		UnitType: support.minebomber
 		QuantizedFacings: 8
 		DisplayBeacon: true
 		BeaconPoster: paraminebeacon
@@ -1465,6 +1465,7 @@ ACADEMY:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
+		LocalCenterOffset: 0,-206,0
 	Health:
 		HP: 50000
 	Armor:
@@ -1524,6 +1525,7 @@ RECRUITMENTOFFICE:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
+		LocalCenterOffset: 0,-206,0
 	Health:
 		HP: 50000
 	Armor:
@@ -1589,7 +1591,7 @@ MOROZKO:
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	WithRangeCircle:
 		Type: FreezeCircle
-		Range: 8c0
+		Range: 9c0
 	Tooltip:
 		Name: Morozko
 	Building:
@@ -1630,7 +1632,7 @@ MOROZKO:
 	DetectCloaked:
 		Range: 6c0
 	ProximityExternalCondition@frost:
-		Range: 8c0
+		Range: 9c0
 		ValidRelationships: Ally, Enemy, Neutral
 		Condition: frozen
 		RequiresCondition: !disabled && !empdisable && !being-warped
@@ -2408,6 +2410,7 @@ MTEK:
 	Inherits: ^ScienceBuilding
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
+	Inherits@sabotable: ^Sabotable
 	Inherits@discount: ^BuildTimeDiscount
 	Selectable:
 		Bounds: 2696, 2696
@@ -2453,6 +2456,7 @@ ATEK:
 	Inherits: ^ScienceBuilding
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
+	Inherits@sabotable: ^Sabotable
 	Inherits@discount: ^BuildTimeDiscount
 	Selectable:
 		Bounds: 2696, 2696
@@ -2515,9 +2519,9 @@ WEAP:
 	Tooltip:
 		Name: War Factory
 	Building:
-		Footprint: xxx xxx xxx
+		Footprint: x+x xxx x+x
 		Dimensions: 3,3
-		LocalCenterOffset: 0,0,0
+		LocalCenterOffset: 0,-206,0
 	Health:
 		HP: 150000
 	Armor:
@@ -2536,7 +2540,7 @@ WEAP:
 	Exit@1:
 		RequiresCondition: !being-captured || !turnedoff
 		SpawnOffset: 213,-128,0
-		ExitCell: 1,3
+		ExitCell: 1,2
 	Exit@2:
 		RequiresCondition: !being-captured || !turnedoff
 		SpawnOffset: 213,-128,0
@@ -3308,6 +3312,7 @@ STEK:
 	Inherits: ^ScienceBuilding
 	Inherits@shape: ^3x2Shape
 	Inherits@rubbles: ^2x2Rubbles
+	Inherits@sabotable: ^Sabotable
 	Inherits@discount: ^BuildTimeDiscount
 	Selectable:
 		Bounds: 2696, 2696

@@ -492,7 +492,7 @@ WASTETROOPER:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 92
+		BuildPaletteOrder: 75
 		Prerequisites: ~barracks, dome, ~infantry.kazakhstan, ~techlevel.infonly
 		Description: Shoots bursts of corrosive acid.
 	TooltipExtras:
@@ -626,7 +626,7 @@ KULAK:
 		Prerequisites: ~barr, ~infantry.kazakhstan, ~techlevel.infonly
 		Description: Unarmed conscript fresh off the boot camp.
 	TooltipExtras:
-		Weaknesses: - Strength.
+		Weaknesses: - Unarmed.
 		Attributes: • Can pick up any infantry weapon from a corpse.
 	Valued:
 		Cost: 40
@@ -843,7 +843,7 @@ ARZ:
 		Prerequisites: dome, ~infantry.austria, ~techlevel.medium
 		Description: Operates a portable lazarus device.
 	TooltipExtras:
-		Weaknesses: - Strength.
+		Weaknesses: - Unarmed.
 		Attributes: • Can resurrect infantry.
 	Valued:
 		Cost: 350
@@ -1012,7 +1012,7 @@ E6:
 		Prerequisites: ~barracks, ~techlevel.infonly
 		Description: Military engineer.
 	TooltipExtras:
-		Weaknesses: - Strength.
+		Weaknesses: - Unarmed.
 		Attributes: • Infiltrates and captures enemy structures.\n• Restores husks to working condition.
 	Valued:
 		Cost: 400
@@ -1288,7 +1288,7 @@ MEDI:
 		Prerequisites: ~barr, ~infantry.entente, ~techlevel.infonly
 		Description: Military medic.
 	TooltipExtras:
-		Weaknesses: - Strength.
+		Weaknesses: - Unarmed.
 		Attributes: • Heals damaged infantry units.
 	Valued:
 		Cost: 200
@@ -1340,7 +1340,7 @@ MECH:
 		Prerequisites: ~barr, adept, ~infantry.entente, ~techlevel.medium
 		Description: Military mechanic.
 	TooltipExtras:
-		Weaknesses: - Strength.
+		Weaknesses: - Unarmed.
 		Attributes: • Repairs nearby vehicles.\n• Restores husks to working condition.
 	Valued:
 		Cost: 500
@@ -1405,7 +1405,7 @@ THF:
 		Prerequisites: ~barr, dome, ~infantry.komintern, ~techlevel.medium
 		Description: Professional procurer.
 	TooltipExtras:
-		Weaknesses: - Strength.
+		Weaknesses: - Unarmed.
 		Attributes: • Steals enemy credits.\n• Hijacks enemy vehicles.\n• Becomes hidden while immobile.\n• Can detect disguised units.
 	Valued:
 		Cost: 500
@@ -2165,7 +2165,7 @@ SCVN:
 		Prerequisites: ~barr, adept, ~infantry.kazakhstan, ~techlevel.medium
 		Description: Military scavanger.
 	TooltipExtras:
-		Weaknesses: - Strength.
+		Weaknesses: - Unarmed.
 		Attributes: • Can extract resources from rubble and husks.
 	Valued:
 		Cost: 200
@@ -2342,9 +2342,6 @@ LEGIONAIRE:
 		Count: 1
 	SpawnActorOnDeath@BulletDeath:
 		Actor: LEGIONAIRE.Husk
-	WithRangeCircle@anti-air:
-		Range: 8c0
-		Color: FFFF0080
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -2405,7 +2402,7 @@ TERRORIST:
 		Prerequisites: ~techlevel.medium, ~infantry.persia, dome
 		Description: A fanatical follower of the psychic prophet Ishmael.
 	TooltipExtras:
-		Weaknesses: - Strength.
+		Weaknesses: - Unarmed.
 		Attributes: • Strapped with dynamite.\n• Becomes hidden while immobile.
 	Valued:
 		Cost: 250
@@ -2749,9 +2746,6 @@ AAGUNCREW:
 	WithMuzzleOverlay:
 	ProducibleWithLevel:
 		Prerequisites: infantry.upgraded
-	RenderRangeCircle@anti-air:
-		RangeCircleType: Anti-air
-		RangeCircleMode: Maximum
 
 MORTARCREW:
 	Inherits: ^TrackedVehicle
@@ -2902,9 +2896,6 @@ FLKTRP:
 		Prerequisites: barracks.upgraded
 	SpawnActorOnDeath@BulletDeath:
 		Actor: FLKTRP.Husk
-	WithRangeCircle@anti-air:
-		Range: 8c0
-		Color: FFFF0080
 		
 FLKTRP.Husk:
 	Inherits: ^InfantryCorpse
@@ -3250,7 +3241,7 @@ NERVEAGENT:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 75
+		BuildPaletteOrder: 92
 		Prerequisites: ~barracks, stek, ~infantry.kazakhstan, ~techlevel.infonly
 		Description: Nerve toxin specialist.
 	TooltipExtras:
@@ -3531,7 +3522,7 @@ PNEER:
 		Prerequisites: adept, ~infantry.italy, ~techlevel.medium
 		Description: Military pioneer.
 	TooltipExtras:
-		Weaknesses: - Strength.
+		Weaknesses: - Unarmed.
 		Attributes: • Detects mines.\n• Lays anti-infantry mines.\n• Rearms at an Arms Depot.
 	Valued:
 		Cost: 450
@@ -3806,7 +3797,7 @@ SHINOBI:
 		Prerequisites: atek, ~infantry.japan, ~techlevel.high
 		Description: Elite spying phase infantry.
 	TooltipExtras:
-		Weaknesses: - Strength
+		Weaknesses: - Unarmed
 		Attributes: • Can pahes out of vision.\n• Lays phased spy cameras that cost 10 Power each.\n• Can detect disguised units.\n• Rearms at an Arms Depot.
 	Valued:
 		Cost: 500

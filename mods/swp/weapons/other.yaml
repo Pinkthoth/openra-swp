@@ -54,8 +54,8 @@
 			Light: 50
 			Medium: 60
 			Heavy: 50
-			Wood: 40
-			Concrete: 30
+			Wood: 20
+			Concrete: 10
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ElectricityDeath
 
 ^MagneticWeapon:
@@ -174,14 +174,14 @@ ElectricBolt:
 		AllowSnapping: true
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c256
-		Falloff: 100, 50, 25, 5
+		Falloff: 100, 25, 5
 		Versus:
 			None: 40
 			Light: 55
 			Medium: 65
 			Heavy: 55
-			Wood: 40
-			Concrete: 30
+			Wood: 20
+			Concrete: 10
 		Damage: 9500
 	Warhead@3Eff: CreateEffect
 		Explosions: thunderstruck, thunderstruck2
@@ -209,7 +209,7 @@ PlaneElectricBolt:
 		TrailInterval: 1
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c256
-		Falloff: 100, 50, 25, 5
+		Falloff: 100, 25, 5
 		Damage: 6500
 	Warhead@3Eff: CreateEffect
 		Explosions: thunderstruck, thunderstruck2
@@ -248,7 +248,7 @@ SM_ElectricBolt:
 		AllowSnapping: true
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c256
-		Falloff: 100, 50, 25, 5
+		Falloff: 100, 25, 5
 		Damage: 6500
 		Versus:
 			None: 30
@@ -1643,7 +1643,7 @@ IfritAreaFire:
 		SmudgeType: Scorch
 
 DemoTruckTargeting:
-	ValidTargets: DetonateAttack
+	ValidTargets: Ground, GroundActor, Water, WaterActor
 	Range: 2c0
 	Projectile: InstantHit
 	Warhead@1Dam: TargetDamage

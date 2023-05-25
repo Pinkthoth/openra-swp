@@ -23,9 +23,9 @@ Graphics:
 -Flameshield effect: ppap114+4
 -Demo Truck explosion: LovesPhobos=true
 -Mind Blast effect: Volkot T-666
-
-Hospital
--EoralMilk
+-Presbyter icon: Lucipurr
+-Various tiles by Allen_262 and Vesa Piitinen
+-Hospital by EoralMilk
 
 Various icons
 -Mig Eater from Revora.net

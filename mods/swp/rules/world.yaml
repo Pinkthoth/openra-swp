@@ -256,7 +256,7 @@
 		Name: USA
 		InternalName: usa
 		Side: Entente
-		Description: United States of America\nFocus: Electromagnetism\n\nSpecial Infantry: Arc Blaster\nSpecial Vehicle: Arc Thrower\nSpecial Vehicle: Mobile EMP Device\nSpecial Vehicle: Beetle\nSpecial Vehicle: Cicada\nSpecial Ability: Swarm
+		Description: United States of America\nFocus: Electromagnetism\n\nSpecial Infantry: Arc Blaster\nSpecial Vehicle: Arc Thrower\nSpecial Vehicle: Mobile EMP Device\nSpecial Vehicle: Beetle\nSpecial Vehicle: Cicada\nSpecial Ability: EMP Bomb
 	Faction@17:
 		Name: Spain
 		InternalName: serbia
@@ -308,10 +308,10 @@
 		Side: Komintern
 		Description: Belarussian Soviet Socialist Republic\nFocus: Cryo and Gatling Technology\n\nSpecial Infantry: Maroznik\nSpecial Vehicle: Marozilnik\nSpecial Vehicle: Gatling Car\nSpecial Helicopter: Gatling Hind\nSpecial Building: Morozko\nSpecial Ability: Blizzard
 	Faction@20:
-		Name: The Raj
+		Name: India
 		InternalName: raj
 		Side: Entente
-		Description: The British Raj\nFocus: Heavy Weaponry\n\nSpecial Infantry: Anti-Tank Crew\nSpecial Infantry: Heavy Machine Gun Crew\nSpecial Infantry: AA Gun Crew\nSpecial Building: Grand Cannon\nSpecial Plane: Garud Heavy Fighter\nSpecial Ability: Intercept
+		Description: The British Raj of India\nFocus: Heavy Weaponry\n\nSpecial Infantry: Anti-Tank Crew\nSpecial Infantry: Heavy Machine Gun Crew\nSpecial Infantry: AA Gun Crew\nSpecial Building: Grand Cannon\nSpecial Plane: Garud Heavy Fighter\nSpecial Ability: Intercept
 	Faction@random:
 		Name: Any
 		InternalName: Random
@@ -323,13 +323,13 @@
 		InternalName: RandomAllies
 		RandomFactionMembers: england, france, usa, japan, serbia, raj
 		Side: Random
-		Description: Random Entente Country\nA random Allied country will be chosen when the game starts.
+		Description: Random Entente Country\nA random Entente country will be chosen when the game starts.
 	Faction@randomsoviet:
 		Name: Komintern
 		InternalName: RandomSoviet
 		RandomFactionMembers: russia, ukraine, china, mongolia, kazakhstan, belarus
 		Side: Random
-		Description: Random Komintern Country\nA random Soviet country will be chosen when the game starts.
+		Description: Random Komintern Country\nA random Komintern country will be chosen when the game starts.
 	Faction@randomzentrum:
 		Name: Zentrum
 		InternalName: Randomzentrum

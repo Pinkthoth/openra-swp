@@ -11,7 +11,7 @@ HARV:
 		Prerequisites: proc, ~techlevel.infonly
 		Description: Collects Ore and Gems for processing.
 	TooltipExtras:
-		Weaknesses: - Strength.
+		Weaknesses: - Unarmed.
 		Attributes: • Collects resources.
 	Valued:
 		Cost: 1100
@@ -85,7 +85,7 @@ MCV:
 		BuildDurationModifier: 50
 		Description: Construction vehicle.
 	TooltipExtras:
-		Weaknesses: - Strength.
+		Weaknesses: - Unarmed.
 		Attributes: • Deployes into a Construction Yard.
 	Valued:
 		Cost: 2500
@@ -122,10 +122,12 @@ MCV:
 			germany: mmcv
 			turkey: mmcv
 			italy: mmcv
+			persia: mmcv
 			usa: emcv
 			japan: emcv
 			england: emcv
 			france: emcv
+			raj: emcv
 			russia: kmcv
 			ukraine: kmcv
 			china: kmcv
@@ -133,6 +135,7 @@ MCV:
 			bulgaria: mmcv
 			serbia: emcv
 			kazakhstan: kmcv
+			belarus: kmcv
 
 MCV.new:
 	Inherits: MCV
@@ -159,7 +162,7 @@ MNLY:
 		Prerequisites: fix, ~techlevel.medium
 		Description: Lays mines to destroy\nunwary enemy units.
 	TooltipExtras:
-		Weaknesses: - Strength.
+		Weaknesses: - Unarmed.
 		Attributes: • Can detect mines.
 	Valued:
 		Cost: 800
@@ -233,7 +236,7 @@ TRUK:
 		Prerequisites: ~techlevel.low
 		Description: Transports cash to other players.
 	TooltipExtras:
-		Weaknesses: - Strength.
+		Weaknesses: - Unarmed.
 		Attributes: • Transports 500$ to targeted player.
 	Valued:
 		Cost: 500
@@ -256,7 +259,6 @@ TRUK:
 
 PROPTRUCK:
 	Inherits: ^Vehicle
-	Inherits@selection: ^SelectableSupportUnit
 	-ExperienceTrickler@OfficerNearby:
 	-GainsExperienceMultiplier@OfficerNearby:
 	-ExternalCondition@OfficerNearby:
@@ -266,7 +268,7 @@ PROPTRUCK:
 		Prerequisites: ~techlevel.low, ~vehicles.china, dome
 		Description: Red Army propaganda vehicle.
 	TooltipExtras:
-		Weaknesses: - Strength.
+		Weaknesses: - Unarmed.
 		Attributes: • Deploy to increase morale of nearby infantry.
 	Valued:
 		Cost: 700
@@ -290,7 +292,7 @@ PROPTRUCK:
 		ChargeTicks: 750
 		SelectionBarColor: FF0000
 	Selectable:
-		DecorationBounds: 1260, 1260,0,-100
+		DecorationBounds: 1260, 1260,0,-150
 
 #zentrum units
 BIKE:
@@ -607,7 +609,7 @@ HVTNK:
 		Weaknesses: - Weak vs Aircraft.
 		Attributes: • Armed with a secondary machine gun.
 	Valued:
-		Cost: 1200
+		Cost: 1300
 	Tooltip:
 		Name: Tiger
 		GenericName: Tank
@@ -787,9 +789,6 @@ MSAM:
 		Actor: MSAM.Husk
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
-	WithRangeCircle@anti-air:
-		Range: 8c512
-		Color: FFFF0080
 
 MSAM.Husk:
 	Inherits: ^Husk
@@ -1027,7 +1026,7 @@ MRJ:
 		Prerequisites: atek, ~vehicles.france, ~techlevel.high
 		Description: Radar and homing missile jamming vehicle.
 	TooltipExtras:
-		Weaknesses: - Strength.
+		Weaknesses: - Unarmed.
 		Attributes: • Jams nearby enemy Radar Domes.\n• Deflects incoming missiles.
 	Health:
 		HP: 22000
@@ -1083,7 +1082,7 @@ TRNSPRT:
 		Prerequisites: ~vehicles.komintern, ~techlevel.low
 		Description: Fast transport vehicle.
 	TooltipExtras:
-		Weaknesses: - Strength.
+		Weaknesses: - Unarmed.
 		Attributes: • Can transport up to 7 infantry units.
 	Valued:
 		Cost: 350
@@ -1176,9 +1175,6 @@ FTRK:
 	SpawnActorOnDeath:
 		RequiresCondition: !being-warped
 		Actor: FTRK.Husk
-	RenderRangeCircle@anti-air:
-		RangeCircleType: Anti-air
-		RangeCircleMode: Maximum
 
 FTRK.Husk:
 	Inherits: ^Husk
@@ -1216,7 +1212,7 @@ TNKT:
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 115
+		Speed: 95
 		TurnSpeed: 10
 		Locomotor: lighttracked
 		PauseOnCondition: being-captured
@@ -1466,7 +1462,7 @@ MTNK:
 		Weaknesses: - Weak vs Aircraft.
 		Attributes: • Armed with a secondary machine gun.
 	Valued:
-		Cost: 1025
+		Cost: 1125
 	Tooltip:
 		Name: Cossack
 		GenericName: Tank
@@ -1498,7 +1494,7 @@ MTNK:
 		Weapon: TankMachineGun
 		Recoil: 0
 		RecoilRecovery: 38
-		LocalOffset: 200,-140,50
+		LocalOffset: 175,-140,50
 		MuzzleSequence: muzzle-mg
 	AttackTurreted:
 		PauseOnCondition: turnedoff
@@ -1734,7 +1730,7 @@ MGG:
 		Prerequisites: dome, ~vehicles.ukraine, ~techlevel.medium
 		Description: Veil generating vehicle.
 	TooltipExtras:
-		Weaknesses: - Strength.
+		Weaknesses: - Unarmed.
 		Attributes: • Generates veil around it obscuring the area.
 	Valued:
 		Cost: 1000
@@ -1846,6 +1842,232 @@ T100:
 		Prerequisites: vehicles.upgraded
 	Selectable:
 		DecorationBounds: 1589, 1589, 0, 0
+
+MONSTERTANK:
+	Inherits: ^TrackedVehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 321
+		Prerequisites: adept, techcenter, ~stektech, ~mtektech, ~techlevel.high
+		Description: Four barreled and slow tank, with anti-infantry capability.
+	TooltipExtras:
+		Strengths: + Strong vs Infantry, Tanks.
+		Weaknesses: - Weak vs Aircraft.
+		Attributes: • Can crush concrete walls.\n• Only available by spying both Komintern and Zentrum tech centers.
+	Valued:
+		Cost: 2500
+	Tooltip:
+		Name: Bishop Tank
+		GenericName: Tank
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 90000
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 40
+		Locomotor: heavytracked
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 6c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	Turreted:
+		TurnSpeed: 8
+		Offset: -40,0,240
+	Armament@primary:
+		Weapon: monstertankgun
+		LocalOffset: 1000,110,150, 1000,225,150
+		Recoil: 100
+		RecoilRecovery: 30
+		MuzzleSequence: muzzle
+	Armament@secondary:
+		Name: secondary
+		Weapon: monstertankgun
+		LocalOffset: 1000,-110,150, 1000,-225,150
+		Recoil: 100
+		RecoilRecovery: 30
+		MuzzleSequence: muzzle
+	Armament@tertiary:
+		Name: tertiary
+		Weapon: TankMachineGun
+		LocalOffset: 0,384,200
+		MuzzleSequence: muzzle-mg
+	Armament@quarternary:
+		Name: quarternary
+		Weapon: TankMachineGun
+		LocalOffset: 0,-384,200
+		MuzzleSequence: muzzle-mg
+	AttackTurreted:
+		PauseOnCondition: turnedoff
+		Armaments: primary,secondary,tertiary,quarternary
+	WithMuzzleOverlay:
+	WithSpriteTurret:
+	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
+		Actor: MONSTERTANK.Husk
+	ChangesHealth:
+		Step: 100
+		Delay: 6
+		StartIfBelow: 50
+		DamageCooldown: 150
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
+	Selectable:
+		DecorationBounds: 1589, 1589, 0, 0
+
+MONSTERTANK.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Bishop Tank)
+	TransformOnCapture@Mechanic:
+		IntoActor: MONSTERTANK
+	TransformOnCapture@Engineer:
+		IntoActor: MONSTERTANK
+	InfiltrateForTransform:
+		IntoActor: MONSTERTANK
+	RenderSprites:
+		Image: monstertank
+
+GATLINGTANK:
+	Inherits: ^Vehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 321
+		Prerequisites: ~stektech, ~atektech, adept, ~techlevel.low
+		Description: Heavy anti-air & -infantry vehicle.
+	TooltipExtras:
+		Strengths: + Strong vs Infantry, Aircraft.
+		Weaknesses: - Weak vs Vehicles.
+		Attributes: • Gatling guns speed up while firing increasing fire rate.\n• Only available by spying both Komintern and Entente tech centers.
+	Valued:
+		Cost: 1200
+	Tooltip:
+		Name: Deacon Tank
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 22000
+	Armor:
+		Type: Heavy
+	Mobile:
+		TurnSpeed: 40
+		Speed: 65
+		PauseOnCondition: being-captured
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 8c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	Turreted:
+		TurnSpeed: 40
+		Offset: -50,0,220
+	Armament@gatling-start-0:
+		Weapon: PresbyterGatingStart
+		RequiresCondition: !gatling
+		PauseOnCondition: turnedoff
+	Armament@ag-0:
+		Weapon: PresbyterGatling
+		LocalOffset: 450,0,130
+		MuzzleSequence: muzzle
+		RequiresCondition: gatling == 1
+		PauseOnCondition: turnedoff
+	Armament@ag-1:
+		Weapon: PresbyterGatling2
+		LocalOffset: 450,0,130
+		MuzzleSequence: muzzle
+		RequiresCondition: gatling == 2
+		PauseOnCondition: turnedoff
+	Armament@ag-2:
+		Weapon: PresbyterGatling3
+		LocalOffset: 450,0,130
+		MuzzleSequence: muzzle
+		RequiresCondition: gatling == 3
+		PauseOnCondition: turnedoff
+	Armament@aa-0:
+		Name: secondary
+		Weapon: PresbyterGatlingAA
+		LocalOffset: 450,0,330
+		MuzzleSequence: muzzle
+		RequiresCondition: gatling == 1
+		PauseOnCondition: turnedoff
+	Armament@aa-1:
+		Name: secondary
+		Weapon: PresbyterGatling2AA
+		LocalOffset: 450,0,330
+		MuzzleSequence: muzzle
+		RequiresCondition: gatling == 2
+		PauseOnCondition: turnedoff
+	Armament@aa-2:
+		Name: secondary
+		Weapon: PresbyterGatling3AA
+		LocalOffset: 450,0,330
+		MuzzleSequence: muzzle
+		RequiresCondition: gatling == 3
+		PauseOnCondition: turnedoff
+	GrantConditionOnAttack:
+		Condition: gatling
+		RequiredShotsPerInstance: 12, 24
+		MaximumInstances: 2
+		RevokeDelay: 25
+		RevokeAll: true
+		IsCyclic: false
+		RevokeOnNewTarget: false
+		ArmamentNames: primary, secondary
+	GrantConditionOnAttack@11:
+		Condition: secondaryfiring
+		RevokeAll: true
+		IsCyclic: false
+		RevokeOnNewTarget: false
+		ArmamentNames: secondary
+	AmbientSound@gatlingspinning:
+		SoundFiles: turret_loop_11.wav
+		RequiresCondition: gatling && aiming
+	AmbientSound@loopstart:
+		SoundFiles: turret_start_11.wav
+		RequiresCondition: !gatling && aiming
+		Interval: 100
+		Delay: 0
+	AmbientSound@loopend:
+		SoundFiles: turret_end_11.wav
+		RequiresCondition: gatling && !aiming
+		Interval: 100
+		Delay: 0
+	GrantConditionWhileAiming@aiming:
+		Condition: aiming
+	AttackTurreted:
+		PauseOnCondition: turnedoff
+	WithSpriteTurret@2:
+		RequiresCondition: secondaryfiring
+		Sequence: turret-aa
+	WithMuzzleOverlay:
+	WithSpriteTurret:
+		RequiresCondition: !secondaryfiring
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
+	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
+		Actor: GATLINGTANK.Husk
+
+GATLINGTANK.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Deacon Tank)
+	TransformOnCapture@Mechanic:
+		IntoActor: GATLINGTANK
+	TransformOnCapture@Engineer:
+		IntoActor: GATLINGTANK
+	InfiltrateForTransform:
+		IntoActor: GATLINGTANK
+	RenderSprites:
+		Image: gatlingtank
 
 #Entente units
 SIPAHI:
@@ -2278,10 +2500,6 @@ SIPAHI:
 	SpawnActorOnDeath:
 		RequiresCondition: !being-warped
 		Actor: SIPAHI.Husk
-	WithRangeCircle@anti-air:
-		Range: 8c0
-		Color: FFFF0080
-		RequiresCondition: paslegionaire || pasflktrp || pase3
 	ReloadDelayMultiplier@baseboost:
 		Modifier: 90
 	FirepowerMultiplier@baseboost:
@@ -2571,7 +2789,7 @@ SHAH:
 		Prerequisites: mtek, ~vehicles.persia, ~techlevel.high
 		Description: Psychic enslavement vehicle.
 	TooltipExtras:
-		Weaknesses: - Strength.
+		Weaknesses: - Unarmed.
 		Attributes: • Can mind control up to three enemy units.
 	Valued:
 		Cost: 4000
@@ -2793,9 +3011,6 @@ IFV:
 		Actor: IFV.Husk
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
-	RenderRangeCircle@anti-air:
-		RangeCircleType: Anti-air
-		RangeCircleMode: Maximum
 
 IFV.Husk:
 	Inherits: ^Husk
@@ -2845,7 +3060,7 @@ RTNK:
 	Turreted:
 		TurnSpeed: 28
 	Turreted:
-		Offset: -100,0,90
+		Offset: 50,0,200
 	Armament:
 		Weapon: 25mm-recon
 		Recoil: 60
@@ -2945,9 +3160,6 @@ RONIN:
 	ReloadAmmoPool:
 		Delay: 90
 		Count: 2
-	WithRangeCircle@anti-air:
-		Range: 8c0
-		Color: FFFF0080
 
 RONIN.Husk:
 	Inherits: ^Husk
@@ -3128,7 +3340,7 @@ LTNK:
 		Weaknesses: - Weak vs Aircraft.
 		Attributes: • Armed with a secondary machine gun.
 	Valued:
-		Cost: 900
+		Cost: 1000
 	Tooltip:
 		Name: Crusader
 		GenericName: Tank
@@ -3160,7 +3372,7 @@ LTNK:
 		Weapon: TankMachineGun
 		Recoil: 0
 		RecoilRecovery: 38
-		LocalOffset: 200,-140,50
+		LocalOffset: 125,-140,50
 		MuzzleSequence: muzzle-mg
 	AttackTurreted:
 		PauseOnCondition: turnedoff
@@ -3245,9 +3457,6 @@ TELEDRONE:
 	ReloadAmmoPool:
 		Delay: 125
 		Count: 1
-	WithRangeCircle@anti-air:
-		Range: 8c0
-		Color: FFFF0080
 
 LIMPETMINE:
 	Inherits: ^Vehicle
@@ -3262,7 +3471,7 @@ LIMPETMINE:
 		Prerequisites: dome, ~vehicles.usa, ~techlevel.medium
 		Description: Tele controlled deployable mine. Explodes in an EMP burst.
 	TooltipExtras:
-		Weaknesses: - Strength.
+		Weaknesses: - Unarmed.
 		Attributes: • Requires a functioning Radar Dome.\n• Deploy to dig into ground.\n• Deploy once digged to force explode.
 	Valued:
 		Cost: 375
@@ -3424,7 +3633,7 @@ EMPDEVICE:
 		Prerequisites: atek, ~vehicles.usa, ~techlevel.high
 		Description: Radio controlled devicethat explodes as an EM pulse.
 	TooltipExtras:
-		Weaknesses: - Strength.
+		Weaknesses: - Unarmed.
 		Attributes: • Requires a functioning Radar Dome.\n• Deploy to explode the EM pulse.
 	Valued:
 		Cost: 2250
@@ -3480,6 +3689,74 @@ EMPDEVICE:
 	ReloadAmmoPool:
 		Delay: 50
 		RequiresCondition: deployed
+
+HOWIZER:
+	Inherits: ^Vehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 322
+		Prerequisites: adept, dome, ~mtektech, ~atektech, ~techlevel.high
+		Description: Long-range turreted artillery.
+	TooltipExtras:
+		Strengths: + Strong vs Infantry, Buildings, Defenses.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
+		Attributes: • Only available by spying both Entente and Zentrum tech centers.
+	Valued:
+		Cost: 1200
+	Tooltip:
+		Name: Presbyter Artillery
+		GenericName: Tank
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 25500
+	Armor:
+		Type: Medium
+	Mobile:
+		TurnSpeed: 8
+		Speed: 65
+		Locomotor: lighttracked
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 5c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	Turreted:
+		TurnSpeed: 8
+		Offset: -75,0,250
+	Armament:
+		Weapon: PresbyterArtillery
+		Recoil: 85
+		RecoilRecovery: 25
+		LocalOffset: 1050,0,400
+		MuzzleSequence: muzzle
+	AttackTurreted:
+		PauseOnCondition: turnedoff
+	WithMuzzleOverlay:
+	WithSpriteTurret:
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
+	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
+		Actor: HOWIZER.Husk
+	Selectable:
+		DecorationBounds: 1289, 1289, 0, -120
+
+HOWIZER.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Presbyter Artillery)
+	TransformOnCapture@Mechanic:
+		IntoActor: HOWIZER
+	TransformOnCapture@Engineer:
+		IntoActor: HOWIZER
+	InfiltrateForTransform:
+		IntoActor: HOWIZER
+	RenderSprites:
+		Image: howizer
 
 ARTY:
 	Inherits: ^TrackedVehicle
@@ -3661,9 +3938,6 @@ ENTENTEAA:
 	SpawnActorOnDeath:
 		RequiresCondition: !being-warped
 		Actor: ENTENTEAA.Husk
-	RenderRangeCircle@anti-air:
-		RangeCircleType: Anti-air
-		RangeCircleMode: Maximum
 
 ENTENTEAA.Husk:
 	Inherits: ^Husk
@@ -3836,7 +4110,7 @@ GRINDER:
 		Prerequisites: ~weap, stek, adept, ~vehicles.russia, ~techlevel.low
 		Description: Portable Iron Curtain vehicle armed\na massive metal grinder.
 	TooltipExtras:
-		Weaknesses: - Strength.
+		Weaknesses: - Unarmed.
 		Attributes: • Deploy to activate Iron Curtain.\n• Once the Iron Curtain runs out, the vehicle explodes.\n• Does not slow down while crushing.
 	Valued:
 		Cost: 2300
@@ -4483,7 +4757,7 @@ ORDA:
 		Prerequisites: stek, ~vehicles.mongolia, ~techlevel.high
 		Description: Deployable construction platform.
 	TooltipExtras:
-		Weaknesses: - Strength.
+		Weaknesses: - Unarmed.
 		Attributes: • Provides build radius once deployed.
 	Valued:
 		Cost: 1750
@@ -4776,7 +5050,7 @@ DTRK:
 		Prerequisites: mtek, ~vehicles.persia, ~techlevel.high
 		Description: Truck loaded with highly explosive materials.
 	TooltipExtras:
-		Weaknesses: - Strength.
+		Weaknesses: - Unarmed.
 		Attributes: • Deploy to detonate cargo.
 	Valued:
 		Cost: 1500
@@ -4785,11 +5059,11 @@ DTRK:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 2800
+		HP: 5000
 	Armor:
 		Type: Light
 	Mobile:
-		Speed: 67
+		Speed: 100
 	RevealsShroud:
 		Range: 4c0
 	Explodes:

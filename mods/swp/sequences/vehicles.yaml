@@ -257,6 +257,7 @@ apc:
 	idle:
 		Facings: 32
 		UseClassicFacings: True
+		Scale: 0.9
 	muzzle: minigun
 		Length: 6
 		Facings: 8
@@ -599,6 +600,53 @@ hvtnk:
 		Facings: 8
 	icon: hvtnkicon
 
+howizer:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	muzzle: gunfire2
+		Length: 5
+	icon: howizericon
+
+gatlingtank:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	turret-aa:
+		Start: 64
+		Facings: 32
+		UseClassicFacings: True
+	muzzle: gunfire2
+		Length: 5
+	muzzle-mg: minigun
+		Length: 6
+		Facings: 8
+	icon: gatlingtankicon
+
+monstertank:
+	Defaults: 5tnk
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	muzzle: gunfire2
+		Length: 5
+	muzzle-mg: minigun
+		Length: 6
+		Facings: 8
+	icon: 5tnkicon
+
 msam:
 	idle:
 		Facings: 32
@@ -736,6 +784,7 @@ jeep:
 	idle:
 		Facings: 32
 		UseClassicFacings: True
+		Scale: 0.9
 	turret:
 		Start: 32
 		Facings: 32
@@ -805,7 +854,7 @@ ifv:
 	icon: warthogicon
 	
 rtnk:
-	idle: 1tnk
+	idle: squire
 		Facings: 32
 		UseClassicFacings: True
 	turret: lgttur

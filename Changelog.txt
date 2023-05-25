@@ -1,0 +1,44 @@
+0.031
+Vehicles
+-Decreased Arc Thrower damage vs wood from 40% to 20%.
+-Decreased Arc Thrower damage vs concrete from 30% to 10%.
+-Decreased Arc Thrower splash damage from 100, 50, 25, 5 to 100, 25, 5.
+-Increased Crusader cost from 900$ to 1000$.
+-Increased Cossack cost from 1025$ to 1125$.
+-Increased Tiger cost from 1200$ to 1300$.
+-Increased Crusader machine gun reload time from 85 to 90.
+-Increased Cossack machine gun reload time from 85 to 90.
+-Increased Tiger machine gun reload time from 85 to 90.
+-Flak Track damage vs medium armour changed from 30 to 20.
+-Tankette speed decreased from 115 to 95.
+-All anti-air range circles removed.
+-Demo Trucks speed increased from 67 to 100.
+-Demo Truck HP increased from 2800 to 5000.
+-New model and icon for Demo Truck
+-New model for Squire
+-New Bishop Tank unit available by spying both Komintern and Mittel tech centers.
+-New Deacon Tank unit available by spying both Komintern and Entente tech centers.
+-New Presbyter Artillery unit available by spying both Entente and Mittel tech centers.
+
+Infantry
+-Decreased Arc Blaster splash damage from 100, 50, 25, 5 to 100, 25, 5.
+-Flak Trooper damage vs medium armour changed from 30 to 20.
+-All anti-air range circles removed.
+
+Aircraft
+-Decreased Hospitaller splash damage from 100, 50, 25, 5 to 100, 25, 5.
+
+Buildings
+-Morozko range increased from 8c0 to 9c0.
+-Increased Camo AA Gun cost from 900$ to 1000$.
+
+Bug fixes
+-Fixed infantry, vehicle and aircraft tooltips that said "- Strength" instead of "- Unarmed".
+-Fixed tech centers not being sabotable.
+-Propaganda Truck is no longer a selectable support unit.
+-Paramines support power fixed to drop infantry mines instead of parabombs.
+-Fixed Persia, Belarus and India not having proper MCV graphics.
+-Fixed USA's menu description to correctly say that USA's special ability is EMP Bomb
+
+Other changes
+-Changed The British Raj's display name to India.

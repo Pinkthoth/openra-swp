@@ -234,7 +234,7 @@ explosion:
 	dmexpld: dmexpld
 		Scale: 0.55
 		Tick: 10
-		Offset: 0,-5
+		Offset: 0,-50
 	dmexpld_sm: dmexpld
 		Scale: 0.3
 		Tick: 7

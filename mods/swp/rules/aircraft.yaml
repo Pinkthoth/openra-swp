@@ -375,7 +375,7 @@ SUPPORT.Bomber:
 	SpawnActorOnDeath:
 		Actor: TRANSPORTPLANE.Husk
 
-JUNKERS.Bomber:
+SUPPORT.Minebomber:
 	Inherits: BADR
 	-ParaDrop:
 	-Cargo:
@@ -1610,7 +1610,7 @@ TRAN:
 		Prerequisites: hpad, ~helicopter.allies, ~techlevel.medium
 		Description: Fast Infantry Transport Helicopter.
 	TooltipExtras:
-		Weaknesses: - Strength
+		Weaknesses: - Unarmed
 		Attributes: • Can transport up to 8 infantry units.
 	Valued:
 		Cost: 900
@@ -3229,7 +3229,7 @@ MI26:
 		Prerequisites: hpad, ~helicopter.soviet, ~techlevel.medium
 		Description: Infantry Transport Helicopter.
 	TooltipExtras:
-		Weaknesses: - Strength.
+		Weaknesses: - Unarmed.
 		Attributes: • Can transport up to 8 infantry units.
 	Valued:
 		Cost: 900
@@ -3292,7 +3292,7 @@ AIRCRANE:
 		Prerequisites: hpad, ~helicopter.zentrum, ~techlevel.medium
 		Description: Vehicle Transport Helicopter.
 	TooltipExtras:
-		Weaknesses: - Strength.
+		Weaknesses: - Unarmed.
 		Attributes: • Can transport one vehicle.
 	Valued:
 		Cost: 1000

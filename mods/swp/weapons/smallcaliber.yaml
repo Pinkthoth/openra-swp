@@ -130,6 +130,83 @@ AGGatling4:
 	ReloadDelay: 2
 	BurstDelays: 1
 
+PresbyterGatingStart:
+	Inherits: ^Gatling
+	Range: 6c0
+	-Report:
+	ReloadDelay: 1
+	BurstDelays: 1
+	Burst: 2
+	ValidTargets: GroundActor, Ground, Water, WaterActor, AirborneActor, AirborneBomber
+	Warhead@1Dam: SpreadDamage
+		Damage: 0
+		ValidTargets: GroundActor, Ground, Water, WaterActor, AirborneActor, AirborneBomber
+	-Warhead@2Eff:
+	-Warhead@3EffWater:
+
+PresbyterGatling:
+	Inherits: AGGatling
+	Warhead@1Dam: SpreadDamage
+		Damage: 1000
+	Report: vgatlo2a.wav, vgatlo2b.wav, vgatlo2c.wav
+
+PresbyterGatling2:
+	Inherits: AGGatling2
+	Warhead@1Dam: SpreadDamage
+		Damage: 1500
+		Versus:
+			None: 100
+			Light: 35
+			Medium: 25
+			Heavy: 15
+			Wood: 20
+			Concrete: 15
+	Report: vgatlo5a.wav, vgatlo5b.wav
+
+PresbyterGatling3:
+	Inherits: AGGatling3
+	Warhead@1Dam: SpreadDamage
+		Damage: 1500
+		Versus:
+			None: 100
+			Light: 35
+			Medium: 25
+			Heavy: 15
+			Wood: 20
+			Concrete: 15
+	Report: vgatlo8a.wav, vgatlo8b.wav
+
+PresbyterGatlingAA:
+	Inherits: AGGatling
+	ValidTargets: AirborneActor, AirborneBomber
+	Warhead@1Dam: SpreadDamage
+		Damage: 1500
+		Versus:
+			None: 100
+			Light: 35
+			Medium: 25
+			Heavy: 15
+			Wood: 20
+			Concrete: 15
+		ValidTargets: AirborneActor, AirborneBomber
+	Report: vgatlo2a.wav, vgatlo2b.wav, vgatlo2c.wav
+
+PresbyterGatling2AA:
+	Inherits: AGGatling2
+	ValidTargets: AirborneActor, AirborneBomber
+	Warhead@1Dam: SpreadDamage
+		Damage: 1000
+		ValidTargets: AirborneActor, AirborneBomber
+	Report: vgatlo5a.wav, vgatlo5b.wav
+
+PresbyterGatling3AA:
+	Inherits: AGGatling3
+	ValidTargets: AirborneActor, AirborneBomber
+	Warhead@1Dam: SpreadDamage
+		Damage: 1000
+		ValidTargets: AirborneActor, AirborneBomber
+	Report: vgatlo8a.wav, vgatlo8b.wav
+
 AGGatling_Hind:
 	Inherits: ^Gatling
 	ReloadDelay: 8
@@ -240,7 +317,7 @@ FLAK-23-AG:
 			None: 55
 			Wood: 20
 			Light: 45
-			Medium: 30
+			Medium: 20
 			Heavy: 10
 			Concrete: 5
 	Warhead@2Eff: CreateEffect
@@ -778,7 +855,7 @@ M1Carbine_elite:
 
 TankMachineGun:
 	Inherits: M1Carbine
-	ReloadDelay: 85
+	ReloadDelay: 90
 	Report: iarnattb.wav
 	Warhead@1Dam: SpreadDamage
 		Damage: 1800
