@@ -1025,7 +1025,6 @@
 	Inherits@magnetictrap: ^MagneticTrap
 	Inherits@magneticsuspension: ^MagneticSuspension
 	Inherits@berserkable: ^Berserkable
-	Inherits@sliced: ^Sliced
 	Inherits@flameshield: ^FlameShield
 	Inherits@lazarus: ^Lazarus
 	Inherits@chronohaste: ^ChronoHasteable
@@ -1072,6 +1071,8 @@
 		Types: Vehicle
 	GpsDot:
 		String: Vehicle
+	GpsRadarDot:
+		Sequence: Vehicle
 	WithDamageOverlay:
 	Guard:
 	Guardable:
@@ -1274,7 +1275,6 @@
 	Inherits@smoked: ^Smoked
 	Inherits@berserkable: ^Berserkable
 	Inherits@OfficerNearby: ^OfficerNearby
-	Inherits@sliced: ^Sliced
 	Inherits@lazarus: ^Lazarus
 	Inherits@chronohaste: ^ChronoHasteable
 	Inherits@flarevision: ^FlareVision
@@ -1287,8 +1287,6 @@
 		Weapon: ChronoExplosionSM
 		EmptyWeapon: ChronoExplosionSM
 		DeathTypes: ChronoDeath
-	AmbientSound@sliced:
-		SoundFiles: meatslice.wav, meastslice2.wav, meatslice3.wav, meatslice4.wav
 	Huntable:
 	OwnerLostAction:
 		Action: Kill
@@ -1342,6 +1340,8 @@
 	ActorLostNotification:
 	GpsDot:
 		String: Infantry
+	GpsRadarDot:
+		Sequence: Infantry
 	Crushable:
 		CrushSound: squishy2.aud
 	Guard:
@@ -1492,7 +1492,6 @@
 	Inherits@handicaps: ^PlayerHandicaps
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@emdamaged: ^EMDamaged
-	Inherits@sliced: ^Sliced
 	Inherits@lazarus: ^Lazarus
 	Inherits@chronohaste: ^ChronoHasteable
 	Inherits@flarevision: ^FlareVision
@@ -1530,6 +1529,8 @@
 		RepairActors: spen, syrd
 	GpsDot:
 		String: Ship
+	GpsRadarDot:
+		Sequence: Ship
 	WithDamageOverlay:
 	Explodes:
 		Weapon: UnitExplodeShip
@@ -1614,6 +1615,8 @@
 		ChuteSound: chute1.aud
 	GpsDot:
 		String: Plane
+	GpsRadarDot:
+		Sequence: Plane
 	Tooltip:
 		GenericName: Plane
 	WithShadow:
@@ -1672,6 +1675,8 @@
 		CruiseAltitude: 2c516
 	GpsDot:
 		String: Helicopter
+	GpsRadarDot:
+		Sequence: Helicopter
 	Hovers@CRUISING:
 		RequiresCondition: cruising
 	Targetable@AIRBORNE:
@@ -1690,7 +1695,6 @@
 	Inherits@bounty: ^GlobalBounty
 	Inherits@selection: ^SelectableBuilding
 	Inherits@handicaps: ^PlayerHandicaps
-	Inherits@sliced: ^Sliced
 	Inherits@warp: ^Warpable
 	Inherits@freezable: ^Freezable
 	Explodes@chrono:
@@ -1767,6 +1771,8 @@
 		RequiredForShortGame: true
 	GpsDot:
 		String: Structure
+	GpsRadarDot:
+		Sequence: Structure
 	Demolishable:
 		Condition: being-demolished
 	Sellable:
@@ -1941,7 +1947,7 @@
 	-WithBuildingBib:
 	Cargo:
 		Types: Infantry
-		MaxWeight: 4
+		MaxWeight: 1
 		LoadedCondition: garrisoned
 	AttackGarrisoned:
 		Armaments: garrisoned
@@ -1963,24 +1969,28 @@
 		Sequence: flag
 		RequiresCondition: garrisoned
 		IsPlayerPalette: True
-		Offset: 0,0,1000
+		Offset: 0,0,750
 		Palette: player
 	-CommandBarBlacklist:
 	SoundOnDamageTransition:
 		DestroyedSounds: crumble_bld.aud
 	RevealsShroud:
 		Range: 5c0
+		RequiresCondition: garrisoned
 	RevealsShroud@GAPGEN:
 		Range: 1c0
 		Type: GroundPosition
+		RequiresCondition: garrisoned
 	Targetable@target:
 		TargetTypes: Defense
-		RequiresCondition:  !being-warped
+		RequiresCondition: !being-warped
 
 ^GarrisonableCivBuildingDesert:
 	Inherits: ^GarrisonableCivBuilding
 	RenderSprites:
 		Palette: tempdecs
+	WithIdleOverlay@flag:
+		Offset: 0,0,550
 
 ^CivBuilding:
 	Inherits: ^TechBuilding
@@ -2179,6 +2189,12 @@
 		DeployedCondition: deployed
 	Voiced:
 		VoiceSet: HoloVoice
+	RevealsShroud:
+		Range: 1c512
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 1c0
+		Type: GroundPosition
 
 ^MirageSpawn:
 	Inherits: ^EmpDisable
@@ -2671,15 +2687,6 @@
 		TargetTypes: NerveGasable
 	ExternalCondition@nervegas:
 		Condition: nervegas
-
-^Sliced:
-	ExternalCondition@SLICED:
-		Condition: sliced
-	AmbientSound@sliced:
-		SoundFiles: slice1.aud, slice2.aud, slice3.aud, slice4.aud, slice5.aud
-		Delay: 0
-		Interval: 5
-		RequiresCondition: sliced
 
 ^Propaganda:
 	ExternalCondition@PROPAGANDA:

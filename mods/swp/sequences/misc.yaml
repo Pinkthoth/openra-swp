@@ -106,17 +106,17 @@ magneticshield:
 		Start: 22
 		Length: 90
 		Tick: 150
-		Scale: 0.6
+		Scale: 0.4
 	make:
 		Start: 0
 		Length: 22
 		Tick: 150
-		Scale: 0.6
+		Scale: 0.4
 	die:
 		Start: 112
 		Length: 28
 		Tick: 100
-		Scale: 0.6
+		Scale: 0.4
 
 spydish:
 	idle:

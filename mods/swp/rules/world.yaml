@@ -173,7 +173,7 @@
 			Beach: 70
 	Locomotor@SAUCERHOVER:
 		Name: hover
-		Crushes: wall, infantry, crate
+		Crushes: crate
 		TerrainSpeeds:
 			Clear: 100
 			Pavement: 100
@@ -216,7 +216,7 @@
 		Name: Britain
 		InternalName: england
 		Side: Entente
-		Description: Kingdom of Great Britain\nFocus: Special Operations and Intelligence\n\nSpecial Infantry: Commando\nSpecial Vehicle: Warthog\nSpecial Infantry: Sniper\nSpecial Aircraft: Harrier\nSpecial Building: MI6 Command Post\nSpecial Ability: Radar Scan
+		Description: Kingdom of Great Britain\nFocus: Special Operations and Intelligence\n\nSpecial Infantry: Commando\nSpecial Vehicle: Warthog\nSpecial Infantry: Sniper\nSpecial Vehicle: Mobile Array\nSpecial Building: MI6 Command Post\nSpecial Ability: Radar Scan
 	Faction@2:
 		Name: France
 		InternalName: france
@@ -452,6 +452,12 @@ World:
 		TerrainFlashImage: moveflsh
 		TerrainFlashSequence: idle
 		TerrainFlashPalette: moveflash
+	TintedCellsLayer@VEIL:
+		Color: 262626
+		Brightest: 250
+		FadeoutDelay: 2
+		ZOffset: 100
+		Name: veil.color
 
 EditorWorld:
 	Inherits: ^BaseWorld

@@ -149,10 +149,10 @@ FACT:
 		UseDeathTypeSuffix: false
 	ProvidesPrerequisite@buildingname:
 	HitShape:
-		TargetableOffsets: 1273,939,0, -980,-640,0, -980,640,0
-		Type: Rectangle
-			TopLeft: -1536, -1536
-			BottomRight: 1536, 1536
+		TargetableOffsets: 840,0,0, 598,-640,0, 598,640,0, -1060,0,0, -768,-640,0, -768,640,0, 0,0,0
+		Type: Polygon
+			Points: -1536,-300, -640,-811, 640,-811, 1536,-300, 1536,555, 640,1110, -640,1110, -1536,555
+		UseTargetableCellsOffsets: False
 	ConyardChronoReturn:
 		ReturnOriginalActorOnCondition: build-incomplete
 		Condition: chrono-vortex
@@ -242,7 +242,7 @@ MSLO:
 		ArrowSequence: arrow
 		ClockSequence: clock
 		CircleSequence: circles
-		SupportPowerPaletteOrder: 70
+		SupportPowerPaletteOrder: 0
 		MissileImage: atomic
 	SupportPowerChargeBar:
 	InfiltrateForSupportPowerReset:
@@ -426,7 +426,7 @@ SYRD:
 	MapEditorData:
 		ExcludeTilesets: INTERIOR
 	HitShape:
-		TargetableOffsets: 768,0,0, 768,-1024,0, 768,1024,0
+		TargetableOffsets: 768,0,0, 768,-1024,0, 768,1024,0, 0,0,0
 		Type: Rectangle
 			TopLeft: -1536, -1152
 			BottomRight: 1536, 598
@@ -492,7 +492,7 @@ IRON:
 		DisplayRadarPing: True
 		Condition: invulnerability
 		OnFireSound: ironcur9.aud
-		SupportPowerPaletteOrder: 10
+		SupportPowerPaletteOrder: 1
 		Dimensions: 2, 2
 		Footprint: xx xx
 	SupportPowerChargeBar:
@@ -562,7 +562,7 @@ PDOX:
 		Duration: 400
 		KillCargo: true
 		DisplayRadarPing: True
-		SupportPowerPaletteOrder: 20
+		SupportPowerPaletteOrder: 1
 		Dimensions: 3, 3
 		Footprint: xxx xxx xxx
 	SupportPowerChargeBar:
@@ -672,7 +672,7 @@ REFTWR:
 	WithTeslaChargeAnimation:
 	Armament:
 		Weapon: PrismTower
-		LocalOffset: 0,0,1500
+		LocalOffset: 0,0,1100
 		PauseOnCondition: disabled || turnedoff
 	AttackCharges:
 		PauseOnCondition: disabled || build-incomplete || turnedoff
@@ -973,6 +973,9 @@ DOME:
 	ProvidesPrerequisite@france:
 		Factions: france
 		Prerequisite: support.france
+	ProvidesPrerequisite@ukraine:
+		Factions: ukraine
+		Prerequisite: support.ukraine
 	SpawnActorPower@RadarScan:
 		Actor: RADARSCAN
 		LifeTime: 255
@@ -1153,7 +1156,7 @@ DOME:
 		OneShot: false
 		CameraRemoveDelay: 350
 		AllowMultiple: false
-		SupportPowerPaletteOrder: 65
+		SupportPowerPaletteOrder: 2
 		LaunchSpeechNotification: ArtbrgNotification
 		IncomingSpeechNotification: ArtbrgNotification
 		EndChargeSpeechNotification: ArtbrgReady
@@ -1180,10 +1183,11 @@ DOME:
 		CircleSequence: circles
 		UseDirectionalTarget: True
 		DirectionArrowAnimation: paradirection
-		SupportPowerPaletteOrder: 75
+		SupportPowerPaletteOrder: 2
 		EndChargeSpeechNotification: AirstrikeReady
 		IncomingSpeechNotification: AirstrikeIncoming
 	NukePower@v3missile:
+		SupportPowerPaletteOrder: 2
 		OrderName: V3Missile
 		PauseOnCondition: turnedoff || disabled
 		Cursor: ability
@@ -1225,7 +1229,7 @@ DOME:
 		AirburstAltitude: 4c512
 		AllowMultiple: false
 		CameraActor: camera
-		CameraRemoveDelay: 125
+		CameraRemoveDelay: 0
 		SelectTargetSpeechNotification: SelectTarget
 		PauseOnCondition: disabled || turnedoff
 		DisplayTimerRelationships: None
@@ -1246,7 +1250,7 @@ DOME:
 		Duration: 500
 		SelectTargetSpeechNotification: SelectTarget
 		InsufficientPowerSpeechNotification: InsufficientPower
-		EndChargeSpeechNotification: IronCurtainReady
+		EndChargeSpeechNotification: SupportPowerReady
 		DisplayRadarPing: True
 		Condition: mindblast
 		OnFireSound: ironcur9.aud
@@ -1501,7 +1505,7 @@ ACADEMY:
 		Produces: Clones
 		PauseOnCondition: being-captured || turnedoff || disabled
 	PeriodicProducer:
-		Actors: spy.mi6
+		Actors: spy.mi6.clone
 		Type: Clones
 		ChargeDuration: 3000
 		ShowSelectionBar: True
@@ -1571,7 +1575,7 @@ RECRUITMENTOFFICE:
 		Produces: Clones
 		PauseOnCondition: being-captured || turnedoff
 	PeriodicProducerWithPrice:
-		Actors: militia, militia
+		Actors: militia.clone, militia.clone
 		Type: Clones
 		Price: 100
 		ChargeDuration: 750
@@ -2315,7 +2319,7 @@ ADEPT:
 	ProvidesPrerequisite@domeoradept:
 		Prerequisite: domeoradept
 	HitShape:
-		TargetableOffsets: 1273,939,0, -980,-640,0, -980,640,0
+		TargetableOffsets: 1273,939,0, -980,-640,0, -980,640,0, 0,0,0
 		Type: Rectangle
 			TopLeft: -1536, -1536
 			BottomRight: 1536, 1536
@@ -2664,9 +2668,9 @@ PROC:
 	Tooltip:
 		Name: Ore Refinery
 	Building:
-		Footprint: =x= =+= =x=
+		Footprint: ==x x+x x==
 		Dimensions: 3,3
-		LocalCenterOffset: 0,0,0
+		LocalCenterOffset: 112,-112,0
 	Selectable:
 		Bounds: 2672, 2615, 0, -241
 		DecorationBounds: 2825, 2825, 30, -241
@@ -2709,7 +2713,8 @@ PROC:
 		UseDeathTypeSuffix: false
 	ProvidesPrerequisite@buildingname:
 	HitShape:
-		TargetableOffsets: 840,0,0, 598,-640,0, 598,640,0, -1060,0,0, -768,-640,0, -768,640,0
+		UseTargetableCellsOffsets: False
+		TargetableOffsets: 840,0,0, 598,-640,0, 598,640,0, -1060,0,0, -768,-640,0, -768,640,0, 0,0,0
 		Type: Polygon
 			Points: -1536,-300, -640,-811, 640,-811, 1536,-300, 1536,555, 640,1110, -640,1110, -1536,555
 	SequencePlaceBuildingPreview:
@@ -3259,7 +3264,10 @@ APWR:
 	ProductionTimeMultiplier@basediscount:
 		Multiplier: 85
 	HitShape:
-		TargetableOffsets: -355,-1024,0
+		TargetableOffsets: 840,0,0, 598,-640,0, 598,640,0, -1060,0,0, -768,-640,0, -768,640,0, 0,0,0
+		Type: Polygon
+			Points: -1536,-300, -640,-811, 640,-811, 1536,-300, 1536,555, 640,1110, -640,1110, -1536,555
+		UseTargetableCellsOffsets: False
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 110
@@ -3316,8 +3324,6 @@ STEK:
 	Inherits@discount: ^BuildTimeDiscount
 	Selectable:
 		Bounds: 2696, 2696
-	HitShape:
-		TargetableOffsets: 420,-768,0, 420,768,0, -770,-768,0, -770,768,0
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 150
@@ -3536,7 +3542,7 @@ FIX:
 		Dimensions: 3,3
 	Selectable:
 		Bounds: 2051, 2051, 0, 181
-		DecorationBounds: 2172, 2896
+		DecorationBounds: 2896, 2896
 	Health:
 		HP: 80000
 	Armor:
@@ -3562,7 +3568,7 @@ FIX:
 		Amount: -30
 	ProvidesPrerequisite@buildingname:
 	HitShape:
-		TargetableOffsets: 840,0,0, 598,-640,0, 598,640,0, -1060,0,0, -768,-640,0, -768,640,0
+		TargetableOffsets: 840,0,0, 598,-640,0, 598,640,0, -1060,0,0, -768,-640,0, -768,640,0, 0,0,0
 		Type: Polygon
 			Points: -1536,-300, -640,-811, 640,-811, 1536,-300, 1536,555, 640,1110, -640,1110, -1536,555
 	RenderSprites:
@@ -3671,7 +3677,7 @@ UPLINK:
 		Description: Reveals map terrain and provides tactical\ninformation. Requires power and active radar.
 		RevealDelay: 1
 		DisplayTimerRelationships: Ally, Neutral, Enemy
-		SupportPowerPaletteOrder: 90
+		SupportPowerPaletteOrder: 1
 		RequiresCondition: gpsactivated
 		StartFullyCharged: True
 		RequiresActiveRadar: False
@@ -3688,7 +3694,7 @@ UPLINK:
 		Type: GPSPower
 		ChargeInterval: 3500
 		OrderName: GPSSpawner
-		SupportPowerPaletteOrder: 20
+		SupportPowerPaletteOrder: 1
 		LaunchSpeechNotification: SatelliteInitialzed
 		DisplayTimerRelationships: None
 		EndChargeSpeechNotification: SatelliteReady
@@ -3768,7 +3774,7 @@ STHGEN:
 		DisplayRadarPing: True
 		Condition: stealth
 		OnFireSound: ironcur9.aud
-		SupportPowerPaletteOrder: 10
+		SupportPowerPaletteOrder: 1
 		Dimensions: 5, 5
 		Footprint: _xxx_ xxxxx xxxxx xxxxx _xxx_
 		Weapon: StealthShield
@@ -3842,6 +3848,7 @@ EMPGUN:
 		Description: Fires a pulse blast which disables\nall mechanical units in the area.
 		SelectTargetSpeechNotification: SelectTarget
 		EndChargeSpeechNotification: EMPulseReady
+		SupportPowerPaletteOrder: 1
 	InfiltrateForSupportPowerReset:
 		Types: SpyInfiltrate
 	Targetable:
@@ -3907,6 +3914,7 @@ SRIMP:
 		EndChargeSpeechNotification: VeilReady
 		EffectImage: empty
 		EffectSequence: idle
+		SupportPowerPaletteOrder: 1
 	SupportPowerChargeBar:
 	Tooltip:
 		Name: Veil Projector

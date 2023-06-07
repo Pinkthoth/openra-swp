@@ -129,6 +129,7 @@ SaucerBolt:
 	ReloadDelay: 120
 	Range: 6c0
 	Report: magray.aud
+	InvalidTargets: Structure
 	Projectile: Railgun
 		BeamWidth: 0c30
 		BeamColor: AE8EFF
@@ -142,6 +143,30 @@ SaucerBolt:
 		Damage: 6000
 		Versus:
 			None: 35
+
+SaucerBoltBuilding:
+	Inherits: ^MagneticWeapon
+	Range: 0c01
+	ReloadDelay: 1
+	ValidTargets: Structure
+	Warhead@disb: GrantExternalCondition
+		Range: 0c01
+		Duration: 21
+		Condition: magneticsuspension
+		ValidTargets: Structure
+	Projectile: Railgun
+		Inaccuracy: 0c0
+		BeamWidth: 0c30
+		BeamColor: AE8EFF
+		HelixAngleDeltaPerTick: 16
+		HelixAlphaDeltaPerTick: -15
+		HelixPitch: 0c512
+		HelixRadius: 0c64
+		QuantizationCount: 16
+		Duration: 10
+	Warhead@1: SpreadDamage
+		Damage: 0
+		ValidTargets: Structure
 
 ElectricBolt:
 	Inherits: ^ElectricBoltWeapon
@@ -315,8 +340,9 @@ Flamer:
 		LaunchAngle: 62
 		Inaccuracy: 853
 	Warhead@1Dam: SpreadDamage
-		Spread: 341
+		Spread: 0c216
 		Damage: 1000
+		Falloff: 100,65,30,10 ,0
 		Versus:
 			None: 70
 			Wood: 70
@@ -429,8 +455,8 @@ TruckToxxer:
 	Burst: 20
 	ReloadDelay: 75
 	Warhead@1Dam: SpreadDamage
-		Damage: 2000
-		Falloff: 200, 100, 150, 100, 50, 25, 10, 5
+		Damage: 1800
+		Falloff: 180, 150, 130, 100, 50, 25
 
 TeslaZap:
 	Inherits: ^TeslaWeapon

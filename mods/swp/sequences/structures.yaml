@@ -1054,7 +1054,7 @@ eproc:
 
 mproc:
 	Defaults:
-		Offset: 1,-10,0
+		Offset: 3,-10,0
 	idle:
 		ZOffset: -1000
 	damaged-idle:

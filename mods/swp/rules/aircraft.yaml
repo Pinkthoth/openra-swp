@@ -10,7 +10,7 @@ BADR:
 		HP: 40000
 	Aircraft:
 		TurnSpeed: 20
-		Speed: 180
+		Speed: 100
 		Repulsable: False
 		MaximumPitch: 56
 	Cargo:
@@ -133,7 +133,7 @@ AGUILA.Interceptor:
 		OpportunityFire: True
 	Aircraft:
 		TurnSpeed: 25
-		Speed: 140
+		Speed: 125
 		RepulsionSpeed: 40
 		MaximumPitch: 56
 		IdleTurnSpeed: 5
@@ -437,7 +437,7 @@ THUNDERBOLT.Bomber:
 		Weapon: EMPBomb
 	Aircraft:
 		TurnSpeed: 16
-		Speed: 230
+		Speed: 185
 		RepulsionSpeed: 40
 		MaximumPitch: 56
 	SpawnActorOnDeath:
@@ -595,10 +595,8 @@ MIG:
 	Selectable:
 		Bounds: 1406, 1406, 0, 120
 		DecorationBounds: 1406, 1406, 0, 60
-	Contrail@1:
-		Offset: -598,-683,0
-	Contrail@2:
-		Offset: -598,683,0
+	Contrail:
+		Offset: -853,0,0
 	SpawnActorOnDeath:
 		Actor: MIG.Husk
 	LeavesTrails:
@@ -1548,7 +1546,7 @@ HEAVYFIGHTER:
 		OpportunityFire: False
 	Aircraft:
 		TurnSpeed: 16
-		Speed: 115
+		Speed: 125
 		RepulsionSpeed: 40
 		MaximumPitch: 56
 	AutoTarget:
@@ -1630,7 +1628,7 @@ TRAN:
 		Type: GroundPosition
 	Aircraft:
 		TurnSpeed: 20
-		Speed: 128
+		Speed: 100
 		AltitudeVelocity: 0c58
 	WithIdleOverlay@ROTOR1AIR:
 		Offset: 597,0,213
@@ -1700,7 +1698,7 @@ HELI:
 		RealignDelay: 10
 	Aircraft:
 		TurnSpeed: 16
-		Speed: 149
+		Speed: 135
 	AutoTarget:
 		InitialStance: HoldFire
 		InitialStanceAI: HoldFire
@@ -1754,7 +1752,7 @@ SAUCER:
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles.
 		Weaknesses: - Weak vs Aircraft, Infantry.
-		Attributes: • Deploy to levitate just above ground damaging nearby target.\n• Does not use ammo.
+		Attributes: • Can disable enemy buildings.\n• Does not use ammo.
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -1776,6 +1774,10 @@ SAUCER:
 	Armament@PRIMARY:
 		Weapon: SaucerBolt
 		LocalOffset: 0,0,-50
+		PauseOnCondition: attacking
+	Armament@SECONDARY:
+		Weapon: SaucerBoltBuilding
+		Name: secondary
 	AttackTurreted:
 	Turreted:
 	-WithFacingSpriteBody:
@@ -1802,88 +1804,18 @@ SAUCER:
 		Prerequisites: aircraft.upgraded
 	Selectable:
 		DecorationBounds: 1406, 1406
-	Transforms:
-		IntoActor: saucer.ground
-		Offset: 0,0
-		Facing: 384
-		TransformSounds: electr.aud, electr.aud
-		NoTransformNotification: BuildingCannotPlaceAudio
-	InstantTransforms:
-		IntoActor: saucer.ground
-		RequiresCondition: !airborne
-	TransformOnCondition:
-		IntoActor: saucer.ground
-		RequiresCondition: !airborne
 	Hovers:
 		InitialHeight: 0c25
-	TransferTimedExternalConditionOnTransform:
-		Condition: invulnerability
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
-
-SAUCER.Ground:
-	Inherits: ^Vehicle
-	Inherits@GAINSEXPERIENCE: ^GainsExperience
-	-ExternalCondition@CRUSHATTEMPT:
-	-ExternalCondition@CRUSHSUCCESFUL:
-	-SpeedMultiplier@CRUSHATTEMPT:
-	-SpeedMultiplier@CRUSHSUCCESFUL:
-	Valued:
-		Cost: 500
-	Tooltip:
-		Name: Saucer
-	Health:
-		HP: 30000
-	Armor:
-		Type: Heavy
-	Mobile:
-		Speed: 80
-		TurnSpeed: 40
-		Locomotor: hover
-	RevealsShroud:
-		Range: 4c0
-	RenderSprites:
-		Image: saucer
-	-WithFacingSpriteBody:
-	WithSpriteBody:
-		Sequence: idlefast
-	Transforms:
-		IntoActor: saucer
-		Offset: 0,0
-		Facing: 384
-		TransformSounds: electr.aud, electr.aud
-		NoTransformNotification: BuildingCannotPlaceAudio
-	PeriodicExplosion@slice:
-		Weapon: SaucerSlicer
-		LocalOffset: 0,0,0
-	WithShadow:
-	SpawnActorOnDeath:
-		Actor: SAUCER.Ground.Husk
-	Targetable:
-		TargetTypes: GroundActor, Repair, Saucer
-	Hovers:
-		InitialHeight: 0c25
-	ProximityExternalCondition@sliced:
-		Condition: sliced
-		Range: 1c900
-		ValidRelationships: Ally, Enemy, Neutral
-	TransferTimedExternalConditionOnTransform:
-		Condition: invulnerability
-	WithIdleOverlay:
-		Image: pulsecircle
-		Sequence: idle
-		Palette: tseffects-alpha
-	GrantChargingConditionFull:
-		Condition: charged
-		MaxCharge: 250
-		ChargingColor: D20CFF
-	TransformOnCondition:
-		IntoActor: saucer
-		RequiresCondition: charged
 	AmbientSound@float:
 		SoundFiles: ufofloat.wav
 		Interval: 148
-	-MapEditorData:
+		RequiresCondition: attacking
+	GrantConditionOnAttack:
+		ArmamentNames: secondary
+		Condition: attacking
+		RevokeDelay: 25
 
 HIND:
 	Inherits: ^Helicopter
@@ -1918,7 +1850,6 @@ HIND:
 		Weapon: Hind227mm
 		LocalOffset: 85,213,-85, 85,-213,-85
 		PauseOnCondition: !ammo || !airborne
-		RequiresCondition: ammo
 	AttackTurreted:
 		Armaments: primary, secondary, tertiary
 	WithSpriteTurret:
@@ -2117,7 +2048,7 @@ GEBARD:
 		RealignDelay: 10
 	Aircraft:
 		TurnSpeed: 16
-		Speed: 130
+		Speed: 112
 	AutoTarget:
 		InitialStance: HoldFire
 		InitialStanceAI: HoldFire
@@ -2427,7 +2358,7 @@ TEUTON:
 		RealignDelay: 10
 	Aircraft:
 		TurnSpeed: 16
-		Speed: 112
+		Speed: 95
 	AutoTarget:
 		InitialStance: HoldFire
 		InitialStanceAI: HoldFire
@@ -2644,6 +2575,7 @@ MSRSMT:
 		
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
+
 MSRSMT.Husk:
 	Inherits: ^PlaneHusk
 	Tooltip:
@@ -2805,7 +2737,7 @@ STRMVGL:
 	Valued:
 		Cost: 2100
 	Tooltip:
-		Name: Sturmvogel
+		Name: Stormbird
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
@@ -2867,9 +2799,9 @@ STRMVGL:
 		PipCount: 4
 		EmptySequence: pip-emptyammo
 		FullSequence: pip-missile
-		
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
+
 STRMVGL.Husk:
 	Inherits: ^PlaneHusk
 	Tooltip:
@@ -2977,7 +2909,7 @@ HARRIER:
 		Queue: Aircraft
 		BuildAtProductionType: Plane
 		BuildPaletteOrder: 610
-		Prerequisites: atek, ~afld, ~aircraft.england, ~techlevel.medium
+		Prerequisites: ~disabled
 		Description: Fast anti-aircraft fighter.
 	TooltipExtras:
 		Strengths: + Strong vs Aircraft.
@@ -3249,7 +3181,7 @@ MI26:
 		Type: GroundPosition
 	Aircraft:
 		TurnSpeed: 20
-		Speed: 128
+		Speed: 100
 		AltitudeVelocity: 0c58
 	-WithFacingSpriteBody:
 	WithShadow:
@@ -3312,7 +3244,7 @@ AIRCRANE:
 		Type: GroundPosition
 	Aircraft:
 		TurnSpeed: 20
-		Speed: 112
+		Speed: 90
 		AltitudeVelocity: 0c58
 	-WithFacingSpriteBody:
 	WithShadow:
@@ -3352,7 +3284,7 @@ TRANSUPPORT:
 		HP: 20000
 	Aircraft:
 		TurnSpeed: 20
-		Speed: 128
+		Speed: 100
 		AltitudeVelocity: 1c0
 		Repulsable: False
 	-WithFacingSpriteBody:
@@ -3434,7 +3366,7 @@ ZEPPELIN:
 		CruiseAltitude: 6c0
 	AttackAircraft:
 	AmmoPool:
-		Ammo: 10
+		Ammo: 8
 		Armaments: primary
 		AmmoCondition: ammo
 		Name: primary

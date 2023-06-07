@@ -145,6 +145,7 @@ Player:
 	DeveloperMode:
 		CheckboxDisplayOrder: 10
 	GpsWatcher:
+	GpsRadarWatcher:
 	Shroud:
 		FogCheckboxDisplayOrder: 3
 		ExploredMapCheckboxEnabled: True

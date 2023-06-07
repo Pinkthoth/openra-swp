@@ -203,16 +203,36 @@ ttnk:
 	icon: ttnkicon
 
 ftrk:
-	idle:
+	idle: flaktruck
 		Facings: 32
 		UseClassicFacings: True
-	turret:
+	turret: flaktruck
 		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	turret-ag: flaktruck
+		Start: 64
 		Facings: 32
 		UseClassicFacings: True
 	muzzle: gunfire2
 		Length: 2
 	icon: ftrkicon
+
+mobilearray:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	make:
+		Start: 33
+		Facings: 1
+		Length: 15
+		Tick: 150
+	deployed:
+		Facings: 1
+		Start: 48
+		Length: 16
+		Tick: 100
+	icon: mobilearrayicon
 
 ententeaa:
 	idle:
@@ -358,7 +378,7 @@ puma:
 		Facings: 32
 		UseClassicFacings: True
 	turret:
-		Start: 33
+		Start: 32
 		Facings: 32
 		UseClassicFacings: True
 	muzzle: gunfire2
@@ -1236,8 +1256,8 @@ bggy:
 	idle:
 		Facings: 32
 		UseClassicFacings: True
-	turret: khanlauncher
-		Start: 0
+	turret:
+		Start: 32
 		Facings: 32
 		UseClassicFacings: True
 	muzzle: minigun

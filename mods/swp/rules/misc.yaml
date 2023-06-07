@@ -634,8 +634,8 @@ MAGNETBLOCK:
 	RenderSpritesEditorOnly:
 		Image: camera
 	Building:
-		Footprint: _xxx_ xxxxx xxxxx xxxxx _xxx_
-		Dimensions: 5,5
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
 	-MapEditorData:
 	KillsSelf:
 		Delay: 250
@@ -661,7 +661,7 @@ MAGNETICSUSPENSION:
 		Delay: 250
 	ProximityExternalCondition@magneticsuspension:
 		Condition: magneticsuspension
-		Range: 2c512
+		Range: 2c206
 		ValidRelationships: Ally, Neutral, Enemy
 	AmbientSound:
 		SoundFiles: magnetic_sound.aud

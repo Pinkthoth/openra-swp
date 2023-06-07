@@ -12,7 +12,7 @@ HARV:
 		Description: Collects Ore and Gems for processing.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
-		Attributes: • Collects resources.
+		Attributes: • Collects resources.\n• Heals itself to 50% health.
 	Valued:
 		Cost: 1100
 	Tooltip:
@@ -22,8 +22,8 @@ HARV:
 		DecorationBounds: 1589, 1589
 	Harvester:
 		Resources: Ore,Gems
-		Capacity: 20
-		BaleLoadDelay: 12
+		Capacity: 30
+		BaleLoadDelay: 10
 		BaleUnloadDelay: 1
 		SearchFromProcRadius: 13
 		SearchFromHarvesterRadius: 8
@@ -514,7 +514,7 @@ PUMA:
 		Range: 4c0
 	Turreted:
 		TurnSpeed: 28
-		Offset: 100,0,270
+		Offset: 90,0,260
 	Armament:
 		Weapon: 25mm
 		Recoil: 85
@@ -1153,21 +1153,29 @@ FTRK:
 		Range: 4c0
 	Turreted:
 		TurnSpeed: 40
-		Offset: -278,0,345
+		Offset: -250,0,290
 	Armament@AA:
 		Weapon: FLAK-23-AA
 		Recoil: 85
-		LocalOffset: 512,0,192
+		LocalOffset: 812,0,172
 		MuzzleSequence: muzzle
 	Armament@AG:
+		Name: secondary
 		Weapon: FLAK-23-AG
 		Recoil: 85
-		LocalOffset: 512,0,192
+		LocalOffset: 812,0,232
 		MuzzleSequence: muzzle
+	GrantConditionOnAttack@ag:
+		Condition: ag_attacking
+		ArmamentNames: secondary
 	AttackTurreted:
 		PauseOnCondition: turnedoff
 	WithMuzzleOverlay:
 	WithSpriteTurret:
+		RequiresCondition: !ag_attacking
+	WithSpriteTurret@ag:
+		RequiresCondition: ag_attacking
+		Sequence: turret-ag
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	Selectable:
@@ -1261,7 +1269,7 @@ TRAKTOR:
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles.
 		Weaknesses: - Weak vs Infantry, Aircraft.
-		Attributes: • Slows targeted unit to a crawl.\• Can only target vehicles.
+		Attributes: • Slows targeted unit to a crawl.\n• Can only target vehicles.
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -1421,7 +1429,7 @@ MARAUDER:
 		Range: 4c0
 	Turreted:
 		TurnSpeed: 40
-		Offset: -300,0,190
+		Offset: -300,0,230
 	Armament:
 		Weapon: 227mm-Marauder
 		LocalOffset: 171,0,60
@@ -1788,7 +1796,7 @@ T100:
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Tanks.
 		Weaknesses: - Weak vs Nothing.
-		Attributes: • Can crush concrete walls.
+		Attributes: • Can crush concrete walls.\n• Heals itself to 50% health.
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -1855,7 +1863,7 @@ MONSTERTANK:
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Tanks.
 		Weaknesses: - Weak vs Aircraft.
-		Attributes: • Can crush concrete walls.\n• Only available by spying both Komintern and Zentrum tech centers.
+		Attributes: • Can crush concrete walls.\n• Heals itself to 50% health.\n• Only available by spying both Komintern and Zentrum tech centers.
 	Valued:
 		Cost: 2500
 	Tooltip:
@@ -4378,7 +4386,7 @@ HELGA:
 		ImmovableCondition: !undeployed
 		RequireForceMoveCondition: !undeployed
 	RevealsShroud:
-		Range: 9c0
+		Range: 6c0
 		MaxHeightDelta: 3
 	RenderSprites:
 		Image: bigbertha
@@ -4449,6 +4457,102 @@ HELGA.Husk:
 		IntoActor: HELGA
 	RenderSprites:
 		Image: bigbertha
+
+MOBILEARRAY:
+	Inherits: ^TrackedVehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@poweroff: ^DisableOnLowPower
+	WithColoredOverlay@IDISABLE:
+		RequiresCondition: deployed && (disabled || turnedoff) && !being-warped
+		Color: 000000B4
+	Tooltip:
+		Name: Mobile Array
+		RequiresCondition: !deployed
+	Tooltip@DEPLOYED:
+		Name: Mobile Array (deployed)
+		RequiresCondition: deployed
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 330
+		Prerequisites: atek, ~vehicles.england, ~techlevel.high
+		Description: Provides local GPS when delpyed.
+	TooltipExtras:
+		Weaknesses: - Unarmed.
+		Attributes: • Deploy to provide local GPS.\n• Uses 200 power when deployed.
+	Valued:
+		Cost: 2000
+	Health:
+		HP: 40000
+	Armor:
+		Type: Light
+	Selectable:
+		DecorationBounds: 1589, 1589, 0, -221
+	Mobile:
+		Speed: 45
+		TurnSpeed: 10
+		ImmovableCondition: !undeployed
+		RequireForceMoveCondition: !undeployed
+	RevealsShroud:
+		Range: 6c0
+		MaxHeightDelta: 3
+	RenderSprites:
+		Image: mobilearray
+	GrantConditionOnDeploy:
+		DeployedCondition: deployed
+		UndeployedCondition: undeployed
+		UndeployOnMove: true
+		UndeployOnPickup: true
+		Facing: 384
+		AllowedTerrainTypes: Clear, Road, Rough, Ore, Beach, Gems
+		DeploySounds: place2.aud
+		UndeploySounds: clicky1.aud
+		Voice: Action
+	Repairable:
+		RequireForceMoveCondition: !undeployed
+	Passenger:
+		RequireForceMoveCondition: !undeployed
+	WithFacingSpriteBody:
+		RequiresCondition: !deployed
+	WithIdleOverlay:
+		RequiresCondition: deployed
+		Sequence: deployed
+		PauseOnCondition: disabled || empdisable || being-warped
+	WithMakeAnimation:
+	RangedGpsRadarProvider:
+		Range: 20c0
+		TargetTypes: Infantry, Vehicle, Structure
+		RequiresCondition: deployed && !(disabled || empdisable || being-warped)
+	Power:
+		Amount: -200
+		RequiresCondition: deployed
+	WithDetectionCircle:
+		Range: 20c0
+		RequiresCondition: deployed && !(disabled || empdisable || being-warped)
+		TrailCount: 3
+	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
+		Actor: MOBILEARRAY.Husk
+	DetectCloaked@phase2:
+		DetectionTypes: Phase
+		Range: 20c0
+		RequiresCondition: deployed && !(disabled || empdisable || being-warped)
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
+
+MOBILEARRAY.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Mobile Array)
+	TransformOnCapture@Mechanic:
+		IntoActor: MOBILEARRAY
+	TransformOnCapture@Engineer:
+		IntoActor: MOBILEARRAY
+	InfiltrateForTransform:
+		IntoActor: MOBILEARRAY
+	RenderSprites:
+		Image: mobilearray
 
 SAPPER:
 	Inherits: ^TrackedVehicle
@@ -4685,6 +4789,8 @@ TESTUDO:
 	SpawnActorOnDeath:
 		RequiresCondition: !being-warped
 		Actor: TESTUDO.Husk
+	Selectable:
+		DecorationBounds: 1289, 1289
 
 RACER:
 	Inherits: ^TrackedVehicle

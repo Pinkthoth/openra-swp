@@ -573,8 +573,8 @@ Mortar:
 		ContrailLength: 30
 		ContrailWidth: 0c50
 	Warhead@1Dam: SpreadDamage
-		Falloff: 140, 100, 55, 40, 20, 5
-		Spread: 0c512
+		Falloff: 150, 120, 65, 50, 20, 10
+		Spread: 0c206
 		Damage: 4500
 		Versus:
 			None: 50
@@ -638,10 +638,10 @@ GrenadeLauncher:
 		Falloff: 100, 75, 50, 25, 0
 		Damage: 4500
 		Versus:
-			None: 50
+			None: 65
 			Wood: 100
-			Light: 45
-			Medium: 35
+			Light: 55
+			Medium: 40
 			Heavy: 30
 			Concrete: 60
 	Warhead@3Eff: CreateEffect

@@ -1,0 +1,111 @@
+0.032
+Infantry:
+-Decreased the cost of Gatling Gunner from 275$ to 250$.
+-Increased Flamethrower cost from 275$ to 300$.
+-Dog vision decreased from 6c512 to 5c512.
+-Added a ranged GPS effect to dogs for infantry with 10c0 range.
+-Decreased Flamer spread to 0c216 from 0c341
+-Increased Flamer falloff to 100,65,30,10 from 100,37,14,5,0
+-Increased Stormtrooper damage vs none armour to 65 from 50, vs light armour to 55 from 45, vs medium armour to 40 from 35
+-Decreased Mortar Crew spread to 0c206 from 0c512
+-Increased Mortar Crew falloff to 150, 120, 65, 50, 20, 10 from 140, 100, 55, 40, 20, 5
+
+Vehicles
+-Harvester carrying capacity increased from 20 to 30.
+-Harvester BaleLoadDelay decreased from 12 to 10.
+-New model for Mobile Flak.
+-New model for Marauder.
+-New model for Puma.
+-Decreased Czar vision from 9c0 to 6c0.
+-Added Mobile Array as Britain's special vehicle.
+-Increased Katyusha falloff from 180, 110, 75, 50, 15, 5, 0 to 220, 170, 150, 100, 50
+-Decreased Katyusha damage vs none armour to 85 from 90.
+-Increased Marauder damage from 1000 to 1300.
+-Decreased Marauder reload delay from 175 to 155.
+-Decreased V2 Missile Launcher falloff to 1000, 220, 170, 110, 40 from 1000, 190, 170, 130, 50, 18, 7, 0.
+-Decreased Waste Tanker falloff to 180, 150, 130, 100, 50, 25 from 200, 100, 150, 100, 50, 25, 10, 5.
+-Decreased Waste Tanker damage from 2000 to 1800.
+
+Aircraft
+-Increased Hind falloff damage from 250, 200, 150, 80, 60, 15, 5, 0 to 325, 200, 150, 80, 60
+-Removed Harrier as Britain's special aircraft.
+-Decreased Iblis damage vs. none armour from 125 to 90 and vs light armour from 150 to 100 and vs concrete armour from 180 to 100.
+-Decreased Zeppelin ammo pool from 10 to 8.
+-Increased Comet damage vs medium armour to 35 from 25 and vs heavy armour to 15 from 10.
+-Increased Thunderbolt damage vs heavy armour to 50 from 40, vs medium armour to 60 from 50, vs concrete armour to 20 from 15.
+-Increased Garud Heavy Fighter speed to 150 from 140.
+-New model for Sturmvogel.
+-New icon for Sturmvogel.
+-New model for MIG.
+-New icon for MIG.
+-Sturmvogel renamed Stormbird.
+-Saucer can no longer descent to slice nearby units.
+-Saucer can now disable buildings by attacking them straight from the top.
+-Garud Heavy Fighter speed increased to 125 from 115.
+-Longbow speed decreased from 149.
+-Gebard speed decreased to 112 from 130.
+-Teuton speed decreased to 95 from 112.
+-Halo speed decreased to 100 from 128.
+-Albatross speed decreased to 90 from 112
+-Chinook speed decreased to 100 from 128.
+
+Bug fixes
+-Grenadiers now appear in the build menu after Engineers.
+-Fixed Forward Command and MI6 Command Post not building Militias and Spies respectively.
+-Fixed Ore Refinery's footprint.
+-Fixed Ukraine not having a support power.
+-Fixed Service Depot decoration bounds.
+-Fixed Advanced Powerplant, Construction Yard, Ore Refinery, Fake Advanced Powerplant, Fake Construction Yard and Fake Tech Center hit shapes.
+-Fixed Middle East civilian buildings having a vision of 10c0 instead of 5c0.
+-Fixed desert tileset buildings not spawning rubbles.
+-Fixed civilian building garrisoned flag offsets.
+-Fixed Belarus flag having a crescent and sicle instead of hammer and sicle.
+-Fixed hover type locomotor being able to crush walls and infantry.
+
+Features
+-Reordered support powers so that the most powerful support powers appear at the top.
+
+0.031
+Vehicles
+-Decreased Arc Thrower damage vs wood from 40% to 20%.
+-Decreased Arc Thrower damage vs concrete from 30% to 10%.
+-Decreased Arc Thrower splash damage from 100, 50, 25, 5 to 100, 25, 5.
+-Increased Crusader cost from 900$ to 1000$.
+-Increased Cossack cost from 1025$ to 1125$.
+-Increased Tiger cost from 1200$ to 1300$.
+-Increased Crusader machine gun reload time from 85 to 90.
+-Increased Cossack machine gun reload time from 85 to 90.
+-Increased Tiger machine gun reload time from 85 to 90.
+-Flak Track damage vs medium armour changed from 30 to 20.
+-Tankette speed decreased from 115 to 95.
+-All anti-air range circles removed.
+-Demo Trucks speed increased from 67 to 100.
+-Demo Truck HP increased from 2800 to 5000.
+-New model and icon for Demo Truck
+-New model for Squire
+-New Bishop Tank unit available by spying both Komintern and Mittel tech centers.
+-New Deacon Tank unit available by spying both Komintern and Entente tech centers.
+-New Presbyter Artillery unit available by spying both Entente and Mittel tech centers.
+
+Infantry
+-Decreased Arc Blaster splash damage from 100, 50, 25, 5 to 100, 25, 5.
+-Flak Trooper damage vs medium armour changed from 30 to 20.
+-All anti-air range circles removed.
+
+Aircraft
+-Decreased Hospitaller splash damage from 100, 50, 25, 5 to 100, 25, 5.
+
+Buildings
+-Morozko range increased from 8c0 to 9c0.
+-Increased Camo AA Gun cost from 900$ to 1000$.
+
+Bug fixes
+-Fixed infantry, vehicle and aircraft tooltips that said "- Strength" instead of "- Unarmed".
+-Fixed tech centers not being sabotable.
+-Propaganda Truck is no longer a selectable support unit.
+-Paramines support power fixed to drop infantry mines instead of parabombs.
+-Fixed Persia, Belarus and India not having proper MCV graphics.
+-Fixed USA's menu description to correctly say that USA's special ability is EMP Bomb
+
+Other changes
+-Changed The British Raj's display name to India.

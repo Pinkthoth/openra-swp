@@ -552,7 +552,7 @@ SCUD:
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c341
 		Damage: 4750
-		Falloff: 1000, 190, 170, 130, 50, 18, 7, 0
+		Falloff: 1000, 220, 170, 110, 40
 		ValidTargets: GroundActor, Trees,  WaterActor, Trees
 		Versus:
 			None: 90
@@ -597,13 +597,13 @@ IblisMissile:
 		Falloff: 110, 95, 85, 60, 30, 10
 		ValidTargets: GroundActor, Trees,  WaterActor, Trees
 		Versus:
-			None: 125
+			None: 90
 			Wood: 125
 			Tree: 75
-			Light: 150
+			Light: 100
 			Medium: 60
 			Heavy: 50
-			Concrete: 180
+			Concrete: 100
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, SmallExplosionDeath, Incendiary
 	Warhead@3Eff: CreateEffect
 		Explosions: napalm
@@ -745,10 +745,10 @@ IfritMissile:
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c256
 		Damage: 1200
-		Falloff: 180, 110, 75, 50, 15, 5, 0
+		Falloff: 220, 170, 150, 100, 50
 		ValidTargets: GroundActor, Trees,  WaterActor, AirborneActor
 		Versus:
-			None: 90
+			None: 85
 			Wood: 75
 			Light: 60
 			Medium: 50
@@ -761,7 +761,7 @@ IfritMissile:
 
 227mm-Marauder:
 	Inherits: ^AntiGroundMissile
-	ReloadDelay: 175
+	ReloadDelay: 155
 	Range: 11c0
 	MinRange: 3c0
 	Burst: 4
@@ -782,9 +782,9 @@ IfritMissile:
 		Speed: 341
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c256
-		Damage: 1000
+		Damage: 1300
 		Falloff: 150, 110, 75, 50, 15, 5, 0
-		ValidTargets: GroundActor, Trees,  WaterActor, AirborneActor
+		ValidTargets: GroundActor, Trees, WaterActor, AirborneActor
 		Versus:
 			None: 85
 			Wood: 70
@@ -821,7 +821,7 @@ Hind227mm:
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c256
 		Damage: 1200
-		Falloff: 250, 200, 150, 80, 60, 15, 5, 0
+		Falloff: 325, 200, 150, 80, 60
 		ValidTargets: GroundActor, Trees,  WaterActor, AirborneActor
 		Versus:
 			None: 35

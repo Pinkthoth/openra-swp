@@ -1353,182 +1353,183 @@ BRIDGEHUT.small:
 		TargetTypes: BridgeHut, C4
 mebld1a:
 	Inherits: ^GarrisonableCivBuildingDesert
+	Inherits: ^1x1Rubbles
 	Building:
 		Footprint: x
 		Dimensions: 1,1
 	Tooltip:
 		Name: Civilian Building
-	RevealsShroud:
-		Range: 10c0
 	HitShape:
 
 mebld1b:
 	Inherits: ^GarrisonableCivBuildingDesert
+	Inherits: ^1x1Rubbles
 	Building:
 		Footprint: x
 		Dimensions: 1,1
 	Tooltip:
 		Name: Civilian Building
-	RevealsShroud:
-		Range: 10c0
 	HitShape:
 
 mebld2:
 	Inherits: ^GarrisonableCivBuildingDesert
+	Inherits: ^2x1Rubbles
 	Building:
 		Footprint: xx
 		Dimensions: 2,1
 	Tooltip:
 		Name: Civilian Building
-	RevealsShroud:
-		Range: 10c0
 	HitShape:
+	Cargo:
+		MaxWeight: 2
 	
 mebld3a:
 	Inherits: ^GarrisonableCivBuildingDesert
+	Inherits: ^1x1Rubbles
 	Building:
 		Footprint: x
 		Dimensions: 1,1
 	Tooltip:
 		Name: Civilian Building
-	RevealsShroud:
-		Range: 10c0
 	HitShape:
 
 mebld3b:
 	Inherits: ^GarrisonableCivBuildingDesert
+	Inherits: ^2x1Rubbles
 	Building:
 		Footprint: xx
 		Dimensions: 2,1
 	Tooltip:
 		Name: Civilian Building
-	RevealsShroud:
-		Range: 10c0
 	HitShape:
+	Cargo:
+		MaxWeight: 2
 	
 mebld3c:
 	Inherits: ^GarrisonableCivBuildingDesert
+	Inherits: ^2x1Rubbles
 	Building:
 		Footprint: xx
 		Dimensions: 2,1
 	Tooltip:
 		Name: Civilian Building
-	RevealsShroud:
-		Range: 10c0
 	HitShape:
+	Cargo:
+		MaxWeight: 2
 	
 mosque:
 	Inherits: ^GarrisonableCivBuildingDesert
+	Inherits: ^3x3Rubbles
 	Building:
-		Footprint: xxx xxx
-		Dimensions: 3,2
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
 	Tooltip:
 		Name: Mosque
-	RevealsShroud:
-		Range: 10c0
 	HitShape:
+	Cargo:
+		MaxWeight: 4
 	
 mebld4a:
 	Inherits: ^GarrisonableCivBuildingDesert
+	Inherits: ^2x1Rubbles
 	Building:
 		Footprint: xx
 		Dimensions: 2,1
 	Tooltip:
 		Name: Civilian Building
-	RevealsShroud:
-		Range: 10c0
 	HitShape:
+	Cargo:
+		MaxWeight: 2
 
 mebld4b:
 	Inherits: ^GarrisonableCivBuildingDesert
+	Inherits: ^2x1Rubbles
 	Building:
 		Footprint: xx
 		Dimensions: 2,1
 	Tooltip:
 		Name: Civilian Building
-	RevealsShroud:
-		Range: 10c0
 	HitShape:
+	Cargo:
+		MaxWeight: 2
 	
 mebld4c:
 	Inherits: ^GarrisonableCivBuildingDesert
+	Inherits: ^1x2Rubbles
 	Building:
 		Footprint: x x
 		Dimensions: 1,2
 	Tooltip:
 		Name: Civilian Building
-	RevealsShroud:
-		Range: 10c0
 	HitShape:
+	Cargo:
+		MaxWeight: 2
 	
 mebld5a:
 	Inherits: ^GarrisonableCivBuildingDesert
+	Inherits: ^1x1Rubbles
 	Building:
 		Footprint: x
 		Dimensions: 1,1
 	Tooltip:
 		Name: Civilian Building
-	RevealsShroud:
-		Range: 10c0
 	HitShape:
 
 mebld5b:
 	Inherits: ^GarrisonableCivBuildingDesert
+	Inherits: ^1x1Rubbles
 	Building:
 		Footprint: x
 		Dimensions: 1,1
 	Tooltip:
 		Name: Civilian Building
-	RevealsShroud:
-		Range: 10c0
 	HitShape:
 	
 mebld5c:
 	Inherits: ^GarrisonableCivBuildingDesert
+	Inherits: ^1x1Rubbles
 	Building:
 		Footprint: x
 		Dimensions: 1,1
 	Tooltip:
 		Name: Civilian Building
-	RevealsShroud:
-		Range: 10c0
 	HitShape:
 	
 mebld5d:
 	Inherits: ^GarrisonableCivBuildingDesert
+	Inherits: ^1x1Rubbles
 	Building:
 		Footprint: x
 		Dimensions: 1,1
 	Tooltip:
 		Name: Civilian Building
-	RevealsShroud:
-		Range: 10c0
 	HitShape:
 
 mebld5e:
 	Inherits: ^GarrisonableCivBuildingDesert
+	Inherits: ^1x1Rubbles
 	Building:
 		Footprint: x
 		Dimensions: 1,1
 	Tooltip:
 		Name: Civilian Building
-	RevealsShroud:
-		Range: 10c0
 	HitShape:
 	
 mebld6:
 	Inherits: ^GarrisonableCivBuildingDesert
+	Inherits: ^2x2Rubbles
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
 	Tooltip:
 		Name: Civilian Building
-	RevealsShroud:
-		Range: 10c0
 	HitShape:
+	Cargo:
+		MaxWeight: 4
 
 V23:
 	Inherits: ^DesertCivBuilding
+	Inherits: ^1x1Rubbles
 	-WithBuildingBib:
 
 TUAREG:
