@@ -3,30 +3,124 @@ ss:
 		Facings: 16
 	icon: ssicon
 
+co:
+	idle:
+		Facings: 32
+	icon: coicon
+
+ak:
+	idle: msub
+		Facings: 16
+	icon: akicon
+
+ac:
+	idle: ac
+		Facings: 32
+	icon: aircaricon
+
+ub:
+	idle: uboat
+		Facings: 32
+	icon: uboaticon
+
+
 ca:
 	idle:
-		Facings: 16
-	turret: turr
 		Facings: 32
+	turret:
+		Facings: 32
+		Start: 32
 	muzzle: gunfire2
 		Length: 5
 	icon: caicon
 
-dd:
-	idle:
-		Facings: 16
-	turret: ssam
+dn:
+	idle: dn
 		Facings: 32
-	icon: ddicon
-
-pt:
-	idle:
-		Facings: 16
-	turret: mgun
+	turret: dn
+		Start: 32
+		Facings: 32
+	turret_1: dn
+		Start: 64
+		Facings: 32
+	turret_2: dn
+		Start: 96
 		Facings: 32
 	muzzle: gunfire2
 		Length: 5
+	icon: dnicon
+
+samshp:
+	idle: samshp
+		Facings: 32
+	turret: samshp
+		Start: 32
+		Facings: 32
+	turret_1: samshp
+		Start: 64
+		Facings: 32
+	turret_2: samshp
+		Start: 96
+		Facings: 32
+	muzzle: gunfire2
+		Length: 5
+	icon: samshpicon
+
+fr:
+	idle: fr
+		Facings: 32
+	turret: fr
+		Start: 32
+		Facings: 32
+	muzzle: gunfire2
+		Length: 5
+	muzzle-air: gunfire2
+		Length: 5
+	icon: fricon
+
+dd:
+	idle:
+		Facings: 32
+	turret:
+		Start: 32
+		Facings: 32
+	muzzle: smokey
+		Length: *
+		ZOffset: 1023
+	icon: ddicon
+
+pt:
+	idle: gb
+		Facings: 32
+	turret: gb
+		Start: 32
+		Facings: 32
+	muzzle: gunfire2
+		Length: 5
+	empty: empty
 	icon: pticon
+
+bs:
+	idle:
+		Facings: 32
+	turret: bs
+		Start: 32
+		Facings: 32
+	muzzle: gunfire2
+		Length: 5
+	icon: bsicon
+
+
+mo:
+	idle: mo
+		Facings: 32
+	turret: mo
+		Start: 32
+		Facings: 32
+	muzzle: gunfire2
+		Length: 5
+	empty: empty
+	icon: moicon
 
 lst:
 	idle:
@@ -44,6 +138,33 @@ lst:
 	icon: lsticon
 
 msub:
-	idle:
-		Facings: 16
+	idle: uboatmissile
+		Facings: 32
 	icon: msubicon
+
+engshp:
+	idle:
+		Start: 0
+		Facings: 32
+		ZOffset: -10001
+	icon: engshpicon
+
+mnlyshp:
+	idle:
+		Start: 0
+		Facings: 32
+		ZOffset: -10001
+	icon: mnclyshpicon
+	
+flkshp:
+	idle:
+		Start: 0
+		Facings: 32
+		ZOffset: -10001
+	turret:
+		Start: 32
+		Facings: 32
+		ZOffset: -10001
+	muzzle: gunfire2
+		Length: 2
+	icon: flkshpicon

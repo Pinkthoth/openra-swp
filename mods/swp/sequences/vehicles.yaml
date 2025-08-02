@@ -423,33 +423,6 @@ gatlingcar:
 		Facings: 8
 	icon: gatlingcaricon
 
-mortarcrew:
-	idle:
-		Start: 0
-		Facings: 32
-		UseClassicFacings: True
-	move:
-		Start: 33
-		Facings: 32
-		UseClassicFacings: True
-		Length: 6
-		Tick: 80
-	attack:
-		Start: 231
-		Facings: 32
-		UseClassicFacings: True
-		Length: 6
-		Tick: 140
-	turn:
-		Start: 429
-		Facings: 32
-		UseClassicFacings: True
-		Length: 1
-		Tick: 80
-	muzzle: gunfire2
-		Length: 2
-	icon: mortarcrewicon
-
 atgunner:
 	idle:
 		Start: 0

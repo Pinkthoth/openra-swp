@@ -8,13 +8,13 @@
 
 ^SpriteActor:
 	BodyOrientation:
-		CameraPitch: 85
+		CameraPitch: 113
 	QuantizeFacingsFromSequence:
 	RenderSprites:
 
 ^ClassicFacingSpriteActor:
 	BodyOrientation:
-		CameraPitch: 85
+		CameraPitch: 113
 	QuantizeFacingsFromSequence:
 	RenderSprites:
 
@@ -844,7 +844,7 @@
 		AttackAnythingCondition: stance-attackanything
 	AutoTargetPriority@DEFAULT:
 		RequiresCondition: !stance-attackanything
-		ValidTargets: Infantry, Vehicle, Ship, Underwater, Defense, Mine
+		ValidTargets: Infantry, Vehicle, Ship, Underwater, Defense, Mine, WaterActor
 		InvalidTargets: NoAutoTarget
 	AutoTargetPriority@ATTACKANYTHING:
 		RequiresCondition: stance-attackanything
@@ -1485,7 +1485,7 @@
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^GainsExperience
 	Inherits@3: ^IronCurtainable
-	Inherits@4: ^SpriteActor
+	Inherits@4: ^ClassicFacingSpriteActor
 	Inherits@5: ^Stealthable
 	Inherits@bounty: ^GlobalBounty
 	Inherits@selection: ^SelectableCombatUnit
@@ -1497,6 +1497,36 @@
 	Inherits@flarevision: ^FlareVision
 	Inherits@warpable: ^Warpable
 	Inherits@freezable: ^Freezable
+	HitShape@front:
+		TargetableOffsets: 800,0,0
+		Type: Rectangle
+			TopLeft: -250, -1050
+			BottomRight: 250, -450
+	HitShape@back:
+		TargetableOffsets: -800,0,0
+		Type: Rectangle
+			TopLeft: -250, 450
+			BottomRight: 250, 1050
+	HitShape@left1:
+		TargetableOffsets: 400,-300,0
+		Type: Rectangle
+			TopLeft: -750, -550
+			BottomRight: -250, 50
+	HitShape@left2:
+		TargetableOffsets: -400,-300,0
+		Type: Rectangle
+			TopLeft: -750, -50
+			BottomRight: -250, 550
+	HitShape@right1:
+		TargetableOffsets: 400,300,0
+		Type: Rectangle
+			TopLeft: 250, -550
+			BottomRight: 750, 50
+	HitShape@right2:
+		TargetableOffsets: -400,300,0
+		Type: Rectangle
+			TopLeft: 250, -50
+			BottomRight: 750, 550
 	Huntable:
 	OwnerLostAction:
 		Action: Kill
@@ -1510,7 +1540,8 @@
 	Selectable:
 		Bounds: 1024, 1024
 	Targetable:
-		TargetTypes: WaterActor, Ship && !being-warped
+		TargetTypes: Ship
+		RequiresCondition: !being-warped
 	Targetable@REPAIR:
 		RequiresCondition: damaged && !being-warped
 		TargetTypes: Repair
@@ -1526,7 +1557,7 @@
 	Chronoshiftable:
 		ReturnToOrigin: False
 	RepairableNear:
-		RepairActors: spen, syrd
+		RepairActors: syrd
 	GpsDot:
 		String: Ship
 	GpsRadarDot:
@@ -1552,6 +1583,30 @@
 		VoiceSet: VehicleVoice
 	WithFacingSpriteBody:
 	HitShape:
+
+^Submarine:
+	Inherits: ^Ship
+	Targetable:
+		TargetTypes: WaterActor, Ship, Submarine, Repair
+		RequiresCondition: !underwater
+	Targetable@UNDERWATER:
+		TargetTypes: Underwater, Submarine
+		RequiresCondition: underwater
+	Cloak:
+		DetectionTypes: Underwater
+		InitialDelay: 0
+		CloakDelay: 50
+		CloakSound: subshow1.aud
+		UncloakSound: subshow1.aud
+		CloakedCondition: underwater
+		Palette: submerged
+		PauseOnCondition: cloak-force-disabled
+	GrantConditionOnDamageState@UNCLOAK:
+		Condition: cloak-force-disabled
+		ValidDamageStates: Critical
+	-MustBeDestroyed:
+	WithDamageOverlay:
+		MinimumDamageState: Critical
 
 ^NeutralPlane:
 	Inherits@1: ^ExistsInWorld

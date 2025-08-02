@@ -749,6 +749,14 @@ patriot:
 	idle:
 		Facings: 32
 
+dn_rocket:
+	idle:
+		Facings: 32
+
+samrocket:
+	idle:
+		Facings: 32
+
 fire:
 	1: fire1
 		Length: *

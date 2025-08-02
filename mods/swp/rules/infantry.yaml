@@ -3552,6 +3552,7 @@ PNEER:
 		Speed: 56
 		TurnSpeed: 20
 		Locomotor: bigfoot
+		TurnsWhileMoving: True
 	RevealsShroud:
 		MinRange: 4c0
 		Range: 5c0

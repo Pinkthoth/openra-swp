@@ -2230,6 +2230,48 @@ SPITFIRE:
 		EmptySequence: pip-emptyammo
 		FullSequence: pip-bullet
 
+GOBLIN:
+	Inherits: YAK
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Tooltip:
+		Name: Goblin
+	-SpawnActorOnDeath:
+	-EjectOnDeath:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	Armament:
+		Weapon: HellfireAG
+		LocalOffset: 0,213,-85, 0,-213,-85
+		PauseOnCondition: !ammo || !airborne
+	Health:
+		HP: 6500
+	AttackAircraft:
+		Armaments: primary
+	Aircraft:
+		TurnSpeed: 15
+		Speed: 145
+	Valued:
+		Cost: 1500
+	Rearmable:
+		RearmActors: ac
+	AmmoPool:
+		Armaments: primary, secondary
+		Ammo: 6
+		ReloadDelay: 11
+		AmmoCondition: ammo
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		Margin: 4, 3
+		RequiresSelection: true
+		PipCount: 6
+		EmptySequence: pip-emptyammo
+		FullSequence: pip-bullet
+	CarrierSlave:
+	-Selectable:
+	-SelectionDecorations:
+	-ActorLostNotification:
+	Interactable:
+
 MH60:
 	Inherits: ^Helicopter
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove

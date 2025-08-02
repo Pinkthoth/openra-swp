@@ -2,7 +2,7 @@ ParaBomb:
 	ReloadDelay: 8
 	Range: 3c0
 	Report: chute1.aud
-	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor
+	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor
 	Projectile: GravityBomb
 		Image: PARABOMB
 		OpenSequence: open
@@ -13,7 +13,7 @@ ParaBomb:
 		Spread: 512
 		Falloff: 100, 80, 60, 50, 40, 10, 5
 		Damage: 20000
-		ValidTargets: GroundActor, Trees,  WaterActor
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
 		Versus:
 			None: 25
 			Wood: 30
@@ -28,7 +28,7 @@ ParaBomb:
 	Warhead@3Eff: CreateEffect
 		Explosions: artillery_explosion
 		ImpactSounds: kaboom15.aud
-		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Trees, Corpse
+		ValidTargets: Ground, GroundActor, Trees,  Ship, WaterActor, Trees, Corpse
 	Warhead@4EffWater: CreateEffect
 		Explosions: small_splash
 		ImpactSounds: splash9.aud
@@ -38,7 +38,7 @@ ParaMine:
 	ReloadDelay: 8
 	Range: 3c0
 	Report: chute1.aud
-	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor
+	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor
 	Projectile: GravityBomb
 		Image: paramine
 		OpenSequence: open
@@ -50,7 +50,7 @@ ParaMine:
 	Warhead@SpawnMine: SpawnActor
 		Delay: 20
 		Actors: smine
-		ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
+		ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
 	Warhead@DigAnim: CreateEffect
 		Image: dig_sm
 		Explosions: idle
@@ -77,7 +77,7 @@ Metempsychosis:
 		Explosions: metempsychosisburst
 		ExplosionPalette: poisons
 		ImpactSounds: curse.aud
-		ValidTargets: Ground, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees, Corpse
+		ValidTargets: Ground, Air, GroundActor, Trees,  AirborneActor, Ship, WaterActor, Trees, Corpse
 	Warhead@3EffWater: CreateEffect
 		Explosions: large_splash
 		ImpactSounds: splash9.aud
@@ -104,15 +104,15 @@ LazareneRay:
 		Explosions: lazarusburst
 		ExplosionPalette: basic-alpha
 		ImpactSounds: holy.aud
-		ValidTargets: Ground, Air, GroundActor, Trees, AirborneActor, WaterActor, Trees, Water, Corpse
+		ValidTargets: Ground, Air, GroundActor, Trees, AirborneActor, Ship, WaterActor, Trees, Water, Corpse
 
 Atomic:
-	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor, Underwater, AirborneActor, Trees
+	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor, Underwater, AirborneActor, Trees
 	Warhead@1Dam_impact: SpreadDamage
 		Spread: 1c0
 		Damage: 15000
 		Falloff: 1000, 368, 135, 50, 18, 7, 0
-		ValidTargets: GroundActor, Trees,  WaterActor, Underwater, AirborneActor, Trees
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Underwater, AirborneActor, Trees
 		Versus:
 			Wood: 25
 			Concrete: 25
@@ -133,7 +133,7 @@ Atomic:
 		Damage: 6000
 		Falloff: 1000, 368, 135, 50, 18, 7, 0
 		Delay: 5
-		ValidTargets: GroundActor, Trees,  WaterActor, Underwater, AirborneActor, Trees, AirborneBomber
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Underwater, AirborneActor, Trees, AirborneBomber
 		Versus:
 			Wood: 25
 			Concrete: 25
@@ -155,7 +155,7 @@ Atomic:
 		Damage: 6000
 		Falloff: 1000, 368, 135, 50, 18, 7, 0
 		Delay: 10
-		ValidTargets: GroundActor, Trees,  Trees, WaterActor, Underwater, AirborneActor, AirborneBomber
+		ValidTargets: GroundActor, Trees,  Trees, Ship, WaterActor, Underwater, AirborneActor, AirborneBomber
 		Versus:
 			Wood: 50
 			Tree: 200
@@ -174,7 +174,7 @@ Atomic:
 		Damage: 6000
 		Falloff: 1000, 368, 135, 50, 18, 7, 0
 		Delay: 15
-		ValidTargets: GroundActor, Trees,  Trees, WaterActor, Underwater, AirborneActor, AirborneBomber
+		ValidTargets: GroundActor, Trees,  Trees, Ship, WaterActor, Underwater, AirborneActor, AirborneBomber
 		Versus:
 			Tree: 200
 			Concrete: 25
@@ -192,7 +192,7 @@ Atomic:
 		Damage: 6000
 		Falloff: 1000, 368, 135, 50, 18, 7, 0
 		Delay: 20
-		ValidTargets: GroundActor, Trees,  Trees, WaterActor, Underwater, AirborneActor, AirborneBomber
+		ValidTargets: GroundActor, Trees,  Trees, Ship, WaterActor, Underwater, AirborneActor, AirborneBomber
 		Versus:
 			Tree: 200
 			Concrete: 25
@@ -229,12 +229,12 @@ EMPulseCannon:
 		ExplosionPalette: tseffects
 		ImpactActors: false
 		ImpactSounds: empexpl1.wav
-		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Water, Air, AirborneBomber, AirborneActor
+		ValidTargets: Ground, GroundActor, Trees,  Ship, WaterActor, Water, Air, AirborneBomber, AirborneActor
 	Warhead@emp: GrantExternalCondition
 		Range: 6c0
 		Duration: 250
 		Condition: empdisable
-		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Water, Air, AirborneBomber, AirborneActor
+		ValidTargets: Ground, GroundActor, Trees,  Ship, WaterActor, Water, Air, AirborneBomber, AirborneActor
 
 EMPBomb:
 	ReloadDelay: 100
@@ -257,7 +257,7 @@ EMPBomb:
 		Range: 3c0
 		Duration: 150
 		Condition: empdisable
-		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Water, Air, AirborneBomber, AirborneActor
+		ValidTargets: Ground, GroundActor, Trees,  Ship, WaterActor, Water, Air, AirborneBomber, AirborneActor
 
 StukaBomb:
 	ReloadDelay: 4
@@ -265,7 +265,7 @@ StukaBomb:
 	Burst: 2
 	BurstDelays: 4
 	Report: vkiratta.wav
-	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor
+	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor
 	Projectile: GravityBomb
 		Image: PARABOMB
 		OpenSequence: open
@@ -275,7 +275,7 @@ StukaBomb:
 	Warhead@1Dam: SpreadDamage
 		Spread: 1068
 		Damage: 20000
-		ValidTargets: GroundActor, Trees,  WaterActor
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
 		Versus:
 			None: 10
 			Wood: 30
@@ -289,7 +289,7 @@ StukaBomb:
 	Warhead@3Eff: CreateEffect
 		Explosions: large_napalm
 		ImpactSounds: kaboom15.aud
-		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Trees, Corpse
+		ValidTargets: Ground, GroundActor, Trees,  Ship, WaterActor, Trees, Corpse
 	Warhead@4EffWater: CreateEffect
 		Explosions: small_splash
 		ImpactSounds: splash9.aud
@@ -342,7 +342,7 @@ ArtilleryBarrageShell:
 		Spread: 0c216
 		Falloff: 150, 125, 100, 75, 60, 30, 20, 10, 5
 		Damage: 6000
-		ValidTargets: GroundActor, Trees,  WaterActor
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
 		Versus:
 			None: 55
 			Wood: 50
@@ -355,7 +355,7 @@ ArtilleryBarrageShell:
 		Spread: 0c512
 		Falloff: 100, 100, 25
 		Damage: 4500
-		ValidTargets: GroundActor, Trees,  WaterActor
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
 		Versus:
 			None: 10
 			Wood: 30
@@ -368,12 +368,12 @@ ArtilleryBarrageShell:
 		Explosions: large_splash
 
 V3Missile:
-	ValidTargets: Ground, Water, Air, Trees, GroundActor, Trees,  WaterActor
+	ValidTargets: Ground, Water, Air, Trees, GroundActor, Trees,  Ship, WaterActor
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c512
 		Falloff: 100, 100, 80, 80, 50, 25, 10, 5
 		Damage: 15000
-		ValidTargets: Ground, Water, Air, Trees, GroundActor, Trees,  WaterActor
+		ValidTargets: Ground, Water, Air, Trees, GroundActor, Trees,  Ship, WaterActor
 		Versus:
 			None: 70
 			Wood: 100
@@ -386,7 +386,7 @@ V3Missile:
 		Spread: 0c400
 		Falloff: 105, 90, 80, 70, 60, 50, 40, 35, 30, 20, 25, 10, 5, 0
 		Damage: 20000
-		ValidTargets: Ground, Water, Air, Trees, GroundActor, Trees,  WaterActor
+		ValidTargets: Ground, Water, Air, Trees, GroundActor, Trees,  Ship, WaterActor
 		Versus:
 			None: 100
 			Wood: 150
@@ -400,7 +400,7 @@ V3Missile:
 		ExplosionPalette: tseffects
 		ImpactSounds: explosion_large_5.wav
 		ImpactActors: false
-		ValidTargets: Ground, Water, Air, GroundActor, Trees,  WaterActor, Corpse
+		ValidTargets: Ground, Water, Air, GroundActor, Trees,  Ship, WaterActor, Corpse
 	Warhead@Cluster: FireCluster
 		Weapon: IfritAreaFire
 		RandomClusterCount: 20
@@ -440,7 +440,7 @@ SmokeBarrageShell:
 		Spread: 0c512
 		Falloff: 100, 70, 60, 50, 30, 5
 		Damage: 2000
-		ValidTargets: GroundActor, Trees,  WaterActor
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
 		Versus:
 			None: 0
 			Wood: 0
@@ -458,16 +458,16 @@ SmokeBarrageShell:
 		ImpactSounds: kaboom15.aud
 		Explosions: smokeexp
 		ExplosionPalette: basic-alpha
-		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Trees, Corpse
+		ValidTargets: Ground, GroundActor, Trees,  Ship, WaterActor, Trees, Corpse
 
 MindBlaster:
 	Inherits: ^Explosion
-	ValidTargets: Ground, GroundActor, Trees,  WaterActor, Trees
+	ValidTargets: Ground, GroundActor, Trees,  Ship, WaterActor, Trees
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c256
 		Damage: 6000
 		Falloff: 1000, 500, 368, 200, 135, 80, 50, 18, 7, 0
-		ValidTargets: GroundActor, Trees,  WaterActor, Trees
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Trees
 		Versus:
 			None: 200
 			Wood: 10
@@ -481,23 +481,23 @@ MindBlaster:
 		Explosions: psychexpld
 		ExplosionPalette: neweffects
 		ImpactSounds: schrlo1.wav
-		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees
+		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, Ship, WaterActor, Trees
 	-Warhead@3EffWater:
 	Warhead@Smu: LeaveSmudge
 		SmudgeType: Scorch
 
 SpawnSmoke:
 	Projectile: InstantHit
-	ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
+	ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
 	Warhead@spawn: SpawnActor
 		Delay: 20
 		Actors: smokecloud
-		ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
+		ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
 
 Empty:
 	ReloadDelay: 30
 	Range: 1c0
-	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor
+	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor
 	Projectile: InstantHit
 		Blockable: true
 	Warhead@1Dam: SpreadDamage

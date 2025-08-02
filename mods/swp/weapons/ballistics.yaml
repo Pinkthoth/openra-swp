@@ -2,7 +2,7 @@
 	ReloadDelay: 50
 	Range: 4c768
 	Report: cannon1.aud
-	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor
+	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor
 	Projectile: Bullet
 		Speed: 682
 		Image: 120MM
@@ -11,7 +11,7 @@
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
 		Damage: 4000
-		ValidTargets: GroundActor, Trees,  WaterActor
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
 		Versus:
 			None: 30
 			Wood: 75
@@ -25,7 +25,7 @@
 	Warhead@3Eff: CreateEffect
 		Explosions: small_explosion
 		ImpactSounds: kaboom12.aud
-		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Trees, Corpse
+		ValidTargets: Ground, GroundActor, Trees,  Ship, WaterActor, Trees, Corpse
 	Warhead@4EffWater: CreateEffect
 		Explosions: small_splash
 		ImpactSounds: splash9.aud
@@ -292,10 +292,14 @@ PortaCannon:
 	Inherits: ^Cannon
 	ReloadDelay: 60
 	Range: 5c512
-	Report: cannon2.aud
+	Burst: 3
+	Report: KindjalGun2.wav
 	InvalidTargets: Underwater
 	Projectile: Bullet
-		Speed: 426
+		Speed: 156
+		LaunchAngle: 30
+		ContrailLength: 5
+		ContrailWidth: 0c50
 	Warhead@1Dam: SpreadDamage
 		Damage: 2500
 		Versus:
@@ -585,7 +589,7 @@ Mortar:
 			Concrete: 45
 	Warhead@3Eff: CreateEffect
 		Explosions: med_explosion
-		ImpactSounds: kaboom25.aud
+		ImpactSounds: explosion_small_3.wav
 	Warhead@4EffWater: CreateEffect
 		Explosions: small_splash
 		
@@ -619,7 +623,7 @@ bigberthagun:
 		ImpactSounds: explode1.aud
 	Warhead@8Eff: CreateEffect
 		Explosions: napalm
-		ValidTargets: Ground, GroundActor, WaterActor, Trees, Trees, Corpse
+		ValidTargets: Ground, GroundActor, Ship, WaterActor, Trees, Trees, Corpse
 
 GrenadeLauncher:
 	Inherits: ^Artillery
@@ -649,3 +653,12 @@ GrenadeLauncher:
 		ImpactSounds: kaboom25.aud
 	Warhead@4EffWater: CreateEffect
 		Explosions: small_splash
+
+105mm_Naval:
+	Inherits: 105mm
+	Range: 7c512
+	Report: TANKGUN1.wav
+	Projectile: Bullet
+		LaunchAngle: 31
+		Speed: 256
+		ContrailLength: 10

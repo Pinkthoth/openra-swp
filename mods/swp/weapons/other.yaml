@@ -1,11 +1,11 @@
 ^FireWeapon:
-	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor, Trees
+	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor, Trees
 	ReloadDelay: 65
 	Range: 5c0
 	Warhead@1Dam: SpreadDamage
 		Spread: 213
 		Damage: 15000
-		ValidTargets: GroundActor, Trees,  WaterActor, Trees
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Trees
 		Versus:
 			None: 90
 			Wood: 50
@@ -22,18 +22,18 @@
 		Explosions: napalm
 		ImpactSounds: firebl3.aud
 		ImpactActors: false
-		ValidTargets: Ground, GroundActor, WaterActor, Corpse, Trees
+		ValidTargets: Ground, GroundActor, Ship, WaterActor, Corpse, Trees
 		
 ^TeslaWeapon:
 	ReloadDelay: 3
 	Range: 7c0
 	Report: tesla1.aud
 	Projectile: TeslaZap
-	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor
+	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor
 	Warhead@1Dam: SpreadDamage
 		Spread: 42
 		Damage: 10000
-		ValidTargets: GroundActor, Trees,  WaterActor
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
 		Versus:
 			None: 1000
 			Concrete: 50
@@ -44,11 +44,11 @@
 	Range: 7c0
 	Report: LaserTankAttack.wav
 	Projectile: Bullet
-	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor
+	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c512
 		Damage: 10000
-		ValidTargets: GroundActor, Trees,  WaterActor
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
 		Versus:
 			None: 35
 			Light: 50
@@ -59,7 +59,7 @@
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ElectricityDeath
 
 ^MagneticWeapon:
-	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor
+	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor
 	ReloadDelay: 8
 	Range: 10c0
 	Projectile: Railgun
@@ -81,7 +81,7 @@
 			Heavy: 100
 			Wood: 40
 			Concrete: 40
-		ValidTargets: GroundActor, Trees,  WaterActor
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, SmallExplosionDeath
 
 TraktorBeam:
@@ -212,12 +212,12 @@ ElectricBolt:
 		Explosions: thunderstruck, thunderstruck2
 		ExplosionPalette: tseffects
 		ImpactSounds: chrge1.aud
-		ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor, Corpse
+		ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor, Corpse
 	Warhead@EMDamage: GrantExternalCondition
 		Range: 0c511
 		Duration: 200
 		Condition: emdamaged
-		ValidTargets: WaterActor, GroundActor
+		ValidTargets: Ship, WaterActor, GroundActor
 
 PlaneElectricBolt:
 	Inherits: ^ElectricBoltWeapon
@@ -240,12 +240,12 @@ PlaneElectricBolt:
 		Explosions: thunderstruck, thunderstruck2
 		ExplosionPalette: tseffects
 		ImpactSounds: chrge1.aud
-		ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor
+		ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor
 	Warhead@EMDamage: GrantExternalCondition
 		Range: 0c511
 		Duration: 200
 		Condition: emdamaged
-		ValidTargets: WaterActor, GroundActor
+		ValidTargets: Ship, WaterActor, GroundActor
 
 SM_ElectricBolt:
 	Inherits: ^ElectricBoltWeapon
@@ -282,18 +282,18 @@ SM_ElectricBolt:
 			Heavy: 50
 			Wood: 30
 			Concrete: 20
-		ValidTargets: GroundActor, Trees,  WaterActor
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ElectricityDeath
 	Warhead@3Eff: CreateEffect
 		Explosions: thunderstruck, thunderstruck2
 		ExplosionPalette: tseffects
 		ImpactSounds: chrge1.aud
-		ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor, Corpse
+		ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor, Corpse
 	Warhead@EMDamage: GrantExternalCondition
 		Range: 0c511
 		Duration: 200
 		Condition: emdamaged
-		ValidTargets: WaterActor, GroundActor
+		ValidTargets: Ship, WaterActor, GroundActor
 
 FireballLauncher:
 	Inherits: ^FireWeapon
@@ -370,7 +370,7 @@ Napalm:
 			Concrete: 50
 
 Marozzer:
-	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor, Trees
+	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor, Trees
 	ReloadDelay: 50
 	Report: icebolt1.aud, icebolt2.aud, icebolt3.aud
 	Range: 5c0
@@ -397,21 +397,21 @@ Marozzer:
 			Heavy: 5
 			Concrete: 5
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FreezeDeath
-		ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor, Trees
+		ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor, Trees
 	Warhead@3Eff: CreateEffect
 		Explosions: small_tox
 		ExplosionPalette: frostpal
 		ImpactSounds: icespike1.aud, icespike2.aud, icespike3.aud
 		ImpactActors: false
-		ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor, Trees, Corpse
+		ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor, Trees, Corpse
 	Warhead@ExternalCondition: GrantExternalCondition
 		Condition: frozen
 		Duration: 50
 		Range: 1c0
-		ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor, Trees
+		ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor, Trees
 
 Toxxer:
-	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor, Trees
+	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor, Trees
 	ReloadDelay: 50
 	Report: flamer1.aud, flamer2.aud, flamer3.aud, flamer4.aud
 	Range: 5c0
@@ -438,7 +438,7 @@ Toxxer:
 			Heavy: 15
 			Concrete: 5
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, AcidDeath
-		ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor, Trees
+		ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor, Trees
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Scorch
 		InvalidTargets: Structure, Wall
@@ -447,7 +447,7 @@ Toxxer:
 		ExplosionPalette: poisonpal
 		ImpactSounds: acid1.aud, acid2.aud, acid3.aud
 		ImpactActors: false
-		ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor, Trees, Corpse
+		ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor, Trees, Corpse
 
 TruckToxxer:
 	Inherits: Toxxer
@@ -629,10 +629,10 @@ Repair:
 		ValidTargets: Repair
 
 Demolish:
-	ValidTargets: GroundActor, Trees,  WaterActor
+	ValidTargets: GroundActor, Trees,  Ship, WaterActor
 	Warhead@1Dam: SpreadDamage
 		DamageTypes: NotCrushDeath,  DefaultDeath
-		ValidTargets: GroundActor, Trees,  WaterActor
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
 	Warhead@2Eff: CreateEffect
 		Explosions: building
 		ImpactSounds: kaboom25.aud
@@ -715,7 +715,7 @@ BomberParaBomb:
 	ReloadDelay: 4
 	Range: 4c0
 	Report: chute1.aud
-	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor
+	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor
 	Projectile: GravityBomb
 		Image: PARABOMB
 		OpenSequence: open
@@ -725,7 +725,7 @@ BomberParaBomb:
 	Warhead@1Dam: SpreadDamage
 		Spread: 768
 		Damage: 30000
-		ValidTargets: GroundActor, Trees,  WaterActor
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
 		Versus:
 			None: 30
 			Wood: 30
@@ -738,7 +738,7 @@ BomberParaBomb:
 	Warhead@3Eff: CreateEffect
 		Explosions: artillery_explosion
 		ImpactSounds: kaboom15.aud
-		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Trees, Corpse
+		ValidTargets: Ground, GroundActor, Trees,  Ship, WaterActor, Trees, Corpse
 	Warhead@4EffWater: CreateEffect
 		Explosions: small_splash
 		ImpactSounds: splash9.aud
@@ -750,7 +750,7 @@ BlimpParaBomb:
 	Burst: 1
 	Report: shellinc1.wav
 	Range: 0c480
-	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor
+	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor
 	Projectile: GravityBomb
 		Image: dropbombs
 		OpenSequence: idle
@@ -759,7 +759,7 @@ BlimpParaBomb:
 		Spread: 0c206
 		Damage: 30000
 		Falloff: 100, 80, 60, 40, 20, 0
-		ValidTargets: GroundActor, Trees,  WaterActor
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
 		Versus:
 			None: 80
 			Wood: 50
@@ -774,7 +774,7 @@ BlimpParaBomb:
 	Warhead@3Eff: CreateEffect
 		Explosions: artillery_explosion
 		ImpactSounds: kaboom15.aud
-		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Trees, Corpse
+		ValidTargets: Ground, GroundActor, Trees,  Ship, WaterActor, Trees, Corpse
 	Warhead@4EffWater: CreateEffect
 		Explosions: small_splash
 		ImpactSounds: splash9.aud
@@ -785,7 +785,7 @@ DropBombs:
 	ReloadDelay: 75
 	Range: 3c0
 	Report: vkiratta.wav
-	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor
+	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor
 	Projectile: Missile
 		RangeLimit: 3c0
 		Image: dropbombs
@@ -796,7 +796,7 @@ DropBombs:
 		Spread: 0c256
 		Damage: 7500
 		Falloff: 180, 150, 100, 75, 50, 25, 15, 5, 0
-		ValidTargets: GroundActor, Trees,  WaterActor
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
 		Versus:
 			None: 45
 			Wood: 70
@@ -811,7 +811,7 @@ DropBombs:
 	Warhead@3Eff: CreateEffect
 		Explosions: artillery_explosion
 		ImpactSounds: kaboom15.aud
-		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Trees, Corpse
+		ValidTargets: Ground, GroundActor, Trees,  Ship, WaterActor, Trees, Corpse
 	Warhead@4EffWater: CreateEffect
 		Explosions: small_splash
 		ImpactSounds: splash9.aud
@@ -824,7 +824,7 @@ Firebombs:
 	BurstDelays: 6
 	Range: 3c0
 	TargetActorCenter: true
-	ValidTargets: GroundActor, Trees,  WaterActor, Ground, Water
+	ValidTargets: GroundActor, Trees,  Ship, WaterActor, Ground, Water
 	Projectile: GravityBomb
 		Image: dropbombs
 		Velocity: 40, 0, -74
@@ -834,7 +834,7 @@ Firebombs:
 		Spread: 0c512
 		Falloff: 100, 75, 25, 5, 0
 		Damage: 6000
-		ValidTargets: GroundActor, Trees,  WaterActor
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
 		Versus:
 			None: 55
 			Wood: 80
@@ -849,7 +849,7 @@ Firebombs:
 	Warhead@3Eff: CreateEffect
 		Explosions: small_napalm
 		ImpactSounds: firebl3.aud
-		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Trees, Corpse
+		ValidTargets: Ground, GroundActor, Trees,  Ship, WaterActor, Trees, Corpse
 	Warhead@4EffWater: CreateEffect
 		Explosions: small_splash
 		ImpactSounds: splash9.aud
@@ -857,26 +857,26 @@ Firebombs:
 
 StukaSpeedUp1:
 	Range: 10c0
-	ValidTargets: GroundActor, WaterActor
+	ValidTargets: GroundActor, Ship, WaterActor
 	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
-		ValidTargets: GroundActor, Trees,  WaterActor
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
 		ValidRelationships: Enemy, Neutral
 
 StukaSpeedUp2:
 	Range: 8c0
-	ValidTargets: GroundActor, WaterActor
+	ValidTargets: GroundActor, Ship, WaterActor
 	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
-		ValidTargets: GroundActor, Trees,  WaterActor
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
 		ValidRelationships: Enemy, Neutral
 
 StukaSpeedUp3:
 	Range: 6c0
-	ValidTargets: GroundActor, WaterActor
+	ValidTargets: GroundActor, Ship, WaterActor
 	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
-		ValidTargets: GroundActor, Trees,  WaterActor
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
 		ValidRelationships: Enemy, Neutral
 
 HoloM1Carbine:
@@ -928,7 +928,7 @@ SPEMPPulse:
 	ReloadDelay: 200
 	Range: 12c0
 	Report: TANKHVY1.aud
-	ValidTargets: Ground, GroundActor, Trees,  WaterActor, Water
+	ValidTargets: Ground, GroundActor, Trees,  Ship, WaterActor, Water
 	Projectile: Bullet
 		Speed: 425
 		Blockable: false
@@ -941,12 +941,12 @@ SPEMPPulse:
 		ExplosionPalette: tseffects
 		ImpactActors: false
 		ImpactSounds: empexpl1.wav
-		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Water, Corpse
+		ValidTargets: Ground, GroundActor, Trees,  Ship, WaterActor, Water, Corpse
 	Warhead@emp: GrantExternalCondition
 		Range: 3c0
 		Duration: 100
 		Condition: empdisable
-		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Water
+		ValidTargets: Ground, GroundActor, Trees,  Ship, WaterActor, Water
 	Warhead@1Dam: SpreadDamage
 		Spread: 3c0
 		Damage: 100
@@ -962,7 +962,7 @@ Prism:
 	ReloadDelay: 120
 	Range: 7c512
 	Report: prisray.aud
-	ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
+	ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
 	Projectile: LaserZap
 		Width: 85
 		HitAnim: laserfire
@@ -979,7 +979,7 @@ Prism:
 			Heavy: 80
 			Concrete: 30
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath
-		ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
+		ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Scorch
 	Warhead@PrismBurst: FireCluster
@@ -992,7 +992,7 @@ PrismTower:
 	ReloadDelay: 120
 	Range: 7c0
 	Report: prisray.aud
-	ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
+	ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
 	Projectile: LaserZap
 		Width: 85
 		HitAnim: laserfire
@@ -1009,7 +1009,7 @@ PrismTower:
 			Heavy: 80
 			Concrete: 50
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath
-		ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
+		ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Scorch
 	Warhead@PrismBurst: FireCluster
@@ -1020,7 +1020,7 @@ PrismTower:
 
 PrismTowerBurst:
 	Range: 1c0
-	ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
+	ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
 	Projectile: LaserZap
 		Width: 40
 		ZOffset: 2047
@@ -1036,7 +1036,7 @@ PrismTowerBurst:
 			Heavy: 80
 			Concrete: 30
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath
-		ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
+		ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Scorch
 
@@ -1044,7 +1044,7 @@ PrismHandHeld:
 	ReloadDelay: 100
 	Range: 6c0
 	Report: prisray.aud
-	ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
+	ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
 	Projectile: LaserZap
 		Width: 40
 		HitAnim: laserfire
@@ -1061,7 +1061,7 @@ PrismHandHeld:
 			Heavy: 45
 			Concrete: 25
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath
-		ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
+		ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Scorch
 
@@ -1071,7 +1071,7 @@ TeutonPrism:
 	Burst: 2
 	BurstDelays: 10
 	Report: prisray.aud
-	ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
+	ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
 	Projectile: LaserZap
 		Width: 85
 		HitAnim: laserfire
@@ -1088,7 +1088,7 @@ TeutonPrism:
 			Heavy: 45
 			Concrete: 25
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath
-		ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
+		ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Scorch
 
@@ -1097,7 +1097,7 @@ DesolatorHandHeld:
 	Burst: 10
 	BurstDelays: 1
 	Range: 6c0
-	ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
+	ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
 	Projectile: Bullet
 		Speed: 0c256
 		TrailInterval: 1
@@ -1118,14 +1118,14 @@ DesolatorHandHeld:
 			Heavy: 20
 			Concrete: 40
 		DamageTypes: NotCrushDeath, Prone50Percent, TriggerProne, FireDeath, Incendiary
-		ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
+		ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
 
 DesolatorHandHeld_LineDamage:
 	ReloadDelay: 100
 	Burst: 10
 	BurstDelays: 1
 	Range: 6c0
-	ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
+	ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
 	Projectile: Railgun
 		HelixColor: FFE100
 		BeamColor: BC4200
@@ -1149,7 +1149,7 @@ DesolatorHandHeld_LineDamage:
 			Heavy: 20
 			Concrete: 40
 		DamageTypes: NotCrushDeath, Prone50Percent, TriggerProne, FireDeath, Incendiary
-		ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
+		ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
 		ValidRelationships: Enemy, Neutral
 	Warhead@2Dam: SpreadDamage
 		Delay: 10
@@ -1163,14 +1163,14 @@ DesolatorHandHeld_LineDamage:
 			Heavy: 20
 			Concrete: 40
 		DamageTypes: NotCrushDeath, Prone50Percent, TriggerProne, FireDeath, Incendiary
-		ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
+		ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
 		ValidRelationships: Ally
 
 DesolatorHandHeld_Effect:
 	ReloadDelay: 109
 	Range: 6c0
 	Report: desolator_weapon.wav
-	ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
+	ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
 	Projectile: Bullet
 		Speed: 0c266
 		TrailInterval: 1
@@ -1185,13 +1185,13 @@ DesolatorHandHeld_Effect:
 	Warhead@3Eff: CreateEffect
 		Explosions: napalm
 		ImpactSounds: firebl3.aud
-		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Trees, Corpse
+		ValidTargets: Ground, GroundActor, Trees,  Ship, WaterActor, Trees, Corpse
 
 Firelance:
 	ReloadDelay: 150
 	Range: 6c0
 	Report: hk_flame_turret_1.wav
-	ValidTargets: GroundActor, Trees,  WaterActor, Ground, Water
+	ValidTargets: GroundActor, Trees,  Ship, WaterActor, Ground, Water
 	Projectile: LinearPulse
 		Speed: 768
 		ImpactInterval: 1
@@ -1207,7 +1207,7 @@ Firelance:
 			Medium: 50
 			Heavy: 25
 			Concrete: 40
-		ValidTargets: GroundActor, Trees,  WaterActor, Ground, Water
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Ground, Water
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath, Incendiary
 		ValidRelationships: Enemy, Neutral
 	Warhead@1Dam-ally: SpreadDamage
@@ -1221,7 +1221,7 @@ Firelance:
 			Medium: 50
 			Heavy: 25
 			Concrete: 40
-		ValidTargets: GroundActor, Trees,  WaterActor, Ground, Water
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Ground, Water
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath, Incendiary
 		ValidRelationships: Ally
 	Warhead@BurnArea: FireCluster
@@ -1234,13 +1234,13 @@ Firelance:
 		ValidTargets: Ground, GroundActor
 	Warhead@3Eff: CreateEffect
 		Explosions: napalm
-		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Trees, Corpse
+		ValidTargets: Ground, GroundActor, Trees,  Ship, WaterActor, Trees, Corpse
 
 DisruptionBeam:
 	ReloadDelay: 100
 	Range: 6c0
 	Report: sonic4.aud
-	ValidTargets: GroundActor, Trees,  WaterActor, Ground, Water
+	ValidTargets: GroundActor, Trees,  Ship, WaterActor, Ground, Water
 	Projectile: LinearPulse
 		Speed: 768
 		ImpactInterval: 1
@@ -1256,17 +1256,17 @@ DisruptionBeam:
 			Medium: 50
 			Heavy: 25
 			Concrete: 25
-		ValidTargets: GroundActor, Trees,  WaterActor, Ground, Water
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Ground, Water
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, DefaultDeath
 		ValidRelationships: Enemy, Neutral
 	Warhead@3Eff: CreateEffect
 		Explosions: soundexplosion
-		ValidTargets: Ground, GroundActor, Trees,  WaterActor, Trees, Corpse
+		ValidTargets: Ground, GroundActor, Trees,  Ship, WaterActor, Trees, Corpse
 		ExplosionPalette: tseffects
 	Warhead@condition: GrantExternalCondition
 		Duration: 100
 		Condition: confusion
-		ValidTargets: GroundActor, Trees,  WaterActor
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
 		ValidRelationships: Enemy, Neutral
 		Range: 1c512
 
@@ -1275,7 +1275,7 @@ Drill:
 	Range: 1c600
 	Burst: 50
 	BurstDelays: 5
-	ValidTargets: GroundActor, Trees,  WaterActor, Ground, Water
+	ValidTargets: GroundActor, Trees,  Ship, WaterActor, Ground, Water
 	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
 		Damage: 500
@@ -1288,20 +1288,20 @@ Drill:
 			Medium: 125
 			Heavy: 100
 			Concrete: 100
-		ValidTargets: GroundActor, Trees,  WaterActor, Ground, Water
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Ground, Water
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath
 
 Claw:
 	ReloadDelay: 30
 	Range: 1c512
 	Report: zombiehit.wav
-	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor
+	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor
 	Projectile: Bullet
 		Speed: 1c682
 	Warhead@1Dam: SpreadDamage
 		Spread: 126
 		Damage: 3000
-		ValidTargets: GroundActor, Trees,  WaterActor
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
 		Versus:
 			None: 50
 			Wood: 10
@@ -1332,13 +1332,13 @@ ThunderFist:
 	ReloadDelay: 30
 	Range: 1c512
 	Report: zombiehit.wav
-	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor
+	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor
 	Projectile: Bullet
 		Speed: 1c682
 	Warhead@1Dam: SpreadDamage
 		Spread: 126
 		Damage: 6000
-		ValidTargets: GroundActor, Trees,  WaterActor
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
 		Versus:
 			None: 150
 			Wood: 35
@@ -1358,12 +1358,12 @@ ThunderFistSupercharged:
 
 IfritAreaFire:
 	Projectile: InstantHit
-	ValidTargets: Ground, GroundActor, Trees,  WaterActor, Trees
+	ValidTargets: Ground, GroundActor, Trees,  Ship, WaterActor, Trees
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c256
 		Damage: 500
 		Falloff: 500, 368, 135, 50, 18, 7, 0
-		ValidTargets: GroundActor, Trees,  WaterActor, Trees
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Trees
 		Versus:
 			None: 100
 			Wood: 15
@@ -1379,7 +1379,7 @@ IfritAreaFire:
 		Spread: 0c256
 		Damage: 450
 		Falloff: 500, 368, 135, 50, 18, 7, 0
-		ValidTargets: GroundActor, Trees,  WaterActor, Trees
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Trees
 		Versus:
 			None: 100
 			Wood: 15
@@ -1396,7 +1396,7 @@ IfritAreaFire:
 		Spread: 0c256
 		Damage: 400
 		Falloff: 500, 368, 135, 50, 18, 7, 0
-		ValidTargets: GroundActor, Trees,  WaterActor, Trees
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Trees
 		Versus:
 			None: 100
 			Wood: 15
@@ -1413,7 +1413,7 @@ IfritAreaFire:
 		Spread: 0c256
 		Damage: 350
 		Falloff: 500, 368, 135, 50, 18, 7, 0
-		ValidTargets: GroundActor, Trees,  WaterActor, Trees
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Trees
 		Versus:
 			None: 100
 			Wood: 15
@@ -1430,7 +1430,7 @@ IfritAreaFire:
 		Spread: 0c256
 		Damage: 350
 		Falloff: 500, 368, 135, 50, 18, 7, 0
-		ValidTargets: GroundActor, Trees,  WaterActor, Trees
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Trees
 		Versus:
 			None: 100
 			Wood: 15
@@ -1447,7 +1447,7 @@ IfritAreaFire:
 		Spread: 0c256
 		Damage: 300
 		Falloff: 500, 368, 135, 50, 18, 7, 0
-		ValidTargets: GroundActor, Trees,  WaterActor, Trees
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Trees
 		Versus:
 			None: 100
 			Wood: 15
@@ -1464,7 +1464,7 @@ IfritAreaFire:
 		Spread: 0c256
 		Damage: 250
 		Falloff: 500, 368, 135, 50, 18, 7, 0
-		ValidTargets: GroundActor, Trees,  WaterActor, Trees
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Trees
 		Versus:
 			None: 100
 			Wood: 15
@@ -1481,7 +1481,7 @@ IfritAreaFire:
 		Spread: 0c256
 		Damage: 50
 		Falloff: 500, 368, 135, 50, 18, 7, 0
-		ValidTargets: GroundActor, Trees,  WaterActor, Trees
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Trees
 		Versus:
 			None: 100
 			Wood: 15
@@ -1497,7 +1497,7 @@ IfritAreaFire:
 		Spread: 0c256
 		Damage: 45
 		Falloff: 500, 368, 135, 50, 18, 7, 0
-		ValidTargets: GroundActor, Trees,  WaterActor, Trees
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Trees
 		Versus:
 			None: 100
 			Wood: 15
@@ -1514,7 +1514,7 @@ IfritAreaFire:
 		Spread: 0c256
 		Damage: 40
 		Falloff: 500, 368, 135, 50, 18, 7, 0
-		ValidTargets: GroundActor, Trees,  WaterActor, Trees
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Trees
 		Versus:
 			None: 100
 			Wood: 15
@@ -1531,7 +1531,7 @@ IfritAreaFire:
 		Spread: 0c256
 		Damage: 35
 		Falloff: 500, 368, 135, 50, 18, 7, 0
-		ValidTargets: GroundActor, Trees,  WaterActor, Trees
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Trees
 		Versus:
 			None: 100
 			Wood: 15
@@ -1548,7 +1548,7 @@ IfritAreaFire:
 		Spread: 0c256
 		Damage: 35
 		Falloff: 500, 368, 135, 50, 18, 7, 0
-		ValidTargets: GroundActor, Trees,  WaterActor, Trees
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Trees
 		Versus:
 			None: 100
 			Wood: 15
@@ -1565,7 +1565,7 @@ IfritAreaFire:
 		Spread: 0c256
 		Damage: 30
 		Falloff: 500, 368, 135, 50, 18, 7, 0
-		ValidTargets: GroundActor, Trees,  WaterActor, Trees
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Trees
 		Versus:
 			None: 100
 			Wood: 15
@@ -1582,7 +1582,7 @@ IfritAreaFire:
 		Spread: 0c256
 		Damage: 25
 		Falloff: 500, 368, 135, 50, 18, 7, 0
-		ValidTargets: GroundActor, Trees,  WaterActor, Trees
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Trees
 		Versus:
 			None: 100
 			Wood: 15
@@ -1601,75 +1601,75 @@ IfritAreaFire:
 		Image: Fire
 		Explosions: firelong
 		Inaccuracy: 0c512
-		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees, Corpse
+		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, Ship, WaterActor, Trees, Corpse
 	Warhead@3EffStart: CreateEffect
 		Image: Fire
 		Explosions: firelong
 		Inaccuracy: 0c512
-		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees, Corpse
+		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, Ship, WaterActor, Trees, Corpse
 	Warhead@4EffStart: CreateEffect
 		Image: Fire
 		Explosions: firelong
 		Inaccuracy: 0c512
-		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees, Corpse
+		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, Ship, WaterActor, Trees, Corpse
 	Warhead@2Eff: CreateEffect
 		Image: Fire
 		Explosions: firelong
 		Inaccuracy: 0c512
-		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees, Corpse
+		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, Ship, WaterActor, Trees, Corpse
 	Warhead@3Eff: CreateEffect
 		Image: Fire
 		Explosions: firelong
 		Inaccuracy: 0c512
-		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees, Corpse
+		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, Ship, WaterActor, Trees, Corpse
 		Delay: 15
 	Warhead@4Eff: CreateEffect
 		Image: Fire
 		Explosions: firelong
 		Inaccuracy: 0c512
-		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees, Corpse
+		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, Ship, WaterActor, Trees, Corpse
 		Delay: 30
 	Warhead@5Eff: CreateEffect
 		Image: Fire
 		Explosions: firelong
 		Inaccuracy: 0c512
-		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees, Corpse
+		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, Ship, WaterActor, Trees, Corpse
 		Delay: 45
 	Warhead@6Eff: CreateEffect
 		Image: Fire
 		Explosions: firelong
 		Inaccuracy: 0c512
-		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees, Corpse
+		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, Ship, WaterActor, Trees, Corpse
 		Delay: 60
 	Warhead@7Eff: CreateEffect
 		Image: Fire
 		Explosions: firelong
 		Inaccuracy: 0c512
-		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees, Corpse
+		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, Ship, WaterActor, Trees, Corpse
 		Delay: 75
 	Warhead@8Eff: CreateEffect
 		Image: Fire
 		Explosions: firelong
 		Inaccuracy: 0c512
-		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees, Corpse
+		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, Ship, WaterActor, Trees, Corpse
 		Delay: 90
 	Warhead@9Eff: CreateEffect
 		Image: Fire
 		Explosions: firelong
 		Inaccuracy: 0c512
-		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees, Corpse
+		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, Ship, WaterActor, Trees, Corpse
 		Delay: 105
 	Warhead@10Eff: CreateEffect
 		Image: Fire
 		Explosions: firelong
 		Inaccuracy: 0c512
-		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, WaterActor, Trees, Corpse
+		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, Ship, WaterActor, Trees, Corpse
 		Delay: 120
 	Warhead@Smu: LeaveSmudge
 		SmudgeType: Scorch
 
 DemoTruckTargeting:
-	ValidTargets: Ground, GroundActor, Water, WaterActor
+	ValidTargets: Ground, GroundActor, Water, Ship, WaterActor
 	Range: 2c0
 	Projectile: InstantHit
 	Warhead@1Dam: TargetDamage
@@ -1733,7 +1733,7 @@ MindBlast:
 	ReloadDelay: 30
 	Range: 6c0
 	Report: byubatta.wav
-	ValidTargets: Ground, Water, Infantry, Trees, WaterActor
+	ValidTargets: Ground, Water, Infantry, Trees, Ship, WaterActor
 	Projectile: LaserZap
 		Blockable: false
 		Width: 0c40
@@ -1751,7 +1751,7 @@ MindBlast:
 			Concrete: 30
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath
 	Warhead@2Eff: CreateEffect
-		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, WaterActor, Trees, Corpse
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, Ship, WaterActor, Trees, Corpse
 		Explosions: initexplode
 		ExplosionPalette: swpeffects
 	Warhead@3EffWater: CreateEffect
@@ -1759,3 +1759,19 @@ MindBlast:
 		InvalidTargets: Bridge
 		Explosions: initexplode
 		ExplosionPalette: swpeffects
+
+CarrierLauncher:
+	ReloadDelay: 15
+	Range: 19c0
+	ValidTargets: Ground, Water, GroundActor, Ship, WaterActor
+	Projectile: InstantHit
+	Warhead@1Dam: TargetDamage
+		ValidTargets: Ground, Water, GroundActor, Ship, WaterActor
+		Damage: 50000
+		Versus:
+			None: 0
+			Wood: 0
+			Concrete: 0
+			Light: 0
+			Heavy: 0
+			Brick: 0

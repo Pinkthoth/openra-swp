@@ -21,6 +21,11 @@ harrier:
 		Facings: 32
 	icon: harriericon
 
+goblin:
+	idle:
+		Facings: 32
+	icon: harriericon
+
 telekite:
 	idle: empty32
 		Facings: 32

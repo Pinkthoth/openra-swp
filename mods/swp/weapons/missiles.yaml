@@ -3,7 +3,7 @@
 	Range: 5c0
 	MinRange: 0c512
 	Report: missile6.aud
-	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor
+	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor
 	Projectile: Missile
 		Speed: 213
 		Arm: 2
@@ -17,7 +17,7 @@
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
 		Damage: 5000
-		ValidTargets: GroundActor, Trees,  WaterActor, AirborneActor
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, AirborneActor
 		Versus:
 			None: 10
 			Wood: 74
@@ -32,7 +32,7 @@
 	Warhead@3Eff: CreateEffect
 		Explosions: med_explosion
 		ImpactSounds: kaboom25.aud
-		ValidTargets: Ground, Air, AirborneBomber, GroundActor, Trees,  AirborneActor, WaterActor, Trees, Corpse
+		ValidTargets: Ground, Air, AirborneBomber, GroundActor, Trees,  AirborneActor, Ship, WaterActor, Trees, Corpse
 	Warhead@4EffWater: CreateEffect
 		Explosions: med_splash
 		ImpactSounds: splash9.aud
@@ -62,6 +62,44 @@ Stinger:
 			Heavy: 120
 			Concrete: 90
 
+FRStingerAA:
+	Inherits: Stinger
+	Burst: 2
+	Report: ornithopter_rocket_2.wav
+	BurstDelays: 25
+	ValidTargets: Air, AirborneBomber, AirborneActor
+	Projectile: Missile
+		Speed: 200
+		CloseEnough: 298
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Air, AirborneBomber, AirborneActor
+	Warhead@3Eff: CreateEffect
+		Explosions: med_explosion_air
+		ImpactSounds: kaboom25.aud
+
+FRStinger:
+	Inherits: ^AntiGroundMissile
+	Burst: 2
+	BurstDelays: 10
+	ReloadDelay: 60
+	Range: 7c512
+	Report: ornithopter_rocket_2.wav
+	InvalidTargets: Underwater
+	Projectile: Missile
+		Arm: 3
+		Inaccuracy: 0
+		RangeLimit: 9c512
+		Speed: 150
+		CloseEnough: 149
+	Warhead@1Dam: SpreadDamage
+		Damage: 2500
+		Versus:
+			None: 36
+			Wood: 88
+			Light: 88
+			Heavy: 120
+			Concrete: 90
+
 StingerAA:
 	Inherits: Stinger
 	ValidTargets: AirborneActor
@@ -71,6 +109,7 @@ StingerAA:
 	Warhead@3Eff: CreateEffect
 		Explosions: med_explosion_air
 		ImpactSounds: kaboom25.aud
+
 
 ^AntiAirMissile:
 	Inherits: ^AntiGroundMissile
@@ -86,14 +125,14 @@ Maverick:
 	Report: missile7.aud
 	Burst: 2
 	BurstDelays: 7
-	ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
+	ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
 	Projectile: Missile
 		Speed: 400
 		Inaccuracy: 316
 		CruiseAltitude: 2c0
 		RangeLimit: 14c410
 	Warhead@1Dam: SpreadDamage
-		ValidTargets: Ground, GroundActor, Trees,  Water, WaterActor
+		ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
 		Damage: 7000
 		Versus:
 			None: 30
@@ -174,7 +213,7 @@ HornetMissile:
 		Spread: 0c126
 		Damage: 4750
 		Falloff: 500, 190, 170, 130, 50, 18, 7, 0
-		ValidTargets: GroundActor, Trees,  WaterActor, Trees
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Trees
 		Versus:
 			None: 90
 			Wood: 75
@@ -204,7 +243,7 @@ LegionMissile:
 		Speed: 298
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
-		ValidTargets: AirborneBomber, AirborneActor, Ground, Water, WaterActor, GroundActor
+		ValidTargets: AirborneBomber, AirborneActor, Ground, Water, Ship, WaterActor, GroundActor
 		Versus:
 			Light: 60
 
@@ -222,7 +261,7 @@ LegionMissileAA:
 		RangeLimit: 10c0
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
-		ValidTargets: WaterActor, GroundActor
+		ValidTargets: Ship, WaterActor, GroundActor
 		Versus:
 			Light: 60
 
@@ -239,7 +278,7 @@ BeetleMissile:
 		RangeLimit: 10c0
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
-		ValidTargets: Ground, Water, WaterActor, GroundActor
+		ValidTargets: Ground, Water, Ship, WaterActor, GroundActor
 		Versus:
 			Light: 60
 
@@ -387,6 +426,15 @@ CaballeroRedEye:
 		Versus:
 			Light: 60
 
+SHPSAMRedEye:
+	Inherits: Nike
+	Range: 8c512
+	ReloadDelay: 10
+	Projectile: Missile
+		Image: samrocket
+	Warhead@1Dam: SpreadDamage
+		Damage: 4000
+
 MSAMRedEye:
 	Inherits: Nike
 	Range: 8c512
@@ -447,7 +495,7 @@ TorpTube:
 	ReloadDelay: 100
 	Range: 9c0
 	Report: torpedo1.aud
-	ValidTargets: Water, WaterActor, Underwater, Bridge
+	ValidTargets: Water, Ship, WaterActor, Underwater, Bridge
 	Burst: 2
 	BurstDelays: 20
 	Projectile: Missile
@@ -464,7 +512,7 @@ TorpTube:
 	Warhead@1Dam: SpreadDamage
 		Spread: 426
 		Damage: 18000
-		ValidTargets: WaterActor, Underwater, Bridge
+		ValidTargets: Ship, WaterActor, Underwater, Bridge
 		Versus:
 			Wood: 75
 			Light: 75
@@ -474,7 +522,45 @@ TorpTube:
 	Warhead@3Eff: CreateEffect
 		Explosions: artillery_explosion
 		ImpactSounds: kaboom15.aud
-		ValidTargets: Ground, WaterActor, Underwater, GroundActor, Trees, Bridge, Corpse
+		ValidTargets: Ground, Ship, WaterActor, Underwater, GroundActor, Trees, Bridge, Corpse
+	Warhead@4EffWater: CreateEffect
+		Explosions: large_splash
+		ImpactSounds: splash9.aud
+		ValidTargets: Water
+		InvalidTargets: Bridge
+
+TorpTubeSingle:
+	ReloadDelay: 100
+	Range: 9c0
+	Report: torpedo1.aud
+	ValidTargets: Water, Ship, WaterActor, Underwater, Bridge
+	Burst: 1
+	BurstDelays: 20
+	Projectile: Missile
+		Image: torpedo
+		Arm: 3
+		Speed: 85
+		TrailImage: bubbles
+		HorizontalRateOfTurn: 4
+		RangeLimit: 10c819
+		BoundToTerrainType: Water
+		Palette: shadow
+		MaximumLaunchAngle: 0
+		CruiseAltitude: 0
+	Warhead@1Dam: SpreadDamage
+		Spread: 426
+		Damage: 18000
+		ValidTargets: Ship, WaterActor, Underwater, Bridge
+		Versus:
+			Wood: 75
+			Light: 75
+			Heavy: 100
+			Concrete: 500
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@3Eff: CreateEffect
+		Explosions: artillery_explosion
+		ImpactSounds: kaboom15.aud
+		ValidTargets: Ground, Ship, WaterActor, Underwater, GroundActor, Trees, Bridge, Corpse
 	Warhead@4EffWater: CreateEffect
 		Explosions: large_splash
 		ImpactSounds: splash9.aud
@@ -486,6 +572,7 @@ TorpTube:
 	ReloadDelay: 300
 	Range: 8c0
 	Burst: 2
+	Report: ChemTurretAttack.wav
 	Projectile: Missile
 		Speed: 234
 		Inaccuracy: 0c614
@@ -553,7 +640,48 @@ SCUD:
 		Spread: 0c341
 		Damage: 4750
 		Falloff: 1000, 220, 170, 110, 40
-		ValidTargets: GroundActor, Trees,  WaterActor, Trees
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Trees
+		Versus:
+			None: 90
+			Wood: 75
+			Tree: 75
+			Light: 70
+			Medium: 60
+			Heavy: 40
+			Concrete: 55
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, SmallExplosionDeath, Incendiary
+	Warhead@3Eff: CreateEffect
+		Explosions: napalm
+		ImpactSounds: explosion_medium_5.wav
+	Warhead@4EffWater: CreateEffect
+		Explosions: large_splash
+	Warhead@Smu: LeaveSmudge
+		SmudgeType: Scorch
+
+DN_ROCKET:
+	Inherits: ^AntiGroundMissile
+	ReloadDelay: 240
+	Range: 11c512
+	MinRange: 4c0
+	Burst: 2
+	BurstDelays: 15
+	Report: bazooka_mod_1.wav
+	Projectile: Missile
+		CloseEnough: 0c01
+		CruiseAltitude: 4c0
+		Inaccuracy: 1c0
+		RangeLimit: 14c0
+		Blockable: False
+		ExplodeWhenEmpty: False
+		Speed: 170
+		Image: dn_rocket
+		Shadow: True
+		TrailImage: smokey
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c341
+		Damage: 4750
+		Falloff: 1000, 220, 170, 110, 40
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Trees
 		Versus:
 			None: 90
 			Wood: 75
@@ -595,7 +723,7 @@ IblisMissile:
 		Spread: 0c256
 		Damage: 3000
 		Falloff: 110, 95, 85, 60, 30, 10
-		ValidTargets: GroundActor, Trees,  WaterActor, Trees
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Trees
 		Versus:
 			None: 90
 			Wood: 125
@@ -655,7 +783,7 @@ KhanMissile:
 		Spread: 256
 		Damage: 10000
 		Falloff: 300, 168, 80, 30, 18, 7, 0
-		ValidTargets: GroundActor, Trees,  WaterActor, Trees
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Trees
 		Versus:
 			None: 90
 			Wood: 70
@@ -696,7 +824,7 @@ IfritMissile:
 		Spread: 256
 		Damage: 2000
 		Falloff: 300, 168, 80, 30, 18, 7, 0
-		ValidTargets: GroundActor, Trees,  WaterActor, Trees
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Trees
 		Versus:
 			None: 90
 			Wood: 75
@@ -729,7 +857,7 @@ IfritMissile:
 	Burst: 5
 	BurstDelays: 4
 	Report: katyamissilesound.wav
-	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor
+	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor
 	TargetActorCenter: true
 	-Projectile:
 	Projectile: Bullet
@@ -746,7 +874,7 @@ IfritMissile:
 		Spread: 0c256
 		Damage: 1200
 		Falloff: 220, 170, 150, 100, 50
-		ValidTargets: GroundActor, Trees,  WaterActor, AirborneActor
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, AirborneActor
 		Versus:
 			None: 85
 			Wood: 75
@@ -759,6 +887,40 @@ IfritMissile:
 		Explosions: med_explosion
 		ImpactSounds: xplobig4.aud
 
+Destroyer227mm:
+	Inherits: ^AntiGroundMissile
+	ReloadDelay: 165
+	Range: 10c0
+	MinRange: 3c0
+	Burst: 15
+	BurstDelays: 4
+	Projectile: Missile
+		CloseEnough: 0c01
+		CruiseAltitude: 4c0
+		Inaccuracy: 1c0
+		RangeLimit: 14c0
+		Blockable: False
+		ExplodeWhenEmpty: False
+	Report: hk_rocket_trooper_1.aud
+	ValidTargets: Ground, Water, GroundActor, Trees, Ship, Ship, WaterActor
+	TargetActorCenter: true
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c256
+		Damage: 1500
+		Falloff: 220, 170, 150, 100, 50
+		ValidTargets: GroundActor, Trees, Ship, WaterActor, AirborneActor, Ship,
+		Versus:
+			None: 25
+			Wood: 35
+			Light: 30
+			Medium: 50
+			Heavy: 90
+			Concrete: 70
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@3Eff: CreateEffect
+		Explosions: med_explosion
+		ImpactSounds: explosion_small_5.wav
+
 227mm-Marauder:
 	Inherits: ^AntiGroundMissile
 	ReloadDelay: 155
@@ -767,7 +929,7 @@ IfritMissile:
 	Burst: 4
 	BurstDelays: 4
 	Report: iggiat2a.wav, iggiat2b.wav
-	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor
+	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor
 	TargetActorCenter: true
 	-Projectile:
 	Projectile: Bullet
@@ -784,7 +946,7 @@ IfritMissile:
 		Spread: 0c256
 		Damage: 1300
 		Falloff: 150, 110, 75, 50, 15, 5, 0
-		ValidTargets: GroundActor, Trees, WaterActor, AirborneActor
+		ValidTargets: GroundActor, Trees, Ship, WaterActor, AirborneActor
 		Versus:
 			None: 85
 			Wood: 70
@@ -805,7 +967,7 @@ Hind227mm:
 	Burst: 6
 	BurstDelays: 4
 	Report: katyarocket.aud
-	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor
+	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor
 	TargetActorCenter: true
 	-Projectile:
 	Projectile: Bullet
@@ -822,7 +984,7 @@ Hind227mm:
 		Spread: 0c256
 		Damage: 1200
 		Falloff: 325, 200, 150, 80, 60
-		ValidTargets: GroundActor, Trees,  WaterActor, AirborneActor
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, AirborneActor
 		Versus:
 			None: 35
 			Wood: 50
@@ -843,7 +1005,7 @@ GebardMissile:
 	Burst: 2
 	BurstDelays: 4
 	Report: orcamis1.aud
-	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor
+	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor
 	TargetActorCenter: true
 	-Projectile:
 	Projectile: Bullet
@@ -859,7 +1021,7 @@ GebardMissile:
 		Spread: 0c256
 		Damage: 5000
 		Falloff: 250, 200, 150, 80, 60, 15, 5, 0
-		ValidTargets: GroundActor, Trees,  WaterActor, AirborneActor
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, AirborneActor
 		Versus:
 			None: 10
 			Wood: 30
@@ -881,7 +1043,7 @@ Drake:
 	MinRange: 0c512
 	Report: missile6.aud
 	Report: bazook1.aud
-	ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor
+	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor
 	Projectile: Missile
 		TrailImage: smokey
 		Speed: 213
@@ -906,7 +1068,7 @@ RoninDrake:
 	MinRange: 0c512
 	Report: missile6.aud
 	Report: bazook1.aud
-	ValidTargets: Ground, Water, Trees, WaterActor, Vehicle, Structure
+	ValidTargets: Ground, Water, Trees, Ship, WaterActor, Vehicle, Structure
 	Projectile: Missile
 		TrailImage: smokey
 		Speed: 320
@@ -922,7 +1084,7 @@ RoninDrake:
 		Spread: 128
 		Falloff: 100, 50, 25, 5
 		Damage: 1850
-		ValidTargets: Ground, Water, GroundActor, Trees,  WaterActor
+		ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor
 
 RoninDrakeAA:
 	Inherits: ^AntiGroundMissile

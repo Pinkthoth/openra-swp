@@ -314,6 +314,15 @@ SYRD:
 	Inherits@PRIMARY: ^PrimaryBuilding
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	ProvidesPrerequisite@soviet:
+		Factions: soviet, russia, ukraine, china, mongolia, kazakhstan, belarus
+		Prerequisite: naval.komintern
+	ProvidesPrerequisite@entente:
+		Factions: allies, usa, england, japan, france, serbia, raj
+		Prerequisite: naval.entente
+	ProvidesPrerequisite@zentrum:
+		Factions: zentrum, germany, italy, turkey, austria, bulgaria, persia
+		Prerequisite: naval.zentrum
 	ProvidesPrerequisite@disabled:
 		Prerequisite: disabled
 	Selectable:
@@ -330,7 +339,7 @@ SYRD:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 40
-		Prerequisites: anypower, disabled, ~techlevel.low
+		Prerequisites: anypower, ~techlevel.low
 		Description: Produces and repairs\nships and transports.
 	Building:
 		Footprint: XXX xxx XXX
@@ -1540,7 +1549,7 @@ RECRUITMENTOFFICE:
 		Queue: Building
 		BuildPaletteOrder: 600
 		Prerequisites: ~structures.china, weap, ~techlevel.medium
-		Description: Forward recruitmend and command office\nof the Chinese Red Guards.
+		Description: Forward recruitment and command office\nof the Chinese Red Guards.
 		BuildLimit: 1
 	TooltipExtras:
 		Attributes: • Build limit 1.\n• Passive Ability: Produces two Militia units every 30 seconds for 100$.
