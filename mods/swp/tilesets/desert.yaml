@@ -396,7 +396,7 @@ Templates:
 		Size: 1,1
 		Categories: Terrain
 		Tiles:
-			0: Clear	
+			0: Clear
 	Template@1101:
 		Id: 1101
 		Images: bigsands.shp
@@ -1712,7 +1712,7 @@ Templates:
 			0: Rough
 			1: Rough
 	Template@2012:
-		Id: 2012 
+		Id: 2012
 		Images: desert_stuff.shp
 		Size: 1,2
 		Frames: 17,27

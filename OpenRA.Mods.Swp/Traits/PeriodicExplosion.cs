@@ -1,11 +1,10 @@
-﻿#region Copyright & License Information
-/*
- * Copyright 2007-2018 The OpenRA Developers (see AUTHORS)
- * This file is part of OpenRA, which is free software. It is made
- * available to you under the terms of the GNU General Public License
- * as published by the Free Software Foundation, either version 3 of
- * the License, or (at your option) any later version. For more
- * information, see COPYING.
+﻿﻿#region Copyright & License Information
+/**
+ * Copyright (c) The OpenRA Combined Arms Developers (see CREDITS).
+ * This file is part of OpenRA Combined Arms, which is free software.
+ * It is made available to you under the terms of the GNU General Public License
+ * as published by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version. For more information, see COPYING.
  */
 #endregion
 
@@ -41,6 +40,9 @@ namespace OpenRA.Mods.Swp.Traits
 		[Desc("Initial Delay")]
 		public readonly int InitialDelay = 0;
 
+		[Desc("If true, will apply firepower/reload modifiers.")]
+		public readonly bool ApplyModifiers = false;
+
 		public override object Create(ActorInitializer init) { return new PeriodicExplosion(init.Self, this); }
 
 		public override void RulesetLoaded(Ruleset rules, ActorInfo ai)
@@ -51,7 +53,7 @@ namespace OpenRA.Mods.Swp.Traits
 
 			var weaponToLower = Weapon.ToLowerInvariant();
 			if (!rules.Weapons.TryGetValue(weaponToLower, out weaponInfo))
-				throw new YamlException("Weapons Ruleset does not contain an entry '{0}'".F(weaponToLower));
+				throw new YamlException($"Weapons Ruleset does not contain an entry '{weaponToLower}'");
 
 			WeaponInfo = weaponInfo;
 		}
@@ -65,6 +67,7 @@ namespace OpenRA.Mods.Swp.Traits
 
 		int fireDelay;
 		int burst;
+		int initialDelay;
 		AmmoPool ammoPool;
 
 		List<(int Tick, Action Action)> delayedActions = new List<(int, Action)>();
@@ -76,6 +79,7 @@ namespace OpenRA.Mods.Swp.Traits
 
 			weapon = info.WeaponInfo;
 			burst = weapon.Burst;
+			initialDelay = info.InitialDelay;
 			body = self.TraitOrDefault<BodyOrientation>();
 		}
 
@@ -101,7 +105,7 @@ namespace OpenRA.Mods.Swp.Traits
 			if (IsTraitDisabled)
 				return;
 
-			if (--fireDelay + Info.InitialDelay < 0)
+			if (--fireDelay + initialDelay < 0)
 			{
 				if (ammoPool != null && !ammoPool.TakeAmmo(self, 1))
 					return;
@@ -113,11 +117,13 @@ namespace OpenRA.Mods.Swp.Traits
 				var args = new WarheadArgs
 				{
 					Weapon = weapon,
-					DamageModifiers = self.TraitsImplementing<IFirepowerModifier>().Select(a => a.GetFirepowerModifier()).ToArray(),
 					Source = self.CenterPosition,
 					SourceActor = self,
 					WeaponTarget = Target.FromPos(self.CenterPosition + localoffset)
 				};
+
+				if (info.ApplyModifiers)
+					args.DamageModifiers = self.TraitsImplementing<IFirepowerModifier>().Select(a => a.GetFirepowerModifier()).ToArray();
 
 				weapon.Impact(Target.FromPos(self.CenterPosition + localoffset), args);
 
@@ -136,9 +142,14 @@ namespace OpenRA.Mods.Swp.Traits
 				}
 				else
 				{
-					var modifiers = self.TraitsImplementing<IReloadModifier>()
-						.Select(m => m.GetReloadModifier());
-					fireDelay = Util.ApplyPercentageModifiers(weapon.ReloadDelay, modifiers);
+					if (info.ApplyModifiers)
+					{
+						var modifiers = self.TraitsImplementing<IReloadModifier>().Select(m => m.GetReloadModifier());
+						fireDelay = Util.ApplyPercentageModifiers(weapon.ReloadDelay, modifiers);
+					}
+					else
+						fireDelay = weapon.ReloadDelay;
+
 					burst = weapon.Burst;
 
 					if (weapon.AfterFireSound != null && weapon.AfterFireSound.Length > 0)
@@ -149,11 +160,15 @@ namespace OpenRA.Mods.Swp.Traits
 						});
 					}
 				}
+
+				initialDelay = 0;
 			}
 		}
 
 		protected override void TraitEnabled(Actor self)
 		{
+			initialDelay = info.InitialDelay;
+
 			if (info.ResetReloadWhenEnabled)
 			{
 				burst = weapon.Burst;

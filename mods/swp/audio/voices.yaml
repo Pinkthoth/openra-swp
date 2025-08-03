@@ -12,14 +12,18 @@ GenericVoice:
 		usa: .v01,.v03
 		raj: .v01,.v03
 		serbia: .v01,.v03
+		egypt: .v01,.v03
 		china: .r01,.r03
 		mongolia: .r01,.r03
+		arabia: .r01,.r03
+		transcaucasia: .r01,.r03
 		austria: .c01
 		turkey: .c01
 		germany: .c01
 		italy: .c01
 		bulgaria: .c01
 		persia: .c01
+		abyssinia: .c01
 		zentrum: .c01
 	Voices:
 		Select: await1,ready,report1,yessir1
@@ -53,6 +57,10 @@ VehicleVoice:
 		turkey: .c00
 		bulgaria: .c00
 		persia: .c00
+		arabia: .r00,.r02
+		transcaucasia: .r00,.r02
+		abyssinia: .c00
+		egypt: .v00,.v02
 		zentrum: .c00
 	Voices:
 		Select: vehic1,yessir1,report1,await1
@@ -62,21 +70,33 @@ TeleVoice:
 	Voices:
 		Select: telereport1,telereport2
 		Action: teleaction1,teleaction2,teleaction3
+		Attack: teleaction1,teleaction2,teleaction3
 
 HoloVoice:
 	Voices:
 		Select: holoreport1,holoreport2
 		Action: holoaction1,holoaction2,holoaction3
+		Die: teleaction1
+		Burned: teleaction1
+		Zapped: teleaction1
+		Move: teleaction1
+		Freezed: teleaction1
+		Build: teleaction1
+		Kill: teleaction1
 
 CyborgVoice:
 	Voices:
 		Select: volksela,volkselb,volkselc
 		Action: volkmova,volkmovb,volkmovc,volkata,volkatb,volkatc
+		Attack: volkata,volkatb,volkatc
+		Demolish: volkata,volkatb,volkatc
 		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8
 		Burned: dedman10
 		Zapped: dedman6
 		Move: volkata
 		Freezed: freezedie1
+		Build: volkselb
+		Kill: volkselc
 
 EngineerVoice:
 	Voices:
@@ -133,6 +153,7 @@ DogVoice:
 	Voices:
 		Select: dogw3px
 		Move: dogy1
+		Action: dogy1
 		Attack: dogg5p
 		Die: dogw5,dogw7
 		Burned: dogw6
@@ -189,6 +210,7 @@ ShokVoice:
 	Voices:
 		Select: jjuice1,jjump1,jyes1
 		Move: jdance1,jchrge1,jpower1
+		Action: jdance1,jchrge1,jpower1
 		Attack: jburn1,jcrisp1,jshock1,jlight1
 		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8
 		Burned: dedman10
@@ -207,8 +229,12 @@ AntVoice:
 StavrosVoice:
 	Voices:
 		Select: stavcmdr
+		Build: stavcmdr
 		Move: stavcrse, stavyes, stavmov
+		Action: stavcrse, stavyes, stavmov
 		Attack: stavcrse, stavyes
+		Kill: stavcrse
+		Demolish: stavcrse, stavyes
 		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8
 		Burned: dedman10
 		Zapped: dedman6

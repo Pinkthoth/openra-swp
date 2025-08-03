@@ -48,6 +48,22 @@
 			Ore: 80
 			Gems: 80
 			Beach: 80
+	Locomotor@LARGEFOOT:
+		Name: largefoot
+		Crushes: mine, crate
+		SharesCell: false
+		TerrainSpeeds:
+			Clear: 90
+			Pavement: 90
+			Rough: 80
+			Sand: 90
+			TallGrass: 85
+			Road: 100
+			PavedRoad: 100
+			Bridge: 100
+			Ore: 80
+			Gems: 80
+			Beach: 80
 	Locomotor@SMALLWHEELS:
 		Name: smallwheels
 		Crushes: mine, crate
@@ -171,7 +187,7 @@
 			Ore: 70
 			Gems: 70
 			Beach: 70
-	Locomotor@SAUCERHOVER:
+	Locomotor@HOVER:
 		Name: hover
 		Crushes: crate
 		TerrainSpeeds:
@@ -188,14 +204,31 @@
 			Ore: 100
 			Gems: 100
 			Beach: 100
+	Locomotor@SAUCERHOVER:
+		Name: amphibioushover
+		Crushes: crate
+		TerrainSpeeds:
+			Clear: 50
+			Pavement: 50
+			Rough: 40
+			Sand: 40
+			Road: 50
+			River: 100
+			Water: 100
+			TallGrass: 50
+			PavedRoad: 50
+			Bridge: 50
+			Ore: 30
+			Gems: 30
+			Beach: 40
 	Locomotor@NAVAL:
 		Name: naval
-		Crushes: crate
+		Crushes: crate, mine
 		TerrainSpeeds:
 			Water: 100
 	Locomotor@LANDINGCRAFT:
 		Name: lcraft
-		Crushes: crate
+		Crushes: crate, mine
 		TerrainSpeeds:
 			Water: 100
 			Beach: 70
@@ -216,22 +249,37 @@
 		Name: Britain
 		InternalName: england
 		Side: Entente
-		Description: Kingdom of Great Britain\nFocus: Special Operations and Intelligence\n\nSpecial Infantry: Commando\nSpecial Vehicle: Warthog\nSpecial Infantry: Sniper\nSpecial Vehicle: Mobile Array\nSpecial Building: MI6 Command Post\nSpecial Ability: Radar Scan
+		Description: faction-england.description
 	Faction@2:
 		Name: France
 		InternalName: france
 		Side: Entente
-		Description: Republic of France\nFocus: Misdirection and Deception\n\nSpecial Infantry: Legionaire\nSpecial Building: Fake structures\nSpecial Vehicle: Mobile Radar Jammer\nSpecial Vehicle: Disruptor\nSpecial Building: Camo Defenses\nSpecial Ability: Mirage
+		Description: faction-france.description
 	Faction@3:
 		Name: Germany
 		InternalName: germany
-		Side: Zentrum
-		Description: German Empire\nFocus: Blitzkrieg and Chrono Technology\n\nSpecial Infantry: Tank Commander\nSpecial Vehicle: Chrono APC\nSpecial Vehicle: Chrono Tank\nSpecial Infantry: Chronotrooper\nSpecial Helicopter: Gebard\nSpecial Ability: Chrono Haste
+		Side: Pact
+		Description: faction-germany.description
+	Faction@100:
+		Name: Bulgaria
+		InternalName: bulgaria
+		Side: Pact
+		Description: faction-bulgaria.description
+	Faction@101:
+		Name: Spain
+		InternalName: serbia
+		Side: Entente
+		Description: faction-spain.description
+	Faction@102:
+		Name: Belarus
+		InternalName: belarus
+		Side: Komintern
+		Description: faction-belarus.description
 	Faction@18:
 		Name: Persia
 		InternalName: persia
-		Side: Zentrum
-		Description: Persian Empire\nFocus: Psychich Energy\n\nSpecial Infantry: Fanatic\nSpecial Infantry: Ishmaelite\nSpecial Vehicle: Demo Truck\nSpecial Infantry: Initiate\nSpecial Vehicle: Shahanshah\nSpecial Ability: Mind Blast
+		Side: Pact
+		Description: faction-persia.description
 	Faction@4:
 		Name: Komintern
 		InternalName: soviet
@@ -241,111 +289,116 @@
 		Name: Russia
 		InternalName: russia
 		Side: Komintern
-		Description: Russian Soviet Republic\nFocus: Tesla and Iron Curtain Technology\n\nSpecial Infantry: Tesla Trooper\nSpecial Vehicle: Tesla Tank\nSpecial Helicopter: Tesla Hind\nSpecial Vehicle: Grinder\nSpecial Infantry: Iron Man\nSpecial Ability: Supercharge
+		Description: faction-russia.description
+	Faction@24:
+		Name: Arabia
+		InternalName: arabia
+		Side: Komintern
+		Description: faction-arabia.description
+	Faction@25:
+		Name: Mongolia
+		InternalName: mongolia
+		Side: Komintern
+		Description: faction-mongolia.description
 	Faction@6:
 		Name: Ukraine
 		InternalName: ukraine
 		Side: Komintern
-		Description: Ukrainian Soviet Republic\nFocus: Magnetic and Veil Technology\n\nSpecial Infantry: Nightwitch\nSpecial Vehicle: Maglev Tank\nSpecial Vehicle: Traktor\nSpecial Vehicle: Mobile Veil Generator\nSpecial Building: Veil Generator\nSpecial Helicopter: Saucer\nSpecial Ability: Magnetic Suspension
+		Description: faction-ukraine.description
 	Faction@7:
 		Name: Japan
 		InternalName: japan
 		Side: Entente
-		Description: Empire of Japan\nFocus: Phase Technology\n\nSpecial Infantry: Shinobi\nSpecial Vehicle: Ronin\nSpecial Vehicle: Ebi\nSpecial Vehicle: Kitsune\nSpecial Vehicle: Recon Bike\nSpecial Ability: Smokescreen
+		Description: faction-japan.description
 	Faction@8:
 		Name: USA
 		InternalName: usa
 		Side: Entente
-		Description: United States of America\nFocus: Electromagnetism\n\nSpecial Infantry: Arc Blaster\nSpecial Vehicle: Arc Thrower\nSpecial Vehicle: Mobile EMP Device\nSpecial Vehicle: Beetle\nSpecial Vehicle: Cicada\nSpecial Ability: EMP Bomb
-	Faction@17:
-		Name: Spain
-		InternalName: serbia
-		Side: Entente
-		Description: Spanish Republic\nFocus: Versatility\n\nSpecial Infantry: Radist\nSpecial Vehicle: Hovercraft\nSpecial Vehicle: Caballero\nSpecial Helicopter: Colibri\nSpecial Building: Bunker\nSpecial Ability: Caballero Drop
+		Description: faction-usa.description
 	Faction@9:
 		Name: China
 		InternalName: china
 		Side: Komintern
-		Description: People's Republic of China\nFocus: Infantry Focus\n\nSpecial Infantry: Militia\nSpecial Vehicle: Louchuan\nSpecial Vehicle: Propaganda Truck\nSpecial Infantry: Flaktrooper\nSpecial Building: Forward Command\nSpecial Ability: Propaganda
+		Description: faction-china.description
 	Faction@16:
 		Name: Turkmenia
 		InternalName: kazakhstan
 		Side: Komintern
-		Description: Federation of Turkic Soviets\nFocus: Chemical Weaponry & Salvaging\n\nSpecial Infantry: Conscript\nSpecial Vehicle: Waste Tanker\nSpecial Infantry: Waste Warrior\nSpecial Infantry: Salvager\nSpecial Infantry: Nerve Agent\nSpecial Ability: Metempsychosis
+		Description: faction-kazakhstan.description
 	Faction@10:
 		Name: Italy
 		InternalName: italy
-		Side: Zentrum
-		Description: Kingdom of Italy\nFocus: Trench Warfare\n\nSpecial Infantry: Pioneer\nSpecial Vehicle: Testudo\nSpecial Infantry: Arditi\nSpecial Building: Trench\nSpecial Vehicle: Sapper\nSpecial Ability: Paramines
-	Faction@11:
-		Name: Mongolia
-		InternalName: mongolia
-		Side: Komintern
-		Description: People's Republic of Mongolia\nFocus: Hit & Run Tactics\n\nSpecial Infantry: Cavalry\nSpecial Vehicle: Raider\nSpecial Vehicle: Marauder\nSpecial Vehicle: Orda\nSpecial Helicopter: Khan\nSpecial Ability: Guerilla Drop
+		Side: Pact
+		Description: faction-italy.description
 	Faction@12:
 		Name: Austria
 		InternalName: austria
-		Side: Zentrum
-		Description: Austro-Hungarian Empire\nFocus: Refractor and Lazarus Technology\n\nSpecial Infantry: Refractor Guardian\nSpecial Vehicle: Refractor Cannon\nSpecial Helicopter: Wasp\nSpecial Infantry: Lazarus Operator\nSpecial Building: Lazarus Platform\nSpecial Ability: Lazarene Ray
+		Side: Pact
+		Description: faction-austria.description
 	Faction@13:
-		Name: Ottomans
+		Name: Turkey
 		InternalName: turkey
-		Side: Zentrum
-		Description: Ottoman Empire\nFocus: Thermal Weaponry\n\nSpecial Infantry: Molotov Thrower\nSpecial Vehicle: Flame Tank\nSpecial Infantry: Desolator\nSpecial Vehicle: Ifrit\nSpecial Helicopter: Iblis\nSpecial Ability: Flame Shield
-	Faction@15:
-		Name: Bulgaria
-		InternalName: bulgaria
-		Side: Zentrum
-		Description: Tsardom of Bulgaria\nFocus: Indirect Fire\n\nSpecial Infantry: Mortar Crew\nSpecial Vehicle: Czar\nSpecial Aircraft: Zeppelin\nSpecial Infantry: Stormtrooper\nSpecial Infantry: Artillery Observer\nSpecial Ability: Flare
+		Side: Pact
+		Description: faction-turkey.description
 	Faction@14:
-		Name: Zentrum
+		Name: Pact
 		InternalName: zentrum
-		Side: Zentrum
+		Side: Pact
 		Selectable: False
-	Faction@19:
-		Name: Belarus
-		InternalName: belarus
-		Side: Komintern
-		Description: Belarussian Soviet Socialist Republic\nFocus: Cryo and Gatling Technology\n\nSpecial Infantry: Maroznik\nSpecial Vehicle: Marozilnik\nSpecial Vehicle: Gatling Car\nSpecial Helicopter: Gatling Hind\nSpecial Building: Morozko\nSpecial Ability: Blizzard
 	Faction@20:
 		Name: India
 		InternalName: raj
 		Side: Entente
-		Description: The British Raj of India\nFocus: Heavy Weaponry\n\nSpecial Infantry: Anti-Tank Crew\nSpecial Infantry: Heavy Machine Gun Crew\nSpecial Infantry: AA Gun Crew\nSpecial Building: Grand Cannon\nSpecial Plane: Garud Heavy Fighter\nSpecial Ability: Intercept
+		Description: faction-raj.description
+	Faction@21:
+		Name: Romania
+		InternalName: abyssinia
+		Side: Pact
+		Description: faction-abyssinia.description
+	Faction@22:
+		Name: Korea
+		InternalName: egypt
+		Side: Entente
+		Description: faction-egypt.description
+	Faction@23:
+		Name: Transcaucasia
+		InternalName: transcaucasia
+		Side: Komintern
+		Description: faction-transcaucasia.description
 	Faction@random:
 		Name: Any
 		InternalName: Random
 		RandomFactionMembers: RandomAllies, RandomSoviet, Randomzentrum
 		Side: Random
-		Description: Random Country\nA random country will be chosen when the game starts.
+		Description: faction-random.description
 	Faction@randomallies:
 		Name: Entente
 		InternalName: RandomAllies
-		RandomFactionMembers: england, france, usa, japan, serbia, raj
+		RandomFactionMembers: england, france, usa, japan, raj, serbia, egypt
 		Side: Random
-		Description: Random Entente Country\nA random Entente country will be chosen when the game starts.
+		Description: faction-allies.description
 	Faction@randomsoviet:
 		Name: Komintern
 		InternalName: RandomSoviet
-		RandomFactionMembers: russia, ukraine, china, mongolia, kazakhstan, belarus
+		RandomFactionMembers: russia, ukraine, china, kazakhstan, arabia, belarus, transcaucasia, mongolia
 		Side: Random
-		Description: Random Komintern Country\nA random Komintern country will be chosen when the game starts.
+		Description: faction-soviet.description
 	Faction@randomzentrum:
-		Name: Zentrum
+		Name: Pact
 		InternalName: Randomzentrum
-		RandomFactionMembers: germany, austria, turkey, italy, bulgaria, persia
+		RandomFactionMembers: germany, austria, turkey, italy, persia, bulgaria, abyssinia
 		Side: Random
-		Description: Random Zentrum Country\nA random Zentrum country will be chosen when the game starts.
+		Description: faction-zentrum.description
 	ResourceRenderer:
 		ResourceTypes:
 			Ore:
 				Sequences: gold01, gold02, gold03, gold04
 				Palette: player
-				Name: Valuable Minerals
+				Name: Precious Materials
 			Gems:
 				Sequences: gem01, gem02, gem03, gem04
 				Palette: player
-				Name: Valuable Minerals
+				Name: Precious Materials
 
 World:
 	Inherits: ^BaseWorld
@@ -397,7 +450,7 @@ World:
 				ResourceIndex: 2
 				TerrainType: Gems
 				AllowedTerrainTypes: Clear, Road
-				MaxDensity: 3
+				MaxDensity: 12
 	ResourceClaimLayer:
 	WithResourceAnimation@GEMS:
 		Types: Gems
@@ -417,7 +470,7 @@ World:
 	StartingUnits@mcvonly:
 		Class: none
 		ClassName: MCV Only
-		Factions: allies, england, france, germany, soviet, russia, ukraine, china, mongolia, usa, japan, austria, italy, turkey, serbia, bulgaria, kazakhstan, raj, belarus, persia
+		Factions: allies, england, serbia, france, germany, bulgaria, soviet, russia, belarus, ukraine, china, usa, japan, austria, italy, turkey, kazakhstan, raj, persia, arabia, abyssinia, egypt, transcaucasia, mongolia
 		BaseActor: mcv
 	MapStartingLocations:
 		SeparateTeamSpawnsCheckboxDisplayOrder: 6
@@ -446,8 +499,7 @@ World:
 			1: WarningOneMinuteRemaining
 	ColorPickerManager:
 		PreviewActor: fact.colorpicker
-		PresetHues: 0, 0.125, 0.22, 0.375, 0.5, 0.56, 0.8, 0.88, 0, 0.15, 0.235, 0.4, 0.47, 0.55, 0.75, 0.85
-		PresetSaturations: 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.4, 0.5, 0.4, 0.5, 0.4, 0.5, 0.4, 0.5
+		PresetColors: 391D1D, 98331F, F57606, F50606, DDB8FF, ACF218, 06F739, F2BC18, 200738, 280DF6, 79F2AA, 34BA93, F861A4, C718F2, 79CEF2, 2F86F2
 	OrderEffects:
 		TerrainFlashImage: moveflsh
 		TerrainFlashSequence: idle
@@ -476,7 +528,7 @@ EditorWorld:
 				TerrainType: Gems
 				AllowedTerrainTypes: Clear, Road
 				MaxDensity: 3
-	EditorSelectionLayer:
+	MarkerLayerOverlay:
 	LoadWidgetAtGameStart:
 	EditorActionManager:
 	BuildableTerrainOverlay:

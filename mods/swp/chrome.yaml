@@ -9,6 +9,11 @@
 	Image2x: glyphs-2x.png
 	Image3x: glyphs-3x.png
 
+^FlagGlyphs:
+	Image: flagglyphs.png
+	Image2x: flagglyphs-2x.png
+	Image3x: flagglyphs-3x.png
+
 ^LoadScreen:
 	Image: loadscreen.png
 	Image2x: loadscreen-2x.png
@@ -381,6 +386,18 @@ dialog:
 		corner-bl: 192, 492, 9, 9
 		corner-br: 201, 492, 9, 9
 
+# Editor
+editor:
+	Inherits: ^Glyphs
+	Regions:
+		select: 34, 187, 16, 16
+		tiles: 0, 187, 16, 16
+		overlays: 17, 187, 16, 16
+		actors: 34, 68, 16, 16
+		tools: 136, 68, 16, 16
+		history: 136, 51, 16, 16
+		erase: 50, 187, 16, 16
+
 # Used for Music and Map selection (normal button)
 dialog2:
 	Inherits: button
@@ -407,6 +424,7 @@ lobby-bits:
 		spawn-unclaimed: 91, 119, 22, 22
 		spawn-disabled: 114, 119, 22, 22
 		admin: 170, 0, 6, 5
+		bot: 170, 51, 16, 16
 		colorpicker: 68, 119, 22, 22
 		huepicker: 136, 0, 7, 15
 		kick: 153, 0, 11, 11
@@ -445,12 +463,12 @@ strategic:
 		player_owned: 160, 142, 22, 22
 
 flags:
-	Inherits: ^Glyphs
+	Inherits: ^FlagGlyphs
 	Regions:
 		england: 226, 49, 30, 15
 		germany: 195, 129, 30, 15
 		france: 226, 81, 30, 15
-		spain: 226, 97, 30, 15
+		spain: 71, 173, 30, 15
 		turkey: 226, 113, 30, 15
 		greece: 226, 129, 30, 15
 		ukraine: 195, 177, 30, 15
@@ -463,9 +481,13 @@ flags:
 		italy: 226, 129, 30, 15
 		mongolia: 195, 161, 30, 15
 		austria: 195, 145, 30, 15
-		bulgaria: 133, 177, 30, 15
-		serbia: 71, 177, 30, 15
-		kazakhstan: 102, 177, 30, 15
+		bulgaria: 133, 173, 30, 15
+		serbia: 71, 173, 30, 15
+		kazakhstan: 102, 173, 30, 15
+		egypt: 40, 189, 30, 15
+		arabia: 71, 189, 30, 15
+		transcaucasia: 195, 50, 30, 15
+		abyssinia: 102, 189, 30, 15
 		zentrum: 195, 145, 30, 15
 		belarus: 9, 173, 30, 15
 		persia: 40, 173, 30, 15

@@ -1,128 +1,179 @@
 ss:
 	idle:
+		Filename: ss.shp
 		Facings: 16
-	icon: ssicon
+	icon:
+		Filename: ssicon.shp
 
 co:
 	idle:
+		Filename: co.shp
 		Facings: 32
-	icon: coicon
+	icon:
+		Filename: coicon.shp
 
 ak:
-	idle: msub
+	idle:
+		Filename: msub.shp
 		Facings: 16
-	icon: akicon
+	icon:
+		Filename: akicon.shp
 
 ac:
-	idle: ac
+	idle:
+		Filename: ac.shp
 		Facings: 32
-	icon: aircaricon
+	icon:
+		Filename: aircaricon.shp
 
 ub:
-	idle: uboat
+	idle:
+		Filename: uboat.shp
 		Facings: 32
-	icon: uboaticon
+	icon:
+		Filename: uboaticon.shp
 
 
 ca:
+	Defaults:
+		Filename: ca.shp
 	idle:
 		Facings: 32
 	turret:
 		Facings: 32
 		Start: 32
-	muzzle: gunfire2
+	muzzle:
+		Filename: gunfire2.shp
 		Length: 5
-	icon: caicon
+	icon:
+		Filename: caicon.shp
 
 dn:
-	idle: dn
+	idle:
+		Filename: dn.shp
 		Facings: 32
-	turret: dn
+	turret:
+		Filename: dn.shp
 		Start: 32
 		Facings: 32
-	turret_1: dn
+	turret_1:
+		Filename: dn.shp
 		Start: 64
 		Facings: 32
-	turret_2: dn
+	turret_2:
+		Filename: dn.shp
 		Start: 96
 		Facings: 32
-	muzzle: gunfire2
+	muzzle:
+		Filename: gunfire2.shp
 		Length: 5
-	icon: dnicon
+	icon:
+		Filename: dnicon.shp
 
 samshp:
-	idle: samshp
+	idle:
+		Filename: samshp.shp
 		Facings: 32
-	turret: samshp
+	turret:
+		Filename: samshp.shp
 		Start: 32
 		Facings: 32
-	turret_1: samshp
+	turret_1:
+		Filename: samshp.shp
 		Start: 64
 		Facings: 32
-	turret_2: samshp
+	turret_2:
+		Filename: samshp.shp
 		Start: 96
 		Facings: 32
-	muzzle: gunfire2
+	muzzle:
+		Filename: gunfire2.shp
 		Length: 5
-	icon: samshpicon
+	icon:
+		Filename: samshpicon.shp
 
 fr:
-	idle: fr
+	idle:
+		Filename: fr.shp
 		Facings: 32
-	turret: fr
+	turret:
+		Filename: fr.shp
 		Start: 32
 		Facings: 32
-	muzzle: gunfire2
+	muzzle:
+		Filename: gunfire2.shp
 		Length: 5
-	muzzle-air: gunfire2
+	muzzle-air:
+		Filename: gunfire2.shp
 		Length: 5
-	icon: fricon
+	icon:
+		Filename: fricon.shp
 
 dd:
+	Defaults:
+		Filename: dd.shp
 	idle:
 		Facings: 32
 	turret:
 		Start: 32
 		Facings: 32
-	muzzle: smokey
+	muzzle:
+		Filename: smokey.shp
 		Length: *
 		ZOffset: 1023
-	icon: ddicon
+	icon:
+		Filename: ddicon.shp
 
 pt:
-	idle: gb
+	idle:
+		Filename: gb.shp
 		Facings: 32
-	turret: gb
+	turret:
+		Filename: gb.shp
 		Start: 32
 		Facings: 32
-	muzzle: gunfire2
+	muzzle:
+		Filename: gunfire2.shp
 		Length: 5
-	empty: empty
-	icon: pticon
+	empty:
+		Filename: empty.shp
+	icon:
+		Filename: pticon.shp
 
 bs:
 	idle:
+		Filename: bs.shp
 		Facings: 32
-	turret: bs
+	turret:
+		Filename: bs.shp
 		Start: 32
 		Facings: 32
-	muzzle: gunfire2
+	muzzle:
+		Filename: gunfire2.shp
 		Length: 5
-	icon: bsicon
+	icon:
+		Filename: bsicon.shp
 
 
 mo:
-	idle: mo
+	idle:
+		Filename: mo.shp
 		Facings: 32
-	turret: mo
+	turret:
+		Filename: mo.shp
 		Start: 32
 		Facings: 32
-	muzzle: gunfire2
+	muzzle:
+		Filename: gunfire2.shp
 		Length: 5
-	empty: empty
-	icon: moicon
+	empty:
+		Filename: empty.shp
+	icon:
+		Filename: moicon.shp
 
 lst:
+	Defaults:
+		Filename: lst.shp
 	idle:
 	open:
 		Start: 1
@@ -135,28 +186,37 @@ lst:
 	unload:
 		Start: 4
 		ZOffset: -511
-	icon: lsticon
+	icon:
+		Filename: lsticon.shp
 
 msub:
-	idle: uboatmissile
+	idle:
+		Filename: uboatmissile.shp
 		Facings: 32
-	icon: msubicon
+	icon:
+		Filename: msubicon.shp
 
 engshp:
 	idle:
+		Filename: engshp.shp
 		Start: 0
 		Facings: 32
 		ZOffset: -10001
-	icon: engshpicon
+	icon:
+		Filename: engshpicon.shp
 
 mnlyshp:
 	idle:
+		Filename: mnlyshp.shp
 		Start: 0
 		Facings: 32
 		ZOffset: -10001
-	icon: mnclyshpicon
+	icon:
+		Filename: mnclyshpicon.shp
 	
 flkshp:
+	Defaults:
+		Filename: flkshp.shp
 	idle:
 		Start: 0
 		Facings: 32
@@ -165,6 +225,8 @@ flkshp:
 		Start: 32
 		Facings: 32
 		ZOffset: -10001
-	muzzle: gunfire2
+	muzzle:
+		Filename: gunfire2.shp
 		Length: 2
-	icon: flkshpicon
+	icon:
+		Filename: flkshpicon.shp

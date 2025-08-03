@@ -23,6 +23,14 @@
 		Name: tempdecs
 		Filename: temperat.pal
 		ShadowIndex: 3, 4
+	PaletteFromFile@kineticbolt:
+		Name: kineticbolt
+		Filename: bolt.pal
+		ShadowIndex: 3, 4
+	PaletteFromPaletteWithAlpha@kineticbolttransparent:
+		Name: kineticbolttransparent
+		BasePalette: kineticbolt
+		Alpha: 0.55
 	PaletteFromFile@craters:
 		Name: craters
 		Filename: temperat.pal
@@ -49,10 +57,10 @@
 		Name: effect
 		Filename: temperat.pal
 		ShadowIndex: 4
-	PaletteFromFile@colorpicker:
+	ColorPickerPalette@colorpicker:
 		Name: colorpicker
-		Filename: temperat.pal
-		ShadowIndex: 4
+		BasePalette: player
+		RemapIndex: 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95
 		AllowModifiers: false
 	PaletteFromFile@desert:
 		Name: desert
@@ -147,7 +155,7 @@
 		Name: basic-alpha
 		BasePalette: chrome
 		Alpha: 0.55
-	MenuPaletteEffect:
+	MenuPostProcessEffect:
 	RotationPaletteEffect@defaultwater:
 		Palettes: terrain
 		ExcludeTilesets: DESERT
@@ -162,8 +170,8 @@
 		RotationBase: 32
 	LightPaletteRotator:
 		ExcludePalettes: terrain, effect, desert
-	ChronoshiftPaletteEffect:
-	FlashPaletteEffect@NUKE:
+	ChronoshiftPostProcessEffect:
+	FlashPostProcessEffect@NUKE:
 		Type: Nuke
 	PaletteFromPaletteWithAlpha@placelinesegment:
 		Name: placelinesegment

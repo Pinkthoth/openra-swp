@@ -267,21 +267,21 @@ Background@PRODUCTION_TOOLTIP:
 			Height: 2
 			Font: TinyBold
 			VAlign: Top
-			TextColor: 98EAA2
+			TextColor: 33DD33
 		Label@WEAKNESSES:
 			X: 7
 			Y: 30
 			Height: 2
 			Font: TinyBold
 			VAlign: Top
-			TextColor: FF6B6B
+			TextColor: EE5555
 		Label@ATTRIBUTES:
 			X: 7
 			Y: 31
 			Height: 2
 			Font: TinyBold
 			VAlign: Top
-			TextColor: FFEA84
+			TextColor: FFFF00
 		Image@COST_ICON:
 			Y: 5
 			Width: 16

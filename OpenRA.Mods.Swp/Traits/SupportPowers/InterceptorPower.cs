@@ -21,7 +21,7 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.Swp.Traits
 {
-	public class InterceptorPowerInfo : SupportPowerInfo
+	public class InterceptorPowerInfo : DirectionalSupportPowerInfo
 	{
 		[ActorReference(typeof(AircraftInfo))]
 		public readonly string UnitType = "yf23";
@@ -55,7 +55,7 @@ namespace OpenRA.Mods.Swp.Traits
 		public override object Create(ActorInitializer init) { return new InterceptorPower(init.Self, this); }
 	}
 
-	public class InterceptorPower : SupportPower
+	public class InterceptorPower : DirectionalSupportPower
 	{
 		readonly InterceptorPowerInfo info;
 
@@ -65,14 +65,6 @@ namespace OpenRA.Mods.Swp.Traits
 			this.info = info;
 		}
 
-		public override void SelectTarget(Actor self, string order, SupportPowerManager manager)
-		{
-			if (info.UseDirectionalTarget)
-				self.World.OrderGenerator = new SelectDirectionalTarget(self.World, order, manager, Info.Cursor, info.DirectionArrowAnimation, info.DirectionArrowPalette);
-			else
-				base.SelectTarget(self, order, manager);
-		}
-
 		public override void Activate(Actor self, Order order, SupportPowerManager manager)
 		{
 			base.Activate(self, order, manager);
@@ -80,6 +72,7 @@ namespace OpenRA.Mods.Swp.Traits
 
 			var facing = info.UseDirectionalTarget && order.ExtraData != uint.MaxValue ? (WAngle?)WAngle.FromFacing((int)order.ExtraData) : null;
 			SendAirstrike(self, order.Target.CenterPosition, facing);
+
 		}
 
 		public Actor[] SendAirstrike(Actor self, WPos target, WAngle? facing = null)

@@ -32,6 +32,83 @@
 		ValidTargets: Water, Underwater
 		InvalidTargets: Bridge
 
+105mm:
+	Inherits: ^Cannon
+	ReloadDelay: 70
+	Burst: 2
+	Warhead@1Dam: SpreadDamage
+		Versus:
+			Heavy: 115
+
+TeslaCannon:
+	Inherits: ^Cannon
+	Range: 5c512
+	Report: itesatta.aud, itesat2a.aud, itesat2b.aud
+	-Projectile:
+	Projectile: Missile
+		Image: teslabolt
+		Shadow: False
+		Speed: 500
+		ContrailLength: 4
+		TrailImage: teslabolt
+		TrailSequences: idle_fast
+		TrailInterval: 1
+		Jammable: False
+		Inaccuracy: 0c0
+		CloseEnough: 0c10
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c128
+		Falloff: 100, 50, 25
+		Damage: 4000
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
+		Versus:
+			None: 100
+			Wood: 10
+			Light: 85
+			Medium: 75
+			Heavy: 60
+			Concrete: 5
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ElectricityDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+
+VolkovTeslaCannon:
+	Inherits: ^Cannon
+	Range: 7c0
+	Report: itesatta.aud, itesat2a.aud, itesat2b.aud
+	-Projectile:
+	Projectile: Missile
+		Image: sm_electroball
+		Palette: tseffects
+		Shadow: False
+		Speed: 500
+		ContrailLength: 4
+		TrailImage: teslabolt
+		TrailSequences: idle_fast
+		TrailInterval: 1
+		Jammable: False
+		Inaccuracy: 0
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c126
+		Falloff: 100, 80, 50, 25, 10
+		Damage: 10000
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
+		Versus:
+			None: 100
+			Wood: 30
+			Light: 85
+			Medium: 75
+			Heavy: 60
+			Concrete: 320
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ElectricityDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+	Warhead@3Eff: CreateEffect
+		Explosions: thunderstruck, thunderstruck2
+		ExplosionPalette: tseffects
+		ImpactSounds: chrge1.aud
+		ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor, Corpse
+
 ^Artillery:
 	Inherits: ^Cannon
 	ReloadDelay: 85
@@ -186,6 +263,28 @@
 		ValidTargets: GroundActor
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath
 
+
+AugustusArtillery:
+	Inherits: ^Artillery
+	MinRange: 4c0
+	Range: 13c0
+	ReloadDelay: 95
+	Report: artyfire.aud
+	TargetActorCenter: true
+	Projectile: Bullet
+		ContrailLength: 30
+		Speed: 164
+		Inaccuracy: 1c138
+		Image: bigberthashell
+		Shadow: True
+		LaunchAngle: 100
+	Warhead@3Eff: CreateEffect
+		Explosions: dmexpld_sm
+		ImpactSounds: explode1.aud
+	Warhead@8Eff: CreateEffect
+		Explosions: napalm
+		ValidTargets: Ground, GroundActor, Ship, WaterActor, Trees, Trees, Corpse
+
 PresbyterArtillery:
 	Inherits: 155mm
 	ReloadDelay: 95
@@ -202,6 +301,35 @@ TurretGun:
 			None: 20
 			Wood: 50
 
+SiegeGun:
+	Inherits: ^Artillery
+	MinRange: 4c0
+	Range: 8c0
+	ReloadDelay: 250
+	Report: siegegun.aud
+	TargetActorCenter: true
+	Projectile: Bullet
+		ContrailLength: 1
+		Speed: 100
+		Inaccuracy: 1c138
+		LaunchAngle: 32
+	Warhead@1Dam: SpreadDamage
+		Falloff: 200,155, 120, 50, 20
+		Versus:
+			None: 20
+			Light: 25
+			Medium: 20
+			Heavy: 15
+			Concrete: 80
+			Wood: 70
+	Warhead@3Eff: CreateEffect
+		Explosions: artillery_explosion
+		ImpactSounds: siegeexp.aud
+	Warhead@Shake: ShakeScreen
+		Duration: 10
+		Intensity: 1
+		Multiplier: 1,0
+
 155mm:
 	Inherits: ^Artillery
 	MinRange: 4c0
@@ -214,6 +342,54 @@ TurretGun:
 		Inaccuracy: 1c138
 	Warhead@1Dam: SpreadDamage
 		Falloff: 100, 55, 20, 5
+		Versus:
+			None: 60
+			Concrete: 55
+
+155mm-Toxin:
+	Inherits: ^Artillery
+	MinRange: 4c0
+	Range: 11c0
+	Report: toxarty.aud
+	TargetActorCenter: true
+	Projectile: Bullet
+		ContrailLength: 30
+		Speed: 170
+		Inaccuracy: 1c138
+		ContrailStartColor: 4CFF00
+		ContrailEndColor: 007F0E
+		LaunchAngle: 110
+		TrailImage: grsmokey
+	Warhead@1Dam: SpreadDamage
+		Falloff: 100, 55, 20, 5
+		Versus:
+			None: 60
+			Concrete: 55
+		Damage: 8000
+	Warhead@3Eff: CreateEffect
+		Explosions: small_tox
+		ExplosionPalette: poisonpal
+	Warhead@condition: GrantExternalCondition
+		Condition: zombiefy
+		Duration: 100
+		Range: 3c00
+		ValidTargets: Infantry
+
+155mm_Howitzer:
+	Inherits: ^Artillery
+	ReloadDelay: 120
+	MinRange: 4c0
+	Range: 9c0
+	Report: howshell.aud
+	TargetActorCenter: true
+	Projectile: Bullet
+		ContrailLength: 30
+		Speed: 170
+		LaunchAngle: 90
+		Inaccuracy: 1c250
+	Warhead@1Dam: SpreadDamage
+		Falloff: 100, 55, 20, 5
+		Damage: 10000
 		Versus:
 			None: 60
 			Concrete: 55
@@ -245,14 +421,16 @@ PortaCannon:
 
 8Inch:
 	Inherits: ^Artillery
+	FirstBurstTargetOffset: 0,-0c256,0
+	FollowingBurstTargetOffset: 0,0c256,0
 	MinRange: 3c0
 	ReloadDelay: 250
-	Range: 15c512
+	Range: 13c0
 	Burst: 2
 	Report: turret1.aud
 	TargetActorCenter: true
 	Projectile: Bullet
-		Inaccuracy: 1c938
+		Inaccuracy: 0c512
 		ContrailLength: 30
 	Warhead@1Dam: SpreadDamage
 		Spread: 213
@@ -291,15 +469,13 @@ PortaCannon:
 2Inch:
 	Inherits: ^Cannon
 	ReloadDelay: 60
-	Range: 5c512
+	Range: 7c0
 	Burst: 3
+	BurstDelays: 6
 	Report: KindjalGun2.wav
 	InvalidTargets: Underwater
-	Projectile: Bullet
-		Speed: 156
-		LaunchAngle: 30
-		ContrailLength: 5
-		ContrailWidth: 0c50
+	-Projectile:
+	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
 		Damage: 2500
 		Versus:
@@ -311,7 +487,7 @@ PortaCannon:
 Grenade:
 	Inherits: ^Artillery
 	ReloadDelay: 60
-	Range: 4c0
+	Range: 5c0
 	Report: grenade1.aud
 	Projectile: Bullet
 		Speed: 136
@@ -332,6 +508,159 @@ Grenade:
 		ImpactSounds: kaboom25.aud
 	Warhead@4EffWater: CreateEffect
 		Explosions: small_splash
+
+SmokeGrenade:
+	Inherits: ^Artillery
+	ReloadDelay: 120
+	Range: 4c0
+	Report: grenade1.aud
+	ValidTargets: Omniattacking, Ground
+	Projectile: Bullet
+		Speed: 136
+		Inaccuracy: 554
+		Image: BOMB
+	Warhead@1Dam: SpreadDamage
+		Spread: 256
+		Damage: 0
+		Versus:
+			None: 60
+			Wood: 100
+			Light: 25
+			Medium: 25
+			Heavy: 25
+			Concrete: 70
+	Warhead@3Eff: CreateEffect
+		ImpactSounds: kaboom15.aud
+		Explosions: smokeexp
+		ExplosionPalette: basic-alpha
+		ValidTargets: Ground, GroundActor, Trees, Ship, WaterActor, Trees, Corpse
+	Warhead@Cluster: FireCluster
+		Weapon: SpawnSmoke
+		RandomClusterCount: -1
+		Dimensions: 1,1
+		Footprint: x
+
+DemomanGrenade:
+	ReloadDelay: 50
+	Range: 1c530
+	Report: grenade1.aud
+	ValidTargets: demoplantable
+	Projectile: InstantHit
+	Warhead@AttachDelayedWeapon: AttachDelayedWeapon
+		Weapon: DemoBombExplode
+		Type: demo
+		TriggerTime: 100
+		DeathTypes: ExplosionDeath
+		Range: 1
+		ValidTargets: demoplantable
+
+Superbomb:
+	Inherits: ^Artillery
+	ReloadDelay: 60
+	Range: 4c0
+	Report: superbombdrop.aud
+	Projectile: Bullet
+		Speed: 80
+		Inaccuracy: 1
+		Image: superbomb
+	ValidTargets: Ground, GroundActor, Trees,  Trees, Water, Ship, WaterActor, Underwater, Air, AirborneActor
+	Warhead@1Dam_impact: SpreadDamage
+		Spread: 1c0
+		Damage: 15000
+		Falloff: 368, 135, 50, 18, 7
+		ValidTargets: GroundActor, Trees,  Trees, Ship, WaterActor, Underwater, AirborneActor
+		Versus:
+			Wood: 25
+			Concrete: 25
+		AffectsParent: true
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@2Res_impact: DestroyResource
+		Size: 1
+	Warhead@3Eff_impact: CreateEffect
+		Explosions: dmexpld
+		ImpactSounds: kaboom1.aud
+		ImpactActors: false
+	Warhead@4Dam_areanuke1: SpreadDamage
+		Spread: 2c0
+		Damage: 6000
+		Falloff: 368, 135, 50, 18
+		ValidTargets: GroundActor, Trees,  Trees, Ship, WaterActor, Underwater, AirborneActor
+		Versus:
+			Wood: 50
+			Concrete: 25
+		AffectsParent: true
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@5Res_areanuke1: DestroyResource
+		Size: 2
+	Warhead@6Eff_areanuke1: CreateEffect
+		ImpactSounds: kaboom22.aud
+		ImpactActors: false
+	Warhead@7Dam_areanuke2: SpreadDamage
+		Spread: 3c0
+		Damage: 6000
+		Falloff: 368, 135, 50
+		ValidTargets: GroundActor, Trees,  Trees, Ship, WaterActor, Underwater, AirborneActor
+		Versus:
+			Wood: 50
+			Tree: 200
+			Concrete: 25
+		AffectsParent: true
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@10Dam_areanuke3: SpreadDamage
+		Spread: 4c0
+		Damage: 6000
+		Falloff: 368, 135
+		ValidTargets: GroundActor, Trees,  Trees, Ship, WaterActor, Underwater
+		Versus:
+			Tree: 300
+			Concrete: 25
+		AffectsParent: true
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@13Smu_areanuke3: LeaveSmudge
+		SmudgeType: Scorch
+		ValidTargets: Ground, Infantry
+		Size: 3
+	Warhead@14Eff: CreateEffect
+		Explosions: large_napalm
+		ValidTargets: Ground, GroundActor, Trees, Ship, WaterActor
+
+Discus:
+	Inherits: ^Artillery
+	FirstBurstTargetOffset: -1c512,0,0
+	ReloadDelay: 60
+	Range: 5c0
+	Report: grenade1.aud
+	Projectile: Bullet
+		Speed: 136
+		Inaccuracy: 554
+		Image: discus
+		BounceCount: 2
+	Warhead@1Dam: SpreadDamage
+		Spread: 256
+		Damage: 6000
+		Versus:
+			None: 60
+			Wood: 100
+			Light: 25
+			Medium: 25
+			Heavy: 25
+			Concrete: 70
+	Warhead@3Eff: CreateEffect
+		Explosions: med_explosion
+		ImpactSounds: kaboom25.aud
+	Warhead@4EffWater: CreateEffect
+		Explosions: small_splash
+
+BurstDiscus:
+	Inherits: Discus
+	Burst: 5
+	ReloadDelay: 120
+	FirstBurstTargetOffset:-3c0,1c0,0
+	FollowingBurstTargetOffset: 0,-0c500,0
+	BurstDelays: 1
+	Range: 9c0
+	Projectile: Bullet
+		Inaccuracy: 10
 
 Satchel:
 	Inherits: ^Artillery
@@ -488,6 +817,16 @@ ltnkfire:
 	Warhead@4EffWater: CreateEffect
 		-ImpactSounds:
 
+ltnkfire-scorpion:	
+	Inherits: ltnkfire
+	InvalidTargets: Husk
+
+ltnkfire-scorpion-double:	
+	Inherits: ltnkfire
+	InvalidTargets: Husk
+	Burst: 2
+	BurstDelays: 6
+
 monstertankgun:
 	Inherits: ltnkfire
 	Burst: 2
@@ -513,6 +852,25 @@ monstertankgun:
 			Heavy: 170
 			Concrete: 60
 
+76mmOrdinanceQF_Magnate:
+	Inherits: ^Cannon
+	Range: 7c0
+	ReloadDelay: 75
+	Report: tnkfire11.aud
+	-Projectile:
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Damage: 5000
+		Spread: 0c126
+		Falloff: 100, 50
+		Versus:
+			None: 30
+			Wood: 65
+			Light: 75
+			Medium: 95
+			Heavy: 170
+			Concrete: 60
+
 76mmOrdinanceQF-ATGUNNER:
 	Range: 7c0
 	Inherits: 76mmOrdinanceQF
@@ -528,7 +886,7 @@ MausCannon:
 		Speed: 1565
 		ContrailLength: 10
 		ContrailStartColor: C1A100
-		ContrailWidth: 0c45
+		ContrailStartWidth: 0c45
 		ContrailDelay: 1
 	Warhead@1Dam: SpreadDamage
 		Damage: 10000
@@ -566,8 +924,8 @@ BuildingGrenade:
 
 Mortar:
 	Inherits: ^Artillery
-	ReloadDelay: 125
-	Range: 11c0
+	ReloadDelay: 80
+	Range: 9c0
 	Report: mortarattack.wav
 	Projectile: Bullet
 		Speed: 136
@@ -575,11 +933,11 @@ Mortar:
 		LaunchAngle: 140
 		Image: BOMB
 		ContrailLength: 30
-		ContrailWidth: 0c50
+		ContrailStartWidth: 0c50
 	Warhead@1Dam: SpreadDamage
 		Falloff: 150, 120, 65, 50, 20, 10
 		Spread: 0c206
-		Damage: 4500
+		Damage: 5000
 		Versus:
 			None: 50
 			Wood: 35
@@ -589,14 +947,46 @@ Mortar:
 			Concrete: 45
 	Warhead@3Eff: CreateEffect
 		Explosions: med_explosion
-		ImpactSounds: explosion_small_3.wav
+		ImpactSounds: grenade_1.aud, grenade_2.aud
 	Warhead@4EffWater: CreateEffect
 		Explosions: small_splash
-		
+
+augustusgun:
+	Inherits: ^Artillery
+	MinRange: 4c0
+	Range: 13c512
+	ReloadDelay: 240
+	Report: 120mmf.aud
+	TargetActorCenter: true
+	Projectile: Bullet
+		ContrailLength: 30
+		Speed: 164
+		Inaccuracy: 1c138
+		Image: bigberthashell
+		Shadow: True
+		LaunchAngle: 100
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c526
+		Damage: 32000
+		Falloff: 100, 55, 25, 5
+		Versus:
+			None: 80
+			Wood: 60
+			Light: 65
+			Medium: 45
+			Heavy: 30
+			Concrete: 65
+	Warhead@3Eff: CreateEffect
+		Explosions: dmexpld_sm
+		ImpactSounds: explode1.aud
+	Warhead@8Eff: CreateEffect
+		Explosions: napalm
+		ValidTargets: Ground, GroundActor, Ship, WaterActor, Trees, Trees, Corpse
+	
 bigberthagun:
 	Inherits: ^Artillery
 	MinRange: 4c0
-	Range: 13c0
+	Range: 11c0
 	ReloadDelay: 240
 	Report: 120mmf.aud
 	TargetActorCenter: true
@@ -629,13 +1019,13 @@ GrenadeLauncher:
 	Inherits: ^Artillery
 	ReloadDelay: 90
 	Report: glnch4.aud
-	Range: 7c0
+	Range: 6c512
 	Projectile: Bullet
 		LaunchAngle: 100
 		Speed: 116
 		Inaccuracy: 554
 		Image: BOMB
-		ContrailWidth: 40
+		ContrailStartWidth: 40
 		ContrailLength: 30
 	Warhead@1Dam: SpreadDamage
 		Spread: 256
@@ -643,11 +1033,11 @@ GrenadeLauncher:
 		Damage: 4500
 		Versus:
 			None: 65
-			Wood: 100
+			Wood: 85
 			Light: 55
 			Medium: 40
 			Heavy: 30
-			Concrete: 60
+			Concrete: 50
 	Warhead@3Eff: CreateEffect
 		Explosions: med_explosion
 		ImpactSounds: kaboom25.aud
@@ -656,9 +1046,52 @@ GrenadeLauncher:
 
 105mm_Naval:
 	Inherits: 105mm
-	Range: 7c512
+	Range: 7c0
 	Report: TANKGUN1.wav
 	Projectile: Bullet
 		LaunchAngle: 31
-		Speed: 256
+		Speed: 456
 		ContrailLength: 10
+
+MoleratGrenade:
+	Inherits: ^Artillery
+	ReloadDelay: 65
+	Range: 7c0
+	Burst: 2
+	BurstDelays: 20
+	MinRange: 0c0
+	Report: glnch4.aud
+	TargetActorCenter: true
+	Projectile: Bullet
+		Speed: 230
+		Blockable: false
+		LaunchAngle: 56
+		Inaccuracy: 0c512
+		ContrailLength: 30
+		Image: dropbombs
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c256
+		Falloff: 100, 50, 25, 10, 5
+		Damage: 2500
+		Versus:
+			None: 50
+			Wood: 40
+			Light: 40
+			Medium: 60
+			Heavy: 80
+			Concrete: 15
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+		ValidTargets: GroundActor, WaterActor
+	Warhead@2Dam: SpreadDamage
+		Spread: 0c80
+		Falloff: 100, 50
+		Damage: 2500
+		Versus:
+			None: 50
+			Wood: 40
+			Light: 40
+			Medium: 60
+			Heavy: 80
+			Concrete: 15
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+		ValidTargets: GroundActor, WaterActor

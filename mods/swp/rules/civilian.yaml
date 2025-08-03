@@ -160,7 +160,7 @@ FCOM:
 	BaseProvider:
 		PauseOnCondition: being-captured
 		Range: 8c0
-	EngineerRepairable:
+	InstantlyRepairable:
 	Power:
 		Amount: 0
 	ProvidesPrerequisite@buildingname:
@@ -179,9 +179,9 @@ HOSP:
 		Action: ChangeOwner
 	Selectable:
 		Priority: 0
-		Bounds: 1448, 2896
+		Bounds: 2896, 2896
 	Building:
-		Footprint: xxx xxx xxx
+		Footprint: =x= xxx =x=
 		Dimensions: 3,3
 	Health:
 		HP: 80000
@@ -190,7 +190,7 @@ HOSP:
 		Types: building
 	CapturableProgressBar:
 	CapturableProgressBlink:
-	EngineerRepairable:
+	InstantlyRepairable:
 	Tooltip:
 		Name: Hospital
 	TooltipDescription@ally:
@@ -213,6 +213,13 @@ HOSP:
 	WithIdleOverlay@animation:
 		Image: hospital
 		Sequence: overlay
+	RepairsUnits:
+		HpPerStep: 1000
+		StartRepairingNotification: Repairing
+		StartRepairingTextNotification: notification-repairing
+		FinishRepairingNotification: UnitRepaired
+		FinishRepairingTextNotification: notification-unit-repaired
+		PlayerExperience: 5
 
 SPORT:
 	Inherits: ^TechBuilding
@@ -286,7 +293,7 @@ SPORT:
 		Types: building
 	CapturableProgressBar:
 	CapturableProgressBlink:
-	EngineerRepairable:
+	InstantlyRepairable:
 	-WithBuildingBib:
 	AppearsOnMapPreview:
 
@@ -345,7 +352,7 @@ DISH:
 		Types: building
 	CapturableProgressBar:
 	CapturableProgressBlink:
-	EngineerRepairable:
+	InstantlyRepairable:
 	WithBuildingBib:
 	AppearsOnMapPreview:
 
@@ -384,7 +391,7 @@ CIVNUKE:
 		Types: building
 	CapturableProgressBar:
 	CapturableProgressBlink:
-	EngineerRepairable:
+	InstantlyRepairable:
 	AppearsOnMapPreview:
 	-WithBuildingBib:
 
@@ -418,7 +425,7 @@ CIVNUKE.exploding:
 		RevokeDelay: -1
 	KillsSelf:
 		RequiresCondition: exploding > 10
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: MiniNuke
 		EmptyWeapon: MiniNuke
 		DamageSource: Killer
@@ -960,7 +967,7 @@ BARL:
 	-Selectable:
 	Health:
 		HP: 1000
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: BarrelExplode
 	Tooltip:
 		Name: Explosive Barrel
@@ -983,7 +990,7 @@ BRL3:
 	-Selectable:
 	Health:
 		HP: 1000
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: BarrelExplode
 	Tooltip:
 		Name: Explosive Barrel
@@ -1049,7 +1056,7 @@ MISS:
 		Types: building
 	CapturableProgressBar:
 	CapturableProgressBlink:
-	EngineerRepairable:
+	InstantlyRepairable:
 	WithDeathAnimation:
 		DeathSequence: dead
 		UseDeathTypeSuffix: false
@@ -1075,7 +1082,7 @@ BIO:
 	Capturable:
 		Types: building
 	CapturableProgressBar:
-	EngineerRepairable:
+	InstantlyRepairable:
 	Tooltip:
 		Name: Biological Lab
 	TooltipDescription@ally:
@@ -1116,7 +1123,7 @@ OILB:
 		Types: building
 	CapturableProgressBar:
 	CapturableProgressBlink:
-	EngineerRepairable:
+	InstantlyRepairable:
 	CashTrickler:
 		Interval: 375
 		Amount: 100
@@ -1129,7 +1136,7 @@ OILB:
 	TooltipDescription@other:
 		Description: Capture to receive additional funds.
 		ValidRelationships: Neutral, Enemy
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: BarrelExplode
 	GpsDot:
 		String: Oil
@@ -1139,6 +1146,54 @@ OILB:
 	UpdatesDerrickCount:
 	GrantConditionOnCombatantOwner:
 		Condition: enabled
+
+OILPLAT:
+	Inherits: ^TechBuilding
+	Inherits@shape: ^2x2Shape
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 630,-300,0, 420,512,0, -420,-512,0, -630,300,0
+	Selectable:
+		Priority: 0
+		Bounds: 2496, 2496
+	OwnerLostAction:
+		Action: ChangeOwner
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 80000
+	RevealsShroud:
+		Range: 4c0
+	CaptureManager:
+	Capturable:
+		Types: building
+	CapturableProgressBar:
+	CapturableProgressBlink:
+	InstantlyRepairable:
+	CashTrickler:
+		Interval: 375
+		Amount: 200
+		RequiresCondition: enabled
+	Tooltip:
+		Name: Oil Platform
+	TooltipDescription@ally:
+		Description: Provides additional funds.
+		ValidRelationships: Ally
+	TooltipDescription@other:
+		Description: Capture to receive additional funds.
+		ValidRelationships: Neutral, Enemy
+	FireWarheadsOnDeath:
+		Weapon: BarrelExplode
+	GpsDot:
+		String: Oil
+	AppearsOnMapPreview:
+	GivesCashOnCapture:
+		Amount: 100
+	UpdatesDerrickCount:
+	GrantConditionOnCombatantOwner:
+		Condition: enabled
+	-WithBuildingBib:
 
 BR1:
 	Inherits: ^Bridge
@@ -1547,4 +1602,3 @@ NIQAB:
 	Inherits@1: ^CivInfantry
 	Voiced:
 		VoiceSet: RusFemVoices
-

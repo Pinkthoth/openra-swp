@@ -118,36 +118,6 @@ MCV.Husk:
 	ProvidesPrerequisite@MCVexists:
 		Prerequisite: mcvexists
 
-ZERO.Husk:
-	Inherits: ^PlaneHusk
-	Tooltip:
-		Name: Harrier
-	Contrail@1:
-		Offset: -500,-483,0
-	Contrail@2:
-		Offset: -500,483,0
-	Aircraft:
-		TurnSpeed: 20
-		Speed: 186
-	LeavesTrails:
-		Offsets: -853,0,171
-		MovingInterval: 2
-		Image: smokey
-		StationaryInterval: 2
-		SpawnAtLastPosition: False
-		TrailWhileStationary: True
-		Type: CenterPosition
-	RevealsShroud:
-		MinRange: 11c0
-		Range: 13c0
-		Type: GroundPosition
-		RevealGeneratedShroud: False
-	RevealsShroud@GAPGEN:
-		Range: 11c0
-		Type: GroundPosition
-	RenderSprites:
-		Image: zero
-
 PRISMCANNON.Husk:
 	Inherits: ^Husk
 	Tooltip:
@@ -160,6 +130,22 @@ PRISMCANNON.Husk:
 		IntoActor: PRISMCANNON
 	RenderSprites:
 		Image: prismcannon
+
+RAILGUNTANK.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Railgun Tank)
+	ThrowsParticle@turret:
+		Anim: turret
+	TransformOnCapture@Mechanic:
+		IntoActor: RAILGUNTANK
+	TransformOnCapture@Engineer:
+		IntoActor: RAILGUNTANK
+	InfiltrateForTransform:
+		IntoActor: RAILGUNTANK
+	RenderSprites:
+		Image: railguntank
+
 
 T100.Husk:
 	Inherits: ^Husk
@@ -245,12 +231,97 @@ TRAN.Husk:
 	RenderSprites:
 		Image: tran
 
+BANSHEE.Husk:
+	Inherits: YAK.Husk
+	Tooltip:
+		Name: Banshee
+	RenderSprites:
+		Image: banshee
+	Aircraft:
+		Speed: 110
+
 ANT40.Husk:
 	Inherits: YAK.Husk
 	Tooltip:
 		Name: Tactical Bomber
 	RenderSprites:
 		Image: ant40
+	Aircraft:
+		Speed: 110
+
+SUPERBOMBER.Husk:
+	Inherits: YAK.Husk
+	Tooltip:
+		Name: Badger Bomber
+	RenderSprites:
+		Image: superbomber
+	Aircraft:
+		Speed: 110
+	LeavesTrails:
+		Offsets: -1,860,0
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+	LeavesTrails@1:
+		Offsets: -1,-860,0
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+	LeavesTrails@3:
+		Offsets: -1,1060,0
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+	LeavesTrails@4:
+		Offsets: -1,-1060,0
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+	Contrail:
+		Offset: 0,-953,0
+	Contrail@2:
+		Offset: 0,953,0
+	Contrail@3:
+		Offset: 100,-1353,0
+	Contrail@4:
+		Offset: 100,1353,0
+
+MOSQUITO.Husk:
+	Inherits: YAK.Husk
+	Tooltip:
+		Name: Mosquito
+	RenderSprites:
+		Image: mosquito
+	Aircraft:
+		Speed: 110
+
+NAPALMBOMBER.Husk:
+	Inherits: YAK.Husk
+	Tooltip:
+		Name: Dragon
+	RenderSprites:
+		Image: napalmbomber
+	Aircraft:
+		Speed: 110
+
+CRYOBOMBER.Husk:
+	Inherits: YAK.Husk
+	Tooltip:
+		Name: Cryo Bomber
+	RenderSprites:
+		Image: cryobomber
 	Aircraft:
 		Speed: 110
 
@@ -415,6 +486,58 @@ MIG.Husk:
 	RenderSprites:
 		Image: mig
 
+TESLAPLANE.Husk:
+	Inherits: ^PlaneHusk
+	Tooltip:
+		Name: Tesla Plane
+	Contrail@1:
+		Offset: -598,-683,0
+	Contrail@2:
+		Offset: -598,683,0
+	Aircraft:
+		TurnSpeed: 20
+		Speed: 186
+	LeavesTrails:
+		Offsets: -853,0,171
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+	RevealsShroud:
+		MinRange: 11c0
+		Range: 13c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 11c0
+		Type: GroundPosition
+	RenderSprites:
+		Image: teslaplane
+
+GLIDERAIR.Husk:
+	Inherits: ^PlaneHusk
+	Tooltip:
+		Name: Glider
+	Aircraft:
+		TurnSpeed: 20
+		Speed: 149
+	RevealsShroud:
+		MinRange: 1c0
+		Range: 2c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 1c0
+		Type: GroundPosition
+	RenderSprites:
+		Image: gliderair
+	SpawnActorOnDeath@BulletDeath:
+		Actor: GLIDER.Husk
+	FallsToEarth:
+		Explosion: NightWitchSquish
+
 YAK.Husk:
 	Inherits: ^PlaneHusk
 	Tooltip:
@@ -442,6 +565,34 @@ YAK.Husk:
 		Type: GroundPosition
 	RenderSprites:
 		Image: yak
+
+BANSHEE.Husk:
+	Inherits: ^PlaneHusk
+	Tooltip:
+		Name: Banshee
+	Contrail:
+		Offset: -853,0,0
+	Aircraft:
+		TurnSpeed: 20
+		Speed: 149
+	LeavesTrails:
+		Offsets: -853,0,0
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+	RevealsShroud:
+		MinRange: 9c0
+		Range: 11c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 9c0
+		Type: GroundPosition
+	RenderSprites:
+		Image: banshee
 
 HEAVYFIGHTER.Husk:
 	Inherits: ^PlaneHusk
@@ -509,6 +660,68 @@ SPITFIRE.Husk:
 	RenderSprites:
 		Image: spitfire
 
+NADYA.Husk:
+	Inherits: ^HelicopterHusk
+	Tooltip:
+		Name: Nadya
+	Aircraft:
+		TurnSpeed: 16
+		Speed: 112
+	WithIdleOverlay:
+		Sequence: rotor
+		Offset: 0,0,300
+	LeavesTrails:
+		Offsets: -427,0,0
+		Image: smokey
+		MovingInterval: 3
+		StationaryInterval: 3
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+	RevealsShroud:
+		MinRange: 8c0
+		Range: 10c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 8c0
+		Type: GroundPosition
+	RenderSprites:
+		Image: nadya
+	WithFacingSpriteBody:
+		Sequence: turret
+
+HELIX.Husk:
+	Inherits: ^HelicopterHusk
+	Tooltip:
+		Name: Helix
+	Aircraft:
+		TurnSpeed: 16
+		Speed: 112
+	WithIdleOverlay:
+		Sequence: rotor
+		Offset: 0,0,300
+	LeavesTrails:
+		Offsets: -427,0,0
+		Image: smokey
+		MovingInterval: 3
+		StationaryInterval: 3
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+	RevealsShroud:
+		MinRange: 8c0
+		Range: 10c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 8c0
+		Type: GroundPosition
+	RenderSprites:
+		Image: helix
+	WithFacingSpriteBody:
+		Sequence: idle
+
 HIND.Husk:
 	Inherits: ^HelicopterHusk
 	Tooltip:
@@ -566,7 +779,7 @@ TELEKITE.Husk:
 	RenderSprites:
 		Image: telekite
 	WithFacingSpriteBody:
-		Sequence: turret
+		Sequence: idle
 	FallsToEarth:
 		Explosion: SmallUnitExplode
 
@@ -662,6 +875,64 @@ GEBARD.Husk:
 		Type: GroundPosition
 	RenderSprites:
 		Image: gebard
+	WithFacingSpriteBody:
+		Sequence: turret
+
+LASERCHOPPER.Husk:
+	Inherits: ^HelicopterHusk
+	Tooltip:
+		Name: Vulture
+	Aircraft:
+		TurnSpeed: 16
+		Speed: 112
+	WithIdleOverlay:
+		Sequence: rotor
+	LeavesTrails:
+		Offsets: -427,0,0
+		Image: smokey
+		MovingInterval: 3
+		StationaryInterval: 3
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+	RevealsShroud:
+		MinRange: 8c0
+		Range: 10c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 8c0
+		Type: GroundPosition
+	RenderSprites:
+		Image: laserchopper
+	WithFacingSpriteBody:
+		Sequence: turret
+
+ORCA.Husk:
+	Inherits: ^HelicopterHusk
+	Tooltip:
+		Name: Orca
+	Aircraft:
+		TurnSpeed: 16
+		Speed: 112
+	LeavesTrails:
+		Offsets: -427,0,0
+		Image: smokey
+		MovingInterval: 3
+		StationaryInterval: 3
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+	RevealsShroud:
+		MinRange: 8c0
+		Range: 10c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 8c0
+		Type: GroundPosition
+	RenderSprites:
+		Image: orca
 	WithFacingSpriteBody:
 		Sequence: turret
 
@@ -844,6 +1115,37 @@ MH60.Husk:
 	WithFacingSpriteBody:
 		Sequence: turret
 
+INDIACHOPPER.Husk:
+	Inherits: ^HelicopterHusk
+	Tooltip:
+		Name: Sparrow
+	Aircraft:
+		TurnSpeed: 16
+		Speed: 112
+	WithIdleOverlay:
+		Sequence: rotor
+		Offset: 0,0,220
+	LeavesTrails:
+		Offsets: -427,0,0
+		Image: smokey
+		MovingInterval: 3
+		StationaryInterval: 3
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+	RevealsShroud:
+		MinRange: 8c0
+		Range: 10c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 8c0
+		Type: GroundPosition
+	RenderSprites:
+		Image: indiachopper
+	WithFacingSpriteBody:
+		Sequence: turret
+
 TESLAHIND.Husk:
 	Inherits: ^HelicopterHusk
 	Tooltip:
@@ -971,7 +1273,7 @@ COLIBRI.Husk:
 COMET.Husk:
 	Inherits: ^HelicopterHusk
 	Tooltip:
-		Name: Comet
+		Name: Crane Fly
 	Aircraft:
 		TurnSpeed: 16
 		Speed: 112

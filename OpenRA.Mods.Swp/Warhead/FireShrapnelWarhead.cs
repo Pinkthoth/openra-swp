@@ -1,13 +1,14 @@
-﻿#region Copyright & License Information
-/*
- * Copyright 2015- OpenRA.Mods.AS Developers (see AUTHORS)
- * This file is a part of a third-party plugin for OpenRA, which is
- * free software. It is made available to you under the terms of the
- * GNU General Public License as published by the Free Software
- * Foundation. For more information, see COPYING.
+﻿﻿#region Copyright & License Information
+/**
+ * Copyright (c) The OpenRA Combined Arms Developers (see CREDITS).
+ * This file is part of OpenRA Combined Arms, which is free software.
+ * It is made available to you under the terms of the GNU General Public License
+ * as published by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version. For more information, see COPYING.
  */
 #endregion
 
+using System;
 using System.Linq;
 using OpenRA.GameRules;
 using OpenRA.Mods.Common;
@@ -44,12 +45,15 @@ namespace OpenRA.Mods.Swp.Warheads
 		[Desc("Does this weapon aim at the target's center regardless of other targetable offsets?")]
 		public readonly bool TargetActorCenter = false;
 
+		[Desc("List of sounds that can be played on impact.")]
+		public readonly string[] ImpactSounds = Array.Empty<string>();
+
 		WeaponInfo weapon;
 
 		public void RulesetLoaded(Ruleset rules, WeaponInfo info)
 		{
 			if (!rules.Weapons.TryGetValue(Weapon.ToLowerInvariant(), out weapon))
-				throw new YamlException("Weapons Ruleset does not contain an entry '{0}'".F(Weapon.ToLowerInvariant()));
+				throw new YamlException($"Weapons Ruleset does not contain an entry '{Weapon.ToLowerInvariant()}'");
 		}
 
 		public override void DoImpact(in Target target, WarheadArgs args)
@@ -108,6 +112,8 @@ namespace OpenRA.Mods.Swp.Warheads
 					? world.SharedRandom.Next(Amount[0], Amount[1])
 					: Amount[0];
 
+			var targetFound = false;
+
 			for (var i = 0; i < amount; i++)
 			{
 				var shrapnelTarget = Target.Invalid;
@@ -127,6 +133,8 @@ namespace OpenRA.Mods.Swp.Warheads
 
 				if (shrapnelTarget.Type == TargetType.Invalid)
 					continue;
+
+				targetFound = true;
 
 				var shrapnelFacing = (shrapnelTarget.CenterPosition - epicenter).Yaw;
 
@@ -152,7 +160,7 @@ namespace OpenRA.Mods.Swp.Warheads
 					CurrentSource = () => centerPosition,
 					SourceActor = firedBy,
 					GuidedTarget = shrapnelTarget,
-					PassiveTarget = TargetActorCenter ? shrapnelTarget.CenterPosition : shrapnelTarget.Positions.PositionClosestTo(epicenter)
+					PassiveTarget = TargetActorCenter ? shrapnelTarget.CenterPosition : shrapnelTarget.Positions.ClosestToIgnoringPath(epicenter)
 				};
 
 				if (projectileArgs.Weapon.Projectile != null)
@@ -164,6 +172,13 @@ namespace OpenRA.Mods.Swp.Warheads
 					if (projectileArgs.Weapon.Report != null && projectileArgs.Weapon.Report.Length > 0)
 						Game.Sound.Play(SoundType.World, projectileArgs.Weapon.Report.Random(firedBy.World.SharedRandom), target.CenterPosition);
 				}
+			}
+
+			if (targetFound)
+			{
+				var impactSound = ImpactSounds.RandomOrDefault(world.LocalRandom);
+				if (impactSound != null)
+					Game.Sound.Play(SoundType.World, impactSound, target.CenterPosition);
 			}
 		}
 	}

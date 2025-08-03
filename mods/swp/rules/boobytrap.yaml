@@ -1,0 +1,383 @@
+BPWR:
+	Inherits: ^BoobyTrapBuilding
+	Inherits@infiltrate: ^InfiltratableFake
+	Inherits@shape: ^2x2Shape
+	Selectable:
+		Bounds: 1448, 2896
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 640,-384,0, 640,512,0, -710,-512,0, -710,512,0
+	Buildable:
+		BuildPaletteOrder: 870
+		Queue: Defense
+		Prerequisites: ~structures.persia, ~techlevel.infonly
+		Description: Looks like a Power Plant.
+		Icon: trap-icon
+	Tooltip:
+		Name: Boobytrapped Power Plant
+		GenericName: Power Plant
+		GenericVisibility: Enemy
+		GenericStancePrefix: False
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+		LocalCenterOffset: 0,-512,0
+	Health:
+		HP: 40000
+	Armor:
+		Type: Wood
+	RenderSprites:
+		Image: powr
+		FactionImages:
+			austria: mpowr
+			germany: mpowr
+			turkey: mpowr
+			italy: mpowr
+			usa: epowr
+			japan: epowr
+			england: epowr
+			france: epowr
+			russia: powr
+			ukraine: powr
+			china: powr
+			mongolia: powr
+			serbia: epowr
+			bulgaria: mpowr
+			kazakhstan: powr
+	Valued:
+		Cost: 90
+
+TENB:
+	Inherits: ^BoobyTrapBuilding
+	Inherits@infiltrate: ^InfiltratableFake
+	Inherits@shape: ^2x2Shape
+	Selectable:
+		Bounds: 1448, 2896
+	Buildable:
+		BuildPaletteOrder: 880
+		Queue: Defense
+		Prerequisites: ~structures.persia, ~techlevel.infonly
+		Description: Looks like an Allied Barracks.
+		Icon: trap-icon
+	Tooltip:
+		Name: Boobytrapped Allied Barracks
+		GenericName: Allied Barracks
+		GenericVisibility: Enemy
+		GenericStancePrefix: False
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+		LocalCenterOffset: 0,-512,0
+	RenderSprites:
+		Image: barr
+		FactionImages:
+			austria: mrax
+			germany: mrax
+			turkey: mrax
+			italy: mrax
+			usa: erax
+			japan: erax
+			england: erax
+			france: erax
+			russia: barr
+			ukraine: barr
+			mongolia: barr
+			china: barr
+			serbia: erax
+			bulgaria: mrax
+			kazakhstan: barr
+	Valued:
+		Cost: 150
+	Health:
+		HP: 60000
+	Armor:
+		Type: Wood
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 630,-512,0, 355,512,0, -281,-512,0, -630,512,0
+
+WEAB:
+	Inherits: ^BoobyTrapBuilding
+	Inherits@infiltrate: ^InfiltratableFake
+	Inherits@shape: ^2x2Shape
+	Selectable:
+		Bounds: 2172, 2896
+	Buildable:
+		BuildPaletteOrder: 920
+		Prerequisites: ~structures.persia, ~techlevel.medium
+		Queue: Defense
+		Description: Looks like a War Factory.
+		Icon: trap-icon
+	Tooltip:
+		Name: Boobytrapped War Factory
+		GenericName: War Factory
+		GenericVisibility: Enemy
+		GenericStancePrefix: False
+	Building:
+		Footprint: =x= xxx =x=
+		Dimensions: 3,3
+		LocalCenterOffset: 0,-512,0
+	RenderSprites:
+		Image: weap
+		FactionImages:
+			austria: mweap
+			germany: mweap
+			turkey: mweap
+			italy: mweap
+			usa: eweap
+			japan: eweap
+			england: eweap
+			france: eweap
+			russia: weap
+			ukraine: weap
+			mongolia: weap
+			china: weap
+			serbia: eweap
+			bulgaria: mweap
+			kazakhstan: weap
+	WithProductionDoorOverlay:
+		RequiresCondition: !build-incomplete
+		Sequence: build-top
+	Valued:
+		Cost: 600
+	Health:
+		HP: 150000
+	Armor:
+		Type: Wood
+	SequencePlaceBuildingPreview:
+		Sequence: place
+	HitShape:
+		UseTargetableCellsOffsets: False
+		TargetableOffsets: 840,0,0, 598,-640,0, 598,640,0, -1060,0,0, -768,-640,0, -768,640,0, 0,0,0
+		Type: Polygon
+			Points: -1536,-300, -640,-811, 640,-811, 1536,-300, 1536,555, 640,1110, -640,1110, -1536,555
+
+FIXB:
+	Inherits: ^BoobyTrapBuilding
+	Inherits@infiltrate: ^InfiltratableFake
+	InfiltrateForDecoration:
+		Types: SpyInfiltrate, SaboteurInfiltration
+	Selectable:
+		Bounds: 2051, 2051, 0, 181
+		DecorationBounds: 2172, 2896
+	Buildable:
+		BuildPaletteOrder: 940
+		Queue: Defense
+		Prerequisites: ~structures.persia, ~techlevel.medium
+		Description: Looks like a Service Depot.
+		Icon: trap-icon
+	Tooltip:
+		Name: Boobytrapped Service Depot
+		GenericName: Service Depot
+		GenericVisibility: Enemy
+		GenericStancePrefix: False
+	Building:
+		Footprint: _=_ xxx _=_
+		Dimensions: 3,3
+	Health:
+		HP: 80000
+	Armor:
+		Type: Wood
+	RenderSprites:
+		Image: fix
+		FactionImages:
+			austria: mfix
+			germany: mfix
+			turkey: mfix
+			italy: mfix
+			usa: efix
+			england: efix
+			france: efix
+			japan: efix
+			russia: fix
+			ukraine: fix
+			china: fix
+			mongolia: fix
+			serbia: efix
+			bulgaria: mfix
+			kazakhstan: fix
+	Valued:
+		Cost: 360
+	HitShape:
+		TargetableOffsets: 840,0,0, 598,-640,0, 598,640,0, -1060,0,0, -768,-640,0, -768,640,0, 0,0,0
+		Type: Polygon
+			Points: -1536,-300, -640,-811, 640,-811, 1536,-300, 1536,555, 640,1110, -640,1110, -1536,555
+	WithBuildingBib:
+		HasMinibib: True
+
+BAPW:
+	Inherits: ^BoobyTrapBuilding
+	Inherits@infiltrate: ^InfiltratableFake
+	Inherits@shape: ^3x2Shape
+	HitShape:
+		TargetableOffsets: 840,0,0, 598,-640,0, 598,640,0, -1060,0,0, -768,-640,0, -768,640,0, 0,0,0
+		Type: Polygon
+			Points: -1536,-300, -640,-811, 640,-811, 1536,-300, 1536,555, 640,1110, -640,1110, -1536,555
+		UseTargetableCellsOffsets: False
+	Buildable:
+		BuildPaletteOrder: 950
+		Queue: Defense
+		Prerequisites: ~structures.persia, ~techlevel.medium
+		Description: Looks like an Advanced Power Plant.
+		Icon: trap-icon
+	Tooltip:
+		Name: Boobytrapped Advanced Power Plant
+		GenericName: Advanced Power Plant
+		GenericVisibility: Enemy
+		GenericStancePrefix: False
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 3,2
+		LocalCenterOffset: 0,-512,0
+	Health:
+		HP: 70000
+	Armor:
+		Type: Wood
+	RenderSprites:
+		Image: apwr
+		FactionImages:
+			russia: apwr
+			ukraine: apwr
+			china: apwr
+			mongolia: apwr
+			austria: mapwr
+			germany: mapwr
+			turkey: mapwr
+			italy: mapwr
+			usa: eapwr
+			japan: eapwr
+			england: eapwr
+			france: eapwr
+			serbia: eapwr
+			bulgaria: mapwr
+			kazakhstan: apwr
+	Selectable:
+		Bounds: 2172, 2896
+		DecorationBounds: 2172, 4102, 0, -603
+	Valued:
+		Cost: 150
+
+TMTEK:
+	Inherits: ^BoobyTrapBuilding
+	Inherits@IDISABLE: ^DisableOnLowPower
+	Inherits@shape: ^2x2Shape
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Inherits@infiltrate: ^InfiltratableFake
+	Selectable:
+		Bounds: 1448, 2896
+	Tooltip:
+		Name: Boobytrapped Allied Tech Center
+		GenericName: Allied Tech Center
+		GenericVisibility: Enemy
+		GenericStancePrefix: False
+	Buildable:
+		BuildPaletteOrder: 970
+		Queue: Defense
+		Prerequisites: ~structures.persia, ~techlevel.high
+		Description: Looks like an Allied Tech Center.
+		Icon: trap-icon
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+		LocalCenterOffset: 0,-512,0
+	RenderSprites:
+		Image: mtek
+	Valued:
+		Cost: 450
+	Health:
+		HP: 40000
+	Armor:
+		Type: Wood
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 630,-512,0, 355,512,0, -281,-512,0, -630,512,0
+
+MSLB:
+	Inherits: ^BoobyTrapBuilding
+	Inherits@IDISABLE: ^DisableOnLowPower
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Inherits@infiltrate: ^InfiltratableFake
+	Inherits@shape: ^2x2Shape
+	Selectable:
+		Bounds: 1448, 1448
+	Tooltip:
+		Name: Boobytrapped Missile Silo
+		GenericName: Missile Silo
+		GenericVisibility: Enemy
+		GenericStancePrefix: False
+	Buildable:
+		BuildPaletteOrder: 990
+		Queue: Defense
+		Prerequisites: ~structures.persia, ~techlevel.unrestricted
+		BuildLimit: 1
+		Description: Looks like a Missile Silo.\nMaximum 1 can be built.
+		Icon: trap-icon
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	RenderSprites:
+		Image: MSLO
+	Valued:
+		Cost: 750
+	Health:
+		HP: 100000
+	Armor:
+		Type: Wood
+	FireWarheadsOnDeath:
+		DamageThreshold: 50
+	WithBuildingBib:
+		HasMinibib: True
+
+FACB:
+	Inherits: ^BoobyTrapBuilding
+	Inherits@infiltrate: ^InfiltratableFake
+	InfiltrateForDecoration:
+		Types: SpyInfiltrate, SaboteurInfiltration
+	Selectable:
+		Bounds: 2172, 4344
+	Buildable:
+		BuildPaletteOrder: 1000
+		Queue: Defense
+		Prerequisites: ~structures.persia, ~techlevel.medium
+		Description: Looks like a Construction Yard.
+		Icon: fake-icon
+	Tooltip:
+		Name: Boobytrapped Construction Yard
+		GenericName: Construction Yard
+		GenericVisibility: Enemy
+		GenericStancePrefix: False
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+		LocalCenterOffset: 0,-512,0
+	RenderSprites:
+		Image: fact
+		FactionImages:
+			austria: mfact
+			germany: mfact
+			turkey: mfact
+			italy: mfact
+			usa: efact
+			japan: efact
+			england: efact
+			france: efact
+			russia: kfact
+			ukraine: kfact
+			china: kfact
+			mongolia: kfact
+			serbia: efact
+			bulgaria: mfact
+			kazakhstan: kfact
+	Valued:
+		Cost: 600
+	Health:
+		HP: 150000
+	Armor:
+		Type: Wood
+	HitShape:
+		TargetableOffsets: 840,0,0, 598,-640,0, 598,640,0, -1060,0,0, -768,-640,0, -768,640,0, 0,0,0
+		Type: Polygon
+			Points: -1536,-300, -640,-811, 640,-811, 1536,-300, 1536,555, 640,1110, -640,1110, -1536,555
+		UseTargetableCellsOffsets: False

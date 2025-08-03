@@ -1,5 +1,6 @@
 rubble:
 	Defaults:
+		Filename: rubble.shp
 		ZOffset: -8000
 	idle:
 		Start: 0
@@ -26,55 +27,151 @@ rubble:
 	critical-idle3:
 		Start: 11
 
-fact:
+burrow:
+	Defaults:
+		Filename: burrow.shp
+		ZOffset: -9999
 	idle:
-	make: factmake
+		Scale: 0.5
+		Start: 0
+		Offset: 0,14
+	scratched-idle:
+		Scale: 0.5
+		Start: 0
+		Offset: 0,14
+	damaged-idle:
+		Scale: 0.5
+		Start: 0
+		Offset: 0,14
+	critical-idle:
+		Scale: 0.5
+		Start: 0
+		Offset: 0,14
+	make:
+		Filename: empty.shp
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbGUN.tem
+			DESERT: mbGUN.des
+		Length: *
+		Offset: -1,-1
+
+teleporttunnel:
+	Defaults:
+		Filename: tunnel.shp
+		ZOffset: -9999
+	idle:
+		Start: 0
+		Offset: 0,14
+	damaged-idle:
+		Start: 10
+		Offset: 0,14
+	make:
+		Start: 20
+		Length: 25
+		Offset: 0,14
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbPDOX.tem
+			DESERT: mbPDOX.des
+		Length: *
+		Offset: 0,-4
+	icon:
+		Filename: tunnelicon.shp
+
+fact:
+	Defaults:
+		Filename: fact.shp
+	idle:
+	make:
+		Filename: factmake.shp
 		Length: *
 	build:
 		Start: 1
 		Length: 25
-	pdox: factpdox
+	pdox:
+		Filename: factpdox.shp
 		Length: 80
 	damaged-idle:
 		Start: 26
 	damaged-build:
 		Start: 27
 		Length: 25
-	damaged-pdox: factpdox
+	damaged-pdox:
+		Filename: factpdox.shp
 		Start: 80
 		Length: 80
-	dead: factdead
+	dead:
+		Filename: factdead.shp
 		Tick: 800
-	bib: bib2
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+			DESERT: bib2.des
 		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
-	icon: facticon
-	fake-icon: facficon
+	icon:
+		Filename: facticon.shp
+	fake-icon:
+		Filename: facficon.shp
 
 silo:
-	idle: silo2
+	idle:
+		Filename: silo2.shp
 		Offset: 0,-1
-	damaged-idle: silo2
+	damaged-idle:
+		Filename: silo2.shp
 		Start: 9
 		Offset: 0,-1
-	stages: silo2
+	stages:
+		Filename: silo2.shp
 		Length: 9
 		Offset: 0,-1
-	damaged-stages: silo2
+	damaged-stages:
+		Filename: silo2.shp
 		Start: 9
 		Length: 9
 		Offset: 0,-1
-	make: silomake
+	make:
+		Filename: silomake.shp
 		Length: *
 		Offset: 0,-1
-	bib: mbSILO
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbSILO.tem
+			DESERT: mbSILO.des
 		Length: *
-		UseTilesetExtension: true
-	icon: siloicon
+	icon:
+		Filename: siloicon.shp
+
+sthgensm:
+	idle:
+		Filename: sthgensm.shp
+		Offset: 0,-1
+		Start: 0
+		Length: 24
+		Tick: 200
+	damaged-idle:
+		Filename: sthgensm.shp
+		Start: 25
+		Offset: 0,-1
+		Length: 24
+		Tick: 200
+	make:
+		Filename: sthgensm.shp
+		Start: 50
+		Length: 24
+		Offset: 0,-1
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbSILO.tem
+			DESERT: mbSILO.des
+		Length: *
+	icon:
+		Filename: sthgensmicon.shp
 
 lazarusplatform:
+	Defaults:
+		Filename: lazarusplatform.shp
 	idle:
 		Start: 0
 		Length: 14
@@ -86,190 +183,362 @@ lazarusplatform:
 	make:
 		Start: 30
 		Length: 20
-	bib: mbPDOX
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbPDOX.tem
+			DESERT: mbPDOX.des
 		Length: *
 		Offset: 0,-4
-		UseTilesetExtension: true
-	icon: lazarusplatformicon
+	icon:
+		Filename: lazarusplatformicon.shp
 
-powr:
-	idle:
-	damaged-idle:
-		Start: 1
-	make: powrmake
-		Length: *
-	dead: powrdead
-		Tick: 800
-	bib: bib3
-		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
-	icon: powricon
-	fake-icon: fpwricon
-
-apwr:
-	defaults:
-		ZOffset: 0
-	idle:
-		Offset: 0,-10
-	damaged-idle:
-		Start: 1
-		Offset: 0,-10
-	make: apwrmake
-		Length: *
-		Offset: 0,-10
-	dead: apwrdead
-		Tick: 800
-		Offset: 0,-10
-	bib: bib2
-		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
-	icon: apwricon
-	fake-icon: fapwicon
-
-barr:
-	idle:
-		Length: 10
-		Offset: 0,-6
-	damaged-idle:
-		Start: 10
-		Length: 10
-		Offset: 0,-6
-	make: barrmake
-		Length: *
-		Offset: 0,-6
-	bib: bib3
-		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
-	icon: barricon
-
-tent:
+cyberlab:
 	Defaults:
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
-	idle:
-		Length: 10
-	damaged-idle:
-		Start: 10
-		Length: 10
-	make: tentmake
-		Length: *
-	bib: bib3
-		Length: *
-	icon: tenticon
-		UseTilesetExtension: false
-	fake-icon: tenficon
-		UseTilesetExtension: false
-
-kenn:
+		Filename: cyberlab.shp
 	idle:
 	damaged-idle:
 		Start: 1
-	make: kennmake
+	make:
+		Filename: cyberlab.shp
+		Start: 2
+		Length: 25
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib3.tem
+			DESERT: bib3.des
 		Length: *
-	bib: mbSILO
-		Length: *
-		UseTilesetExtension: true
-	icon: kennicon
-
-dome:
-	idle:
-		Offset: 0,-4
-	active:
-		Offset: 0,-4
-	damaged-active:
-		Start: 1
-		Offset: 0,-4
-	damaged-idle:
-		Start: 1
-		Offset: 0,-4
-	make: domemake
-		Length: *
-		Offset: 0,-4
-	bib: bib3
-		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
-	icon: domeicon
-	fake-icon: domficon
-
-atek:
-	idle:
-	damaged-idle:
-		Start: 1
-	make: atekmake
-		Length: *
-	active: sputdoor
-		Length: *
-		Offset: -4,0
-	bib: bib3
-		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
-	icon: atekicon
-	fake-icon: ateficon
-
-stek:
-	idle:
-	damaged-idle:
-		Start: 1
-	make: stekmake
-		Length: *
-	bib: bib3
-		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
-	icon: stekicon
+	icon:
+		Filename: cyberlabicon.shp
 
 kcom:
 	Defaults:
+		Filename: kcom.shp
 		Offset: 0,-4,0
-	idle: fcom
-	damaged-idle: fcom
+	idle:
+		Filename: fcom.shp
+	damaged-idle:
+		Filename: fcom.shp
 		Start: 1
-	make: fcommake
+	make:
+		Filename: fcommake.shp
 		Length: *
-	dead: fcom
+	dead:
+		Filename: fcom.shp
 		Start: 1
-	bib: bib3
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib3.tem
+			DESERT: bib3.des
 		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
-	icon: fcomicon
+	icon:
+		Filename: fcomicon.shp
 		Offset: 0,0,0
 
-weap:
+etek:
+	idle:
+		Filename: etek.shp
+		Start: 0
+		Offset: 0,0
+	damaged-idle:
+		Filename: mpowr.shp
+		Start: 1
+		Offset: 0,3
+	make:
+		Filename: mpowrmake.shp
+		Length: *
+		Offset: 0,3
+	dead:
+		Filename: mpowr.shp
+		Start: 1
+		Tick: 800
+		Offset: 0,3
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib3.tem
+			DESERT: bib3.des
+		Length: *
+	icon:
+		Filename: powricon.shp
+	fake-icon:
+		Filename: fpwricon.shp
+	trap-icon:
+		Filename: trapicons.shp
+		Start: 6
+
+mpowr:
+	idle:
+		Filename: mpowr.shp
+		Start: 0
+		Offset: 0,3
+	damaged-idle:
+		Filename: mpowr.shp
+		Start: 1
+		Offset: 0,3
+	make:
+		Filename: mpowrmake.shp
+		Length: *
+		Offset: 0,3
+	dead:
+		Filename: mpowr.shp
+		Start: 1
+		Tick: 800
+		Offset: 0,3
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib3.tem
+			DESERT: bib3.des
+		Length: *
+	icon:
+		Filename: powricon.shp
+	fake-icon:
+		Filename: fpwricon.shp
+	trap-icon:
+		Filename: trapicons.shp
+		Start: 6
+	
+epowr:
+	idle:
+		Filename: epowr.shp
+		Offset: 0,3
+	damaged-idle:
+		Filename: epowr.shp
+		Start: 1
+		Offset: 0,3
+	make:
+		Filename: epowrmake.shp
+		Length: *
+		Offset: 0,3
+	dead:
+		Filename: powrdead.shp
+		Tick: 800
+		Offset: 0,3
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib3.tem
+			DESERT: bib3.des
+		Length: *
+	icon:
+		Filename: powricon.shp
+	fake-icon:
+		Filename: fpwricon.shp
+	trap-icon:
+		Filename: trapicons.shp
+		Start: 6
+
+powr:
+	Defaults:
+		Filename: powr.shp
+	idle:
+		Offset: 0,3
+	damaged-idle:
+		Start: 1
+		Offset: 0,3
+	make:
+		Filename: powrmake.shp
+		Length: *
+		Offset: 0,3
+	dead:
+		Filename: powrdead.shp
+		Tick: 800
+		Offset: 0,3
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib3.tem
+			DESERT: bib3.des
+		Length: *
+	icon:
+		Filename: powricon.shp
+	fake-icon:
+		Filename: fpwricon.shp
+	trap-icon:
+		Filename: trapicons.shp
+		Start: 6
+
+milacademy:
+	Defaults:
+		Filename: mtek.shp
 	idle:
 	damaged-idle:
 		Start: 1
-	place: weapmake
-		Start: 14
-	make: weapmake
+	dead:
+		Start: 1
+		Tick: 800
+	make:
+		Filename: mtek.shp
+		Start: 4
+		Length: 21
+	turret:
+		Filename: empty32.shp
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+			DESERT: bib2.des
 		Length: *
-	build-top: weap3
-		Length: 10
-	damaged-build-top: weap2
+	icon:
+		Filename: milacademyicon.shp
+
+teslapp:
+	Defaults:
+		Filename: teslapp.shp
+	idle:
+	damaged-idle:
+		Start: 1
+	make:
+		Filename: teslapp.shp
+		Length: 25
+		Start: 2
+	dead:
+		Filename: teslapp.shp
+		Tick: 800
+		Start: 2
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+			DESERT: bib2.des
+		Length: *
+	icon:
+		Filename: teslappicon.shp
+
+apwr:
+	Defaults:
+		Filename: apwr.shp
+	defaults:
+		ZOffset: 0
+	idle:
+	damaged-idle:
+		Start: 1
+	make:
+		Filename: apwrmake.shp
+		Length: *
+	dead:
+		Filename: apwrdead.shp
+		Tick: 800
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+			DESERT: bib2.des
+		Length: *
+	icon:
+		Filename: apwricon.shp
+	fake-icon:
+		Filename: fapwicon.shp
+	trap-icon:
+		Filename: trapicons.shp
+		Start: 0
+
+horsebreeder:
+	Defaults:
+		Filename: horsebreeder.shp
+	idle:
+		Filename: horsebreeder.shp
+		Length: 4
+		Start: 0
+	damaged-idle:
 		Start: 4
 		Length: 4
-	bib: bib2
+		Filename: horsebreeder.shp
+	make:
+		Start: 9
+		Length: 24
+		Filename: horsebreeder.shp
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib3.tem
+			DESERT: bib3.des
 		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
-	icon: weapicon
-	fake-icon: weaficon
+	icon:
+		Filename: horsebreedericon.shp
+
+chemtur:
+	Defaults:
+		Filename: ftur.shp
+	idle:
+		Offset: 0,-2
+	damaged-idle:
+		Start: 1
+		Offset: 0,-2
+	make:
+		Filename: fturmake.shp
+		Length: *
+		Offset: 0,-2
+	bib:
+		TilesetFilenames:
+			SNOW: mbFTUR.sno
+			INTERIOR: mbFTUR.int
+			TEMPERAT: mbFTUR.tem
+			DESERT: mbFTUR.des
+		Length: *
+	icon:
+		Filename: fturicon.shp
+
+bootcamp:
+	Defaults:
+		Filename: bootcamp.shp
+	idle:
+		Length: 1
+	damaged-idle:
+		Start: 1
+		Length: 1
+	make:
+		Start: 2
+		Length: 25
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib3.tem
+			DESERT: bib3.des
+		Length: *
+	icon:
+		Filename: bootcampicon.shp
+
+kenn:
+	Defaults:
+		Filename: kenn.shp
+	idle:
+	damaged-idle:
+		Start: 1
+	make:
+		Filename: kennmake.shp
+		Length: *
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbSILO.tem
+			DESERT: mbSILO.des
+		Length: *
+	icon:
+		Filename: kennicon.shp
+
+mtek:
+	Defaults:
+		Filename: milacademy.shp
+		Offset: 0,-4,0
+	idle:
+		Start: 0
+	damaged-idle:
+		Start: 1
+	make:
+		Filename: milacademy.shp
+		Length: 25
+		Start: 2
+	dead:
+		Filename: milacademy.shp
+		Tick: 800
+		Start: 1
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+			DESERT: bib2.des
+		Length: *
+	icon:
+		Filename: mtekicon.shp
+		Offset: 0,0,0
+	trap-icon:
+		Filename: trapicons.shp
+		Start: 4
+		Offset: 0,0,0
 
 hpad:
+	Defaults:
+		Filename: hpad.shp
 	idle:
 		ZOffset: -1020
 	damaged-idle:
@@ -285,23 +554,59 @@ hpad:
 		Length: 6
 		Tick: 100
 		ZOffset: -1020
-	make: hpadmake
+	make:
+		Filename: hpadmake.shp
 		Length: *
-	bib: bib3
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib3.tem
+			DESERT: bib3.des
 		ZOffset: -1025
 		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
-	icon: hpadicon
+	icon:
+		Filename: hpadicon.shp
+
+hive:
+	Defaults:
+		Filename: hpad.shp
+	idle:
+		ZOffset: -1020
+	damaged-idle:
+		Start: 7
+		ZOffset: -1020
+	active:
+		Start: 1
+		Length: 6
+		Tick: 100
+		ZOffset: -1020
+	damaged-active:
+		Start: 8
+		Length: 6
+		Tick: 100
+		ZOffset: -1020
+	make:
+		Filename: hpadmake.shp
+		Length: *
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib3.tem
+			DESERT: bib3.des
+		ZOffset: -1025
+		Length: *
+	icon:
+		Filename: hpadicon.shp
 
 afld:
-	idle: afldidle
+	Defaults:
+		Filename: afld.shp
+	idle:
+		Filename: afldidle.shp
 		Length: 8
 		Tick: 160
 		ZOffset: -1020
 		Offset: 0,-4
-	damaged-idle: afldidle
+	damaged-idle:
+		Filename: afldidle.shp
 		Start: 8
 		Length: 8
 		Tick: 160
@@ -318,33 +623,61 @@ afld:
 		Tick: 160
 		ZOffset: -1020
 		Offset: 0,-4
-	make: afldmake
+	make:
+		Filename: afldmake.shp
 		Length: *
 		Offset: 0,-4
-	icon: afldicon
+	icon:
+		Filename: afldicon.shp
 
 spen:
+	Defaults:
+		Filename: spen.shp
 	idle:
 		Offset: 0,2
 	damaged-idle:
 		Start: 1
 		Offset: 0,2
-	make: spenmake
+	make:
+		Filename: spenmake.shp
 		Length: *
 		Offset: 0,2
-	icon: spenicon
-	fake-icon: speficon
+	icon:
+		Filename: syrdicon.shp
+	fake-icon:
+		Filename: syrficon.shp
 
 syrd:
+	Defaults:
+		Filename: syrd.shp
 	idle:
 	damaged-idle:
 		Start: 1
-	make: syrdmake
+	make:
+		Filename: syrdmake.shp
 		Length: *
-	icon: syrdicon
-	fake-icon: syrficon
+	icon:
+		Filename: syrdicon.shp
+	fake-icon:
+		Filename: syrficon.shp
+
+ksyrd:
+	Defaults:
+		Filename: ksyrd.shp
+	idle:
+	damaged-idle:
+		Start: 1
+	make:
+		Filename: ksyrdmake.shp
+		Length: *
+	icon:
+		Filename: syrdicon.shp
+	fake-icon:
+		Filename: syrficon.shp
 
 fix:
+	Defaults:
+		Filename: fix.shp
 	idle:
 		Offset: 0,1
 		ZOffset: -1020
@@ -362,20 +695,32 @@ fix:
 		Length: 6
 		Offset: 0,1
 		ZOffset: -1020
-	make: fixmake
+	make:
+		Filename: fixmake.shp
 		Length: *
 		Offset: 0,1
-	bib: mbFIX
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbFIX.tem
+			DESERT: mbFIX.des
 		Length: *
 		ZOffset: -1020
 		Offset: 0,-4
-		UseTilesetExtension: true
-	icon: fixicon
-	fake-icon: fixficon
+	icon:
+		Filename: fixicon.shp
+	fake-icon:
+		Filename: fixficon.shp
+	trap-icon:
+		Filename: trapicons.shp
+		Start: 2
 
 gun:
-	idle: gunmake # Empty first frame. We need WithSpriteBody for the make anim, and WSB needs at least a placeholder default sequence to work
-	make: gunmake
+	Defaults:
+		Filename: gun.shp
+	idle: # Empty first frame. We need WithSpriteBody for the make anim, and WSB needs at least a placeholder default sequence to work
+		Filename: gunmake.shp
+	make:
+		Filename: gunmake.shp
 		Length: *
 	turret:
 		Facings: 32
@@ -392,18 +737,158 @@ gun:
 		Start: 96
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: gunfire2
+	muzzle:
+		Filename: gunfire2.shp
 		Length: 5
-	bib: mbGUN
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbGUN.tem
+			DESERT: mbGUN.des
 		Length: *
 		Offset: -1,-1
-		UseTilesetExtension: true
 	build:
 		Star: 0
-	icon: gunicon
+	icon:
+		Filename: gunicon.shp
+
+indiangun:
+	Defaults:
+		Filename: indiangun.shp
+	idle: # Empty first frame. We need WithSpriteBody for the make anim, and WSB needs at least a placeholder default sequence to work
+		Filename: empty.shp
+		Start: 0
+	damaged-idle:
+		Filename: empty.shp
+		Start: 0
+	make:
+		Start: 64
+		Length: 25
+	turret:
+		Facings: 32
+		UseClassicFacings: True
+	damaged-turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbGUN.tem
+			DESERT: mbGUN.des
+		Length: *
+		Offset: -1,-1
+	build:
+		Star: 0
+	icon:
+		Filename: indiangunicon.shp
+
+turkeygun:
+	Defaults:
+		Filename: turkeygun.shp
+	idle: # Empty first frame. We need WithSpriteBody for the make anim, and WSB needs at least a placeholder default sequence to work
+		Filename: empty.shp
+		Start: 0
+	damaged-idle:
+		Filename: empty.shp
+		Start: 0
+	make:
+		Start: 64
+		Length: 25
+	turret:
+		Facings: 32
+		UseClassicFacings: True
+	damaged-turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbGUN.tem
+			DESERT: mbGUN.des
+		Length: *
+		Offset: -1,-1
+	build:
+		Star: 0
+	icon:
+		Filename: turkeygunicon.shp
+
+usagun:
+	Defaults:
+		Filename: arcguardtower.shp
+	idle: # Empty first frame. We need WithSpriteBody for the make anim, and WSB needs at least a placeholder default sequence to work
+		Filename: empty.shp
+		Start: 0
+	damaged-idle:
+		Filename: empty.shp
+		Start: 0
+	make:
+		Start: 64
+		Length: 25
+	turret:
+		Facings: 32
+		UseClassicFacings: True
+	damaged-turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbGUN.tem
+			DESERT: mbGUN.des
+		Length: *
+		Offset: -1,-1
+	build:
+		Star: 0
+	icon:
+		Filename: arcguardtowericon.shp
+
+germangun:
+	Defaults:
+		Filename: germangun.shp
+	idle: # Empty first frame. We need WithSpriteBody for the make anim, and WSB needs at least a placeholder default sequence to work
+		Filename: empty.shp
+		Start: 0
+	damaged-idle:
+		Filename: empty.shp
+		Start: 0
+	make:
+		Start: 64
+		Length: 25
+	turret:
+		Facings: 32
+		UseClassicFacings: True
+		Filename: germangun.shp
+	damaged-turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbPDOX.tem
+			DESERT: mbPDOX.des
+		Length: *
+		Offset: 0,-4
+	build:
+		Star: 0
+	icon:
+		Filename: chronoturreticon.shp
 
 camogun:
-	idle: gunmake # Empty first frame. We need WithSpriteBody for the make anim, and WSB needs at least a placeholder default sequence to work
+	Defaults:
+		Filename: camogun.shp
+	idle: # Empty first frame. We need WithSpriteBody for the make anim, and WSB needs at least a placeholder default sequence to work
+		Filename: gunmake.shp
 	make:
 		Start: 132
 		Length: 20
@@ -428,18 +913,24 @@ camogun:
 		Start: 99
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: gunfire2
+	muzzle:
+		Filename: gunfire2.shp
 		Length: 5
-	bib: mbGUN
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbGUN.tem
+			DESERT: mbGUN.des
 		Length: *
 		Offset: -1,-1
-		UseTilesetExtension: true
-	icon: camogunicon
+	icon:
+		Filename: camogunicon.shp
 
 gatlinggun:
 	Defaults:
+		Filename: gatlinggun.shp
 		Offset: 0,-3
-	idle: gunmake # Empty first frame. We need WithSpriteBody for the make anim, and WSB needs at least a placeholder default sequence to work
+	idle: # Empty first frame. We need WithSpriteBody for the make anim, and WSB needs at least a placeholder default sequence to work
+		Filename: gunmake.shp
 	make:
 		Start: 64
 		Length: 20
@@ -451,25 +942,32 @@ gatlinggun:
 		Start: 32
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	bib: mbGUN
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbGUN.tem
+			DESERT: mbGUN.des
 		Length: *
 		Offset: -1,-1
-		UseTilesetExtension: true
 	build:
 		Start: 0
-	icon: gatlinggunicon
+	icon:
+		Filename: gatlinggunicon.shp
 		Offset: 0,0
 
 mameluk:
 	Defaults:
+		Filename: mameluk.shp
 		Offset: 0,-6
-	idle: gunmake # Empty first frame. We need WithSpriteBody for the make anim, and WSB needs at least a placeholder default sequence to work
+	idle: # Empty first frame. We need WithSpriteBody for the make anim, and WSB needs at least a placeholder default sequence to work
+		Filename: gunmake.shp
 		Start: 0
 		Length: 1
-	make: mamelukmake
+	make:
+		Filename: mamelukmake.shp
 		Length: *
 	build:
 		Start: 0
@@ -481,18 +979,26 @@ mameluk:
 		Start: 32
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: gunfire2
+	muzzle:
+		Filename: gunfire2.shp
 		Length: 5
-	bib: mbIRON
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbIRON.tem
+			DESERT: mbIRON.des
 		Length: *
 		Offset: -1,-1
-		UseTilesetExtension: true
-	icon: grandcannonicon
+	icon:
+		Filename: grandcannonicon.shp
 		Offset: 0,0
 
 agun:
-	idle: gunmake # Empty first frame (agunmake has no empty frames). We need WithSpriteBody for the make anim, and WSB needs at least a placeholder default sequence to work
-	make: agunmake
+	Defaults:
+		Filename: agun.shp
+	idle: # Empty first frame (agunmake has no empty frames). We need WithSpriteBody for the make anim, and WSB needs at least a placeholder default sequence to work
+		Filename: gunmake.shp
+	make:
+		Filename: agunmake.shp
 		Length: *
 		Offset: 0,-13
 	turret:
@@ -514,20 +1020,28 @@ agun:
 		Facings: 32
 		UseClassicFacings: True
 		Offset: 0,-13
-	muzzle: gunfire2
+	muzzle:
+		Filename: gunfire2.shp
 		Start: 1
 		Length: 4
-	bib: mbAGUN
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbAGUN.tem
+			DESERT: mbAGUN.des
 		Length: *
-		UseTilesetExtension: true
 	build:
 		Start: 0
 		Offset: 0,-13
-	icon: agunicon
+	icon:
+		Filename: agunicon.shp
 
 cagun:
-	idle: gunmake # Empty first frame (agunmake has no empty frames). We need WithSpriteBody for the make anim, and WSB needs at least a placeholder default sequence to work
-	make: agunmake
+	Defaults:
+		Filename: cagun.shp
+	idle: # Empty first frame (agunmake has no empty frames). We need WithSpriteBody for the make anim, and WSB needs at least a placeholder default sequence to work
+		Filename: gunmake.shp
+	make:
+		Filename: agunmake.shp
 		Length: *
 		Offset: 0,-13
 	turret:
@@ -549,48 +1063,63 @@ cagun:
 		Facings: 32
 		UseClassicFacings: True
 		Offset: 0,-13
-	muzzle: gunfire2
+	muzzle:
+		Filename: gunfire2.shp
 		Start: 1
 		Length: 4
-	bib: mbAGUN
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbAGUN.tem
+			DESERT: mbAGUN.des
 		Length: *
-		UseTilesetExtension: true
 	build:
 		Start: 0
 		Offset: 0,-13
-	icon: cagunicon
+	icon:
+		Filename: cagunicon.shp
 
 sam:
-	idle: gunmake # Empty first frame (sammake has no empty frames). We need WithSpriteBody for the make anim, and WSB needs at least a placeholder default sequence to work
-	turret: sam2
+	idle: # Empty first frame (sammake has no empty frames). We need WithSpriteBody for the make anim, and WSB needs at least a placeholder default sequence to work
+		Filename: gunmake.shp
+	turret:
+		Filename: sam2.shp
 		Facings: 32
 		UseClassicFacings: True
 		Offset: -1,-2
-	damaged-turret: sam2
+	damaged-turret:
+		Filename: sam2.shp
 		Start: 34
 		Facings: 32
 		UseClassicFacings: True
 		Offset: -1,-2
-	make: sammake
+	make:
+		Filename: sammake.shp
 		Length: *
 		Offset: -1,-2
-	muzzle: samfire
+	muzzle:
+		Filename: samfire.shp
 		Length: 18
 		Facings: 8
 		Offset: -1,6
-	bib: mbSAM
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbSAM.tem
+			DESERT: mbSAM.des
 		Length: *
 		Offset: 0,1
-		UseTilesetExtension: true
 	build:
+		Filename: sam.shp
 		Start: 0
 		Offset: -1,-2
-	icon: samicon
+	icon:
+		Filename: samicon.shp
 
 ftur:
 	Defaults:
+		Filename: flmtur.shp
 		Offset: 0,-6
-	idle: gunmake
+	idle:
+		Filename: gunmake.shp
 	turret:
 		Start: 0
 		Facings: 32
@@ -604,21 +1133,62 @@ ftur:
 	make:
 		Start: 64
 		Length: 27
-	bib: mbFTUR
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbFTUR.tem
+			DESERT: mbFTUR.des
 		Length: *
-		UseTilesetExtension: true
 	build:
 		Start: 0
-	icon: fturicon
+	icon:
+		Filename: flmturicon.shp
 		Offset: 0,0
 
+psychtower:
+	Defaults:
+		Filename: psychtower.shp
+	idle:
+		Offset: 0,-13
+		Length: 20
+		Start: 0
+		Tick: 120
+	damaged-idle:
+		Start: 20
+		Length: 20
+		Offset: 0,-13
+		Tick: 120
+	make:
+		Length: 25
+		Start: 40
+		Offset: 0,-13
+	active:
+		Start: 1
+		Length: 9
+		Tick: 100
+		Offset: 0,-13
+	damaged-active:
+		Start: 11
+		Length: 9
+		Tick: 100
+		Offset: 0,-13
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbTSLA.tem
+			DESERT: mbTSLA.des
+		Length: *
+	icon:
+		Filename: psychtowericon.shp
+
 tsla:
+	Defaults:
+		Filename: tsla.shp
 	idle:
 		Offset: 0,-13
 	damaged-idle:
 		Start: 10
 		Offset: 0,-13
-	make: tslamake
+	make:
+		Filename: tslamake.shp
 		Length: *
 		Offset: 0,-13
 	active:
@@ -631,18 +1201,23 @@ tsla:
 		Length: 9
 		Tick: 100
 		Offset: 0,-13
-	bib: mbTSLA
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbTSLA.tem
+			DESERT: mbTSLA.des
 		Length: *
-		UseTilesetExtension: true
-	icon: tslaicon
+	icon:
+		Filename: tslaicon.shp
 
 reftwr:
 	Defaults:
+		Filename: reftwr.shp
 		Offset: 0,-6
 	idle:
 	damaged-idle:
 		Start: 0
-	make: reftwrmake
+	make:
+		Filename: reftwrmake.shp
 		Length: *
 	active:
 		Start: 0
@@ -662,29 +1237,40 @@ reftwr:
 		Start: 53
 		Length: 32
 		Tick: 130
-	bib: mbTSLA
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbTSLA.tem
+			DESERT: mbTSLA.des
 		Length: *
-		UseTilesetExtension: true
-	icon: reftwricon
+	icon:
+		Filename: reftwricon.shp
 		Offset: 0,0
 
 pbox:
+	Defaults:
+		Filename: pbox.shp
 	idle:
 	damaged-idle:
 		Start: 1
-	make: pboxmake
+	make:
+		Filename: pboxmake.shp
 		Length: *
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	bib: mbPBOX
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbPBOX.tem
+			DESERT: mbPBOX.des
 		Length: *
 		Offset: 0,-2
-		UseTilesetExtension: true
-	icon: pboxicon
+	icon:
+		Filename: pboxicon.shp
 
 morozko:
 	Defaults:
+		Filename: morozko.shp
 		Offset: 0,-9,0
 	idle:
 		Length: 30
@@ -694,115 +1280,150 @@ morozko:
 	make:
 		Start: 70
 		Length: 35
-	bib: mbPBOX
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbPBOX.tem
+			DESERT: mbPBOX.des
 		Length: *
 		Offset: 0,-2
-		UseTilesetExtension: true
-	icon: morozkoicon
+	icon:
+		Filename: morozkoicon.shp
 		Offset: 0,0,0
 
 
 spainbunker:
+	Defaults:
+		Filename: spainbunker.shp
 	idle:
 	damaged-idle:
 		Start: 1
 	make:
 		Start: 2
 		Length: *
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	bib: mbPBOX
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbPBOX.tem
+			DESERT: mbPBOX.des
 		Length: *
 		Offset: 0,-2
-		UseTilesetExtension: true
-	idle-medic: sipahimed
+	idle-medic:
+		Filename: sipahimed.shp
 		Facings: 32
 		UseClassicFacings: True
-	idle-mech: sipahimech
+	idle-mech:
+		Filename: sipahimech.shp
 		Facings: 32
 		UseClassicFacings: True
-	turret-rifle: armcr
+	turret-rifle:
+		Filename: armcr.shp
 		Start: 33
 		Facings: 32
 		UseClassicFacings: True
-	turret-flame: sipahiflm
+	turret-flame:
+		Filename: sipahiflm.shp
 		Start: 0
 		Facings: 32
 		UseClassicFacings: True
-	turret-missile: khanlauncher
+	turret-missile:
+		Filename: khanlauncher.shp
 		Start: 0
 		Facings: 32
 		UseClassicFacings: True
-	turret-ronin: ronin
+	turret-ronin:
+		Filename: ronin.shp
 		Start: 32
 		Facings: 32
 		UseClassicFacings: True
-	turret-arc: arctower
+	turret-arc:
+		Filename: arctower.shp
 		Start: 0
 		Facings: 32
 		UseClassicFacings: True
-	turret-flak: ftrk
+	turret-flak:
+		Filename: ftrk.shp
 		Start: 32
 		Facings: 32
 		UseClassicFacings: True
-	turret-mortar: sipahimortar
+	turret-mortar:
+		Filename: sipahimortar.shp
 		Start: 0
 		Facings: 32
 		UseClassicFacings: True
-	turret-sniper: sipahisniper
+	turret-sniper:
+		Filename: sipahisniper.shp
 		Start: 0
 		Facings: 32
 		UseClassicFacings: True
-	turret-lmg: sipahilmg
+	turret-lmg:
+		Filename: sipahilmg.shp
 		Start: 0
 		Facings: 32
 		UseClassicFacings: True
-	turret-tox: sipahitox
+	turret-tox:
+		Filename: sipahitox.shp
 		Start: 0
 		Facings: 32
 		UseClassicFacings: True
-	spinner-ttnk: ttnk
+	spinner-ttnk:
+		Filename: ttnk.shp
 		Start: 32
 		Length: 1
-	spinner-mrj: mrj
+	spinner-mrj:
+		Filename: mrj.shp
 		Start: 32
 		Length: 32
-	spydish: spydish
+	spydish:
+		Filename: spydish.shp
 		Start: 0
 		Length: 32
-	turret-gatling: gatlingcar
+	turret-gatling:
+		Filename: gatlingcar.shp
 		Start: 32
 		Facings: 32
 		UseClassicFacings: True
-	turret-testudo: testudo
+	turret-testudo:
+		Filename: testudo.shp
 		Start: 100
 		Facings: 32
 		UseClassicFacings: True
-	icon: bunkericon
+	icon:
+		Filename: bunkericon.shp
 
 hbox:
 	Defaults:
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
+		TilesetFilenames:
+			TEMPERAT: hbox.tem
+			DESERT: hbox.des
 	idle:
 	damaged-idle:
 		Start: 2
-	make: hboxmake
+	make:
+		TilesetFilenames:
+			TEMPERAT: hboxmake.tem
+			DESERT: hboxmake.des
 		Length: *
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
+		TilesetFilenames:
 		Length: 6
 		Facings: 8
-		UseTilesetExtension: false
-	icon: hboxicon
-		UseTilesetExtension: false
-	bib: mbPBOX
+	icon:
+		Filename: hboxicon.shp
+		TilesetFilenames:
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbPBOX.tem
+			DESERT: mbPBOX.des
 		Length: *
 		Offset: 0,-2
-		UseTilesetExtension: true
 
 gap:
+	Defaults:
+		Filename: gap.shp
 	idle:
 		Length: 32
 		Offset: 0,-14
@@ -810,15 +1431,21 @@ gap:
 		Start: 32
 		Length: 32
 		Offset: 0,-14
-	make: gapmake
+	make:
+		Filename: gapmake.shp
 		Length: *
 		Offset: 0,-14
-	bib: mbGAP
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbGAP.tem
+			DESERT: mbGAP.des
 		Length: *
-		UseTilesetExtension: true
-	icon: gapicon
+	icon:
+		Filename: gapicon.shp
 
 iron:
+	Defaults:
+		Filename: iron.shp
 	idle:
 		Offset: 0,-12
 	active:
@@ -831,16 +1458,22 @@ iron:
 		Start: 11
 		Length: 11
 		Offset: 0,-12
-	make: ironmake
+	make:
+		Filename: ironmake.shp
 		Length: *
 		Offset: 0,-12
-	bib: mbIRON
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbIRON.tem
+			DESERT: mbIRON.des
 		Length: *
 		Offset: 0,2
-		UseTilesetExtension: true
-	icon: ironicon
+	icon:
+		Filename: ironicon.shp
 
 pdox:
+	Defaults:
+		Filename: pdox.shp
 	idle:
 	damaged-idle:
 		Start: 29
@@ -849,24 +1482,35 @@ pdox:
 	damaged-active:
 		Start: 29
 		Length: 29
-	make: pdoxmake
+	make:
+		Filename: pdoxmake.shp
 		Length: *
-	bib: mbPDOX
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbPDOX.tem
+			DESERT: mbPDOX.des
 		Length: *
 		Offset: 0,-4
-		UseTilesetExtension: true
-	icon: pdoxicon
-	fake-icon: pdoficon
+	icon:
+		Filename: pdoxicon.shp
+	fake-icon:
+		Filename: pdoficon.shp
+	trap-icon:
+		Filename: trapicons.shp
+		Start: 5
 
 mslo:
 	Defaults:
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
+		TilesetFilenames:
+			TEMPERAT: mslo.tem
+			DESERT: mslo.des
 	idle:
 	damaged-idle:
 		Start: 8
-	make: mslomake
+	make:
+		TilesetFilenames:
+			TEMPERAT: mslomake.tem
+			DESERT: mslomake.des
 		Length: *
 	active:
 		Start: 1
@@ -875,157 +1519,214 @@ mslo:
 	damaged-active:
 		Start: 9
 		Length: 7
-	icon: msloicon2
-		UseTilesetExtension: false
-	fake-icon: mslficon
-		UseTilesetExtension: false
-	bib: mbIRON
+	icon:
+		Filename: msloicon2.shp
+		TilesetFilenames:
+	fake-icon:
+		Filename: mslficon.shp
+		TilesetFilenames:
+	trap-icon:
+		Filename: trapicons.shp
+		TilesetFilenames:
+		Start: 3
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbIRON.tem
+			DESERT: mbIRON.des
 		Length: *
 		Offset: -1,-1
-		UseTilesetExtension: true
 
 miss:
+	Defaults:
+		Filename: miss.shp
 	idle:
 	damaged-idle:
 		Start: 1
 	dead:
 		Start: 2
 		Tick: 800
-	make: missmake
+	make:
+		Filename: missmake.shp
 		Length: *
-	bib: bib2
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+			DESERT: bib2.des
 		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
-
-mpowr:
-	idle: mpowr
-		Start: 0
-	damaged-idle: mpowr
-		Start: 1
-	make: mpowrmake
-		Length: *
-	dead: mpowr
-		Start: 1
-		Tick: 800
-	bib: bib3
-		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
-	icon: powricon
-	fake-icon: fpwricon
-	
-epowr:
-	idle: epowr
-	damaged-idle: epowr
-		Start: 1
-	make: epowrmake
-		Length: *
-	dead: powrdead
-		Tick: 800
-	bib: bib3
-		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
-	icon: powricon
-	fake-icon: fpwricon
 	
 barr:
-	fake-icon: fbarricon
+	Defaults:
+		Filename: barr.shp
+	fake-icon:
+		Filename: fbarricon.shp
+	trap-icon:
+		Filename: trapicons.shp
+		Start: 1
 	
 stek:
-	fake-icon: fstekicon
+	Defaults:
+		Filename: stek.shp
+	idle:
+	damaged-idle:
+		Start: 1
+	make:
+		Filename: stekmake.shp
+		Length: *
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+			DESERT: bib2.des
+		Length: *
+	icon:
+		Filename: stekicon.shp
 	
+barr:
+	Defaults:
+		Filename: barr.shp
+	idle:
+		Length: 10
+		Offset: 0,-6
+	damaged-idle:
+		Start: 10
+		Length: 10
+		Offset: 0,-6
+	make:
+		Filename: barrmake.shp
+		Length: *
+		Offset: 0,-6
+	idle-overlay:
+		Filename: raxtriage.shp
+		Offset: 0,-4
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib3.tem
+			DESERT: bib3.des
+		Length: *
+	icon:
+		Filename: barricon.shp
+
 erax:
-	idle: erax
+	idle:
+		Filename: erax.shp
 		Start: 0
 		Length: 10
-	damaged-idle: erax
+	damaged-idle:
+		Filename: erax.shp
 		Start: 10
 		Length: 10
-	make: eraxmake
+	idle-overlay:
+		Filename: raxtriage.shp
+	make:
+		Filename: eraxmake.shp
 		Length: *
-	bib: bib3
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib3.tem
+			DESERT: bib3.des
 		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
-	icon: barricon
-	fake-icon: fbarricon
-	
+	icon:
+		Filename: barricon.shp
+	fake-icon:
+		Filename: fbarricon.shp
+	trap-icon:
+		Filename: trapicons.shp
+		Start: 1
+
 mrax:
-	idle: mrax
+	idle:
+		Filename: mrax.shp
 		Start: 0
 		Length: 10
-	damaged-idle: mrax
+	damaged-idle:
+		Filename: mrax.shp
 		Start: 10
 		Length: 10
-	dead: mrax
+	idle-overlay:
+		Filename: raxtriage.shp
+		Offset: 0,-3
+	dead:
+		Filename: mrax.shp
 		Start: 20
 		Tick: 800
-	make: mraxmake
+	make:
+		Filename: mraxmake.shp
 		Length: *
-	bib: bib3
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib3.tem
+			DESERT: bib3.des
 		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
-	icon: barricon
-	fake-icon: fbarricon
+	icon:
+		Filename: barricon.shp
+	fake-icon:
+		Filename: fbarricon.shp
+	trap-icon:
+		Filename: trapicons.shp
+		Start: 1
 	
 proc:
 	Defaults:
+		Filename: proc.shp
 		Offset: -2,-6
-	idle: ref-bot
+	idle:
+		Filename: ref-bot.shp
 		ZOffset: -1000
 	damaged-idle:
 		Offset: -2,-12
 		ZOffset: -1000
 		Start: 1
-	topsolid: ref-top
+	topsolid:
+		Filename: ref-top.shp
 		ZOffset: 0c912
 		Start: 0
-	damaged-topsolid: ref-top
+	damaged-topsolid:
+		Filename: ref-top.shp
 		ZOffset: 0c912
 		Start: 2
-	opaquetop: ref-top
+	opaquetop:
+		Filename: ref-top.shp
 		ZOffset: 0c912
 		Start: 1
-	damaged-opaquetop: ref-top
+	damaged-opaquetop:
+		Filename: ref-top.shp
 		ZOffset: 0c912
 		Start: 3
-	make: ref-anim
+	make:
+		Filename: ref-anim.shp
 		Offset: 1,-10
 		Length: *
-	dead: procdead
+	dead:
+		Filename: procdead.shp
 		Tick: 800
-	bib: bib2
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+			DESERT: bib2.des
 		Offset: 2, 8
 		ZOffset: -1c612
 		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
-	icon: procicon
+	icon:
+		Filename: procicon.shp
 		Offset: 0,0
-	fake-icon: fprocicon
+	fake-icon:
+		Filename: fprocicon.shp
 		Offset: 0,0
 
 eproc:
 	Defaults:
+		Filename: eproc.shp
 		Offset: 1,-7
 	idle:
 		ZOffset: -1000
 	damaged-idle:
 		Start: 2
 		ZOffset: -1000
-	make: eprocmake
+	make:
+		Filename: eprocmake.shp
 		Length: *
 		ZOffset: -1000
-	dead: eproc
+	dead:
+		Filename: eproc.shp
 		Start: 2
 		Tick: 800
 	topsolid:
@@ -1040,27 +1741,31 @@ eproc:
 	damaged-opaquetop:
 		Start: 3
 		ZOffset: 0c912
-	bib: bib2
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+			DESERT: bib2.des
 		Offset: 2, 8
 		ZOffset: -1c612
 		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
-	icon: procicon
+	icon:
+		Filename: procicon.shp
 		Offset: 0,0
-	fake-icon: fprocicon
+	fake-icon:
+		Filename: fprocicon.shp
 		Offset: 0,0
 
 mproc:
 	Defaults:
+		Filename: mproc.shp
 		Offset: 3,-10,0
 	idle:
 		ZOffset: -1000
 	damaged-idle:
 		Start: 1
 		ZOffset: -1000
-	make: mprocmake
+	make:
+		Filename: mprocmake.shp
 		Length: *
 		ZOffset: -1000
 	dead:
@@ -1078,171 +1783,235 @@ mproc:
 	damaged-opaquetop:
 		ZOffset: 0c912
 		Start: 3
-	bib: bib2
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+			DESERT: bib2.des
 		Offset: 2, 8
 		ZOffset: -1c612
 		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
-	icon: procicon
+	icon:
+		Filename: procicon.shp
 		Offset: 0,0
-	fake-icon: fprocicon
+	fake-icon:
+		Filename: fprocicon.shp
 		Offset: 0,0
-	
-eweap:
-	idle: eweap
+
+weap:
+	Defaults:
+		Filename: weap.shp
+	idle:
+	idle1:
+		Filename: klweap.shp
+	damaged-idle:
 		Start: 1
-	damaged-idle: eweap
-		Start: 2
-	place: eweap
-		Start: 0
-	make: eweapmake
+	place:
+		Filename: weapmake.shp
+		Start: 14
+	make:
+		Filename: weapmake.shp
 		Length: *
-	build-top: eweap
+	build-top:
+		Filename: weap3.shp
+		Length: 10
+	damaged-build-top:
+		Filename: weap2.shp
+		Start: 4
+		Length: 4
+	idle-overlay:
+		Filename: wfrepair.shp
+		ZOffset: 5000
+		Offset: 0,-10
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+			DESERT: bib2.des
+		Length: *
+	icon:
+		Filename: weapicon.shp
+	fake-icon:
+		Filename: weaficon.shp
+	trap-icon:
+		Filename: trapicons.shp
+		Start: 9
+
+eweap:
+	idle:
+		Filename: eweap.shp
+		Start: 1
+	idle1:
+		Filename: elweap.shp
+	damaged-idle:
+		Filename: eweap.shp
+		Start: 2
+	place:
+		Filename: eweap.shp
+		Start: 0
+	make:
+		Filename: eweapmake.shp
+		Length: *
+	build-top:
+		Filename: eweap.shp
 		Start: 3
 		Length: 10
-	damaged-build-top: eweap
+	damaged-build-top:
+		Filename: eweap.shp
 		Start: 14
 		Length: 10
-	bib: bib2
+	idle-overlay:
+		Filename: wfrepair.shp
+		ZOffset: 5000
+		Offset: 2,-10
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+			DESERT: bib2.des
 		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
-	icon: weapicon
-	fake-icon: weaficon
+	icon:
+		Filename: weapicon.shp
+	fake-icon:
+		Filename: weaficon.shp
+	trap-icon:
+		Filename: trapicons.shp
+		Start: 9
 	
 mweap:
-	idle: mweap
+	idle:
+		Filename: mweap.shp
 		Start: 1
-	damaged-idle: mweap
+	idle1:
+		Filename: mlweap.shp
+	damaged-idle:
+		Filename: mweap.shp
 		Start: 2
-	place: mweap
+	place:
+		Filename: mweap.shp
 		Start: 0
-	make: mweapmake
+	make:
+		Filename: mweapmake.shp
 		Length: *
-	build-top: mweap
+	build-top:
+		Filename: mweap.shp
 		Start: 3
 		Length: 10
-	damaged-build-top: mweap
+	damaged-build-top:
+		Filename: mweap.shp
 		Start: 13
 		Length: 10
-	bib: bib2
+	idle-overlay:
+		Filename: wfrepair.shp
+		ZOffset: 5000
+		Offset: 0,-10
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+			DESERT: bib2.des
 		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
-	icon: weapicon
-	fake-icon: weaficon
-	
+	icon:
+		Filename: weapicon.shp
+	fake-icon:
+		Filename: weaficon.shp
+	trap-icon:
+		Filename: trapicons.shp
+		Start: 9
+
+indplant:
+	defaults:
+		Filename: indplant.shp
+		ZOffset: 0
+	idle:
+		Filename: indplant.shp
+		Start: 0
+		Length: 1
+		Offset: 0,-10
+		Tick: 200
+	damaged-idle:
+		Filename: indplant.shp
+		Start: 1
+		Length: 1
+		Offset: 0,-10
+		Tick: 200
+	make:
+		Filename: indplant.shp
+		Start: 2
+		Length: 23
+		Offset: 0,-10
+	dead:
+		Filename: indplant.shp
+		Start: 1
+		Length: 1
+		Offset: 0,-10
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+			DESERT: bib2.des
+		Length: *
+	icon:
+		Filename: indplanticon.shp
+
 eapwr:
 	defaults:
+		Filename: eapwr.shp
 		ZOffset: 0
-	idle: eapwr
+	idle:
+		Filename: eapwr.shp
 		Start: 0
-		Offset: 0,-10
-	damaged-idle: eapwr
+	damaged-idle:
+		Filename: eapwr.shp
 		Start: 1
-		Offset: 0,-10
-	make: eapwrmake
+	make:
+		Filename: eapwrmake.shp
 		Length: *
-		Offset: 0,-10
-	dead: eapwr
+	dead:
+		Filename: eapwr.shp
 		Start: 1
 		Tick: 800
-		Offset: 0,-10
-	bib: bib2
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+			DESERT: bib2.des
 		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
-	icon: apwricon
-	fake-icon: fapwicon
+	icon:
+		Filename: apwricon.shp
+	fake-icon:
+		Filename: fapwicon.shp
+	trap-icon:
+		Filename: trapicons.shp
+		Start: 6
 
 mapwr:
 	defaults:
+		Filename: mapwr.shp
 		ZOffset: 0
-	idle: mapwr
-		Start: 0
-		Offset: 0,-10
-	damaged-idle: mapwr
-		Start: 1
-		Offset: 0,-10
-	make: mapwrmake
-		Length: *
-		Offset: 0,-10
-	dead: mapwr
-		Start: 1
-		Tick: 800
-		Offset: 0,-10
-	bib: bib2
-		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
-	icon: apwricon
-	fake-icon: fapwicon
-	
-mdome:
-	idle: mdome
-		Start: 0
-	damaged-idle: mdome
-		Start: 1
-	active: mdome
-		Start: 0
-	damaged-active: mdome
-		Start: 1
-	make: mdomemake
-		Length: *
-	bib: bib3
-		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
-	icon: domeicon
-	fake-icon: domficon
-	
-kdome:
-	idle: kdome
-		Start: 0
-	damaged-idle: kdome
-		Start: 1
-	active: kdome
-		Start: 0
-	damaged-active: kdome
-		Start: 1
-	make: kdomemake
-		Length: *
-	bib: bib3
-		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
-	icon: domeicon
-	fake-icon: domficon
-
-mtek:
-	Defaults:
-		Offset: 0,-8,0
 	idle:
+		Filename: mapwr.shp
 		Start: 0
 	damaged-idle:
+		Filename: mapwr.shp
 		Start: 1
+	make:
+		Filename: mapwrmake.shp
+		Length: *
 	dead:
-		Start: 2
+		Filename: mapwr.shp
+		Start: 1
 		Tick: 800
-	make: mtekmake
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+			DESERT: bib2.des
 		Length: *
-	bib: bib3
-		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
-	icon: mtekicon
-		Offset: 0,0,0
+	icon:
+		Filename: apwricon.shp
+	fake-icon:
+		Filename: fapwicon.shp
+	trap-icon:
+		Filename: trapicons.shp
+		Start: 0
 
 mafld:
+	Defaults:
+		Filename: mafld.shp
 	idle:
 		Start: 0
 		Length: 8
@@ -1260,7 +2029,8 @@ mafld:
 		Tick: 800
 		ZOffset: -1020
 		Offset: 0,-4
-	make: mafldmake
+	make:
+		Filename: mafldmake.shp
 		Length: *
 		ZOffset: -1020
 		Offset: 0,-4
@@ -1276,9 +2046,12 @@ mafld:
 		Tick: 100
 		ZOffset: -1020
 		Offset: 0,-4
-	icon: afldicon
+	icon:
+		Filename: afldicon.shp
 
 eafld:
+	Defaults:
+		Filename: eafld.shp
 	idle:
 		Start: 0
 		Length: 8
@@ -1296,7 +2069,8 @@ eafld:
 		Tick: 800
 		ZOffset: -1020
 		Offset: 0,-4
-	make: eafldmake
+	make:
+		Filename: eafldmake.shp
 		Length: *
 		ZOffset: -1020
 		Offset: 0,-4
@@ -1312,10 +2086,138 @@ eafld:
 		Tick: 100
 		ZOffset: -1020
 		Offset: 0,-4
-	icon: afldicon
+	icon:
+		Filename: afldicon.shp
+
+techc:
+	Defaults:
+		Filename: etechc.shp
+		Offset: 2,-12
+	empty:
+		Filename: empty.shp
+	idle:
+		Start: 1
+	idle1:
+		Start: 2
+	idle2:
+		Start: 3
+		Length: 31
+	idle3:
+		Start: 35
+		Length: 31
+	damaged-idle:
+		Start: 1
+	damaged-idle1:
+		Start: 2
+	damaged-idle2:
+		Start: 3
+		Length: 32
+	damaged-idle3:
+		Start: 35
+		Length: 32
+	dead:
+		Start: 1
+		Tick: 800
+	make:
+		Start: 0
+		Length: 25
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+			DESERT: bib2.des
+		Length: *
+	icon:
+		Filename: adepticon.shp
+		Offset: 0,0
+	fake-icon:
+		Filename: adepticon.shp
+		Offset: 0,0
+
+ktechc:
+	Defaults:
+		Filename: ktechc.shp
+		Offset: 2,-12
+	empty:
+		Filename: empty.shp
+	idle:
+		Start: 1
+	idle1:
+		Start: 2
+	idle2:
+		Start: 3
+		Length: 31
+	idle3:
+		Start: 35
+		Length: 31
+	damaged-idle:
+		Start: 1
+	damaged-idle1:
+		Start: 2
+	damaged-idle2:
+		Start: 3
+		Length: 32
+	damaged-idle3:
+		Start: 35
+		Length: 32
+	dead:
+		Start: 1
+		Tick: 800
+	make:
+		Start: 0
+		Length: 25
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+			DESERT: bib2.des
+		Length: *
+	icon:
+		Filename: adepticon.shp
+		Offset: 0,0
+
+mtechc:
+	Defaults:
+		Filename: mtechc.shp
+		Offset: 2,-12
+	empty:
+		Filename: empty.shp
+	idle:
+		Start: 1
+	idle1:
+		Start: 2
+	idle2:
+		Start: 3
+		Length: 31
+	idle3:
+		Start: 35
+		Length: 31
+	damaged-idle:
+		Start: 1
+	damaged-idle1:
+		Start: 2
+	damaged-idle2:
+		Start: 3
+		Length: 32
+	damaged-idle3:
+		Start: 35
+		Length: 32
+	dead:
+		Start: 1
+		Tick: 800
+	make:
+		Start: 0
+		Length: 25
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+			DESERT: bib2.des
+		Length: *
+	icon:
+		Filename: adepticon.shp
+		Offset: 0,0
 
 adept:
 	Defaults:
+		Filename: adept.shp
 		Offset: 2,-12
 	idle:
 		Start: 25
@@ -1327,16 +2229,18 @@ adept:
 	make:
 		Start: 0
 		Length: 25
-	bib: bib2
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+			DESERT: bib2.des
 		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
-	icon: adepticon
+	icon:
+		Filename: adepticon.shp
 		Offset: 0,0
 	
 madept:
 	Defaults:
+		Filename: madept.shp
 		Offset: 2,-12
 	idle:
 		Start: 0
@@ -1345,19 +2249,22 @@ madept:
 	dead:
 		Start: 1
 		Tick: 800
-	make: madeptmake
+	make:
+		Filename: madeptmake.shp
 		Start: 0
 		Length: *
-	bib: bib2
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+			DESERT: bib2.des
 		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
-	icon: adepticon
+	icon:
+		Filename: adepticon.shp
 		Offset: 0,0
 	
 eadept:
 	Defaults:
+		Filename: eadept.shp
 		Offset: 2,-12
 	idle:
 		Start: 0
@@ -1366,39 +2273,47 @@ eadept:
 	dead:
 		Start: 1
 		Tick: 800
-	make: eadeptmake
+	make:
+		Filename: eadeptmake.shp
 		Start: 0
 		Length: *
-	bib: bib2
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+			DESERT: bib2.des
 		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
-	icon: adepticon
+	icon:
+		Filename: adepticon.shp
 		Offset: 0,0
 
 ecom:
 	Defaults:
+		Filename: atek.shp
 		Offset: 0,-6,0
 	idle:
 		Start: 0
 	damaged-idle:
 		Start: 1
 	dead:
-		Start: 2
+		Start: 1
 		Tick: 800
-	make: ecommake
+	make:
+		Filename: atekmake.shp
 		Length: *
-	bib: bib3
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib3.tem
+			DESERT: bib3.des
 		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
-	icon: academyicon
+	icon:
+		Filename: academyicon.shp
 		Offset: 0,0,0
 	
 flkgun:
-	idle: gunmake # Empty first frame (agunmake has no empty frames). We need WithSpriteBody for the make anim, and WSB needs at least a placeholder default sequence to work
+	Defaults:
+		Filename: flkgun.shp
+	idle: # Empty first frame (agunmake has no empty frames). We need WithSpriteBody for the make anim, and WSB needs at least a placeholder default sequence to work
+		Filename: gunmake.shp
 	make:
 		Start: 256
 		Length: 25
@@ -1424,17 +2339,52 @@ flkgun:
 		UseClassicFacings: True
 		Length: 3
 		Offset: 0,4
-	muzzle: gunfire2
+	muzzle:
+		Filename: gunfire2.shp
 		Start: 1
 		Length: 4
 	build:
 		Star: 0
-	bib: mbAGUN
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbAGUN.tem
+			DESERT: mbAGUN.des
 		Length: *
-		UseTilesetExtension: true
-	icon: flkicon
-	
+	icon:
+		Filename: flkicon.shp
+
+robocom:
+	Defaults:
+		Filename: robocom.shp
+		Offset: -4,-4,0
+	idle:
+		Filename: robocom.shp
+		Start: 0
+		Length: 32
+		Tick: 120
+	damaged-idle:
+		Start: 32
+		Length: 32
+		Tick: 120
+	dead:
+		Start: 32
+	make:
+		Filename: robocom.shp
+		Length: 32
+		Start: 64
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbPDOX.tem
+			DESERT: mbPDOX.des
+		Length: *
+		Offset: 0,-4
+	icon:
+		Filename: robocomicon.shp
+		Offset: 0,0,0
+
 uplink:
+	Defaults:
+		Filename: uplink.shp
 	idle:
 		Start: 0
 		Length: 32
@@ -1445,15 +2395,21 @@ uplink:
 		Tick: 120
 	dead:
 		Start: 64
-	make: uplinkmake
+	make:
+		Filename: uplinkmake.shp
 		Length: *
-	bib: mbPDOX
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbPDOX.tem
+			DESERT: mbPDOX.des
 		Length: *
 		Offset: 0,-4
-		UseTilesetExtension: true
-	icon: uplinkicon
+	icon:
+		Filename: uplinkicon.shp
 	
 sthgen:
+	Defaults:
+		Filename: sthgen.shp
 	idle:
 		Start: 0
 	active:
@@ -1468,23 +2424,32 @@ sthgen:
 		Start: 25
 	dead:
 		Start: 50
-	make: sthgenmake
+	make:
+		Filename: sthgenmake.shp
 		Length: *
-	bib: mbPDOX
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbPDOX.tem
+			DESERT: mbPDOX.des
 		Length: *
 		Offset: 0,-4
-		UseTilesetExtension: true
-	icon: sthgenicon
-	fake-icon: sthgenficon
+	icon:
+		Filename: sthgenicon.shp
+	fake-icon:
+		Filename: sthgenficon.shp
 	
 empgun:
 	Defaults:
+		Filename: empgun.shp
 		Offset: 0,-4
-	idle: gunmake
+	idle:
+		Filename: gunmake.shp
 		Start: 0
-	damaged-idle: gunmake
+	damaged-idle:
+		Filename: gunmake.shp
 		Start: 0
-	dead: gunmake
+	dead:
+		Filename: gunmake.shp
 	turret:
 		Start: 0
 		Facings: 32
@@ -1495,107 +2460,135 @@ empgun:
 		Start: 28
 	damaged-fakeidle:
 		Start: 60
-	make: empgunmake
+	make:
+		Filename: empgunmake.shp
 		Length: *
 	build:
 		Start: 0
-	icon: empgunicon
+	icon:
+		Filename: empgunicon.shp
 		Offset: 0,0
-	fake-icon: empgunficon
+	fake-icon:
+		Filename: empgunficon.shp
 		Offset: 0,0
-	bib: mbPDOX
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbPDOX.tem
+			DESERT: mbPDOX.des
 		Length: *
 		Offset: 0,-4
-		UseTilesetExtension: true
 
 efact:
+	Defaults:
+		Filename: efact.shp
 	idle:
 		Start: 0
-	make: efactmake
+	make:
+		Filename: efactmake.shp
 		Length: *
 	build:
 		Start: 0
 		Length: 1
-	pdox: factpdox
+	pdox:
+		Filename: factpdox.shp
 		Length: 80
 	damaged-idle:
 		Start: 1
 	damaged-build:
 		Start: 1
 		Length: 1
-	damaged-pdox: factpdox
+	damaged-pdox:
+		Filename: factpdox.shp
 		Start: 80
 		Length: 80
 	dead:
 		Start: 1
 		Tick: 800
-	bib: bib2
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+			DESERT: bib2.des
 		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
-	icon: facticon
-	fake-icon: facficon
+	icon:
+		Filename: facticon.shp
+	fake-icon:
+		Filename: facficon.shp
 
 mfact:
+	Defaults:
+		Filename: mfact.shp
 	idle:
 		Start: 0
-	make: mfactmake
+	make:
+		Filename: mfactmake.shp
 		Length: *
 	build:
 		Start: 0
 		Length: 1
-	pdox: factpdox
+	pdox:
+		Filename: factpdox.shp
 		Length: 80
 	damaged-idle:
 		Start: 1
 	damaged-build:
 		Start: 1
 		Length: 1
-	damaged-pdox: factpdox
+	damaged-pdox:
+		Filename: factpdox.shp
 		Start: 80
 		Length: 80
 	dead:
 		Start: 1
 		Tick: 800
-	bib: bib2
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+			DESERT: bib2.des
 		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
-	icon: facticon
-	fake-icon: facficon
+	icon:
+		Filename: facticon.shp
+	fake-icon:
+		Filename: facficon.shp
 	
 kfact:
+	Defaults:
+		Filename: kfact.shp
 	idle:
 		Start: 0
-	make: kfactmake
+	make:
+		Filename: kfactmake.shp
 		Length: *
 	build:
 		Start: 0
 		Length: 1
-	pdox: factpdox
+	pdox:
+		Filename: factpdox.shp
 		Length: 80
 	damaged-idle:
 		Start: 1
 	damaged-build:
 		Start: 1
 		Length: 1
-	damaged-pdox: factpdox
+	damaged-pdox:
+		Filename: factpdox.shp
 		Start: 80
 		Length: 80
 	dead:
 		Start: 1
 		Tick: 800
-	bib: bib2
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+			DESERT: bib2.des
 		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
-	icon: facticon
-	fake-icon: facficon
+	icon:
+		Filename: facticon.shp
+	fake-icon:
+		Filename: facficon.shp
 	
 efix:
+	Defaults:
+		Filename: efix.shp
 	idle:
 		Offset: 0,1
 		ZOffset: -1020
@@ -1613,18 +2606,28 @@ efix:
 		Length: 6
 		Offset: 0,1
 		ZOffset: -1020
-	make: efixmake
+	make:
+		Filename: efixmake.shp
 		Length: *
 		Offset: 0,1
-	bib: mbFIX
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbFIX.tem
+			DESERT: mbFIX.des
 		Length: *
 		ZOffset: -1020
 		Offset: 0,-4
-		UseTilesetExtension: true
-	icon: fixicon
-	fake-icon: fixficon
+	icon:
+		Filename: fixicon.shp
+	fake-icon:
+		Filename: fixficon.shp
+	trap-icon:
+		Filename: trapicons.shp
+		Start: 2
 	
 mfix:
+	Defaults:
+		Filename: mfix.shp
 	idle:
 		Offset: 0,1
 		ZOffset: -1020
@@ -1642,50 +2645,70 @@ mfix:
 		Length: 6
 		Offset: 0,1
 		ZOffset: -1020
-	make: mfixmake
+	make:
+		Filename: mfixmake.shp
 		Length: *
 		Offset: 0,1
-	bib: mbFIX
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbFIX.tem
+			DESERT: mbFIX.des
 		Length: *
 		ZOffset: -1c511
 		Offset: 0,-4
-		UseTilesetExtension: true
-	icon: fixicon
-	fake-icon: fixficon
+	icon:
+		Filename: fixicon.shp
+	fake-icon:
+		Filename: fixficon.shp
+	trap-icon:
+		Filename: trapicons.shp
+		Start: 2
 	
 srimp:
 	idle:
+		Filename: srimp.shp
 		Start: 0
 		Offset: 0,-9
-	damaged-idle: srimpbrk
+	damaged-idle:
+		Filename: srimpbrk.shp
 		Start: 0
 		Offset: 0,-9
-	dead: srimpbrk
+	dead:
+		Filename: srimpbrk.shp
 		Start: 0
 		Offset: 0,-9
-	active: srimp
+	active:
+		Filename: srimp.shp
 		Start: 1
 		Length: 149
 		Tick: 175
 		Offset: 0,-9
-	damaged-active: srimpbrk
+	damaged-active:
+		Filename: srimpbrk.shp
 		Start: 1
 		Length: 149
 		Tick: 125
 		Offset: 0,-9
-	make: srimpmake
+	make:
+		Filename: srimpmake.shp
 		Length: *
 		Offset: 0,-9
-	bib: mbPDOX
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbPDOX.tem
+			DESERT: mbPDOX.des
 		Length: *
 		Offset: 0,0
-		UseTilesetExtension: true
-	icon: srimpicon
+	icon:
+		Filename: srimpicon.shp
 		Start: 0
-	sp-icon: shrimplosion
+	sp-icon:
+		Filename: shrimplosion.shp
 		Start: 0
 		
 trench:
+	Defaults:
+		Filename: trench.shp
 	build:
 		Start: 0
 		Length: 1
@@ -1697,39 +2720,50 @@ trench:
 	damaged-idle:
 		Start: 32
 		Length: 16
-	bib: mbPBOX
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbPBOX.tem
+			DESERT: mbPBOX.des
 		Length: *
 		Offset: 0,-2
-		UseTilesetExtension: true
-	icon: trenchicon
+	icon:
+		Filename: trenchicon.shp
 	
 shpad:
-	idle: heliport
+	idle:
+		Filename: heliport.shp
 		ZOffset: -1000
-	damaged-idle: heliport
+	damaged-idle:
+		Filename: heliport.shp
 		Start: 2
 		ZOffset: -1000
-	active: heliport
+	active:
+		Filename: heliport.shp
 		Start: 0
 		Length: 2
 		Tick: 450
 		ZOffset: -1000
-	damaged-active: heliport
+	damaged-active:
+		Filename: heliport.shp
 		Start: 2
 		Length: 2
 		Tick: 450
 		ZOffset: -1000
-	make: heliportmake
+	make:
+		Filename: heliportmake.shp
 		Length: *
-	bib: bib3
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib3.tem
+			DESERT: bib3.des
 		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
 		ZOffset: -1020
-	icon: hpadicon
+	icon:
+		Filename: hpadicon.shp
 	
 mhpad:
+	Defaults:
+		Filename: mhpad.shp
 	idle:
 		Start: 15
 		ZOffset: -1000
@@ -1749,98 +2783,201 @@ mhpad:
 	make:
 		Start: 0
 		Length: 15
-	bib: bib3
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib3.tem
+			DESERT: bib3.des
 		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
 		ZOffset: -1020
-	icon: hpadicon
+	icon:
+		Filename: hpadicon.shp
 	
 sbunker:
+	Defaults:
+		Filename: sbunker.shp
 	idle:
 	damaged-idle:
 		Start: 1
 	make:
 		Start: 2
 		Length: 25
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	bib: mbPBOX
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbPBOX.tem
+			DESERT: mbPBOX.des
 		Length: *
 		Offset: 0,-2
-		UseTilesetExtension: true
-	icon: sbunkericon
+	icon:
+		Filename: sbunkericon.shp
 	
 pbox:
+	Defaults:
+		Filename: pbox.shp
 	idle:
 	damaged-idle:
 		Start: 1
-	make: pboxmake
+	make:
+		Filename: pboxmake.shp
 		Length: *
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	bib: mbPBOX
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbPBOX.tem
+			DESERT: mbPBOX.des
 		Length: *
 		Offset: 0,-2
-		UseTilesetExtension: true
-	icon: pboxicon
+	icon:
+		Filename: pboxicon.shp
+
+dome:
+	Defaults:
+		Filename: dome.shp
+	idle:
+		Offset: 0,-4
+	active:
+		Offset: 0,-4
+	damaged-active:
+		Start: 1
+		Offset: 0,-4
+	damaged-idle:
+		Start: 1
+		Offset: 0,-4
+	make:
+		Filename: domemake.shp
+		Length: *
+		Offset: 0,-4
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib3.tem
+			DESERT: bib3.des
+		Length: *
+	icon:
+		Filename: domeicon.shp
+	fake-icon:
+		Filename: domficon.shp
+
+mdome:
+	idle:
+		Filename: mdome.shp
+		Start: 0
+	damaged-idle:
+		Filename: mdome.shp
+		Start: 1
+	active:
+		Filename: mdome.shp
+		Start: 0
+	damaged-active:
+		Filename: mdome.shp
+		Start: 1
+	make:
+		Filename: mdomemake.shp
+		Length: *
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib3.tem
+			DESERT: bib3.des
+		Length: *
+	icon:
+		Filename: domeicon.shp
+	fake-icon:
+		Filename: domficon.shp
 	
+kdome:
+	idle:
+		Filename: kdome.shp
+		Start: 0
+	damaged-idle:
+		Filename: kdome.shp
+		Start: 1
+	active:
+		Filename: kdome.shp
+		Start: 0
+	damaged-active:
+		Filename: kdome.shp
+		Start: 1
+	make:
+		Filename: kdomemake.shp
+		Length: *
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib3.tem
+			DESERT: bib3.des
+		Length: *
+	icon:
+		Filename: domeicon.shp
+	fake-icon:
+		Filename: domficon.shp
+
 hbox:
 	Defaults:
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
+		TilesetFilenames:
+			TEMPERAT: hbox.tem
+			DESERT: hbox.des
 	idle:
 	damaged-idle:
 		Start: 2
-	make: hboxmake
+	make:
+		TilesetFilenames:
+			TEMPERAT: hboxmake.tem
+			DESERT: hboxmake.des
 		Length: *
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
+		TilesetFilenames:
 		Length: 6
 		Facings: 8
-		UseTilesetExtension: false
-	icon: hboxicon
-		UseTilesetExtension: false
+	icon:
+		Filename: hboxicon.shp
+		TilesetFilenames:
 		
 atek:
 	Defaults:
+		Filename: etek.shp
 		Offset: 0,-4,
 	idle:
 	damaged-idle:
 		Start: 1
-	make: atekmake
+	make:
+		Filename: etek.shp
 		Length: *
-	active: sputdoor
+		Start: 3
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+			DESERT: bib2.des
 		Length: *
-		Offset: -4,-4
-	bib: bib3
-		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
-	icon: atekicon
+	icon:
+		Filename: atekicon.shp
 		Offset: 0,0,0
-	fake-icon: ateficon
+	fake-icon:
+		Filename: ateficon.shp
 		Offset: 0,0,0
 
 #Neutral
 fcom:
-	idle: fcon
+	idle:
+		Filename: fcon.shp
 		Offset: 0,0
-	damaged-idle: fcon
+	damaged-idle:
+		Filename: fcon.shp
 		Start: 1
 		Offset: 0,0
-	bib: bib3
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib3.tem
+			DESERT: bib3.des
 		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
 
 hospital:
 	Defaults:
+		Filename: hospital.shp
 		Offset: 8,-28,0
 		Scale: 0.76
 	idle:
@@ -1852,16 +2989,22 @@ hospital:
 	dead:
 		Start: 8
 		Tick: 800
-	make: hospmake
+	make:
+		Filename: hospmake.shp
 		Length: *
-	bib: bib2
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+			DESERT: bib2.des
 		Scale: 1
 		Length: *
 		Offset: 0,1
-		UseTilesetExtension: true
-	icon: hospicon
+	icon:
+		Filename: hospicon.shp
 
 sport:
+	Defaults:
+		Filename: sport.shp
 	idle:
 		Length: 8
 		Tick: 160
@@ -1876,6 +3019,7 @@ sport:
 
 dish:
 	Defaults:
+		Filename: dish.shp
 		Offset: -2,16,0
 	idle:
 		Length: 32
@@ -1884,15 +3028,16 @@ dish:
 		Start: 32
 		Length: 32
 		Tick: 160
-	bib: bib2
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+			DESERT: bib2.des
 		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
 		Offset: 0,4,0
 
 civnuke:
 	Defaults:
+		Filename: civnuke.shp
 		Offset: -12,14
 		Scale: 0.92
 	idle:
@@ -1900,45 +3045,74 @@ civnuke:
 		Start: 1
 	dead:
 		Start: 2
-	bib: bib_1
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib1.tem
+			DESERT: bib1.des
 		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
 		Offset: 0,0,0
 
 bio:
+	Defaults:
+		Filename: bio.shp
 	idle:
 	damaged-idle:
 		Start: 1
 	dead:
 		Start: 2
 		Tick: 800
-	make: biomake
+	make:
+		Filename: biomake.shp
 		Length: *
-	bib: bib2
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+			DESERT: bib2.des
 		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
 		Offset: 0,0,0
 
 oilb:
 	Defaults:
+		Filename: oilb.shp
 		Offset: 0,-6
 	idle:
 	damaged-idle:
 		Start: 1
 		Length: *
 	make:
-	bib: bib3
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib3.tem
+			DESERT: bib3.des
 		Length: *
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
 		Offset: 0,0,0
 
+oilplat:
+	Defaults:
+		Filename: oilplat.shp
+	idle:
+		Offset: 18,0
+	damaged-idle:
+		Start: 1
+		Length: *
+		Offset: 18,0
+	make:
+
+oilplat_rubble:
+	Defaults:
+		Filename: oilplat.shp
+	idle:
+		Start: 1
+		Offset: 18,0
+	damaged-idle:
+		Start: 1
+		Length: *
+		Offset: 18,0
+	make:
+
 brik:
+	Defaults:
+		Filename: brik.shp
 	idle:
 		Length: 16
 	scratched-idle:
@@ -1947,25 +3121,165 @@ brik:
 	damaged-idle:
 		Start: 32
 		Length: 16
-	icon: brikicon
+	icon:
+		Filename: brikicon.shp
 
 sbag:
 	Defaults:
+		Filename: sbag.shp
 		Offset: 0, -12, 12
 	idle:
 		Length: 16
-	icon: sbagicon
+	icon:
+		Filename: sbagicon.shp
 		Offset: 0,0,0
 
 fenc:
 	idle:
+		Filename: fenc.shp
 		Length: 16
-	icon: fencicon
+	icon:
+		Filename: fencicon.shp
 
 cycl:
+	Defaults:
+		Filename: cycl.shp
 	idle:
 		Length: 16
 	damaged-idle:
 		Start: 16
 		Length: 16
-	icon: cyclicon
+	icon:
+		Filename: cyclicon.shp
+
+commcent:
+	Defaults:
+		Filename: ecommcent.shp
+	idle:
+		Length: 32
+	damaged-idle:
+		Length: 32
+		Filename: ecommcentbrk.shp
+	active:
+		Length: 32
+	damaged-active:
+		Length: 32
+		Filename: ecommcentbrk.shp
+	make:
+		Filename: ecommcentmake.shp
+		Start: 0
+		Length: *
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib3.tem
+			DESERT: bib3.des
+		Length: *
+	icon:
+		Filename: commcenticon.shp
+
+mcommcent:
+	Defaults:
+		Filename: mcommcent.shp
+	idle:
+		Length: 32
+	damaged-idle:
+		Length: 32
+		Filename: mcommcentbrk.shp
+	active:
+		Length: 32
+	damaged-active:
+		Length: 32
+		Filename: mcommcentbrk.shp
+	make:
+		Filename: mcommcentmake.shp
+		Start: 0
+		Length: *
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib3.tem
+			DESERT: bib3.des
+		Length: *
+	icon:
+		Filename: commcenticon.shp
+
+kcommcent:
+	Defaults:
+		Filename: kcommcent.shp
+	idle:
+		Length: 32
+	damaged-idle:
+		Length: 32
+		Filename: kcommcentbrk.shp
+	active:
+		Length: 32
+	damaged-active:
+		Length: 32
+		Filename: kcommcentbrk.shp
+	make:
+		Filename: kcommcentmake.shp
+		Start: 0
+		Length: *
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib3.tem
+			DESERT: bib3.des
+		Length: *
+	icon:
+		Filename: commcenticon.shp
+
+ktriage:
+	Defaults:
+		Filename: ktriage.shp
+	idle:
+	damaged-idle:
+		Start: 1
+	make:
+		Length: 25
+		Start: 2
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+			DESERT: bib2.des
+		Length: *
+	icon:
+		Filename: triageicon.shp
+	fake-icon:
+		Filename: fpwricon.shp
+
+mtriage:
+	Defaults:
+		Filename: mtriage.shp
+	idle:
+	damaged-idle:
+		Start: 1
+	make:
+		Length: 25
+		Start: 2
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+			DESERT: bib2.des
+		Length: *
+	icon:
+		Filename: triageicon.shp
+	fake-icon:
+		Filename: fpwricon.shp
+
+triage:
+	Defaults:
+		Filename: triage.shp
+	idle:
+	damaged-idle:
+		Start: 1
+	make:
+		Length: 25
+		Start: 2
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+			DESERT: bib2.des
+		Length: *
+	icon:
+		Filename: triageicon.shp
+	fake-icon:
+		Filename: fpwricon.shp

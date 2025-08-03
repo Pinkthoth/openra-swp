@@ -1,16 +1,16 @@
-﻿#region Copyright & License Information
-/*
- * Copyright 2015- OpenRA.Mods.AS Developers (see AUTHORS)
- * This file is a part of a third-party plugin for OpenRA, which is
- * free software. It is made available to you under the terms of the
- * GNU General Public License as published by the Free Software
- * Foundation. For more information, see COPYING.
+﻿﻿#region Copyright & License Information
+/**
+ * Copyright (c) The OpenRA Combined Arms Developers (see CREDITS).
+ * This file is part of OpenRA Combined Arms, which is free software.
+ * It is made available to you under the terms of the GNU General Public License
+ * as published by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version. For more information, see COPYING.
  */
 #endregion
 
+using OpenRA.Mods.Swp.Activities;
 using OpenRA.Mods.Common;
 using OpenRA.Mods.Common.Traits;
-using OpenRA.Mods.Swp.Activities;
 using OpenRA.Traits;
 
 namespace OpenRA.Mods.Swp.Traits
@@ -39,11 +39,8 @@ namespace OpenRA.Mods.Swp.Traits
 
 		protected override void TraitEnabled(Actor self)
 		{
-			var facing = self.TraitOrDefault<IFacing>();
 			var transform = new InstantTransform(self, info.IntoActor) { ForceHealthPercentage = info.ForceHealthPercentage, Faction = faction };
-			if (facing != null) transform.Facing = facing.Facing;
 			transform.SkipMakeAnims = info.SkipMakeAnims;
-			transform.Altitude = self.CenterPosition;
 			self.CancelActivity();
 			self.QueueActivity(transform);
 		}

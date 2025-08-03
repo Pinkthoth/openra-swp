@@ -1,14 +1,14 @@
 #region Copyright & License Information
-/*
- * Copyright 2007-2020 The OpenRA Developers (see AUTHORS)
- * This file is part of OpenRA, which is free software. It is made
- * available to you under the terms of the GNU General Public License
- * as published by the Free Software Foundation, either version 3 of
- * the License, or (at your option) any later version. For more
- * information, see COPYING.
+/**
+ * Copyright (c) The OpenRA Combined Arms Developers (see CREDITS).
+ * This file is part of OpenRA Combined Arms, which is free software.
+ * It is made available to you under the terms of the GNU General Public License
+ * as published by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version. For more information, see COPYING.
  */
 #endregion
 
+using System;
 using System.Collections.Generic;
 using OpenRA.Activities;
 using OpenRA.Mods.Common;
@@ -25,13 +25,12 @@ namespace OpenRA.Mods.Swp.Activities
 	{
 		public readonly string ToActor;
 		public CVec Offset = CVec.Zero;
-		public WAngle Facing = new WAngle(384);
-		public WPos Altitude = WPos.Zero;
 		public string[] Sounds = { };
 		public string Notification = null;
 		public int ForceHealthPercentage = 0;
 		public bool SkipMakeAnims = false;
 		public string Faction = null;
+		public Action<Actor> OnComplete;
 
 		public InstantTransform(Actor self, string toActor)
 		{
@@ -94,13 +93,21 @@ namespace OpenRA.Mods.Swp.Activities
 
 				Game.Sound.PlayNotification(self.World.Map.Rules, self.Owner, "Speech", Notification, self.Owner.Faction.InternalName);
 
+				var cell = self.Location + Offset;
 				var init = new TypeDictionary
 				{
-					new LocationInit(self.Location + Offset),
+					new LocationInit(cell),
 					new OwnerInit(self.Owner),
-					new FacingInit(Facing),
-					new CenterPositionInit(Altitude),
+					new CenterPositionInit(self.World.Map.CenterOfCell(cell) + new WVec(0, 0, self.CenterPosition.Z)),
 				};
+
+				var facing = self.TraitOrDefault<IFacing>();
+				if (facing != null)
+					init.Add(new FacingInit(facing.Facing));
+
+				var turreted = self.TraitsImplementing<Turreted>().FirstEnabledTraitOrDefault();
+				if (turreted != null)
+					init.Add(new TurretFacingInit(turreted.LocalOrientation.Yaw));
 
 				if (SkipMakeAnims)
 					init.Add(new SkipMakeAnimsInit());
@@ -136,11 +143,17 @@ namespace OpenRA.Mods.Swp.Activities
 
 				self.ReplacedByActor = a;
 
-				if (selected)
-					w.Selection.Add(a);
+				if (a.TraitOrDefault<Selectable>() != null)
+				{
+					if (selected)
+						w.Selection.Add(a);
 
-				if (controlgroup.HasValue)
-					w.ControlGroups.AddToControlGroup(a, controlgroup.Value);
+					if (controlgroup.HasValue)
+						w.ControlGroups.AddToControlGroup(a, controlgroup.Value);
+				}
+
+				if (OnComplete != null)
+					OnComplete(a);
 			});
 		}
 	}

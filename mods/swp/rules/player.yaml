@@ -123,6 +123,7 @@ Player:
 	PlaceBuilding:
 		NewOptionsNotification: NewOptions
 		CannotPlaceNotification: BuildingCannotPlaceAudio
+		ToggleVariantKey: ToggleVariant
 	SupportPowerManager:
 	ScriptTriggers:
 	MissionObjectives:
@@ -135,8 +136,8 @@ Player:
 	AllyRepair:
 	PlayerResources:
 		ResourceValues:
-			Ore: 25
-			Gems: 50
+			Ore: 35
+			Gems: 60
 		InsufficientFundsNotification: InsufficientFunds
 		CashTickUpNotification: CashTickUp
 		CashTickDownNotification: CashTickDown
@@ -206,3 +207,5 @@ Player:
 	PlayerRadarTerrain:
 	ProximityCaptor:
 		Types: Player
+	TeleportNetworkManager:
+		Type: subspace

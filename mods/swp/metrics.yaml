@@ -24,6 +24,10 @@ Metrics:
 	FactionSuffix-raj: allies
 	FactionSuffix-belarus: soviet
 	FactionSuffix-persia: zentrum
+	FactionSuffix-egypt: allies
+	FactionSuffix-arabia: soviet
+	FactionSuffix-transcaucasia: soviet
+	FactionSuffix-abyssinia: zentrum
 	FactionSuffix-zentrum: zentrum
 	IncompatibleProtectedGameColor: B22222
 	IncompatibleVersionColor: D3D3D3

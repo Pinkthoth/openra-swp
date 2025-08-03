@@ -202,7 +202,7 @@ HornetMissile:
 	Range: 3c0
 	-Report:
 	Projectile: Missile
-		Image: hornetmissile
+		Image: dragon
 		Palette: player
 		IsPlayerPalette: True
 		ContrailStartColorUsePlayerColor: True
@@ -233,23 +233,55 @@ HornetMissile:
 
 LegionMissile:
 	Inherits: ^AntiGroundMissile
-	ReloadDelay: 10
+	ReloadDelay: 30
+	Range: 7c0
 	Report: rketinf1.aud
-	ValidTargets: Vehicle, Structure, Wall, AirborneActor, AirborneBomber
+	ValidTargets: Vehicle, Structure, Wall, Ground
 	Projectile: Missile
 		TrailImage: smokey
 		Inaccuracy: 0
 		HorizontalRateOfTurn: 80
-		Speed: 298
+		Speed: 400
+		RangeLimit: 9c0
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
 		ValidTargets: AirborneBomber, AirborneActor, Ground, Water, Ship, WaterActor, GroundActor
 		Versus:
 			Light: 60
 
+HammerheadMine:
+	Inherits: ^AntiAirMissile
+	ReloadDelay: 85
+	Range: 1c512
+	Report: mineblo1.aud
+	ValidTargets: AirborneBomber, AirborneActor
+	Projectile: Missile
+		Image: dropbombs
+		Arm: 1
+		HorizontalRateOfTurn: 120
+	Warhead@1Dam: SpreadDamage
+		Spread: 426
+		Damage: 3500
+		Versus:
+			None: 90
+			Wood: 40
+			Light: 60
+			Medium: 40
+			Heavy: 25
+			Concrete: 55
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, SmallExplosionDeath
+		ValidTargets: AirborneBomber, AirborneActor, Ground, Water, Ship, WaterActor, GroundActor, Air
+	Warhead@3Eff: CreateEffect
+		Explosions: artillery_explosion
+		ImpactSounds: kaboom15.aud
+		ValidTargets: AirborneBomber, AirborneActor, Ground, Ship, WaterActor, GroundActor, Air
+	Warhead@4EffWater: CreateEffect
+		Explosions: med_splash
+
+
 LegionMissileAA:
 	Inherits: ^AntiGroundMissile
-	ReloadDelay: 10
+	ReloadDelay: 30
 	Range: 7c0
 	Report: rketinf1.aud
 	ValidTargets: AirborneActor, AirborneBomber
@@ -257,11 +289,46 @@ LegionMissileAA:
 		TrailImage: smokey
 		Inaccuracy: 0
 		HorizontalRateOfTurn: 80
-		Speed: 298
+		Speed: 400
 		RangeLimit: 10c0
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
-		ValidTargets: Ship, WaterActor, GroundActor
+		ValidTargets: AirborneBomber, AirborneActor
+		Versus:
+			Light: 60
+
+LegionMissileStinger:
+	Inherits: ^AntiGroundMissile
+	ReloadDelay: 50
+	Range: 6c0
+	Report: rketinf1.aud
+	ValidTargets: Vehicle, Structure, Wall, Ground
+	Projectile: Missile
+		TrailImage: smokey
+		Inaccuracy: 0
+		HorizontalRateOfTurn: 80
+		Speed: 400
+	Warhead@1Dam: SpreadDamage
+		Damage: 4000
+		ValidTargets: AirborneBomber, AirborneActor, Ground, Water, Ship, WaterActor, GroundActor
+		Versus:
+			Light: 60
+
+LegionMissileStingerAA:
+	Inherits: ^AntiGroundMissile
+	ReloadDelay: 50
+	Range: 6c0
+	Report: rketinf1.aud
+	ValidTargets: AirborneActor, AirborneBomber
+	Projectile: Missile
+		TrailImage: smokey
+		Inaccuracy: 0
+		HorizontalRateOfTurn: 80
+		Speed: 400
+		RangeLimit: 10c0
+	Warhead@1Dam: SpreadDamage
+		Damage: 4000
+		ValidTargets: AirborneBomber, AirborneActor
 		Versus:
 			Light: 60
 
@@ -428,7 +495,7 @@ CaballeroRedEye:
 
 SHPSAMRedEye:
 	Inherits: Nike
-	Range: 8c512
+	Range: 8c0
 	ReloadDelay: 10
 	Projectile: Missile
 		Image: samrocket
@@ -493,7 +560,7 @@ APTusk.stnk:
 
 TorpTube:
 	ReloadDelay: 100
-	Range: 9c0
+	Range: 7c0
 	Report: torpedo1.aud
 	ValidTargets: Water, Ship, WaterActor, Underwater, Bridge
 	Burst: 2
@@ -511,7 +578,7 @@ TorpTube:
 		CruiseAltitude: 0
 	Warhead@1Dam: SpreadDamage
 		Spread: 426
-		Damage: 18000
+		Damage: 14000
 		ValidTargets: Ship, WaterActor, Underwater, Bridge
 		Versus:
 			Wood: 75
@@ -531,7 +598,7 @@ TorpTube:
 
 TorpTubeSingle:
 	ReloadDelay: 100
-	Range: 9c0
+	Range: 7c0
 	Report: torpedo1.aud
 	ValidTargets: Water, Ship, WaterActor, Underwater, Bridge
 	Burst: 1
@@ -583,7 +650,7 @@ TorpTubeSingle:
 		ContrailLength: 30
 	Warhead@1Dam: SpreadDamage
 		Spread: 426
-		Damage: 2500
+		Damage: 1000
 		Falloff: 1000, 368, 135, 50, 18, 7, 0
 		Versus:
 			None: 40
@@ -601,7 +668,7 @@ TorpTubeSingle:
 
 SubMissile:
 	Inherits: ^SubMissileDefault
-	Range: 20c0
+	Range: 10c0
 	TargetActorCenter: true
 	-Projectile:
 	Projectile: Bullet
@@ -630,8 +697,8 @@ SCUD:
 	Projectile: Bullet
 		Speed: 170
 		Blockable: false
-		TrailImage: smokey
-		TrailDelay: 5
+		TrailImage: newsmokey
+		TrailDelay: 2
 		Inaccuracy: 213
 		Image: V2
 		Shadow: True
@@ -658,10 +725,50 @@ SCUD:
 	Warhead@Smu: LeaveSmudge
 		SmudgeType: Scorch
 
+BUSTERROCKET:
+	Inherits: ^AntiGroundMissile
+	ReloadDelay: 60
+	Range: 5c512
+	MinRange: 0c512
+	Report: rocket_launcher_1.aud
+	-Projectile:
+	Projectile: Bullet
+		Speed: 450
+		Blockable: false
+		TrailImage: newsmokey
+		TrailDelay: 1
+		Inaccuracy: 213
+		Image: dragon
+		Shadow: True
+		LaunchAngle: 30
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c341
+		Damage: 750
+		Falloff: 1000, 220, 170, 110, 40
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Trees
+		Versus:
+			None: 20
+			Wood: 70
+			Tree: 50
+			Light: 60
+			Medium: 70
+			Heavy: 100
+			Concrete: 55
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, SmallExplosionDeath, Incendiary
+	Warhead@3Eff: CreateEffect
+		Explosions: med_explosion
+		ImpactSounds: explosion_medium_5.wav
+	Warhead@4EffWater: CreateEffect
+		Explosions: large_splash
+	Warhead@Smu: LeaveSmudge
+		SmudgeType: Scorch
+
 DN_ROCKET:
 	Inherits: ^AntiGroundMissile
+	FirstBurstTargetOffset: 0,-0c256,0
+	FollowingBurstTargetOffset: 0,0c256,0
 	ReloadDelay: 240
-	Range: 11c512
+	Range: 14c0
 	MinRange: 4c0
 	Burst: 2
 	BurstDelays: 15
@@ -669,7 +776,7 @@ DN_ROCKET:
 	Projectile: Missile
 		CloseEnough: 0c01
 		CruiseAltitude: 4c0
-		Inaccuracy: 1c0
+		Inaccuracy: 0c512
 		RangeLimit: 14c0
 		Blockable: False
 		ExplodeWhenEmpty: False
@@ -761,7 +868,7 @@ KhanMissile:
 		MaximumLaunchSpeed: 40
 		MinimumLaunchSpeed: 30
 		Blockable: false
-		ContrailWidth: 0
+		ContrailStartWidth: 0
 		Shadow: true
 		Inaccuracy: 0
 		Image: patriotaa
@@ -868,7 +975,7 @@ IfritMissile:
 		Inaccuracy: 2053
 		LaunchAngle: 62
 		ContrailLength: 10
-		ContrailWidth: 34
+		ContrailStartWidth: 34
 		Speed: 341
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c256
@@ -887,10 +994,48 @@ IfritMissile:
 		Explosions: med_explosion
 		ImpactSounds: xplobig4.aud
 
+227mm_Nebel:
+	Inherits: ^AntiGroundMissile
+	ReloadDelay: 165
+	Range: 8c512
+	MinRange: 3c0
+	Burst: 6
+	BurstDelays: 4
+	Report: rockets_1.aud, rockets_2.aud, rockets_3.aud
+	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor
+	TargetActorCenter: true
+	-Projectile:
+	Projectile: Bullet
+		Blockable: false
+		Image: DRAGON
+		Shadow: True
+		TrailImage: smokey
+		Inaccuracy: 1c512
+		LaunchAngle: 62
+		ContrailLength: 10
+		ContrailStartWidth: 34
+		Speed: 341
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c256
+		Damage: 500
+		Falloff: 220, 170, 100, 75, 40
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, AirborneActor
+		Versus:
+			None: 85
+			Wood: 75
+			Light: 60
+			Medium: 50
+			Heavy: 40
+			Concrete: 70
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@3Eff: CreateEffect
+		Explosions: med_explosion
+		ImpactSounds: mortar_1.aud, mortar_2.aud, mortar_3.aud, mortar_4.aud
+
 Destroyer227mm:
 	Inherits: ^AntiGroundMissile
 	ReloadDelay: 165
-	Range: 10c0
+	Range: 8c0
 	MinRange: 3c0
 	Burst: 15
 	BurstDelays: 4
@@ -912,9 +1057,9 @@ Destroyer227mm:
 		Versus:
 			None: 25
 			Wood: 35
-			Light: 30
-			Medium: 50
-			Heavy: 90
+			Light: 60
+			Medium: 90
+			Heavy: 80
 			Concrete: 70
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@3Eff: CreateEffect
@@ -923,9 +1068,9 @@ Destroyer227mm:
 
 227mm-Marauder:
 	Inherits: ^AntiGroundMissile
-	ReloadDelay: 155
-	Range: 11c0
-	MinRange: 3c0
+	ReloadDelay: 75
+	Range: 7c0
+	MinRange: 1c0
 	Burst: 4
 	BurstDelays: 4
 	Report: iggiat2a.wav, iggiat2b.wav
@@ -937,10 +1082,10 @@ Destroyer227mm:
 		Image: DRAGON
 		Shadow: True
 		TrailImage: smokey
-		Inaccuracy: 1c512
+		Inaccuracy: 0c512
 		LaunchAngle: 62
 		ContrailLength: 10
-		ContrailWidth: 34
+		ContrailStartWidth: 34
 		Speed: 341
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c256
@@ -948,16 +1093,23 @@ Destroyer227mm:
 		Falloff: 150, 110, 75, 50, 15, 5, 0
 		ValidTargets: GroundActor, Trees, Ship, WaterActor, AirborneActor
 		Versus:
-			None: 85
+			None: 20
 			Wood: 70
-			Light: 55
+			Light: 30
 			Medium: 45
-			Heavy: 35
+			Heavy: 60
 			Concrete: 65
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@3Eff: CreateEffect
 		Explosions: med_explosion
 		ImpactSounds: vgriatta.wav, vgriattb.wav
+
+227mm-Scorpion:
+	Inherits: 227mm-Marauder
+	Burst: 1
+	Range: 4c768
+	MinRange: 0c512
+	InvalidTargets: Husk
 
 Hind227mm:
 	Inherits: ^AntiGroundMissile
@@ -969,16 +1121,18 @@ Hind227mm:
 	Report: katyarocket.aud
 	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor
 	TargetActorCenter: true
-	-Projectile:
-	Projectile: Bullet
+	Projectile: Missile
+		CloseEnough: 0c01
+		CruiseAltitude: 4c0
 		Blockable: false
 		Image: DRAGON
 		Shadow: True
 		TrailImage: smokey
-		Inaccuracy: 1053
-		LaunchAngle: 62
+		Inaccuracy: 1c512
+		RangeLimit: 14c0
+		ExplodeWhenEmpty: False
 		ContrailLength: 10
-		ContrailWidth: 34
+		ContrailStartWidth: 34
 		Speed: 341
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c256
@@ -997,6 +1151,25 @@ Hind227mm:
 		Explosions: med_explosion
 		ImpactSounds: expnew12.aud
 
+APTusk.PTNK:
+	Inherits: ^AntiGroundMissile
+	ReloadDelay: 60
+	Range: 6c0
+	Burst: 1
+	BurstDelays: 0
+	Report: bazook1.aud
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 3000
+	Projectile: Missile
+		Speed: 298
+		TrailImage: smokey
+		HorizontalRateOfTurn: 40
+		RangeLimit: 13c204
+		HomingActivationDelay: 3
+		MinimumLaunchAngle: 90
+		MaximumLaunchAngle: 91
+
 GebardMissile:
 	Inherits: ^AntiGroundMissile
 	ReloadDelay: 50
@@ -1007,19 +1180,23 @@ GebardMissile:
 	Report: orcamis1.aud
 	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor
 	TargetActorCenter: true
-	-Projectile:
-	Projectile: Bullet
+	Projectile: Missile
+		CloseEnough: 0c01
+		CruiseAltitude: 4c0
 		Blockable: false
 		Image: DRAGON
 		Shadow: True
 		TrailImage: smokey
 		Inaccuracy: 0c126
-		LaunchAngle: 62
+		RangeLimit: 14c0
+		ExplodeWhenEmpty: False
 		ContrailLength: 10
+		ContrailStartWidth: 34
 		Speed: 341
+		MaximumLaunchAngle: 62
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c256
-		Damage: 5000
+		Damage: 3000
 		Falloff: 250, 200, 150, 80, 60, 15, 5, 0
 		ValidTargets: GroundActor, Trees,  Ship, WaterActor, AirborneActor
 		Versus:

@@ -152,58 +152,6 @@ WEAF:
 		Type: Polygon
 			Points: -1536,-300, -640,-811, 640,-811, 1536,-300, 1536,555, 640,1110, -640,1110, -1536,555
 
-DOMF:
-	Inherits: ^FakeBuilding
-	Inherits@IDISABLE: ^DisableOnLowPower
-	Inherits@infiltrate: ^InfiltratableFake
-	Inherits@shape: ^2x2Shape
-	Inherits@EMPDISABLE: ^EmpDisable
-	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
-	Selectable:
-		Bounds: 1448, 2896
-	HitShape:
-		UseTargetableCellsOffsets: false
-		TargetableOffsets: 0,0,0, 630,-384,0, 630,384,0, -700,-512,0, -700,512,0
-	Tooltip:
-		Name: Fake Radar Dome
-		GenericName: Radar Dome
-		GenericVisibility: Enemy
-		GenericStancePrefix: False
-	Buildable:
-		BuildPaletteOrder: 930
-		Queue: Defense
-		Prerequisites: ~structures.france, ~techlevel.medium
-		Description: Looks like a Radar Dome.
-		Icon: fake-icon
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
-		LocalCenterOffset: 0,-512,0
-	RenderSprites:
-		Image: dome
-		FactionImages:
-			austria: mdome
-			germany: mdome
-			turkey: mdome
-			italy: mdome
-			russia: kdome
-			china: kdome
-			mongolia: kdome
-			ukraine: kdome
-			england: dome
-			usa: dome
-			france: dome
-			japan: dome
-			serbia: dome
-			bulgaria: mdome
-			kazakhstan: kdome
-	Valued:
-		Cost: 180
-	Health:
-		HP: 100000
-	Armor:
-		Type: Wood
-
 FIXF:
 	Inherits: ^FakeBuilding
 	Inherits@infiltrate: ^InfiltratableFake
@@ -330,8 +278,8 @@ ATEF:
 		Description: Looks like an Allied Tech Center.
 		Icon: fake-icon
 	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
 		LocalCenterOffset: 0,-512,0
 	RenderSprites:
 		Image: atek
@@ -377,7 +325,7 @@ STHGENF:
 		HP: 100000
 	Armor:
 		Type: Wood
-	Explodes:
+	FireWarheadsOnDeath:
 		DamageThreshold: 50
 	WithBuildingBib:
 		HasMinibib: True
@@ -414,7 +362,7 @@ EMPGUNF:
 		HP: 100000
 	Armor:
 		Type: Wood
-	Explodes:
+	FireWarheadsOnDeath:
 		DamageThreshold: 50
 	SequencePlaceBuildingPreview:
 		Sequence: build
@@ -455,7 +403,7 @@ MSLF:
 		HP: 100000
 	Armor:
 		Type: Wood
-	Explodes:
+	FireWarheadsOnDeath:
 		DamageThreshold: 50
 	WithBuildingBib:
 		HasMinibib: True
@@ -649,7 +597,7 @@ ltnk.holospawn:
 	-GivesExperience:
 	-UpdatesPlayerStatistics:
 	-ActorLostNotification:
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: HoloExplode
 		EmptyWeapon: HoloExplode
 		DamageThreshold: 75
@@ -678,7 +626,7 @@ ltnk.holo:
 	-GivesExperience:
 	-UpdatesPlayerStatistics:
 	-ActorLostNotification:
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: HoloExplode
 		EmptyWeapon: HoloExplode
 		DamageThreshold: 75

@@ -423,6 +423,24 @@
 		InternalOwner: Neutral
 		RequiresCondition: !being-warped
 
+^DemoAttachable:
+	DelayedWeaponAttachable@C4:
+		Type: demo
+		Condition: demoed
+		ProgressBarColor: FF000080
+	Targetable@demoplantable:
+		TargetTypes: demoplantable
+	Targetable@demoed:
+		TargetTypes: demoed
+		RequiresCondition: demoed
+	WithDecoration@demo:
+		Image: c4bomb_sm
+		Sequence: idle
+		Position: CenterCenter
+		RequiresCondition: demoed
+		RequiresSelection: False
+		ValidRelationships: Ally, Neutral, Enemy
+
 ^Confusable:
 	ExternalCondition@CONFUSION:
 		Condition: confusion
@@ -444,6 +462,14 @@
 		Position: TopLeft
 		ValidRelationships: Ally, Neutral, Enemy
 		RequiresCondition: confusion
+
+^CommandoSkull:
+	WithDecoration@COMMANDOSKULL:
+		Image: pips
+		Sequence: pip-skull
+		Palette: effect
+		Position: TopLeft
+		ValidRelationships: Ally, Enemy, Neutral
 
 ^Field:
 	AppearsOnRadar:
@@ -506,6 +532,23 @@
 		InitialDelay: 0
 	ExternalCondition@mindblast:
 		Condition: mindblast
+
+^HackableBase:
+	MindControllable:
+		ControlledConditions:
+			cyborghijacker: hacked
+		RevokingConditions:
+			cyborghijacker: dehacking
+	GivesExperienceToMaster:
+	Targetable@mindcontrolled:
+		TargetTypes: Hacked
+		RequiresCondition: hacked
+
+^Hackable:
+	Inherits: ^HackableBase
+	Targetable@MINDCONTROL:
+		TargetTypes: Hackable
+		RequiresCondition: !hacked && !dehacking
 
 ^GainsExperience:
 	GainsExperience:
@@ -582,6 +625,9 @@
 	ReloadDelayMultiplier@RANK-7:
 		RequiresCondition: rank-veteran == 7
 		Modifier: 65
+	Targetable@promotable:
+		RequiresCondition: rank-veteran < 3
+		TargetTypes: Promotable
 	ChangesHealth@ELITE:
 		Step: 0
 		PercentageStep: 5
@@ -667,6 +713,13 @@
 		RequiresCondition: kommissable
 		Modifier: 110
 
+^Logistable:
+	ExternalCondition@IamLogistable:
+		Condition: logistable
+	ReloadDelayMultiplier@LOGISTABLE:
+		RequiresCondition: logistable
+		Modifier: 75
+
 ^InfantryExperienceHospitalOverrides:
 	WithDecoration@RANK-1:
 		BlinkInterval: 32
@@ -714,7 +767,7 @@
 		CloakDelay: 30
 		IsPlayerPalette: true
 		RequiresCondition: stealth
-		Palette: newcloak
+		CloakedPalette: newcloak
 		CloakType: Phase
 		PauseOnCondition: cloak-force-disabled
 		UncloakOn: Attack, Heal, Dock
@@ -742,6 +795,29 @@
 	RevealsShroudMultiplier@frozen:
 		RequiresCondition: frozen
 		Modifier: 75
+
+^BloodLust:
+	ExternalCondition@bloodlust:
+		Condition: bloodlust
+	ReloadDelayMultiplier@bloodlust:
+		Modifier: 90
+		RequiresCondition: bloodlust
+	SpeedMultiplier@bloodlust:
+		Modifier: 120
+		RequiresCondition: bloodlust
+	WithColoredOverlay@bloodlust:
+		RequiresCondition: bloodlust
+		Color: 7F000050
+	Targetable@bloodlust:
+		TargetTypes: Bloodlust
+		RequiresCondition: bloodlust
+	WithDecoration@bloodlust:
+		Image: pips
+		Sequence: pip-bloodlust
+		Position: TopRight
+		ValidRelationships: Ally, Neutral
+		RequiresCondition: bloodlust
+		RequiresSelection: False
 
 ^Smoked:
 	ExternalCondition@smoked:
@@ -1008,6 +1084,75 @@
 		DamageCooldown: 150
 		RequiresCondition: commandered
 
+^Arzable:
+	GrantConditionOnInfiltration@arzable:
+		Types: ArzInfiltration
+		Condition: arzed
+		RequiresCondition: !arzed
+	WithDecoration@arzable:
+		Image: pips
+		Sequence: pip-lazarus
+		Position: TopRight
+		ValidRelationships: Ally, Neutral
+		RequiresCondition: arzed
+	Targetable@arzable:
+		TargetTypes: ArzInfiltration
+		RequiresCondition: !arzed
+	GrantCondition@arzed:
+		Condition: lazarus
+		RequiresCondition: arzed
+
+^QuickRepariable:
+	ExternalCondition@quickrepair:
+		Condition: quickrepair
+	ChangesHealth@quickrepari:
+		RequiresCondition: quickrepair
+		StartIfBelow: 101
+		Step: 500
+
+^BattleDroneAttach:
+	AttachableTo@battledrone:
+		Type: BattleDrone
+		Limit: 1
+		LimitCondition: battledroned
+		AttachedCondition: battledroned
+	Targetable@battledroned:
+		TargetTypes: BattleDroneable
+		RequiresCondition: !battledroned
+	Targetable@parasited2:
+		RequiresCondition: battledroned
+		TargetTypes: WithBattleDrone
+	ChangesHealth@battledroned:
+		StartIfBelow: 50
+		Step: 100
+		RequiresCondition: battledroned
+			
+
+^ParasiteAttach:
+	AttachableTo@parasite:
+		Type: Parasite
+		Limit: 1
+		LimitCondition: parasited
+		AttachedCondition: parasited
+	Targetable@parasited:
+		TargetTypes: Parasiteable
+		RequiresCondition: !parasited
+	Targetable@parasited2:
+		RequiresCondition: parasited
+		TargetTypes: WithParasite
+
+^TerrorDroneable:
+	AttachableTo@terrordrone:
+		Type: TerrorDrone
+		Limit: 1
+		LimitCondition: terrordroned
+		AttachedCondition: terrordroned
+	Targetable@terrordroned:
+		TargetTypes: TerrorDroneable
+	Targetable@terrordroned2:
+		RequiresCondition: terrordroned
+		TargetTypes: WithTerrorDrone
+
 ^Vehicle:
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^IronCurtainable
@@ -1025,13 +1170,23 @@
 	Inherits@magnetictrap: ^MagneticTrap
 	Inherits@magneticsuspension: ^MagneticSuspension
 	Inherits@berserkable: ^Berserkable
-	Inherits@flameshield: ^FlameShield
 	Inherits@lazarus: ^Lazarus
 	Inherits@chronohaste: ^ChronoHasteable
 	Inherits@flarevision: ^FlareVision
 	Inherits@mindcontrol: ^MindControllable
 	Inherits@warp: ^Warpable
 	Inherits@freezable: ^Freezable
+	Inherits@demoable: ^DemoAttachable
+	Inherits@Arzable: ^Arzable
+	Inherits@Parasite: ^ParasiteAttach
+	Inherits@terrordrone: ^TerrorDroneable
+	Inherits@battledroneable: ^BattleDroneAttach
+	EdibleByLeap:
+	TeleportNetworkTransportable:
+	ProductionTimeMultiplier@foundry:
+		Prerequisites: indiaplant
+		Multiplier: 90
+		Queue: Vehicle
 	DetectCloaked@phase:
 		DetectionTypes: Phase
 		Range: 1c0
@@ -1064,6 +1219,7 @@
 		ReturnToOrigin: False
 	Passenger:
 		CargoType: Vehicle
+		Weight: 5
 	AttackMove:
 	HiddenUnderFog:
 	ActorLostNotification:
@@ -1093,11 +1249,11 @@
 		FallRate: 26
 		KilledOnImpassableTerrain: true
 		ParachutingCondition: parachute
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: UnitExplodeSmall
 		EmptyWeapon: UnitExplodeSmall
 		RequiresCondition: !being-warped
-	Explodes@chrono:
+	FireWarheadsOnDeath@chrono:
 		Weapon: ChronoExplosion
 		EmptyWeapon: ChronoExplosion
 		DeathTypes: ChronoDeath
@@ -1271,6 +1427,7 @@
 	Inherits@selection: ^SelectableCombatUnit
 	Inherits@handicaps: ^PlayerHandicaps
 	Inherits@Kommissable: ^Kommissable
+	Inherits@Logistable: ^Logistable
 	Inherits@Confusable: ^Confusable
 	Inherits@smoked: ^Smoked
 	Inherits@berserkable: ^Berserkable
@@ -1283,7 +1440,24 @@
 	Inherits@mindcontrol: ^MindControllable
 	Inherits@warp: ^Warpable
 	Inherits@freezable: ^Freezable
-	Explodes@chrono:
+	Inherits@demoable: ^DemoAttachable
+	Inherits@Parasite: ^ParasiteAttach
+	Inherits@bloodlust: ^BloodLust
+	TeleportNetworkTransportable:
+	-GrantCondition@warped:
+	ProductionTimeMultiplier@foundry:
+		Prerequisites: indiaplant
+		Multiplier: 90
+		Queue: Infantry
+	Infiltrates@refunder:
+		Types: RefundInfiltration
+		ValidRelationships: Ally
+	RepairableNear@triage:
+		RepairActors: triage, hosp
+		CloseEnough: 1c215
+	ExternalCondition@zombiefy:
+		Condition: zombiefy
+	FireWarheadsOnDeath@chrono:
 		Weapon: ChronoExplosionSM
 		EmptyWeapon: ChronoExplosionSM
 		DeathTypes: ChronoDeath
@@ -1382,7 +1556,7 @@
 	DeathSounds@ZAPPED:
 		Voice: Zapped
 		DeathTypes: ElectricityDeath
-	DeathSounds@ZAPPED:
+	DeathSounds@FROZEN:
 		Voice: Freezed
 		DeathTypes: FreezeDeath
 	Parachutable:
@@ -1423,10 +1597,12 @@
 		OnCrushCondition: crush-succesful
 		OnCrushDuration: 30
 	SpawnActorOnDeath@zombiefy:
-		DeathType: Zombiefy
+		Actor: Zombiehusk
+		RequiresCondition: zombiefy
 		OwnerType: Killer
-		Actor: Zombie
-		SkipMakeAnimations: False
+	SpawnActorOnDeath@BulletDeath:
+		Actor: DEMOMAN.Husk
+		RequiresCondition: !zombiefy
 	ProximityCaptor:
 		Types: Infantry
 
@@ -1448,6 +1624,15 @@
 	AttackFrontal:
 		RequiresCondition: !turnedoff && !being-warped
 		FacingTolerance: 0
+	WithProductionIconOverlay:
+		Types: Veterancy
+		Prerequisites: barracks.upgraded
+	GrantConditionOnAttack@omniattack:
+		Condition: omniattack
+		RevokeDelay: 25
+	Targetable@omniattack:
+		TargetTypes: Omniattacking
+		RequiresCondition: omniattack
 
 ^CivInfantry:
 	Inherits: ^Infantry
@@ -1497,6 +1682,11 @@
 	Inherits@flarevision: ^FlareVision
 	Inherits@warpable: ^Warpable
 	Inherits@freezable: ^Freezable
+	Inherits@demoable: ^DemoAttachable
+	ProductionTimeMultiplier@foundry:
+		Prerequisites: indiaplant
+		Multiplier: 90
+		Queue: Ship
 	HitShape@front:
 		TargetableOffsets: 800,0,0
 		Type: Rectangle
@@ -1538,7 +1728,7 @@
 		RequiresCondition: turnedoff
 		Modifier: 0
 	Selectable:
-		Bounds: 1024, 1024
+		Bounds: 2048, 2048
 	Targetable:
 		TargetTypes: Ship
 		RequiresCondition: !being-warped
@@ -1563,11 +1753,11 @@
 	GpsRadarDot:
 		Sequence: Ship
 	WithDamageOverlay:
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: UnitExplodeShip
 		EmptyWeapon: UnitExplodeShip
 		RequiresCondition: !being-warped
-	Explodes@chrono:
+	FireWarheadsOnDeath@chrono:
 		Weapon: ChronoExplosion
 		EmptyWeapon: ChronoExplosion
 		DeathTypes: ChronoDeath
@@ -1592,6 +1782,10 @@
 	Targetable@UNDERWATER:
 		TargetTypes: Underwater, Submarine
 		RequiresCondition: underwater
+	GpsRadarDot:
+		Sequence: Sub
+	GpsDot:
+		String: Sub
 	Cloak:
 		DetectionTypes: Underwater
 		InitialDelay: 0
@@ -1599,8 +1793,10 @@
 		CloakSound: subshow1.aud
 		UncloakSound: subshow1.aud
 		CloakedCondition: underwater
-		Palette: submerged
+		CloakedPalette: submerged
+		CloakStyle: Palette
 		PauseOnCondition: cloak-force-disabled
+		UncloakOn: Dock
 	GrantConditionOnDamageState@UNCLOAK:
 		Condition: cloak-force-disabled
 		ValidDamageStates: Critical
@@ -1684,10 +1880,10 @@
 		Categories: Aircraft
 	SpawnActorOnDeath:
 		RequiresCondition: airborne
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: UnitExplode
 		RequiresCondition: !being-warped && !airborne
-	Explodes@chrono:
+	FireWarheadsOnDeath@chrono:
 		Weapon: ChronoExplosion
 		EmptyWeapon: ChronoExplosion
 		DeathTypes: ChronoDeath
@@ -1713,33 +1909,36 @@
 		TargetTypes: AirborneBomber
 	Aircraft:
 		TakeOffOnResupply: true
+	ProductionTimeMultiplier@foundry:
+		Prerequisites: indiaplant
+		Multiplier: 90
+		Queue: Aircraft
 
 ^Helicopter:
 	Inherits: ^Plane
 	Tooltip:
-		GenericName: Helicopter
+		GenericName: meta-helicopter-generic-name
 	Aircraft:
 		CanHover: True
 		CruisingCondition: cruising
 		WaitDistanceFromResupplyBase: 4c0
 		TakeOffOnResupply: true
 		VTOL: true
-		LandableTerrainTypes: Clear, Rough, Road, Ore, Beach, Gems, TallGrass, Pavement, PavedRoad
+		LandableTerrainTypes: Clear, Rough, Road, Ore, Beach, Gems
 		Crushes: crate, mine, infantry
 		CanSlide: True
 		CruiseAltitude: 2c516
 	GpsDot:
 		String: Helicopter
-	GpsRadarDot:
-		Sequence: Helicopter
 	Hovers@CRUISING:
 		RequiresCondition: cruising
+	-BodyOrientation:
+	ClassicFacingBodyOrientation:
+	GpsRadarDot:
+		Sequence: Helicopter
 	Targetable@AIRBORNE:
 		RequiresCondition: airborne && !being-warped
 		TargetTypes: AirborneActor
-	BodyOrientation:
-		QuantizedFacings: 0
-		CameraPitch: 85
 
 ^BasicBuilding:
 	Inherits@1: ^ExistsInWorld
@@ -1752,14 +1951,25 @@
 	Inherits@handicaps: ^PlayerHandicaps
 	Inherits@warp: ^Warpable
 	Inherits@freezable: ^Freezable
-	Explodes@chrono:
+	Inherits@demoable: ^DemoAttachable
+	Inherits@quickrepair: ^QuickRepariable
+	Targetable@REPAIR:
+		RequiresCondition: damaged
+		TargetTypes: BuildingRepair
+	GrantConditionOnDamageState@DAMAGED:
+		Condition: damaged
+		ValidDamageStates: Light, Medium, Heavy, Critical
+	WithColoredOverlay@disabled:
+		Color: 000000B4
+		RequiresCondition: empdisable
+	FireWarheadsOnDeath@chrono:
 		Weapon: ChronoExplosionBG
 		EmptyWeapon: ChronoExplosionBG
 		DeathTypes: ChronoDeath
 	WithBuildingBib:
 	Targetable:
 		TargetTypes: GroundActor, C4, DetonateAttack, Structure
-		RequiresCondition:  !being-warped
+		RequiresCondition: !being-warped
 	Building:
 		Dimensions: 1,1
 		Footprint: x
@@ -1776,7 +1986,7 @@
 		DamagedSounds: kaboom1.aud
 		DestroyedSounds: kaboom22.aud, xplobig4.aud
 	WithSpriteBody:
-	Explodes:
+	FireWarheadsOnDeath:
 		Type: Footprint
 		Weapon: BuildingExplode
 		EmptyWeapon: BuildingExplode
@@ -1796,9 +2006,11 @@
 		Categories: Building
 	CommandBarBlacklist:
 
+
 ^Building:
 	Inherits: ^BasicBuilding
 	Inherits@flarevision: ^FlareVision
+	Inherits@hackable: ^Hackable
 	Huntable:
 	OwnerLostAction:
 		Action: Kill
@@ -1809,7 +2021,7 @@
 		RepairStep: 700
 		PlayerExperience: 25
 		RepairingNotification: Repairing
-	EngineerRepairable:
+	InstantlyRepairable:
 	AcceptsDeliveredCash:
 	WithMakeAnimation:
 		Condition: build-incomplete
@@ -1852,13 +2064,13 @@
 		Bounds: 1024, 1024
 	Targetable:
 		TargetTypes: GroundActor, C4, DetonateAttack, Structure, Defense
-		RequiresCondition:  !being-warped
+		RequiresCondition: !being-warped
 	MustBeDestroyed:
 		RequiredForShortGame: false
 	-GivesBuildableArea:
 	-AcceptsDeliveredCash:
 	RenderRangeCircle:
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: SmallBuildingExplode
 		EmptyWeapon: SmallBuildingExplode
 	MapEditorData:
@@ -1876,6 +2088,9 @@
 	Inherits@shape: ^1x1Shape
 	Inherits@handicaps: ^PlayerHandicaps
 	Inherits@warp: ^Warpable
+	WithColoredOverlay@disabled:
+		Color: 000000B4
+		RequiresCondition: empdisable
 	Interactable:
 		Bounds: 1024, 1024
 	OwnerLostAction:
@@ -1902,7 +2117,7 @@
 		Types: wall
 	Targetable:
 		TargetTypes: GroundActor, DetonateAttack, Wall, NoAutoTarget
-		RequiresCondition:  !being-warped
+		RequiresCondition: !being-warped
 	-GivesExperience:
 	RenderSprites:
 		Palette: effect
@@ -1945,9 +2160,9 @@
 		AreaTypes: fake
 	Health:
 		HP: 10000
-	Explodes:
-		Weapon: BuildingExplode
-		DamageThreshold: 70
+	FireWarheadsOnDeath:
+		Weapon: HoloExplode
+		DamageThreshold: 50
 	RevealsShroud:
 		Range: 1c0
 	WithDecoration@fake:
@@ -1962,10 +2177,38 @@
 		Categories: Fake
 	WithBuildingBib:
 
+^BoobyTrapBuilding:
+	Inherits: ^FakeBuilding
+	FireWarheadsOnDeath@regularexplosion:
+		Type: Footprint
+		Weapon: BuildingExplode
+		EmptyWeapon: BuildingExplode
+		DamageThreshold: 90
+	FireWarheadsOnDeath:
+		Weapon: DemoTruckExplosion
+		Type: CenterPosition
+		DamageThreshold: 75
+		RequiresCondition: goingtodie
+	KillsSelf:
+		RequiresCondition: goingtodie
+	WithDecoration@fake:
+		Position: Top
+		Margin: 0, 4
+		RequiresSelection: false
+		Image: pips
+		Sequence: tag-trap
+	GrantChargingConditionFull@demoes:
+		Condition: goingtodie
+		RequiresCondition: deployed
+		MaxCharge: 75
+	GrantConditionOnDeploy:
+		DeployedCondition: deployed
+		SkipMakeAnimation: True
+
 ^InfiltratableFake:
 	Targetable:
 		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration
-		RequiresCondition:  !being-warped
+		RequiresCondition: !being-warped
 	InfiltrateForDecoration:
 		Types: SpyInfiltrate, SaboteurInfiltration
 		Position: Top
@@ -1979,13 +2222,13 @@
 	-Selectable:
 	Health:
 		HP: 1000
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: UnitExplode
 	Tooltip:
 		Name: Ammo Box
 	Targetable:
 		TargetTypes: GroundActor, C4, DetonateAttack, Structure, NoAutoTarget
-		RequiresCondition:  !being-warped
+		RequiresCondition: !being-warped
 	Armor:
 		Type: Light
 	MapEditorData:
@@ -2054,9 +2297,9 @@
 	MapEditorData:
 		ExcludeTilesets: INTERIOR
 		Categories: Civilian building
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: SmallBuildingExplode
-	Explodes@CIVPANIC:
+	FireWarheadsOnDeath@CIVPANIC:
 		Weapon: CivPanicExplosion
 	-CaptureNotification:
 
@@ -2064,8 +2307,8 @@
 	Inherits: ^CivBuilding
 	-HitShape:
 	-Health:
-	-Explodes:
-	-Explodes@CIVPANIC:
+	-FireWarheadsOnDeath:
+	-FireWarheadsOnDeath@CIVPANIC:
 	-Selectable:
 	Tooltip:
 		Name: Field
@@ -2233,7 +2476,7 @@
 	KillsSelf:
 		RequiresCondition: charged || turnedoff || deployed
 		Delay: 1
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: HoloExplode
 		DamageThreshold: 20
 	GrantChargingConditionFull:
@@ -2267,7 +2510,7 @@
 		PlayerPalette: newholo
 	Voiced:
 		VoiceSet: HoloVoice
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: HoloExplode
 		DamageThreshold: 20
 	RevealsShroud:
@@ -2278,6 +2521,7 @@
 		Type: GroundPosition
 
 ^BasicHusk:
+	Inherits@warpable: ^Warpable
 	ExternalCondition@temporal:
 		Condition: being-warped
 	Interactable:
@@ -2293,6 +2537,11 @@
 	HitShape:
 	MapEditorData:
 		Categories: Husk
+	WithColoredOverlay@IDISABLE:
+		Color: 000000B4
+	WithColoredOverlay@warp:
+		Color: 000000B4
+		RequiresCondition: empdisable
 
 ^Husk:
 	Inherits: ^BasicHusk
@@ -2312,10 +2561,8 @@
 	CaptureManager:
 	Capturable:
 		Types: huskmech
-		ValidRelationships: Enemy, Neutral, Ally
 	Capturable@huskengie:
 		Types: huskengie
-		ValidRelationships: Enemy, Neutral, Ally
 	TransformOnCapture@Mechanic:
 		ForceHealthPercentage: 25
 		CaptureTypes: huskmech
@@ -2325,17 +2572,15 @@
 	InfiltrateForTransform:
 		Types: Husk
 		ForceHealthPercentage: 25
-	WithColoredOverlay@IDISABLE:
-		Color: 000000B4
 	Targetable:
 		TargetTypes: GroundActor, Husk, NoAutoTarget
 		RequiresForceFire: false
-		RequiresCondition:  !being-warped
+		RequiresCondition: !being-warped
 	Chronoshiftable:
 		ReturnToOrigin: False
 	Tooltip:
 		GenericName: Destroyed Vehicle
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: UnitExplodeSmall
 		EmptyWeapon: UnitExplodeSmall
 	-MapEditorData:
@@ -2376,7 +2621,6 @@
 	EdibleByLeap:
 	RenderSprites:
 		Image: deadinfantry
-	WithColoredOverlay@IDISABLE:
 	SpawnActorOnDeath:
 		DeathType: ResurrectionDeath
 		OwnerType: Killer
@@ -2387,6 +2631,32 @@
 		OwnerType: Killer
 		Actor: Zombie
 		SkipMakeAnimations: False
+	SpawnActorOnDeath@assimilate:
+		DeathType: Assimilation
+		OwnerType: Killer
+		Actor: WeakCyborg
+		SkipMakeAnimations: False
+	-WithColoredOverlay@IDISABLE:
+
+Zombiehusk:
+	Inherits: ^InfantryCorpse
+	Tooltip:
+		Name: Infected Corpse
+	-SpawnActorOnDeath:
+	-GrantExternalConditionToKiller:
+	KillsSelf@zombiefy:
+		Delay: 100
+		GrantsCondition: zombiefy
+	EjectOnDeath@zombiefy:
+		PilotActor: Zombie
+		RequiresCondition: zombiefy
+		SuccessRate: 100
+		EjectInAir: True
+		EjectOnGround: True
+	Targetable:
+		TargetTypes: ZombieCorpse
+	RenderSprites:
+		Image: zombiecorpse
 
 ^PlaneHusk:
 	Inherits: ^BasicHusk
@@ -2408,6 +2678,7 @@
 	RevealOnDeath:
 		Duration: 60
 		Radius: 4c0
+	-WithColoredOverlay@IDISABLE:
 
 ^HighAltitudePlane:
 	Targetable@AIRBORNE:
@@ -2532,28 +2803,28 @@
 		Bounds: 1024, 1024
 	WithSpriteBody:
 	HiddenUnderFog:
-	Mine:
-		CrushClasses: mine
-		DetonateClasses: mine
-		AvoidFriendly: false
-		BlockFriendly: false
+		Type: CenterPosition
 	Health:
 		HP: 10000
 		NotifyAppliedDamage: false
 	Armor:
 		Type: Light
-	Cloak:
-		CloakSound:
-		UncloakSound:
-		Palette:
-		CloakType: Mine
-		InitialDelay: 0
 	Tooltip:
 		Name: Mine
 	Targetable:
 		TargetTypes: GroundActor, Mine
 	Immobile:
 		OccupiesSpace: true
+	Cloak:
+		CloakSound:
+		UncloakSound:
+		CloakType: Mine
+		InitialDelay: 0
+	Mine:
+		CrushClasses: mine
+		DetonateClasses: mine
+		AvoidFriendly: false
+		BlockFriendly: false
 	HitShape:
 	MapEditorData:
 		Categories: System
@@ -2654,22 +2925,6 @@
 		RequiresCondition: saboteur-explode
 		ValidRelationships: Ally, Neutral, Enemy
 
-^FlameShield:
-	ExternalCondition@FLAMESHIELD:
-		Condition: flameshield
-	PeriodicExplosion@flame:
-		Weapon: FlameShield
-		LocalOffset: 0,0,0
-		RequiresCondition: flameshield
-	DamageMultiplier@flameshield:
-		Modifier: 50
-		RequiresCondition: flameshield
-	WithIdleOverlay@flameshield:
-		Image: helios
-		Sequence: idle
-		RequiresCondition: flameshield
-		Offset: 0,0,150
-
 ^SuperchargePower:
 	TimedConditionBar@supercharged:
 		Condition: supercharged
@@ -2679,6 +2934,14 @@
 		RequiresCondition: supercharged
 	ExternalCondition@supercharged:
 		Condition: supercharged
+
+^CavalryCharge:
+	GrantConditionOnPrerequisite@charge:
+		Condition: charge
+		Prerequisites: cavalrycharge
+	SpeedMultiplier@charge:
+		RequiresCondition: charge
+		Modifier: 125
 
 ^SuperchargeTesla:
 	ExternalCondition@supercharged:

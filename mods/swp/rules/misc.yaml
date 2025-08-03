@@ -6,13 +6,127 @@ MINV:
 			soviet: minp
 			russia: minp
 			ukraine: minp
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: ATMine
+
+MINHH:
+	Inherits: ^TrackedVehicle
+	Inherits: ^EmpDisable
+	Inherits@fire: ^AutoTargetAllPlusBombers
+	Inherits@selection: ^SelectableSupportUnit
+	-ExperienceTrickler@OfficerNearby:
+	-GainsExperienceMultiplier@OfficerNearby:
+	-ExternalCondition@OfficerNearby:
+	Inherits@Drone: ^Drone
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Trench Layer
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 20000
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 0
+		Locomotor: lighttracked
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 5c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	FireWarheadsOnDeath:
+		Weapon: HHMine
+	RenderSprites:
+		Image: minp
+	Targetable:
+		TargetTypes: GroundActor, Vehicle, Mine
+	Mine:
+		CrushClasses: mine
+		DetonateClasses: mine
+		AvoidFriendly: false
+		BlockFriendly: false
+	GrantConditionOnAttack:
+		Condition: attacking
+	AttackOmni:
+	Armament:
+		Name: primary
+		Weapon: HammerheadMine
+		RequiresCondition: !empdisable
+	KillsSelf:
+		RemoveInstead: True
+		RequiresCondition: attacking
+	Cloak:
+		CloakSound:
+		UncloakSound:
+		CloakType: Mine
+		InitialDelay: 0
+	-WithFacingSpriteBody:
+	WithSpriteBody:
+
+MINS:
+	Inherits: ^Mine
+	RenderSprites:
+		Image: mins
+		FactionImages:
+			soviet: mins
+			russia: mins
+			ukraine: mins
+	FireWarheadsOnDeath:
+		Weapon: SMine
+
+SPILL:
+	Inherits: ^Mine
+	-Mine:
+	RenderSprites:
+		Image: spill
+	Immobile:
+		OccupiesSpace: False
+	Health:
+		HP: 100
+	-Cloak:
+	FireWarheadsOnDeath:
+		Weapon: NapalmSpillExplode
+	Tooltip:
+		Name: Napalm
+	GrantRandomCondition:
+		Conditions: spill1,spill2,spill3,spill4
+	WithIdleOverlay@spill1:
+		RequiresCondition: spill1
+		Sequence: spill1
+	WithIdleOverlay@spill2:
+		RequiresCondition: spill2
+		Sequence: spill2
+	WithIdleOverlay@spill3:
+		RequiresCondition: spill3
+		Sequence: spill3
+	WithIdleOverlay@spill4:
+		RequiresCondition: spill4
+		Sequence: spill4
+
+DEMOBOMB:
+	Inherits: ^Mine
+	RenderSprites:
+		Image: minv
+		FactionImages:
+			soviet: minp
+			russia: minp
+			ukraine: minp
+	FireWarheadsOnDeath:
+		Weapon: ATMine
+	-Mine:
+	KillsSelf@dieovertime:
+		Delay: 200
+	Immobile:
+		OccupiesSpace: False
+
 
 # Only kept for backwards-compatibility with existing and imported maps, use MINV instead
 MINP:
 	Inherits: MINV
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: APMine
 
 CRATE:
@@ -44,7 +158,7 @@ CRATE:
 		MaxAmount: 5
 		MinAmount: 1
 		MaxDuplicateValue: 1500
-	GiveMcvCrateAction:
+	GiveBaseBuilderCrateAction:
 		SelectionShares: 0
 		NoBaseSelectionShares: 100
 		Units: mcv
@@ -179,13 +293,34 @@ camera.spied-dome:
 		Range: 4c0
 
 SONAR:
-	Inherits: camera.spyplane
+	Interactable:
+	EditorOnlyTooltip:
+		Name: (reveals area to owner)
+	AlwaysVisible:
+	Immobile:
+		OccupiesSpace: false
+	BodyOrientation:
+		QuantizedFacings: 1
+	WithSpriteBody:
+	RenderSpritesEditorOnly:
+		Image: camera
+	MapEditorData:
+		Categories: System
 	EditorOnlyTooltip:
 		Name: (support power proxy camera)
-	-RevealsShroud:
 	DetectCloaked:
 		DetectionTypes: Underwater
-		Range: 10c0
+		Range: 15c0
+	RangedGpsRadarProvider:
+		Range: 15c0
+		TargetTypes: Ship, Submarine
+	RenderDetectionCircleSWP:
+		Visible: Always
+		TrailCount: 1
+		UpdateLineTick: 4092
+		BorderWidth: 5
+		Width: 3
+		Color: 008CFF
 
 FLAREOLD:
 	Immobile:
@@ -213,7 +348,7 @@ MINE:
 	Interactable:
 	HiddenUnderShroud:
 	Tooltip:
-		Name: Ore Mine
+		Name: actor-mine-name
 	RenderSprites:
 		Palette: terrain
 	WithSpriteBody:
@@ -236,7 +371,7 @@ GMINE:
 	Interactable:
 	HiddenUnderShroud:
 	Tooltip:
-		Name: Gem Mine
+		Name: actor-gmine-name
 	RenderSprites:
 		Palette: player
 	WithSpriteBody:
@@ -376,6 +511,7 @@ powerproxy.sonarpulse:
 		EffectPalette: moveflash
 		SupportPowerPaletteOrder: 80
 		EffectSequence: idle
+		BlockedCursor: move-blocked
 
 powerproxy.paratroopers:
 	AlwaysVisible:
@@ -448,7 +584,7 @@ SMINE:
 	Inherits: ^Mine
 	RenderSprites:
 		Image: smine
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: APMine
 
 SPYCAMERA:
@@ -478,7 +614,8 @@ SPYCAMERA:
 	Targetable:
 		TargetTypes: GroundActor, Mine
 	Cloak:
-		Palette: newcloak
+		CloakedPalette: newcloak
+		CloakStyle: Palette
 		InitialDelay: 90
 		CloakDelay: 90
 		CloakSound: appear1td.aud
@@ -519,6 +656,11 @@ SMOKECLOUD:
 	-WithDecoration@RANK-5:
 	-WithDecoration@RANK-6:
 	-WithDecoration@RANK-7:
+	SpeedMultiplier:
+		RequiresCondition: rank-veteran
+		Modifier: 101
+	ExternalCondition:
+		Condition: rank-veteran
 	-SpawnActorOnDeath:
 	-WithShadow:
 	-Selectable:
@@ -530,7 +672,7 @@ SMOKECLOUD:
 	-Targetable@REPAIR:
 	-GpsDot:
 	-MustBeDestroyed:
-	-Explodes:
+	-FireWarheadsOnDeath:
 	-CaptureManager:
 	-Capturable:
 	-GainsExperience:
@@ -711,21 +853,21 @@ RADARSCAN:
 		QuantizedFacings: 1
 	RenderSpritesEditorOnly:
 		Image: gap
-	RevealsShroud:
-		RevealGeneratedShroud: True
+	RangedGpsRadarProvider:
 		Range: 10c0
-		Type: CenterPosition
+		TargetTypes: Infantry, Vehicle, Structure, Ship
+	DetectCloaked:
+		Range: 10c0
+	DetectCloaked@phase:
+		DetectionTypes: Phase
+		Range: 10c0
 	RenderDetectionCircleSWP:
 		Visible: Always
 		TrailCount: 1
 		UpdateLineTick: 4092
 		BorderWidth: 5
 		Width: 3
-	DetectCloaked:
-		Range: 10c0
-	DetectCloaked@phase:
-		DetectionTypes: Phase
-		Range: 10c0
+		Color: 008CFF
 
 powergps:
 	Interactable:

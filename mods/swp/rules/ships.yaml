@@ -4,26 +4,30 @@ SS:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
 		Queue: Ship
-		BuildAtProductionType: Submarine
+		BuildAtProductionType: Boat
 		BuildPaletteOrder: 40
 		Prerequisites: ~syrd, ~techlevel.low, dome, ~naval.entente
-		Description: Submerged anti-ship unit\narmed with torpedoes.\nCan detect other submarines.\n  Strong vs Naval units\n  Weak vs Ground units, Aircraft\n  Special Ability: Submerge
+		Description: Submerged anti-ship unit.
+	TooltipExtras:
+		Strengths: + Strong vs Large Ships.
+		Weaknesses: - Weak vs Small Ships, Aircraft, Land Units.
+		Attributes: • Can detect other submarines when they are firing.\n• Can submerge.
 	Valued:
-		Cost: 1900
+		Cost: 1650
 	Tooltip:
 		Name: Submarine
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 50000
+		HP: 15000
 	Armor:
 		Type: Light
 	Mobile:
 		TurnSpeed: 20
-		Speed: 65
+		Speed: 60
 	RevealsShroud:
 		MinRange: 5c0
-		Range: 8c0
+		Range: 5c0
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 5c0
@@ -40,9 +44,9 @@ SS:
 		ValidTargets: WaterActor, Underwater
 	DetectCloaked:
 		DetectionTypes: Underwater
-		Range: 5c0
+		Range: 3c0
 	RenderDetectionCircle:
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: UnitExplodeSubmarine
 		EmptyWeapon: UnitExplodeSubmarine
 	Selectable:
@@ -56,23 +60,26 @@ FR:
 		BuildAtProductionType: Boat
 		BuildPaletteOrder: 30
 		Prerequisites: ~syrd, ~techlevel.medium, ~naval.entente
-		Description: Fast multi-role ship.\nCan detect submarines.\n  Strong vs Naval units, Vehicles, Aircraft\n  Weak vs Infantry
+		Description: Multi-role ship.
+	TooltipExtras:
+		Strengths: + Strong vs Infantry, Aircraft.
+		Weaknesses: - Weak vs Ships, Submarines.
 	Valued:
-		Cost: 2000
+		Cost: 1500
 	Tooltip:
 		Name: Frigate
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 80000
+		HP: 55000
 	Armor:
 		Type: Heavy
 	Mobile:
 		TurnSpeed: 28
-		Speed: 75
+		Speed: 65
 	RevealsShroud:
 		MinRange: 4c0
-		Range: 5c0
+		Range: 6c0
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 4c0
@@ -84,7 +91,7 @@ FR:
 		Offset: 1020,0,100
 		Turret: secondary
 	Armament@PRIMARY:
-		Weapon: APCGun
+		Weapon: Frigate-AG
 		Recoil: 20
 		RecoilRecovery: 18
 		LocalOffset: 300,110,50, 300,-110,50
@@ -93,7 +100,7 @@ FR:
 		ReloadingCondition: reload-ground
 	Armament@SECONDARY:
 		Name: secondary
-		Weapon: APCGun.AA
+		Weapon: Frigate-AA
 		Recoil: 20
 		RecoilRecovery: 18
 		LocalOffset: 200,110,299, 200,-110,299
@@ -101,7 +108,7 @@ FR:
 		PauseOnCondition: reload-ground
 		ReloadingCondition: reload-air
 	Armament@tertiary:
-		Weapon: APCGun
+		Weapon: Frigate-AG
 		Recoil: 20
 		Name: tertiary
 		Turret: secondary
@@ -112,7 +119,7 @@ FR:
 		ReloadingCondition: reload-ground
 	Armament@quarternary:
 		Name: quarternary
-		Weapon: APCGun.AA
+		Weapon: Frigate-AA
 		Recoil: 20
 		Turret: secondary
 		RecoilRecovery: 18
@@ -129,12 +136,8 @@ FR:
 		Turret: secondary
 		Sequence: turret
 	WithMuzzleOverlay:
-	DetectCloaked:
-		DetectionTypes: Underwater
-		Range: 4c0
-	RenderDetectionCircle:
 	Selectable:
-		DecorationBounds: 1621, 1621
+		DecorationBounds: 2048, 2048
 
 DD:
 	Inherits: ^Ship
@@ -144,23 +147,27 @@ DD:
 		BuildAtProductionType: Boat
 		BuildPaletteOrder: 50
 		Prerequisites: ~syrd, dome, ~techlevel.medium, ~naval.entente
-		Description: Fast multi-role ship.\nCan detect submarines.\n  Strong vs Naval units, Vehicles, Aircraft\n  Weak vs Infantry
+		Description: Fast multi-role ship.
+	TooltipExtras:
+		Strengths: + Strong vs Ships, Land Units.
+		Weaknesses: - Weak vs Aircraft, Submarines.
+		Attributes: • Can detect submarines.
 	Valued:
-		Cost: 2000
+		Cost: 2200
 	Tooltip:
 		Name: Destroyer
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 80000
+		HP: 50000
 	Armor:
 		Type: Heavy
 	Mobile:
 		TurnSpeed: 28
-		Speed: 75
+		Speed: 65
 	RevealsShroud:
 		MinRange: 4c0
-		Range: 5c0
+		Range: 7c0
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 4c0
@@ -173,12 +180,8 @@ DD:
 		MuzzleSequence: muzzle
 	AttackTurreted:
 	WithSpriteTurret:
-	DetectCloaked:
-		DetectionTypes: Underwater
-		Range: 4c0
-	RenderDetectionCircle:
 	Selectable:
-		DecorationBounds: 1621, 1621
+		DecorationBounds: 2048, 2048
 	WithMuzzleOverlay:
 
 CO:
@@ -189,7 +192,11 @@ CO:
 		BuildAtProductionType: Boat
 		BuildPaletteOrder: 20
 		Prerequisites: ~syrd, ~techlevel.low, ~naval.entente
-		Description: Light scout & support ship.\nCan detect submarines.\n  Strong vs Naval units\n  Weak vs Ground units, Aircraft
+		Description: Light scout & support ship.
+	TooltipExtras:
+		Strengths: + Strong vs Submarines.
+		Weaknesses: - Weak vs Large Ships, Aircraft.
+		Attributes: • Can detect submarines.
 	Valued:
 		Cost: 1300
 	Tooltip:
@@ -197,15 +204,15 @@ CO:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 20000
+		HP: 30000
 	Armor:
-		Type: Heavy
+		Type: Medium
 	Mobile:
 		TurnSpeed: 28
-		Speed: 95
+		Speed: 80
 	RevealsShroud:
 		MinRange: 5c0
-		Range: 7c0
+		Range: 7c512
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 5c0
@@ -216,7 +223,11 @@ CO:
 	AttackFrontal:
 		FacingTolerance: 0
 	Selectable:
-		DecorationBounds: 1536, 1536
+		DecorationBounds: 1736, 1736
+	DetectCloaked:
+		DetectionTypes: Underwater
+		Range: 6c0
+	RenderDetectionCircle:
 
 AC:
 	Inherits: ^Ship
@@ -226,28 +237,32 @@ AC:
 		BuildAtProductionType: Boat
 		BuildPaletteOrder: 60
 		Prerequisites: ~syrd, atek, ~techlevel.low, ~naval.entente
-		Description: Light scout & support ship.\nCan detect submarines.\n  Strong vs Naval units\n  Weak vs Ground units, Aircraft
+		Description: Slow aircraft carrier.
+	TooltipExtras:
+		Strengths: + Strong vs Ships, Vehicles.
+		Weaknesses: - Weak vs Submarines, Aircraft.
+		Attributes: • Holds 3 Goblin ground assault aircraft.
 	Valued:
-		Cost: 4400
+		Cost: 3100
 	Tooltip:
 		Name: Aircraft Carrier
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 160000
+		HP: 100000
 	Armor:
 		Type: Heavy
 	Mobile:
 		TurnSpeed: 16
-		Speed: 45
+		Speed: 40
 	RevealsShroud:
 		MinRange: 5c0
-		Range: 7c0
+		Range: 6c0
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 5c0
 	Selectable:
-		DecorationBounds: 1536, 1536
+		DecorationBounds: 2248, 2248
 	CarrierMaster:
 		Actors: goblin, goblin, goblin
 		RearmTicks: 75
@@ -283,9 +298,13 @@ MO:
 		BuildAtProductionType: Boat
 		BuildPaletteOrder: 21
 		Prerequisites: ~syrd, ~techlevel.low, ~naval.zentrum
-		Description: Light scout & support ship.\nCan detect submarines.\n  Strong vs Naval units\n  Weak vs Ground units, Aircraft
+		Description: Light scout & support ship.
+	TooltipExtras:
+		Strengths: + Strong vs Submarines, Infantry.
+		Weaknesses: - Weak vs Ships, Aircraft.
+		Attributes: • Can detect submarines.
 	Valued:
-		Cost: 1100
+		Cost: 1200
 	Tooltip:
 		Name: Monitor
 	UpdatesPlayerStatistics:
@@ -296,7 +315,7 @@ MO:
 		Type: Heavy
 	Mobile:
 		TurnSpeed: 28
-		Speed: 90
+		Speed: 75
 	RevealsShroud:
 		MinRange: 6c0
 		Range: 8c0
@@ -309,7 +328,7 @@ MO:
 	Turreted@SECONDARY:
 		Turret: secondary
 		Offset: -1000,0,0
-		TurnSpeed: 12	
+		TurnSpeed: 12
 	Armament@PRIMARY:
 		Weapon: MO_Vulcan
 		LocalOffset: 268,0,48
@@ -324,36 +343,40 @@ MO:
 	WithSpriteTurret:
 	DetectCloaked:
 		DetectionTypes: Underwater
-		Range: 4c0
+		Range: 6c0
 	RenderDetectionCircle:
 	Selectable:
-		DecorationBounds: 1536, 1536
+		DecorationBounds: 1736, 1736
 
 UB:
 	Inherits: ^Submarine
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
 		Queue: Ship
-		BuildAtProductionType: Submarine
+		BuildAtProductionType: Boat
 		BuildPaletteOrder: 31
 		Prerequisites: ~syrd, ~techlevel.low, ~naval.zentrum
-		Description: Submerged anti-ship unit\narmed with torpedoes.\nCan detect other submarines.\n  Strong vs Naval units\n  Weak vs Ground units, Aircraft\n  Special Ability: Submerge
+		Description: Submerged anti-ship unit.
+	TooltipExtras:
+		Strengths: + Strong vs Large Ships.
+		Weaknesses: - Weak vs Small Ships, Aircraft, Land Units.
+		Attributes: • Can detect other submarines when they are firing.\n• Can submerge.
 	Valued:
-		Cost: 1900
+		Cost: 1800
 	Tooltip:
 		Name: U-Boat
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 50000
+		HP: 37500
 	Armor:
-		Type: Light
+		Type: Medium
 	Mobile:
 		TurnSpeed: 20
-		Speed: 80
+		Speed: 55
 	RevealsShroud:
 		MinRange: 5c0
-		Range: 8c0
+		Range: 5c0
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 5c0
@@ -370,39 +393,43 @@ UB:
 		ValidTargets: WaterActor, Underwater
 	DetectCloaked:
 		DetectionTypes: Underwater
-		Range: 5c0
+		Range: 3c0
 	RenderDetectionCircle:
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: UnitExplodeSubmarine
 		EmptyWeapon: UnitExplodeSubmarine
 	Selectable:
-		DecorationBounds: 1621, 1621
+		DecorationBounds: 1821, 1821
 
 MSUB:
 	Inherits: ^Submarine
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Buildable:
 		Queue: Ship
-		BuildAtProductionType: Submarine
+		BuildAtProductionType: Boat
 		BuildPaletteOrder: 41
 		Prerequisites: ~syrd, dome, ~techlevel.high, ~naval.zentrum
-		Description: Submerged anti-ground siege unit\nwith anti-air capabilities.\nCan detect other submarines.\n  Strong vs Buildings, Ground units, Aircraft\n  Weak vs Naval units\n  Special Ability: Submerge
+		Description: Submerged anti-ground siege unit\nwith anti-air capabilities.
+	TooltipExtras:
+		Strengths: + Strong vs Land Units.
+		Weaknesses: - Weak vs Ships, Aircraft.
+		Attributes: • Can detect other submarines when they are firing.\n• Can submerge.
 	Valued:
-		Cost: 4000
+		Cost: 2200
 	Tooltip:
 		Name: Missile Submarine
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 80000
+		HP: 45000
 	Armor:
 		Type: Light
 	Mobile:
 		TurnSpeed: 12
-		Speed: 50
+		Speed: 40
 	RevealsShroud:
 		MinRange: 5c0
-		Range: 8c0
+		Range: 5c0
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 5c0
@@ -425,9 +452,9 @@ MSUB:
 		InitialStanceAI: ReturnFire
 	DetectCloaked:
 		DetectionTypes: Underwater
-		Range: 4c0
+		Range: 2c0
 	RenderDetectionCircle:
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: UnitExplodeSubmarine
 		EmptyWeapon: UnitExplodeSubmarine
 	Selectable:
@@ -441,9 +468,12 @@ DN:
 		BuildAtProductionType: Boat
 		BuildPaletteOrder: 61
 		Prerequisites: ~syrd, mtek, ~techlevel.high, ~naval.zentrum
-		Description: Very slow long-range ship.\n  Strong vs Buildings, Ground units\n  Weak vs Naval units, Aircraft
+		Description: Very slow long-range siege ship.
+	TooltipExtras:
+		Strengths: + Strong vs Buildings, Land Units.
+		Weaknesses: - Weak vs Ships, Aircraft, Submarines.
 	Valued:
-		Cost: 4800
+		Cost: 3200
 	Tooltip:
 		Name: Dreadnought
 	GrantCondition@started:
@@ -451,15 +481,15 @@ DN:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 160000
+		HP: 105000
 	Armor:
 		Type: Heavy
 	Mobile:
 		TurnSpeed: 12
-		Speed: 44
+		Speed: 35
 	RevealsShroud:
 		MinRange: 5c0
-		Range: 7c0
+		Range: 6c0
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 5c0
@@ -476,7 +506,7 @@ DN:
 		Turrets: primary, secondary
 		Armaments: primary, secondary
 	Selectable:
-		DecorationBounds: 1877, 1877
+		DecorationBounds: 2248, 2248
 	WithSpriteTurret:
 		Turret: primary
 		RequiresCondition: ammo > 1 || !started
@@ -497,6 +527,9 @@ DN:
 	ReloadAmmoPool:
 		Delay: 150
 		Count: 1
+	RenderRangeCircle@Attack:
+		RangeCircleType: DreadnoughtRange
+		Color: 0000FF80
 
 SAMSHP:
 	Inherits: ^Ship
@@ -506,23 +539,26 @@ SAMSHP:
 		BuildAtProductionType: Boat
 		BuildPaletteOrder: 50
 		Prerequisites: ~syrd, dome, ~techlevel.high, ~naval.zentrum
-		Description: Very slow long-range ship.\n  Strong vs Buildings, Ground units\n  Weak vs Naval units, Aircraft
+		Description: Fast anti-air ship.
+	TooltipExtras:
+		Strengths: + Strong vs Aircraft.
+		Weaknesses: - Weak vs Ships, Submarines
 	Valued:
-		Cost: 1700
+		Cost: 1400
 	Tooltip:
 		Name: SAM Ship
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 160000
+		HP: 45000
 	Armor:
-		Type: Heavy
+		Type: Medium
 	Mobile:
 		TurnSpeed: 12
-		Speed: 85
+		Speed: 70
 	RevealsShroud:
 		MinRange: 5c0
-		Range: 7c0
+		Range: 6c0
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 5c0
@@ -572,23 +608,26 @@ FLKSHP:
 		BuildAtProductionType: Boat
 		BuildPaletteOrder: 20
 		Prerequisites: ~syrd, ~techlevel.low, ~naval.komintern
-		Description: Light scout & support ship.\nCan detect submarines.\n  Strong vs Naval units\n  Weak vs Ground units, Aircraft
+		Description: Light scout & anti-air ship.
+	TooltipExtras:
+		Strengths: + Strong vs Aircraft.
+		Weaknesses: - Weak vs Ships, Submarines.
 	Valued:
 		Cost: 1300
 	Tooltip:
-		Name: Flakboat
+		Name: Flak Boat
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 20000
+		HP: 30000
 	Armor:
-		Type: Heavy
+		Type: Medium
 	Mobile:
 		TurnSpeed: 28
-		Speed: 85
+		Speed: 75
 	RevealsShroud:
 		MinRange: 5c0
-		Range: 7c0
+		Range: 6c0
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 5c0
@@ -598,12 +637,12 @@ FLKSHP:
 	Armament@AA:
 		Weapon: FLAK-23-AA
 		Recoil: 40
-		LocalOffset: 450,0,360
+		LocalOffset: 600,0,400
 		MuzzleSequence: muzzle
 	Armament@AG:
 		Weapon: FLAK-23-AG
 		Recoil: 40
-		LocalOffset: 450,0,360
+		LocalOffset: 600,0,400
 		MuzzleSequence: muzzle
 	AttackTurreted:
 	WithMuzzleOverlay:
@@ -619,20 +658,24 @@ PT:
 		BuildAtProductionType: Boat
 		BuildPaletteOrder: 20
 		Prerequisites: ~syrd, ~techlevel.low, ~naval.komintern
-		Description: Light scout & support ship.\nCan detect submarines.\n  Strong vs Naval units\n  Weak vs Ground units, Aircraft
+		Description: Light scout & support ship.
+	TooltipExtras:
+		Strengths: + Strong vs Submarines, Small Ships.
+		Weaknesses: - Weak vs Large Ships, Aircraft.
+		Attributes: • Can detect submarines.
 	Valued:
-		Cost: 1300
+		Cost: 1400
 	Tooltip:
 		Name: Gunboat
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 40000
+		HP: 60000
 	Armor:
 		Type: Heavy
 	Mobile:
 		TurnSpeed: 28
-		Speed: 90
+		Speed: 80
 	RevealsShroud:
 		MinRange: 6c0
 		Range: 8c0
@@ -644,7 +687,7 @@ PT:
 		Offset: 900,0,150
 	Armament@PRIMARY:
 		Weapon: 2Inch
-		LocalOffset: 208,0,48
+		LocalOffset: 300,0,48
 		MuzzleSequence: muzzle
 		Recoil: 80
 		RecoilRecovery: 38
@@ -662,22 +705,26 @@ PT:
 	WithSpriteTurret:
 	DetectCloaked:
 		DetectionTypes: Underwater
-		Range: 4c0
+		Range: 6c0
 	RenderDetectionCircle:
 	Selectable:
-		DecorationBounds: 1536, 1536
+		DecorationBounds: 1736, 1736
 
 AK:
 	Inherits: ^Submarine
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
 		Queue: Ship
-		BuildAtProductionType: Submarine
+		BuildAtProductionType: Boat
 		BuildPaletteOrder: 43
 		Prerequisites: ~syrd, dome, ~techlevel.low, ~naval.komintern
-		Description: Submerged anti-ship unit\narmed with torpedoes.\nCan detect other submarines.\n  Strong vs Naval units\n  Weak vs Ground units, Aircraft\n  Special Ability: Submerge
+		Description: Submerged anti-ship unit.
+	TooltipExtras:
+		Strengths: + Strong vs Large Ships.
+		Weaknesses: - Weak vs Small Ships, Aircraft, Land Units.
+		Attributes: • Can detect other submarines when they are firing.\n• Can submerge.
 	Valued:
-		Cost: 1900
+		Cost: 1750
 	Tooltip:
 		Name: Akula
 	UpdatesPlayerStatistics:
@@ -688,10 +735,10 @@ AK:
 		Type: Light
 	Mobile:
 		TurnSpeed: 20
-		Speed: 60
+		Speed: 45
 	RevealsShroud:
 		MinRange: 5c0
-		Range: 8c0
+		Range: 5c0
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 5c0
@@ -708,9 +755,9 @@ AK:
 		ValidTargets: WaterActor, Underwater
 	DetectCloaked:
 		DetectionTypes: Underwater
-		Range: 5c0
+		Range: 3c0
 	RenderDetectionCircle:
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: UnitExplodeSubmarine
 		EmptyWeapon: UnitExplodeSubmarine
 	Selectable:
@@ -724,20 +771,23 @@ BS:
 		BuildAtProductionType: Boat
 		BuildPaletteOrder: 50
 		Prerequisites: ~syrd, dome, ~techlevel.high, ~naval.komintern
-		Description: Very slow long-range ship.\n  Strong vs Buildings, Ground units\n  Weak vs Naval units, Aircraft
+		Description: Slow anti-ship vessel.
+	TooltipExtras:
+		Strengths: + Strong vs Ships.
+		Weaknesses: - Weak vs Submarines, Aircraft.
 	Valued:
-		Cost: 4800
+		Cost: 2000
 	Tooltip:
 		Name: Battleship
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 160000
+		HP: 95000
 	Armor:
 		Type: Heavy
 	Mobile:
 		TurnSpeed: 12
-		Speed: 50
+		Speed: 40
 	RevealsShroud:
 		MinRange: 5c0
 		Range: 7c0
@@ -746,7 +796,7 @@ BS:
 		Range: 5c0
 	Turreted@PRIMARY:
 		Turret: primary
-		Offset: 640,0,290
+		Offset: 670,0,260
 		TurnSpeed: 12
 	Turreted@SECONDARY:
 		Turret: secondary
@@ -754,7 +804,7 @@ BS:
 		TurnSpeed: 12
 	Armament@PRIMARY:
 		Turret: primary
-		Weapon:  105mm_Naval
+		Weapon: 105mm_Naval
 		LocalOffset: 480,-100,40, 480,100,40
 		Recoil: 171
 		RecoilRecovery: 34
@@ -762,7 +812,7 @@ BS:
 	Armament@SECONDARY:
 		Name: secondary
 		Turret: secondary
-		Weapon:  105mm_Naval
+		Weapon: 105mm_Naval
 		LocalOffset: 480,-100,40, 480,100,40
 		Recoil: 171
 		RecoilRecovery: 34
@@ -775,7 +825,7 @@ BS:
 	WithSpriteTurret@SECONDARY:
 		Turret: secondary
 	Selectable:
-		DecorationBounds: 1877, 1877
+		DecorationBounds: 2248, 2248
 
 CA:
 	Inherits: ^Ship
@@ -785,23 +835,26 @@ CA:
 		BuildAtProductionType: Boat
 		BuildPaletteOrder: 63
 		Prerequisites: ~syrd, stek, ~techlevel.high, ~naval.komintern
-		Description: Very slow long-range ship.\n  Strong vs Buildings, Ground units\n  Weak vs Naval units, Aircraft
+		Description: Very slow long-range ship.
+	TooltipExtras:
+		Strengths: + Strong vs Land Units.
+		Weaknesses: - Weak vs Ships, Aircraft, Submarines.
 	Valued:
-		Cost: 4800
+		Cost: 3200
 	Tooltip:
 		Name: Cruiser
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 160000
+		HP: 100000
 	Armor:
 		Type: Heavy
 	Mobile:
 		TurnSpeed: 12
-		Speed: 44
+		Speed: 40
 	RevealsShroud:
 		MinRange: 5c0
-		Range: 7c0
+		Range: 6c0
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 5c0
@@ -838,7 +891,10 @@ CA:
 	WithSpriteTurret@SECONDARY:
 		Turret: secondary
 	Selectable:
-		DecorationBounds: 1877, 1877
+		DecorationBounds: 2248, 2248
+	RenderRangeCircle@Attack:
+		RangeCircleType: CruiserRange
+		Color: 0000FF80
 
 #Shared
 LST:
@@ -848,20 +904,23 @@ LST:
 		Queue: Ship
 		BuildPaletteOrder: 10
 		Prerequisites: ~techlevel.low
-		Description: General-purpose naval transport.\nCan carry infantry and tanks.\n  Unarmed
+		Description: General-purpose naval transport.
+	TooltipExtras:
+		Weaknesses: - Unarmed.
+		Attributes: • Can carry infantry and vehicles.
 	Valued:
-		Cost: 1400
+		Cost: 1000
 	Tooltip:
 		Name: Transport
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 70000
+		HP: 45000
 	Armor:
 		Type: Heavy
 	Mobile:
 		Locomotor: lcraft
-		Speed: 128
+		Speed: 90
 		PauseOnCondition: notmobile
 	RevealsShroud:
 		MinRange: 5c0
@@ -873,12 +932,14 @@ LST:
 		OpenTerrainTypes: Clear, Rough, Road, Ore, Gems, Beach
 	Cargo:
 		Types: Infantry, Vehicle
-		MaxWeight: 5
+		MaxWeight: 20
 		PassengerFacing: 0
 		LoadingCondition: notmobile
 	-Chronoshiftable:
 	Selectable:
 		DecorationBounds: 1536, 1536
+	WithCargoPipsDecoration:
+		PipCount: 4
 
 ENGSHP:
 	Inherits: ^Ship
@@ -887,18 +948,21 @@ ENGSHP:
 		BuildAtProductionType: Boat
 		BuildPaletteOrder: 15
 		Prerequisites: ~techlevel.low
-		Description: Fast multi-role ship.\nCan detect submarines.\n  Strong vs Naval units and Vehicles.\n  Weak vs Infantry and Air.
+		Description: Naval engineering vessel.
+	TooltipExtras:
+		Weaknesses: - Unarmed.
+		Attributes: • Can capture buildings.
 	Valued:
-		Cost: 1000
+		Cost: 800
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
 		HP: 20000
 	Armor:
-		Type: Heavy
+		Type: Medium
 	Mobile:
 		TurnSpeed: 28
-		Speed: 92
+		Speed: 70
 	RevealsShroud:
 		MinRange: 5c0
 		Range: 6c0
@@ -907,7 +971,7 @@ ENGSHP:
 		Range: 5c0
 	Tooltip:
 		Name: Engineering Ship
-	EngineerRepair:
+	InstantlyRepairs:
 	RepairsBridges:
 	CaptureManager:
 	GrantConditionOnPrerequisite@GLOBALREUSABLEENGINEER:
@@ -934,7 +998,10 @@ MNLYSHP:
 		BuildAtProductionType: Boat
 		BuildPaletteOrder: 15
 		Prerequisites: ~techlevel.low
-		Description: Fast multi-role ship.\nCan detect submarines.\n  Strong vs Naval units and Vehicles.\n  Weak vs Infantry and Air.
+		Description: Naval minelayer.
+	TooltipExtras:
+		Weaknesses: - Unarmed.
+		Attributes: • Lays naval mines.
 	Valued:
 		Cost: 1500
 	UpdatesPlayerStatistics:
@@ -942,10 +1009,10 @@ MNLYSHP:
 	Health:
 		HP: 20000
 	Armor:
-		Type: Heavy
+		Type: Medium
 	Mobile:
 		TurnSpeed: 28
-		Speed: 92
+		Speed: 70
 	RevealsShroud:
 		MinRange: 5c0
 		Range: 6c0
@@ -954,22 +1021,90 @@ MNLYSHP:
 		Range: 5c0
 	Tooltip:
 		Name: Minelayer Ship
-	EngineerRepair:
-	RepairsBridges:
-	CaptureManager:
-	GrantConditionOnPrerequisite@GLOBALREUSABLEENGINEER:
-		Condition: global-reusable-engineers
-		Prerequisites: global-reusable-engineers
-	Captures:
-		RequiresCondition: !global-reusable-engineers
-		CaptureTypes: building
-		PlayerExperience: 25
-		CaptureDelay: 200
-	Captures@REUSABLE:
-		RequiresCondition: global-reusable-engineers
-		CaptureTypes: building
-		PlayerExperience: 25
-		CaptureDelay: 375
-		ConsumedByCapture: False
-		EnterCursor: ability
-		EnterBlockedCursor: move-blocked
+	Minelayer:
+		Mine: MINS
+		TileUnknownName: build-valid
+		TerrainTypes: Water
+	MineImmune:
+	AmmoPool:
+		Ammo: 5
+		RearmSound: minelay1.aud
+	DetectCloaked:
+		Range: 5c0
+		DetectionTypes: Mine
+	RenderDetectionCircle:
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		Margin: 4, 3
+		RequiresSelection: true
+	Rearmable:
+		RearmActors: syrd
+
+HOVERCRAFT:
+	Inherits: ^TrackedVehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CARGOPIPS: ^CargoPips
+	Buildable:
+		Queue: Ship
+		BuildAtProductionType: Boat
+		BuildPaletteOrder: 225
+		Prerequisites: ~ships.serbia, dome
+		Description: Tough infantry transport armed with\ntwo rocket launchers.
+	TooltipExtras:
+		Strengths: + Strong vs Vehicles.
+		Weaknesses: - Weak vs Infantry, Aircraft.
+		Attributes: • Hovers.\n• Can transport up to 4 infantry units.
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: Hovercraft
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 15000
+	Armor:
+		Type: Medium
+	Mobile:
+		Speed: 85
+		PauseOnCondition: notmobile || being-captured
+		Locomotor: amphibioushover
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 5c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	Armament:
+		Weapon: APTusk
+		LocalOffset: 85,150,250, 85,-150,250
+	AttackFrontal:
+		PauseOnCondition: turnedoff
+		FacingTolerance: 0
+	Cargo:
+		Types: Infantry
+		MaxWeight: 4
+		LoadingCondition: notmobile
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
+	RenderSprites:
+	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
+		Actor: HOVERCRAFT.Husk
+	Hovers:
+		InitialHeight: 0c25
+	WithShadow:
+		Offset: 0,0,-100
+
+HOVERCRAFT.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Armored Personnel Carrier)
+	TransformOnCapture@Mechanic:
+		IntoActor: HOVERCRAFT
+	TransformOnCapture@Engineer:
+		IntoActor: HOVERCRAFT
+	InfiltrateForTransform:
+		IntoActor: HOVERCRAFT
+	RenderSprites:
+		Image: hovercraft

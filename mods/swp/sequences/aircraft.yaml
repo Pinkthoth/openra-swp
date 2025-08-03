@@ -1,451 +1,856 @@
 badr:
-	icon: placeholder
+	icon:
+		Filename: placeholder.shp
+	idle:
+		Filename: badr.shp
+
+powerproxy.guerilladrop:
+	icon:
+		Filename: guerilladropicon.shp
+	idle:
+		Filename: empty.shp
 
 transportplane:
-	idle: badr
+	idle:
+		Filename: badr.shp
 		Facings: 16
-	badr-idle: badr
-		Facings: 16
-	douglas-idle: douglas
-		Facings: 16
-	junkers-idle: junkers
-		Facings: 16
+	badr-idle:
+		Filename: li2.shp
+		Facings: 32
+		UseClassicFacings: True
+	douglas-idle:
+		Filename: douglas.shp
+		Facings: 32
+		UseClassicFacings: True
+	junkers-idle:
+		Filename: junkers.shp
+		Facings: 32
+		UseClassicFacings: True
 
 mig:
 	idle:
+		Filename: mig.shp
 		Facings: 32
-	icon: migicon
+	icon:
+		Filename: migicon.shp
+
+teslaplane:
+	idle:
+		Filename: teslaplane.shp
+		Facings: 32
+	icon:
+		Filename: migicon.shp
 
 harrier:
 	idle:
+		Filename: harrier.shp
 		Facings: 32
-	icon: harriericon
+	icon:
+		Filename: harriericon.shp
 
 goblin:
 	idle:
+		Filename: goblin.shp
 		Facings: 32
-	icon: harriericon
+	muzzle:
+		Filename: empty.shp
+	icon:
+		Filename: harriericon.shp
 
 telekite:
-	idle: empty32
-		Facings: 32
-	turret:
+	idle:
+		Filename: telekite.shp
 		Facings: 32
 		Length: 4
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	die: art-exp1
+	die:
+		Filename: art-exp1.shp
+	icon:
+		Filename: harriericon.shp
 
 yak:
 	idle:
+		Filename: yak.shp
 		Facings: 32
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	icon: yakicon
+	icon:
+		Filename: yakicon.shp
 
 teslahind:
-	idle: empty32
+	idle:
+		Filename: empty32.shp
 		Start: 0
 		Facings: 32
 	turret:
+		Filename: teslahind.shp
 		Facings: 32
 		UseClassicFacings: False
-	rotor: lrotorlg
+	rotor:
+		Filename: lrotorlg.shp
 		Length: 4
 		ZOffset: 5
-	slow-rotor: lrotorlg
+	slow-rotor:
+		Filename: lrotorlg.shp
 		Start: 4
 		Length: 8
 		ZOffset: 5
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	icon: teslahindicon
+	icon:
+		Filename: teslahindicon.shp
 
 gatlinghind:
 	Defaults:
-	idle: empty32
+		Filename: gatlinghind.shp
+	idle:
+		Filename: empty32.shp
 		Start: 0
 		Facings: 32
 	turret:
 		Facings: 32
 		UseClassicFacings: False
-	rotor: lrotorlg
+	rotor:
+		Filename: lrotorlg.shp
 		Length: 4
 		ZOffset: 5
-	slow-rotor: lrotorlg
+	slow-rotor:
+		Filename: lrotorlg.shp
 		Start: 4
 		Length: 8
 		ZOffset: 5
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	icon: gatlinghindicon
+	icon:
+		Filename: gatlinghindicon.shp
 
 colibri:
-	idle: empty32
+	idle:
+		Filename: empty32.shp
 		Start: 0
 		Facings: 32
 	turret:
+		Filename: colibri.shp
 		Facings: 32
 		UseClassicFacings: False
-	rotor: lrotorlg
+	rotor:
+		Filename: yrotorlg.shp
 		Length: 4
 		ZOffset: 5
-	slow-rotor: lrotorlg
+	slow-rotor:
+		Filename: yrotorlg.shp
 		Start: 4
 		Length: 8
 		ZOffset: 5
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	icon: colibriicon
+	icon:
+		Filename: colibriicon.shp
+
+uav:
+	idle:
+		Filename: uav.shp
+		Facings: 32
+		UseClassicFacings: False
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: uavicon.shp
+
+battledrone:
+	idle:
+		Filename: empty32.shp
+		Start: 0
+		Facings: 32
+	turret:
+		Filename: battledrone.shp
+		Facings: 32
+		Length: 3
+		UseClassicFacings: False
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: battledroneicon.shp
+
+indiachopper:
+	idle:
+		Filename: empty32.shp
+		Start: 0
+		Facings: 32
+	turret:
+		Filename: indiachopper.shp
+		Facings: 32
+		UseClassicFacings: False
+	rotor:
+		Filename: yrotorlg.shp
+		Length: 4
+		ZOffset: 5
+	slow-rotor:
+		Filename: yrotorlg.shp
+		Start: 4
+		Length: 8
+		ZOffset: 5
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: sparrowicon.shp
+
+siegechopper:
+	Defaults:
+		Filename: siegechopper.shp
+	idle:
+		Start: 0
+		Facings: 32
+		Length: 3
+	icon:
+		Filename: siegechoppericon.shp
+
+siegechopper.deployed:
+	idle:
+		Filename: empty.shp
+	make:
+		Filename: siegechopper.shp
+		Start: 135
+		Length: 33
+		Tick: 80
+	turret:
+		Filename: siegechopper.shp
+		Facings: 32
+		Start: 100
+		Offset: -6,13
+
 
 tengrii:
+	Defaults:
+		Filename: tengrii.shp
 	idle:
 		Start: 0
 		Facings: 32
 	turret:
 		Start: 0
 		Facings: 32
-	rotor: lrotorlg
+	rotor:
+		Filename: lrotorlg.shp
 		Length: 4
 		ZOffset: 5
-	slow-rotor: lrotorlg
+	slow-rotor:
+		Filename: lrotorlg.shp
 		Start: 4
 		Length: 8
 		ZOffset: 5
-	icon: tengriiicon
+	icon:
+		Filename: tengriiicon.shp
 
 tengrii.deployed:
-	idle: tengrii
+	idle:
+		Filename: tengrii.shp
 		Start: 48
-	make: tengrii
+	make:
+		Filename: tengrii.shp
 		Start: 32
 		Length: 17
 		Tick: 80
-	slow-rotor: lrotorlg
+	slow-rotor:
+		Filename: lrotorlg.shp
 		Start: 4
 		Length: 8
 		Zoffset: 5
-	turret: empty32
+	turret:
+		Filename: empty32.shp
 		Facings: 32
 
 iblis:
-	idle: empty32
+	idle:
+		Filename: empty32.shp
 		Start: 0
 		Facings: 32
 	turret:
+		Filename: iblis.shp
 		Facings: 32
 		UseClassicFacings: False
-	rotor: lrotorlg
+	rotor:
+		Filename: lrotorlg.shp
 		Length: 4
 		ZOffset: 5
-	slow-rotor: lrotorlg
+	slow-rotor:
+		Filename: lrotorlg.shp
 		Start: 4
 		Length: 8
 		ZOffset: 5
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	icon: iblisicon
+	icon:
+		Filename: iblisicon.shp
 
 heavyfighter:
 	idle:
+		Filename: heavyfighter.shp
 		Facings: 32
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	icon: heavyfightericon
+	icon:
+		Filename: heavyfightericon.shp
 
 hospitaller:
 	idle:
+		Filename: hospitaller.shp
 		Facings: 32
-	icon: hospitallericon
+	icon:
+		Filename: hospitallericon.shp
 
 ant40:
 	idle:
+		Filename: ant40.shp
 		Facings: 32
-	muzzle: gunfire2
+	muzzle:
+		Filename: gunfire2.shp
 		Length: 5
-	icon: ant40icon
+	icon:
+		Filename: ant40icon.shp
+
+mosquito:
+	idle:
+		Filename: mosquito.shp
+		Facings: 32
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	icon:
+		Filename: mosquitoicon.shp
+
+napalmbomber:
+	idle:
+		Filename: napalmbomber.shp
+		Facings: 32
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	icon:
+		Filename: napalmbombericon.shp
+
+cryobomber:
+	idle:
+		Filename: cryobomber.shp
+		Facings: 32
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	icon:
+		Filename: cryobombericon.shp
 
 a10:
 	idle:
+		Filename: a10.shp
 		Facings: 32
 		UseClassicFacings: False
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	icon: a10icon
+	icon:
+		Filename: a10icon.shp
+
+superbomber:
+	idle:
+		Filename: superbomber.shp
+		Facings: 32
+		UseClassicFacings: False
+	idle-empty:
+		Filename: superbomber.shp
+		Facings: 32
+		Start: 33
+		UseClassicFacings: False
+	muzzle:
+		Filename: empty.shp
+	icon:
+		Filename: superbombericon.shp
+
+
+nadya:
+	idle:
+		Filename: empty32.shp
+		Start: 0
+		Facings: 32
+	turret:
+		Filename: nadya.shp
+		Facings: 32
+		UseClassicFacings: False
+	rotor:
+		Filename: yrotorhg.shp
+		Length: 4
+		ZOffset: 5
+	slow-rotor:
+		Filename: yrotorhg.shp
+		Start: 4
+		Length: 8
+		ZOffset: 5
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: nadyaicon.shp
+
+helix:
+	idle:
+		Filename: helix.shp
+		Facings: 32
+		UseClassicFacings: False
+	rotor:
+		Filename: lrotorlg.shp
+		Length: 4
+		ZOffset: 5
+	slow-rotor:
+		Filename: lrotorlg.shp
+		Start: 4
+		Length: 8
+		ZOffset: 5
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: helixicon.shp
 
 hind:
-	idle: empty32
+	idle:
+		Filename: empty32.shp
 		Start: 0
 		Facings: 32
 	turret:
+		Filename: hind.shp
 		Facings: 32
 		UseClassicFacings: False
-	rotor: lrotorlg
+	rotor:
+		Filename: lrotorlg.shp
 		Length: 4
 		ZOffset: 5
-	slow-rotor: lrotorlg
+	slow-rotor:
+		Filename: lrotorlg.shp
 		Start: 4
 		Length: 8
 		ZOffset: 5
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	icon: hindicon
+	icon:
+		Filename: hindicon.shp
+
+laserchopper:
+	idle:
+		Filename: empty32.shp
+		Start: 0
+		Facings: 32
+	turret:
+		Filename: laserchopper.shp
+		Facings: 32
+		UseClassicFacings: False
+	rotor:
+		Filename: lrotorlg.shp
+		Length: 4
+		ZOffset: 5
+	slow-rotor:
+		Filename: lrotorlg.shp
+		Start: 4
+		Length: 8
+		ZOffset: 5
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: laserchoppericon.shp
+
+orca:
+	idle:
+		Filename: empty32.shp
+		Start: 0
+		Facings: 32
+	turret:
+		Filename: orca.shp
+		Facings: 32
+		UseClassicFacings: False
+	rotor:
+		Filename: lrotorlg.shp
+		Length: 4
+		ZOffset: 5
+	slow-rotor:
+		Filename: lrotorlg.shp
+		Start: 4
+		Length: 8
+		ZOffset: 5
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: gebardicon.shp
 
 gebard:
-	idle: empty32
+	idle:
+		Filename: empty32.shp
 		Start: 0
 		Facings: 32
 	turret:
+		Filename: gebard.shp
 		Facings: 32
 		UseClassicFacings: False
-	rotor: lrotorlg
+	rotor:
+		Filename: lrotorlg.shp
 		Length: 4
 		ZOffset: 5
-	slow-rotor: lrotorlg
+	slow-rotor:
+		Filename: lrotorlg.shp
 		Start: 4
 		Length: 8
 		ZOffset: 5
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	icon: gebardicon
+	icon:
+		Filename: gebardicon.shp
 
 teslahind:
-	idle: empty32
+	idle:
+		Filename: empty32.shp
 		Start: 0
 		Facings: 32
 	turret:
+		Filename: teslahind.shp
 		Facings: 32
 		UseClassicFacings: False
-	rotor: lrotorlg
+	rotor:
+		Filename: lrotorlg.shp
 		Length: 4
 		ZOffset: 5
-	slow-rotor: lrotorlg
+	slow-rotor:
+		Filename: lrotorlg.shp
 		Start: 4
 		Length: 8
 		ZOffset: 5
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	icon: teslahindicon
+	icon:
+		Filename: teslahindicon.shp
 
 comet:
-	idle: empty32
+	idle:
+		Filename: empty32.shp
 		Start: 0
 		Facings: 32
 	turret:
+		Filename: comet.shp
 		Facings: 32
 		UseClassicFacings: False
-	rotor: yrotorhg
+	rotor:
+		Filename: yrotorhg.shp
 		Length: 4
 		ZOffset: 10
-	slow-rotor: yrotorhg
+	slow-rotor:
+		Filename: yrotorhg.shp
 		Start: 4
 		Length: 8
 		ZOffset: 10
-	slow-rotor-shadow: yrotorhg
+	slow-rotor-shadow:
+		Filename: yrotorhg.shp
 		Start: 12
 		Length: 8
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	icon: cometicon
+	icon:
+		Filename: cometicon.shp
 
 heli:
-	idle: empty32
+	idle:
+		Filename: empty32.shp
 		Start: 0
 		Facings: 32
 	turret:
+		Filename: heli.shp
 		Facings: 32
 		UseClassicFacings: False
-	rotor: lrotorlg
+	rotor:
+		Filename: lrotorlg.shp
 		Length: 4
 		ZOffset: 5
-	slow-rotor: lrotorlg
+	slow-rotor:
+		Filename: lrotorlg.shp
 		Start: 4
 		Length: 8
 		ZOffset: 5
-	icon: heliicon
+	icon:
+		Filename: heliicon.shp
 		
 mh60:
-	idle: empty32
+	idle:
+		Filename: empty32.shp
 		Facings: 32
 		UseClassicFacings: False
 	turret:
+		Filename: mh60.shp
 		Facings: 32
 		UseClassicFacings: False
-	rotor: yrotorlg
+	rotor:
+		Filename: yrotorlg.shp
 		Length: 4
 		ZOffset: 5
-	slow-rotor: yrotorlg
+	slow-rotor:
+		Filename: yrotorlg.shp
 		Start: 4
 		Length: 8
 		ZOffset: 5
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	icon: mh60icon
+	icon:
+		Filename: mh60icon.shp
 
 teuton:
-	idle: empty32
+	idle:
+		Filename: empty32.shp
 		Facings: 32
 		UseClassicFacings: False
 	turret:
+		Filename: teuton.shp
 		Facings: 32
 		UseClassicFacings: False
-	rotor: yrotorlg
+	rotor:
+		Filename: yrotorlg.shp
 		Length: 4
 		ZOffset: 5
-	slow-rotor: yrotorlg
+	slow-rotor:
+		Filename: yrotorlg.shp
 		Start: 4
 		Length: 8
 		ZOffset: 5
-	icon: teutonicon
+	icon:
+		Filename: teutonicon.shp
 
 wasp:
-	idle: empty32
+	idle:
+		Filename: empty32.shp
 		Facings: 32
 		UseClassicFacings: False
 	turret:
+		Filename: wasp.shp
 		Facings: 32
 		UseClassicFacings: False
-	rotor: yrotorlg
+	rotor:
+		Filename: yrotorlg.shp
 		Length: 4
 		ZOffset: 5
-	slow-rotor: yrotorlg
+	slow-rotor:
+		Filename: yrotorlg.shp
 		Start: 4
 		Length: 8
 		ZOffset: 5
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	icon: waspicon
+	icon:
+		Filename: waspicon.shp
 
 colibri:
-	idle: empty32
+	idle:
+		Filename: empty32.shp
 		Facings: 32
 		UseClassicFacings: False
 	turret:
+		Filename: colibri.shp
 		Facings: 32
 		UseClassicFacings: False
-	rotor: yrotorlg
+	rotor:
+		Filename: yrotorlg.shp
 		Length: 4
 		ZOffset: 5
-	slow-rotor: yrotorlg
+	slow-rotor:
+		Filename: yrotorlg.shp
 		Start: 4
 		Length: 8
 		ZOffset: 5
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	icon: colibriicon
+	icon:
+		Filename: colibriicon.shp
 
 tran:
-	idle: tran2
+	idle:
+		Filename: tran2.shp
 		Facings: 32
 		UseClassicFacings: False
-	rotor: lrotor
+	rotor:
+		Filename: lrotor.shp
 		Length: 4
-	rotor2: rrotor
+	rotor2:
+		Filename: rrotor.shp
 		Length: 4
-	slow-rotor: lrotor
+	slow-rotor:
+		Filename: lrotor.shp
 		Start: 4
 		Length: 8
-	slow-rotor2: rrotor
+	slow-rotor2:
+		Filename: rrotor.shp
 		Start: 4
 		Length: 8
-	open: tran2
+	open:
+		Filename: tran2.shp
 		Start: 32
 		Length: 4
-	unload: tran2
+	unload:
+		Filename: tran2.shp
 		Start: 35
-	icon: tranicon
+	icon:
+		Filename: tranicon.shp
 
 saucer:
+	Defaults:
+		Filename: saucer.shp
 	idle:
 		Length: *
 		Tick: 85
-	turret: empty32
+	turret:
+		Filename: empty32.shp
 		Facings: 32
 		UseClassicFacings: False
 	husk:
 		Start: 0
 		Length: 1
-	idlefast: ufospin
+	idlefast:
+		Filename: ufospin.shp
 		Length: *
 		Tick: 30
-	icon: saucericon
+	icon:
+		Filename: saucericon.shp
 
 saucer.husk:
 	idle:
+		Filename: saucer.husk.shp
 		Length: *
 
 tran1husk:
 	idle:
+		Filename: tran1husk.shp
 
 tran2husk:
 	idle:
+		Filename: tran2husk.shp
 
 u2:
 	idle:
+		Filename: u2.shp
 		Facings: 16
 
 badr:
 	idle:
+		Filename: badr.shp
 		Facings: 16
 	
 msrsmt:
 	idle:
+		Filename: msrsmt.shp
 		Facings: 32
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	icon: msrsmticon
+	icon:
+		Filename: msrsmticon.shp
 	
 strmvgl:
 	idle:
+		Filename: strmvgl.shp
 		Facings: 32
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	icon: strmvglicon
+	icon:
+		Filename: strmvglicon.shp
 
 spitfire:
 	idle:
+		Filename: spitfire.shp
 		Facings: 32
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	icon: spitfireicon
+	icon:
+		Filename: spitfireicon.shp
 
 stuka:
 	idle:
+		Filename: stuka.shp
 		Facings: 32
-	muzzle: minigun
+		UseClassicFacings: True
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	icon: stukaicon
+	icon:
+		Filename: stukaicon.shp
 	
 stukatrail:
-	idle: stuka
+	idle:
+		Filename: stuka.shp
 		Facings: 32
 		Tick: 250
-	icon: placeholder
+	icon:
+		Filename: placeholder.shp
 
 douglas:
 	idle:
-		Facings: 16
+		Filename: douglas.shp
+		Facings: 32
+		UseClassicFacings: True
+
+banshee:
+	idle:
+		Filename: banshee.shp
+		Facings: 32
+		UseClassicFacings: True
+	icon:
+		Filename: bansheeicon.shp
+
+li2:
+	idle:
+		Filename: li2.shp
+		Facings: 32
 
 mi26:
+	Defaults:
+		Filename: mi26.shp
 	idle:
 		Start: 0
 		Facings: 32
@@ -454,43 +859,51 @@ mi26:
 		Start: 32
 		Facings: 32
 		UseClassicFacings: False
-	rotor: yrotorhg
+	rotor:
+		Filename: yrotorhg.shp
 		Length: 4
-	slow-rotor: yrotorhg
+	slow-rotor:
+		Filename: yrotorhg.shp
 		Start: 4
 		Length: 8
-	slow-rotor-shadow: yrotorhg
+	slow-rotor-shadow:
+		Filename: yrotorhg.shp
 		Start: 12
 		Length: 8
-	open: tran2
+	open:
+		Filename: tran2.shp
 		Start: 32
 		Length: 4
-	unload: tran2
+	unload:
+		Filename: tran2.shp
 		Start: 35
-	icon: mi26icon
+	icon:
+		Filename: mi26icon.shp
 
 aircrane:
 	idle:
+		Filename: aircrane.shp
 		Start: 0
 		Facings: 32
 		UseClassicFacings: False
-	rotor: yrotorhg
+	rotor:
+		Filename: yrotorhg.shp
 		Length: 4
-	slow-rotor: yrotorhg
+	slow-rotor:
+		Filename: yrotorhg.shp
 		Start: 4
 		Length: 8
-	slow-rotor-shadow: yrotorhg
+	slow-rotor-shadow:
+		Filename: yrotorhg.shp
 		Start: 12
 		Length: 8
-	icon: aircraneicon
-
-zero:
-	idle:
-		Facings: 32
-	icon: zeroicon
+	icon:
+		Filename: aircraneicon.shp
 	
 zeppelin:
 	idle:
+		Filename: zeppelin.shp
 		Facings: 32
 		UseClassicFacings: False
-	icon: zeppelinicon
+	icon:
+		Filename: zeppelinicon.shp

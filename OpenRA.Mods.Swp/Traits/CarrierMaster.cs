@@ -1,16 +1,17 @@
-﻿#region Copyright & License Information
-/*
- * Copyright 2015- OpenRA.Mods.AS Developers (see AUTHORS)
- * This file is a part of a third-party plugin for OpenRA, which is
- * free software. It is made available to you under the terms of the
- * GNU General Public License as published by the Free Software
- * Foundation. For more information, see COPYING.
+﻿﻿#region Copyright & License Information
+/**
+ * Copyright (c) The OpenRA Combined Arms Developers (see CREDITS).
+ * This file is part of OpenRA Combined Arms, which is free software.
+ * It is made available to you under the terms of the GNU General Public License
+ * as published by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version. For more information, see COPYING.
  */
 #endregion
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using OpenRA.Mods.Swp.Activities;
 using OpenRA.Mods.Common;
 using OpenRA.Mods.Common.Traits;
 using OpenRA.Traits;
@@ -18,7 +19,7 @@ using OpenRA.Traits;
 namespace OpenRA.Mods.Swp.Traits
 {
 	[Desc("This actor can spawn actors.")]
-	public class CarrierMasterInfo : BaseSpawnerMasterInfo
+	public class CarrierMasterInfo : SpawnerMasterBaseInfo
 	{
 		[Desc("Spawn is a missile that dies and not return.")]
 		public readonly bool SpawnIsMissile = false;
@@ -27,8 +28,12 @@ namespace OpenRA.Mods.Swp.Traits
 		public readonly int RearmTicks = 150;
 
 		[GrantedConditionReference]
-		[Desc("The condition to grant to self right after launching a spawned unit. (Used by V3 to make immobile.)")]
+		[Desc("The condition to grant to self right after launching a spawned unit.")]
 		public readonly string LaunchingCondition = null;
+
+		[GrantedConditionReference]
+		[Desc("The condition to grant to self when slaves are entering.)")]
+		public readonly string BeingEnteredCondition = null;
 
 		[Desc("After this many ticks, we remove the condition.")]
 		public readonly int LaunchingTicks = 15;
@@ -41,6 +46,9 @@ namespace OpenRA.Mods.Swp.Traits
 
 		[Desc("Instantly repair spawners when they return?")]
 		public readonly bool InstantRepair = true;
+
+		[Desc("If true, all slaves must be inside carrier before rearming.")]
+		public readonly bool RearmAsGroup = false;
 
 		[GrantedConditionReference]
 		[Desc("The condition to grant to self while spawned units are loaded.",
@@ -57,9 +65,9 @@ namespace OpenRA.Mods.Swp.Traits
 		public override object Create(ActorInitializer init) { return new CarrierMaster(init, this); }
 	}
 
-	public class CarrierMaster : BaseSpawnerMaster, ITick, IResolveOrder, INotifyAttack
+	public class CarrierMaster : SpawnerMasterBase, ITick, IResolveOrder, INotifyAttack
 	{
-		class CarrierSlaveEntry : BaseSpawnerSlaveEntry
+		class CarrierSlaveEntry : SpawnerSlaveBaseEntry
 		{
 			public int RearmTicks = 0;
 			public new CarrierSlave SpawnerSlave;
@@ -73,6 +81,8 @@ namespace OpenRA.Mods.Swp.Traits
 
 		int launchCondition = Actor.InvalidConditionToken;
 		int launchConditionTicks;
+
+		int beingEnteredToken = Actor.InvalidConditionToken;
 
 		Target currentTarget;
 		int maxDistanceCheckTicks;
@@ -93,7 +103,7 @@ namespace OpenRA.Mods.Swp.Traits
 				Replenish(self, SlaveEntries);
 		}
 
-		public override BaseSpawnerSlaveEntry[] CreateSlaveEntries(BaseSpawnerMasterInfo info)
+		public override SpawnerSlaveBaseEntry[] CreateSlaveEntries(SpawnerMasterBaseInfo info)
 		{
 			var slaveEntries = new CarrierSlaveEntry[info.Actors.Length]; // For this class to use
 
@@ -103,7 +113,7 @@ namespace OpenRA.Mods.Swp.Traits
 			return slaveEntries; // For the base class to use
 		}
 
-		public override void InitializeSlaveEntry(Actor slave, BaseSpawnerSlaveEntry entry)
+		public override void InitializeSlaveEntry(Actor slave, SpawnerSlaveBaseEntry entry)
 		{
 			base.InitializeSlaveEntry(slave, entry);
 
@@ -139,8 +149,6 @@ namespace OpenRA.Mods.Swp.Traits
 			if (carrierSlaveEntry == null)
 				return;
 
-			carrierSlaveEntry.IsLaunched = true; // mark as launched
-
 			if (CarrierMasterInfo.LaunchingCondition != null)
 			{
 				if (launchCondition == Actor.InvalidConditionToken)
@@ -150,11 +158,12 @@ namespace OpenRA.Mods.Swp.Traits
 			}
 
 			SpawnIntoWorld(self, carrierSlaveEntry.Actor, self.CenterPosition);
+			carrierSlaveEntry.IsLaunched = true; // mark as launched
 
-			if (spawnContainTokens.TryGetValue(a.Info.Name, out var spawnContainToken) && spawnContainToken.Any())
+			if (spawnContainTokens.TryGetValue(a.Info.Name, out var spawnContainToken) && spawnContainToken.Count > 0)
 				self.RevokeCondition(spawnContainToken.Pop());
 
-			if (loadedTokens.Any() && CarrierMasterInfo.LoadedCondition != null)
+			if (loadedTokens.Count > 0 && CarrierMasterInfo.LoadedCondition != null)
 				self.RevokeCondition(loadedTokens.Pop());
 
 			// Lambdas can't use 'in' variables, so capture a copy for later
@@ -226,7 +235,7 @@ namespace OpenRA.Mods.Swp.Traits
 				loadedTokens.Push(self.GrantCondition(CarrierMasterInfo.LoadedCondition));
 		}
 
-		public override void Replenish(Actor self, BaseSpawnerSlaveEntry entry)
+		public override void Replenish(Actor self, SpawnerSlaveBaseEntry entry)
 		{
 			base.Replenish(self, entry);
 
@@ -257,13 +266,27 @@ namespace OpenRA.Mods.Swp.Traits
 				}
 			}
 
+			var slaveIsEntering = false;
+			var numLaunched = SlaveEntries.Count(a => a.IsLaunched);
+
 			// Rearm
 			foreach (var slaveEntry in SlaveEntries)
 			{
 				var carrierSlaveEntry = slaveEntry as CarrierSlaveEntry;
+				if (carrierSlaveEntry.Actor.IsInWorld && carrierSlaveEntry.Actor.CurrentActivity is EnterCarrierMaster)
+					slaveIsEntering = true;
+
+				if (CarrierMasterInfo.RearmAsGroup && numLaunched > 0)
+					continue;
+
 				if (carrierSlaveEntry.RearmTicks > 0)
 					carrierSlaveEntry.RearmTicks--;
 			}
+
+			if (slaveIsEntering && beingEnteredToken == Actor.InvalidConditionToken)
+				beingEnteredToken = self.GrantCondition(CarrierMasterInfo.BeingEnteredCondition);
+			else if (!slaveIsEntering && beingEnteredToken != Actor.InvalidConditionToken)
+				beingEnteredToken = self.RevokeCondition(beingEnteredToken);
 
 			// range check
 			RangeCheck(self);

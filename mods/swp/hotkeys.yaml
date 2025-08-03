@@ -13,22 +13,27 @@ ProductionTypeInfantry: T
 	Types: Production
 	Contexts: Player
 
-ProductionTypeVehicle: Y
+ProductionTypeVehicle: U
 	Description: Vehicle Tab
 	Types: Production
 	Contexts: Player
 
-ProductionTypeAircraft: I
+ProductionTypeLightVehicle: Y
+	Description: Light Vehicle Tab
+	Types: Production
+	Contexts: Player
+
+ProductionTypeAircraft: O
 	Description: Aircraft Tab
 	Types: Production
 	Contexts: Player
 
-ProductionTypeNaval: O
+ProductionTypeNaval: P
 	Description: Naval Tab
 	Types: Production
 	Contexts: Player
 
-ProductionTypeHelicopter: U
+ProductionTypeHelicopter: I
 	Description: Helicopter Tab
 	Types: Production
 	Contexts: Player
@@ -37,3 +42,8 @@ PowerDown: X
 	Description: Power-down mode
 	Types: OrderGenerator
 	Contexts: Player
+
+ToggleVariant: V
+	Description: Change plug
+	Types: Production
+	Contexts: player

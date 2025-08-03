@@ -58,6 +58,30 @@ ParaMine:
 		ExplosionPalette: tseffects
 		ImpactSounds: crumble.aud
 
+ParaNapalm:
+	ReloadDelay: 8
+	Range: 3c0
+	Report: chute1.aud
+	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor
+	Projectile: GravityBomb
+		Image: dropbombs
+		OpenSequence: idle
+		IsPlayerPalette: True
+		Palette: player
+		Velocity: 0, 0, -40
+		Acceleration: 0, 0, 0
+		Shadow: False
+	Warhead@SpawnMine: SpawnActor
+		Delay: 20
+		Actors: spill
+		ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
+	Warhead@DigAnim: CreateEffect
+		Image: dig_sm
+		Explosions: idle
+		ValidTargets: Ground, GroundActor
+		ExplosionPalette: tseffects
+		ImpactSounds: crumble.aud
+
 Metempsychosis:
 	ValidTargets: Ground, Water, Air, Corpse
 	Warhead@1Dam: SpreadDamage
@@ -83,6 +107,33 @@ Metempsychosis:
 		ImpactSounds: splash9.aud
 		ValidTargets: Water, Underwater
 		InvalidTargets: Bridge
+
+QuickRepair:
+	ValidTargets: Ground, Water, Air, Structure
+	Warhead@1Dam: SpreadDamage
+		Spread: 2c0
+		Falloff: 100, 75, 50, 25, 5, 0
+		Damage: -5000
+		ValidTargets: Structure
+		ValidRelationships: Ally
+		Versus:
+			None: 90
+			Wood: 100
+			Light: 60
+			Medium: 40
+			Heavy: 25
+			Concrete: 100
+		DamageTypes: NotCrushDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: lazarusburst
+		ExplosionPalette: basic-alpha
+		ImpactSounds: holy.aud
+		ValidTargets: Ground, Air, GroundActor, Trees, AirborneActor, Ship, WaterActor, Trees, Water, Corpse
+	Warhead@3condition: GrantExternalCondition
+		Condition: quickrepair
+		ValidTargets: Structure
+		Duration: 250
+		Range: 10c0
 
 LazareneRay:
 	ValidTargets: Ground, Water, Air, Corpse
@@ -209,7 +260,7 @@ Atomic:
 		Duration: 20
 		Intensity: 5
 		Multiplier: 1,1
-	Warhead@22FlashEffect: FlashPaletteEffect
+	Warhead@22FlashEffect: FlashEffect
 		Duration: 20
 		FlashType: Nuke
 		
@@ -334,7 +385,7 @@ ArtilleryBarrageShell:
 		Image: artshll
 		Inaccuracy: 0c216
 		ContrailLength: 10
-		ContrailWidth: 40
+		ContrailStartWidth: 40
 	Warhead@3Eff: CreateEffect
 		Explosions: large_explosion
 		ImpactSounds: explosion_large_1.wav, explosion_large_2.wav, explosion_large_4.wav

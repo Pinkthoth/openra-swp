@@ -1,16 +1,21 @@
 mcv:
 	idle:
+		Filename: mcv.shp
 		Facings: 32
 		UseClassicFacings: True
-	icon: mcvicon
+	icon:
+		Filename: mcvicon.shp
 
 mcvhusk:
 	idle:
+		Filename: mcvhusk.shp
 		Facings: 32
 		UseClassicFacings: True
 		ZOffset: -1023
 
 4tnk:
+	Defaults:
+		Filename: 4tnk.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -18,34 +23,105 @@ mcvhusk:
 		Start: 32
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: gunfire2
+	muzzle:
+		Filename: gunfire2.shp
 		Length: 5
-	icon: 4tnkicon
+	icon:
+		Filename: 4tnkicon.shp
 
 4tnk.destroyed:
-	idle: 4tnk
+	idle:
+		Filename: 4tnk.shp
 		Facings: 32
 		UseClassicFacings: True
 		ZOffset: -512
-	turret: 4tnk
+	turret:
+		Filename: 4tnk.shp
 		Start: 32
 		Facings: 32
 		UseClassicFacings: True
 		ZOffset: -512
+
+railguntank:
+	Defaults:
+		Filename: 4tnk.shp
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Filename: railgunturret.shp
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	icon:
+		Filename: 4tnkicon.shp
 
 truk:
 	idle:
+		Filename: truk.shp
 		Facings: 32
 		UseClassicFacings: True
-	icon: trukicon
+	icon:
+		Filename: trukicon.shp
+
+assimilator:
+	idle:
+		Filename: assimilator.shp
+		Facings: 32
+		UseClassicFacings: True
+	dead:
+		Filename: assimilator.shp
+		Facings: 32
+		UseClassicFacings: True
+		Start: 33
+	attack:
+		Filename: assimilator.shp
+		Facings: 32
+		UseClassicFacings: True
+		Start: 66
+		Length: 5
+		Tick: 200
+	icon:
+		Filename: assimilatoricon.shp
+
+mirtnk:
+	idle:
+		Filename: truk.shp
+		Facings: 32
+		UseClassicFacings: True
+	icon:
+		Filename: trukicon.shp
+
+combine:
+	move:
+		Filename: combine.shp
+		Facings: 32
+		Length: 3
+		UseClassicFacings: True
+		Tick: 60
+	idle:
+		Filename: combine.shp
+		Facings: 32
+		Length: 1
+		UseClassicFacings: True
+		Start: 99
+	icon:
+		Filename: combineicon.shp
 
 proptruck:
 	idle:
+		Filename: proptruck.shp
 		Facings: 32
 		UseClassicFacings: True
-	icon: proptruckicon
+	icon:
+		Filename: proptruckicon.shp
 
 marozilnik:
+	Defaults:
+		Filename: marozilnik.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -53,14 +129,19 @@ marozilnik:
 		Start: 32
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: gunfire2
+	muzzle:
+		Filename: gunfire2.shp
 		Length: 5
-	muzzle-mg: minigun
+	muzzle-mg:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	icon: marozilnikicon
+	icon:
+		Filename: marozilnikicon.shp
 
 limpetmine:
+	Defaults:
+		Filename: limpetmine.shp
 	idle:
 		Tick: 130
 		Length: 32
@@ -71,17 +152,28 @@ limpetmine:
 		Start: 33
 		Length: 32
 		Tick: 40
-	icon: limpetmineicon
+	icon:
+		Filename: limpetmineicon.shp
 
 dtrk:
 	idle:
-		Filename: dtrk
+		Filename: dtrk.shp
 		Facings: 32
 		UseClassicFacings: True
-	icon: dtrkicon
+	icon:
+		Filename: dtrkicon.shp
+
+toxintruck:
+	idle:
+		Filename: toxintruck.shp
+		Facings: 32
+		UseClassicFacings: True
+	icon:
+		Filename: toxintruckicon.shp
 
 harv:
-	Defaults: harv
+	Defaults:
+		Filename: harv.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -96,28 +188,37 @@ harv:
 	dock-loop:
 		Start: 296
 		Length: 12
-	icon: harvicon
+	icon:
+		Filename: harvicon.shp
 		Start: 0
 
 harvempty:
 	Inherits: harv
+	Defaults:
+		Filename: harv.shp
 
 harvhalf:
 	Inherits: harv
+	Defaults:
+		Filename: harv.shp
 
 hhusk:
 	idle:
+		Filename: hhusk.shp
 		Facings: 32
 		UseClassicFacings: True
 		ZOffset: -1023
 
 hhusk2:
 	idle:
+		Filename: hhusk2.shp
 		Facings: 32
 		UseClassicFacings: True
 		ZOffset: -1023
 
 v2rl:
+	Defaults:
+		Filename: v2rl.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -125,23 +226,73 @@ v2rl:
 		Start: 32
 		Facings: 32
 		UseClassicFacings: True
-	icon: v2rlicon
+	icon:
+		Filename: v2rlicon.shp
 
 ifrit:
 	idle:
+		Filename: ifrit.shp
 		Facings: 32
 		UseClassicFacings: True
-	icon: tmlrsicon
+	icon:
+		Filename: tmlrsicon.shp
+
+renault:
+	idle:
+		Filename: renault.shp
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	icon:
+		Filename: renaulticon.shp
 
 arty:
 	idle:
+		Filename: arty.shp
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: gunfire2
+	muzzle:
+		Filename: gunfire2.shp
 		Length: 5
-	icon: artyicon
+	icon:
+		Filename: artyicon.shp
+
+toxinarty:
+	idle:
+		Filename: toxinarty.shp
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	icon:
+		Filename: toxinartyicon.shp
+
+burrower:
+	idle:
+		Filename: burrower.shp
+		Facings: 32
+		UseClassicFacings: True
+	icon:
+		Filename: burrowericon.shp
+
+discusarty:
+	idle:
+		Filename: discusarty.shp
+		Facings: 32
+		UseClassicFacings: True
+	spinner:
+		Filename: discusarty.shp
+		Start: 32
+		Length: 32
+	icon:
+		Filename: discartyicon.shp
 
 jeep:
+	Defaults:
+		Filename: jeep.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -149,27 +300,105 @@ jeep:
 		Start: 32
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: minigun
+	muzzle:
+		Filename: newmuzzle.shp
 		Length: 6
 		Facings: 8
-	icon: jeepicon
+	icon:
+		Filename: jeepicon.shp
 
-mnly:
+railguntank:
+	idle:
+		Filename: 4tnk.shp
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Filename: railgunturret.shp
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	icon:
+		Filename: railguntankicon.shp
+
+humvee:
+	Defaults:
+		Filename: humvee.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
-	icon: mnlyicon
+	turret:
+		Filename: hvmgturret.shp
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: humveeicon.shp
+
+mnly:
+	idle:
+		Filename: mnly.shp
+		Facings: 32
+		UseClassicFacings: True
+	icon:
+		Filename: mnlyicon.shp
+
+hammerhead:
+	idle:
+		Filename: hammerhead.shp
+		Facings: 32
+		UseClassicFacings: True
+	icon:
+		Filename: hammerheadicon.shp
+
+trenchlayer:
+	idle:
+		Filename: trenchlayer.shp
+		Facings: 32
+		UseClassicFacings: True
+	icon:
+		Filename: trenchlayericon.shp
+
+siegetnk:
+	idle:
+		Filename: siegetnk.shp
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	icon:
+		Filename: siegetnkicon.shp
+
+nspill:
+	idle:
+		Filename: nspill.shp
+		Facings: 32
+		UseClassicFacings: True
+	icon:
+		Filename: nspillicon.shp
 
 mrj:
+	Defaults:
+		Filename: mrj.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
 	spinner:
 		Start: 32
 		Length: 32
-	icon: mrjicon
+	icon:
+		Filename: mrjicon.shp
 
 mgg:
+	Defaults:
+		Filename: mgg.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -179,46 +408,60 @@ mgg:
 	spinner-idle:
 		Start: 32
 		Length: 1
-	icon: mggicon
+	icon:
+		Filename: mggicon.shp
 
 mgg.destroyed:
-	idle: mgg
+	idle:
+		Filename: mgg.shp
 		Facings: 32
 		UseClassicFacings: True
 		ZOffset: -512
-	spinner: mgg
+	spinner:
+		Filename: mgg.shp
 		Start: 32
 		Length: 8
 		ZOffset: -512
-	spinner-idle: mgg
+	spinner-idle:
+		Filename: mgg.shp
 		Start: 32
 
 ttnk:
+	Defaults:
+		Filename: ttnk.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
 	spinner:
 		Start: 32
 		Length: 32
-	icon: ttnkicon
+	icon:
+		Filename: ttnkicon.shp
 
 ftrk:
-	idle: flaktruck
+	idle:
+		Filename: flaktruck.shp
 		Facings: 32
 		UseClassicFacings: True
-	turret: flaktruck
+	turret:
+		Filename: flaktruck.shp
 		Start: 32
 		Facings: 32
 		UseClassicFacings: True
-	turret-ag: flaktruck
+	turret-ag:
+		Filename: flaktruck.shp
 		Start: 64
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: gunfire2
+	muzzle:
+		Filename: gunfire2.shp
 		Length: 2
-	icon: ftrkicon
+	icon:
+		Filename: ftrkicon.shp
 
 mobilearray:
+	Defaults:
+		Filename: mobilearray.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -232,9 +475,12 @@ mobilearray:
 		Start: 48
 		Length: 16
 		Tick: 100
-	icon: mobilearrayicon
+	icon:
+		Filename: mobilearrayicon.shp
 
 ententeaa:
+	Defaults:
+		Filename: ententeaa.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -246,12 +492,16 @@ ententeaa:
 		Start: 64
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	icon: ententeaaicon
+	icon:
+		Filename: ententeaaicon.shp
 
 qtnk:
+	Defaults:
+		Filename: qtnk.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -259,9 +509,12 @@ qtnk:
 		Start: 32
 		Facings: 8
 		Length: 8
-	icon: qtnkicon
+	icon:
+		Filename: qtnkicon.shp
 
 empdevice:
+	Defaults:
+		Filename: empdevice.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -271,14 +524,32 @@ empdevice:
 		Length: 1
 		Start: 0
 		Tick: 1000
-	icon: empdeviceicon
+	icon:
+		Filename: empdeviceicon.shp
 
-apc:
+miragetnk:
+	Defaults:
+		Filename: miragetnk.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
 		Scale: 0.9
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: miragetnkicon.shp
+
+apc:
+	Defaults:
+		Filename: apc.shp
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+		Scale: 0.9
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
 	open:
@@ -286,31 +557,41 @@ apc:
 		Length: 3
 	unload:
 		Start: 32
-	icon: apcicon
+	icon:
+		Filename: apcicon.shp
 
 propaganda:
 	idle:
+		Filename: propaganda.shp
 		Facings: 32
 		UseClassicFacings: True
-	icon: apcicon
+	icon:
+		Filename: apcicon.shp
 
 deployaa:
 	idle:
+		Filename: deployaa.shp
 		Facings: 32
 		UseClassicFacings: True
-	icon: apcicon
+	icon:
+		Filename: apcicon.shp
 
 wastetanker:
 	idle:
+		Filename: wastetanker.shp
 		Facings: 32
 		UseClassicFacings: True
-	icon: wastetankericon
+	icon:
+		Filename: wastetankericon.shp
 
 papc:
+	Defaults:
+		Filename: papc.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
 	open:
@@ -321,17 +602,23 @@ papc:
 		Facings: 32
 		UseClassicFacings: True
 		Start: 0
-	icon: ebiicon
+	icon:
+		Filename: ebiicon.shp
 
 ctnk:
 	idle:
+		Filename: ctnk.shp
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: gunfire2
+	muzzle:
+		Filename: gunfire2.shp
 		Length: 5
-	icon: ctnkicon
+	icon:
+		Filename: ctnkicon.shp
 
 grinder:
+	Defaults:
+		Filename: grinder.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -340,27 +627,36 @@ grinder:
 		Facings: 32
 		UseClassicFacings: True
 		Length: 4
-	icon: grindericon
+	icon:
+		Filename: grindericon.shp
 
 emcv:
 	idle:
+		Filename: emcv.shp
 		Facings: 32
 		UseClassicFacings: True
-	icon: mcvicon
+	icon:
+		Filename: mcvicon.shp
 
 mmcv:
 	idle:
+		Filename: mmcv.shp
 		Facings: 32
 		UseClassicFacings: True
-	icon: mcvicon
+	icon:
+		Filename: mcvicon.shp
 	
 kmcv:
 	idle:
+		Filename: kmcv.shp
 		Facings: 32
 		UseClassicFacings: True
-	icon: mcvicon
+	icon:
+		Filename: mcvicon.shp
 
 hlftrk:
+	Defaults:
+		Filename: hlftrk.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -368,12 +664,16 @@ hlftrk:
 		Start: 33
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	icon: hlftrkicon
+	icon:
+		Filename: hlftrkicon.shp
 		
 puma:
+	Defaults:
+		Filename: puma.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -381,11 +681,15 @@ puma:
 		Start: 32
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: gunfire2
+	muzzle:
+		Filename: gunfire2.shp
 		Length: 2
-	icon: pumaicon
+	icon:
+		Filename: pumaicon.shp
 
 btr:
+	Defaults:
+		Filename: btr.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -393,11 +697,15 @@ btr:
 		Start: 33
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: gunfire2
+	muzzle:
+		Filename: gunfire2.shp
 		Length: 2
-	icon: btricon
+	icon:
+		Filename: btricon.shp
 
 armcr:
+	Defaults:
+		Filename: armcr.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -405,12 +713,16 @@ armcr:
 		Start: 33
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	icon: armcricon
+	icon:
+		Filename: armcricon.shp
 
 gatlingcar:
+	Defaults:
+		Filename: gatlingcar.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -418,167 +730,108 @@ gatlingcar:
 		Start: 32
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	icon: gatlingcaricon
-
-atgunner:
-	idle:
-		Start: 0
-		Facings: 32
-		UseClassicFacings: True
-	move:
-		Start: 33
-		Facings: 32
-		UseClassicFacings: True
-		Length: 6
-		Tick: 80
-	attack:
-		Start: 231
-		Facings: 32
-		UseClassicFacings: True
-		Length: 6
-		Tick: 140
-	turn:
-		Start: 429
-		Facings: 32
-		UseClassicFacings: True
-		Length: 1
-		Tick: 80
-	muzzle: gunfire2
-		Length: 2
-	icon: atgunnericon
-
-hvmg:
-	idle:
-		Start: 0
-		Facings: 32
-		UseClassicFacings: True
-	move:
-		Start: 33
-		Facings: 32
-		UseClassicFacings: True
-		Length: 6
-		Tick: 80
-	attack:
-		Start: 231
-		Facings: 32
-		UseClassicFacings: True
-		Length: 6
-		Tick: 115
-	turn:
-		Start: 429
-		Facings: 32
-		UseClassicFacings: True
-		Length: 1
-		Tick: 80
-	muzzle: minigun
-		Length: 6
-		Facings: 8
-		Tick: 80
-	icon: hvmgicon
-
-aaguncrew:
-	idle:
-		Start: 0
-		Facings: 32
-		UseClassicFacings: True
-	move:
-		Start: 33
-		Facings: 32
-		UseClassicFacings: True
-		Length: 6
-		Tick: 80
-	attack:
-		Start: 0
-		Facings: 32
-		UseClassicFacings: True
-		Length: 1
-		Tick: 140
-	turn:
-		Start: 429
-		Facings: 32
-		UseClassicFacings: True
-		Length: 1
-		Tick: 80
-	muzzle: gunfire2
-		Length: 2
-	icon: aaguncrewicon
+	icon:
+		Filename: gatlingcaricon.shp
 
 sipahi:
 	idle:
+		Filename: sipahi.shp
 		Facings: 32
 		UseClassicFacings: True
-	idle-medic: sipahimed
+	idle-medic:
+		Filename: sipahimed.shp
 		Facings: 32
 		UseClassicFacings: True
-	idle-mech: sipahimech
+	idle-mech:
+		Filename: sipahimech.shp
 		Facings: 32
 		UseClassicFacings: True
-	turret-rifle: armcr
+	turret-rifle:
+		Filename: armcr.shp
 		Start: 33
 		Facings: 32
 		UseClassicFacings: True
-	turret-flame: sipahiflm
+	turret-flame:
+		Filename: sipahiflm.shp
 		Start: 0
 		Facings: 32
 		UseClassicFacings: True
-	turret-missile: khanlauncher
+	turret-missile:
+		Filename: khanlauncher.shp
 		Start: 0
 		Facings: 32
 		UseClassicFacings: True
-	turret-ronin: ronin
+	turret-ronin:
+		Filename: ronin.shp
 		Start: 32
 		Facings: 32
 		UseClassicFacings: True
-	turret-arc: arctower
+	turret-arc:
+		Filename: arctower.shp
 		Start: 0
 		Facings: 32
 		UseClassicFacings: True
-	turret-flak: ftrk
+	turret-flak:
+		Filename: ftrk.shp
 		Start: 32
 		Facings: 32
 		UseClassicFacings: True
-	turret-mortar: sipahimortar
+	turret-mortar:
+		Filename: sipahimortar.shp
 		Start: 0
 		Facings: 32
 		UseClassicFacings: True
-	turret-sniper: sipahisniper
+	turret-sniper:
+		Filename: sipahisniper.shp
 		Start: 0
 		Facings: 32
 		UseClassicFacings: True
-	turret-lmg: sipahilmg
+	turret-lmg:
+		Filename: sipahilmg.shp
 		Start: 0
 		Facings: 32
 		UseClassicFacings: True
-	turret-tox: sipahitox
+	turret-tox:
+		Filename: sipahitox.shp
 		Start: 0
 		Facings: 32
 		UseClassicFacings: True
-	spinner-ttnk: ttnk
+	spinner-ttnk:
+		Filename: ttnk.shp
 		Start: 32
 		Length: 1
-	spinner-mrj: mrj
+	spinner-mrj:
+		Filename: mrj.shp
 		Start: 32
 		Length: 32
-	spydish: spydish
+	spydish:
+		Filename: spydish.shp
 		Start: 0
 		Length: 32
-	turret-gatling: gatlingcar
+	turret-gatling:
+		Filename: gatlingcar.shp
 		Start: 32
 		Facings: 32
 		UseClassicFacings: True
-	turret-testudo: testudo
+	turret-testudo:
+		Filename: testudo.shp
 		Start: 100
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	icon: caballeroicon
+	icon:
+		Filename: caballeroicon.shp
 
 hvtnk:
+	Defaults:
+		Filename: hvtnk.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -586,14 +839,19 @@ hvtnk:
 		Start: 33
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: gunfire2
+	muzzle:
+		Filename: gunfire2.shp
 		Length: 5
-	muzzle-mg: minigun
+	muzzle-mg:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	icon: hvtnkicon
+	icon:
+		Filename: hvtnkicon.shp
 
 howizer:
+	Defaults:
+		Filename: howizer.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -601,11 +859,15 @@ howizer:
 		Start: 32
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: gunfire2
+	muzzle:
+		Filename: gunfire2.shp
 		Length: 5
-	icon: howizericon
+	icon:
+		Filename: howizericon.shp
 
 gatlingtank:
+	Defaults:
+		Filename: gatlingtank.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -617,15 +879,19 @@ gatlingtank:
 		Start: 64
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: gunfire2
+	muzzle:
+		Filename: gunfire2.shp
 		Length: 5
-	muzzle-mg: minigun
+	muzzle-mg:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	icon: gatlingtankicon
+	icon:
+		Filename: gatlingtankicon.shp
 
 monstertank:
-	Defaults: 5tnk
+	Defaults:
+		Filename: 5tnk.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -633,14 +899,19 @@ monstertank:
 		Start: 32
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: gunfire2
+	muzzle:
+		Filename: gunfire2.shp
 		Length: 5
-	muzzle-mg: minigun
+	muzzle-mg:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	icon: 5tnkicon
+	icon:
+		Filename: 5tnkicon.shp
 
 msam:
+	Defaults:
+		Filename: msam.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -656,21 +927,27 @@ msam:
 		Start: 96
 		Facings: 32
 		UseClassicFacings: True
-	icon: msamicon
+	icon:
+		Filename: msamicon.shp
 	
 #Komintern
 trnsprt:
 	idle:
+		Filename: trnsprt.shp
 		Facings: 32
 		UseClassicFacings: True
 		Offset: 0,2
-	icon: trnsprticon
+	icon:
+		Filename: trnsprticon.shp
 
 tnkt:
+	Defaults:
+		Filename: tnkt.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
 	open:
@@ -678,13 +955,35 @@ tnkt:
 		Length: 3
 	unload:
 		Start: 1
-	icon: tnkticon
+	icon:
+		Filename: tnkticon.shp
+
+attackbike:
+	Defaults:
+		Filename: attackbike.shp
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	open:
+		Start: 1
+		Length: 3
+	unload:
+		Start: 1
+	icon:
+		Filename: attackbikeicon.shp
 
 bike:
+	Defaults:
+		Filename: bike.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
 	open:
@@ -692,9 +991,12 @@ bike:
 		Length: 3
 	unload:
 		Start: 1
-	icon: bikeicon
+	icon:
+		Filename: bikeicon.shp
 
-ftrk:
+lasertank:
+	Defaults:
+		Filename: lasertank.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -702,53 +1004,267 @@ ftrk:
 		Start: 32
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: gunfire2
+	muzzle:
+		Filename: gunfire2.shp
 		Length: 2
-	icon: ftrkicon
-	
-mtnk:
-	idle: 2tnk
-		Facings: 32
-		UseClassicFacings: True
-	turret: mtnktr
-		Start: 0
-		Facings: 32
-		UseClassicFacings: True
-	muzzle: gunfire2
-		Length: 5
-	muzzle-mg: minigun
-		Length: 6
-		Facings: 8
-	icon: cossackicon
+	icon:
+		Filename: lasertankicon.shp
 
-templar:
-	idle: empty32
-		Facings: 32
-		UseClassicFacings: True
-	turret:
-		Start: 0
-		Facings: 32
-		UseClassicFacings: True
-	icon: templaricon
-
-templar.husk:
-	idle: templarhusk
-		Start: 0
-		Facings: 32
-		UseClassicFacings: True
-	turret: empty32
-		Start: 0
-		Facings: 32
-		UseClassicFacings: True
-	icon: templaricon
-
-katya:
+qtnk:
+	Defaults:
+		Filename: qtnk.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
-	icon: katyicon
+	piston:
+		Start: 32
+		Facings: 8
+		Length: 8
+	icon:
+		Filename: qtnkicon.shp
+
+prtnk:
+	Defaults:
+		Filename: prtnk.shp
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 33
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 2
+	icon:
+		Filename: prtnkicon.shp
+
+crawler:
+	Defaults:
+		Filename: crawler.shp
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	icon:
+		Filename: crawlericon.shp
+
+
+hvttnk:
+	Defaults:
+		Filename: hvttnk.shp
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 33
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 2
+	icon:
+		Filename: hvttnkicon.shp
+
+ftrk:
+	Defaults:
+		Filename: flaktruck.shp
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 2
+	icon:
+		Filename: ftrkicon.shp
+
+guerillatank:
+	Defaults:
+		Filename: guerillatank.shp
+	idle:
+		Start: 99
+		Facings: 32
+		UseClassicFacings: True
+	move:
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+		Length: 3
+		Tick: 40
+	dug:
+		Filename: burrow.shp
+		ZOffset: -9999
+		Scale: 0.5
+		Start: 0
+		Offset: 0,14
+	make:
+		Start: 133
+		Length: 20
+	icon:
+		Filename: guerillatankicon.shp
+
+chinatank:
+	idle:
+		Filename: chinatank.shp
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Filename: chinatank.shp
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	muzzle-mg:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: chinatankicon.shp
+
+bulgariatank:
+	idle:
+		Filename: bulgariatank.shp
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Filename: bulgariatank.shp
+		Start: 33
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	muzzle-mg:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: bulgariatankicon.shp
+
+maraudertank:
+	idle:
+		Filename: maraudertank.shp
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Filename: maraudertank.shp
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	muzzle-mg:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: maraudertankicon.shp
+
+mtnk:
+	idle:
+		Filename: 2tnk.shp
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Filename: mtnktr.shp
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	muzzle-mg:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: mtnkicon.shp
+
+3tnk:
+	idle:
+		Filename: 3tnk.shp
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Filename: 3tnk.shp
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	muzzle-mg:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: 3tnkicon.shp
+
+templar:
+	idle:
+		Filename: empty32.shp
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Filename: templar.shp
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+	icon:
+		Filename: templaricon.shp
+
+slingshot:
+	idle:
+		Filename: empty32.shp
+		Facings: 32
+		UseClassicFacings: True
+	turret-ag:
+		Filename: slingshot.shp
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Filename: slingshot.shp
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	icon:
+		Filename: slingshoticon.shp
+
+templar.husk:
+	idle:
+		Filename: templarhusk.shp
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Filename: empty32.shp
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+	icon:
+		Filename: templaricon.shp
+
+katya:
+	idle:
+		Filename: katya.shp
+		Facings: 32
+		UseClassicFacings: True
+	icon:
+		Filename: katyicon.shp
 
 mgg:
+	Defaults:
+		Filename: mgg.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -758,22 +1274,29 @@ mgg:
 	spinner-idle:
 		Start: 32
 		Length: 1
-	icon: mggicon
+	icon:
+		Filename: mggicon.shp
 	
 t100:
-	idle: 4tnk
+	idle:
+		Filename: 4tnk.shp
 		Facings: 32
 		UseClassicFacings: True
-	turret: 4tnk
+	turret:
+		Filename: 4tnk.shp
 		Start: 32
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: gunfire2
+	muzzle:
+		Filename: gunfire2.shp
 		Length: 5
-	icon: 4tnkicon
+	icon:
+		Filename: 4tnkicon.shp
 	
 #Entente units
 jeep:
+	Defaults:
+		Filename: jeep.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -782,17 +1305,21 @@ jeep:
 		Start: 32
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: newmuzzle
-		Length: 7
-		Facings: 32
-		UseClassicFacings: True
-	icon: jeepicon
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: jeepicon.shp
 
 apc:
+	Defaults:
+		Filename: apc.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
 	open:
@@ -800,65 +1327,441 @@ apc:
 		Length: 3
 	unload:
 		Start: 32
-	icon: apcicon
+	icon:
+		Filename: apcicon.shp
 
 shah:
 	idle:
+		Filename: shah.shp
 		Facings: 32
 		UseClassicFacings: True
-	icon: shahicon
+	icon:
+		Filename: shahicon.shp
 
 hovercraft:
 	idle:
+		Filename: hovercraft.shp
 		Facings: 32
 		UseClassicFacings: True
-	icon: hovercrafticon
+	icon:
+		Filename: hovercrafticon.shp
 
 traktor:
 	idle:
+		Filename: traktor.shp
 		Facings: 32
 		UseClassicFacings: True
-	icon: traktoricon
+	icon:
+		Filename: traktoricon.shp
 
 ifv:
-	idle: ifv
+	idle:
+		Filename: ifv.shp
 		Facings: 32
 		UseClassicFacings: True
-	turret: newapc
+	turret:
+		Filename: newapc.shp
 		Start: 33
 		Facings: 32
 		UseClassicFacings: True
-	turret-air: newapc
+	turret-air:
+		Filename: newapc.shp
 		Start: 66
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	muzzle-air: minigun
+	muzzle-air:
+		Filename: minigun.shp
 		Length: 3
 		Stride: 6
 		Facings: 8
-	close: apc
+	close:
+		Filename: apc.shp
 		Start: 32
 		Length: 3
-	unload: apc
+	unload:
+		Filename: apc.shp
 		Start: 32
-	icon: warthogicon
-	
-rtnk:
-	idle: squire
+	icon:
+		Filename: warthogicon.shp
+
+panzer38:
+	idle:
+		Filename: panzer38.shp
 		Facings: 32
 		UseClassicFacings: True
-	turret: lgttur
+	turret:
+		Filename: panzer38.shp
+		Start: 33
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 2
+	muzzle-mg:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: panzer38icon.shp
+
+hammer:
+	Defaults:
+		Filename: hammer.shp
+	idle:
 		Start: 0
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: gunfire2
+	prone-idle:
+		Start: 461
+		Facings: 32
+		UseClassicFacings: True
+	move:
+		Start: 33
+		Facings: 32
+		UseClassicFacings: True
+		Length: 6
+		Tick: 80
+	prone-move:
+		Start: 494
+		Facings: 32
+		UseClassicFacings: True
+		Length: 6
+		Tick: 80
+	attack:
+		Start: 231
+		Facings: 32
+		UseClassicFacings: True
+		Length: 6
+		Tick: 140
+	turn:
+		Start: 429
+		Facings: 32
+		UseClassicFacings: True
+		Length: 1
+		Tick: 80
+	prone-turn:
+		Start: 923
+		Facings: 32
+		UseClassicFacings: True
+		Length: 1
+		Tick: 80
+	muzzle:
+		Filename: gunfire2.shp
 		Length: 2
-	icon: rtnkicon
+	turret:
+		Start: 462
+		Facings: 32
+		UseClassicFacings: True
+	icon:
+		Filename: hammericon.shp
+
+hammerhusk:
+	Defaults:
+		Filename: hammer.shp
+	idle:
+		Start: 890
+		Facings: 32
+		UseClassicFacings: True
+
+reaper:
+	Defaults:
+		Filename: reaper.shp
+	idle:
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+	prone-idle:
+		Start: 461
+		Facings: 32
+		UseClassicFacings: True
+	move:
+		Start: 33
+		Facings: 32
+		UseClassicFacings: True
+		Length: 6
+		Tick: 80
+	prone-move:
+		Start: 494
+		Facings: 32
+		UseClassicFacings: True
+		Length: 6
+		Tick: 80
+	attack:
+		Start: 231
+		Facings: 32
+		UseClassicFacings: True
+		Length: 6
+		Tick: 140
+	turn:
+		Start: 429
+		Facings: 32
+		UseClassicFacings: True
+		Length: 1
+		Tick: 80
+	prone-turn:
+		Start: 923
+		Facings: 32
+		UseClassicFacings: True
+		Length: 1
+		Tick: 80
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 2
+	turret:
+		Start: 462
+		Facings: 32
+		UseClassicFacings: True
+	icon:
+		Filename: reapericon.shp
+
+titan:
+	Defaults:
+		Filename: titan.shp
+	idle:
+		Start: 8
+		Facings: 8
+	move:
+		Start: 24
+		Facings: 8
+		Length: 6
+		Tick: 80
+	turn:
+		Start: 24
+		Facings: 8
+		Length: 1
+		Tick: 80
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	turret:
+		Start: 0
+		Facings: 8
+	icon:
+		Filename: titanicon.shp
+
+sickle:
+	Defaults:
+		Filename: sickle.shp
+	idle:
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+	prone-idle:
+		Start: 461
+		Facings: 32
+		UseClassicFacings: True
+	move:
+		Start: 33
+		Facings: 32
+		UseClassicFacings: True
+		Length: 6
+		Tick: 80
+	prone-move:
+		Start: 494
+		Facings: 32
+		UseClassicFacings: True
+		Length: 6
+		Tick: 80
+	attack:
+		Start: 231
+		Facings: 32
+		UseClassicFacings: True
+		Length: 6
+		Tick: 140
+	turn:
+		Start: 429
+		Facings: 32
+		UseClassicFacings: True
+		Length: 1
+		Tick: 80
+	prone-turn:
+		Start: 923
+		Facings: 32
+		UseClassicFacings: True
+		Length: 1
+		Tick: 80
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	turret:
+		Start: 462
+		Facings: 32
+		UseClassicFacings: True
+	icon:
+		Filename: sickleicon.shp
+
+2tnk:
+	Defaults:
+		Filename: 2tnk.shp
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	muzzle-mg:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: 2tnkicon.shp
+
+2tnk.destroyed:
+	idle:
+		Filename: 2tnk.shp
+		Facings: 32
+		UseClassicFacings: True
+		ZOffset: -512
+	turret:
+		Filename: 2tnk.shp
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+		ZOffset: -512
+
+terrordrone:
+	Defaults:
+		Filename: terrordrone.shp
+	stand:
+		Start: 84
+		Facings: 8
+	run:
+		Start: 33
+		Length: 6
+		Facings: 8
+		Tick: 80
+	die1:
+		Start: 0
+		Length: 21
+	die2:
+		Start: 0
+		Length: 21
+	die3:
+		Start: 0
+		Length: 21
+	die4:
+		Start: 0
+		Length: 21
+	die5:
+		Start: 0
+		Length: 21
+	die6:
+		Start: 0
+		Length: 21
+	icon:
+		Filename: terrordroneicon.shp
+
+scythe:
+	Defaults:
+		Filename: scythe.shp
+	idle:
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+	prone-idle:
+		Start: 461
+		Facings: 32
+		UseClassicFacings: True
+	move:
+		Start: 33
+		Facings: 32
+		UseClassicFacings: True
+		Length: 6
+		Tick: 80
+	prone-move:
+		Start: 494
+		Facings: 32
+		UseClassicFacings: True
+		Length: 6
+		Tick: 80
+	attack:
+		Start: 231
+		Facings: 32
+		UseClassicFacings: True
+		Length: 6
+		Tick: 140
+	turn:
+		Start: 429
+		Facings: 32
+		UseClassicFacings: True
+		Length: 1
+		Tick: 80
+	prone-turn:
+		Start: 923
+		Facings: 32
+		UseClassicFacings: True
+		Length: 1
+		Tick: 80
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	turret:
+		Filename: flaktruck.shp
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	turret-ag:
+		Filename: flaktruck.shp
+		Start: 64
+		Facings: 32
+		UseClassicFacings: True
+	icon:
+		Filename: scytheicon.shp
+
+sicklehusk:
+	Defaults:
+		Filename: sickle.shp
+	idle:
+		Start: 890
+		Facings: 32
+		UseClassicFacings: True
+
+bullfrog:
+	idle:
+		Filename: bullfrog.shp
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Filename: bullfrog.shp
+		Start: 33
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 2
+	icon:
+		Filename: bullfrogicon.shp
+
+rtnk:
+	idle:
+		Filename: squire.shp
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Filename: lgttur.shp
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 2
+	icon:
+		Filename: rtnkicon.shp
 
 ronin:
+	Defaults:
+		Filename: ronin.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -866,12 +1769,16 @@ ronin:
 		Start: 32
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	icon: roninicon
+	icon:
+		Filename: roninicon.shp
 
 ptnk:
+	Defaults:
+		Filename: ptnk.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -879,27 +1786,56 @@ ptnk:
 		Start: 32
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	icon: kitsuneicon
+	icon:
+		Filename: kitsuneicon.shp
 
-ltnk:
-	idle: 2tnk
+mirtnk:
+	idle:
+		Filename: mirtnk.shp
 		Facings: 32
 		UseClassicFacings: True
 	turret:
+		Filename: mirtnk.shp
+		Start: 33
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 2
+	muzzle-mg:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: mirtnkicon.shp
+
+ltnk:
+	idle:
+		Filename: 2tnk.shp
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Filename: ltnk.shp
 		Start: 32
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: gunfire2
+	muzzle:
+		Filename: gunfire2.shp
 		Length: 2
-	muzzle-mg: minigun
+	muzzle-mg:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	icon: ltnkicon
+	icon:
+		Filename: ltnkicon.shp
 
 arc:
+	Defaults:
+		Filename: arc.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -907,24 +1843,32 @@ arc:
 		Start: 33
 		Facings: 32
 		UseClassicFacings: True
-	icon: arcicon
+	icon:
+		Filename: arcicon.shp
 
 teletnk:
-	idle: 2tnk
+	idle:
+		Filename: 2tnk.shp
 		Facings: 32
 		UseClassicFacings: True
-	turret: teleturret
+	turret:
+		Filename: teleturret.shp
 		Start: 0
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: gunfire2
+	muzzle:
+		Filename: gunfire2.shp
 		Length: 2
-	muzzle-mg: minigun
+	muzzle-mg:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	icon: teletankicon
+	icon:
+		Filename: teletankicon.shp
 
 stnk:
+	Defaults:
+		Filename: stnk.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -932,61 +1876,125 @@ stnk:
 		Start: 38
 		Facings: 32
 		UseClassicFacings: True
-	icon: stnkicon
+	icon:
+		Filename: stnkicon.shp
 
 arty:
 	idle:
+		Filename: arty.shp
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: gunfire2
+	muzzle:
+		Filename: gunfire2.shp
 		Length: 5
-	icon: artyicon
+	icon:
+		Filename: artyicon.shp
+
+machinist:
+	idle:
+		Filename: machinist.shp
+		Facings: 32
+		UseClassicFacings: True
+	icon:
+		Filename: machinisticon.shp
+
+dirtnk:
+	idle:
+		Filename: dirtnk.shp
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	icon:
+		Filename: dirtnkicon.shp
 
 prismcannon:
 	idle:
+		Filename: prismcannon.shp
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: gunfire2
+	muzzle:
+		Filename: gunfire2.shp
 		Length: 5
-	icon: prismcannonicon
+	icon:
+		Filename: prismcannonicon.shp
 
 spempcannon:
 	idle:
+		Filename: spempcannon.shp
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: gunfire2
+	muzzle:
+		Filename: gunfire2.shp
 		Length: 5
-	icon: tsqtnkicon
-	
-archer:
+	icon:
+		Filename: tsqtnkicon.shp
+
+magnate:
 	idle:
+		Filename: magnate.shp
 		Facings: 32
 		UseClassicFacings: True
 		Offset: 0,4
-	muzzle: gunfire2
+	muzzle:
+		Filename: gunfire2.shp
 		Length: 5
-	icon: archericon
+	icon:
+		Filename: magnateicon.shp
+
+archer:
+	idle:
+		Filename: archer.shp
+		Facings: 32
+		UseClassicFacings: True
+		Offset: 0,4
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	icon:
+		Filename: archericon.shp
+
+leech:
+	idle:
+		Filename: leech.shp
+		Facings: 32
+		UseClassicFacings: True
+		Offset: 0,4
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	icon:
+		Filename: leechericon.shp
+
 
 maus:
 	idle:
+		Filename: maus.shp
 		Facings: 32
 		UseClassicFacings: True
 		Offset: 0,4
-	muzzle: gunfire2
+	muzzle:
+		Filename: gunfire2.shp
 		Length: 5
-	icon: mouseicon
+	icon:
+		Filename: mouseicon.shp
 
 mrj:
+	Defaults:
+		Filename: mrj.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
 	spinner:
 		Start: 32
 		Length: 32
-	icon: mrjicon
+	icon:
+		Filename: mrjicon.shp
 	
 hvrtnktnk:
-	Defaults: hvrtnk
+	Defaults:
+		Filename: hvrtnk.shp
 	idle:
 		Start: 0
 		Facings: 32
@@ -995,68 +2003,87 @@ hvrtnktnk:
 		Start: 32
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: gunfire2
+	muzzle:
+		Filename: gunfire2.shp
 		Length: 2
-	icon: hvrtnkicon
+	icon:
+		Filename: hvrtnkicon.shp
 
 hvrtnkhvr:
-	Defaults: hvrtnk
+	Defaults:
+		Filename: hvrtnk.shp
 	idle:
 		Start: 77
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
 	make:
 		Start: 65
 		Length: 12
-	icon: placeholder
+	icon:
+		Filename: placeholder.shp
 	
 hvrtnkhvrhusk:
-	Defaults: hvrtnk
+	Defaults:
+		Filename: hvrtnk.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
 	make:
 		Start: 65
 		Length: 12
-	icon: placeholder
+	icon:
+		Filename: placeholder.shp
 	
 ttnk:
+	Defaults:
+		Filename: ttnk.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
 	spinner:
 		Start: 32
 		Length: 1
-	icon: ttnkicon
+	icon:
+		Filename: ttnkicon.shp
 	
 flmtnk:
 	idle:
+		Filename: flmtnk.shp
 		Facings: 32
 		UseClassicFacings: True
-	icon: flmtnkicon
+	icon:
+		Filename: flmtnkicon.shp
 
 firelancer:
 	idle:
+		Filename: firelancer.shp
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: flameall
+	muzzle:
+		Filename: flameall.shp
 		Length: 19
 		Facings: -8
 		Tick: 30
 		ZOffset: 1023
 		Offset: 0, 0, 24
-	icon: firelancericon
+	icon:
+		Filename: firelancericon.shp
 
 sonique:
 	idle:
+		Filename: sonique.shp
 		Facings: 32
 		UseClassicFacings: True
-	icon: soniqueicon
+	icon:
+		Filename: soniqueicon.shp
 
 marksman:
+	Defaults:
+		Filename: marksman.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -1068,11 +2095,15 @@ marksman:
 		Start: 63
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: gunfire2
+	muzzle:
+		Filename: gunfire2.shp
 		Length: 2
-	icon: marksmanicon
+	icon:
+		Filename: marksmanicon.shp
 
 tsqtnk:
+	Defaults:
+		Filename: tsqtnk.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -1080,28 +2111,37 @@ tsqtnk:
 		Start: 32
 		Facings: 8
 		Length: 8
-	icon: tsqtnkicon
+	icon:
+		Filename: tsqtnkicon.shp
 	
 ectnk:
 	idle:
+		Filename: ectnk.shp
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	icon: ectnkicon
+	icon:
+		Filename: ectnkicon.shp
 	
 sthtnk:
 	idle:
+		Filename: sthtnk.shp
 		Facings: 32
 		UseClassicFacings: True
-	icon: sthtnkicon
-	
-bigbertha:
+	icon:
+		Filename: sthtnkicon.shp
+
+augustus:
+	Defaults:
+		Filename: augustus.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
 	open:
@@ -1109,17 +2149,50 @@ bigbertha:
 		Length: 3
 	unload:
 		Start: 32
-	make: bigbertha
+	make:
+		Filename: augustus.shp
 		Start: 32
 		Length: 20
 		Tick: 80
-	turret: bigbertha
+	turret:
+		Filename: augustus.shp
 		Start: 52
 		Facings: 32
 		UseClassicFacings: True
-	icon: bigberthaicon
+	icon:
+		Filename: augustusicon.shp
+
+bigbertha:
+	Defaults:
+		Filename: bigbertha.shp
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	open:
+		Start: 32
+		Length: 3
+	unload:
+		Start: 32
+	make:
+		Filename: bigbertha.shp
+		Start: 32
+		Length: 20
+		Tick: 80
+	turret:
+		Filename: bigbertha.shp
+		Start: 52
+		Facings: 32
+		UseClassicFacings: True
+	icon:
+		Filename: bigberthaicon.shp
 
 testudo:
+	Defaults:
+		Filename: testudo.shp
 	idle:
 		Start: 150
 		Facings: 32
@@ -1131,31 +2204,40 @@ testudo:
 		UseClassicFacings: True
 		Length: 3
 	muzzle-mg1: minigun
+		Filename:
 		Length: 12
 		Facings: 8
 		Combine:
-			minigun:
+			0:
+				Filename: minigun.shp
 				Length: 12
 				Frames: 0,1,2,3,4,5,0,1,2,3,4,5
-			minigun:
+			1:
+				Filename: minigun.shp
 				Length: 12
 				Frames: 6,7,8,9,10,11,6,7,8,9,10,11
-			minigun:
+			2:
+				Filename: minigun.shp
 				Length: 12
 				Frames: 12,13,14,15,16,17,12,13,14,15,16,17
-			minigun:
+			3:
+				Filename: minigun.shp
 				Length: 12
 				Frames: 18,19,20,21,22,23,18,19,20,21,22,23
-			minigun:
+			4:
+				Filename: minigun.shp
 				Length: 12
 				Frames: 24,25,26,27,28,29,24,25,26,27,28,29
-			minigun:
+			5:
+				Filename: minigun.shp
 				Length: 12
 				Frames: 30,31,32,33,34,35,30,31,32,33,34,35
-			minigun:
+			6:
+				Filename: minigun.shp
 				Length: 12
 				Frames: 36,37,38,39,40,41,36,37,38,39,40,41
-			minigun:
+			7:
+				Filename: minigun.shp
 				Length: 12
 				Frames: 42,43,44,45,46,47,42,43,44,45,46,47
 	make:
@@ -1171,48 +2253,63 @@ testudo:
 		Start: 184
 		Facings: 32
 		UseClassicFacings: True
-	bib: mbSILO
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbSILO.tem
+			DESERT: mbSILO.des
 		Length: *
-		UseTilesetExtension: true
 		ZOffset: -9000
 		Offset: 2,-5
-	crumble-overlay: dig
+	crumble-overlay:
+		Filename: dig.shp
 		Length: *
 		ZOffset: 511
 		Offset: 0, 0, 24
-	icon: testudoicon
+	icon:
+		Filename: testudoicon.shp
 
 bigberthagun:
-	idle: gunmake
-	damaged-idle: gunmake
-	turret: bigbertha
+	idle:
+		Filename: gunmake.shp
+	damaged-idle:
+		Filename: gunmake.shp
+	turret:
+		Filename: bigbertha.shp
 		Start: 52
 		Facings: 32
 		UseClassicFacings: True
-	damaged-turret: 52
+	damaged-turret:
+		Filename: bigbertha.shp
 		Start: 52
 		Facings: 32
 		UseClassicFacings: True
-	make: bigbertha
+	make:
+		Filename: bigbertha.shp
 		Start: 32
 		Length: 20
 		Tick: 80
-	recoil: bigbertha
+	recoil:
+		Filename: bigbertha.shp
 		Start: 52
 		Facings: 32
 		UseClassicFacings: True
-	damaged-turret: bigbertha
+	damaged-turret:
+		Filename: bigbertha.shp
 		Start: 52
 		Facings: 32
 		UseClassicFacings: True
-	damaged-recoil: bigbertha
+	damaged-recoil:
+		Filename: bigbertha.shp
 		Start: 52
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: gunfire2
+	muzzle:
+		Filename: gunfire2.shp
 		Length: 5
 
-racer:
+molerat:
+	Defaults:
+		Filename: molerat.shp
 	idle:
 		Start: 99
 		Facings: 32
@@ -1223,9 +2320,133 @@ racer:
 		UseClassicFacings: True
 		Length: 3
 		Tick: 40
-	icon: racericon
+	icon:
+		Filename: moleraticon.shp
 
-bggy:
+racer:
+	Defaults:
+		Filename: racer.shp
+	idle:
+		Start: 99
+		Facings: 32
+		UseClassicFacings: True
+	move:
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+		Length: 3
+		Tick: 40
+	icon:
+		Filename: racericon.shp
+
+scorpion:
+	Defaults:
+		Filename: scorpion_1.shp
+	idle:
+		Start: 100
+		Facings: 32
+		UseClassicFacings: True
+	idle2:
+		Filename: scorpion_2.shp
+		Start: 100
+		Facings: 32
+		UseClassicFacings: True
+	idle3:
+		Filename: scorpion_3.shp
+		Start: 100
+		Facings: 32
+		UseClassicFacings: True
+	move:
+		Start: 1
+		Facings: 32
+		UseClassicFacings: True
+		Length: 3
+		Tick: 40
+	move2:
+		Filename: scorpion_2.shp
+		Start: 1
+		Facings: 32
+		UseClassicFacings: True
+		Length: 3
+		Tick: 40
+	move3:
+		Filename: scorpion_3.shp
+		Start: 1
+		Facings: 32
+		UseClassicFacings: True
+		Length: 3
+		Tick: 40
+	turret:
+		Filename: scorpion_turret.shp
+		Start: 1
+		Facings: 32
+		UseClassicFacings: True
+	turret2:
+		Filename: scorpion_turret.shp
+		Start: 35
+		Facings: 32
+		UseClassicFacings: True
+	turret3:
+		Filename: scorpion_turret.shp
+		Start: 69
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 2
+	muzzle-mg:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: scorpionicon.shp
+
+technical:
+	Defaults:
+		Filename: technical.shp
+	idle:
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+	idle2:
+		Filename: technical.shp
+		Start: 66
+		Facings: 32
+		UseClassicFacings: True
+	idle3:
+		Filename: technical.shp
+		Start: 99
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Filename: technical.shp
+		Start: 132
+		Facings: 32
+		UseClassicFacings: True
+	turret2:
+		Filename: technical.shp
+		Start: 165
+		Facings: 32
+		UseClassicFacings: True
+	turret3:
+		Filename: technical.shp
+		Start: 198
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	muzzle-mg:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: technicalicon.shp
+
+marauder:
+	Defaults:
+		Filename: marauder.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -1233,12 +2454,166 @@ bggy:
 		Start: 32
 		Facings: 32
 		UseClassicFacings: True
-	muzzle: minigun
+	muzzle:
+		Filename: minigun.shp
 		Length: 6
 		Facings: 8
-	icon: bggyicon
+	icon:
+		Filename: maraudericon.shp
+
+bggy:
+	Defaults:
+		Filename: bggy.shp
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: bggyicon.shp
+
+kintnk:
+	Defaults:
+		Filename: kintnk.shp
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	idle2:
+		Start: 33
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: kintnkicon.shp
+
+quad:
+	Defaults:
+		Filename: quad.shp
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Filename: fr.shp
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	turret-ag:
+		Filename: fr.shp
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: quadicon.shp
+
+shatterer:
+	Defaults:
+		Filename: shatterer.shp
+	idle:
+		Filename: empty32.shp
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: shatterericon.shp
+
+mictnk:
+	Defaults:
+		Filename: mictnk.shp
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Facings: 32
+		UseClassicFacings: True
+		Start: 33
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: mictnkicon.shp
+
+wiesel:
+	Defaults:
+		Filename: wiesel.shp
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Facings: 32
+		UseClassicFacings: True
+		Start: 33
+	turret-aa:
+		Facings: 32
+		UseClassicFacings: True
+		Start: 65
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: wieselicon.shp
+
+laserquad:
+	Defaults:
+		Filename: laserquad.shp
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Facings: 32
+		UseClassicFacings: True
+		Start: 33
+	turret-aa:
+		Facings: 32
+		UseClassicFacings: True
+		Start: 65
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: laserquadicon.shp
+
+drake:
+	Defaults:
+		Filename: drake.shp
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Facings: 32
+		UseClassicFacings: True
+		Start: 33
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: drakeicon.shp
 
 teledrone:
+	Defaults:
+		Filename: teledrone.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -1246,41 +2621,73 @@ teledrone:
 		Start: 33
 		Facings: 32
 		UseClassicFacings: True
-	icon: beetleicon
-	
-orda:
+	icon:
+		Filename: beetleicon.shp
+
+mgteledrone:
+	Defaults:
+		Filename: mgteledrone.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
-	icon: ordaicon
+	turret:
+		Filename: mgteledrone.shp
+		Start: 33
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: roachicon.shp
+
+orda:
+	idle:
+		Filename: orda.shp
+		Facings: 32
+		UseClassicFacings: True
+	icon:
+		Filename: ordaicon.shp
 	
 ordadeployed:
 	Defaults:
+		Filename: ordadeployed.shp
 		Offset: 0,-12
-	idle: orda
+	idle:
+		Filename: orda.shp
 		Start: 56
 		Length: 1
-	make: orda
+	make:
+		Filename: orda.shp
 		Start: 33
 		Length: 23
 		Tick: 110
-	bib: mbPDOX
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbPDOX.tem
+			DESERT: mbPDOX.des
 		Length: *
 		Offset: 0,-4
-		UseTilesetExtension: true
-	icon: ordaicon
+	icon:
+		Filename: ordaicon.shp
 	
 louchuan:
 	idle:
+		Filename: louchuan.shp
 		Facings: 32
 		UseClassicFacings: True
-	icon: louchuanicon
+	icon:
+		Filename: louchuanicon.shp
 
 sapper:
+	Defaults:
+		Filename: sapper.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
-	digging: empty32
+	digging:
+		Filename: empty32.shp
 		Facings: 32
 		UseClassicFacings: True
 	attack:
@@ -1289,4 +2696,5 @@ sapper:
 		UseClassicFacings: True
 		Length: 3
 		Tick: 60
-	icon: sappericon
+	icon:
+		Filename: sappericon.shp

@@ -26,6 +26,11 @@ Graphics:
 -Presbyter icon: Lucipurr
 -Various tiles by Allen_262 and Vesa Piitinen
 -Hospital by EoralMilk
+-Crazy Ali explosion by ppap11404
+-Earthquake by ppap11404
+-Electricity by ppap11404
+-Kinetic weapon by maikhoamKv
+-Current ring by ppap11404
 
 Various icons
 -Mig Eater from Revora.net

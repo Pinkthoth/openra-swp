@@ -1,10 +1,10 @@
-﻿#region Copyright & License Information
-/*
- * Copyright 2015- OpenRA.Mods.AS Developers (see AUTHORS)
- * This file is a part of a third-party plugin for OpenRA, which is
- * free software. It is made available to you under the terms of the
- * GNU General Public License as published by the Free Software
- * Foundation. For more information, see COPYING.
+﻿﻿#region Copyright & License Information
+/**
+ * Copyright (c) The OpenRA Combined Arms Developers (see CREDITS).
+ * This file is part of OpenRA Combined Arms, which is free software.
+ * It is made available to you under the terms of the GNU General Public License
+ * as published by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version. For more information, see COPYING.
  */
 #endregion
 
@@ -16,7 +16,7 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.Swp.Traits.Render
 {
-	public class WithSpawnerMasterPipsDecorationInfo : WithDecorationBaseInfo, Requires<BaseSpawnerMasterInfo>
+	public class WithSpawnerMasterPipsDecorationInfo : WithDecorationBaseInfo, Requires<SpawnerMasterBaseInfo>
 	{
 		[Desc("If non-zero, override the spacing between adjacent pips.")]
 		public readonly int2 PipStride = int2.Zero;
@@ -45,13 +45,13 @@ namespace OpenRA.Mods.Swp.Traits.Render
 	public class WithSpawnerMasterPipsDecoration : WithDecorationBase<WithSpawnerMasterPipsDecorationInfo>
 	{
 		readonly Animation pips;
-		readonly BaseSpawnerMaster spawner;
+		readonly SpawnerMasterBase spawner;
 
 		public WithSpawnerMasterPipsDecoration(Actor self, WithSpawnerMasterPipsDecorationInfo info)
 			: base(self, info)
 		{
 			pips = new Animation(self.World, info.Image);
-			spawner = self.Trait<BaseSpawnerMaster>();
+			spawner = self.Trait<SpawnerMasterBase>();
 		}
 
 		protected override IEnumerable<IRenderable> RenderDecoration(Actor self, WorldRenderer wr, int2 screenPos)

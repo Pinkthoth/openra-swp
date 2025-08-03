@@ -1,3 +1,54 @@
+PARASITE:
+	Inherits: ^Plane
+	Tooltip:
+		GenericName: Parasite
+		Name: Parasite
+	Aircraft:
+		CanHover: True
+		CruisingCondition: cruising
+		WaitDistanceFromResupplyBase: 4c0
+		TakeOffOnResupply: true
+		VTOL: true
+		LandableTerrainTypes: Clear, Rough, Road, Ore, Beach, Gems, TallGrass, Pavement, PavedRoad
+		CanSlide: True
+		CruiseAltitude: 0c01
+	GpsDot:
+		String: Helicopter
+	GpsRadarDot:
+		Sequence: Helicopter
+	Hovers@CRUISING:
+		RequiresCondition: cruising
+	Targetable@AIRBORNE:
+		RequiresCondition: airborne && !being-warped
+		TargetTypes: AirborneActor
+	BodyOrientation:
+		QuantizedFacings: 0
+		CameraPitch: 85
+	-RenderSprites:
+	-SpawnActorOnDeath:
+	Health:
+		HP: 1000
+	-Repairable:
+	Attachable:
+		Type: Parasite
+		TargetTypes: Invadeable
+		ValidRelationships: Ally
+		MinAttachDistance: 1c512
+		OnAttachTransformInto: parasite.attached
+		OnDetachTransformInto: parasite
+		HostLostAction: Detach
+	RevealsShroud:
+		Range: 2c512
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RenderSpritesEditorOnly:
+		Image: hind
+	-Selectable:
+	-SelectionDecorations:
+	Interactable:
+		Bounds: 100,100
+	RejectsOrders:
+
 BADR:
 	Inherits: ^NeutralPlane
 	Targetable@AIRBORNE:
@@ -66,8 +117,8 @@ DEDMAROZ:
 	-Tooltip:
 	-Health:
 	-SpawnActorOnDeath:
-	-Explodes:
-	-Explodes@chrono:
+	-FireWarheadsOnDeath:
+	-FireWarheadsOnDeath@chrono:
 	-GivesExperience:
 	-GrantConditionOnDamageState@SmokeTrail:
 	-LeavesTrails@0:
@@ -177,12 +228,6 @@ AGUILA.Interceptor:
 HOSPITALLER:
 	Inherits: ^Plane
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Buildable:
-		Queue: Aircraft
-		BuildAtProductionType: Plane
-		BuildPaletteOrder: 800
-		Prerequisites: ~afld, techcenter, ~atektech, ~techlevel.high
-		Description: Phase anti-vehicle attack plane.
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles.
 		Weaknesses: - Weak vs Infantry, Aircraft.
@@ -262,7 +307,7 @@ HOSPITALLER:
 	Hovers:
 		RequiresCondition: !moving && airborne
 	Cloak:
-		Palette: newcloak
+		CloakedPalette: newcloak
 		InitialDelay: 125
 		CloakDelay: 175
 		CloakSound: appear1.aud
@@ -279,13 +324,13 @@ HOSPITALLER:
 TRANSPORTPLANE:
 	Inherits: BADR
 	GrantConditionOnFaction@komintern:
-		Factions: russia, ukraine, china, mongolia, kazakhstan, belarus
+		Factions: russia, ukraine, china, mongolia, kazakhstan, belarus, arabia, transcaucasia
 		Condition: komintern
 	GrantConditionOnFaction@zentrum:
-		Factions: germany, austria, italy, turkey, bulgaria, persia
+		Factions: germany, austria, italy, turkey, bulgaria, persia, abyssinia
 		Condition: zentrum
 	GrantConditionOnFaction@entente:
-		Factions: usa, france, england, japan, serbia, raj
+		Factions: usa, france, england, japan, serbia, raj, egypt
 		Condition: entente
 	RenderSprites:
 		Image: transportplane
@@ -302,7 +347,7 @@ TRANSPORTPLANE:
 		Sequence: junkers-idle
 		RequiresCondition: zentrum
 	Tooltip:
-		Name: Badger
+		Name: Lisunov
 		RequiresCondition: komintern
 	Tooltip@entente:
 		Name: Douglas
@@ -341,13 +386,13 @@ SUPPORT.Bomber:
 	Armament:
 		Weapon: ParaBomb
 	GrantConditionOnFaction@komintern:
-		Factions: russia, ukraine, china, mongolia, kazakhstan, belarus
+		Factions: russia, ukraine, china, mongolia, kazakhstan, belarus, arabia, transcaucasia
 		Condition: komintern
 	GrantConditionOnFaction@zentrum:
-		Factions: germany, austria, italy, turkey, bulgaria, persia
+		Factions: germany, austria, italy, turkey, bulgaria, persia, abyssinia
 		Condition: zentrum
 	GrantConditionOnFaction@entente:
-		Factions: usa, france, england, japan, serbia, raj
+		Factions: usa, france, england, japan, serbia, raj, egypt
 		Condition: entente
 	RenderSprites:
 		Image: transportplane
@@ -364,7 +409,7 @@ SUPPORT.Bomber:
 		Sequence: junkers-idle
 		RequiresCondition: zentrum
 	Tooltip:
-		Name: Badger
+		Name: Lisunov
 		RequiresCondition: komintern
 	Tooltip@entente:
 		Name: Douglas
@@ -387,13 +432,13 @@ SUPPORT.Minebomber:
 	Armament:
 		Weapon: ParaMine
 	GrantConditionOnFaction@komintern:
-		Factions: russia, ukraine, china, mongolia, kazakhstan
+		Factions: russia, ukraine, china, mongolia, kazakhstan, belarus, arabia, transcaucasia
 		Condition: komintern
 	GrantConditionOnFaction@zentrum:
-		Factions: germany, austria, italy, turkey, bulgaria
+		Factions: germany, austria, italy, turkey, bulgaria, persia, abyssinia
 		Condition: zentrum
 	GrantConditionOnFaction@entente:
-		Factions: usa, france, england, japan, serbia
+		Factions: usa, france, england, japan, serbia, raj, egypt
 		Condition: entente
 	RenderSprites:
 		Image: transportplane
@@ -421,18 +466,62 @@ SUPPORT.Minebomber:
 	SpawnActorOnDeath:
 		Actor: TRANSPORTPLANE.Husk
 
-THUNDERBOLT.Bomber:
+SUPPORT.NapalmSpiller:
 	Inherits: BADR
-	Tooltip:
-		Name: Thunderbolt
 	-ParaDrop:
 	-Cargo:
 	-MapEditorData:
-	RenderSprites:
-		Image: a10
 	AttackBomber:
 		FacingTolerance: 8
-		Armaments: primary, secondary
+	AmmoPool:
+		Ammo: 10
+	Armament:
+		Weapon: ParaNapalm
+	GrantConditionOnFaction@komintern:
+		Factions: russia, ukraine, china, mongolia, kazakhstan, belarus, arabia, transcaucasia
+		Condition: komintern
+	GrantConditionOnFaction@zentrum:
+		Factions: germany, austria, italy, turkey, bulgaria, persia, abyssinia
+		Condition: zentrum
+	GrantConditionOnFaction@entente:
+		Factions: usa, france, england, japan, serbia, raj, egypt
+		Condition: entente
+	RenderSprites:
+		Image: transportplane
+	WithFacingSpriteBody:
+		Name: kombody
+		Sequence: badr-idle
+		RequiresCondition: komintern
+	WithFacingSpriteBody@entente:
+		Name: entbody
+		Sequence: douglas-idle
+		RequiresCondition: entente
+	WithFacingSpriteBody@zentrum:
+		Name: zentbody
+		Sequence: junkers-idle
+		RequiresCondition: zentrum
+	Tooltip:
+		Name: Lisunov
+		RequiresCondition: komintern
+	Tooltip@entente:
+		Name: Douglas
+		RequiresCondition: entente
+	Tooltip@komintern:
+		Name: Junkers
+		RequiresCondition: zentrum
+	SpawnActorOnDeath:
+		Actor: TRANSPORTPLANE.Husk
+
+THUNDERBOLT.Bomber:
+	Inherits: ^Plane
+	Tooltip:
+		Name: MIG Attack Plane
+	-MapEditorData:
+	RenderSprites:
+		Image: mig
+	AttackBomber:
+		FacingTolerance: 8
+		Armaments: primary
 	Armament:
 		Weapon: EMPBomb
 	Aircraft:
@@ -441,13 +530,7 @@ THUNDERBOLT.Bomber:
 		RepulsionSpeed: 40
 		MaximumPitch: 56
 	SpawnActorOnDeath:
-		Actor: A10.Husk
-	Armament@secondary:
-		Name: secondary
-		Weapon: ChainGun.A10
-		LocalOffset: 700,0,0
-		MuzzleSequence: muzzle
-		PauseOnCondition: !airborne
+		Actor: MIG.Husk
 	GrantConditionOnAttack@attacking:
 		Condition: attacking
 		RevokeDelay: 50
@@ -458,7 +541,12 @@ THUNDERBOLT.Bomber:
 		Interval: 100
 		RequiresCondition: attacking
 	WithMuzzleOverlay:
-	
+	Health:
+		HP: 10000
+	-Selectable:
+	RejectsOrders:
+	Interactable:
+	-SelectionDecorations:
 
 ANT40:
 	Inherits: YAK
@@ -524,7 +612,7 @@ ANT40:
 	Contrail@2:
 		Offset: 0,553,0
 	Buildable:
-		Prerequisites: ~afld, stek, ~aircraft.komintern, ~techlevel.high
+		Prerequisites: ~afld, commcent, ~aircraft.tacticalbomber, ~techlevel.high
 		Description: Slow bomber that drops incendiary bombs.
 		BuildPaletteOrder: 450
 	TooltipExtras:
@@ -537,14 +625,335 @@ ANT40:
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
 
+SUPERBOMBER:
+	Inherits: YAK
+	Inherits@HighAltitude: ^HighAltitudePlane
+	-Buildable:
+	Tooltip:
+		Name: Seismobomber
+	Health:
+		HP: 19000
+	SpawnActorOnDeath:
+		Actor: SUPERBOMBER.Husk
+	Armament@PRIMARY:
+		Weapon: Superbomb
+		LocalOffset: 350,-213,-100
+		MuzzleSequence: muzzle
+		PauseOnCondition: !ammo || !airborne
+	AttackAircraft:
+		Armaments: primary, secondary
+	AmmoPool:
+		Ammo: 1
+		ReloadDelay: 250
+		AmmoCondition: ammo
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		Margin: 4, 3
+		RequiresSelection: true
+		PipCount: 1
+		EmptySequence: pip-emptyammo
+		FullSequence: pip-bomb
+	Aircraft:
+		Speed: 120
+		IdleTurnSpeed: 8
+		TurnSpeed: 12
+	-WithMuzzleOverlay:
+	Targetable@AIRBORNE:
+		RequiresCondition: airborne
+		TargetTypes: AirborneBomber
+	LeavesTrails:
+		Offsets: -1,860,0
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+		RequiresCondition: enable-smoke
+	LeavesTrails@1:
+		Offsets: -1,-860,0
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+		RequiresCondition: enable-smoke
+	LeavesTrails@3:
+		Offsets: -1,1060,0
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+		RequiresCondition: enable-smoke
+	LeavesTrails@4:
+		Offsets: -1,-1060,0
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+		RequiresCondition: enable-smoke
+	Contrail:
+		Offset: 0,-953,0
+	Contrail@2:
+		Offset: 0,953,0
+	Contrail@3:
+		Offset: 100,-1353,0
+	Contrail@4:
+		Offset: 100,1353,0
+	TooltipExtras:
+		Strengths: + Strong vs Buildings, Defenses.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
+	Valued:
+		Cost: 2200
+	Selectable:
+		DecorationBounds: 1606, 1606, 0, 0
+	GrantConditionOnDamageState@SmokeTrail:
+		Condition: enable-smoke
+	WithFacingSpriteBody:
+		RequiresCondition: ammo
+	WithFacingSpriteBody@empty:
+		RequiresCondition: !ammo
+		Sequence: idle-empty
+		Name: body2
+
+MOSQUITO:
+	Inherits: YAK
+	Inherits@HighAltitude: ^HighAltitudePlane
+	-Buildable:
+	Tooltip:
+		Name: Mosquito
+	Health:
+		HP: 12000
+	SpawnActorOnDeath:
+		Actor: MOSQUITO.Husk
+	Armament@PRIMARY:
+		Weapon: MosquitoBombs
+		LocalOffset: 350,0,-100
+		MuzzleSequence: muzzle
+		PauseOnCondition: !ammo || !airborne
+	Armament@tertiary:
+		Name: tertiary
+		Weapon: MesserschmittAutocannon.AA
+		LocalOffset: 256,-213,0
+		MuzzleSequence: muzzle
+		PauseOnCondition: !ammo2 || !airborne
+	AttackAircraft:
+		Armaments: primary, secondary, tertiary
+	AmmoPool:
+		Ammo: 12
+		ReloadDelay: 11
+		AmmoCondition: ammo
+	AmmoPool@2:
+		Ammo: 12
+		ReloadDelay: 11
+		Name: ammo2
+		AmmoCondition: ammo2
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		Margin: 4, 3
+		RequiresSelection: true
+		PipCount: 3
+		EmptySequence: pip-emptyammo
+		FullSequence: pip-bomb
+	Aircraft:
+		Speed: 140
+		IdleTurnSpeed: 8
+		TurnSpeed: 18
+	-WithMuzzleOverlay:
+	Targetable@AIRBORNE:
+		RequiresCondition: airborne
+		TargetTypes: AirborneBomber
+	LeavesTrails@0:
+		Offsets: -432,560,0
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+		RequiresCondition: enable-smoke
+	LeavesTrails@1:
+		Offsets: -432,-560,0
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+		RequiresCondition: enable-smoke
+	Contrail:
+		Offset: 0,-553,0
+	Contrail@2:
+		Offset: 0,553,0
+	TooltipExtras:
+		Strengths: + Strong vs Buildings, Defenses.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
+	Valued:
+		Cost: 1800
+	Selectable:
+		DecorationBounds: 1606, 1606, 0, 0
+	GrantConditionOnDamageState@SmokeTrail:
+		Condition: enable-smoke
+
+NAPALMBOMBER:
+	Inherits: YAK
+	Inherits@HighAltitude: ^HighAltitudePlane
+	-Buildable:
+	Tooltip:
+		Name: Dragon
+	Health:
+		HP: 12000
+	SpawnActorOnDeath:
+		Actor: MOSQUITO.Husk
+	Armament@PRIMARY:
+		Weapon: DragonFlamer
+		LocalOffset: 350,-213,-100
+		MuzzleSequence: muzzle
+		PauseOnCondition: !ammo || !airborne
+	Armament@SECONDARY:
+		Name: secondary
+		Weapon: DragonFlamer
+		LocalOffset: 350,213,-100
+		MuzzleSequence: muzzle
+		PauseOnCondition: !ammo || !airborne
+	AttackAircraft:
+		Armaments: primary, secondary
+	AmmoPool:
+		Ammo: 240
+		ReloadDelay: 11
+		AmmoCondition: ammo
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		Margin: 4, 3
+		RequiresSelection: true
+		PipCount: 3
+		EmptySequence: pip-emptyammo
+		FullSequence: pip-bomb
+	Aircraft:
+		Speed: 140
+		IdleTurnSpeed: 8
+		TurnSpeed: 18
+	-WithMuzzleOverlay:
+	Targetable@AIRBORNE:
+		RequiresCondition: airborne
+		TargetTypes: AirborneBomber
+	LeavesTrails@0:
+		Offsets: -432,560,0
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+		RequiresCondition: enable-smoke
+	LeavesTrails@1:
+		Offsets: -432,-560,0
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+		RequiresCondition: enable-smoke
+	Contrail:
+		Offset: 0,-553,0
+	Contrail@2:
+		Offset: 0,553,0
+	Valued:
+		Cost: 1800
+	Selectable:
+		DecorationBounds: 1606, 1606, 0, 0
+	GrantConditionOnDamageState@SmokeTrail:
+		Condition: enable-smoke
+	RenderSprites:
+		Image: napalmbomber
+
+CRYOBOMBER:
+	Inherits: YAK
+	Inherits@HighAltitude: ^HighAltitudePlane
+	-Buildable:
+	Tooltip:
+		Name: Cryo Bomber
+	Health:
+		HP: 12000
+	SpawnActorOnDeath:
+		Actor: CRYOBOMBER.Husk
+	Armament@PRIMARY:
+		Weapon: DragonFlamer
+		LocalOffset: 350,-213,-100
+		MuzzleSequence: muzzle
+		PauseOnCondition: !ammo || !airborne
+	Armament@SECONDARY:
+		Name: secondary
+		Weapon: DragonFlamer
+		LocalOffset: 350,213,-100
+		MuzzleSequence: muzzle
+		PauseOnCondition: !ammo || !airborne
+	AttackAircraft:
+		Armaments: primary, secondary
+	AmmoPool:
+		Ammo: 240
+		ReloadDelay: 11
+		AmmoCondition: ammo
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		Margin: 4, 3
+		RequiresSelection: true
+		PipCount: 3
+		EmptySequence: pip-emptyammo
+		FullSequence: pip-bomb
+	Aircraft:
+		Speed: 140
+		IdleTurnSpeed: 8
+		TurnSpeed: 18
+	-WithMuzzleOverlay:
+	Targetable@AIRBORNE:
+		RequiresCondition: airborne
+		TargetTypes: AirborneBomber
+	LeavesTrails@0:
+		Offsets: -432,560,0
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+		RequiresCondition: enable-smoke
+	LeavesTrails@1:
+		Offsets: -432,-560,0
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+		RequiresCondition: enable-smoke
+	Contrail:
+		Offset: 0,-553,0
+	Contrail@2:
+		Offset: 0,553,0
+	Valued:
+		Cost: 1800
+	Selectable:
+		DecorationBounds: 1606, 1606, 0, 0
+	GrantConditionOnDamageState@SmokeTrail:
+		Condition: enable-smoke
+	RenderSprites:
+		Image: cryobomber
+
 MIG:
 	Inherits: ^Plane
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMovePlusBombers
 	Buildable:
 		Queue: Aircraft
 		BuildAtProductionType: Plane
-		BuildPaletteOrder: 410
-		Prerequisites: ~afld, stek, ~aircraft.komintern, ~techlevel.high
+		BuildPaletteOrder: 460
+		Prerequisites: ~afld, stek, ~aircraft.mig, ~techlevel.high
 		Description: Fast general purpose a plane.
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles, Aircraft.
@@ -599,6 +1008,82 @@ MIG:
 		Offset: -853,0,0
 	SpawnActorOnDeath:
 		Actor: MIG.Husk
+	LeavesTrails:
+		Offsets: -853,0,171
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+		RequiresCondition: enable-smoke
+	ProducibleWithLevel:
+		Prerequisites: aircraft.upgraded
+	Rearmable:
+		RearmActors: afld, sport
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		Margin: 4, 3
+		PipCount: 3
+		RequiresSelection: true
+		EmptySequence: pip-emptyammo
+		FullSequence: pip-missile
+	GrantConditionOnDamageState@SmokeTrail:
+		Condition: enable-smoke
+
+TESLAPLANE:
+	Inherits: ^Plane
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMovePlusBombers
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Tesla Plane
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 10000
+	RevealsShroud:
+		MinRange: 11c0
+		Range: 13c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 11c0
+		Type: GroundPosition
+	Armament:
+		Weapon: Maverick
+		LocalOffset: 0,-640,0, 0,640,0
+		LocalYaw: -40, 24
+		PauseOnCondition: !ammo || !airborne
+	Armament@secondary:
+		Name: secondary
+		Weapon: MaverickAA
+		LocalOffset: 0,-640,0, 0,640,0
+		LocalYaw: -40, 24
+		PauseOnCondition: !ammo || !airborne
+	AttackAircraft:
+		Armaments: primary, secondary
+		FacingTolerance: 80
+		PersistentTargeting: false
+		OpportunityFire: False
+	Aircraft:
+		TurnSpeed: 16
+		Speed: 185
+		RepulsionSpeed: 40
+		MaximumPitch: 56
+	AutoTarget:
+		InitialStance: HoldFire
+		InitialStanceAI: HoldFire
+	AmmoPool:
+		Ammo: 6
+		AmmoCondition: ammo
+	Selectable:
+		Bounds: 1406, 1406, 0, 120
+		DecorationBounds: 1406, 1406, 0, 60
+	Contrail:
+		Offset: -853,0,0
+	SpawnActorOnDeath:
+		Actor: TESLAPLANE.Husk
 	LeavesTrails:
 		Offsets: -853,0,171
 		MovingInterval: 2
@@ -710,14 +1195,95 @@ YAK:
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
 
+BANSHEE:
+	Inherits: ^Plane
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMovePlusBombers
+	Buildable:
+		Queue: Aircraft
+		BuildAtProductionType: Plane
+		BuildPaletteOrder: 1000
+		Prerequisites: ~aircraft.ukraine, stek
+		Description: Experimental attack plane armed magnetic bolts.
+	TooltipExtras:
+		Strengths: + Strong vs Aircraft.
+		Weaknesses: - Weak vs Vehicles, Infantry.
+	Valued:
+		Cost: 1350
+	Tooltip:
+		Name: Banshee
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 7000
+	RevealsShroud:
+		MinRange: 9c0
+		Range: 11c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 9c0
+		Type: GroundPosition
+	Armament@PRIMARY:
+		Name: primary
+		Weapon: SM_ElectricBoltBanshee
+		LocalOffset: 256,-213,0, 256,-213,0
+		PauseOnCondition: !ammo || !airborne
+	AttackAircraft:
+		Armaments: primary, secondary
+		FacingTolerance: 80
+		PersistentTargeting: false
+		OpportunityFire: False
+	Aircraft:
+		TurnSpeed: 19
+		Speed: 160
+		RepulsionSpeed: 40
+		MaximumPitch: 56
+	AutoTarget:
+		InitialStance: HoldFire
+		InitialStanceAI: HoldFire
+	AmmoPool:
+		Armaments: primary, secondary
+		Ammo: 10
+		ReloadDelay: 11
+		AmmoCondition: ammo
+	WithMuzzleOverlay:
+	Contrail:
+		Offset: -853,0,0
+	SpawnActorOnDeath:
+		Actor: BANSHEE.Husk
+	LeavesTrails:
+		Offsets: -853,0,0
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+		RequiresCondition: enable-smoke
+	ProducibleWithLevel:
+		Prerequisites: aircraft.upgraded
+	Selectable:
+		DecorationBounds: 1406, 1406, 0, 120
+	Rearmable:
+		RearmActors: afld, sport
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		Margin: 4, 3
+		RequiresSelection: true
+		PipCount: 7
+		EmptySequence: pip-emptyammo
+		FullSequence: pip-tech
+	GrantConditionOnDamageState@SmokeTrail:
+		Condition: enable-smoke
+
 TESLAHIND:
 	Inherits: ^Helicopter
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
-		BuildPaletteOrder: 225
-		Prerequisites: hpad, stek, ~helicopter.russia, ~techlevel.high
+		BuildPaletteOrder: 226
+		Prerequisites: afld, stek, ~aircraft.russia, ~techlevel.high
 		Description: Helicopter gunship armed with\nsmall dual tesla coils.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Vehicles.
@@ -799,15 +1365,81 @@ TESLAHIND:
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
 
-GATLINGHIND:
+HELIX:
 	Inherits: ^Helicopter
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CARGOPIPS: ^CargoPips
 	Buildable:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
-		BuildPaletteOrder: 225
-		Prerequisites: hpad, ~helicopter.belarus, ~techlevel.high
-		Description: Helicopter gunship armed with\nsmall dual gatling guns.
+		BuildPaletteOrder: 226
+		Prerequisites: afld, stek, ~aircraft.russia, ~techlevel.high
+		Description: Helicopter gunship armed with\nsmall dual tesla coils.
+	TooltipExtras:
+		Strengths: + Strong vs Infantry, Vehicles.
+		Weaknesses: - Weak vs Aircraft.
+		Attributes: • Slowly recharges ammo.
+	Valued:
+		Cost: 1900
+	Tooltip:
+		Name: Helix
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 10000
+	RevealsShroud:
+		MinRange: 8c0
+		Range: 10c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 8c0
+		Type: GroundPosition
+	AttackGarrisoned:
+		Armaments: garrisoned
+		PortOffsets: 384,0,128, 224,-341,128, -224,-341,128, -384,0,128, -224,341,128, 224,341,128
+		PortYaws: 0, 176, 341, 512, 682, 853
+		PortCones: 88, 88, 88, 88, 88, 88
+	Cargo:
+		Types: Infantry
+		MaxWeight: 4
+		LoadingCondition: notmobile
+	Turreted:
+	Aircraft:
+		TurnSpeed: 14
+		Speed: 90
+	AutoTarget:
+		InitialStance: HoldFire
+		InitialStanceAI: HoldFire
+	WithIdleOverlay@ROTORAIR:
+		Sequence: rotor
+		RequiresCondition: airborne
+		Offset: 50,0,200
+	WithIdleOverlay@ROTORGROUND:
+		Sequence: slow-rotor
+		RequiresCondition: !airborne
+		Offset: 50,0,200
+	SpawnActorOnDeath:
+		Actor: TESLAHIND.Husk
+	LeavesTrails:
+		Offsets: -427,0,0
+		Image: smokey
+		MovingInterval: 3
+		StationaryInterval: 3
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+		RequiresCondition: enable-smoke
+	ProducibleWithLevel:
+		Prerequisites: aircraft.upgraded
+	Selectable:
+		DecorationBounds: 1406, 1406
+	GrantConditionOnDamageState@SmokeTrail:
+		Condition: enable-smoke
+
+GATLINGHIND:
+	Inherits: ^Helicopter
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
@@ -975,8 +1607,8 @@ COLIBRI:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 225
-		Prerequisites: hpad, ~helicopter.serbia, ~techlevel.high
-		Description: Small helicopter, which changes\nit's weapon depending on the infantry inside.\n  Weak vs Aircraft
+		Prerequisites: ~aircraft.serbia
+		Description: Small helicopter.
 	TooltipExtras:
 		Strengths: + Strength depends on the cargo.
 		Weaknesses: - Weakness depends on the cargo.
@@ -1034,6 +1666,9 @@ COLIBRI:
 		DecorationBounds: 1406, 1406
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
+	AttackTurreted:
+		PauseOnCondition: turnedoff
+		Armaments: primary, secondary, tertiary
 	AmmoPool:
 		Armaments: secondary
 		Ammo: 1
@@ -1045,7 +1680,12 @@ COLIBRI:
 		Weapon: M1Carbine_elite
 		MuzzleSequence: muzzle
 		LocalOffset: 210,0,190
-		RequiresCondition: nochange || !hascargo || paslegionaire || passhinobi || pasofficer
+		RequiresCondition: nochange || !hascargo || paslegionaire || passhinobi || pasofficer || pasradist || pasmilpol
+	Armament@shotgun:
+		Weapon: Shotgun
+		MuzzleSequence: muzzle
+		LocalOffset: 210,0,190
+		RequiresCondition: paspenal
 	AmbientSound@gatlingspinning:
 		SoundFiles: turret_loop_11.wav
 		RequiresCondition: gatling && aiming && pashvgat
@@ -1065,12 +1705,32 @@ COLIBRI:
 		Weapon: PrismHandHeld
 		LocalOffset: 210,0,190
 		RequiresCondition: passtrmtrpr
+	Armament@Laser:
+		Weapon: Laser
+		LocalOffset: 210,0,190
+		RequiresCondition: pasimpg
+	Armament@paspanzerf:
+		Weapon: busterrocket
+		LocalOffset: 210,0,190
+		RequiresCondition: paspanzerf
+	Armament@ATRifle:
+		Weapon: ATRifle
+		LocalOffset: 210,0,190
+		RequiresCondition: pashunter
+	Armament@LazareneRifle:
+		Weapon: LazareneRifle
+		LocalOffset: 210,0,190
+		RequiresCondition: paswatch
+	Armament@pasprae:
+		Weapon: MicrowaveGuy
+		LocalOffset: 210,0,190
+		RequiresCondition: pasprae
 	Armament@pasnerveagent:
 		Weapon: ZombieGun
 		LocalOffset: 210,0,190
 		RequiresCondition: pasnerveagent
 	Armament@prim_e3:
-		Weapon: RedEye
+		Weapon: CaballeroRedEye
 		LocalOffset: 0,0,555
 		ReloadingCondition: primary-reloading
 		PauseOnCondition: secondary-reloading
@@ -1089,7 +1749,7 @@ COLIBRI:
 		RequiresCondition: paslegionaire
 		PauseOnCondition: !ammo
 	Armament@legionaireaamissile:
-		Name: secondarary
+		Name: tertiary
 		Weapon: LegionMissileAA
 		LocalOffset: 0,0,555
 		RequiresCondition: paslegionaire
@@ -1106,15 +1766,14 @@ COLIBRI:
 		LocalOffset: 300,0,0
 		MuzzleSequence: muzzle
 		RequiresCondition: pase11
-	Armament@secondary:
-		Name: secondary
-		LocalOffset: 300,0,0
-		Weapon: LightMachineGun2
-		RequiresCondition: pase11
 	Armament@tesla:
 		Weapon: PortaTesla
 		LocalOffset: 427,0,341
 		RequiresCondition: passhktrp
+	Armament@tesla2:
+		Weapon: TeslaCannon
+		LocalOffset: 427,0,341
+		RequiresCondition: passhok
 	Armament@tox:
 		Weapon: Toxxer
 		LocalOffset: 427,0,341
@@ -1147,6 +1806,16 @@ COLIBRI:
 		LocalOffset: 0,0,555
 		FireDelay: 15
 		RequiresCondition: pase2
+	Armament@DemomanGrenade:
+		Weapon: DemomanGrenade
+		LocalOffset: 0,0,555
+		FireDelay: 15
+		RequiresCondition: pasdemo
+	Armament@disc:
+		Weapon: Discus
+		LocalOffset: 0,0,555
+		FireDelay: 15
+		RequiresCondition: pasdisc
 	Armament@molotov:
 		Weapon: Molotov
 		LocalOffset: 0,0,555
@@ -1157,15 +1826,19 @@ COLIBRI:
 		LocalOffset: 427,0,341
 		RequiresCondition: passniper
 	Armament@nightwitch:
-		Weapon: WitchMG_Caballero
+		Weapon: SMMagneticBolt
 		LocalOffset: 427,0,341
 		RequiresCondition: pasngwtch
+	Armament@jumpjet:
+		Weapon: WitchMG_Caballero
+		LocalOffset: 427,0,341
+		RequiresCondition: pasjump
 		MuzzleSequence: muzzle
-	Armament@nightwitch2:
+	Armament@jumpjet2:
 		Name: secondary
 		Weapon: WitchMG_Caballero
 		LocalOffset: 427,0,341
-		RequiresCondition: pasngwtch
+		RequiresCondition: pasjump
 		MuzzleSequence: muzzle
 	Armament@desolator:
 		Name: primary
@@ -1186,6 +1859,9 @@ COLIBRI:
 		Weapon: GrenadeLauncher
 		LocalOffset: 427,0,341
 		RequiresCondition: pasgrenlnchr
+	Armament@initiate:
+		Weapon: MindBlast
+		RequiresCondition: pasinitiate || pasishmaelite
 	Armament@scavenger:
 		Weapon: HuskBreaker
 		Cursor: repair
@@ -1197,6 +1873,34 @@ COLIBRI:
 		Weapon: SM_ElectricBolt
 		LocalOffset: 427,0,341
 		RequiresCondition: pasbolter
+	Armament@maroznik:
+		Weapon: Marozzer
+		LocalOffset: 427,0,341
+		RequiresCondition: pasmaroznik
+	Armament@chronotrooper:
+		Weapon: NeutronCannon
+		FireDelay: 8
+		LocalOffset: 390,-60,300
+		PauseOnCondition: being-warped
+		RequiresCondition: paschronotrooper
+	Armament@volkov:
+		Weapon: VolkovTeslaCannon
+		FireDelay: 8
+		LocalOffset: 390,-60,300
+		PauseOnCondition: being-warped
+		RequiresCondition: pasvolkov
+	Armament@pase7:
+		Weapon: Colt45
+		FireDelay: 8
+		LocalOffset: 390,-60,300
+		PauseOnCondition: being-warped
+		RequiresCondition: pase7
+	Armament@pasjarmen:
+		Weapon: JarmenRifle
+		FireDelay: 8
+		LocalOffset: 390,-60,300
+		PauseOnCondition: being-warped
+		RequiresCondition: pasjarmen
 	Armament@arz:
 		Weapon: Resurrect
 		Cursor: heal
@@ -1211,41 +1915,28 @@ COLIBRI:
 		PauseOnCondition: turnedoff
 	Armament@ag-0:
 		Weapon: AGGatling-handheld
-		LocalOffset: 350,-100,130, 350,100,130
+		LocalOffset: 350,-100,110, 350,100,110
 		MuzzleSequence: muzzle
 		RequiresCondition: pashvgat && gatling == 1
 		PauseOnCondition: turnedoff
 	Armament@ag-1:
 		Weapon: AGGatling2-handheld
-		LocalOffset: 350,-100,130, 350,100,130
+		LocalOffset: 350,-100,110, 350,100,110
 		MuzzleSequence: muzzle
 		RequiresCondition: pashvgat && gatling == 2
 		PauseOnCondition: turnedoff
 	Armament@ag-2:
 		Weapon: AGGatling3-handheld
-		LocalOffset: 350,-100,130, 350,100,130
+		LocalOffset: 350,-100,110, 350,100,110
 		MuzzleSequence: muzzle
 		RequiresCondition: pashvgat && gatling == 3
 		PauseOnCondition: turnedoff
 	Armament@ag-3:
 		Weapon: AGGatling4-handheld
-		LocalOffset: 350,-100,130, 350,100,130
+		LocalOffset: 350,-100,110, 350,100,110
 		MuzzleSequence: muzzle
 		RequiresCondition: pashvgat && gatling >= 4
 		PauseOnCondition: turnedoff
-	Armament@initiate:
-		Weapon: MindBlast
-		RequiresCondition: pasinitiate || pasishmaelite
-	Armament@maroznik:
-		Weapon: Marozzer
-		LocalOffset: 427,0,341
-		RequiresCondition: pasmaroznik
-	Armament@chronotrooper:
-		Weapon: NeutronCannon
-		FireDelay: 8
-		LocalOffset: 390,-60,300
-		PauseOnCondition: being-warped
-		RequiresCondition: paschronotrooper
 	GrantConditionOnAttack@gatling:
 		Condition: gatling
 		RequiredShotsPerInstance: 12, 24
@@ -1255,19 +1946,18 @@ COLIBRI:
 		IsCyclic: false
 		RevokeOnNewTarget: false
 		RequiresCondition: pashvgat
-	AttackTurreted:
-		PauseOnCondition: turnedoff
 	WithMuzzleOverlay:
-	WithSpriteTurret@editor:
 	ProducibleWithLevel:
-		Prerequisites: helicopter.upgraded
+		Prerequisites: vehicles.upgraded
 	CashTrickler:
 		Interval: 80
 		InitialDelay: 0
 		Amount: 50
 		RequiresCondition: reloading-wrench
+	WithFacingSpriteBody:
+		Name: body
 	Cloak@shinobi:
-		Palette: newcloak
+		CloakedPalette: newcloak
 		InitialDelay: 125
 		CloakDelay: 175
 		CloakSound: appear1.aud
@@ -1292,6 +1982,16 @@ COLIBRI:
 	RevealsShroud:
 		Range: 7c0
 		RequiresCondition: passpy
+	ProximityExternalCondition@logistable:
+		Range: 4c0
+		ValidRelationships: Ally
+		Condition: logistable
+		RequiresCondition: paslog
+	WithRangeCircle@logistable:
+		Type: jammer
+		Range: 4c0
+		Color: FFB27F
+		RequiresCondition: paslog
 	Cargo:
 		Types: Infantry
 		MaxWeight: 1
@@ -1302,15 +2002,28 @@ COLIBRI:
 			saboteur: nochange
 			scvn: passcvn
 			thf: nochange
+			shok: passhok
 			pneer: nochange
 			shinobi: passhinobi
 			mltvthrwr: pasmolotov
-			arz: pasarz
+			medium: pasarz
 			e6: nochange
 			spy: passpy
 			spy.mi6: passpy
+			spy.mi6.clone: passpy
+			pretorian: pasprae
 			medi: pasmedic
 			mech: pasmech
+			impg: pasimpg
+			volkov: pasvolkov
+			e7: pase7
+			jarmen: pasjarmen
+			cyborghijacker: nochange
+			panzerfaust: paspanzerf
+			watchman: paswatch
+			hunter: pashunter
+			jumpjetguy: pasjump
+			logistician: paslog
 			politruk: paspolitruk
 			officer: pasofficer
 			artilleryobserver: nochange
@@ -1320,14 +2033,20 @@ COLIBRI:
 			bolter: pasbolter
 			e2: pase2
 			e3: pase3
+			e3r3: pase3
+			e1r3: nochange
 			e4: pase4
 			e11: pase11
+			weakcyborg: nochange
+			weakcyborgrocket: pase3
 			hvgatling: pashvgat
 			sniper: passniper
 			wastetrooper: pastox
 			nerveagent: pasnerveagent
 			shktrp: passhktrp
 			militia: nochange
+			militia.clone: nochange
+			genehorror: nochange
 			nightwitch: pasngwtch
 			ironman: nochange
 			grenadelauncher: pasgrenlnchr
@@ -1336,12 +2055,29 @@ COLIBRI:
 			desolator: psngdesolator
 			legionaire: paslegionaire
 			e1: nochange
-			e1r3: nochange
+			mutant: pase11
+			rpgarditi: pase3
+			initiate: pasinitiate
 			ishmaelite: pasishmaelite
 			chronotrooper: paschronotrooper
 			maroznik: pasmaroznik
 			terrorist: nochange
-			initiate: pasinitiate
+			demoman: pasdemo
+			radist: pasradist
+			penal: paspenal
+			sbearer: paspenal
+			discthrow: pasdisc
+			informant: nochange
+			germantrooper: nochange
+			milpol: pasmilpol
+			scout: nochange
+	DetectCloaked@phase:
+		DetectionTypes: Cloak
+		Range: 5c0
+		RequiresCondition: pasmilpol
+	RevealsShroudMultiplier@radist:
+		RequiresCondition: pasradist
+		Modifier: 150
 	ProximityExternalCondition@OfficerNearby:
 		Range: 4c0
 		ValidRelationships: Ally
@@ -1363,11 +2099,8 @@ COLIBRI:
 		Color: FF5432
 		RequiresCondition: paspolitruk
 	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
 		Actor: SIPAHI.Husk
-	WithRangeCircle@anti-air:
-		Range: 8c0
-		Color: FFFF0080
-		RequiresCondition: paslegionaire || pasflktrp
 	ReloadDelayMultiplier@baseboost:
 		Modifier: 90
 	FirepowerMultiplier@baseboost:
@@ -1380,7 +2113,7 @@ IBLIS:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 225
-		Prerequisites: hpad, mtek, ~helicopter.turkey, ~techlevel.high
+		Prerequisites: afld, mtek, ~aircraft.turkey, ~techlevel.high
 		Description: Helicopter gunship armed with\nIncendiary missiles.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Buildings.
@@ -1466,7 +2199,7 @@ HEAVYFIGHTER:
 		Queue: Aircraft
 		BuildAtProductionType: Plane
 		BuildPaletteOrder: 501
-		Prerequisites: ~afld, adept, ~aircraft.raj, ~techlevel.medium
+		Prerequisites: ~afld, ~aircraft.bulgaria, ~techlevel.medium
 		Description: Attack Plane armed with\nquadruble machine guns.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Aircraft.
@@ -1605,7 +2338,7 @@ TRAN:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 10
-		Prerequisites: hpad, ~helicopter.allies, ~techlevel.medium
+		Prerequisites: afld, ~aircraft.allies, ~techlevel.medium
 		Description: Fast Infantry Transport Helicopter.
 	TooltipExtras:
 		Weaknesses: - Unarmed
@@ -1662,7 +2395,7 @@ HELI:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 40
-		Prerequisites: hpad, ~helicopter.allies, atek, ~techlevel.high
+		Prerequisites: afld, ~aircraft.entente, atek, ~techlevel.high
 		Description: Helicopter gunship armed\nwith multi-purpose missiles.
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles, Aircraft.
@@ -1728,8 +2461,6 @@ HELI:
 		Prerequisites: aircraft.upgraded
 	Selectable:
 		DecorationBounds: 1406, 1406
-	Rearmable:
-		RearmActors: hpad
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		Margin: 4, 3
@@ -1739,6 +2470,8 @@ HELI:
 		FullSequence: pip-missile
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
+	Rearmable:
+		RearmActors: hpad
 
 SAUCER:
 	Inherits: ^Helicopter
@@ -1747,7 +2480,7 @@ SAUCER:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 230
-		Prerequisites: hpad, ~helicopter.ukraine, stek, ~techlevel.high
+		Prerequisites: afld, ~aircraft.ukraine, stek, ~techlevel.high
 		Description: Levitating disc armed with magnetic rays.
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles.
@@ -1772,11 +2505,11 @@ SAUCER:
 		Range: 10c0
 		Type: GroundPosition
 	Armament@PRIMARY:
-		Weapon: SaucerBolt
+		Weapon: SM_ElectricBolt
 		LocalOffset: 0,0,-50
 		PauseOnCondition: attacking
 	Armament@SECONDARY:
-		Weapon: SaucerBoltBuilding
+		Weapon: SM_ElectricBolt
 		Name: secondary
 	AttackTurreted:
 	Turreted:
@@ -1804,8 +2537,6 @@ SAUCER:
 		Prerequisites: aircraft.upgraded
 	Selectable:
 		DecorationBounds: 1406, 1406
-	Hovers:
-		InitialHeight: 0c25
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
 	AmbientSound@float:
@@ -1823,12 +2554,13 @@ HIND:
 	Buildable:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
-		BuildPaletteOrder: 110
-		Prerequisites: hpad, ~helicopter.soviet, ~techlevel.medium
-		Description: Helicopter gunship armed with rockets.
+		BuildPaletteOrder: 225
+		Prerequisites: afld, commcent, ~aircraft.hind, ~techlevel.high
+		Description: Helicopter gunship armed with\nsmall dual machine guns.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
+		Attributes: • Gatling guns speed up while firing increasing fire rate.
 	Valued:
 		Cost: 1750
 	Tooltip:
@@ -1845,10 +2577,177 @@ HIND:
 	RevealsShroud@GAPGEN:
 		Range: 8c0
 		Type: GroundPosition
+	AttackTurreted:
+	WithSpriteTurret:
+	Turreted:
+		TurnSpeed: 30
+		RealignDelay: 10
+	Aircraft:
+		TurnSpeed: 16
+		Speed: 112
+	AutoTarget:
+		InitialStance: HoldFire
+		InitialStanceAI: HoldFire
+	WithMuzzleOverlay:
+	WithIdleOverlay@ROTORAIR:
+		Sequence: rotor
+		RequiresCondition: airborne
+		Offset: 50,0,200
+	WithIdleOverlay@ROTORGROUND:
+		Sequence: slow-rotor
+		RequiresCondition: !airborne
+		Offset: 50,0,200
+	Armament@gatling-start-0:
+		Name: secondary
+		Weapon: AGGatlingStart
+		RequiresCondition: !gatling
+		PauseOnCondition: !ammo || !airborne
+	Armament@ag-0:
+		Weapon: AGGatling_Hind
+		LocalOffset: 300,-200,0
+		MuzzleSequence: muzzle
+		RequiresCondition: gatling == 1
+		PauseOnCondition: !ammo || !airborne
+	Armament@ag-1:
+		Weapon: AGGatling2_Hind
+		LocalOffset: 300,-200,0
+		MuzzleSequence: muzzle
+		RequiresCondition: gatling == 2
+		PauseOnCondition: !ammo || !airborne
+	Armament@ag-2:
+		Weapon: AGGatling3_Hind
+		LocalOffset: 300,-200,0
+		MuzzleSequence: muzzle
+		RequiresCondition: gatling == 3
+		PauseOnCondition: !ammo || !airborne
+	Armament@ag-3:
+		Weapon: AGGatling4_Hind
+		LocalOffset: 300,-200,0
+		MuzzleSequence: muzzle
+		RequiresCondition: gatling >= 4
+		PauseOnCondition: !ammo || !airborne
+	Armament@gatling-start-0s:
+		Name: secondary
+		Weapon: AGGatlingStart
+		RequiresCondition: !gatling
+		PauseOnCondition: !ammo || !airborne
+	Armament@ag-0s:
+		Name: secondary
+		Weapon: AGGatling_Hind
+		LocalOffset: 300,200,0
+		MuzzleSequence: muzzle
+		RequiresCondition: gatling == 1
+		PauseOnCondition: !ammo || !airborne
+	Armament@ag-1s:
+		Name: secondary
+		Weapon: AGGatling2_Hind
+		LocalOffset: 300,200,0
+		MuzzleSequence: muzzle
+		RequiresCondition: gatling == 2
+		PauseOnCondition: !ammo || !airborne
+	Armament@ag-2s:
+		Name: secondary
+		Weapon: AGGatling3_Hind
+		LocalOffset: 300,200,0
+		MuzzleSequence: muzzle
+		RequiresCondition: gatling == 3
+		PauseOnCondition: !ammo || !airborne
+	Armament@ag-3s:
+		Name: secondary
+		Weapon: AGGatling4_Hind
+		LocalOffset: 300,200,0
+		MuzzleSequence: muzzle
+		RequiresCondition: gatling >= 4
+		PauseOnCondition: !ammo || !airborne
+	GrantConditionOnAttack:
+		ArmamentNames: primary, secondary
+		Condition: gatling
+		RequiredShotsPerInstance: 12, 24
+		MaximumInstances: 2
+		RevokeDelay: 25
+		RevokeAll: true
+		IsCyclic: false
+		RevokeOnNewTarget: false
+	AmbientSound@gatlingspinning:
+		SoundFiles: turret_loop_11.wav
+		RequiresCondition: gatling && aiming
+	AmbientSound@loopstart:
+		SoundFiles: turret_start_11.wav
+		RequiresCondition: !gatling && aiming && ammo && airborne
+		Interval: 100
+		Delay: 0
+	AmbientSound@loopend:
+		SoundFiles: turret_end_11.wav
+		RequiresCondition: gatling && !aiming
+		Interval: 100
+		Delay: 0
+	GrantConditionWhileAiming@aiming:
+		Condition: aiming
+	SpawnActorOnDeath:
+		Actor: HIND.Husk
+	LeavesTrails:
+		Offsets: -427,0,0
+		Image: smokey
+		MovingInterval: 3
+		StationaryInterval: 3
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+		RequiresCondition: enable-smoke
+	ProducibleWithLevel:
+		Prerequisites: aircraft.upgraded
+	Selectable:
+		DecorationBounds: 1406, 1406
+	AmmoPool:
+		Armaments: primary
+		Ammo: 60
+		ReloadDelay: 5
+		AmmoCondition: ammo
+	Rearmable:
+		RearmActors: hpad
+	WithAmmoPipsDecoration:
+		AmmoPools: primary
+		Position: BottomLeft
+		Margin: 4, 3
+		RequiresSelection: true
+		PipCount: 6
+		EmptySequence: pip-emptyammo
+		FullSequence: pip-bullet
+	GrantConditionOnDamageState@SmokeTrail:
+		Condition: enable-smoke
+
+NADYA:
+	Inherits: ^Helicopter
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Helicopter
+		BuildAtProductionType: Helicopter
+		BuildPaletteOrder: 230
+		Prerequisites: ~aircraft.belarus, commcent
+		Description: Helicopter gunship armed with rockets.
+	TooltipExtras:
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
+	Valued:
+		Cost: 1750
+	Tooltip:
+		Name: Nadya
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 10000
+	RevealsShroud:
+		MinRange: 8c0
+		Range: 10c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 8c0
+		Type: GroundPosition
 	Armament@PRIMARY:
 		Name: primary
 		Weapon: Hind227mm
-		LocalOffset: 85,213,-85, 85,-213,-85
+		LocalOffset: 0,213,-85, 0,-213,-85
 		PauseOnCondition: !ammo || !airborne
 	AttackTurreted:
 		Armaments: primary, secondary, tertiary
@@ -1865,9 +2764,11 @@ HIND:
 	WithIdleOverlay@ROTORAIR:
 		Sequence: rotor
 		RequiresCondition: airborne
+		Offset: 0,0,500
 	WithIdleOverlay@ROTORGROUND:
 		Sequence: slow-rotor
 		RequiresCondition: !airborne
+		Offset: 0,0,500
 	AmmoPool:
 		Armaments: primary, secondary
 		Ammo: 24
@@ -1875,7 +2776,7 @@ HIND:
 		AmmoCondition: ammo
 	WithMuzzleOverlay:
 	SpawnActorOnDeath:
-		Actor: HIND.Husk
+		Actor: NADYA.Husk
 	LeavesTrails:
 		Offsets: -427,0,0
 		Image: smokey
@@ -1902,14 +2803,107 @@ HIND:
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
 
-TENGRII:
+SIEGECHOPPER:
 	Inherits: ^Helicopter
+	TooltipExtras:
+		Strengths: + Strong vs Infantry, Buildings, Defenses.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
+		Attributes: • Deploy to enter firing or mobile states.
 	Buildable:
 		Queue: Helicopter
-		BuildAtProductionType: Helicopter
-		BuildPaletteOrder: 110
-		Prerequisites: hpad, stek, ~helicopter.mongolia, ~techlevel.high
-		Description: Helicopter gunship armed with long range rockets.
+		BuildPaletteOrder: 227
+		Prerequisites: stek, ~vehicles.mongolia, ~techlevel.medium
+		Description: Siege helicopter.
+	Valued:
+		Cost: 2250
+	Tooltip:
+		Name: Siege Choppper
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 10000
+	RevealsShroud:
+		MinRange: 8c0
+		Range: 10c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 8c0
+		Type: GroundPosition
+	Aircraft:
+		TurnSpeed: 16
+		Speed: 80
+	SpawnActorOnDeath:
+		Actor: KHAN.Husk
+	LeavesTrails:
+		Offsets: -427,0,0
+		Image: smokey
+		MovingInterval: 3
+		StationaryInterval: 3
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+		RequiresCondition: enable-smoke
+	ProducibleWithLevel:
+		Prerequisites: aircraft.upgraded
+	Selectable:
+		DecorationBounds: 1406, 1406
+	Transforms:
+		IntoActor: siegechopper.deployed
+		Facing: 409
+		TransformSounds: place2.aud
+	GrantConditionOnDamageState@SmokeTrail:
+		Condition: enable-smoke
+
+SIEGECHOPPER.Deployed:
+	Inherits: ^Defense
+	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	-WithBuildingBib:
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
+	Valued:
+		Cost: 2250
+	Tooltip:
+		Name: Siege Choppper
+	Selectable:
+		Bounds: 1406, 1406
+		DecorationBounds: 1406, 1406, 0, -482
+	Health:
+		HP: 10000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		MinRange: 6c0
+		Range: 7c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 6c0
+	Armament:
+		Weapon: 155mm_Howitzer
+		LocalOffset: 300,0,100
+		PauseOnCondition: turnedoff || build-incomplete
+	AttackTurreted:
+	Turreted:
+		TurnSpeed: 10
+		Offset: 900,250,0
+	WithSpriteTurret:
+		RequiresCondition: !build-incomplete
+	DetectCloaked:
+		Range: 6c0
+		RequiresCondition: !turnedoff
+	ProvidesPrerequisite@buildingname:
+	Transforms:
+		IntoActor: siegechopper
+		TransformSounds: clicky1.aud
+		Facing: 409
+	-MapEditorData:
+	TransformsIntoMobile:
+		Locomotor: hover
+
+TENGRII:
+	Inherits: ^Helicopter
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Buildings, Defenses.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
@@ -2010,19 +3004,19 @@ TENGRII.Deployed:
 GEBARD:
 	Inherits: ^Helicopter
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	TooltipExtras:
+		Strengths: + Strong vs Vehicles.
+		Weaknesses: - Weak vs Infantry, Aircraft.
 	Buildable:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 220
-		Prerequisites: hpad, adept, ~helicopter.germany, ~techlevel.medium
+		Prerequisites: hpad, commcent, ~aircraft.zentrum, ~techlevel.high
 		Description: Fast helicopter gunship armed with rockets.
-	TooltipExtras:
-		Strengths: + Strong vs Vehicles.
-		Weaknesses: - Weak vs Infantry, Aircraft.
 	Valued:
 		Cost: 1800
 	Tooltip:
-		Name: Gebard
+		Name: Dragonfly
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
@@ -2084,7 +3078,176 @@ GEBARD:
 	Rearmable:
 		RearmActors: hpad
 	Repairable:
-		RepairActors: hpad
+		RepairActors: afld
+	WithAmmoPipsDecoration:
+		AmmoPools: primary, secondary
+		Position: BottomLeft
+		Margin: 4, 3
+		RequiresSelection: true
+		PipCount: 5
+		EmptySequence: pip-emptyammo
+		FullSequence: pip-missile
+	GrantConditionOnDamageState@SmokeTrail:
+		Condition: enable-smoke
+
+LASERCHOPPER:
+	Inherits: ^Helicopter
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Helicopter
+		BuildAtProductionType: Helicopter
+		BuildPaletteOrder: 220
+		Prerequisites: afld, atek, ~aircraft.japan, ~techlevel.high
+		Description: Fast helicopter gunship armed with laser cannons.
+	TooltipExtras:
+		Strengths: + Strong vs Vehicles.
+		Weaknesses: - Weak vs Infantry, Aircraft.
+	Valued:
+		Cost: 1800
+	Tooltip:
+		Name: Vulture
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 10000
+	RevealsShroud:
+		MinRange: 8c0
+		Range: 10c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 8c0
+		Type: GroundPosition
+	Armament@PRIMARY:
+		Name: primary
+		Weapon: Laser
+		LocalOffset: 85,-213,-85
+		PauseOnCondition: !ammo || !airborne
+	Armament@secondary:
+		Name: secondary
+		Weapon: Laser
+		LocalOffset: 85,213,-85
+		PauseOnCondition: !ammo || !airborne
+	AttackTurreted:
+		Armaments: primary, secondary
+	WithSpriteTurret:
+	Turreted:
+		TurnSpeed: 30
+		RealignDelay: 10
+	Aircraft:
+		TurnSpeed: 16
+		Speed: 112
+	AutoTarget:
+		InitialStance: HoldFire
+		InitialStanceAI: HoldFire
+	WithIdleOverlay@ROTORAIR:
+		Sequence: rotor
+		RequiresCondition: airborne
+		Offset: 0,0,300
+	WithIdleOverlay@ROTORGROUND:
+		Sequence: slow-rotor
+		RequiresCondition: !airborne
+		Offset: 0,0,300
+	AmmoPool:
+		Armaments: primary, secondary
+		Ammo: 10
+		ReloadDelay: 8
+		AmmoCondition: ammo
+	WithMuzzleOverlay:
+	SpawnActorOnDeath:
+		Actor: LASERCHOPPER.Husk
+	LeavesTrails:
+		Offsets: -427,0,0
+		Image: smokey
+		MovingInterval: 3
+		StationaryInterval: 3
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+		RequiresCondition: enable-smoke
+	ProducibleWithLevel:
+		Prerequisites: aircraft.upgraded
+	Selectable:
+		DecorationBounds: 1406, 1406
+	Rearmable:
+		RearmActors: hpad
+	Repairable:
+		RepairActors: afld
+	WithAmmoPipsDecoration:
+		AmmoPools: primary, secondary
+		Position: BottomLeft
+		Margin: 4, 3
+		RequiresSelection: true
+		PipCount: 5
+		EmptySequence: pip-emptyammo
+		FullSequence: pip-tech
+	GrantConditionOnDamageState@SmokeTrail:
+		Condition: enable-smoke
+
+ORCA:
+	Inherits: ^Helicopter
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	TooltipExtras:
+		Strengths: + Strong vs Vehicles.
+		Weaknesses: - Weak vs Infantry, Aircraft.
+	Valued:
+		Cost: 1800
+	Tooltip:
+		Name: Orca
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 10000
+	RevealsShroud:
+		MinRange: 8c0
+		Range: 10c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 8c0
+		Type: GroundPosition
+	Armament@PRIMARY:
+		Name: primary
+		Weapon: GebardMissile
+		LocalOffset: 85,213,-85, 85,-213,-85
+		PauseOnCondition: !ammo || !airborne
+	AttackTurreted:
+		Armaments: primary
+	WithSpriteTurret:
+	Turreted:
+		TurnSpeed: 30
+		RealignDelay: 10
+	Aircraft:
+		TurnSpeed: 16
+		Speed: 112
+	AutoTarget:
+		InitialStance: HoldFire
+		InitialStanceAI: HoldFire
+	AmmoPool:
+		Armaments: primary, secondary
+		Ammo: 10
+		ReloadDelay: 8
+		AmmoCondition: ammo
+	WithMuzzleOverlay:
+	SpawnActorOnDeath:
+		Actor: ORCA.Husk
+	LeavesTrails:
+		Offsets: -427,0,0
+		Image: smokey
+		MovingInterval: 3
+		StationaryInterval: 3
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+		RequiresCondition: enable-smoke
+	ProducibleWithLevel:
+		Prerequisites: aircraft.upgraded
+	Selectable:
+		DecorationBounds: 1406, 1406
+	Rearmable:
+		RearmActors: hpad
+	Repairable:
+		RepairActors: afld
 	WithAmmoPipsDecoration:
 		AmmoPools: primary, secondary
 		Position: BottomLeft
@@ -2108,7 +3271,7 @@ COMET:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 200
-		Prerequisites: hpad, ~helicopter.zentrum, ~techlevel.medium
+		Prerequisites: ~aircraft.zentrum, commcent
 		Description: Helicopter gunship armed\nwith dual chainguns.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -2117,7 +3280,7 @@ COMET:
 	Valued:
 		Cost: 1500
 	Tooltip:
-		Name: Comet
+		Name: Crane Fly
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
@@ -2230,13 +3393,62 @@ SPITFIRE:
 		EmptySequence: pip-emptyammo
 		FullSequence: pip-bullet
 
-GOBLIN:
+TELEKITE:
 	Inherits: YAK
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	-Buildable:
 	Tooltip:
 		Name: Goblin
 	-SpawnActorOnDeath:
 	-EjectOnDeath:
+	FireWarheadsOnDeath:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	Armament:
+		Weapon: HellfireAG
+		LocalOffset: 0,213,-85, 0,-213,-85
+		PauseOnCondition: !ammo || !airborne
+	Health:
+		HP: 6500
+	AttackAircraft:
+		Armaments: primary
+	Aircraft:
+		VTOL: True
+		TurnSpeed: 15
+		Speed: 145
+		CruiseAltitude: 1c512
+	Valued:
+		Cost: 1500
+	Rearmable:
+		RearmActors: ac
+	AmmoPool:
+		Armaments: primary, secondary
+		Ammo: 6
+		ReloadDelay: 11
+		AmmoCondition: ammo
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		Margin: 4, 3
+		RequiresSelection: true
+		PipCount: 6
+		EmptySequence: pip-emptyammo
+		FullSequence: pip-bullet
+	CarrierSlave:
+	-Selectable:
+	-SelectionDecorations:
+	-ActorLostNotification:
+	-Contrail:
+	Interactable:
+
+GOBLIN:
+	Inherits: YAK
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	-Buildable:
+	Tooltip:
+		Name: Goblin
+	-SpawnActorOnDeath:
+	-EjectOnDeath:
+	FireWarheadsOnDeath:
 		Weapon: UnitExplodeSmall
 		EmptyWeapon: UnitExplodeSmall
 	Armament:
@@ -2279,7 +3491,7 @@ MH60:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 20
-		Prerequisites: hpad, ~helicopter.allies, ~techlevel.medium
+		Prerequisites: afld, commcent, ~aircraft.allies, ~techlevel.medium
 		Description: Helicopter gunship armed\nwith dual chainguns.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -2360,15 +3572,238 @@ MH60:
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
 
-TEUTON:
+INDIACHOPPER:
 	Inherits: ^Helicopter
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
-		BuildPaletteOrder: 230
-		Prerequisites: ~hpad, ~mtektech, techcenter, ~techlevel.medium
-		Description: Helicopter gunship armed\nwith dual refractor cannons.
+		BuildPaletteOrder: 20
+		Prerequisites: ~aircraft.raj, ~techlevel.medium
+		Description: Helicopter gunship armed\nwith dual machine guns.
+	TooltipExtras:
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Sparrow
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 7000
+	RevealsShroud:
+		MinRange: 8c0
+		Range: 10c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 8c0
+		Type: GroundPosition
+	Armament@PRIMARY:
+		Weapon: TankMachineGun-indiachopper
+		LocalOffset: 85,-213,-85, 85,213,-85
+		MuzzleSequence: muzzle
+		PauseOnCondition: !ammo || !airborne
+	Armament@SECONDARY:
+		Name: secondary
+		Weapon: TankMachineGun-indiachopper
+		LocalOffset: 85,213,-85, 85,-213,-85
+		MuzzleSequence: muzzle
+		PauseOnCondition: !ammo || !airborne
+	AttackTurreted:
+	WithSpriteTurret:
+	Turreted:
+		TurnSpeed: 30
+		RealignDelay: 10
+	Aircraft:
+		TurnSpeed: 16
+		Speed: 112
+	AutoTarget:
+		InitialStance: HoldFire
+		InitialStanceAI: HoldFire
+	WithIdleOverlay@ROTORAIR:
+		Sequence: rotor
+		RequiresCondition: airborne
+		Offset: 0,0,220
+	WithIdleOverlay@ROTORGROUND:
+		Sequence: slow-rotor
+		RequiresCondition: !airborne
+		Offset: 0,0,220
+	AmmoPool:
+		Ammo: 24
+		ReloadDelay: 8
+		AmmoCondition: ammo
+	WithMuzzleOverlay:
+	SpawnActorOnDeath:
+		Actor: INDIACHOPPER.Husk
+	LeavesTrails:
+		Offsets: -427,0,0
+		Image: smokey
+		MovingInterval: 3
+		StationaryInterval: 3
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+		RequiresCondition: enable-smoke
+	ProducibleWithLevel:
+		Prerequisites: aircraft.upgraded
+	Selectable:
+		DecorationBounds: 1406, 1406
+	Rearmable:
+		RearmActors: hpad
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		Margin: 4, 3
+		RequiresSelection: true
+		PipCount: 6
+		EmptySequence: pip-emptyammo
+		FullSequence: pip-bullet
+	GrantConditionOnDamageState@SmokeTrail:
+		Condition: enable-smoke
+
+UAV:
+	Inherits: ^NeutralPlane
+	Health:
+		HP: 20000
+	Armor:
+		Type: Light
+	Tooltip:
+		Name: Recon Drone
+	Aircraft:
+		CruiseAltitude: 2560
+		TurnSpeed: 28
+		Speed: 180
+		Repulsable: False
+		MaximumPitch: 56
+	AttackBomber:
+		FacingTolerance: 8
+	-Selectable:
+	-Voiced:
+	-Targetable@AIRBORNE:
+	Contrail@1:
+		Offset: -200,0,0
+		StartColorAlpha: 128
+	-SpawnActorOnDeath:
+	LeavesTrails:
+		Offsets: -1c43,0,0
+		MovingInterval: 2
+		Image: smokey
+		SpawnAtLastPosition: False
+		Type: CenterPosition
+		RequiresCondition: enable-smoke
+	RejectsOrders:
+	Interactable:
+		Bounds: 1024, 1024
+	-MapEditorData:
+	GrantConditionOnDamageState@SmokeTrail:
+		Condition: enable-smoke
+	FireWarheadsOnDeath:
+		Weapon: UnitExplode
+		RequiresCondition: !being-warped
+	Targetable@airborne:
+		TargetTypes: AirborneActor
+	RevealsShroud:
+		MinRange: 7c0
+		Range: 7c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+		Type: GroundPosition
+
+BATTLEDRONE:
+	Inherits: ^Helicopter
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Helicopter
+		BuildAtProductionType: Helicopter
+		BuildPaletteOrder: 20
+		Prerequisites: ~helicopter.egypt, robocom, ~techlevel.medium
+		Description: Small drone that can be attached to vehicles.
+	TooltipExtras:
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
+	Valued:
+		Cost: 200
+	Tooltip:
+		Name: Battle Drone
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 6000
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 4c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+		Type: GroundPosition
+	Armament@PRIMARY:
+		Weapon: TankMachineGun
+		LocalOffset: 50,0,-25
+		MuzzleSequence: muzzle
+		PauseOnCondition: !airborne
+	AttackTurreted:
+	WithSpriteTurret:
+	Turreted:
+		TurnSpeed: 30
+		RealignDelay: 10
+	Aircraft:
+		TurnSpeed: 16
+		Speed: 65
+		CruiseAltitude: 0c512
+		IdealSeparation: 0c256
+	AutoTarget:
+		InitialStance: HoldFire
+		InitialStanceAI: HoldFire
+	WithMuzzleOverlay:
+	LeavesTrails:
+		Offsets: -427,0,0
+		Image: smokey
+		MovingInterval: 3
+		StationaryInterval: 3
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+		RequiresCondition: enable-smoke
+	ProducibleWithLevel:
+		Prerequisites: aircraft.upgraded
+	Selectable:
+		DecorationBounds: 1406, 1406
+	GrantConditionOnDamageState@SmokeTrail:
+		Condition: enable-smoke
+	-SpawnActorOnDeath:
+	Attachable:
+		Type: BattleDrone
+		TargetTypes: BattleDroneable
+		ValidRelationships: Ally
+		MinAttachDistance: 1c512
+		OnAttachTransformInto: battledrone.attached
+		OnDetachTransformInto: battledrone
+		HostLostAction: Detach
+	Targetable:
+		RequiresCondition: !being-warped
+		TargetTypes: GroundActor, Vehicle
+	-EjectOnDeath:
+	FireWarheadsOnDeath:
+		Weapon: UnitExplode
+		RequiresCondition: !being-warped
+
+BATTLEDRONE.ATTACHED:
+	Inherits: BATTLEDRONE
+	RenderSprites:
+		Image: battledrone
+	-Buildable:
+	-Selectable:
+	-SelectionDecorations:
+	Interactable:
+		Bounds: 1024,1024
+
+TEUTON:
+	Inherits: ^Helicopter
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
@@ -2452,7 +3887,7 @@ WASP:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 220
-		Prerequisites: hpad, mtek, ~helicopter.austria, ~techlevel.high
+		Prerequisites: afld, mtek, ~aircraft.germany, ~techlevel.high
 		Description: Helicopter gunship armed\nwith a direct energy weapon.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Vehicles.
@@ -2538,7 +3973,7 @@ MSRSMT:
 		Queue: Aircraft
 		BuildAtProductionType: Plane
 		BuildPaletteOrder: 600
-		Prerequisites: ~afld, ~aircraft.zentrum, ~techlevel.medium
+		Prerequisites: ~afld, ~aircraft.messer, ~techlevel.medium
 		Description: Attack Plane armed with\ndual machine guns.
 	TooltipExtras:
 		Strengths: + Strong vs Aircraft.
@@ -2650,8 +4085,8 @@ A10:
 	Buildable:
 		Queue: Aircraft
 		BuildAtProductionType: Plane
-		BuildPaletteOrder: 510
-		Prerequisites: ~afld, ~aircraft.entente, atek, ~techlevel.high
+		BuildPaletteOrder: 800
+		Prerequisites: ~aircraft.entente, atek
 		Description: Attack Plane armed with\na powerful autocannon.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Vehicles, Buildings.
@@ -2870,89 +4305,9 @@ STRMVGL.Husk:
 	RenderSprites:
 		Image: strmvgl
 
-TELEKITE:
-	Inherits: ^Vehicle
-	Inherits@drone: ^Drone
-	Inherits@experience: ^GainsExperience
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Valued:
-		Cost: 500
-	Tooltip:
-		Name: Hornet
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Health:
-		HP: 15000
-	RevealsShroud:
-		MinRange: 3c0
-		Range: 5c0
-		Type: GroundPosition
-		RevealGeneratedShroud: False
-	RevealsShroud@GAPGEN:
-		Range: 3c0
-		Type: GroundPosition
-	Armament@primary:
-		Weapon: Uzi
-		Name: primary
-		LocalOffset: 300,130,260
-		MuzzleSequence: muzzle
-		PauseOnCondition: turnedoff
-	Armament@secondary:
-		Weapon: Uzi
-		Name: secondary
-		LocalOffset: 300,-130,260
-		MuzzleSequence: muzzle
-		PauseOnCondition: turnedoff
-	HiddenUnderFog:
-		Type: CenterPosition
-	AttackTurreted:
-	WithSpriteTurret:
-	Turreted:
-		TurnSpeed: 30
-		RealignDelay: 10
-	-Mobile:
-	-Chronoshiftable:
-	Aircraft:
-		TurnSpeed: 16
-		Speed: 85
-		CruiseAltitude: 1c0
-		IdealSeparation: 0c512
-		CanHover: False
-		PauseOnCondition: being-captured || turnedoff
-	WithMuzzleOverlay:
-	LeavesTrails:
-		Offsets: -427,0,0
-		Image: smokey
-		MovingInterval: 3
-		SpawnAtLastPosition: False
-		Type: CenterPosition
-		RequiresCondition: enable-smoke
-		TrailWhileStationary: True
-		StationaryInterval: 3
-	ProducibleWithLevel:
-		Prerequisites: aircraft.upgraded
-	Selectable:
-		DecorationBounds: 1406, 1406
-	GrantConditionOnDamageState@SmokeTrail:
-		Condition: enable-smoke
-	Targetable:
-		TargetTypes: GroundActor, Vehicle
-	Explodes:
-		Weapon: SmallPlaneExplode
-		EmptyWeapon: SmallPlaneExplode
-	WithShadow:
-		Offset: 43, 128, 0
-		ZOffset: -129
-
 HARRIER:
 	Inherits: ^Plane
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMovePlusBombers
-	Buildable:
-		Queue: Aircraft
-		BuildAtProductionType: Plane
-		BuildPaletteOrder: 610
-		Prerequisites: ~disabled
-		Description: Fast anti-aircraft fighter.
 	TooltipExtras:
 		Strengths: + Strong vs Aircraft.
 		Weaknesses: - Weak vs Vehicles, Infantry.
@@ -3016,7 +4371,7 @@ HARRIER:
 	Selectable:
 		DecorationBounds: 1406, 1406, 0, 120
 	Rearmable:
-		RearmActors: afld, sport, hpad
+		RearmActors: afld, sport, afld, hpad
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		Margin: 4, 3
@@ -3144,7 +4499,7 @@ STUKA:
 	Buildable:
 		BuildPaletteOrder: 500
 	Buildable:
-		Prerequisites: ~afld, ~aircraft.zentrum, ~techlevel.high
+		Prerequisites: ~afld, ~aircraft.stuka, ~techlevel.high
 		Description: Dive bomber that drops highly\neffective bombs on a small target area.
 		BuildPaletteOrder: 610
 	TooltipExtras:
@@ -3200,7 +4555,7 @@ MI26:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 100
-		Prerequisites: hpad, ~helicopter.soviet, ~techlevel.medium
+		Prerequisites: afld, ~aircraft.komintern, ~techlevel.medium
 		Description: Infantry Transport Helicopter.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
@@ -3263,7 +4618,7 @@ AIRCRANE:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 199
-		Prerequisites: hpad, ~helicopter.zentrum, ~techlevel.medium
+		Prerequisites: ~aircraft.zentrum, mtek
 		Description: Vehicle Transport Helicopter.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
@@ -3311,6 +4666,8 @@ AIRCRANE:
 		DecorationBounds: 1406, 1406
 	Carryall:
 		LocalOffset: 0,0,-200
+	Rearmable:
+		RearmActors: hpad
 		
 TRANSUPPORT:
 	Inherits: ^Helicopter
@@ -3376,9 +4733,9 @@ ZEPPELIN:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Buildable:
 		Queue: Aircraft
-		BuildAtProductionType: Helicopter
+		BuildAtProductionType: Aircraft
 		BuildPaletteOrder: 700
-		Prerequisites: ~afld, mtek, ~aircraft.bulgaria, ~techlevel.high
+		Prerequisites: ~aircraft.bulgaria, mtek
 		Description: Slow moving bomber zeppelin.
 	TooltipExtras:
 		Strengths: + Strong vs Buildings, Defenses.

@@ -1,19 +1,20 @@
-﻿#region Copyright & License Information
-/*
- * Copyright 2015- OpenRA.Mods.AS Developers (see AUTHORS)
- * This file is a part of a third-party plugin for OpenRA, which is
- * free software. It is made available to you under the terms of the
- * GNU General Public License as published by the Free Software
- * Foundation. For more information, see COPYING.
+﻿﻿#region Copyright & License Information
+/**
+ * Copyright (c) The OpenRA Combined Arms Developers (see CREDITS).
+ * This file is part of OpenRA Combined Arms, which is free software.
+ * It is made available to you under the terms of the GNU General Public License
+ * as published by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version. For more information, see COPYING.
  */
 #endregion
 
 using System.Linq;
 using OpenRA.GameRules;
+using OpenRA.Mods.Swp.Activities;
+using OpenRA.Mods.Common;
 using OpenRA.Mods.Common.Activities;
 using OpenRA.Mods.Common.Effects;
 using OpenRA.Mods.Common.Traits;
-using OpenRA.Mods.Swp.Activities;
 using OpenRA.Primitives;
 using OpenRA.Traits;
 
@@ -63,6 +64,9 @@ namespace OpenRA.Mods.Swp.Warheads
 		[Desc("For non-positionable actors only, whether to avoid spawning on top of existing actors.")]
 		public readonly bool AvoidActors = false;
 
+		[Desc("For actors with facing, match the facing of the source (if the source also has a facing) .")]
+		public readonly bool MatchSourceFacing = false;
+
 		public readonly bool UsePlayerPalette = false;
 
 		public void RulesetLoaded(Ruleset rules, WeaponInfo info)
@@ -73,7 +77,7 @@ namespace OpenRA.Mods.Swp.Warheads
 				var buildingInfo = actorInfo.TraitInfoOrDefault<BuildingInfo>();
 
 				if (buildingInfo != null)
-					throw new YamlException("SpawnActorWarhead cannot be used to spawn building actor '{0}'!".F(a));
+					throw new YamlException($"SpawnActorWarhead cannot be used to spawn building actor '{a}'!");
 			}
 		}
 
@@ -188,6 +192,13 @@ namespace OpenRA.Mods.Swp.Warheads
 				td.Add(new OwnerInit(firedBy.World.Players.First(p => p.InternalName == InternalOwner)));
 
 			td.Add(new LocationInit(targetCell));
+
+			if (MatchSourceFacing)
+			{
+				var facing = firedBy.TraitOrDefault<IFacing>();
+				if (facing != null)
+					td.Add(new FacingInit(facing.Facing));
+			}
 
 			return td;
 		}

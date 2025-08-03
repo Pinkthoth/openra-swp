@@ -208,6 +208,64 @@ BarrelExplode:
 		SmudgeType: Scorch
 		Size: 2
 		Delay: 5
+	Warhead: FireCluster
+		Dimensions: 1,1
+		Footprint: X
+		Weapon: IfritAreaFire
+		RandomClusterCount: 1
+		ValidTargets: Ground, GroundActor
+
+NapalmSpillExplode:
+	Inherits: BarrelExplode
+	Warhead@1: FireCluster
+		Dimensions: 1,1
+		Footprint: X
+		Weapon: IfritAreaFire
+		RandomClusterCount: 1
+		ValidTargets: Ground, GroundActor
+
+SMine:
+	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor, Underwater
+	Warhead@1Dam: SpreadDamage
+		Spread: 256
+		Damage: 40000
+		AffectsParent: true
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Underwater
+		InvalidTargets: Mine
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: large_explosion
+		ImpactSounds: mine3.aud
+		ImpactActors: false
+	Warhead@Smu: LeaveSmudge
+		SmudgeType: Crater
+		ValidTargets: Ground, GroundActor
+		InvalidTargets: Structure, Wall
+
+HHMine:
+	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor
+	Warhead@1Dam: SpreadDamage
+		Damage: 3500
+		Versus:
+			None: 90
+			Wood: 40
+			Light: 60
+			Medium: 40
+			Heavy: 25
+			Concrete: 55
+		Spread: 256
+		AffectsParent: true
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
+		InvalidTargets: Mine
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: large_explosion
+		ImpactSounds: mineblo1.aud
+		ImpactActors: false
+	Warhead@Smu: LeaveSmudge
+		SmudgeType: Crater
+		ValidTargets: Ground, GroundActor
+		InvalidTargets: Structure, Wall
 
 ATMine:
 	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor
@@ -359,7 +417,7 @@ CrateNuke:
 		ValidTargets: Ground, Infantry
 		Size: 4
 		Delay: 5
-	Warhead@7FlashEffect: FlashPaletteEffect
+	Warhead@7FlashEffect: FlashEffect
 		Duration: 20
 		FlashType: Nuke
 
@@ -433,7 +491,7 @@ MiniNuke:
 		ValidTargets: Ground, Infantry
 		Size: 4
 		Delay: 15
-	Warhead@14FlashEffect: FlashPaletteEffect
+	Warhead@14FlashEffect: FlashEffect
 		Duration: 20
 		FlashType: Nuke
 
@@ -499,11 +557,44 @@ DemoTruckExplosion:
 		Explosions: large_napalm
 		ValidTargets: Ground, GroundActor, Trees, Ship, WaterActor
 
+DemoBombExplode:
+	ValidTargets: Ground, GroundActor, Trees,  Trees, Water, Ship, WaterActor, Underwater, Air, AirborneActor
+	InvalidTargets: demoed
+	Warhead@1Dam_impact: SpreadDamage
+		Spread: 1c0
+		Damage: 25000
+		Falloff: 368, 100, 25, 5, 1
+		ValidTargets: GroundActor, Trees,  Trees, Ship, WaterActor, Underwater, AirborneActor
+		InvalidTargets: Structure, Wall
+		Versus:
+			Wood: 25
+			Concrete: 25
+		AffectsParent: true
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@2dam: HealthPercentageDamage
+		Spread: 1c0
+		Damage: 34
+		ValidTargets: Structure, Wall
+	Warhead@3Eff_impact: CreateEffect
+		Explosions: crazyexplode
+		ImpactSounds: kaboom1.aud
+		ImpactActors: false
+	Warhead@6Eff_areanuke1: CreateEffect
+		ImpactSounds: kaboom22.aud
+		ImpactActors: false
+	Warhead@13Smu_areanuke3: LeaveSmudge
+		SmudgeType: Scorch
+		ValidTargets: Ground, Infantry
+		Size: 1
+	Warhead@14Eff: CreateEffect
+		Explosions: large_napalm
+		ValidTargets: Ground, GroundActor, Trees, Ship, WaterActor
+
 NerveGas:
 	Inherits: ^Explosion
 	ValidTargets: Ground, GroundActor, Trees,  Ship, WaterActor, Trees
 	Warhead@1Dam: SpreadDamage
-		Spread: 170
+		Spread: 4c512
 		Damage: 0
 		Falloff: 1000, 368, 135, 50, 18, 7, 0
 		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Trees
@@ -521,7 +612,7 @@ NerveGas:
 	Warhead@10: GrantExternalCondition
 		Condition: nervegas
 		Duration: 200
-		Range: 1c516
+		Range: 4c512
 		ValidTargets: GroundActor, Trees,  Ship, WaterActor
 	-Warhead@Smu:
 
@@ -722,6 +813,14 @@ LazarusBurst:
 		ImpactSounds: holy.aud
 		ValidTargets: Ground, GroundActor, Water, Underwater
 
+PromotionBurst:
+	ValidTargets: Ground, Water, Air, GroundActor, Trees, Ship, WaterActor, AirborneActor
+	Projectile: InstantHit
+	Warhead@prom: Promotion
+		Range: 2c0
+		ValidTargets: Infantry, Vehicle
+		ValidRelationships: Ally
+
 StealthShield:
 	ValidTargets: Ground, Water, Air, GroundActor, Trees,  Ship, WaterActor, AirborneActor
 	Projectile: InstantHit
@@ -766,6 +865,31 @@ MirageInit:
 		Footprint: xxxxxxx xxxxxxx xxxxxxx xxxxxxx xxxxxxx xxxxxxx xxxxxxx
 		Weapon: MirageSpawn_ltnk
 		RandomClusterCount: 3
+		ValidTargets: Ground, GroundActor
+
+MirageInitSM:
+	ValidTargets: Ground, Water, Air, GroundActor, Trees,  Ship, WaterActor, AirborneActor
+	Projectile: InstantHit
+	Warhead@5Eff: CreateEffect
+		ImpactSounds: teleport.aud
+		ValidTargets: Ground, Air, GroundActor, Trees,  AirborneActor, Ship, WaterActor, Trees
+	Warhead@2: FireCluster
+		Dimensions: 4,4
+		Footprint: xxxx xxxx xxxx xxxx
+		Weapon: MirageSpawn_e1
+		RandomClusterCount: 4
+		ValidTargets: Ground, GroundActor
+	Warhead@3: FireCluster
+		Dimensions: 4,4
+		Footprint: xxxx xxxx xxxx xxxx
+		Weapon: MirageSpawn_e3
+		RandomClusterCount: 3
+		ValidTargets: Ground, GroundActor
+	Warhead@4: FireCluster
+		Dimensions: 4,4
+		Footprint: xxxx xxxx xxxx xxxx
+		Weapon: MirageSpawn_ltnk
+		RandomClusterCount: 1
 		ValidTargets: Ground, GroundActor
 
 MirageSpawn_e1:
@@ -815,9 +939,9 @@ TerroristExplode:
 	Inherits: ^Explosion
 	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
-		Damage: 20000
-		Spread: 0c512
-		Falloff: 1000, 368, 200, 135, 50, 18, 7, 0
+		Damage: 5000
+		Spread: 0c256
+		Falloff: 1000, 500, 300, 200, 100, 50, 25, 10, 7, 0
 		Delay: 5
 		ValidTargets: GroundActor, Trees
 		Versus:
@@ -889,3 +1013,21 @@ Dominate:
 		Explosions: chronoexpbg
 		ImpactSounds: ichrmova.wav
 		ValidTargets: Ground, Air, GroundActor, Trees,  AirborneActor, Ship, WaterActor, Trees
+
+DigXplosion:
+	ReloadDelay: 100
+	Warhead@DigAnim: CreateEffect
+		Image: dig
+		Explosions: idle
+		ValidTargets: Ground, GroundActor
+		ExplosionPalette: tseffects
+		ImpactSounds: crumble.aud
+
+DigXplosionSM:
+	ReloadDelay: 100
+	Warhead@DigAnim: CreateEffect
+		Image: dig_sm
+		Explosions: idle
+		ValidTargets: Ground, GroundActor
+		ExplosionPalette: tseffects
+		ImpactSounds: crumble.aud

@@ -65,6 +65,8 @@
 	Warhead@3EffWater: CreateEffect
 		Explosions: water_piff
 		Inaccuracy: 171
+		ValidTargets: Water, Underwater
+		InvalidTargets: Bridge
 
 ^Gatling:
 	Inherits: ^LightMG
@@ -86,6 +88,27 @@
 			Concrete: 17
 	Warhead@2Eff: CreateEffect
 		Explosions: piff
+
+PromotionGun:
+	ReloadDelay: 30
+	Range: 3c0
+	Report: gun13.aud
+	ValidTargets: Promotable
+	Projectile: InstantHit
+		Blockable: true
+	Warhead@2Eff: CreateEffect
+		Explosions: piff
+		Inaccuracy: 171
+	Warhead@3EffWater: CreateEffect
+		Explosions: water_piff
+		Inaccuracy: 171
+		ValidTargets: Water, Underwater
+		InvalidTargets: Bridge
+		ValidRelationships: Ally
+	Warhead@prom: Promotion
+		Range: 0c124
+		ValidTargets: Promotable
+		ValidRelationships: Ally
 
 AGGatlingStart:
 	Inherits: ^Gatling
@@ -351,10 +374,15 @@ Archer-AG:
 	Report: shilka.aud
 	Range: 5c512
 	ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
-	Projectile: InstantHit
+	-Projectile:
+	Projectile: Bullet
 		Inaccuracy: 0c256
+		ContrailLength: 2
+		ContrailDelay: 0
+		Speed: 1c17
+		ContrailStartColor: FFAE00
 	Warhead@1Dam: SpreadDamage
-		Damage: 900
+		Damage: 850
 		Falloff: 100, 50, 25, 10, 0
 		Spread: 0c124
 		Versus:
@@ -368,7 +396,12 @@ Archer-AG:
 	Warhead@2Eff: CreateEffect
 		Explosions: piff
 		Inaccuracy: 0c256
-		ValidTargets: Air, Ground, GroundActor, Trees,  Water, Trees, AirborneActor, AirborneBomber, Corpse
+		ValidTargets: Air, Ground, GroundActor, Trees, Trees, AirborneActor, AirborneBomber, Corpse
+	Warhead@3EffWater: CreateEffect
+		Explosions: water_piff
+		Inaccuracy: 171
+		ValidTargets: Water, Underwater
+		InvalidTargets: Bridge
 
 Archer-AA:
 	Inherits: ZSU-23
@@ -377,9 +410,18 @@ Archer-AA:
 	ReloadDelay: 15
 	Report: shilka.aud
 	Range: 7c0
+	-Projectile:
+	Projectile: Missile
+		Inaccuracy: 0c256
+		ContrailLength: 2
+		ContrailDelay: 0
+		Speed: 1c17
+		AllowSnapping: True
+		ContrailStartColor: FFAE00
+		Jammable: False
 	ValidTargets: AirborneActor, AirborneBomber
 	Warhead@1Dam: SpreadDamage
-		Damage: 500
+		Damage: 400
 		Versus:
 			None: 75
 			Wood: 20
@@ -391,6 +433,54 @@ Archer-AA:
 	Warhead@2Eff: CreateEffect
 		ValidTargets: Air, AirborneActor, AirborneBomber
 		Inaccuracy: 0c512
+
+Frigate-AA:
+	Inherits: Archer-AA
+	BurstDelays: 4
+	Report: hvmg1.aud, hvmg2.aud, hvmg3.aud, hvmg4.aud
+
+Frigate-AG:
+	Inherits: Archer-AG
+	BurstDelays: 4
+	Report: hvmg1.aud, hvmg2.aud, hvmg3.aud, hvmg4.aud
+
+Wiesel-AA:
+	Inherits: Archer-AA
+	Burst: 3
+	BurstDelays: 4
+	Report: bgatweaa.wav, bgatweab.wav, bgatweac.wav, bgatwead.wav
+	Warhead@1Dam: SpreadDamage
+		Damage: 800
+
+Wiesel-AG:
+	Inherits: Archer-AG
+	Burst: 3
+	BurstDelays: 4
+	Report: bgatweaa.wav, bgatweab.wav, bgatweac.wav, bgatwead.wav
+	Warhead@1Dam: SpreadDamage
+		Damage: 1200
+
+Quad-AA:
+	Inherits: Archer-AA
+	Report: bgatweaa.wav, bgatweab.wav, bgatweac.wav, bgatwead.wav
+	Warhead@1Dam: SpreadDamage
+		Damage: 400
+
+Quad-AG:
+	Inherits: Archer-AG
+	Report: bgatweaa.wav, bgatweab.wav, bgatweac.wav, bgatwead.wav
+	Warhead@1Dam: SpreadDamage
+		Damage: 400
+
+MilpolCarbine:
+	Inherits: M1Carbine
+	Report: milpolrifle.aud
+	Warhead@1Dam: SpreadDamage
+		Damage: 1300
+
+WCMG:
+	Inherits: M1Carbine
+	Report: wcmg.aud
 
 Vulcan:
 	Inherits: ^HeavyMG
@@ -517,78 +607,107 @@ Vulcan:
 MO_Vulcan:
 	Inherits: ^HeavyMG
 	-Report:
-	StartBurstReport: hk_light_infantry_1f.aud
+	StartBurstReport: monitormg.aud
 	Burst: 4
 	BurstDelays: 2
+	Range: 7c0
 	Warhead@1Dam: SpreadDamage
-		Damage: 1700
+		Damage: 2200
 		Spread: 128
 		Versus:
 			None: 145
-			Wood: 50
-			Light: 50
-			Heavy: 30
-			Concrete: 20
-		DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
+			Wood: 60
+			Light: 60
+			Medium: 50
+			Heavy: 40
+			Concrete: 30
 
 LightMachineGun:
 	Inherits: ^LightMG
 	ReloadDelay: 40
-	Burst: 18
-	-Report:
+	Burst: 6
 	Range: 5c0
-	BurstDelays: 4
-	Projectile: InstantHit
-		Inaccuracy: 1c216
-	Warhead@1Dam: SpreadDamage
-		Damage: 325
-		Spread: 0c512
-		Versus:
-			None: 55
-			Wood: 5
-			Light: 15
-			Medium: 5
-			Heavy: 2
-			Concrete: 5
-		Falloff: 220, 35
-	Warhead@2Eff: CreateEffect
-		Explosions: piff
-		Inaccuracy: 0c54
-		ValidTargets: Ground, GroundActor, Corpse
-	Warhead@3Eff: CreateEffect
-		Explosions: piff
-		Inaccuracy: 0c124
-		ValidTargets: Ground, GroundActor, Corpse
-	Warhead@3EffWater: CreateEffect
-		Explosions: water_piff
-		Inaccuracy: 0c124
-	Warhead@4EffWater: CreateEffect
-		Explosions: water_piff
-		Inaccuracy: 0c124
-		ValidTargets: Water, Ship, WaterActor
-
-LightMachineGun2:
-	Inherits: ^LightMG
-	ReloadDelay: 40
-	Burst: 18
-	-Report:
-	Range: 5c0
-	BurstDelays: 4
-	Report: lmg_1.aud, lmg_2.aud, lmg_3.aud
+	BurstDelays: 7
+	Report: lmg_1_new.aud, lmg_2_new.aud
 	Projectile: InstantHit
 		Inaccuracy: 0c124
 	Warhead@1Dam: SpreadDamage
-		Spread: 0c512
-		Damage: 300
+		Spread: 0c256
+		Damage: 150
 		Versus:
-			None: 55
-			Wood: 5
-			Light: 15
-			Medium: 5
-			Heavy: 2
-			Concrete: 5
+			None: 140
+			Wood: 15
+			Light: 25
+			Medium: 15
+			Heavy: 10
+			Concrete: 10
+		Falloff: 100, 35
+		ValidTargets: Ground, GroundActor, Ship, WaterActor, Water
+	Warhead@2Dam: SpreadDamage
+		Spread: 0c256
+		Damage: 150
+		Versus:
+			None: 140
+			Wood: 15
+			Light: 25
+			Medium: 15
+			Heavy: 10
+			Concrete: 10
+		Falloff: 100, 35
+		ValidTargets: Ground, GroundActor, Ship, WaterActor, Water
+		Delay: 2
+	Warhead@3Dam: SpreadDamage
+		Spread: 0c256
+		Damage: 150
+		Versus:
+			None: 140
+			Wood: 15
+			Light: 25
+			Medium: 15
+			Heavy: 10
+			Concrete: 10
+		Falloff: 100, 35
+		ValidTargets: Ground, GroundActor, Ship, WaterActor, Water
+		Delay: 4
+	Warhead@4Dam: SpreadDamage
+		Spread: 0c256
+		Damage: 150
+		Versus:
+			None: 140
+			Wood: 15
+			Light: 25
+			Medium: 15
+			Heavy: 10
+			Concrete: 10
+		Falloff: 100, 35
+		ValidTargets: Ground, GroundActor, Ship, WaterActor, Water
+		Delay: 6
+	Warhead@5Dam: SpreadDamage
+		Spread: 0c256
+		Damage: 150
+		Versus:
+			None: 140
+			Wood: 15
+			Light: 25
+			Medium: 15
+			Heavy: 10
+			Concrete: 10
 		Falloff: 220, 35
 		ValidTargets: Ground, GroundActor, Ship, WaterActor, Water
+		Delay: 8
+	Warhead@6Dam: SpreadDamage
+		Spread: 0c256
+		Damage: 150
+		Versus:
+			None: 140
+			Wood: 15
+			Light: 25
+			Medium: 15
+			Heavy: 10
+			Concrete: 10
+		Falloff: 100, 35
+		ValidTargets: Ground, GroundActor, Ship, WaterActor, Water
+		Delay: 10
 	Warhead@Prone: SpreadDamage
 		Damage: 10
 		Spread: 2c0
@@ -602,7 +721,7 @@ LightMachineGun2:
 			Concrete: 0
 		DamageTypes: NotCrushDeath, Prone50Percent, TriggerProne, DefaultDeath
 		ValidTargets: GroundActor
-		ValidRelationships: Enemy, Neutral
+		ValidRelationships: Enemy, Neutral, Ally
 	Warhead@AntiProne: SpreadDamage
 		Damage: -10
 		Spread: 2c0
@@ -616,23 +735,132 @@ LightMachineGun2:
 			Concrete: 0
 		DamageTypes: NotCrushDeath, Prone50Percent, TriggerProne, DefaultDeath
 		ValidTargets: GroundActor
-		ValidRelationships: Enemy, Neutral
+		ValidRelationships: Enemy, Neutral, Ally
 	Warhead@2Eff: CreateEffect
 		Explosions: piff
-		Inaccuracy: 0c124
-		ValidTargets: Ground, GroundActor, Corpse
-	Warhead@3Eff: CreateEffect
-		Explosions: piff
-		Inaccuracy: 0c124
+		Inaccuracy: 0c512
 		ValidTargets: Ground, GroundActor, Corpse
 	Warhead@3EffWater: CreateEffect
 		Explosions: water_piff
-		Inaccuracy: 0c124
+		Inaccuracy: 0c512
 		ValidTargets: Water
-	Warhead@4EffWater: CreateEffect
+	Warhead@2Eff2: CreateEffect
+		Explosions: piff
+		Inaccuracy: 0c512
+		ValidTargets: Ground, GroundActor, Corpse
+		Delay: 2
+	Warhead@3EffWater2: CreateEffect
 		Explosions: water_piff
-		Inaccuracy: 0c124
-		ValidTargets: Water, Ship, WaterActor
+		Inaccuracy: 0c512
+		ValidTargets: Water
+		Delay: 2
+	Warhead@2Eff3: CreateEffect
+		Explosions: piff
+		Inaccuracy: 0c512
+		ValidTargets: Ground, GroundActor, Corpse
+		Delay: 4
+	Warhead@3EffWater3: CreateEffect
+		Explosions: water_piff
+		Inaccuracy: 0c512
+		ValidTargets: Water
+		Delay: 4
+	Warhead@2Eff4: CreateEffect
+		Explosions: piff
+		Inaccuracy: 0c512
+		ValidTargets: Ground, GroundActor, Corpse
+		Delay: 6
+	Warhead@3EffWater4: CreateEffect
+		Explosions: water_piff
+		Inaccuracy: 0c512
+		ValidTargets: Water
+		Delay: 6
+	Warhead@2Eff5: CreateEffect
+		Explosions: piff
+		Inaccuracy: 0c512
+		ValidTargets: Ground, GroundActor, Corpse
+		Delay: 8
+	Warhead@3EffWater5: CreateEffect
+		Explosions: water_piff
+		Inaccuracy: 0c512
+		ValidTargets: Water
+		Delay: 8
+	Warhead@2Eff6: CreateEffect
+		Explosions: piff
+		Inaccuracy: 0c512
+		ValidTargets: Ground, GroundActor, Corpse
+		Delay: 10
+	Warhead@3EffWater6: CreateEffect
+		Explosions: water_piff
+		Inaccuracy: 0c512
+		ValidTargets: Water
+		Delay: 10
+	Warhead@Cluster1: FireCluster
+		Weapon: LightMachineGunCluster
+		Dimensions: 1,1
+		Footprint: x
+		ValidTargets: Ground,Water,GroundActor,WaterActor
+		Delay: 1
+	Warhead@Cluster2: FireCluster
+		Weapon: LightMachineGunCluster
+		Dimensions: 1,1
+		Footprint: x
+		ValidTargets: Ground,Water,GroundActor,WaterActor
+		Delay: 3
+	Warhead@Cluster3: FireCluster
+		Weapon: LightMachineGunCluster
+		Dimensions: 1,1
+		Footprint: x
+		ValidTargets: Ground,Water,GroundActor,WaterActor
+		Delay: 5
+	Warhead@Cluster4: FireCluster
+		Weapon: LightMachineGunCluster
+		Dimensions: 1,1
+		Footprint: x
+		ValidTargets: Ground,Water,GroundActor,WaterActor
+		Delay: 7
+	Warhead@Cluster5: FireCluster
+		Weapon: LightMachineGunCluster
+		Dimensions: 1,1
+		Footprint: x
+		ValidTargets: Ground,Water,GroundActor,WaterActor
+		Delay: 9
+	Warhead@Cluster6: FireCluster
+		Weapon: LightMachineGunCluster
+		Dimensions: 1,1
+		Footprint: x
+		ValidTargets: Ground,Water,GroundActor,WaterActor
+		Delay: 11
+
+LightMachineGunCluster:
+	Inherits: ^LightMG
+	ReloadDelay: 40
+	Burst: 1
+	Range: 5c0
+	BurstDelays: 1
+	-Report:
+	Projectile: InstantHit
+		Inaccuracy: 0c512
+		InaccuracyType: Absolute
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c256
+		Damage: 300
+		Versus:
+			None: 140
+			Wood: 15
+			Light: 25
+			Medium: 15
+			Heavy: 10
+			Concrete: 10
+		Falloff: 100, 35
+		ValidTargets: Ground, GroundActor, Ship, WaterActor, Water
+	Warhead@2Eff: CreateEffect
+		Explosions: piff
+		Inaccuracy: 0c0
+		ValidTargets: Ground, GroundActor, Corpse
+	Warhead@3EffWater: CreateEffect
+		Explosions: water_piff
+		Inaccuracy: 0c0
+		ValidTargets: Water
 
 ChainGun:
 	Inherits: ^HeavyMG
@@ -833,6 +1061,30 @@ Pistol:
 	Warhead@3EffWater: CreateEffect
 		Inaccuracy: 128
 
+Shotgun:
+	Inherits: ^LightMG
+	Range: 4c512
+	Report: shotgun1.aud, shotgun2.aud, shotgun3.aud, shotgun4.aud
+	Warhead@1Dam: SpreadDamage
+		Falloff: 250, 150, 100, 50, 25, 10, 5
+		Spread: 0c124
+			None: 180
+	Warhead@2Eff2: CreateEffect
+		Explosions: piffs
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, Ship, WaterActor, Trees, Corpse
+	Warhead@3EffWater2: CreateEffect
+		Explosions: water_piffs
+		ValidTargets: Water, Underwater
+		InvalidTargets: Bridge
+
+BerzerkerShotgun:
+	Inherits: Shotgun
+	Report: berzerkerlaser.aud
+	Warhead@1Dam: SpreadDamage
+		Falloff: 500, 250, 150, 50, 25, 10, 5	
+	Warhead@2Eff2: CreateEffect
+		Explosions: berzerkerpiff
+
 M1Carbine:
 	Inherits: ^LightMG
 	ReloadDelay: 20
@@ -878,7 +1130,39 @@ TankMachineGun:
 	Report: iarnattb.wav
 	Warhead@1Dam: SpreadDamage
 		Damage: 1800
+			None: 140
+			Wood: 15
+			Light: 30
+			Medium: 20
+			Heavy: 15
+			Concrete: 10
 
+TankMachineGun-scorpion:
+	Inherits: TankMachineGun
+	InvalidTargets: Husk
+
+TankMachineGun-indiachopper:
+	Inherits: TankMachineGun
+	ReloadDelay: 15
+
+TankMachineGun-technical-1:
+	Inherits: TankMachineGun
+	ReloadDelay: 15
+	InvalidTargets: Husk
+
+TankMachineGun-technical-2:
+	Inherits: TankMachineGun
+	ReloadDelay: 15
+	Burst: 2
+	BurstDelays: 5
+	InvalidTargets: Husk
+
+TankMachineGun-technical-3:
+	Inherits: TankMachineGun
+	ReloadDelay: 15
+	Burst: 4
+	BurstDelays: 5
+	InvalidTargets: Husk
 
 WitchMG:
 	Inherits: ^LightMG
@@ -916,6 +1200,19 @@ WitchMG:
 		InvalidTargets: Bridge
 		Explosions: water_piff
 		Inaccuracy: 171
+
+WolverineMG:
+	Inherits: WitchMG
+	ReloadDelay: 25
+	Warhead@1Dam: SpreadDamage
+		Damage: 1300
+		Versus:
+			None: 250
+			Concrete: 30
+			Wood: 40
+			Light: 60
+			Medium: 40
+			Heavy: 20
 
 WitchMG_Caballero:
 	Inherits: WitchMG
@@ -976,10 +1273,10 @@ M60mg:
 	Inherits: ^HeavyMG
 	ReloadDelay: 30
 	Range: 5c0
-	Report: mgun11.aud
+	Report: medium_mgun1_1.aud
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
-		Damage: 2250
+		Damage: 1500
 		Versus:
 			None: 95
 			Wood: 10
@@ -989,7 +1286,7 @@ M60mg:
 			Concrete: 5
 	Warhead@2Dam_2: SpreadDamage
 		Spread: 128
-		Damage: 2250
+		Damage: 1500
 		Delay: 3
 		ValidTargets: GroundActor, Trees,  Ship, WaterActor
 		Versus:
@@ -1002,7 +1299,7 @@ M60mg:
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@3Dam_2: SpreadDamage
 		Spread: 128
-		Damage: 2250
+		Damage: 1500
 		Delay: 6
 		ValidTargets: GroundActor, Trees,  Ship, WaterActor
 		Versus:
@@ -1015,7 +1312,7 @@ M60mg:
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@4Dam_2: SpreadDamage
 		Spread: 128
-		Damage: 2250
+		Damage: 1500
 		Delay: 9
 		ValidTargets: GroundActor, Trees,  Ship, WaterActor
 		Versus:
@@ -1113,7 +1410,7 @@ M60mg-Bobcat:
 	Report: mgun11.aud
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
-		Damage: 2250
+		Damage: 2150
 		Versus:
 			None: 130
 			Wood: 10
@@ -1123,7 +1420,7 @@ M60mg-Bobcat:
 			Concrete: 5
 	Warhead@2Dam_2: SpreadDamage
 		Spread: 128
-		Damage: 2250
+		Damage: 2150
 		Delay: 2
 		ValidTargets: GroundActor, Trees,  Ship, WaterActor
 		Versus:
@@ -1136,7 +1433,7 @@ M60mg-Bobcat:
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@3Dam_2: SpreadDamage
 		Spread: 128
-		Damage: 2250
+		Damage: 2150
 		Delay: 4
 		ValidTargets: GroundActor, Trees,  Ship, WaterActor
 		Versus:
@@ -1149,7 +1446,7 @@ M60mg-Bobcat:
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@4Dam_2: SpreadDamage
 		Spread: 128
-		Damage: 2250
+		Damage: 2150
 		Delay: 6
 		ValidTargets: GroundActor, Trees,  Ship, WaterActor
 		Versus:
@@ -1170,6 +1467,36 @@ M60mg-Bobcat:
 		Delay: 4
 	Warhead@10Eff_5_water: CreateEffect
 		Explosions: piffs
+		ValidTargets: Water
+		Delay: 8
+
+M60mg-Sickle:
+	Inherits: M60mg-Bobcat
+	Burst: 2
+	BurstDelays: 15
+
+M60mg-Humvee:
+	Inherits: ^HeavyMG
+	ReloadDelay: 30
+	Range: 5c0
+	-Report:
+	StartBurstReport: medium_mgun1_2.aud
+	Burst: 3
+	BurstDelays: 4
+	Warhead@1Dam: SpreadDamage
+		Damage: 2800
+		Versus:
+			None: 100
+			Wood: 20
+			Light: 45
+			Medium: 35
+			Heavy: 15
+			Concrete: 10
+	Warhead@2Eff: CreateEffect
+		Inaccuracy: 213
+		Explosions: piff
+	Warhead@10Eff_5_water: CreateEffect
+		Explosions: piff
 		ValidTargets: Water
 		Delay: 8
 
@@ -1362,6 +1689,27 @@ HeavyMachineGun:
 		ValidTargets: Water, Underwater
 		InvalidTargets: Ship, Structure, Bridge
 
+ZombieGun:
+	Inherits: ^SnipeWeapon
+	ValidTargets: Infantry, Ground
+	ReloadDelay: 100
+	Range: 7c0
+	Report: silppk.aud
+	TargetActorCenter: true
+	Projectile: InstantHit
+	Warhead@1Dam: TargetDamage
+		Delay: 2
+		Damage: 100000
+		ValidTargets: Infantry
+		InvalidTargets: Ant
+		DamageTypes: NotCrushDeath, Zombiefy
+		ValidRelationships: Ally, Enemy, Neutral
+	Warhead@condition: GrantExternalCondition
+		Condition: zombiefy
+		Duration: 100
+		Range: 0c63
+		ValidTargets: Infantry
+
 SilencedPPK:
 	Inherits: ^SnipeWeapon
 	Report: silppk.aud
@@ -1392,6 +1740,44 @@ Sniper:
 			Light: 20
 			Medium: 10
 			Heavy: 5
+
+ATRifle:
+	Inherits: ^SnipeWeapon
+	Report: huntergun.aud
+	ReloadDelay: 70
+	Range: 6c512
+	Warhead@1Dam: SpreadDamage
+		Damage: 4500
+		Versus:
+			None: 45
+			Wood: 40
+			Concrete: 50
+			Light: 60
+			Medium: 70
+			Heavy: 80
+		ValidTargets: Ground, Infantry, Barrel, Structure, Ship, Vehicle
+	ValidTargets: Ground, Infantry, Barrel, Structure, Ship, Vehicle
+	Projectile: InstantHit
+		Blockable: true
+
+JarmenRifle:
+	Inherits: ^SnipeWeapon
+	Report: jarmengun.aud
+	ReloadDelay: 25
+	Range: 9c0
+	Warhead@1Dam: SpreadDamage
+		Damage: 10000
+		Versus:
+			None: 100
+			Wood: 50
+			Concrete: 40
+			Light: 80
+			Medium: 70
+			Heavy: 60
+		ValidTargets: Ground, Infantry, Barrel, Structure, Ship, Vehicle
+	ValidTargets: Ground, Infantry, Barrel, Structure, Ship, Vehicle
+	Projectile: InstantHit
+		Blockable: true
 
 HLFTRKGUN:
 	Inherits: ^LightMG
@@ -1654,12 +2040,34 @@ GuerillaCarbine:
 		InvalidTargets: Bridge
 		Explosions: water_piff
 		Inaccuracy: 171
-		
+
+BloodLustGun:
+	Inherits: ^LightMG
+	ReloadDelay: 35
+	Range: 5c0
+	ValidTargets: Omniattacking
+	Report: rifle1.aud, limg1.aud, limg2.aud, limg3.aud, limg4.aud, limg5.aud
+	InvalidTargets: Bloodlust
+	Warhead@1Dam: SpreadDamage
+		Damage: 0
+		Versus:
+			Wood: 20
+		ValidRelationships: Ally
+	Warhead@2Eff4: CreateEffect
+		ImpactSounds: bloodlust.aud
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, Ship, WaterActor, Trees, Corpse
+	Warhead@condition: GrantExternalCondition
+		Condition: bloodlust
+		Range: 0c05
+		Duration: 250
+		ValidTargets: Infantry
+		ValidRelationships: Ally
+
 MosinNagant44:
 	Inherits: ^LightMG
 	ReloadDelay: 35
 	Range: 5c0
-	Report: rifle1.aud
+	Report: rifle1.aud, limg1.aud, limg2.aud, limg3.aud, limg4.aud, limg5.aud
 	Warhead@1Dam: SpreadDamage
 		Damage: 800
 		Versus:
@@ -1675,12 +2083,60 @@ MosinNagant44:
 		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, Ship, WaterActor, Trees, Corpse
 		Inaccuracy: 171
 
+MosinNagant44-a:
+	Inherits: MosinNagant44
+	Report: rifle1.aud
+
+MosinNagant44-b:
+	Inherits: MosinNagant44
+	Report: limg1.aud
+
+MosinNagant44-c:
+	Inherits: MosinNagant44
+	Report: limg2.aud
+
+MosinNagant44-d:
+	Inherits: MosinNagant44
+	Report: limg3.aud
+
+MosinNagant44-e:
+	Inherits: MosinNagant44
+	Report: limg4.aud
+
+MosinNagant44-f:
+	Inherits: MosinNagant44
+	Report: limg4.aud
+
 MosinNagant44-Cavalry:
 	Inherits: MosinNagant44
 	ReloadDelay: 30
 	Range: 6c0
 	Warhead@1Dam: SpreadDamage
 		Damage: 900
+
+MosinNagant44-Cavalry-a:
+	Inherits: MosinNagant44-Cavalry
+	Report: rifle1.aud
+
+MosinNagant44-Cavalry-b:
+	Inherits: MosinNagant44-Cavalry
+	Report: limg1.aud
+
+MosinNagant44-Cavalry-c:
+	Inherits: MosinNagant44-Cavalry
+	Report: limg2.aud
+
+MosinNagant44-Cavalry-d:
+	Inherits: MosinNagant44-Cavalry
+	Report: limg3.aud
+
+MosinNagant44-Cavalry-e:
+	Inherits: MosinNagant44-Cavalry
+	Report: limg4.aud
+
+MosinNagant44-Cavalry-f:
+	Inherits: MosinNagant44-Cavalry
+	Report: limg4.aud
 
 9mmPistol:
 	Inherits: MosinNagant44

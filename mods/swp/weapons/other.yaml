@@ -23,7 +23,31 @@
 		ImpactSounds: firebl3.aud
 		ImpactActors: false
 		ValidTargets: Ground, GroundActor, Ship, WaterActor, Corpse, Trees
-		
+
+^LazareneBeam:
+	ReloadDelay: 5
+	Range: 7c0
+	Projectile: TeslaZap
+	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor
+	Warhead@1Dam: SpreadDamage
+		Spread: 42
+		Damage: 10000
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
+		Versus:
+			None: 1000
+			Concrete: 50
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ElectricityDeath
+	Projectile: PlasmaBeam
+		Duration: 7
+		Colors: 00FFFF
+		InnerLightness: 200
+		OuterLightness: 100
+		Radius: 2
+		Distortion: 150
+		DistortionAnimation: 150
+		SegmentLength: 350
+		Inaccuracy: 128
+	
 ^TeslaWeapon:
 	ReloadDelay: 3
 	Range: 7c0
@@ -58,6 +82,54 @@
 			Concrete: 10
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ElectricityDeath
 
+^SoundBoltWeapon:
+	ReloadDelay: 3
+	Range: 7c0
+	Report: LaserTankAttack.wav
+	Projectile: Bullet
+	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c512
+		Damage: 10000
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
+		Versus:
+			None: 35
+			Light: 50
+			Medium: 60
+			Heavy: 50
+			Wood: 20
+			Concrete: 10
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ElectricityDeath
+
+^MicrowaveWeapon:
+	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor
+	ReloadDelay: 8
+	Range: 10c0
+	Projectile: Railgun
+		Inaccuracy: 0c0
+		BeamWidth: 0c0
+		BeamColor: FF6A00
+		HelixColor: FF6A00
+		QuantizationCount: 64
+		Duration: 10
+	Warhead@effect: CreateEffect
+		Image: microwavesparks
+		Explosions: idle
+		ExplosionPalette: tseffects
+		ValidTargets: Water, Ground, WaterActor, GroundActor, AirborneActor
+	Warhead@1: SpreadDamage
+		Damage: 1000
+		Spread: 0c126
+		Versus:
+			None: 10
+			Light: 70
+			Medium: 85
+			Heavy: 100
+			Wood: 30
+			Concrete: 25
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, SmallExplosionDeath
+
 ^MagneticWeapon:
 	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor
 	ReloadDelay: 8
@@ -84,6 +156,144 @@
 		ValidTargets: GroundActor, Trees,  Ship, WaterActor
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, SmallExplosionDeath
 
+^Railgun:
+	ReloadDelay: 60
+	Range: 6c0
+	Report: bigggun1.aud
+	ValidTargets: GroundActor, Trees,  Ship, WaterActor, Ground
+	Projectile: Railgun
+		Duration: 15
+		Blockable: true
+		DamageActorsInLine: true
+		BeamColor: 0080FFC8
+	Warhead@1Dam: SpreadDamage
+		Range: 0, 32
+		Falloff: 100, 100
+		Damage: 1500
+		AffectsParent: false
+		Versus:
+			None: 100
+			Wood: 130
+			Light: 150
+			Medium: 125
+			Heavy: 110
+			Concrete: 5
+		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Ground
+
+SoundRifle:
+	ReloadDelay: 60
+	Range: 6c0
+	Report: soundrifle.wav
+	ValidTargets: GroundActor, Trees,  Ship, WaterActor, Ground
+	Projectile: RadBeam
+		Color: 007CED
+	Warhead@1Dam: SpreadDamage
+		Range: 0, 32
+		Falloff: 100, 100
+		Damage: 5000
+		AffectsParent: false
+		Versus:
+			None: 90
+			Wood: 80
+			Light: 60
+			Medium: 50
+			Heavy: 25
+			Concrete: 50
+		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Ground
+	Warhead@condition: GrantExternalCondition
+		Duration: 100
+		Condition: confusion
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
+		ValidRelationships: Enemy, Neutral
+		Range: 1c512
+
+LtRail:
+	Inherits: ^Railgun
+	Warhead@1Dam: SpreadDamage
+		ValidRelationships: Neutral, Enemy
+		Damage: 2500
+	Warhead@2Dam: SpreadDamage
+		Range: 0, 32
+		Falloff: 50, 50 # Only does half damage to friendly units
+		Damage: 6000
+		AffectsParent: false
+		ValidRelationships: Ally
+		Versus:
+			None: 100
+			Wood: 80
+			Light: 100
+			Medium: 80
+			Heavy: 60
+			Concrete: 40
+		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Ground
+
+HvRailgun:
+	Inherits: ^Railgun
+	Range: 8c0
+	Report: railuse5.aud
+	Projectile: Railgun
+		BeamColor: 00FFFFC8
+	Warhead@1Dam: SpreadDamage
+		Damage: 8000
+		Versus:
+			None: 100
+			Wood: 80
+			Light: 100
+			Medium: 80
+			Heavy: 60
+			Concrete: 40
+
+AttachTerrorDrone:
+	ValidTargets: Vehicle
+	Range: 1c512
+	ReloadDelay: 10
+	Projectile: InstantHit
+	InvalidTargets: WithTerrorDrone
+	Warhead@attach: AttachActorWithHealth
+		Actor: terrordrone.attached
+		ValidTargets: Vehicle
+		InvalidTargets: WithInvader
+
+TerrorDroneClaw:
+	Inherits: Claw
+	ReloadDelay: 25
+	ValidTargets: Infantry
+	Warhead@1Dam: SpreadDamage
+		Damage: 30000
+
+InvaderDamage:
+	ReloadDelay: 50
+	Warhead@1Dam: HealthPercentageDamage
+		Spread: 0c512
+		Damage: 2
+		ValidTargets: Vehicle
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+
+ParasiteWeapon:
+	ValidTargets: Parasiteable
+	InvalidTargets: WithParasite
+	Range: 7c0
+	ReloadDelay: 25
+	Projectile:	InstantHit
+	Warhead@1: AttachActor
+		Actor: parasite
+		ValidTargets: Parasiteable
+
+
+AttachParasite:
+	ValidTargets: Parasiteable
+	InvalidTargets: WithParasite
+	Report: MYKOROB1.wav
+	Range: 6c0
+	ReloadDelay: 25
+	Projectile: InstantHit
+	Warhead@attach: AttachActorWithHealth
+		Actor: parasite.attached
+		ValidTargets: Parasiteable
+
 TraktorBeam:
 	Inherits: ^MagneticWeapon
 	Range: 7c512
@@ -98,31 +308,6 @@ TraktorBeam:
 		Condition: magnetic-trap
 		Duration: 14
 		ValidTargets: Vehicle
-
-MagneticBolt:
-	Inherits: ^MagneticWeapon
-	ReloadDelay: 65
-	Range: 6c0
-	Report: magray.aud
-	Projectile: Railgun
-		Inaccuracy: 0c256
-		BeamWidth: 0c30
-		BeamColor: AE8EFF
-		HelixAngleDeltaPerTick: 60
-		HelixAlphaDeltaPerTick: -15
-		HelixPitch: 0c126
-		HelixRadius: 0c25
-		QuantizationCount: 5
-		Duration: 10
-	Warhead@1: SpreadDamage
-		Damage: 7500
-		Versus:
-			None: 70
-			Light: 75
-			Medium: 90
-			Heavy: 105
-			Wood: 40
-			Concrete: 40
 
 SaucerBolt:
 	Inherits: ^MagneticWeapon
@@ -168,6 +353,102 @@ SaucerBoltBuilding:
 		Damage: 0
 		ValidTargets: Structure
 
+MagneticBolt:
+	Inherits: ^SoundBoltWeapon
+	Report: magray.aud
+	Burst: 1
+	BurstDelays: 5
+	ReloadDelay: 25
+	Projectile: Missile
+		Image: magnetoburst
+		Palette: tseffects
+		Speed: 216
+		Blockable: false
+		Shadow: false
+		Inaccuracy: 0
+		HorizontalRateOfTurn: 100
+		RangeLimit: 15c0
+		MinimumLaunchSpeed: 75
+		Acceleration: 96
+		CruiseAltitude: 1c512
+		AllowSnapping: true
+	Warhead@3Eff: CreateEffect
+		Explosions: magnetoexplosion
+		ExplosionPalette: tseffects
+		ValidTargets: GroundActor, WaterActor, AirborneActor, Ground, Water
+
+SMMagneticBolt:
+	Inherits: ^SoundBoltWeapon
+	Report: magray.aud
+	Burst: 2
+	BurstDelays: 5
+	ReloadDelay: 25
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c512
+		Damage: 3500
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
+		Versus:
+			None: 35
+			Light: 50
+			Medium: 60
+			Heavy: 50
+			Wood: 20
+			Concrete: 10
+	Projectile: Missile
+		Image: plasmaball
+		Palette: tseffects
+		Speed: 216
+		Blockable: false
+		Shadow: false
+		Inaccuracy: 0
+		HorizontalRateOfTurn: 100
+		RangeLimit: 15c0
+		MinimumLaunchSpeed: 75
+		Acceleration: 96
+		CruiseAltitude: 1c512
+		AllowSnapping: true
+	Warhead@3Eff: CreateEffect
+		Explosions: sm_plasmaexplosion
+		ExplosionPalette: tseffects
+		ValidTargets: GroundActor, WaterActor, AirborneActor, Ground, Water
+
+SMMagneticBoltBanshee:
+	Inherits: ^SoundBoltWeapon
+	Report: magray.aud
+	Burst: 6
+	BurstDelays: 5
+	ReloadDelay: 25
+	Range: 7c512
+	ValidTargets: GroundActor, Trees, Ship, WaterActor, AirborneActor, AirborneBomber
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c512
+		Damage: 5000
+		ValidTargets: GroundActor, Trees, Ship, WaterActor, AirborneActor, AirborneBomber
+		Versus:
+			None: 35
+			Light: 50
+			Medium: 60
+			Heavy: 50
+			Wood: 20
+			Concrete: 10
+	Projectile: Missile
+		Image: plasmaball
+		Palette: tseffects
+		Speed: 512
+		Blockable: false
+		Shadow: false
+		Inaccuracy: 0
+		HorizontalRateOfTurn: 100
+		RangeLimit: 15c0
+		MinimumLaunchSpeed: 75
+		Acceleration: 96
+		CruiseAltitude: 1c512
+		AllowSnapping: true
+	Warhead@3Eff: CreateEffect
+		Explosions: sm_plasmaexplosion
+		ExplosionPalette: tseffects
+		ValidTargets: GroundActor, Trees, Ship, WaterActor, AirborneActor, AirborneBomber, Ground
+
 ElectricBolt:
 	Inherits: ^ElectricBoltWeapon
 	ReloadDelay: 90
@@ -177,7 +458,6 @@ ElectricBolt:
 	Projectile: Missile
 		Image: electroball
 		Palette: tseffects
-		Speed: 400
 		TrailImage: electrobolt
 		TrailSequences: idle
 		TrailPalette: tseffects
@@ -194,8 +474,7 @@ ElectricBolt:
 		MinimumLaunchAngle: 128
 		MaximumLaunchAngle: 192
 		VerticalRateOfTurn: 100
-		HorizontalRateOfTurn: 100
-		CruiseAltitude: 1c512
+		CruiseAltitude: 1c0
 		AllowSnapping: true
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c256
@@ -208,6 +487,55 @@ ElectricBolt:
 			Wood: 20
 			Concrete: 10
 		Damage: 9500
+	Warhead@3Eff: CreateEffect
+		Explosions: thunderstruck, thunderstruck2
+		ExplosionPalette: tseffects
+		ImpactSounds: chrge1.aud
+		ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor, Corpse
+	Warhead@EMDamage: GrantExternalCondition
+		Range: 0c511
+		Duration: 200
+		Condition: emdamaged
+		ValidTargets: Ship, WaterActor, GroundActor
+
+TowerElectricBolt:
+	Inherits: ^ElectricBoltWeapon
+	ReloadDelay: 90
+	Burst: 2
+	Range: 7c512
+	BurstDelays: 20
+	Projectile: Missile
+		Image: electroball
+		Palette: tseffects
+		TrailImage: electrobolt
+		TrailSequences: idle
+		TrailPalette: tseffects
+		TrailInterval: 1
+		MaximumLaunchSpeed: 96
+		Blockable: false
+		Shadow: false
+		Inaccuracy: 0
+		HorizontalRateOfTurn: 100
+		RangeLimit: 15c0
+		MinimumLaunchSpeed: 75
+		Speed: 260
+		Acceleration: 96
+		MinimumLaunchAngle: 128
+		MaximumLaunchAngle: 192
+		VerticalRateOfTurn: 100
+		CruiseAltitude: 1c0
+		AllowSnapping: true
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c256
+		Falloff: 100, 25, 5
+		Versus:
+			None: 60
+			Light: 65
+			Medium: 75
+			Heavy: 65
+			Wood: 25
+			Concrete: 15
+		Damage: 14000
 	Warhead@3Eff: CreateEffect
 		Explosions: thunderstruck, thunderstruck2
 		ExplosionPalette: tseffects
@@ -255,7 +583,6 @@ SM_ElectricBolt:
 	Projectile: Missile
 		Image: sm_electroball
 		Palette: tseffects
-		Speed: 400
 		MaximumLaunchSpeed: 96
 		Blockable: false
 		Shadow: false
@@ -268,8 +595,7 @@ SM_ElectricBolt:
 		MinimumLaunchAngle: 128
 		MaximumLaunchAngle: 192
 		VerticalRateOfTurn: 100
-		HorizontalRateOfTurn: 100
-		CruiseAltitude: 1c512
+		CruiseAltitude: 1c0
 		AllowSnapping: true
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c256
@@ -295,6 +621,12 @@ SM_ElectricBolt:
 		Condition: emdamaged
 		ValidTargets: Ship, WaterActor, GroundActor
 
+SM_ElectricBoltBanshee:
+	Inherits: SM_ElectricBolt
+	Burst: 3
+	Warhead@1Dam: SpreadDamage
+		Damage: 8500
+
 FireballLauncher:
 	Inherits: ^FireWeapon
 	Burst: 2
@@ -307,6 +639,27 @@ FireballLauncher:
 	Warhead@1Dam: SpreadDamage
 		Versus:
 			Light: 50
+
+ToxBallLauncher:
+	Inherits: ^FireWeapon
+	Burst: 2
+	Report: flamethrower2.aud
+	BurstDelays: 20
+	Projectile: Bullet
+		Speed: 250
+		TrailImage: fb2
+		Image: FB1
+		TrailPalette: poisonpal
+		Palette: poisonpal
+	Warhead@1Dam: SpreadDamage
+		Versus:
+			Light: 50
+	Warhead@3Eff: CreateEffect
+		Explosions: small_tox
+		ExplosionPalette: poisonpal
+		ImpactSounds: acid1.aud, acid2.aud, acid3.aud
+		ImpactActors: false
+		ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor, Trees, Corpse
 
 TankFireballLauncher:
 	Inherits: ^FireWeapon
@@ -342,6 +695,61 @@ Flamer:
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c216
 		Damage: 1000
+		Falloff: 100,65,30,10 ,0
+		Versus:
+			None: 70
+			Wood: 70
+			Tree: 80
+			Light: 25
+			Medium: 15
+			Heavy: 5
+			Concrete: 30
+	Warhead@3Eff: CreateEffect
+		Explosions: small_napalm
+
+DrakeFlamer:
+	Inherits: ^FireWeapon
+	ReloadDelay: 50
+	Burst: 15
+	BurstDelays: 1
+	Report: flamer1.aud, flamer2.aud, flamer3.aud, flamer4.aud
+	Projectile: Bullet
+		Speed: 170
+		TrailImage: fb4
+		Image: fb3
+		LaunchAngle: 62
+		Inaccuracy: 853
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c216
+		Damage: 2000
+		Falloff: 100,65,30,10 ,0
+		Versus:
+			None: 70
+			Wood: 70
+			Tree: 80
+			Light: 25
+			Medium: 15
+			Heavy: 5
+			Concrete: 30
+	Warhead@3Eff: CreateEffect
+		Explosions: small_napalm
+
+DragonFlamer:
+	Inherits: ^FireWeapon
+	FirstBurstTargetOffset: -4c0,0,0
+	ReloadDelay: 50
+	Range: 4c0
+	Burst: 15
+	BurstDelays: 1
+	Report: flamer1.aud, flamer2.aud, flamer3.aud, flamer4.aud
+	Projectile: GravityBomb
+		Image: fb3
+		Velocity: 40, 0, -74
+		Acceleration: 0, 0, 0
+		Shadow: true
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c216
+		Damage: 1500
 		Falloff: 100,65,30,10 ,0
 		Versus:
 			None: 70
@@ -457,6 +865,34 @@ TruckToxxer:
 	Warhead@1Dam: SpreadDamage
 		Damage: 1800
 		Falloff: 180, 150, 130, 100, 50, 25
+
+LazareneRifle:
+	Inherits: ^LazareneBeam
+	Warhead@1Dam: SpreadDamage
+		Spread: 42
+		Damage: 1000
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
+		Versus:
+			None: 100
+			Light: 50
+			Medium: 30
+			Heavy: 15
+			Wood: 25
+			Concrete: 10
+
+LazareneCannon:
+	Inherits: ^LazareneBeam
+	Warhead@1Dam: SpreadDamage
+		Spread: 42
+		Damage: 5000
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
+		Versus:
+			None: 50
+			Light: 50
+			Medium: 30
+			Heavy: 15
+			Wood: 25
+			Concrete: 10
 
 TeslaZap:
 	Inherits: ^TeslaWeapon
@@ -606,6 +1042,38 @@ DogJaw:
 		InvalidTargets: Ant
 		DamageTypes: NotCrushDeath,  DefaultDeath
 
+GeneHorrorJaw:
+	Inherits: DogJaw
+	Warhead@1Dam: TargetDamage
+		Delay: 2
+	Warhead@condition: GrantExternalCondition
+		Condition: zombiefy
+		Duration: 100
+		Range: 0c63
+		ValidTargets: Infantry
+
+WardenHeal:
+	ReloadDelay: 80
+	Range: 5c0
+	Report: getitem.aud
+	ValidTargets: Heal
+	Projectile: Bullet
+		Speed: 204
+		Blockable: false
+		LaunchAngle: 62
+		Inaccuracy: 0c512
+		Image: wardenball
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c256
+		Falloff: 100, 50, 25, 10
+		Damage: -5000
+		ValidRelationships: Ally
+		ValidTargets: Heal
+		DebugOverlayColor: 00FF00
+	Warhead@2Eff: CreateEffect
+		Explosions: lazarusburst_sm
+		ValidTargets: Ground, GroundActor, Water, WaterActor
+
 Heal:
 	ReloadDelay: 80
 	Range: 4c0
@@ -627,6 +1095,12 @@ Repair:
 	Warhead@1Dam: SpreadDamage
 		Damage: -2000
 		ValidTargets: Repair
+
+MachinistRepair:
+	Inherits: Repair
+	Range: 2c0
+	Warhead@1Dam: SpreadDamage
+		Damage: -3000
 
 Demolish:
 	ValidTargets: GroundActor, Trees,  Ship, WaterActor
@@ -676,20 +1150,6 @@ PickUpWeapon:
 		ValidTargets: Corpse
 		InvalidTargets: Ant
 		DamageTypes: NotCrushDeath, WeaponPicked
-		ValidRelationships: Ally, Enemy, Neutral
-
-ZombieGun:
-	ValidTargets: Infantry, Ground
-	ReloadDelay: 100
-	Range: 4c0
-	Report: silppk.aud
-	TargetActorCenter: true
-	Projectile: InstantHit
-	Warhead@1Dam: TargetDamage
-		Damage: 100000
-		ValidTargets: Infantry
-		InvalidTargets: Ant
-		DamageTypes: NotCrushDeath, Zombiefy
 		ValidRelationships: Ally, Enemy, Neutral
 
 Knife:
@@ -855,6 +1315,44 @@ Firebombs:
 		ImpactSounds: splash9.aud
 		ValidTargets: Water, Underwater
 
+MosquitoBombs:
+	ReloadDelay: 50
+	Report: chute1.aud
+	Burst: 4
+	BurstDelays: 6
+	Range: 3c0
+	TargetActorCenter: true
+	ValidTargets: GroundActor, Trees,  Ship, WaterActor, Ground, Water
+	Projectile: GravityBomb
+		Image: dropbombs
+		Velocity: 40, 0, -74
+		Acceleration: 0, 0, 0
+		Shadow: true
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c512
+		Falloff: 100, 75, 25, 5, 0
+		Damage: 10000
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
+		Versus:
+			None: 35
+			Wood: 30
+			Light: 40
+			Medium: 50
+			Heavy: 80
+			Concrete: 40
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath, Incendiary
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+		ValidTargets: Ground, Infantry
+	Warhead@3Eff: CreateEffect
+		Explosions: med_explosion_air
+		ImpactSounds: explosion_medium_5.wav
+		ValidTargets: Ground, GroundActor, Trees,  Ship, WaterActor, Trees, Corpse
+	Warhead@4EffWater: CreateEffect
+		Explosions: small_splash
+		ImpactSounds: splash9.aud
+		ValidTargets: Water, Underwater
+
 StukaSpeedUp1:
 	Range: 10c0
 	ValidTargets: GroundActor, Ship, WaterActor
@@ -958,9 +1456,123 @@ SPEMPPulse:
 			Heavy: 25
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne
 
-Prism:
+ShattererLaser:
+	ReloadDelay: 1
+	Range: 7c512
+	ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
+	Projectile: LaserZap
+		Width: 165
+		HitAnim: laserfire
+		ZOffset: 2047
+		Color: 2091FF
+	Warhead@1Dam: SpreadDamage
+		Spread: 42
+		Damage: 8000
+		Versus:
+			None: 100
+			Wood: 45
+			Light: 75
+			Medium: 65
+			Heavy: 45
+			Concrete: 25
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath
+		ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+
+Laser:
 	ReloadDelay: 120
 	Range: 7c512
+	Report: lastur1.aud
+	ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
+	Projectile: LaserZap
+		Width: 85
+		HitAnim: laserfire
+		ZOffset: 2047
+		Color: FF0000
+	Warhead@1Dam: SpreadDamage
+		Spread: 42
+		Damage: 8000
+		Versus:
+			None: 100
+			Wood: 45
+			Light: 75
+			Medium: 65
+			Heavy: 45
+			Concrete: 25
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath
+		ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+
+IncineratorLaser:
+	ReloadDelay: 120
+	Range: 7c512
+	Report: obelray1.aud
+	ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
+	Projectile: LaserZap
+		Width: 85
+		HitAnim: laserfire
+		ZOffset: 2047
+		Color: FF0000
+	Warhead@1Dam: SpreadDamage
+		Spread: 42
+		Damage: 8000
+		Versus:
+			None: 30
+			Wood: 20
+			Light: 65
+			Medium: 75
+			Heavy: 100
+			Concrete: 30
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath
+		ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+
+LaserTank:
+	ReloadDelay: 120
+	Range: 7c512
+	Report: obelray1.aud
+	ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
+	Projectile: LaserZap
+		Width: 85
+		HitAnim: laserfire
+		ZOffset: 2047
+		Color: FF0000
+	Warhead@1Dam: SpreadDamage
+		Spread: 42
+		Damage: 12000
+		Versus:
+			None: 100
+			Wood: 50
+			Light: 100
+			Medium: 90
+			Heavy: 80
+			Concrete: 30
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath
+		ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+
+Directioner:
+	ReloadDelay: 120
+	Range: 5c0
+	ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
+	Projectile: LaserZap
+		Width: 85
+		HitAnim: laserfire
+		ZOffset: 2047
+		Color: 0094FF
+	Warhead@PrismBurst: FireCluster
+		Weapon: MirageInitSM
+		RandomClusterCount: 1
+		Dimensions: 1, 1
+		Footprint: x
+
+Prism:
+	ReloadDelay: 120
+	Range: 6c0
 	Report: prisray.aud
 	ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
 	Projectile: LaserZap
@@ -970,7 +1582,37 @@ Prism:
 		Color: 0094FF
 	Warhead@1Dam: SpreadDamage
 		Spread: 42
-		Damage: 12000
+		Damage: 10000
+		Versus:
+			None: 100
+			Wood: 50
+			Light: 100
+			Medium: 90
+			Heavy: 80
+			Concrete: 30
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath
+		ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+	Warhead@PrismBurst: FireCluster
+		Weapon: PrismTowerBurst
+		RandomClusterCount: 3
+		Dimensions: 3,3
+		Footprint: xxx x_x xxx
+
+PrismCannon:
+	ReloadDelay: 150
+	Range: 8c512
+	Report: prisray.aud
+	ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
+	Projectile: LaserZap
+		Width: 85
+		HitAnim: laserfire
+		ZOffset: 2047
+		Color: 0094FF
+	Warhead@1Dam: SpreadDamage
+		Spread: 42
+		Damage: 15000
 		Versus:
 			None: 100
 			Wood: 50
@@ -1043,7 +1685,7 @@ PrismTowerBurst:
 PrismHandHeld:
 	ReloadDelay: 100
 	Range: 6c0
-	Report: prisray.aud
+	Report: miniprism.aud
 	ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
 	Projectile: LaserZap
 		Width: 40
@@ -1109,7 +1751,7 @@ DesolatorHandHeld:
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c256
 		Falloff: 200, 100, 50, 25, 5
-		Damage: 700
+		Damage: 500
 		Versus:
 			None: 150
 			Wood: 80
@@ -1119,6 +1761,15 @@ DesolatorHandHeld:
 			Concrete: 40
 		DamageTypes: NotCrushDeath, Prone50Percent, TriggerProne, FireDeath, Incendiary
 		ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
+
+Desolator:
+	Inherits: DesolatorHandHeld
+	ReloadDelay: 50
+	Range: 7c0
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c256
+		Falloff: 200, 100, 50, 25, 5
+		Damage: 700
 
 DesolatorHandHeld_LineDamage:
 	ReloadDelay: 100
@@ -1140,7 +1791,7 @@ DesolatorHandHeld_LineDamage:
 	Warhead@1Dam: SpreadDamage
 		Delay: 10
 		Spread: 0c512
-		Damage: 300
+		Damage: 200
 		Versus:
 			None: 150
 			Wood: 80
@@ -1166,6 +1817,15 @@ DesolatorHandHeld_LineDamage:
 		ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
 		ValidRelationships: Ally
 
+Desolator_LineDamage:
+	Inherits: DesolatorHandHeld_LineDamage
+	ReloadDelay: 50
+	Range: 7c0
+	Warhead@1Dam: SpreadDamage
+		Delay: 10
+		Spread: 0c512
+		Damage: 400
+
 DesolatorHandHeld_Effect:
 	ReloadDelay: 109
 	Range: 6c0
@@ -1186,6 +1846,11 @@ DesolatorHandHeld_Effect:
 		Explosions: napalm
 		ImpactSounds: firebl3.aud
 		ValidTargets: Ground, GroundActor, Trees,  Ship, WaterActor, Trees, Corpse
+
+Desolator_Effect:
+	Inherits: DesolatorHandHeld_Effect
+	ReloadDelay: 59
+	Range: 7c0
 
 Firelance:
 	ReloadDelay: 150
@@ -1236,6 +1901,38 @@ Firelance:
 		Explosions: napalm
 		ValidTargets: Ground, GroundActor, Trees,  Ship, WaterActor, Trees, Corpse
 
+KineticBeam:
+	ReloadDelay: 100
+	Range: 6c0
+	Report: kineticblast.aud
+	ValidTargets: GroundActor, Trees,  Ship, WaterActor, Ground, Water
+	Projectile: LinearPulse
+		Speed: 768
+		ImpactInterval: 1
+		MinimumImpactDistance: 768
+	Warhead@1Dam: SpreadDamage
+		Damage: 3500
+		Spread: 256
+		Falloff: 100,50,25,5
+		Versus:
+			None: 10
+			Wood: 40
+			Light: 60
+			Medium: 80
+			Heavy: 100
+			Concrete: 60
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Ground, Water
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, DefaultDeath
+	Warhead@3Eff: CreateEffect
+		Explosions: kineticwave
+		ValidTargets: Ground, GroundActor, Trees,  Ship, WaterActor, Trees, Corpse
+		ExplosionPalette: kineticbolttransparent
+	Warhead@4Eff: CreateEffect
+		Explosions: kineticblast
+		ValidTargets: GroundActor, WaterActor
+		ExplosionPalette: kineticbolttransparent
+	
+
 DisruptionBeam:
 	ReloadDelay: 100
 	Range: 6c0
@@ -1255,7 +1952,7 @@ DisruptionBeam:
 			Light: 60
 			Medium: 50
 			Heavy: 25
-			Concrete: 25
+			Concrete: 50
 		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Ground, Water
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, DefaultDeath
 		ValidRelationships: Enemy, Neutral
@@ -1263,6 +1960,9 @@ DisruptionBeam:
 		Explosions: soundexplosion
 		ValidTargets: Ground, GroundActor, Trees,  Ship, WaterActor, Trees, Corpse
 		ExplosionPalette: tseffects
+	Warhead@2Eff: CreateEffect
+		Explosions: soundblast
+		ValidTargets: Ground, GroundActor, Trees,  Ship, WaterActor, Trees, Corpse
 	Warhead@condition: GrantExternalCondition
 		Duration: 100
 		Condition: confusion
@@ -1291,6 +1991,111 @@ Drill:
 		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Ground, Water
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath
 
+CombineDrill:
+	ReloadDelay: 5
+	Range: 1c600
+	Burst: 50
+	BurstDelays: 5
+	ValidTargets: Husk, Rubble
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Damage: 2000
+		Spread: 0c256
+		Falloff: 100, 50, 25, 5
+		Versus:
+			None: 300
+			Wood: 120
+			Light: 150
+			Medium: 125
+			Heavy: 100
+			Concrete: 100
+		ValidTargets: Husk, Rubble
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath
+		ValidRelationships: Ally, Enemy, Neutral
+
+ScorpionDrill:
+	ReloadDelay: 5
+	Range: 1c600
+	Burst: 1
+	ReloadDelay: 50
+	Report: armor1.aud
+	ValidTargets: Husk
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Damage: 200000
+		Spread: 0c256
+		Falloff: 100, 50, 25, 5
+		Versus:
+			None: 300
+			Wood: 120
+			Light: 150
+			Medium: 125
+			Heavy: 100
+			Concrete: 100
+		ValidTargets: Husk
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath
+
+LaserSword:
+	ReloadDelay: 30
+	Range: 1c512
+	Report: swordlaser.wav
+	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor
+	Projectile: Bullet
+		Speed: 1c682
+	Warhead@1Dam: SpreadDamage
+		Spread: 126
+		Damage: 6000
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
+		Versus:
+			None: 100
+			Wood: 20
+			Light: 40
+			Medium: 30
+			Heavy: 20
+			Concrete: 15
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath
+
+Pickaxe:
+	ReloadDelay: 30
+	Range: 1c512
+	Report: zombiehit.wav
+	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor
+	Projectile: Bullet
+		Speed: 1c682
+	Warhead@1Dam: SpreadDamage
+		Spread: 126
+		Damage: 2500
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
+		Versus:
+			None: 100
+			Wood: 10
+			Light: 30
+			Medium: 20
+			Heavy: 10
+			Concrete: 10
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, DefaultDeath
+
+PickaxeHeal:
+	ReloadDelay: 30
+	Range: 1c512
+	Report: zombiehit.wav
+	ValidTargets: BuildingRepair
+	Projectile: Bullet
+		Speed: 1c682
+	Warhead@1Dam: SpreadDamage
+		Spread: 126
+		Damage: -500
+		ValidTargets: Structure
+		Versus:
+			None: 100
+			Wood: 100
+			Light: 30
+			Medium: 20
+			Heavy: 10
+			Concrete: 100
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, DefaultDeath
+		ValidRelationships: Ally
+
 Claw:
 	ReloadDelay: 30
 	Range: 1c512
@@ -1303,12 +2108,18 @@ Claw:
 		Damage: 3000
 		ValidTargets: GroundActor, Trees,  Ship, WaterActor
 		Versus:
-			None: 50
+			None: 100
 			Wood: 10
 			Light: 30
+			Medium: 20
 			Heavy: 10
 			Concrete: 10
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, DefaultDeath
+	Warhead@condition: GrantExternalCondition
+		Condition: zombiefy
+		Duration: 100
+		Range: 0c63
+		ValidTargets: Infantry
 
 Eat:
 	ReloadDelay: 30
@@ -1327,6 +2138,81 @@ Eat:
 			Heavy: 10
 			Concrete: 10
 		DamageTypes: NotCrushDeath, Prone50Percent, TriggerProne
+
+MicrowaveTank:
+	Inherits: ^MicrowaveWeapon
+	ReloadDelay: 65
+	Range: 6c0
+	Report: magray.aud
+	Projectile: Railgun
+		HitAnim: microwavesparks
+		HitAnimPalette: tseffects
+	Warhead@1: SpreadDamage
+		Damage: 7500
+		Versus:
+			None: 70
+			Light: 75
+			Medium: 90
+			Heavy: 105
+			Wood: 30
+			Concrete: 25
+
+MicrowaveGuy:
+	Inherits: ^MicrowaveWeapon
+	ReloadDelay: 65
+	Range: 6c0
+	Report: magray.aud
+	Projectile: Railgun
+		HelixThickness: 0c32
+		QuantizationCount: 64
+		Duration: 10
+		HitAnim: microwavesparks
+		HitAnimPalette: tseffects
+	Warhead@1: SpreadDamage
+		Damage: 7500
+		Versus:
+			None: 70
+			Light: 75
+			Medium: 90
+			Heavy: 105
+			Wood: 30
+			Concrete: 25
+
+AssimilateWork:
+	ReloadDelay: 25
+	Range: 1c512
+	ValidTargets: Corpse
+	Projectile: Bullet
+		Speed: 1c682
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c10
+		Damage: -1000
+		ValidTargets: Corpse
+		Versus:
+			None: 50
+			Wood: 10
+			Light: 30
+			Heavy: 10
+			Concrete: 10
+		DamageTypes: NotCrushDeath, Prone50Percent, TriggerProne
+
+AssimilateDone:
+	ReloadDelay: 30
+	Range: 1c512
+	ValidTargets: Corpse
+	Projectile: Bullet
+		Speed: 1c682
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c10
+		Damage: 20000
+		ValidTargets: Corpse
+		Versus:
+			None: 50
+			Wood: 10
+			Light: 30
+			Heavy: 10
+			Concrete: 10
+		DamageTypes: NotCrushDeath, Prone50Percent, TriggerProne, Assimilation
 
 ThunderFist:
 	ReloadDelay: 30
@@ -1675,6 +2561,19 @@ DemoTruckTargeting:
 	Warhead@1Dam: TargetDamage
 		ValidTargets: DetonateAttack
 
+EnslaveBuilding:
+	Range: 7c0
+	ReloadDelay: 35
+	Projectile: InstantHit
+	ValidTargets: Hackable
+	Warhead@1Dam: TargetDamage
+		ValidTargets: Hackable
+	Warhead@2Eff: CreateEffect
+		ImpactSounds: spsylo2a.wav
+		ValidTargets: Ground, Infantry
+		ValidRelationships: Neutral, Enemy
+		Explosions: enslave
+
 EnslaveInfantry:
 	Range: 7c0
 	ReloadDelay: 35
@@ -1729,6 +2628,32 @@ NeutronCannon:
 		ValidTargets: Infantry, Structure, Vehicle, Temporal
 		DamageTypes: ChronoDeath
 
+NeutronTurret:
+	ValidTargets: Infantry, Structure, Vehicle, Temporal
+	ReloadDelay: 5
+	Burst: 22
+	BurstDelays: 10
+	Range: 7c0
+	Projectile: LaserZap
+		Color: 9BE4FF
+		Duration: 20
+		Width: 0c40
+		SecondaryBeam: True
+		SecondaryBeamWidth: 0c80
+		SecondaryBeamColor: 0094FF
+	TargetActorCenter: true
+	Warhead@Damage: WarpPercentDamage
+		Damage: 4
+		Spread: 1
+		Versus:
+			Wood: 15
+			Concrete: 50
+			Heavy: 75
+			Light: 75
+			Brick: 5
+		ValidTargets: Infantry, Structure, Vehicle, Temporal
+		DamageTypes: ChronoDeath
+
 MindBlast:
 	ReloadDelay: 30
 	Range: 6c0
@@ -1760,6 +2685,12 @@ MindBlast:
 		Explosions: initexplode
 		ExplosionPalette: swpeffects
 
+KineticMindBlast:
+	Inherits: MindBlast
+	Warhead@1Dam: HealthPercentageDamage
+		Spread: 0c126
+		Damage: 100
+
 CarrierLauncher:
 	ReloadDelay: 15
 	Range: 19c0
@@ -1775,3 +2706,32 @@ CarrierLauncher:
 			Light: 0
 			Heavy: 0
 			Brick: 0
+
+MADTankThump:
+	ValidTargets: GroundActor, WaterActor
+	InvalidTargets: MADTank, Infantry
+	Warhead@1Dam: HealthPercentageDamage
+		Spread: 7c0
+		Damage: 1
+		ValidTargets: GroundActor, WaterActor
+		InvalidTargets: MADTank, Infantry
+	Warhead@Shake: ShakeScreen
+		Duration: 10
+		Intensity: 3
+		Multiplier: 1,0
+
+MADTankDetonate:
+	ValidTargets: GroundActor, WaterActor
+	InvalidTargets: MADTank, Infantry
+	Warhead@1Dam: HealthPercentageDamage
+		Spread: 7c0
+		Damage: 19
+		ValidTargets: GroundActor, WaterActor
+		InvalidTargets: MADTank, Infantry
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Crater
+		Size: 7,6
+	Warhead@3Eff: CreateEffect
+		Explosions: med_explosion
+		ImpactSounds: mineblo1.aud
+		ImpactActors: false

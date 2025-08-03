@@ -1,23 +1,27 @@
 fields1:
-	Defaults: fields
+	Defaults:
+		Filename: fields.shp
 	idle:
 		Start: 0
 		Length: 1
 
 fields2:
-	Defaults: fields
+	Defaults:
+		Filename: fields.shp
 	idle:
 		Start: 1
 		Length: 1
 
 fields3:
-	Defaults: fields
+	Defaults:
+		Filename: fields.shp
 	idle:
 		Start: 2
 		Length: 1
 
 trees1:
-	Defaults: tree1
+	Defaults:
+		Filename: tree1.shp
 	idle:
 		Start: 0
 	damaged-idle:
@@ -27,7 +31,8 @@ trees1:
 		ZOffset: -1024
 
 trees2:
-	Defaults: tree1
+	Defaults:
+		Filename: tree1.shp
 	idle:
 		Start: 3
 	damaged-idle:
@@ -37,7 +42,8 @@ trees2:
 		ZOffset: -1024
 
 trees3:
-	Defaults: tree1
+	Defaults:
+		Filename: tree1.shp
 	idle:
 		Start: 6
 	damaged-idle:
@@ -47,7 +53,8 @@ trees3:
 		ZOffset: -1024
 
 trees4:
-	Defaults: tree1
+	Defaults:
+		Filename: tree1.shp
 	idle:
 		Start: 9
 	damaged-idle:
@@ -57,7 +64,8 @@ trees4:
 		ZOffset: -1024
 
 trees5:
-	Defaults: tree1
+	Defaults:
+		Filename: tree1.shp
 	idle:
 		Start: 12
 	damaged-idle:
@@ -67,7 +75,8 @@ trees5:
 		ZOffset: -1024
 
 trees6:
-	Defaults: tree1
+	Defaults:
+		Filename: tree1.shp
 	idle:
 		Start: 15
 	damaged-idle:
@@ -77,7 +86,8 @@ trees6:
 		ZOffset: -1024
 
 trees7:
-	Defaults: tree1
+	Defaults:
+		Filename: tree1.shp
 	idle:
 		Start: 18
 	damaged-idle:
@@ -87,7 +97,8 @@ trees7:
 		ZOffset: -1024
 
 trees8:
-	Defaults: tree1
+	Defaults:
+		Filename: tree1.shp
 	idle:
 		Start: 21
 	damaged-idle:
@@ -97,7 +108,8 @@ trees8:
 		ZOffset: -1024
 
 trees9:
-	Defaults: tree1
+	Defaults:
+		Filename: tree1.shp
 	idle:
 		Start: 24
 	damaged-idle:
@@ -107,7 +119,8 @@ trees9:
 		ZOffset: -1024
 
 trees10:
-	Defaults: tree1
+	Defaults:
+		Filename: tree1.shp
 	idle:
 		Start: 27
 	damaged-idle:
@@ -117,7 +130,8 @@ trees10:
 		ZOffset: -1024
 
 trees11:
-	Defaults: tree1
+	Defaults:
+		Filename: tree1.shp
 	idle:
 		Start: 30
 	damaged-idle:
@@ -127,7 +141,8 @@ trees11:
 		ZOffset: -1024
 
 trees12:
-	Defaults: tree1
+	Defaults:
+		Filename: tree1.shp
 	idle:
 		Start: 33
 	damaged-idle:
@@ -137,7 +152,8 @@ trees12:
 		ZOffset: -1024
 
 trees13:
-	Defaults: tree1
+	Defaults:
+		Filename: tree1.shp
 	idle:
 		Start: 36
 	damaged-idle:
@@ -147,7 +163,8 @@ trees13:
 		ZOffset: -1024
 
 trees14:
-	Defaults: tree1
+	Defaults:
+		Filename: tree1.shp
 	idle:
 		Start: 39
 	damaged-idle:
@@ -157,7 +174,8 @@ trees14:
 		ZOffset: -1024
 
 trees15:
-	Defaults: tree1
+	Defaults:
+		Filename: tree1.shp
 	idle:
 		Start: 42
 	damaged-idle:
@@ -167,7 +185,8 @@ trees15:
 		ZOffset: -1024
 
 trees16:
-	Defaults: tree1
+	Defaults:
+		Filename: tree1.shp
 	idle:
 		Start: 45
 	damaged-idle:
@@ -177,7 +196,8 @@ trees16:
 		ZOffset: -1024
 
 trees17:
-	Defaults: tree1
+	Defaults:
+		Filename: tree1.shp
 	idle:
 		Start: 48
 	damaged-idle:
@@ -187,7 +207,8 @@ trees17:
 		ZOffset: -1024
 
 trees18:
-	Defaults: tree1
+	Defaults:
+		Filename: tree1.shp
 	idle:
 		Start: 51
 	damaged-idle:
@@ -197,7 +218,8 @@ trees18:
 		ZOffset: -1024
 
 trees19:
-	Defaults: tree1
+	Defaults:
+		Filename: tree1.shp
 	idle:
 		Start: 54
 	damaged-idle:
@@ -207,7 +229,8 @@ trees19:
 		ZOffset: -1024
 
 trees20:
-	Defaults: tree1
+	Defaults:
+		Filename: tree1.shp
 	idle:
 		Start: 57
 	damaged-idle:
@@ -217,7 +240,8 @@ trees20:
 		ZOffset: -1024
 
 trees21:
-	Defaults: tree1
+	Defaults:
+		Filename: tree1.shp
 	idle:
 		Start: 60
 	damaged-idle:
@@ -227,7 +251,8 @@ trees21:
 		ZOffset: -1024
 
 trees21:
-	Defaults: tree1
+	Defaults:
+		Filename: tree1.shp
 	idle:
 		Start: 63
 	damaged-idle:
@@ -237,7 +262,8 @@ trees21:
 		ZOffset: -1024
 
 trees22:
-	Defaults: tree1
+	Defaults:
+		Filename: tree1.shp
 	idle:
 		Start: 66
 	damaged-idle:
@@ -247,7 +273,8 @@ trees22:
 		ZOffset: -1024
 
 trees23:
-	Defaults: tree1
+	Defaults:
+		Filename: tree1.shp
 	idle:
 		Start: 69
 	damaged-idle:
@@ -257,7 +284,8 @@ trees23:
 		ZOffset: -1024
 
 trees24:
-	Defaults: tree1
+	Defaults:
+		Filename: tree1.shp
 	idle:
 		Start: 72
 	damaged-idle:
@@ -267,7 +295,8 @@ trees24:
 		ZOffset: -1024
 
 trees25:
-	Defaults: tree1
+	Defaults:
+		Filename: tree1.shp
 	idle:
 		Start: 75
 	damaged-idle:
@@ -277,7 +306,8 @@ trees25:
 		ZOffset: -1024
 
 trees26:
-	Defaults: tree1
+	Defaults:
+		Filename: tree1.shp
 	idle:
 		Start: 78
 	damaged-idle:
@@ -287,7 +317,8 @@ trees26:
 		ZOffset: -1024
 
 trees27:
-	Defaults: tree1
+	Defaults:
+		Filename: tree1.shp
 	idle:
 		Start: 81
 	damaged-idle:
@@ -297,7 +328,8 @@ trees27:
 		ZOffset: -1024
 
 trees28:
-	Defaults: tree1
+	Defaults:
+		Filename: tree1.shp
 	idle:
 		Start: 84
 	damaged-idle:
@@ -307,7 +339,8 @@ trees28:
 		ZOffset: -1024
 
 trees29:
-	Defaults: tree1
+	Defaults:
+		Filename: tree1.shp
 	idle:
 		Start: 87
 	damaged-idle:
@@ -317,7 +350,8 @@ trees29:
 		ZOffset: -1024
 
 trees30:
-	Defaults: tree1
+	Defaults:
+		Filename: tree1.shp
 	idle:
 		Start: 90
 	damaged-idle:
@@ -327,7 +361,8 @@ trees30:
 		ZOffset: -1024
 
 leaf_sapling1:
-	Defaults: leaf_sapling
+	Defaults:
+		Filename: leaf_sapling.shp
 	idle:
 		Start: 0
 	damaged-idle:
@@ -337,7 +372,8 @@ leaf_sapling1:
 		ZOffset: -1024
 
 leaf_sapling2:
-	Defaults: leaf_sapling
+	Defaults:
+		Filename: leaf_sapling.shp
 	idle:
 		Start: 3
 	damaged-idle:
@@ -347,178 +383,205 @@ leaf_sapling2:
 		ZOffset: -1024
 
 treegrouphusk1:
-	Defaults: treegrouphusk
+	Defaults:
+		Filename: treegrouphusk.shp
 	idle:
 		Start: 0
 		ZOffset: -9999
 
 treegrouphusk2:
-	Defaults: treegrouphusk
+	Defaults:
+		Filename: treegrouphusk.shp
 	idle:
 		Start: 1
 		ZOffset: -9999
 
 treegrouphusk3:
-	Defaults: treegrouphusk
+	Defaults:
+		Filename: treegrouphusk.shp
 	idle:
 		Start: 2
 		ZOffset: -9999
 
 tree1:
-	idle: trees
+	idle:
+		Filename: trees.shp
 		Start: 0
 		Offset: -10,-10,0
 
 tree1.husk:
-	idle: trees
+	idle:
+		Filename: trees.shp
 		Start: 1
 		Offset: -10,-10,0
 		
 tree2:
-	idle: trees
+	idle:
+		Filename: trees.shp
 		Start: 2
 		Offset: -10,-10,0
 
 tree2.husk:
-	idle: trees
+	idle:
+		Filename: trees.shp
 		Start: 3
 		Offset: -10,-10,0
 		
 tree3:
-	idle: trees
+	idle:
+		Filename: trees.shp
 		Start: 4
 		Offset: -10,-10,0
 
 tree3.husk:
-	idle: trees
+	idle:
+		Filename: trees.shp
 		Start: 5
 		Offset: -10,-10,0
 		
 tree4:
-	idle: trees
+	idle:
+		Filename: trees.shp
 		Start: 6
 		Offset: -10,-10,0
 
 tree4.husk:
-	idle: trees
+	idle:
+		Filename: trees.shp
 		Start: 7
 		Offset: -10,-10,0
 		
 tree5:
-	idle: trees
+	idle:
+		Filename: trees.shp
 		Start: 8
 		Offset: -10,-10,0
 
 tree5.husk:
-	idle: trees
+	idle:
+		Filename: trees.shp
 		Start: 9
 		Offset: -10,-10,0
 		
 tree6:
-	idle: trees
+	idle:
+		Filename: trees.shp
 		Start: 10
 		Offset: -10,-10,0
 
 tree6.husk:
-	idle: trees
+	idle:
+		Filename: trees.shp
 		Start: 11
 		Offset: -10,-10,0
 		
 cypr1:
-	idle: cypr
+	idle:
+		Filename: cypr.shp
 		Start: 0
 		Offset: -13,-13,0
 	
 cypr1.husk:
-	idle: cypr
+	idle:
+		Filename: cypr.shp
 		Start: 1
 		Offset: -13,-13,0
 		
 cypr2:
-	idle: cypr
+	idle:
+		Filename: cypr.shp
 		Start: 2
 		Offset: -13,-13,0
 	
 cypr2.husk:
-	idle: cypr
+	idle:
+		Filename: cypr.shp
 		Start: 3
 		Offset: -13,-13,0
 		
 tg1:
-	idle: tg
+	idle:
+		Filename: tg.shp
 		Start: 0
 		Offset: 16, -13
 		
 tg1.husk:
-	idle: tg
+	idle:
+		Filename: tg.shp
 		Start: 1
 		Offset: 16, -13
 		
 tg2:
-	idle: tg
+	idle:
+		Filename: tg.shp
 		Start: 2
 		Offset: 16, -13
 	
 tg2.husk:
-	idle: tg
+	idle:
+		Filename: tg.shp
 		Start: 3
 		Offset: 16, -13
 		
 tgc1:
-	idle: tgc
+	idle:
+		Filename: tgc.shp
 		Start: 0
 		
 tgc1.husk:
-	idle: tgc
+	idle:
+		Filename: tgc.shp
 		Start: 1
 		
 tgc2:
-	idle: tgc
+	idle:
+		Filename: tgc.shp
 		Start: 2
 		
 tgc2.husk:
-	idle: tgc
+	idle:
+		Filename: tgc.shp
 		Start: 3
 		
 tgb:
-	idle: tgb
+	idle:
+		Filename: tgb.shp
 		Start: 0
 		
 tgb.husk:
-	idle: tgb
+	idle:
+		Filename: tgb.shp
 		Start: 1
 		
 tgd:
-	idle: tgd
+	idle:
+		Filename: tgd.shp
 		Start: 0
 		
 tgd.husk:
-	idle: tgd
+	idle:
+		Filename: tgd.shp
 		Start: 1
 		
 tgd2:
-	idle: tgd
+	idle:
+		Filename: tgd.shp
 		Start: 2
 		
 tgd2.husk:
-	idle: tgd
+	idle:
+		Filename: tgd.shp
 		Start: 3
 
 tc04:
 	Defaults:
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+		Filename: tc04.tem
 	idle:
 		Offset: 25,0,0
 
 tc04.husk:
-	Defaults: tc04
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: tc04.tem
 	idle:
 		Start: 1
 		Offset: 25,0,0
@@ -530,18 +593,12 @@ tc04.husk:
 
 tc05:
 	Defaults:
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+		Filename: tc05.tem
 	idle:
 
 tc05.husk:
-	Defaults: tc05
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: tc05.tem
 	idle:
 		Start: 1
 	dead:
@@ -551,19 +608,13 @@ tc05.husk:
 
 tc03:
 	Defaults:
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+		Filename: tc03.tem
 	idle:
 		Offset: 17,-2,0
 
 tc03.husk:
-	Defaults: tc03
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: tc03.tem
 	idle:
 		Start: 1
 		Offset: 17,-2,0
@@ -575,19 +626,13 @@ tc03.husk:
 
 tc02:
 	Defaults:
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+		Filename: tc02.tem
 	idle:
 		Offset: 7,-4,0
 
 tc02.husk:
-	Defaults: tc02
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: tc02.tem
 	idle:
 		Start: 1
 		Offset: 7,-4,0
@@ -599,16 +644,16 @@ tc02.husk:
 
 tc01:
 	Defaults:
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
+		TilesetFilenames:
+			TEMPERAT: tc01.tem
+			DESERT: tc01.des
 	idle:
 
 tc01.husk:
-	Defaults: tc01
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
+	Defaults:
+		TilesetFilenames:
+			TEMPERAT: tc01.tem
+			DESERT: tc01.des
 	idle:
 		Start: 1
 	dead:
@@ -618,19 +663,13 @@ tc01.husk:
 
 t17:
 	Defaults:
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+		Filename: t17.tem
 	idle:
 		Offset: -20,-15,0
 
 t17.husk:
-	Defaults: t17
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: t17.tem
 	idle:
 		Start: 1
 		Offset: -20,-15,0
@@ -642,19 +681,13 @@ t17.husk:
 
 t16:
 	Defaults:
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+		Filename: t16.tem
 	idle:
 		Offset: -10,-9,0
 
 t16.husk:
-	Defaults: t16
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: t16.tem
 	idle:
 		Start: 1
 		Offset: -10,-9,0
@@ -665,20 +698,14 @@ t16.husk:
 		Offset: -10,-9,0
 
 t15:
-	Defaults: t15
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: t15.tem
 	idle:
 		Offset: -34,-20,0
 
 t15.husk:
-	Defaults: t15
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: t15.tem
 	idle:
 		Start: 1
 		Offset: -34,-20,0
@@ -690,19 +717,13 @@ t15.husk:
 
 t14:
 	Defaults:
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+		Filename: t14.tem
 	idle:
 		Offset: -34,-20,0
 
 t14.husk:
-	Defaults: t14
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: t14.tem
 	idle:
 		Start: 1
 		Offset: -34,-20,0
@@ -714,19 +735,13 @@ t14.husk:
 
 t13:
 	Defaults:
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+		Filename: t13.tem
 	idle:
 		Offset: -20,-13,0
 
 t13.husk:
-	Defaults: t13
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: t13.tem
 	idle:
 		Start: 1
 		Offset: -20,-13,0
@@ -738,19 +753,13 @@ t13.husk:
 
 t12:
 	Defaults:
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+		Filename: t12.tem
 	idle:
 		Offset: -10,-10,0
 
 t12.husk:
-	Defaults: t12
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: t12.tem
 	idle:
 		Start: 1
 		Offset: -10,-10,0
@@ -762,19 +771,13 @@ t12.husk:
 
 t11:
 	Defaults:
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+		Filename: t11.tem
 	idle:
 		Offset: -20,-14,0
 
 t11.husk:
-	Defaults: t11
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: t11.tem
 	idle:
 		Start: 1
 		Offset: -20,-14,0
@@ -786,19 +789,13 @@ t11.husk:
 
 t10:
 	Defaults:
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+		Filename: t10.tem
 	idle:
 		Offset: -25,-13,0
 
 t10.husk:
-	Defaults: t10
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: t10.tem
 	idle:
 		Start: 1
 		Offset: -25,-13,0
@@ -810,17 +807,17 @@ t10.husk:
 
 t08:
 	Defaults:
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
+		TilesetFilenames:
+			TEMPERAT: t08.tem
+			DESERT: t08.des
 	idle:
 		Offset: -5,-10,0
 
 t08.husk:
-	Defaults: t08
-		UseTilesetExtension: true
-		TilesetOverrides:
-			INTERIOR: TEMPERAT
+	Defaults:
+		TilesetFilenames:
+			TEMPERAT: t08.tem
+			DESERT: t08.des
 	idle:
 		Start: 1
 		Offset: -5,-10,0
@@ -832,19 +829,13 @@ t08.husk:
 
 t07:
 	Defaults:
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+		Filename: t07.tem
 	idle:
 		Offset: -10,-10,0
 
 t07.husk:
-	Defaults: t07
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: t07.tem
 	idle:
 		Start: 1
 		Offset: -10,-10,0
@@ -856,19 +847,13 @@ t07.husk:
 
 t06:
 	Defaults:
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+		Filename: t06.tem
 	idle:
 		Offset: -14,-6,0
 
 t06.husk:
-	Defaults: t06
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: t06.tem
 	idle:
 		Start: 1
 		Offset: -14,-6,0
@@ -880,19 +865,13 @@ t06.husk:
 
 t05:
 	Defaults:
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+		Filename: t05.tem
 	idle:
 		Offset: -10,-9,0
 
 t05.husk:
-	Defaults: t05
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: t05.tem
 	idle:
 		Start: 1
 		Offset: -10,-9,0
@@ -904,19 +883,13 @@ t05.husk:
 
 t03:
 	Defaults:
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+		Filename: t03.tem
 	idle:
 		Offset: -10,-12,0
 
 t03.husk:
-	Defaults: t03
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: t03.tem
 	idle:
 		Start: 1
 		Offset: -10,-12,0
@@ -928,19 +901,13 @@ t03.husk:
 
 t02:
 	Defaults:
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+		Filename: t02.tem
 	idle:
 		Offset: -10,-13,0
 
 t02.husk:
-	Defaults: t02
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: t02.tem
 	idle:
 		Start: 1
 		Offset: -10,-13,0
@@ -952,19 +919,13 @@ t02.husk:
 
 t01:
 	Defaults:
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+		Filename: t01.tem
 	idle:
 		Offset: -10,-9,0
 
 t01.husk:
-	Defaults: t01
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: t01.tem
 	idle:
 		Start: 1
 		Offset: -10,-9,0
@@ -975,54 +936,48 @@ t01.husk:
 		Offset: -10,-9,0
 
 ice01:
-	idle: ice01.sno
+	idle:
+		Filename: ice01.sno
 		Length: *
-		AddExtension: false
 
 ice02:
-	idle: ice02.sno
+	idle:
+		Filename: ice02.sno
 		Length: *
-		AddExtension: false
 
 ice03:
-	idle: ice03.sno
+	idle:
+		Filename: ice03.sno
 		Length: *
-		AddExtension: false
 
 ice04:
-	idle: ice04.sno
+	idle:
+		Filename: ice04.sno
 		Length: *
-		AddExtension: false
 
 ice05:
-	idle: ice05.sno
+	idle:
+		Filename: ice05.sno
 		Length: *
-		AddExtension: false
 
 house1:
 	Defaults:
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+		Filename: house1.shp
 	idle:
 	damaged-idle:
 		Start: 1
 
 fhousea:
-	Defaults: fhouse
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: fhouse.shp
 		Scale: 0.75
 	idle:
 	damaged-idle:
 		Start: 1
 
 fhouseb:
-	Defaults: fhouse
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: fhouse.shp
 		Scale: 0.75
 	idle:
 		Start: 2
@@ -1030,10 +985,8 @@ fhouseb:
 		Start: 3
 
 fhousec:
-	Defaults: fhouse
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: fhouse.shp
 		Scale: 0.75
 	idle:
 		Start: 4
@@ -1041,10 +994,8 @@ fhousec:
 		Start: 5
 
 fhoused:
-	Defaults: fhouse
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: fhouse.shp
 		Scale: 0.75
 	idle:
 		Start: 6
@@ -1052,10 +1003,8 @@ fhoused:
 		Start: 7
 
 fhousee:
-	Defaults: fhouse
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: fhouse.shp
 		Scale: 0.75
 	idle:
 		Start: 8
@@ -1063,10 +1012,8 @@ fhousee:
 		Start: 9
 
 fhousef:
-	Defaults: fhouse
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: fhouse.shp
 		Scale: 0.75
 	idle:
 		Start: 10
@@ -1074,10 +1021,8 @@ fhousef:
 		Start: 11
 
 fhouseg:
-	Defaults: fhouse
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: fhouse.shp
 		Scale: 0.75
 	idle:
 		Start: 12
@@ -1085,10 +1030,8 @@ fhouseg:
 		Start: 13
 
 fhouseh:
-	Defaults: fhouse
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: fhouse.shp
 		Scale: 0.75
 	idle:
 		Start: 14
@@ -1096,10 +1039,8 @@ fhouseh:
 		Start: 15
 
 fhousei:
-	Defaults: fhouse
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: fhouse.shp
 		Scale: 0.75
 	idle:
 		Start: 16
@@ -1107,10 +1048,8 @@ fhousei:
 		Start: 17
 
 fhousej:
-	Defaults: fhouse
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: fhouse.shp
 		Scale: 0.75
 	idle:
 		Start: 18
@@ -1118,10 +1057,8 @@ fhousej:
 		Start: 19
 
 fhousek:
-	Defaults: fhouse
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: fhouse.shp
 		Scale: 0.75
 	idle:
 		Start: 20
@@ -1129,10 +1066,8 @@ fhousek:
 		Start: 21
 
 fhousel:
-	Defaults: fhouse
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: fhouse.shp
 		Scale: 0.75
 	idle:
 		Start: 22
@@ -1140,10 +1075,8 @@ fhousel:
 		Start: 23
 
 fhousem:
-	Defaults: fhouse
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: fhouse.shp
 		Scale: 0.75
 	idle:
 		Start: 24
@@ -1151,10 +1084,8 @@ fhousem:
 		Start: 25
 
 fhousen:
-	Defaults: fhouse
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: fhouse.shp
 		Scale: 0.75
 	idle:
 		Start: 26
@@ -1162,10 +1093,8 @@ fhousen:
 		Start: 27
 
 fhouseo:
-	Defaults: fhouse
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: fhouse.shp
 		Scale: 0.75
 	idle:
 		Start: 28
@@ -1173,10 +1102,8 @@ fhouseo:
 		Start: 29
 
 fhousep:
-	Defaults: fhouse
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: fhouse.shp
 		Scale: 0.75
 	idle:
 		Start: 30
@@ -1184,10 +1111,8 @@ fhousep:
 		Start: 31
 
 fhouseq:
-	Defaults: fhouse
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: fhouse.shp
 		Scale: 0.75
 	idle:
 		Start: 32
@@ -1195,10 +1120,8 @@ fhouseq:
 		Start: 33
 
 fhouser:
-	Defaults: fhouse
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: fhouse.shp
 		Scale: 0.75
 	idle:
 		Start: 34
@@ -1206,10 +1129,8 @@ fhouser:
 		Start: 35
 
 fhouses:
-	Defaults: fhouse
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: fhouse.shp
 		Scale: 0.75
 	idle:
 		Start: 36
@@ -1217,10 +1138,8 @@ fhouses:
 		Start: 37
 
 fhouset:
-	Defaults: fhouse
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: fhouse.shp
 		Scale: 0.75
 	idle:
 		Start: 38
@@ -1229,9 +1148,7 @@ fhouset:
 
 church:
 	Defaults:
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+		Filename: church.shp
 		Offset: 0,12,0
 		Scale: 0.75
 	idle:
@@ -1239,10 +1156,8 @@ church:
 		Start: 0
 
 flat1:
-	Defaults: commerce
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: commerce.shp
 		Offset: 0,0,0
 		Scale: 0.75
 	idle:
@@ -1250,10 +1165,8 @@ flat1:
 		Start: 0
 
 flat1a:
-	Defaults: flat1
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: flat1.shp
 		Offset: 0,0,0
 		Scale: 0.75
 	idle:
@@ -1262,10 +1175,8 @@ flat1a:
 		Start: 1
 
 flat1b:
-	Defaults: flat1
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: flat1.shp
 		Offset: 0,0,0
 		Scale: 0.75
 	idle:
@@ -1274,10 +1185,8 @@ flat1b:
 		Start: 2
 
 flat2:
-	Defaults: flat1
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: flat1.shp
 		Offset: 0,0,0
 		Scale: 0.75
 	idle:
@@ -1286,10 +1195,8 @@ flat2:
 		Start: 4
 
 flat2a:
-	Defaults: flat1
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: flat1.shp
 		Offset: 0,0,0
 		Scale: 0.75
 	idle:
@@ -1298,10 +1205,8 @@ flat2a:
 		Start: 6
 
 flat3:
-	Defaults: flat1
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: flat1.shp
 		Offset: 0,0,0
 		Scale: 0.75
 	idle:
@@ -1310,10 +1215,8 @@ flat3:
 		Start: 3
 
 flat4:
-	Defaults: flat1
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: flat1.shp
 		Offset: 0,0,0
 		Scale: 0.75
 	idle:
@@ -1322,10 +1225,8 @@ flat4:
 		Start: 5
 
 flat5:
-	Defaults: flat1
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: flat1.shp
 		Offset: 0,0,0
 		Scale: 0.75
 	idle:
@@ -1334,10 +1235,8 @@ flat5:
 		Start: 7
 
 flat5a:
-	Defaults: flat1
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: flat1.shp
 		Offset: 0,0,0
 		Scale: 0.75
 	idle:
@@ -1346,10 +1245,8 @@ flat5a:
 		Start: 8
 
 flat6:
-	Defaults: flat1
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: flat1.shp
 		Offset: 0,0,0
 		Scale: 0.75
 	idle:
@@ -1358,10 +1255,8 @@ flat6:
 		Start: 9
 
 flat6a:
-	Defaults: flat1
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: flat1.shp
 		Offset: 0,0,0
 		Scale: 0.75
 	idle:
@@ -1370,10 +1265,8 @@ flat6a:
 		Start: 10
 
 detached1:
-	Defaults: detachedhouses
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: detachedhouses.shp
 		Offset: 0,0,0
 		Scale: 0.75
 	idle:
@@ -1382,10 +1275,8 @@ detached1:
 		Start: 1
 
 detached2:
-	Defaults: detachedhouses
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: detachedhouses.shp
 		Offset: 0,0,0
 		Scale: 0.75
 	idle:
@@ -1394,10 +1285,8 @@ detached2:
 		Start: 3
 
 detached3:
-	Defaults: detachedhouses
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: detachedhouses.shp
 		Offset: 0,0,0
 		Scale: 0.75
 	idle:
@@ -1406,10 +1295,8 @@ detached3:
 		Start: 5
 
 detached4:
-	Defaults: detachedhouses
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: detachedhouses.shp
 		Offset: 0,0,0
 		Scale: 0.75
 	idle:
@@ -1418,10 +1305,8 @@ detached4:
 		Start: 7
 
 detached5:
-	Defaults: detachedhouses
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: detachedhouses.shp
 		Offset: 0,0,0
 		Scale: 0.75
 	idle:
@@ -1430,10 +1315,8 @@ detached5:
 		Start: 9
 
 detached6:
-	Defaults: detachedhouses
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: detachedhouses.shp
 		Offset: 0,0,0
 		Scale: 0.75
 	idle:
@@ -1442,10 +1325,8 @@ detached6:
 		Start: 11
 
 detached7:
-	Defaults: detachedhouses
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: detachedhouses.shp
 		Offset: 0,0,0
 		Scale: 0.75
 	idle:
@@ -1454,10 +1335,8 @@ detached7:
 		Start: 13
 
 detached8:
-	Defaults: detachedhouses
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: detachedhouses.shp
 		Offset: 0,0,0
 		Scale: 0.75
 	idle:
@@ -1466,10 +1345,8 @@ detached8:
 		Start: 15
 
 detached9:
-	Defaults: detachedhouses
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: detachedhouses.shp
 		Offset: 0,0,0
 		Scale: 0.75
 	idle:
@@ -1478,10 +1355,8 @@ detached9:
 		Start: 17
 
 detached10:
-	Defaults: detachedhouses
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: detachedhouses.shp
 		Offset: 0,0,0
 		Scale: 0.75
 	idle:
@@ -1490,10 +1365,8 @@ detached10:
 		Start: 19
 
 detached11:
-	Defaults: detachedhouses
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: detachedhouses.shp
 		Offset: 0,0,0
 		Scale: 0.75
 	idle:
@@ -1502,10 +1375,8 @@ detached11:
 		Start: 21
 
 detached12:
-	Defaults: detachedhouses
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: detachedhouses.shp
 		Offset: 0,0,0
 		Scale: 0.75
 	idle:
@@ -1514,10 +1385,8 @@ detached12:
 		Start: 23
 
 detached13:
-	Defaults: detachedhouses
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: detachedhouses.shp
 		Offset: 0,0,0
 		Scale: 0.75
 	idle:
@@ -1526,10 +1395,8 @@ detached13:
 		Start: 25
 
 detached14:
-	Defaults: detachedhouses
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: detachedhouses.shp
 		Offset: 0,0,0
 		Scale: 0.75
 	idle:
@@ -1538,10 +1405,8 @@ detached14:
 		Start: 27
 
 detached15:
-	Defaults: detachedhouses
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: detachedhouses.shp
 		Offset: 0,0,0
 		Scale: 0.75
 	idle:
@@ -1550,10 +1415,8 @@ detached15:
 		Start: 29
 
 detached16:
-	Defaults: detachedhouses
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: detachedhouses.shp
 		Offset: 0,0,0
 		Scale: 0.75
 	idle:
@@ -1562,10 +1425,8 @@ detached16:
 		Start: 31
 
 detached17:
-	Defaults: detachedhouses
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: detachedhouses.shp
 		Offset: 0,0,0
 		Scale: 0.75
 	idle:
@@ -1574,10 +1435,8 @@ detached17:
 		Start: 33
 
 detached18:
-	Defaults: detachedhouses
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: detachedhouses.shp
 		Offset: 0,0,0
 		Scale: 0.75
 	idle:
@@ -1586,10 +1445,8 @@ detached18:
 		Start: 35
 
 detached19:
-	Defaults: detachedhouses
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: detachedhouses.shp
 		Offset: 0,0,0
 		Scale: 0.75
 	idle:
@@ -1598,10 +1455,8 @@ detached19:
 		Start: 37
 
 detached20:
-	Defaults: detachedhouses
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: detachedhouses.shp
 		Offset: 0,0,0
 		Scale: 0.75
 	idle:
@@ -1610,10 +1465,8 @@ detached20:
 		Start: 39
 
 detached21:
-	Defaults: detachedhouses
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: detachedhouses.shp
 		Offset: 0,0,0
 		Scale: 0.75
 	idle:
@@ -1622,10 +1475,8 @@ detached21:
 		Start: 41
 
 detached22:
-	Defaults: detachedhouses
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: detachedhouses.shp
 		Offset: 0,0,0
 		Scale: 0.75
 	idle:
@@ -1634,10 +1485,8 @@ detached22:
 		Start: 43
 
 detached23:
-	Defaults: detachedhouses
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: detachedhouses.shp
 		Offset: 0,0,0
 		Scale: 0.75
 	idle:
@@ -1646,10 +1495,8 @@ detached23:
 		Start: 45
 
 detached24:
-	Defaults: detachedhouses
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: detachedhouses.shp
 		Offset: 0,0,0
 		Scale: 0.75
 	idle:
@@ -1658,10 +1505,8 @@ detached24:
 		Start: 47
 
 detached25:
-	Defaults: detachedhouses
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: detachedhouses.shp
 		Offset: 0,0,0
 		Scale: 0.75
 	idle:
@@ -1670,10 +1515,8 @@ detached25:
 		Start: 49
 
 detached26:
-	Defaults: detachedhouses
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: detachedhouses.shp
 		Offset: 0,0,0
 		Scale: 0.75
 	idle:
@@ -1682,10 +1525,8 @@ detached26:
 		Start: 51
 
 shops1:
-	Defaults: shops
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: shops.shp
 		Offset: 0,0,0
 		Scale: 0.8
 	idle:
@@ -1694,10 +1535,8 @@ shops1:
 		Start: 1
 
 shops2:
-	Defaults: shops
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: shops.shp
 		Offset: 0,0,0
 		Scale: 0.8
 	idle:
@@ -1706,10 +1545,8 @@ shops2:
 		Start: 3
 
 shops3:
-	Defaults: shops
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: shops.shp
 		Offset: 0,0,0
 		Scale: 0.8
 	idle:
@@ -1718,10 +1555,8 @@ shops3:
 		Start: 5
 
 shops4:
-	Defaults: shops
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
+	Defaults:
+		Filename: shops.shp
 		Offset: 0,0,0
 		Scale: 0.8
 	idle:
@@ -1730,120 +1565,155 @@ shops4:
 		Start: 7
 
 mebld1a:
-	idle: meblds
+	idle:
+		Filename: meblds.shp
 		Start: 2
 		Offset: 2,-1
-	damaged-idle: meblds
+	damaged-idle:
+		Filename: meblds.shp
 		Start: 3
 		Offset: 2,-1
 
 mebld1b:
-	idle: meblds
+	idle:
+		Filename: meblds.shp
 		Start: 4
 		Offset: 2,-1
-	damaged-idle: meblds
+	damaged-idle:
+		Filename: meblds.shp
 		Start: 5
 		Offset: 2,-1
 	
 mebld2:
-	idle: meblds
+	idle:
+		Filename: meblds.shp
 		Start: 0
 		Offset: 0,2
-	damaged-idle: meblds
+	damaged-idle:
+		Filename: meblds.shp
 		Start: 1
 		Offset: 0,2
 		
 mebld3a:
-	idle: meblds
+	idle:
+		Filename: meblds.shp
 		Start: 6
 		Offset: 2,-1
-	damaged-idle: meblds
+	damaged-idle:
+		Filename: meblds.shp
 		Start: 7
 		Offset: 2,-1
 
 mebld3b:
-	idle: meblds
+	idle:
+		Filename: meblds.shp
 		Start: 8
-	damaged-idle: meblds
+	damaged-idle:
+		Filename: meblds.shp
 		Start: 9
 		
 mebld3c:
-	idle: meblds
+	idle:
+		Filename: meblds.shp
 		Start: 10
-	damaged-idle: meblds
+	damaged-idle:
+		Filename: meblds.shp
 		Start: 11
 		
 mosque:
-	idle: meblds
+	idle:
+		Filename: meblds.shp
 		Start: 12
-	damaged-idle: meblds
+	damaged-idle:
+		Filename: meblds.shp
 		Start: 13
 		
 mebld4a:
-	idle: meblds
+	idle:
+		Filename: meblds.shp
 		Start: 14
-	damaged-idle: meblds
+	damaged-idle:
+		Filename: meblds.shp
 		Start: 15
 
 mebld4b:
-	idle: meblds
+	idle:
+		Filename: meblds.shp
 		Start: 16
-	damaged-idle: meblds
+	damaged-idle:
+		Filename: meblds.shp
 		Start: 17
 		
 mebld4c:
-	idle: meblds
+	idle:
+		Filename: meblds.shp
 		Start: 18
 		Offset: 2,-1
-	damaged-idle: meblds
+	damaged-idle:
+		Filename: meblds.shp
 		Start: 19
 		Offset: 2,-1
 		
 mebld5a:
-	idle: meblds
+	idle:
+		Filename: meblds.shp
 		Start: 20
 		Offset: 2,-1
-	damaged-idle: meblds
+	damaged-idle:
+		Filename: meblds.shp
 		Start: 21
 		Offset: 2,-1
 
 mebld5b:
-	idle: meblds
+	idle:
+		Filename: meblds.shp
 		Start: 22
-	damaged-idle: meblds
+	damaged-idle:
+		Filename: meblds.shp
 		Start: 23
 		
 mebld5c:
-	idle: meblds
+	idle:
+		Filename: meblds.shp
 		Start: 24
 		Offset: 2,-1
-	damaged-idle: meblds
+	damaged-idle:
+		Filename: meblds.shp
 		Start: 25
 		Offset: 2,-1
 		
 mebld5d:
-	idle: meblds
+	idle:
+		Filename: meblds.shp
 		Start: 26
 		Offset: 2,-1
-	damaged-idle: meblds
+	damaged-idle:
+		Filename: meblds.shp
 		Start: 27
 		Offset: 2,-1
 		
 mebld5e:
-	idle: meblds
+	idle:
+		Filename: meblds.shp
 		Start: 28
 		Offset: 2,-1
-	damaged-idle: meblds
+	damaged-idle:
+		Filename: meblds.shp
 		Start: 29
 		Offset: 2,-1
 		
 mebld6:
+	Defaults:
+		Filename: mebld6.shp
 	idle:
 		Start: 0
 	damaged-idle:
 		Start: 1
 		
 tuareg:
+	Inherits: ^SharedDeaths
+	Defaults:
+		Filename: tuareg.shp
 	stand:
 		Facings: 8
 	panic-stand:
@@ -1868,26 +1738,21 @@ tuareg:
 		Start: 134
 		Length: 30
 		Tick: 60
-	die5: e1
+	die5:
+		Filename: e1.shp
 		Start: 324
 		Length: 18
 		Tick: 80
-	die6: electro
+	die6:
+		Filename: electro.tem
 		Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
 		Length: *
 		Tick: 80
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
-	die-crushed: corpse1
+	die-crushed:
+		Filename: corpse1.tem
 		Length: 6
 		Tick: 1600
 		ZOffset: -511
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
 	run:
 		Start: 56
 		Length: 6
@@ -1895,6 +1760,9 @@ tuareg:
 		Tick: 80
 		
 arab:
+	Inherits: ^SharedDeaths
+	Defaults:
+		Filename: arab.shp
 	stand:
 		Facings: 8
 	panic-stand:
@@ -1919,26 +1787,21 @@ arab:
 		Start: 134
 		Length: 30
 		Tick: 60
-	die5: e1
+	die5:
+		Filename: e1.shp
 		Start: 324
 		Length: 18
 		Tick: 80
-	die6: electro
+	die6:
+		Filename: electro.tem
 		Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
 		Length: *
 		Tick: 80
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
-	die-crushed: corpse1
+	die-crushed:
+		Filename: corpse1.tem
 		Length: 6
 		Tick: 1600
 		ZOffset: -511
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
 	run:
 		Start: 56
 		Length: 6
@@ -1946,17 +1809,20 @@ arab:
 		Tick: 80
 
 v23:
-	idle:
+	Defaults:
 		Filename: v23.des
+	idle:
 		Length: 3
 		Tick: 120
 	damaged-idle:
-		Filename: v23.des
 		Start: 3
 		Length: 3
 		Tick: 120
 	
 burka:
+	Inherits: ^SharedDeaths
+	Defaults:
+		Filename: burka.shp
 	stand:
 		Facings: 8
 	panic-stand:
@@ -1981,26 +1847,21 @@ burka:
 		Start: 134
 		Length: 30
 		Tick: 60
-	die5: e1
+	die5:
+		Filename: e1.shp
 		Start: 324
 		Length: 18
 		Tick: 80
-	die6: electro
+	die6:
+		Filename: electro.tem
 		Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
 		Length: *
 		Tick: 80
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
-	die-crushed: corpse1
+	die-crushed:
+		Filename: corpse1.tem
 		Length: 6
 		Tick: 1600
 		ZOffset: -511
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
 	run:
 		Start: 56
 		Length: 6
@@ -2008,6 +1869,9 @@ burka:
 		Tick: 80
 		
 niqab:
+	Inherits: ^SharedDeaths
+	Defaults:
+		Filename: niqab.shp
 	stand:
 		Facings: 8
 	panic-stand:
@@ -2032,26 +1896,21 @@ niqab:
 		Start: 134
 		Length: 30
 		Tick: 60
-	die5: e1
+	die5:
+		Filename: e1.shp
 		Start: 324
 		Length: 18
 		Tick: 80
-	die6: electro
+	die6:
+		Filename: electro.tem
 		Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
 		Length: *
 		Tick: 80
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
-	die-crushed: corpse1
+	die-crushed:
+		Filename: corpse1.tem
 		Length: 6
 		Tick: 1600
 		ZOffset: -511
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
 	run:
 		Start: 56
 		Length: 6
@@ -2060,6 +1919,8 @@ niqab:
 
 
 utilpol1:
+	Defaults:
+		Filename: utilpol1.shp
 	idle:
 	damaged-idle:
 		Start: 1
@@ -2067,6 +1928,8 @@ utilpol1:
 		Start: 1
 
 utilpol2:
+	Defaults:
+		Filename: utilpol2.shp
 	idle:
 	damaged-idle:
 		Start: 1
@@ -2075,20 +1938,27 @@ utilpol2:
 
 ammobox1:
 	idle:
+		Filename: ammobox1.shp
 
 ammobox2:
 	idle:
+		Filename: ammobox2.shp
 
 ammobox3:
 	idle:
+		Filename: ammobox3.shp
 
 tanktrap1:
 	idle:
+		Filename: tanktrap1.shp
 
 tanktrap2:
 	idle:
+		Filename: tanktrap2.shp
 
 barb:
+	Defaults:
+		Filename: barb.shp
 	idle:
 		Length: 16
 	damaged-idle:
@@ -2096,6 +1966,8 @@ barb:
 		Length: 16
 
 wood:
+	Defaults:
+		Filename: wood.shp
 	idle:
 		Length: 16
 	damaged-idle:
@@ -2103,262 +1975,267 @@ wood:
 		Length: 16
 
 dsdy:
-	idle: dsdy
+	idle:
+		Filename: dsdy.shp
 		Length: 16
 	scratched-idle:
+		Filename: dsdy.shp
 		Start: 32
 		Length: 16
 
 hdg:
-	idle: hdg
+	idle:
+		Filename: hdg.shp
 		Length: 16
 
 barl:
 	idle:
+		Filename: barl.shp
 
 brl3:
 	idle:
+		Filename: brl3.shp
 
 # Interior Terrain
 boxes01:
-	idle: boxes01.int
-		AddExtension: false
+	idle:
+		Filename: boxes01.int
 
 boxes02:
-	idle: boxes02.int
-		AddExtension: false
+	idle:
+		Filename: boxes02.int
 
 boxes03:
-	idle: boxes03.int
-		AddExtension: false
+	idle:
+		Filename: boxes03.int
 
 boxes04:
-	idle: boxes04.int
-		AddExtension: false
+	idle:
+		Filename: boxes04.int
 
 boxes05:
-	idle: boxes05.int
-		AddExtension: false
+	idle:
+		Filename: boxes05.int
 
 boxes06:
-	idle: boxes06.int
-		AddExtension: false
+	idle:
+		Filename: boxes06.int
 
 boxes07:
-	idle: boxes07.int
-		AddExtension: false
+	idle:
+		Filename: boxes07.int
 
 boxes08:
-	idle: boxes08.int
-		AddExtension: false
+	idle:
+		Filename: boxes08.int
 
 boxes09:
-	idle: boxes09.int
-		AddExtension: false
+	idle:
+		Filename: boxes09.int
 
 # Desert Terrain Expansion
 rock1:
-	idle: rock1.des
-		AddExtension: false
+	idle:
+		Filename: rock1.des
 
 rock2:
-	idle: rock2.des
-		AddExtension: false
+	idle:
+		Filename: rock2.des
 
 rock3:
-	idle: rock3.des
-		AddExtension: false
+	idle:
+		Filename: rock3.des
 
 rock4:
-	idle: rock4.des
-		AddExtension: false
+	idle:
+		Filename: rock4.des
 
 rock5:
-	idle: rock5.des
-		AddExtension: false
+	idle:
+		Filename: rock5.des
 
 rock6:
-	idle: rock6.des
-		AddExtension: false
+	idle:
+		Filename: rock6.des
 
 rock7:
-	idle: rock7.des
-		AddExtension: false
+	idle:
+		Filename: rock7.des
 
 t04:
-	Defaults:
-		AddExtension: false
-	idle: t04.des
+	idle:
+		Filename: t04.des
 
 t04.husk:
-	Defaults: t04.des
-		AddExtension: false
+	Defaults:
+		Filename: t04.des
 	idle:
 		Start: 1
-	dead: t04.des
+	dead:
+		Filename: t04.des
 		Start: 2
 		Length: 8
 		Tick: 80
 
 t09:
-	Defaults:
-		AddExtension: false
-	idle: t09.des
+	idle:
+		Filename: t09.des
 
 t09.husk:
-	Defaults: t09
-		AddExtension: false
-	idle: t09.des
+	idle:
+		Filename: t09.des
 		Start: 1
-	dead: t09.des
+	dead:
+		Filename: t09.des
 		Start: 2
 		Length: 8
 		Tick: 80
 
 v20:
-	Defaults:
-		AddExtension: false
-	idle: v20.des
+	idle:
+		Filename: v20.des
 		Length: 3
 		Tick: 120
-	damaged-idle: v20.des
+	damaged-idle:
+		Filename: v20.des
 		Start: 3
 		Length: 3
 		Tick: 120
 
 v21:
-	Defaults:
-		AddExtension: false
-	idle: v21.des
+	idle:
+		Filename: v21.des
 		Length: 3
 		Tick: 120
-	damaged-idle: v21.des
+	damaged-idle:
+		Filename: v21.des
 		Start: 3
 		Length: 3
 		Tick: 120
 
 v22:
-	Defaults:
-		AddExtension: false
-	idle: v22.des
+	idle:
+		Filename: v22.des
 		Length: 3
 		Tick: 120
-	damaged-idle: v22.des
+	damaged-idle:
+		Filename: v22.des
 		Start: 3
 		Length: 3
 		Tick: 120
 
 v23:
-	Defaults:
-		AddExtension: false
-	idle: v23.des
+	idle:
+		Filename: v23.des
 		Length: 3
 		Tick: 120
-	damaged-idle: v23.des
+	damaged-idle:
+		Filename: v23.des
 		Start: 3
 		Length: 3
 		Tick: 120
 
 v24:
-	Defaults:
-		AddExtension: false
-	idle: v24.des
-	damaged-idle: v24.des
+	idle:
+		Filename: v24.des
+	damaged-idle:
+		Filename: v24.des
 		Start: 1
 
 v25:
-	Defaults:
-		AddExtension: false
-	idle: v25.des
-	damaged-idle: v25.des
+	idle:
+		Filename: v25.des
+	damaged-idle:
+		Filename: v25.des
 		Start: 1
 
 v26:
-	Defaults:
-		AddExtension: false
-	idle: v26.des
-	damaged-idle: v26.des
+	idle:
+		Filename: v26.des
+	damaged-idle:
+		Filename: v26.des
 		Start: 1
 
 v27:
-	Defaults:
-		AddExtension: false
-	idle: v27.des
-	damaged-idle: v27.des
+	idle:
+		Filename: v27.des
+	damaged-idle:
+		Filename: v27.des
 		Start: 1
 
 v28:
-	Defaults:
-		AddExtension: false
-	idle: v28.des
-	damaged-idle: v28.des
+	idle:
+		Filename: v28.des
+	damaged-idle:
+		Filename: v28.des
 		Start: 1
 
 v29:
-	Defaults:
-		AddExtension: false
-	idle: v29.des
-	damaged-idle: v29.des
+	idle:
+		Filename: v29.des
+	damaged-idle:
+		Filename: v29.des
 		Start: 1
 
 v30:
-	Defaults:
-		AddExtension: false
-	idle: v30.des
-	damaged-idle: v30.des
+	idle:
+		Filename: v30.des
+	damaged-idle:
+		Filename: v30.des
 		Start: 2
 
 v31:
-	Defaults:
-		AddExtension: false
-	idle: v31.des
-	damaged-idle: v31.des
+	idle:
+		Filename: v31.des
+	damaged-idle:
+		Filename: v31.des
 		Start: 1
 
 v32:
-	Defaults:
-		AddExtension: false
-	idle: v32.des
-	damaged-idle: v32.des
+	idle:
+		Filename: v32.des
+	damaged-idle:
+		Filename: v32.des
 		Start: 1
 
 v33:
-	Defaults:
-		AddExtension: false
-	idle: v33.des
-	damaged-idle: v33.des
+	idle:
+		Filename: v33.des
+	damaged-idle:
+		Filename: v33.des
 		Start: 1
 
 v34:
-	Defaults:
-		AddExtension: false
-	idle: v34.des
-	damaged-idle: v34.des
+	idle:
+		Filename: v34.des
+	damaged-idle:
+		Filename: v34.des
 		Start: 1
 
 v35:
-	Defaults:
-		AddExtension: false
-	idle: v35.des
-	damaged-idle: v35.des
+	idle:
+		Filename: v35.des
+	damaged-idle:
+		Filename: v35.des
 		Start: 1
 
 v36:
-	Defaults:
-		AddExtension: false
-	idle: v36.des
-	damaged-idle: v36.des
+	idle:
+		Filename: v36.des
+	damaged-idle:
+		Filename: v36.des
 		Start: 1
 
 v37:
-	Defaults:
-		AddExtension: false
-	idle: v37.des
-	damaged-idle: v37.des
+	idle:
+		Filename: v37.des
+	damaged-idle:
+		Filename: v37.des
 		Start: 1
 
 snowhut:
 	Defaults:
+		Filename: snowhut.shp
 		Offset: 0,-5
 	idle:
 		Length: 3
@@ -2369,6 +2246,7 @@ snowhut:
 
 lhus:
 	Defaults:
+		Filename: lhus.shp
 		Offset: 0,-16
 	idle:
 		Length: 16
@@ -2380,6 +2258,7 @@ lhus:
 
 windmill:
 	Defaults:
+		Filename: windmill.shp
 		Offset: 0,-16
 	idle:
 		Length: 8
@@ -2390,42 +2269,53 @@ windmill:
 		Tick: 80
 
 stmp1:
-	idle: stmp
+	idle:
+		Filename: stmp.shp
 		Start: 0
-	ZOffset: -10000
+		ZOffset: -10000
 		
 stmp2:
-	idle: stmp
+	idle:
+		Filename: stmp.shp
 		Start: 1
-	ZOffset: -10000
+		ZOffset: -10000
 		
 stmp3:
-	idle: stmp
+	idle:
+		Filename: stmp.shp
 		Start: 2
-	ZOffset: -10000
+		ZOffset: -10000
 
 cypr1:
-	idle: cypr
+	idle:
+		Filename: cypr.shp
 		Start: 0
 	
 cypr1.husk:
-	idle: cypr
+	idle:
+		Filename: cypr.shp
 		Start: 1
 		
 cypr2:
-	idle: cypr
+	idle:
+		Filename: cypr.shp
 		Start: 2
 	
 cypr2.husk:
-	idle: cypr
+	idle:
+		Filename: cypr.shp
 		Start: 3
 
 treetoolconf:
-	idle: treetool
+	idle:
+		Filename: treetool.shp
 		Start: 0
-	ingame: empty
+	ingame:
+		Filename: empty.shp
 
 treetoolconfsap:
-	idle: treetool
+	idle:
+		Filename: treetool.shp
 		Start: 1
-	ingame: empty
+	ingame:
+		Filename: empty.shp
