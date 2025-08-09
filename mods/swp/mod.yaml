@@ -71,7 +71,7 @@ FileSystem: ContentInstallerFileSystem
 
 MapFolders:
 	swp|maps: System
-	~^SupportDir|maps/swp/0.4: User
+	~^SupportDir|maps/swp/0.04: User
 
 Rules:
 	swp|rules/misc.yaml
@@ -266,7 +266,7 @@ MapGrid:
 
 DefaultOrderGenerator: UnitOrderGenerator
 
-SupportsMapsFrom: ra
+SupportsMapsFrom: ra, swp
 
 SoundFormats: Aud, Wav
 
