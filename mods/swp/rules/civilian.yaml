@@ -1147,54 +1147,6 @@ OILB:
 	GrantConditionOnCombatantOwner:
 		Condition: enabled
 
-OILPLAT:
-	Inherits: ^TechBuilding
-	Inherits@shape: ^2x2Shape
-	HitShape:
-		UseTargetableCellsOffsets: false
-		TargetableOffsets: 0,0,0, 630,-300,0, 420,512,0, -420,-512,0, -630,300,0
-	Selectable:
-		Priority: 0
-		Bounds: 2496, 2496
-	OwnerLostAction:
-		Action: ChangeOwner
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
-	Health:
-		HP: 80000
-	RevealsShroud:
-		Range: 4c0
-	CaptureManager:
-	Capturable:
-		Types: building
-	CapturableProgressBar:
-	CapturableProgressBlink:
-	InstantlyRepairable:
-	CashTrickler:
-		Interval: 375
-		Amount: 200
-		RequiresCondition: enabled
-	Tooltip:
-		Name: Oil Platform
-	TooltipDescription@ally:
-		Description: Provides additional funds.
-		ValidRelationships: Ally
-	TooltipDescription@other:
-		Description: Capture to receive additional funds.
-		ValidRelationships: Neutral, Enemy
-	FireWarheadsOnDeath:
-		Weapon: BarrelExplode
-	GpsDot:
-		String: Oil
-	AppearsOnMapPreview:
-	GivesCashOnCapture:
-		Amount: 100
-	UpdatesDerrickCount:
-	GrantConditionOnCombatantOwner:
-		Condition: enabled
-	-WithBuildingBib:
-
 BR1:
 	Inherits: ^Bridge
 	Bridge:
@@ -1581,6 +1533,163 @@ mebld6:
 	HitShape:
 	Cargo:
 		MaxWeight: 4
+
+OILPLAT:
+	Inherits: ^TechBuilding
+	Inherits@shape: ^2x2Shape
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 630,-300,0, 420,512,0, -420,-512,0, -630,300,0
+	Selectable:
+		Priority: 0
+		Bounds: 2048, 2048
+	OwnerLostAction:
+		Action: ChangeOwner
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	Health:
+		HP: 80000
+	RevealsShroud:
+		Range: 4c0
+	CaptureManager:
+	Capturable:
+		Types: building
+	CapturableProgressBar:
+	CapturableProgressBlink:
+	InstantlyRepairable:
+	CashTrickler:
+		Interval: 375
+		Amount: 100
+		RequiresCondition: enabled
+	Tooltip:
+		Name: Oil Rig
+	TooltipDescription@ally:
+		Description: Oil Rig
+		ValidRelationships: Ally
+	TooltipDescription@other:
+		Description: Oil Rig
+		ValidRelationships: Neutral, Enemy
+	FireWarheadsOnDeath:
+		Weapon: BarrelExplode
+	GpsDot:
+		String: Oil
+	AppearsOnMapPreview:
+	GivesCashOnCapture:
+		Amount: 100
+	UpdatesDerrickCount:
+	GrantConditionOnCombatantOwner:
+		Condition: enabled
+
+NPOWR:
+	Inherits: ^TechBuilding
+	Inherits@shape: ^2x2Shape
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 630,-300,0, 420,512,0, -420,-512,0, -630,300,0
+	Selectable:
+		Priority: 0
+		Bounds: 2048, 2048
+	OwnerLostAction:
+		Action: ChangeOwner
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 80000
+	RevealsShroud:
+		Range: 4c0
+	CaptureManager:
+	Capturable:
+		Types: building
+	CapturableProgressBar:
+	CapturableProgressBlink:
+	InstantlyRepairable:
+	Tooltip:
+		Name: Civilian Power Plant
+	TooltipDescription@ally:
+		Description: Civilian Power Plant
+		ValidRelationships: Ally
+	TooltipDescription@other:
+		Description: Civilian Power Plant
+		ValidRelationships: Neutral, Enemy
+	GpsDot:
+		String: Structure
+	AppearsOnMapPreview:
+	WithBuildingBib:
+	Power:
+		Amount: 150
+
+OILREF:
+	Inherits: ^TechBuilding
+	Inherits@shape: ^2x2Shape
+	Inherits@CARGOPIPS: ^CargoPips
+	GrantConditionOnDamageState@DAMAGED:
+		Condition: damaged
+		ValidDamageStates: Light, Medium, Heavy, Critical
+	InstantlyRepairable:
+		RequiresCondition: damaged
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 630,-300,0, 420,512,0, -420,-512,0, -630,300,0
+	Selectable:
+		Priority: 0
+		Bounds: 2048, 2048
+	OwnerLostAction:
+		Action: ChangeOwner
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	Health:
+		HP: 80000
+	RevealsShroud:
+		Range: 4c0
+	CaptureManager:
+	Capturable:
+		Types: building
+	CapturableProgressBar:
+	CapturableProgressBlink:
+	InstantlyRepairable:
+	Tooltip:
+		Name: Oil Refinery
+	TooltipDescription@ally:
+		Description: Oil Refinery
+		ValidRelationships: Ally
+	TooltipDescription@other:
+		Description: Oil Refinery
+		ValidRelationships: Neutral, Enemy
+	AppearsOnMapPreview:
+	WithBuildingBib:
+	CashTrickler:
+		Interval: 375
+		Amount: 50
+		RequiresCondition: enabled
+	FireWarheadsOnDeath:
+		Weapon: BarrelExplode
+	GpsDot:
+		String: Oil
+	GivesCashOnCapture:
+		Amount: 200
+	UpdatesDerrickCount:
+	GrantConditionOnCombatantOwner:
+		Condition: enabled
+	Cargo:
+		MaxWeight: 4
+		Types: Engineer
+		PassengerConditions:
+			e6: engineer
+	CashTricklerMultiplier@1:
+		Modifier: 200
+		RequiresCondition: engineer == 1
+	CashTricklerMultiplier@2:
+		Modifier: 300
+		RequiresCondition: engineer == 2
+	CashTricklerMultiplier@3:
+		Modifier: 400
+		RequiresCondition: engineer == 3
+	CashTricklerMultiplier@4:
+		Modifier: 500
+		RequiresCondition: engineer == 4
 
 V23:
 	Inherits: ^DesertCivBuilding

@@ -210,6 +210,53 @@ cyberlab:
 	icon:
 		Filename: cyberlabicon.shp
 
+npowr:
+	idle:
+		Filename: npowr.shp
+		Offset: 0,3
+	damaged-idle:
+		Filename: npowr.shp
+		Start: 1
+		Offset: 0,3
+	dead:
+		Filename: npowr.shp
+		Tick: 1
+		Offset: 0,3
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib3.tem
+			DESERT: bib3.des
+		Length: *
+		Offset: 0,3
+
+oilplat:
+	idle: 
+		Filename: oilplat.shp
+		Start: 0
+		Length: 9
+		Tick: 100
+		Offset: 4,-4
+	damaged-idle: 
+		Filename: oilplat.shp
+		Start: 9
+		Tick: 100
+		Length: 9
+		Offset: 4,-4
+
+oilref:
+	idle:
+		Filename: oilref.shp
+		Offset: 0,0
+	damaged-idle:
+		Filename: oilref.shp
+		Start: 1
+		Offset: 0,0
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+			DESERT: bib2.des
+		Length: *
+
 kcom:
 	Defaults:
 		Filename: kcom.shp
