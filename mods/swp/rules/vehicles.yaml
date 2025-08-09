@@ -3363,6 +3363,8 @@ SLINGSHOT.Husk:
 		IntoActor: SLINGSHOT
 	RenderSprites:
 		Image: slingshot
+	Selectable:
+		DecorationBounds: 1289, 1289
 
 KATYA:
 	Inherits: ^TrackedVehicle
@@ -6402,7 +6404,7 @@ LIMPETMINE:
 	Tooltip:
 		Name: Cicada
 	Health:
-		HP: 20000
+		HP: 15000
 	Armor:
 		Type: Light
 	Mobile:
@@ -7193,7 +7195,7 @@ HVRTNKTNK:
 		TurnSpeed: 28
 		Offset: -200,0,230
 	Armament:
-		Weapon: SM_ElectricBolt
+		Weapon: ElectricBoltSingle
 		Recoil: 0
 		RecoilRecovery: 25
 		LocalOffset: 398,0,100

@@ -679,7 +679,7 @@ DISTURBER:
 		HP: 9000
 	Armament@PRIMARY:
 		Weapon: LtRail
-		LocalOffset: 0,0,200
+		LocalOffset: 100,0,300
 	Armament@GARRISONED:
 		Name: garrisoned
 		Weapon: LtRail
@@ -6372,7 +6372,7 @@ NIGHTWITCHAIR:
 		Range: 5c0
 		Type: CenterPosition
 	Armament@PRIMARY:
-		Weapon: SMMagneticBolt
+		Weapon: SM_ElectricBolt
 		LocalOffset: 427,-100,341, 427,100,341
 	-EjectOnDeath:
 	AttackFrontal:

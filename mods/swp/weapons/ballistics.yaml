@@ -71,6 +71,8 @@ TeslaCannon:
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ElectricityDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Scorch
+	-Warhead@3Eff:
+	-Warhead@4EffWater:
 
 VolkovTeslaCannon:
 	Inherits: ^Cannon

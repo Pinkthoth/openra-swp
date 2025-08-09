@@ -1528,7 +1528,7 @@ titan:
 		Start: 24
 		Facings: 8
 		Length: 6
-		Tick: 80
+		Tick: 150
 	turn:
 		Start: 24
 		Facings: 8

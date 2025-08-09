@@ -166,6 +166,7 @@
 		Blockable: true
 		DamageActorsInLine: true
 		BeamColor: 0080FFC8
+		BeamWidth: 0c46
 	Warhead@1Dam: SpreadDamage
 		Range: 0, 32
 		Falloff: 100, 100
@@ -211,6 +212,8 @@ SoundRifle:
 
 LtRail:
 	Inherits: ^Railgun
+	Projectile: Railgun
+		DamageActorsInLine: false
 	Warhead@1Dam: SpreadDamage
 		ValidRelationships: Neutral, Enemy
 		Damage: 2500
@@ -497,6 +500,10 @@ ElectricBolt:
 		Duration: 200
 		Condition: emdamaged
 		ValidTargets: Ship, WaterActor, GroundActor
+
+ElectricBoltSingle:
+	Inherits: ElectricBolt
+	Burst: 1
 
 TowerElectricBolt:
 	Inherits: ^ElectricBoltWeapon

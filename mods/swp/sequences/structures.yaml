@@ -234,37 +234,6 @@ kcom:
 		Filename: fcomicon.shp
 		Offset: 0,0,0
 
-etek:
-	idle:
-		Filename: etek.shp
-		Start: 0
-		Offset: 0,0
-	damaged-idle:
-		Filename: mpowr.shp
-		Start: 1
-		Offset: 0,3
-	make:
-		Filename: mpowrmake.shp
-		Length: *
-		Offset: 0,3
-	dead:
-		Filename: mpowr.shp
-		Start: 1
-		Tick: 800
-		Offset: 0,3
-	bib:
-		TilesetFilenames:
-			TEMPERAT: bib3.tem
-			DESERT: bib3.des
-		Length: *
-	icon:
-		Filename: powricon.shp
-	fake-icon:
-		Filename: fpwricon.shp
-	trap-icon:
-		Filename: trapicons.shp
-		Start: 6
-
 mpowr:
 	idle:
 		Filename: mpowr.shp
