@@ -64,7 +64,7 @@ FileSystem: ContentInstallerFileSystem
 		content|expand/mwrench1.aud
 		content|expand/myeehaw1.aud
 		content|expand/myes1.aud
-	ContentInstallerMod: swp-content
+	ContentInstallerMod: ra-content
 
 MapFolders:
 	swp|maps: System
