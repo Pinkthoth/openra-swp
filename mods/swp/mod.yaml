@@ -1,6 +1,6 @@
 Metadata:
 	Title: OpenRA Schwerpunkt
-	Version: Schwerpunkt v. 0.04
+	Version: 0.043
 	Website: https://www.openra.net
 	WebIcon32: https://www.openra.net/images/icons/ra_32x32.png
 	WindowTitle: OpenRA Schwerpunkt
@@ -10,12 +10,11 @@ PackageFormats: Mix
 FileSystem: ContentInstallerFileSystem
 	SystemPackages:
 		^EngineDir
-		$ra: ra
 		$swp: swp
 		^EngineDir|mods/common: common
 		~^SupportDir|Content/ra/v2/: content
 		common|scripts
-		ra|scripts
+		swp|scripts
 		swp|uibits
 	ContentPackages:
 		content|allies.mix
@@ -38,8 +37,6 @@ FileSystem: ContentInstallerFileSystem
 		~content|scores.mix
 		~content|general.mix
 		# Below are mod-provided (system) packages that need to be loaded after the content packages so they can override content assets.
-		ra|bits
-		ra|bits/desert
 		swp|bits
 		swp|bits/desert
 	RequiredContentFiles:
@@ -67,11 +64,11 @@ FileSystem: ContentInstallerFileSystem
 		content|expand/mwrench1.aud
 		content|expand/myeehaw1.aud
 		content|expand/myes1.aud
-	ContentInstallerMod: ra-content
+	ContentInstallerMod: swp-content
 
 MapFolders:
 	swp|maps: System
-	~^SupportDir|maps/swp/0.04: User
+	~^SupportDir|maps/swp/0.043: User
 
 Rules:
 	swp|rules/misc.yaml
@@ -156,7 +153,7 @@ ChromeLayout:
 	common|chrome/connection.yaml
 	common|chrome/replaybrowser.yaml
 	common|chrome/gamesave-browser.yaml
-	ra|chrome/gamesave-loading.yaml
+	swp|chrome/gamesave-loading.yaml
 	common|chrome/dropdowns.yaml
 	common|chrome/musicplayer.yaml
 	swp|chrome/tooltips.yaml
@@ -253,12 +250,12 @@ Fonts:
 		Size: 24
 		Ascender: 18
 	Title:
-		Font: ra|ZoodRangmah.ttf
+		Font: swp|ZoodRangmah.ttf
 		Size: 48
 		Ascender: 26
 
 Missions:
-	ra|missions.yaml
+	swp|missions.yaml
 
 MapGrid:
 	TileSize: 24,24
