@@ -1,3 +1,5 @@
+Here are the credits for all of the code and assets borrowed from other creators.
+
 Code
 -Various traits: Inq, Darkademic, BoolBada, GraionDilach
 
