@@ -372,7 +372,7 @@ powr:
 
 milacademy:
 	Defaults:
-		Filename: mtek.shp
+		Filename: autmilacademy.shp
 	idle:
 	damaged-idle:
 		Start: 1
@@ -380,18 +380,18 @@ milacademy:
 		Start: 1
 		Tick: 800
 	make:
-		Filename: mtek.shp
-		Start: 4
-		Length: 21
+		Filename: autmilacademy.shp
+		Start: 3
+		Length: *
 	turret:
 		Filename: empty32.shp
 	bib:
 		TilesetFilenames:
-			TEMPERAT: bib2.tem
-			DESERT: bib2.des
+			TEMPERAT: bib3.tem
+			DESERT: bib3.des
 		Length: *
 	icon:
-		Filename: milacademyicon.shp
+		Filename: autmilacademyicon.shp
 
 teslapp:
 	Defaults:
@@ -803,6 +803,7 @@ indiangun:
 turkeygun:
 	Defaults:
 		Filename: turkeygun.shp
+		Offset: 0,-8
 	idle: # Empty first frame. We need WithSpriteBody for the make anim, and WSB needs at least a placeholder default sequence to work
 		Filename: empty.shp
 		Start: 0
@@ -832,6 +833,7 @@ turkeygun:
 		Star: 0
 	icon:
 		Filename: turkeygunicon.shp
+		Offset: 0,0
 
 usagun:
 	Defaults:
@@ -1306,10 +1308,19 @@ morozko:
 		Filename: morozkoicon.shp
 		Offset: 0,0,0
 
+centraldominate:
+	Defaults:
+		Filename: dominatering.shp
+	idle:
+		Length: *
+		Start: 0
+	make:
+		Length: *
+		Start: 0
 
 spainbunker:
 	Defaults:
-		Filename: spainbunker.shp
+		Filename: sbunker.shp
 	idle:
 	damaged-idle:
 		Start: 1
@@ -1326,86 +1337,6 @@ spainbunker:
 			DESERT: mbPBOX.des
 		Length: *
 		Offset: 0,-2
-	idle-medic:
-		Filename: sipahimed.shp
-		Facings: 32
-		UseClassicFacings: True
-	idle-mech:
-		Filename: sipahimech.shp
-		Facings: 32
-		UseClassicFacings: True
-	turret-rifle:
-		Filename: armcr.shp
-		Start: 33
-		Facings: 32
-		UseClassicFacings: True
-	turret-flame:
-		Filename: sipahiflm.shp
-		Start: 0
-		Facings: 32
-		UseClassicFacings: True
-	turret-missile:
-		Filename: khanlauncher.shp
-		Start: 0
-		Facings: 32
-		UseClassicFacings: True
-	turret-ronin:
-		Filename: ronin.shp
-		Start: 32
-		Facings: 32
-		UseClassicFacings: True
-	turret-arc:
-		Filename: arctower.shp
-		Start: 0
-		Facings: 32
-		UseClassicFacings: True
-	turret-flak:
-		Filename: ftrk.shp
-		Start: 32
-		Facings: 32
-		UseClassicFacings: True
-	turret-mortar:
-		Filename: sipahimortar.shp
-		Start: 0
-		Facings: 32
-		UseClassicFacings: True
-	turret-sniper:
-		Filename: sipahisniper.shp
-		Start: 0
-		Facings: 32
-		UseClassicFacings: True
-	turret-lmg:
-		Filename: sipahilmg.shp
-		Start: 0
-		Facings: 32
-		UseClassicFacings: True
-	turret-tox:
-		Filename: sipahitox.shp
-		Start: 0
-		Facings: 32
-		UseClassicFacings: True
-	spinner-ttnk:
-		Filename: ttnk.shp
-		Start: 32
-		Length: 1
-	spinner-mrj:
-		Filename: mrj.shp
-		Start: 32
-		Length: 32
-	spydish:
-		Filename: spydish.shp
-		Start: 0
-		Length: 32
-	turret-gatling:
-		Filename: gatlingcar.shp
-		Start: 32
-		Facings: 32
-		UseClassicFacings: True
-	turret-testudo:
-		Filename: testudo.shp
-		Start: 100
-		Facings: 32
-		UseClassicFacings: True
 	icon:
 		Filename: bunkericon.shp
 
@@ -1939,24 +1870,24 @@ indplant:
 		Filename: indplant.shp
 		Start: 0
 		Length: 1
-		Offset: 0,-10
+		Offset: 0,0
 		Tick: 200
 	damaged-idle:
 		Filename: indplant.shp
 		Start: 1
 		Length: 1
-		Offset: 0,-10
+		Offset: 0,0
 		Tick: 200
 	make:
 		Filename: indplant.shp
 		Start: 2
 		Length: 23
-		Offset: 0,-10
+		Offset: 0,0
 	dead:
 		Filename: indplant.shp
 		Start: 1
 		Length: 1
-		Offset: 0,-10
+		Offset: 0,0
 	bib:
 		TilesetFilenames:
 			TEMPERAT: bib2.tem
@@ -2679,7 +2610,50 @@ mfix:
 	trap-icon:
 		Filename: trapicons.shp
 		Start: 2
-	
+
+psychicdominator:
+	idle:
+		Filename: psychicdominator.shp
+		Start: 0
+		Offset: 0,3
+	damaged-idle:
+		Filename: psychicdominator.shp
+		Start: 1
+		Offset: 0,3
+	dead:
+		Filename: psychicdominator.shp
+		Start: 1
+		Offset: 0,3
+	active:
+		Filename: psychicdominator.shp
+		Start: 0
+		Length: 1
+		Tick: 175
+		Offset: 0,3
+	damaged-active:
+		Filename: psychicdominator.shp
+		Start: 1
+		Length: 1
+		Tick: 125
+		Offset: 0,3
+	make:
+		Filename: psychicdominator.shp
+		Length: *
+		Start: 3
+		Offset: 0,3
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbPDOX.tem
+			DESERT: mbPDOX.des
+		Length: *
+		Offset: 0,3
+	icon:
+		Filename: psychicdominatoricon.shp
+		Start: 0
+	sp-icon:
+		Filename: psychicdominatoricon.shp
+		Start: 0
+
 srimp:
 	idle:
 		Filename: srimp.shp
@@ -2852,6 +2826,93 @@ pbox:
 	icon:
 		Filename: pboxicon.shp
 
+tunnelbackup:
+	Defaults:
+		Filename: tunnelbackup.shp
+	idle:
+	damaged-idle:
+		Start: 0
+	make:
+		Filename: pboxmake.shp
+		Length: *
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbPBOX.tem
+			DESERT: mbPBOX.des
+		Length: *
+		Offset: 0,-2
+	icon:
+		Filename: tunnelicon.shp
+
+tunnel2x2:
+	Defaults:
+		Filename: tunnelbackup.shp
+	idle:
+	damaged-idle:
+		Start: 0
+	make:
+		Filename: pboxmake.shp
+		Length: *
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib3.tem
+			DESERT: bib3.des
+		Length: *
+		Offset: 0,3
+	icon:
+		Filename: tunnelicon.shp
+
+tunnel3x3:
+	Defaults:
+		Filename: tunnelbackup.shp
+	idle:
+	damaged-idle:
+		Start: 0
+	make:
+		Filename: pboxmake.shp
+		Length: *
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+			DESERT: bib2.des
+		Length: *
+		Offset: 0,-10
+	icon:
+		Filename: tunnelicon.shp
+
+tunnel3x2:
+	Defaults:
+		Filename: tunnelbackup.shp
+	idle:
+	damaged-idle:
+		Start: 0
+	make:
+		Filename: pboxmake.shp
+		Length: *
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+			DESERT: bib2.des
+		Length: *
+		Offset: 0,0
+	icon:
+		Filename: tunnelicon.shp
 dome:
 	Defaults:
 		Filename: dome.shp
@@ -2990,6 +3051,31 @@ fcom:
 			TEMPERAT: bib3.tem
 			DESERT: bib3.des
 		Length: *
+
+scrap:
+	idle:
+		Filename: scrap.shp
+		Offset: 0,0
+		Length: 1
+		Tick: 200
+	damaged-idle:
+		Filename: scrap.shp
+		Start: 1
+		Offset: 0,0
+		Length: 1
+		Tick: 200
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+			DESERT: bib2.des
+		Length: *
+	make:
+		Filename: scrap.shp
+		Length: *
+		Start: 3
+	icon:
+		Filename: scrapicon.shp
+		Offset: 0,0,0
 
 hospital:
 	Defaults:

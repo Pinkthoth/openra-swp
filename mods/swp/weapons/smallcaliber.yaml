@@ -340,7 +340,7 @@ FLAK-23-AG:
 			None: 55
 			Wood: 20
 			Light: 45
-			Medium: 20
+			Medium: 25
 			Heavy: 10
 			Concrete: 5
 	Warhead@2Eff: CreateEffect
@@ -450,7 +450,7 @@ Wiesel-AA:
 	BurstDelays: 4
 	Report: bgatweaa.wav, bgatweab.wav, bgatweac.wav, bgatwead.wav
 	Warhead@1Dam: SpreadDamage
-		Damage: 800
+		Damage: 700
 
 Wiesel-AG:
 	Inherits: Archer-AG
@@ -458,7 +458,15 @@ Wiesel-AG:
 	BurstDelays: 4
 	Report: bgatweaa.wav, bgatweab.wav, bgatweac.wav, bgatwead.wav
 	Warhead@1Dam: SpreadDamage
-		Damage: 1200
+		Damage: 800
+		Versus:
+			None: 75
+			Wood: 20
+			Light: 55
+			Medium: 25
+			Heavy: 15
+			Concrete: 10
+		ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
 
 Quad-AA:
 	Inherits: Archer-AA
@@ -476,7 +484,7 @@ MilpolCarbine:
 	Inherits: M1Carbine
 	Report: milpolrifle.aud
 	Warhead@1Dam: SpreadDamage
-		Damage: 1300
+		Damage: 1450
 
 WCMG:
 	Inherits: M1Carbine
@@ -1079,11 +1087,30 @@ Shotgun:
 
 BerzerkerShotgun:
 	Inherits: Shotgun
+	Range: 5c0
 	Report: berzerkerlaser.aud
 	Warhead@1Dam: SpreadDamage
-		Falloff: 500, 250, 150, 50, 25, 10, 5	
+		Falloff: 500, 250, 150, 50, 25, 10, 5
+		Damage: 1500
+		Versus:
+			None: 140
+			Wood: 25
+			Light: 35
+			Medium: 25
+			Heavy: 20
+			Concrete: 20
 	Warhead@2Eff2: CreateEffect
 		Explosions: berzerkerpiff
+	Warhead@2Eff2: CreateEffect
+		Explosions: berzerkerpiff
+		Delay: 1
+		Inaccuracy: 0c124
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, Ship, WaterActor, Trees, Corpse
+	Warhead@2Eff2: CreateEffect
+		Explosions: berzerkerpiff
+		Delay: 2
+		Inaccuracy: 0c124
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, Ship, WaterActor, Trees, Corpse
 
 M1Carbine:
 	Inherits: ^LightMG
@@ -1280,8 +1307,8 @@ M60mg:
 		Versus:
 			None: 95
 			Wood: 10
-			Light: 20
-			Medium: 15
+			Light: 25
+			Medium: 20
 			Heavy: 5
 			Concrete: 5
 	Warhead@2Dam_2: SpreadDamage
@@ -1292,8 +1319,8 @@ M60mg:
 		Versus:
 			None: 95
 			Wood: 10
-			Light: 20
-			Medium: 15
+			Light: 25
+			Medium: 20
 			Heavy: 5
 			Concrete: 5
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
@@ -1305,8 +1332,8 @@ M60mg:
 		Versus:
 			None: 95
 			Wood: 10
-			Light: 20
-			Medium: 15
+			Light: 25
+			Medium: 20
 			Heavy: 5
 			Concrete: 5
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
@@ -1318,8 +1345,8 @@ M60mg:
 		Versus:
 			None: 95
 			Wood: 10
-			Light: 20
-			Medium: 15
+			Light: 25
+			Medium: 20
 			Heavy: 5
 			Concrete: 5
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
@@ -1488,7 +1515,7 @@ M60mg-Humvee:
 		Versus:
 			None: 100
 			Wood: 20
-			Light: 45
+			Light: 40
 			Medium: 35
 			Heavy: 15
 			Concrete: 10
@@ -1891,7 +1918,7 @@ TESTUDOGUN:
 			Wood: 35
 			Light: 35
 			Medium: 25
-			Heavy: 10
+			Heavy: 15
 			Concrete: 20
 	Warhead@2Dam_2: SpreadDamage
 		Spread: 128
@@ -1903,7 +1930,7 @@ TESTUDOGUN:
 			Wood: 35
 			Light: 35
 			Medium: 25
-			Heavy: 10
+			Heavy: 15
 			Concrete: 20
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@3Dam_2: SpreadDamage
@@ -1916,7 +1943,7 @@ TESTUDOGUN:
 			Wood: 35
 			Light: 35
 			Medium: 25
-			Heavy: 10
+			Heavy: 15
 			Concrete: 20
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@4Dam_2: SpreadDamage
@@ -1929,7 +1956,7 @@ TESTUDOGUN:
 			Wood: 35
 			Light: 35
 			Medium: 25
-			Heavy: 10
+			Heavy: 15
 			Concrete: 20
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect

@@ -147,7 +147,7 @@ AGUILA.Interceptor:
 	Valued:
 		Cost: 1600
 	Tooltip:
-		Name: Garud Heavy Fighter
+		Name: Adler Heavy Fighter
 	Health:
 		HP: 12000
 	Armament@PRIMARY:
@@ -515,10 +515,10 @@ SUPPORT.NapalmSpiller:
 THUNDERBOLT.Bomber:
 	Inherits: ^Plane
 	Tooltip:
-		Name: MIG Attack Plane
+		Name: Thunderbolt
 	-MapEditorData:
 	RenderSprites:
-		Image: mig
+		Image: a10
 	AttackBomber:
 		FacingTolerance: 8
 		Armaments: primary
@@ -530,7 +530,7 @@ THUNDERBOLT.Bomber:
 		RepulsionSpeed: 40
 		MaximumPitch: 56
 	SpawnActorOnDeath:
-		Actor: MIG.Husk
+		Actor: A10.Husk
 	GrantConditionOnAttack@attacking:
 		Condition: attacking
 		RevokeDelay: 50
@@ -1225,8 +1225,13 @@ BANSHEE:
 		Type: GroundPosition
 	Armament@PRIMARY:
 		Name: primary
-		Weapon: SM_ElectricBoltBanshee
-		LocalOffset: 256,-213,0, 256,-213,0
+		Weapon: MeRail
+		LocalOffset: 256,-213,0
+		PauseOnCondition: !ammo || !airborne
+	Armament@secondary:
+		Name: secondary
+		Weapon: MeRail
+		LocalOffset: 256,213,0
 		PauseOnCondition: !ammo || !airborne
 	AttackAircraft:
 		Armaments: primary, secondary
@@ -1281,10 +1286,10 @@ TESLAHIND:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
 		Queue: Helicopter
-		BuildAtProductionType: Helicopter
-		BuildPaletteOrder: 226
-		Prerequisites: afld, stek, ~aircraft.russia, ~techlevel.high
-		Description: Helicopter gunship armed with\nsmall dual tesla coils.
+		BuildAtProductionType: Plane
+		BuildPaletteOrder: 1000
+		Prerequisites: ~helicopter.russia, stek
+		Description: Experimental helicopter armed tesla coils.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Vehicles.
 		Weaknesses: - Weak vs Aircraft.
@@ -1372,15 +1377,15 @@ HELIX:
 	Buildable:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
-		BuildPaletteOrder: 226
-		Prerequisites: afld, stek, ~aircraft.russia, ~techlevel.high
-		Description: Helicopter gunship armed with\nsmall dual tesla coils.
+		BuildPaletteOrder: 101
+		Prerequisites: ~helicopter.china
+		Description: Transport helicopter.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Vehicles.
 		Weaknesses: - Weak vs Aircraft.
-		Attributes: • Slowly recharges ammo.
+		Attributes: • Troops may fire from inside.
 	Valued:
-		Cost: 1900
+		Cost: 2300
 	Tooltip:
 		Name: Helix
 	UpdatesPlayerStatistics:
@@ -1404,6 +1409,7 @@ HELIX:
 		Types: Infantry
 		MaxWeight: 4
 		LoadingCondition: notmobile
+		InitialUnits: militia, militia, militia, militia
 	Turreted:
 	Aircraft:
 		TurnSpeed: 14
@@ -1606,8 +1612,8 @@ COLIBRI:
 	Buildable:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
-		BuildPaletteOrder: 225
-		Prerequisites: ~aircraft.serbia
+		BuildPaletteOrder: 20
+		Prerequisites: ~helicopter.raj
 		Description: Small helicopter.
 	TooltipExtras:
 		Strengths: + Strength depends on the cargo.
@@ -2120,7 +2126,7 @@ IBLIS:
 		Weaknesses: - Weak vs Vehicles, Aircraft.
 		Attributes: • Leaves the ground burning.
 	Valued:
-		Cost: 1850
+		Cost: 1800
 	Tooltip:
 		Name: Iblis
 	UpdatesPlayerStatistics:
@@ -2199,7 +2205,7 @@ HEAVYFIGHTER:
 		Queue: Aircraft
 		BuildAtProductionType: Plane
 		BuildPaletteOrder: 501
-		Prerequisites: ~afld, ~aircraft.bulgaria, ~techlevel.medium
+		Prerequisites: ~afld, ~aircraft.austria, ~techlevel.medium
 		Description: Attack Plane armed with\nquadruble machine guns.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Aircraft.
@@ -2207,7 +2213,7 @@ HEAVYFIGHTER:
 	Valued:
 		Cost: 1600
 	Tooltip:
-		Name: Garud Heavy Fighter
+		Name: Adler Heavy Fighter
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
@@ -2338,7 +2344,7 @@ TRAN:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 10
-		Prerequisites: afld, ~aircraft.allies, ~techlevel.medium
+		Prerequisites: hpad, ~helicopter.allies, ~techlevel.medium
 		Description: Fast Infantry Transport Helicopter.
 	TooltipExtras:
 		Weaknesses: - Unarmed
@@ -2395,7 +2401,7 @@ HELI:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 40
-		Prerequisites: afld, ~aircraft.entente, atek, ~techlevel.high
+		Prerequisites: hpad, ~helicopter.longbow, atek, ~techlevel.high
 		Description: Helicopter gunship armed\nwith multi-purpose missiles.
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles, Aircraft.
@@ -2480,7 +2486,7 @@ SAUCER:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 230
-		Prerequisites: afld, ~aircraft.ukraine, stek, ~techlevel.high
+		Prerequisites: hpad, ~aircraft.ukraine, stek, ~techlevel.high
 		Description: Levitating disc armed with magnetic rays.
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles.
@@ -2555,7 +2561,7 @@ HIND:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 225
-		Prerequisites: afld, commcent, ~aircraft.hind, ~techlevel.high
+		Prerequisites: hpad, commcent, ~aircraft.hind, ~techlevel.high
 		Description: Helicopter gunship armed with\nsmall dual machine guns.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -2604,25 +2610,25 @@ HIND:
 		PauseOnCondition: !ammo || !airborne
 	Armament@ag-0:
 		Weapon: AGGatling_Hind
-		LocalOffset: 300,-200,0
+		LocalOffset: 100,-200,-25
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling == 1
 		PauseOnCondition: !ammo || !airborne
 	Armament@ag-1:
 		Weapon: AGGatling2_Hind
-		LocalOffset: 300,-200,0
+		LocalOffset: 100,-200,-25
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling == 2
 		PauseOnCondition: !ammo || !airborne
 	Armament@ag-2:
 		Weapon: AGGatling3_Hind
-		LocalOffset: 300,-200,0
+		LocalOffset: 100,-200,-25
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling == 3
 		PauseOnCondition: !ammo || !airborne
 	Armament@ag-3:
 		Weapon: AGGatling4_Hind
-		LocalOffset: 300,-200,0
+		LocalOffset: 100,-200,-25
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling >= 4
 		PauseOnCondition: !ammo || !airborne
@@ -2634,28 +2640,28 @@ HIND:
 	Armament@ag-0s:
 		Name: secondary
 		Weapon: AGGatling_Hind
-		LocalOffset: 300,200,0
+		LocalOffset: 100,200,-25
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling == 1
 		PauseOnCondition: !ammo || !airborne
 	Armament@ag-1s:
 		Name: secondary
 		Weapon: AGGatling2_Hind
-		LocalOffset: 300,200,0
+		LocalOffset: 100,200,-25
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling == 2
 		PauseOnCondition: !ammo || !airborne
 	Armament@ag-2s:
 		Name: secondary
 		Weapon: AGGatling3_Hind
-		LocalOffset: 300,200,0
+		LocalOffset: 100,200,-25
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling == 3
 		PauseOnCondition: !ammo || !airborne
 	Armament@ag-3s:
 		Name: secondary
 		Weapon: AGGatling4_Hind
-		LocalOffset: 300,200,0
+		LocalOffset: 100,200,-25
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling >= 4
 		PauseOnCondition: !ammo || !airborne
@@ -2723,7 +2729,7 @@ NADYA:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 230
-		Prerequisites: ~aircraft.belarus, commcent
+		Prerequisites: ~aircraft.komintern, commcent
 		Description: Helicopter gunship armed with rockets.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -2812,7 +2818,7 @@ SIEGECHOPPER:
 	Buildable:
 		Queue: Helicopter
 		BuildPaletteOrder: 227
-		Prerequisites: stek, ~vehicles.mongolia, ~techlevel.medium
+		Prerequisites: commcent, ~vehicles.russia, ~techlevel.medium
 		Description: Siege helicopter.
 	Valued:
 		Cost: 2250
@@ -3011,7 +3017,7 @@ GEBARD:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 220
-		Prerequisites: hpad, commcent, ~aircraft.zentrum, ~techlevel.high
+		Prerequisites: hpad, commcent, ~helicopter.zentrum, ~techlevel.high
 		Description: Fast helicopter gunship armed with rockets.
 	Valued:
 		Cost: 1800
@@ -3096,8 +3102,8 @@ LASERCHOPPER:
 	Buildable:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
-		BuildPaletteOrder: 220
-		Prerequisites: afld, atek, ~aircraft.japan, ~techlevel.high
+		BuildPaletteOrder: 39
+		Prerequisites: hpad, commcent, ~aircraft.japan, ~techlevel.high
 		Description: Fast helicopter gunship armed with laser cannons.
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles.
@@ -3271,7 +3277,7 @@ COMET:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 200
-		Prerequisites: ~aircraft.zentrum, commcent
+		Prerequisites: ~helicopter.zentrum, commcent
 		Description: Helicopter gunship armed\nwith dual chainguns.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -3349,6 +3355,47 @@ COMET:
 		FullSequence: pip-bullet
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
+
+GLOSTER:
+	Inherits: YAK
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMovePlusBombers
+	Tooltip:
+		Name: Hawker
+	SpawnActorOnDeath:
+		Actor: GLOSTER.Husk
+	Health:
+		HP: 5000
+	Aircraft:
+		TurnSpeed: 15
+		Speed: 110
+	Valued:
+		Cost: 1000
+	Buildable:
+		Prerequisites: ~aircraft.raj, ~afld, ~techlevel.medium
+		BuildPaletteOrder: 500
+	Armament@PRIMARY:
+		Name: primary
+		Weapon: ChainGun.Yak.AA
+		LocalOffset: 326,-413,0, 326,413,0
+		MuzzleSequence: muzzle
+		PauseOnCondition: !ammo
+	AttackAircraft:
+		Armaments: primary, secondary
+		FacingTolerance: 84
+		PersistentTargeting: False
+		OpportunityFire: True
+	AmmoPool:
+		Armaments: primary, secondary
+		Ammo: 16
+		ReloadDelay: 11
+		AmmoCondition: ammo
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		Margin: 4, 3
+		RequiresSelection: true
+		PipCount: 4
+		EmptySequence: pip-emptyammo
+		FullSequence: pip-bullet
 
 SPITFIRE:
 	Inherits: YAK
@@ -3491,7 +3538,7 @@ MH60:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 20
-		Prerequisites: afld, commcent, ~aircraft.allies, ~techlevel.medium
+		Prerequisites: hpad, ~helicopter.allies, ~techlevel.medium
 		Description: Helicopter gunship armed\nwith dual chainguns.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -3579,7 +3626,7 @@ INDIACHOPPER:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 20
-		Prerequisites: ~aircraft.raj, ~techlevel.medium
+		Prerequisites: ~helicopter.egypt, ~techlevel.medium
 		Description: Helicopter gunship armed\nwith dual machine guns.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -3593,12 +3640,12 @@ INDIACHOPPER:
 	Health:
 		HP: 7000
 	RevealsShroud:
-		MinRange: 8c0
-		Range: 10c0
+		MinRange: 7c0
+		Range: 8c0
 		Type: GroundPosition
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
-		Range: 8c0
+		Range: 7c0
 		Type: GroundPosition
 	Armament@PRIMARY:
 		Weapon: TankMachineGun-indiachopper
@@ -3719,7 +3766,7 @@ BATTLEDRONE:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 20
-		Prerequisites: ~helicopter.egypt, robocom, ~techlevel.medium
+		Prerequisites: ~helicopter.japan, commcent, ~techlevel.medium
 		Description: Small drone that can be attached to vehicles.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -3887,7 +3934,7 @@ WASP:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 220
-		Prerequisites: afld, mtek, ~aircraft.germany, ~techlevel.high
+		Prerequisites: hpad, mtek, ~aircraft.austria, ~techlevel.high
 		Description: Helicopter gunship armed\nwith a direct energy weapon.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Vehicles.
@@ -3910,7 +3957,7 @@ WASP:
 		Range: 8c0
 		Type: GroundPosition
 	Armament@PRIMARY:
-		Weapon: Prism
+		Weapon: PrismWasp
 		LocalOffset: 900,0,0
 		PauseOnCondition: !ammo || !airborne
 	AttackTurreted:
@@ -4181,7 +4228,7 @@ A10.Husk:
 		Offset: -853,0,0
 	Aircraft:
 		TurnSpeed: 20
-		Speed: 149
+		Speed: 185
 	LeavesTrails:
 		Offsets: -853,0,0
 		MovingInterval: 2
@@ -4555,7 +4602,7 @@ MI26:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 100
-		Prerequisites: afld, ~aircraft.komintern, ~techlevel.medium
+		Prerequisites: hpad, ~helicopter.halo, ~techlevel.medium
 		Description: Infantry Transport Helicopter.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
@@ -4618,7 +4665,7 @@ AIRCRANE:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 199
-		Prerequisites: ~aircraft.zentrum, mtek
+		Prerequisites: ~helicopter.zentrum
 		Description: Vehicle Transport Helicopter.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
@@ -4735,16 +4782,16 @@ ZEPPELIN:
 		Queue: Aircraft
 		BuildAtProductionType: Aircraft
 		BuildPaletteOrder: 700
-		Prerequisites: ~aircraft.bulgaria, mtek
+		Prerequisites: ~aircraft.germany, mtek
 		Description: Slow moving bomber zeppelin.
 	TooltipExtras:
 		Strengths: + Strong vs Buildings, Defenses.
 		Weaknesses: - Weak vs Infantry, Vehicles, Aircraft.
-		Attributes: • Slowly recharges ammo.
+		Attributes: • Equiped with a portable chronosphere.\n• Slowly recharges ammo.
 	Valued:
 		Cost: 2000
 	Tooltip:
-		Name: Zeppelin
+		Name: Chrono Zeppelin
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
@@ -4808,3 +4855,5 @@ ZEPPELIN:
 		TargetTypes: AirborneBomber
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
+	PortableChrono:
+		ChargeDelay: 250

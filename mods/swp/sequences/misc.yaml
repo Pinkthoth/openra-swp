@@ -199,6 +199,16 @@ explosion:
 	Defaults:
 		Length: *
 		ZOffset: 2047
+	fpower:
+		Filename: fpower.shp
+	targetlock:
+		Filename: targetlock.shp
+		Length: *
+		Scale: 0.5
+	targetlock_sm:
+		Filename: targetlock.shp
+		Length: *
+		Scale: 0.25
 	soundblast:
 		Filename: soundblast.shp
 		Length: *
@@ -552,7 +562,8 @@ pips:
 	pip-lazarus:
 		Filename: pip-lazarus.shp
 	pip-question:
-		Filename: pip-question.shp
+		Filename: dizzy.shp
+		Length:*
 	pip-none:
 		Filename: empty.shp
 	pip-eye:
@@ -1228,6 +1239,8 @@ radarscananim:
 		Length: *
 
 icon:
+	dominate:
+		Filename: dominateicon.shp
 	abomb:
 		Filename: atomicon.shp
 	invuln:

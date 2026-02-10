@@ -55,6 +55,22 @@ CrateExplosion:
 		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, Ship, WaterActor, Trees
 	-Warhead@3EffWater:
 
+SlaveExplosion:
+	ValidTargets: Ground, Water, Air, GroundActor, Trees,  Ship, WaterActor, AirborneActor
+	ReloadDelay: 10
+	Warhead@condition: GrantExternalCondition
+		Duration: 500
+		Condition: confusion
+		ValidTargets: GroundActor, Trees, Ship, WaterActor, Infantry
+		ValidRelationships: Enemy, Neutral
+		Range: 6c512
+	Warhead@conditionb: GrantExternalCondition
+		Duration: 500
+		Condition: slaving
+		ValidTargets: GroundActor, Trees, Ship, WaterActor, Infantry
+		ValidRelationships: Enemy, Neutral
+		Range: 6c512
+
 UnitExplode:
 	Inherits: ^Explosion
 	Warhead@1Dam: SpreadDamage
@@ -833,6 +849,13 @@ SuperchargeBurst:
 	Projectile: InstantHit
 	Warhead@Effect: CreateEffect
 		Explosions: superchargeburst
+		ValidTargets: Ground, GroundActor, Water, Underwater
+
+ArmsBurst:
+	ValidTargets: Ground, Water, Air, GroundActor, Trees,  Ship, WaterActor, AirborneActor
+	Projectile: InstantHit
+	Warhead@Effect: CreateEffect
+		Explosions: fpower
 		ValidTargets: Ground, GroundActor, Water, Underwater
 
 ChronohasteBurst:

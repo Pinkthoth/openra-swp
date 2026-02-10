@@ -231,6 +231,15 @@ TRAN.Husk:
 	RenderSprites:
 		Image: tran
 
+GLOSTER.Husk:
+	Inherits: YAK.Husk
+	Tooltip:
+		Name: Hawker
+	RenderSprites:
+		Image: gloster
+	Aircraft:
+		Speed: 110
+
 BANSHEE.Husk:
 	Inherits: YAK.Husk
 	Tooltip:
@@ -597,7 +606,7 @@ BANSHEE.Husk:
 HEAVYFIGHTER.Husk:
 	Inherits: ^PlaneHusk
 	Tooltip:
-		Name: Heavy Fighter
+		Name: Adler Heavy Fighter
 	Contrail:
 		Offset: -853,0,0
 	Aircraft:

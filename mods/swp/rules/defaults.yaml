@@ -72,132 +72,132 @@
 		Actor: rubble
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 
 ^2x1Rubbles:
 	SpawnActorOnDeath@1:
 		Actor: rubble
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@2:
 		Actor: rubble
 		Offset: 1,0
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 
 ^1x2Rubbles:
 	SpawnActorOnDeath@1:
 		Actor: rubble
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@2:
 		Actor: rubble
 		Offset: 0,1
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 
 ^2x2Rubbles:
 	SpawnActorOnDeath@1:
 		Actor: rubble
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@2:
 		Actor: rubble
 		Offset: 1,0
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@3:
 		Actor: rubble
 		Offset: 0,1
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@4:
 		Actor: rubble
 		Offset: 1,1
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 
 ^3x2Rubbles:
 	SpawnActorOnDeath@1:
 		Actor: rubble
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@2:
 		Actor: rubble
 		Offset: 1,0
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@3:
 		Actor: rubble
 		Offset: 2,0
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@4:
 		Actor: rubble
 		Offset: 0,1
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@5:
 		Actor: rubble
 		Offset: 1,1
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@6:
 		Actor: rubble
 		Offset: 2,1
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 
 ^2x3Rubbles:
 	SpawnActorOnDeath@1:
 		Actor: rubble
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@2:
 		Actor: rubble
 		Offset: 1,0
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@3:
 		Actor: rubble
 		Offset: 0,1
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@4:
 		Actor: rubble
 		Offset: 1,1
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@5:
 		Actor: rubble
 		Offset: 0,2
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@6:
 		Actor: rubble
 		Offset: 1,2
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 
 ^3x3Rubbles:
 	SpawnActorOnDeath@1:
@@ -205,55 +205,55 @@
 		Offset: 0,0
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@2:
 		Actor: rubble
 		Offset: 1,0
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@3:
 		Actor: rubble
 		Offset: 2,0
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@4:
 		Actor: rubble
 		Offset: 0,1
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@5:
 		Actor: rubble
 		Offset: 1,1
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@6:
 		Actor: rubble
 		Offset: 2,1
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@7:
 		Actor: rubble
 		Offset: 0,2
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@8:
 		Actor: rubble
 		Offset: 1,2
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@9:
 		Actor: rubble
 		Offset: 2,2
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 
 ^4x4Rubbles:
 	SpawnActorOnDeath@1:
@@ -261,97 +261,97 @@
 		Offset: 0,0
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@2:
 		Actor: rubble
 		Offset: 1,0
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@3:
 		Actor: rubble
 		Offset: 2,0
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@4:
 		Actor: rubble
 		Offset: 3,0
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@5:
 		Actor: rubble
 		Offset: 0,1
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@6:
 		Actor: rubble
 		Offset: 1,1
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@7:
 		Actor: rubble
 		Offset: 2,1
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@8:
 		Actor: rubble
 		Offset: 3,1
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@9:
 		Actor: rubble
 		Offset: 0,2
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@10:
 		Actor: rubble
 		Offset: 1,2
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@11:
 		Actor: rubble
 		Offset: 2,2
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@12:
 		Actor: rubble
 		Offset: 3,2
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@13:
 		Actor: rubble
 		Offset: 0,3
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@14:
 		Actor: rubble
 		Offset: 1,3
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@15:
 		Actor: rubble
 		Offset: 2,3
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@16:
 		Actor: rubble
 		Offset: 3,3
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 
 ^FixRubbles:
 	SpawnActorOnDeath@1:
@@ -359,31 +359,31 @@
 		Offset: 1,0
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@2:
 		Actor: rubble
 		Offset: 0,1
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@3:
 		Actor: rubble
 		Offset: 1,1
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@4:
 		Actor: rubble
 		Offset: 2,1
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@5:
 		Actor: rubble
 		Offset: 1,2
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 
 ^AdeptRubbles:
 	SpawnActorOnDeath@1:
@@ -391,37 +391,37 @@
 		Offset: 0,2
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@2:
 		Actor: rubble
 		Offset: 1,2
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@3:
 		Actor: rubble
 		Offset: 2,2
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@4:
 		Actor: rubble
 		Offset: 0,3
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@5:
 		Actor: rubble
 		Offset: 1,3
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 	SpawnActorOnDeath@6:
 		Actor: rubble
 		Offset: 2,3
 		OwnerType: InternalName
 		InternalOwner: Neutral
-		RequiresCondition: !being-warped
+		RequiresCondition: !being-warped && !tunnel
 
 ^DemoAttachable:
 	DelayedWeaponAttachable@C4:
@@ -445,21 +445,24 @@
 	ExternalCondition@CONFUSION:
 		Condition: confusion
 	SpeedMultiplier@CONFUSION:
-		Modifier: 85
+		Modifier: 80
 		RequiresCondition: confusion
 	DamageMultiplier@CONFUSION:
-		Modifier: 110
+		Modifier: 120
 		RequiresCondition: confusion
 	ReloadDelayMultiplier@CONFUSION:
 		RequiresCondition: confusion
-		Modifier: 115
+		Modifier: 120
 	FirepowerMultiplier@CONFUSION:
-		Modifier: 90
+		Modifier: 80
 		RequiresCondition: confusion
+	RevealsShroudMultiplier@confusion:	
+		RequiresCondition: confusion
+		Modifier: 50
 	WithDecoration@CONFUSION:
 		Image: pips
 		Sequence: pip-question
-		Position: TopLeft
+		Position: Top
 		ValidRelationships: Ally, Neutral, Enemy
 		RequiresCondition: confusion
 
@@ -520,12 +523,18 @@
 	Targetable@mindcontrolled:
 		TargetTypes: MindControlled
 		RequiresCondition: mindcontrolled
+	ExternalCondition@slaving:
+		Condition: slaving
+	GrantCondition@mindcontrolconfusion:
+		RequiresCondition: mindcontrolled
+		Condition: confusion
+
 
 ^MindControllable:
 	Inherits: ^MindControllableBase
 	Targetable@MINDCONTROL:
 		TargetTypes: MindControllable
-		RequiresCondition: !mindcontrolled && !restoring
+		RequiresCondition: !mindcontrolled && !restoring && slaving > 5
 	PeriodicExplosion@mindblast:
 		RequiresCondition: mindcontrolled && mindblast
 		Weapon: MindBlaster
@@ -541,14 +550,17 @@
 			cyborghijacker: dehacking
 	GivesExperienceToMaster:
 	Targetable@mindcontrolled:
-		TargetTypes: Hacked
+		TargetTypes: Hackable
 		RequiresCondition: hacked
+	ExternalCondition@hacking:
+		Condition: hacking
+
 
 ^Hackable:
 	Inherits: ^HackableBase
 	Targetable@MINDCONTROL:
 		TargetTypes: Hackable
-		RequiresCondition: !hacked && !dehacking
+		RequiresCondition: !hacked && !dehacking && hacking > 3
 
 ^GainsExperience:
 	GainsExperience:
@@ -1181,6 +1193,11 @@
 	Inherits@Parasite: ^ParasiteAttach
 	Inherits@terrordrone: ^TerrorDroneable
 	Inherits@battledroneable: ^BattleDroneAttach
+	MindControllable:
+		RequiresCondition: slaving > 6 || mindcontrolled
+	Infiltrates@refunder:
+		Types: RefundInfiltrationVehicle
+		ValidRelationships: Ally
 	EdibleByLeap:
 	TeleportNetworkTransportable:
 	ProductionTimeMultiplier@foundry:
@@ -1203,7 +1220,7 @@
 		Bounds: 1024, 1024
 	Targetable:
 		RequiresCondition: !parachute && !being-warped
-		TargetTypes: GroundActor, Vehicle, MindControllable
+		TargetTypes: GroundActor, Vehicle
 	Targetable@REPAIR:
 		RequiresCondition: !parachute && damaged && !being-warped
 		TargetTypes: Repair
@@ -1481,7 +1498,7 @@
 		DecorationBounds: 512, 768, 0, -341
 	Targetable:
 		RequiresCondition: !parachute && !being-warped
-		TargetTypes: GroundActor, Infantry, Disguise, MindControllable
+		TargetTypes: GroundActor, Infantry, Disguise
 	Targetable@HEAL:
 		RequiresCondition: !parachute && damaged && !being-warped
 		TargetTypes: Heal
@@ -1953,6 +1970,8 @@
 	Inherits@freezable: ^Freezable
 	Inherits@demoable: ^DemoAttachable
 	Inherits@quickrepair: ^QuickRepariable
+	ExternalCondition@tunnelfix:
+		Condition: tunnel
 	Targetable@REPAIR:
 		RequiresCondition: damaged
 		TargetTypes: BuildingRepair
@@ -2006,11 +2025,17 @@
 		Categories: Building
 	CommandBarBlacklist:
 
+^Tunnelable:
+	Pluggable:
+		Conditions: 
+			tunnel: tunnel
+	SpawnActorOnDeath@tunnel:
+		Actor: tunnel2x2
+		RequiresCondition: tunnel
 
 ^Building:
 	Inherits: ^BasicBuilding
 	Inherits@flarevision: ^FlareVision
-	Inherits@hackable: ^Hackable
 	Huntable:
 	OwnerLostAction:
 		Action: Kill
@@ -2052,14 +2077,20 @@
 		Palette: player
 		IsPlayerPalette: True
 
+^FactionBuilding:
+	Inherits: ^Building
+	Inherits@hackable: ^Hackable
+	Inherits@tunnelable: ^Tunnelable
+
 ^ScienceBuilding:
 	Inherits: ^Building
 	SpawnActorsOnSell:
 		ActorTypes: e1,e1,e1,e1,tecn,tecn2,tecn,tecn2,tecn,tecn2,tecn,tecn2,tecn,tecn2,e6,e6,e6,e6,e6,c10,c10,c10,c10
 
 ^Defense:
-	Inherits: ^Building
+	Inherits: ^FactionBuilding
 	Inherits@selection: ^SelectableCombatBuilding
+	-Pluggable:
 	Selectable:
 		Bounds: 1024, 1024
 	Targetable:

@@ -1580,6 +1580,7 @@ OILPLAT:
 	UpdatesDerrickCount:
 	GrantConditionOnCombatantOwner:
 		Condition: enabled
+	-WithBuildingBib:
 
 NPOWR:
 	Inherits: ^TechBuilding

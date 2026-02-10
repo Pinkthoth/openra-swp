@@ -233,6 +233,30 @@ LtRail:
 		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
 		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Ground
 
+MeRail:
+	Inherits: ^Railgun
+	Projectile: Railgun
+		DamageActorsInLine: false
+	Warhead@1Dam: SpreadDamage
+		ValidRelationships: Neutral, Enemy
+		Damage: 2500
+	Warhead@2Dam: SpreadDamage
+		Range: 0, 32
+		Falloff: 50, 50 # Only does half damage to friendly units
+		Damage: 8000
+		AffectsParent: false
+		ValidRelationships: Ally
+		Versus:
+			None: 100
+			Wood: 80
+			Light: 100
+			Medium: 80
+			Heavy: 60
+			Concrete: 40
+		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Ground
+
+
 HvRailgun:
 	Inherits: ^Railgun
 	Range: 8c0
@@ -486,7 +510,7 @@ ElectricBolt:
 			None: 40
 			Light: 55
 			Medium: 65
-			Heavy: 55
+			Heavy: 50
 			Wood: 20
 			Concrete: 10
 		Damage: 9500
@@ -1002,6 +1026,11 @@ TTankZap:
 	Inherits: ^TeslaWeapon
 	ReloadDelay: 120
 	Range: 7c0
+	Burst: 2
+	BurstDelays: 25
+	Warhead@1Dam: SpreadDamage
+		Spread: 42
+		Damage: 5000
 
 TTankZapCharged:
 	Inherits: ^TeslaWeapon
@@ -1488,7 +1517,7 @@ ShattererLaser:
 		SmudgeType: Scorch
 
 Laser:
-	ReloadDelay: 120
+	ReloadDelay: 90
 	Range: 7c512
 	Report: lastur1.aud
 	ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
@@ -1500,6 +1529,31 @@ Laser:
 	Warhead@1Dam: SpreadDamage
 		Spread: 42
 		Damage: 8000
+		Versus:
+			None: 100
+			Wood: 45
+			Light: 70
+			Medium: 60
+			Heavy: 40
+			Concrete: 20
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath
+		ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+
+LaserKitsune:
+	ReloadDelay: 90
+	Range: 7c512
+	Report: lastur1.aud
+	ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
+	Projectile: LaserZap
+		Width: 85
+		HitAnim: laserfire
+		ZOffset: 2047
+		Color: FF0000
+	Warhead@1Dam: SpreadDamage
+		Spread: 42
+		Damage: 12000
 		Versus:
 			None: 100
 			Wood: 45
@@ -1532,6 +1586,60 @@ IncineratorLaser:
 			Medium: 75
 			Heavy: 100
 			Concrete: 30
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath
+		ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+
+QuadLaser-AA:
+	ReloadDelay: 120
+	Range: 7c512
+	Burst: 4
+	BurstDelays: 5
+	Report: obelray1.aud
+	ValidTargets: AirborneActor, AirborneBomber
+	Projectile: LaserZap
+		Width: 85
+		HitAnim: laserfire
+		ZOffset: 2047
+		Color: FF0000
+	Warhead@1Dam: SpreadDamage
+		Spread: 42
+		Damage: 1000
+		Versus:
+			None: 20
+			Wood: 10
+			Light: 55
+			Medium: 65
+			Heavy: 90
+			Concrete: 20
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath
+		ValidTargets: AirborneActor, AirborneBomber
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+
+QuadLaser-AG:
+	ReloadDelay: 120
+	Range: 7c512
+	Burst: 4
+	BurstDelays: 5
+	Report: obelray1.aud
+	ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
+	Projectile: LaserZap
+		Width: 85
+		HitAnim: laserfire
+		ZOffset: 2047
+		Color: FF0000
+	Warhead@1Dam: SpreadDamage
+		Spread: 42
+		Damage: 3500
+		Versus:
+			None: 20
+			Wood: 10
+			Light: 55
+			Medium: 65
+			Heavy: 90
+			Concrete: 20
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath
 		ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
 	Warhead@2Smu: LeaveSmudge
@@ -1579,7 +1687,7 @@ Directioner:
 
 Prism:
 	ReloadDelay: 120
-	Range: 6c0
+	Range: 7c0
 	Report: prisray.aud
 	ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
 	Projectile: LaserZap
@@ -1607,8 +1715,15 @@ Prism:
 		Dimensions: 3,3
 		Footprint: xxx x_x xxx
 
+PrismWasp:
+	Inherits: Prism
+	Range: 7c512
+	Warhead@1Dam: SpreadDamage
+		Spread: 42
+		Damage: 12000
+
 PrismCannon:
-	ReloadDelay: 150
+	ReloadDelay: 135
 	Range: 8c512
 	Report: prisray.aud
 	ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
@@ -1945,31 +2060,31 @@ DisruptionBeam:
 	Range: 6c0
 	Report: sonic4.aud
 	ValidTargets: GroundActor, Trees,  Ship, WaterActor, Ground, Water
-	Projectile: LinearPulse
-		Speed: 768
-		ImpactInterval: 1
-		MinimumImpactDistance: 768
+	Projectile: AreaBeam
+		Speed: 0c256
+		Duration: 90
+		DamageInterval: 5 # Roughly 18 impacts.
+		Width: 126
+		Shape: Flat
+		ZOffset: 2047
+		BeyondTargetRange: 0c256
+		Blockable: true
+		TrackTarget: true
+		Color: 50F5FF45
 	Warhead@1Dam: SpreadDamage
 		Damage: 3500
 		Spread: 256
 		Falloff: 100,50,25,5
 		Versus:
-			None: 90
-			Wood: 80
-			Light: 60
-			Medium: 50
-			Heavy: 25
+			None: 10
+			Wood: 50
+			Light: 30
+			Medium: 30
+			Heavy: 30
 			Concrete: 50
 		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Ground, Water
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, DefaultDeath
 		ValidRelationships: Enemy, Neutral
-	Warhead@3Eff: CreateEffect
-		Explosions: soundexplosion
-		ValidTargets: Ground, GroundActor, Trees,  Ship, WaterActor, Trees, Corpse
-		ExplosionPalette: tseffects
-	Warhead@2Eff: CreateEffect
-		Explosions: soundblast
-		ValidTargets: Ground, GroundActor, Trees,  Ship, WaterActor, Trees, Corpse
 	Warhead@condition: GrantExternalCondition
 		Duration: 100
 		Condition: confusion
@@ -2149,7 +2264,7 @@ Eat:
 MicrowaveTank:
 	Inherits: ^MicrowaveWeapon
 	ReloadDelay: 65
-	Range: 6c0
+	Range: 8c0
 	Report: magray.aud
 	Projectile: Railgun
 		HitAnim: microwavesparks
@@ -2160,7 +2275,7 @@ MicrowaveTank:
 			None: 70
 			Light: 75
 			Medium: 90
-			Heavy: 105
+			Heavy: 110
 			Wood: 30
 			Concrete: 25
 
@@ -2570,44 +2685,51 @@ DemoTruckTargeting:
 
 EnslaveBuilding:
 	Range: 7c0
-	ReloadDelay: 35
+	ReloadDelay: 1
 	Projectile: InstantHit
 	ValidTargets: Hackable
 	Warhead@1Dam: TargetDamage
 		ValidTargets: Hackable
 	Warhead@2Eff: CreateEffect
-		ImpactSounds: spsylo2a.wav
-		ValidTargets: Ground, Infantry
+		ValidTargets: Hackable
 		ValidRelationships: Neutral, Enemy
 		Explosions: enslave
+	Warhead@2Eff: CreateEffect
+		ImpactSounds: hacked.aud
+		ValidTargets: Structure, GroundActor, Vehicle, Ground, Air
+		ValidRelationships: Neutral, Enemy
 
 EnslaveInfantry:
-	Range: 7c0
-	ReloadDelay: 35
+	Range: 6c0
+	ReloadDelay: 1
 	Projectile: InstantHit
 	ValidTargets: MindControllable
 	InvalidTargets: Vehicle, Ship, Defense, MindControlImmune
 	Warhead@1Dam: TargetDamage
 		ValidTargets: MindControllable
 	Warhead@2Eff: CreateEffect
-		ImpactSounds: spsylo2a.wav
-		ValidTargets: Ground, Infantry
+		ValidTargets: MindControllable
 		ValidRelationships: Neutral, Enemy
 		Explosions: enslave
+	Warhead@3Eff: CreateEffect
+		ImpactSounds: spsylo2a.wav
+		ValidTargets: GroundActor, Ground, Air, Infantry
 
 EnslaveVehicle:
-	Range: 5c512
-	ReloadDelay: 100
+	Range: 6c0
+	ReloadDelay: 1
 	Projectile: InstantHit
 	ValidTargets: MindControllable
 	InvalidTargets: Infantry, Defense, MindControlImmune
 	Warhead@1Dam: TargetDamage
 		ValidTargets: MindControllable
 	Warhead@2Eff: CreateEffect
-		ImpactSounds: spsylo2a.wav
-		ValidTargets: Ground, Vehicle
+		ValidTargets: MindControllable
 		ValidRelationships: Neutral, Enemy
 		Explosions: enslave
+	Warhead@3Eff: CreateEffect
+		ImpactSounds: spsylo2a.wav
+		ValidTargets: GroundActor, Ground, Air, Vehicle
 
 NeutronCannon:
 	ValidTargets: Infantry, Structure, Vehicle, Temporal
@@ -2661,27 +2783,100 @@ NeutronTurret:
 		ValidTargets: Infantry, Structure, Vehicle, Temporal
 		DamageTypes: ChronoDeath
 
+HackingRay:
+	ReloadDelay: 25
+	Range: 6c0
+	ValidTargets: GroundActor, Water, Trees, Ship, WaterActor, Infantry
+	TargetActorCenter: True
+	Projectile: InstantHit
+	Warhead@2Eff: CreateEffect
+		ValidTargets: Ground, GroundActor, Trees, Air, AirborneActor, Ship, WaterActor, Trees, Corpse, Infantry
+		ImpactSounds: hacking1.aud, hacking2.aud, hacking3.aud, hacking4.aud, hacking5.aud, hacking6.aud
+	Warhead@conditionb: GrantExternalCondition
+		Duration: 500
+		Condition: hacking
+		ValidTargets: GroundActor, Trees, Ship, WaterActor, Infantry, Structure
+		ValidRelationships: Enemy, Neutral
+		Range: 1c0
+	Warhead@3Eff: CreateEffect
+		ValidTargets: GroundActor, Trees, Ship, WaterActor, Infantry, Structure
+		InvalidTargets: Bridge
+		Explosions: targetlock
+	Warhead@4Eff: CreateEffect
+		ValidTargets: Vehicle
+		InvalidTargets: Bridge
+		Explosions: targetlock_sm
+
+EnslaveRay:
+	ReloadDelay: 20
+	Range: 6c0
+	ValidTargets: GroundActor, Water, Trees, Ship, WaterActor, Infantry
+	Projectile: InstantHit
+	Warhead@2Eff: CreateEffect
+		ValidTargets: Ground, GroundActor, Trees, Air, AirborneActor, Ship, WaterActor, Trees, Corpse, Infantry
+		ImpactSounds: heart1.aud, heart2.aud, heart3.aud, heart4.aud, heart5.aud, heart6.aud
+	Warhead@condition: GrantExternalCondition
+		Duration: 500
+		Condition: confusion
+		ValidTargets: GroundActor, Trees, Ship, WaterActor, Infantry
+		ValidRelationships: Enemy, Neutral
+		Range: 0c56
+	Warhead@conditionb: GrantExternalCondition
+		Duration: 500
+		Condition: slaving
+		ValidTargets: GroundActor, Trees, Ship, WaterActor, Infantry
+		ValidRelationships: Enemy, Neutral
+		Range: 0c56
+
+EnslaveRaySuper:
+	ReloadDelay: 20
+	Range: 6c0
+	ValidTargets: GroundActor, Water, Trees, Ship, WaterActor, Infantry
+	Projectile: InstantHit
+	Warhead@2Eff: CreateEffect
+		ValidTargets: Ground, GroundActor, Trees, Air, AirborneActor, Ship, WaterActor, Trees, Corpse, Infantry
+		ImpactSounds: heart1.aud, heart2.aud, heart3.aud, heart4.aud, heart5.aud, heart6.aud
+	Warhead@condition: GrantExternalCondition
+		Duration: 500
+		Condition: confusion
+		ValidTargets: GroundActor, Trees, Ship, WaterActor, Infantry
+		ValidRelationships: Enemy, Neutral
+		Range: 0c56
+	Warhead@conditionb: GrantExternalCondition
+		Duration: 500
+		Condition: slaving
+		ValidTargets: GroundActor, Trees, Ship, WaterActor, Infantry
+		ValidRelationships: Enemy, Neutral
+		Range: 0c56
+	Warhead@conditionc: GrantExternalCondition
+		Duration: 750
+		Condition: slaving
+		ValidTargets: GroundActor, Trees, Ship, WaterActor, Infantry
+		ValidRelationships: Enemy, Neutral
+		Range: 0c56
+
 MindBlast:
 	ReloadDelay: 30
 	Range: 6c0
 	Report: byubatta.wav
-	ValidTargets: Ground, Water, Infantry, Trees, Ship, WaterActor
+	ValidTargets: GroundActor, Water, Trees, Ship, WaterActor
 	Projectile: LaserZap
 		Blockable: false
 		Width: 0c40
 		Color: FF4CD550
-	Warhead@1Dam: HealthPercentageDamage
-		Spread: 128
-		Damage: 25
-		ValidTargets: Infantry
+	Warhead@1Dam: SpreadDamage
+		Range: 0c256
+		Falloff: 100, 25, 0
+		Damage: 1250
 		Versus:
-			None: 120
-			Wood: 60
-			Light: 72
-			Medium: 60
-			Heavy: 28
-			Concrete: 30
-		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath
+			None: 140
+			Wood: 15
+			Light: 25
+			Medium: 15
+			Heavy: 10
+			Concrete: 10
+		DamageTypes: NotCrushDeath, Prone50Percent, TriggerProne, FireDeath
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, Ship, WaterActor, Trees, Corpse
 	Warhead@2Eff: CreateEffect
 		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, Ship, WaterActor, Trees, Corpse
 		Explosions: initexplode
@@ -2691,6 +2886,12 @@ MindBlast:
 		InvalidTargets: Bridge
 		Explosions: initexplode
 		ExplosionPalette: swpeffects
+	Warhead@condition: GrantExternalCondition
+		Duration: 100
+		Condition: confusion
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
+		ValidRelationships: Enemy, Neutral
+		Range: 1c512
 
 KineticMindBlast:
 	Inherits: MindBlast

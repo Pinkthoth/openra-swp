@@ -46,6 +46,10 @@ TeslaCannon:
 	Report: itesatta.aud, itesat2a.aud, itesat2b.aud
 	-Projectile:
 	Projectile: Missile
+		Arm: 2
+		Blockable: True
+		HorizontalRateOfTurn: 20
+		RangeLimit: 6c512
 		Image: teslabolt
 		Shadow: False
 		Speed: 500
@@ -55,14 +59,14 @@ TeslaCannon:
 		TrailInterval: 1
 		Jammable: False
 		Inaccuracy: 0c0
-		CloseEnough: 0c10
+		CloseEnough: 0c0
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c128
-		Falloff: 100, 50, 25
+		Falloff: 100, 75, 50, 25
 		Damage: 4000
 		ValidTargets: GroundActor, Trees,  Ship, WaterActor
 		Versus:
-			None: 100
+			None: 150
 			Wood: 10
 			Light: 85
 			Medium: 75
@@ -305,9 +309,9 @@ TurretGun:
 
 SiegeGun:
 	Inherits: ^Artillery
-	MinRange: 4c0
-	Range: 8c0
-	ReloadDelay: 250
+	MinRange: 3c0
+	Range: 7c0
+	ReloadDelay: 220
 	Report: siegegun.aud
 	TargetActorCenter: true
 	Projectile: Bullet
@@ -318,12 +322,12 @@ SiegeGun:
 	Warhead@1Dam: SpreadDamage
 		Falloff: 200,155, 120, 50, 20
 		Versus:
-			None: 20
-			Light: 25
-			Medium: 20
-			Heavy: 15
-			Concrete: 80
-			Wood: 70
+			None: 15
+			Light: 20
+			Medium: 25
+			Heavy: 35
+			Concrete: 90
+			Wood: 80
 	Warhead@3Eff: CreateEffect
 		Explosions: artillery_explosion
 		ImpactSounds: siegeexp.aud
@@ -381,7 +385,7 @@ SiegeGun:
 	Inherits: ^Artillery
 	ReloadDelay: 120
 	MinRange: 4c0
-	Range: 9c0
+	Range: 9c512
 	Report: howshell.aud
 	TargetActorCenter: true
 	Projectile: Bullet
@@ -485,6 +489,32 @@ PortaCannon:
 			Wood: 72
 			Light: 72
 			Concrete: 63
+
+NightwitchGrenade:
+	Inherits: ^Artillery
+	Burst: 4
+	ReloadDelay: 60
+	Range: 6c0
+	Report: nwgren.aud
+	Projectile: Bullet
+		Speed: 136
+		Inaccuracy: 554
+		Image: BOMB
+	Warhead@1Dam: SpreadDamage
+		Spread: 256
+		Damage: 1500
+		Versus:
+			None: 90
+			Wood: 70
+			Light: 35
+			Medium: 30
+			Heavy: 25
+			Concrete: 50
+	Warhead@3Eff: CreateEffect
+		Explosions: med_explosion
+		ImpactSounds: kaboom25.aud
+	Warhead@4EffWater: CreateEffect
+		Explosions: small_splash
 
 Grenade:
 	Inherits: ^Artillery
@@ -881,7 +911,7 @@ monstertankgun:
 
 MausCannon:
 	Inherits: ^Cannon
-	Range: 6c512
+	Range: 7c512
 	ReloadDelay: 80
 	Report: mausgun.aud
 	Projectile: Bullet
@@ -927,7 +957,7 @@ BuildingGrenade:
 Mortar:
 	Inherits: ^Artillery
 	ReloadDelay: 80
-	Range: 9c0
+	Range: 8c512
 	Report: mortarattack.wav
 	Projectile: Bullet
 		Speed: 136

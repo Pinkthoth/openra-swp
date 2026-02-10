@@ -1066,6 +1066,42 @@ Destroyer227mm:
 		Explosions: med_explosion
 		ImpactSounds: explosion_small_5.wav
 
+227mm-Kumo:
+	Inherits: ^AntiGroundMissile
+	ReloadDelay: 75
+	Range: 7c0
+	MinRange: 1c0
+	Burst: 4
+	BurstDelays: 4
+	Report: iggiat2a.wav, iggiat2b.wav
+	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor, AirborneActor, AirborneBomber
+	TargetActorCenter: true
+	Projectile: Missile
+		Speed: 298
+		TrailImage: smokey
+		HorizontalRateOfTurn: 40
+		HomingActivationDelay: 3
+		MinimumLaunchAngle: 90
+		MaximumLaunchAngle: 91
+		RangeLimit: 10c0
+		Inaccuracy: 1c0
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c256
+		Damage: 1300
+		Falloff: 150, 110, 75, 50, 15, 5, 0
+		ValidTargets: GroundActor, Trees, Ship, WaterActor, AirborneActor, AirborneBomber, Air
+		Versus:
+			None: 20
+			Wood: 70
+			Light: 30
+			Medium: 45
+			Heavy: 60
+			Concrete: 65
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@3Eff: CreateEffect
+		Explosions: med_explosion
+		ImpactSounds: vgriatta.wav, vgriattb.wav
+
 227mm-Marauder:
 	Inherits: ^AntiGroundMissile
 	ReloadDelay: 75
@@ -1095,9 +1131,9 @@ Destroyer227mm:
 		Versus:
 			None: 20
 			Wood: 70
-			Light: 30
-			Medium: 45
-			Heavy: 60
+			Light: 35
+			Medium: 50
+			Heavy: 65
 			Concrete: 65
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@3Eff: CreateEffect
@@ -1141,11 +1177,11 @@ Hind227mm:
 		ValidTargets: GroundActor, Trees,  Ship, WaterActor, AirborneActor
 		Versus:
 			None: 35
-			Wood: 50
-			Light: 50
+			Wood: 40
+			Light: 35
 			Medium: 40
-			Heavy: 20
-			Concrete: 40
+			Heavy: 50
+			Concrete: 35
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@3Eff: CreateEffect
 		Explosions: med_explosion
@@ -1161,6 +1197,27 @@ APTusk.PTNK:
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
 		Damage: 3000
+	Projectile: Missile
+		Speed: 298
+		TrailImage: smokey
+		HorizontalRateOfTurn: 40
+		RangeLimit: 13c204
+		HomingActivationDelay: 3
+		MinimumLaunchAngle: 90
+		MaximumLaunchAngle: 91
+
+APTusk.Bullfrog:
+	Inherits: ^AntiGroundMissile
+	ValidTargets: Ground, Air, AirborneBomber, GroundActor, Trees,  AirborneActor, Ship, WaterActor, Trees, Corpse
+	ReloadDelay: 75
+	Range: 6c0
+	Burst: 2
+	BurstDelays: 10
+	Report: bazook1.aud
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 3000
+		ValidTargets: Ground, Air, AirborneBomber, GroundActor, Trees,  AirborneActor, Ship, WaterActor, Trees, Corpse
 	Projectile: Missile
 		Speed: 298
 		TrailImage: smokey

@@ -1327,7 +1327,10 @@ UTILPOL2:
 
 TANKTRAP1:
 	Inherits: ^Rock
-	Inherits@rubbles: ^1x1Rubbles
+	SpawnActorOnDeath:
+		Actor: rubble
+		OwnerType: InternalName
+		InternalOwner: Neutral
 	ExternalCondition@temporal:
 		Condition: being-warped
 	RenderSprites:
@@ -1349,7 +1352,10 @@ TANKTRAP1:
 
 TANKTRAP2:
 	Inherits: ^Rock
-	Inherits@rubbles: ^1x1Rubbles
+	SpawnActorOnDeath:
+		Actor: rubble
+		OwnerType: InternalName
+		InternalOwner: Neutral
 	ExternalCondition@temporal:
 		Condition: being-warped
 	RenderSprites:

@@ -20,7 +20,7 @@ namespace OpenRA.Mods.Swp.Widgets.Logic
 {
 	public class ProductionTooltipLogicCA : ChromeLogic
 	{
-		[FluentReference("prequisites")]
+		[FluentReference("prerequisites")]
 		const string Requires = "label-requires";
 
 		[ObjectCreator.UseCtor]

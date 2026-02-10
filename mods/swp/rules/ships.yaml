@@ -1045,12 +1045,6 @@ HOVERCRAFT:
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@CARGOPIPS: ^CargoPips
-	Buildable:
-		Queue: Ship
-		BuildAtProductionType: Boat
-		BuildPaletteOrder: 225
-		Prerequisites: ~ships.serbia, dome
-		Description: Tough infantry transport armed with\ntwo rocket launchers.
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles.
 		Weaknesses: - Weak vs Infantry, Aircraft.

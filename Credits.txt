@@ -31,6 +31,8 @@ Graphics:
 -Electricity by ppap11404
 -Kinetic weapon by maikhoamKv
 -Current ring by ppap11404
+-Dominate animation by QuantumGhost
+-Target Lock animation by QuantumGhost
 
 Various icons
 -Mig Eater from Revora.net

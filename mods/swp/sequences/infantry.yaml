@@ -160,37 +160,61 @@ ironman:
 	parachute:
 		Start: 6
 	run:
-		Start: 16
+		Start: 24
 		Length: 6
 		Facings: 8
 		Tick: 80
 	shoot:
-		Start: 64
+		Start: 120
 		Length: 6
 		Facings: 8
-		Tick: 60
+	prone-stand:
+		Start: 16
+		Facings: 8
+		Length: 1
+	prone-stand2:
+		Start: 16
+		Facings: 8
+		Length: 1
+	prone-run:
+		Start: 72
+		Length: 6
+		Facings: 8
+		Tick: 100
+	standup:
+		Start: 216
+		Length: 1
+		Facings: 8
+	prone-shoot:
+		Start: 168
+		Length: 6
+		Facings: 8
 	idle1:
-		Start: 120
-		Length: 25
+		Start: 224
+		Length: 26
 		Tick: 120
 	idle2:
-		Start: 145
+		Start: 249
 		Length: 19
 		Tick: 120
+	idle3:
+		Start: 268
+		Length: 8
+		Tick: 120
 	die1:
-		Start: 164
+		Start: 276
 		Length: 28
 		Tick: 40
 	die2:
-		Start: 193
+		Start: 276
 		Length: 28
 		Tick: 40
 	die3:
-		Start: 218
+		Start: 331
 		Length: 18
 		Tick: 40
 	die4:
-		Start: 218
+		Start: 331
 		Length: 18
 		Tick: 40
 	die5:
@@ -1829,7 +1853,7 @@ bolter:
 		Tick: 1600
 		ZOffset: -511
 	icon:
-		Filename: magnetronicon.shp
+		Filename: boltericon.shp
 
 impg:
 	Inherits: ^SharedDeaths
@@ -3411,6 +3435,131 @@ penal:
 	icon:
 		Filename: penalicon.shp
 
+chronocommando:
+	Inherits: ^SharedDeaths
+	Defaults:
+		Filename: chronocommando.shp
+	stand:
+		Start: 0
+		Facings: 8
+	stand2:
+		Start: 8
+		Facings: 8
+	parachute:
+		Start: 6
+	run:
+		Start: 24
+		Length: 6
+		Facings: 8
+		Tick: 80
+	shoot:
+		Start: 120
+		Length: 6
+		Facings: 8
+	prone-stand:
+		Start: 16
+		Facings: 8
+		Length: 1
+	prone-stand2:
+		Start: 16
+		Facings: 8
+		Length: 1
+	prone-run:
+		Start: 72
+		Length: 6
+		Facings: 8
+		Tick: 100
+	standup:
+		Start: 216
+		Length: 1
+		Facings: 8
+	prone-shoot:
+		Start: 168
+		Length: 6
+		Facings: 8
+	idle1:
+		Start: 224
+		Length: 24
+		Tick: 120
+	idle2:
+		Start: 261
+		Length: 15
+		Tick: 120
+	idle3:
+		Start: 261
+		Length: 15
+		Tick: 120
+	die1:
+		Start: 276
+		Length: 28
+		Tick: 40
+	die2:
+		Start: 276
+		Length: 28
+		Tick: 40
+	die3:
+		Start: 331
+		Length: 18
+		Tick: 40
+	die4:
+		Start: 331
+		Length: 18
+		Tick: 40
+	die5:
+		Filename: tnkcmndr.shp
+		Start: 246
+		Length: 18
+		Tick: 80
+	die6:
+		Filename: electro.tem
+		Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+		Length: *
+		Tick: 80
+	die-crushed:
+		Filename: corpse1.tem
+		Length: 6
+		Tick: 1600
+		ZOffset: -511
+	garrison-muzzle: minigun
+		Filename:
+		Length: 12
+		Facings: 8
+		Combine:
+			0:
+				Filename: minigun.shp
+				Length: 12
+				Frames: 0,1,2,3,4,5,0,1,2,3,4,5
+			1:
+				Filename: minigun.shp
+				Length: 12
+				Frames: 6,7,8,9,10,11,6,7,8,9,10,11
+			2:
+				Filename: minigun.shp
+				Length: 12
+				Frames: 12,13,14,15,16,17,12,13,14,15,16,17
+			3:
+				Filename: minigun.shp
+				Length: 12
+				Frames: 18,19,20,21,22,23,18,19,20,21,22,23
+			4:
+				Filename: minigun.shp
+				Length: 12
+				Frames: 24,25,26,27,28,29,24,25,26,27,28,29
+			5:
+				Filename: minigun.shp
+				Length: 12
+				Frames: 30,31,32,33,34,35,30,31,32,33,34,35
+			6:
+				Filename: minigun.shp
+				Length: 12
+				Frames: 36,37,38,39,40,41,36,37,38,39,40,41
+			7:
+				Filename: minigun.shp
+				Length: 12
+				Frames: 42,43,44,45,46,47,42,43,44,45,46,47
+	icon:
+		Filename: chronocommandoicon.shp
+
 sbearer:
 	Inherits: ^SharedDeaths
 	Defaults:
@@ -4546,6 +4695,129 @@ weakcyborg:
 				Frames: 42,43,44,45,46,47,42,43,44,45,46,47
 	icon:
 		Filename: weakcyborgicon.shp
+
+cyborgrailgunner:
+	Inherits: ^SharedDeaths
+	Defaults:
+		Filename: cyborgrailgunner.shp
+	stand:
+		Start: 0
+		Facings: 8
+	stand2:
+		Start: 8
+		Facings: 8
+	parachute:
+		Start: 6
+	run:
+		Start: 24
+		Length: 6
+		Facings: 8
+		Tick: 80
+	shoot:
+		Start: 120
+		Length: 6
+		Facings: 8
+		Tick: 35
+	prone-stand:
+		Start: 16
+		Facings: 8
+		Length: 1
+	prone-stand2:
+		Start: 16
+		Facings: 8
+		Length: 1
+	prone-run:
+		Start: 72
+		Length: 6
+		Facings: 8
+		Tick: 100
+	standup:
+		Start: 216
+		Length: 1
+		Facings: 8
+	prone-shoot:
+		Start: 168
+		Length: 6
+		Facings: 8
+		Tick: 35
+	idle1:
+		Start: 224
+		Length: 24
+		Tick: 120
+	idle2:
+		Start: 261
+		Length: 15
+		Tick: 120
+	die1:
+		Start: 276
+		Length: 28
+		Tick: 40
+	die2:
+		Start: 276
+		Length: 28
+		Tick: 40
+	die3:
+		Start: 331
+		Length: 18
+		Tick: 40
+	die4:
+		Start: 331
+		Length: 18
+		Tick: 40
+	die5:
+		Filename: tnkcmndr.shp
+		Start: 246
+		Length: 18
+		Tick: 80
+	die6:
+		Filename: electro.tem
+		Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+		Length: *
+		Tick: 80
+	die-crushed:
+		Filename: corpse1.tem
+		Length: 6
+		Tick: 1600
+		ZOffset: -511
+	garrison-muzzle: minigun
+		Filename:
+		Length: 12
+		Facings: 8
+		Combine:
+			0:
+				Filename: minigun.shp
+				Length: 12
+				Frames: 0,1,2,3,4,5,0,1,2,3,4,5
+			1:
+				Filename: minigun.shp
+				Length: 12
+				Frames: 6,7,8,9,10,11,6,7,8,9,10,11
+			2:
+				Filename: minigun.shp
+				Length: 12
+				Frames: 12,13,14,15,16,17,12,13,14,15,16,17
+			3:
+				Filename: minigun.shp
+				Length: 12
+				Frames: 18,19,20,21,22,23,18,19,20,21,22,23
+			4:
+				Filename: minigun.shp
+				Length: 12
+				Frames: 24,25,26,27,28,29,24,25,26,27,28,29
+			5:
+				Filename: minigun.shp
+				Length: 12
+				Frames: 30,31,32,33,34,35,30,31,32,33,34,35
+			6:
+				Filename: minigun.shp
+				Length: 12
+				Frames: 36,37,38,39,40,41,36,37,38,39,40,41
+			7:
+				Filename: minigun.shp
+				Length: 12
+				Frames: 42,43,44,45,46,47,42,43,44,45,46,47
+	icon:
+		Filename: cyborgrailgunnericon.shp
 
 weakcyborgrocket:
 	Inherits: ^SharedDeaths
@@ -9887,6 +10159,43 @@ towcrew:
 	icon:
 		Filename: towcrewicon.shp
 
+gapcrew:
+	Defaults:
+		Filename: gapcrew.shp
+	idle:
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+	move:
+		Start: 33
+		Facings: 32
+		UseClassicFacings: True
+		Length: 6
+		Tick: 80
+	attack:
+		Start: 231
+		Facings: 32
+		UseClassicFacings: True
+		Length: 6
+		Tick: 140
+	turn:
+		Start: 429
+		Facings: 32
+		UseClassicFacings: True
+		Length: 1
+		Tick: 80
+	make:
+		Start: 231
+		Length: 12
+	deployed:
+		Start: 242
+		Length: 9
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 2
+	icon:
+		Filename: mortaricon.shp
+
 mortarcrew:
 	Defaults:
 		Filename: mortarcrew.shp
@@ -9916,7 +10225,7 @@ mortarcrew:
 		Filename: gunfire2.shp
 		Length: 2
 	icon:
-		Filename: mortarcrewicon.shp
+		Filename: mortaricon.shp
 
 aaguncrew:
 	Defaults:
@@ -9978,7 +10287,7 @@ atgunner:
 		Filename: gunfire2.shp
 		Length: 2
 	icon:
-		Filename: atgunnericon.shp
+		Filename: atguncrewicon.shp
 
 howitzercrew:
 	Defaults:
@@ -10009,7 +10318,7 @@ howitzercrew:
 		Filename: gunfire2.shp
 		Length: 2
 	icon:
-		Filename: howitzercrewicon.shp
+		Filename: howitzericon.shp
 
 hvmg:
 	Defaults:
@@ -10042,7 +10351,7 @@ hvmg:
 		Facings: 8
 		Tick: 80
 	icon:
-		Filename: hvmgicon.shp
+		Filename: hvmgcrewicon.shp
 
 nebelwherfer:
 	Defaults:
@@ -10281,7 +10590,85 @@ cavalry:
 		Scale: 1.0
 	icon:
 		Filename: cavalryicon.shp
-		
+
+sipahicav:
+	Defaults:
+		Filename: cavalry.shp
+		Scale: 0.8
+	stand:
+		Start: 122
+		Facings: 8
+	idle:
+		Start: 122
+		Facings: 8
+	run:
+		Start: 0
+		Length: 8
+		Facings: 8
+		Tick: 100
+	panic-run:
+		Start: 0
+		Length: 8
+		Facings: 8
+		Tick: 100
+	panic-stand:
+		Start: 122
+		Facings: 8
+	shoot:
+		Tick: 100
+		Start: 66
+		Length: 7
+		Facings: 8
+	prepare-shoot:
+		Start: 66
+		Facings: 8
+		Length: 1
+		Stride: 6
+	die1:
+		Start: 132
+		Length: 18
+		Tick: 80
+	# Burn
+	die2:
+		Filename: burninghorse.shp
+		Start: 78
+		Length: *
+		Tick: 80
+	die6:
+		Filename: tesladeadhorse.shp
+		Length: *
+		Tick: 80
+	die7:
+		Filename: burninghorserider.shp
+		Length: *
+		Tick: 50
+	die8:
+		Filename: empty.shp
+	muzzle:
+		Filename: minigun.shp
+		Length: 3
+		Stride: 6
+		Facings: 8
+	turret:
+		Filename: sipahicav.shp
+		Start: 0
+		Facings: -8
+		Scale: 0.9
+	turret-fire:
+		Filename: sipahicav.shp
+		Start: 9
+		Length: 7
+		Facings: -8
+		Scale: 0.9
+	turret-fire-molo:
+		Filename: sipahicav.shp
+		Start: 64
+		Length: 6
+		Facings: -8
+		Scale: 0.9
+	icon:
+		Filename: sipahicavicon.shp
+
 shinobi:
 	Inherits: ^SharedDeaths
 	Defaults:

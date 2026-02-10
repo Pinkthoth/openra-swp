@@ -839,6 +839,79 @@ CENTRALSRIMP:
 		SoundFiles: veil_sound.wav
 		Interval: 336
 		Delay: 0
+	FreeActor:
+		Actor: centraldominate
+
+CENTRALDOMINATE:
+	Inherits: ^Defense
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@rubbles: ^1x1Rubbles
+	Inherits@supercharged: ^SuperchargeTesla
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Building:
+		Footprint: _
+	TooltipExtras:
+		Weaknesses: - Weak vs Everything.
+		Attributes: • Can mind control enemy units.
+	Tooltip:
+		Name: Psychic Tower
+	Selectable:
+		Bounds: 1024, 1448
+		DecorationBounds: 1024, 2413, 0, -482
+	Health:
+		HP: 40000
+	Armor:
+		Type: Concrete
+	RevealsShroud:
+		MinRange: 6c0
+		Range: 7c0
+		RevealGeneratedShroud: False
+		Type: CenterPosition
+	RevealsShroud@GAPGEN:
+		Range: 6c0
+		Type: CenterPosition
+	Armament@secondary:
+		Name: secondary
+		Weapon: EnslaveInfantry
+		LocalOffset: 150,0,400
+	Armament@tertiary:
+		Name: primary
+		Weapon: EnslaveVehicle
+		LocalOffset: 150,0,400
+	MindController:
+		ArmamentNames: primary, secondary
+		Capacity: 10
+		ControlSounds: iyurat1a.aud
+		ReleaseSounds: yuri-release.aud
+		ControllingCondition: mindcontrolling
+		MaxControlledCondition: maxcontrolled
+		ManualReleaseEnabled: true
+	WithMindControlArc@MC:
+		Color: c71585
+		Transparency: 55
+		Offset: 0,0,511
+		Angle: 32
+		Width: 116
+	-WithBuildingBib:
+	AttackOmni:
+	Power:
+		Amount: -100
+	DetectCloaked:
+		Range: 6c0
+		RequiresCondition: !disabled
+	ProvidesPrerequisite@buildingname:
+	-Targetable:
+	RenderSprites:
+	AutoTarget:
+		InitialStance: AttackAnything
+	PeriodicExplosion@1:
+		Weapon: SlaveExplosion
+		InitialDelay: 0
+	KillsSelf:
+		Delay: 500
+		RemoveInstead: True
 
 RADARSCAN:
 	Interactable:

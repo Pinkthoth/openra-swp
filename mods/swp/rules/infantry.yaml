@@ -4,7 +4,7 @@ DOG:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 42
-		Prerequisites: ~infantry.zentrum, ~techlevel.infonly
+		Prerequisites: ~infantry.dog, ~techlevel.infonly
 		Description: Anti-infantry unit.
 	Valued:
 		Cost: 200
@@ -163,10 +163,16 @@ GENEHORROR:
 		GenericName: Mutant
 	Voiced:
 		VoiceSet: ZombieVoice
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 42
+		Prerequisites: ~techlevel.infonly, ~infantry.kazakhstan
+		Description: Chemically mutated general-purpose melee infantry.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
-		Attributes: • Can detect disquised and phased units.
+		Attributes: • Can detect disquised and phased units.\n • Resurrects killed infantry as Thralls.
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Selectable:
@@ -174,7 +180,7 @@ GENEHORROR:
 	Health:
 		HP: 5000
 	Mobile:
-		Speed: 99
+		Speed: 80
 		Voice: Move
 		PauseOnCondition: attack-cooldown || eating
 	Guard:
@@ -228,12 +234,6 @@ BUSHI:
 		Cost: 550
 	Tooltip:
 		Name: Bushi
-	Buildable:
-		Queue: Infantry
-		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 131
-		Prerequisites: atek, ~infantry.japan, ~techlevel.high
-		Description: Elite infantry with a hand-held\ndirect energy weapon.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
@@ -286,14 +286,59 @@ BUSHI:
 		Condition: cloak-force-disabled
 		ValidDamageStates: Critical
 
+CYBORGRAILGUNNER:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 170
+		Prerequisites: ~techlevel.infonly, ~infantry.ukraine, cyberlab, stek, adept
+		Description: Cyborg general-purpose infantry.
+	TooltipExtras:
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Cyborg Railgunner
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 6000
+	Armor:
+		Type: Light
+	Armament@PRIMARY:
+		Weapon: LtRail
+		LocalOffset: 200,-20,400
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: LtRail
+		MuzzleSequence: garrison-muzzle
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+		RequiresCondition: !parachute
+	WithInfantryBody@PARACHUTE:
+		StandSequences: parachute
+		RequiresCondition: parachute
+	ProducibleWithLevel:
+		Prerequisites: barracks.upgraded
+	-SpawnActorOnDeath@BulletDeath:
+	Voiced:
+		VoiceSet: CyborgVoice
+	SpawnActorOnDeath@BulletDeath:
+		Actor: DISTURBER.Husk
+	-TakeCover:
+	-Crushable:
+
 WEAKCYBORG:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 78
-		Prerequisites: ~techlevel.infonly, ~infantry.transcaucasia, cyberlab, dome, adept
+		BuildPaletteOrder: 97
+		Prerequisites: ~techlevel.infonly, ~infantry.ukraine, cyberlab, commcent, adept
 		Description: Cyborg general-purpose infantry.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -336,8 +381,8 @@ WEAKCYBORGROCKET:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 79
-		Prerequisites: ~techlevel.infonly, ~infantry.transcaucasia, cyberlab, dome, adept
+		BuildPaletteOrder: 98
+		Prerequisites: ~techlevel.infonly, ~infantry.ukraine, cyberlab, commcent, adept
 		Description: Cyborg anti-tank infantry.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -430,6 +475,58 @@ E1.Husk:
 	GrantExternalConditionToKiller:
 		Condition: e1
 
+CHRONOCOMMANDO:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 131
+		Prerequisites: ~infantry.germany, mtek
+		Description: Tough shotgun armed general purpose infantry.
+	TooltipExtras:
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
+		Attributes: • Runs faster when under attack.
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Storm Trooper
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 10000
+	Armament@PRIMARY:
+		Weapon: BerzerkerShotgun
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: BerzerkerShotgun
+		MuzzleSequence: garrison-muzzle
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+		RequiresCondition: !parachute
+	WithInfantryBody@PARACHUTE:
+		StandSequences: parachute
+		RequiresCondition: parachute
+	ProducibleWithLevel:
+		Prerequisites: barracks.upgraded
+	SpawnActorOnDeath@BulletDeath:
+		Actor: CHRONOCOMMANDO.Husk
+	TakeCover:
+		SpeedModifier: 133
+		ProneOffset: 0,0,0
+		Duration: 50
+	PortableChrono:
+
+CHRONOCOMMANDO.Husk:
+	Inherits: ^InfantryCorpse
+	Tooltip:
+		Name: Corpse (Storm Trooper)
+	SpawnActorOnDeath:
+		Actor: CHRONOCOMMANDO
+	GrantExternalConditionToKiller:
+		Condition: chronocommando
+
 PENAL:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
@@ -437,7 +534,7 @@ PENAL:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 71
-		Prerequisites: ~infantry.komintern, adept
+		Prerequisites: ~infantry.penal, adept
 		Description: Tough shotgun armed general purpose infantry.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -663,12 +760,6 @@ BERZERKER.Husk:
 DISTURBER:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Buildable:
-		Queue: Infantry
-		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 136
-		Prerequisites: ~infantry.usa, atek, ~techlevel.infonly
-		Description: Railgun infantry.
 	Valued:
 		Cost: 400
 	Tooltip:
@@ -766,7 +857,7 @@ MILPOL:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 71
-		Prerequisites: ~infantry.england, dome, ~techlevel.infonly
+		Prerequisites: ~infantry.england, adept, ~techlevel.infonly
 		Description: Force protection infantry.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -817,15 +908,15 @@ SCOUT:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 45
-		Prerequisites: ~infantry.serbia
+		BuildPaletteOrder: 42
+		Prerequisites: ~infantry.persia
 		Description: Light scouting infantry.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
 		Attributes: • Cloaks when immobile and increases vision.
 	Valued:
-		Cost: 120
+		Cost: 90
 	Tooltip:
 		Name: Scout
 	UpdatesPlayerStatistics:
@@ -881,15 +972,15 @@ INITIATE:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 71
-		Prerequisites: adept, ~infantry.abyssinia, ~techlevel.infonly
+		BuildPaletteOrder: 10
+		Prerequisites: ~infantry.kazakhstan, ~techlevel.infonly
 		Description: Anti-infantry psychic unit.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
 		Attributes: • Can attack infantry only.
 	Valued:
-		Cost: 300
+		Cost: 100
 	Tooltip:
 		Name: Initiate
 	UpdatesPlayerStatistics:
@@ -928,8 +1019,8 @@ RADIST:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 72
-		Prerequisites: ~techlevel.infonly, dome, ~infantry.serbia
+		BuildPaletteOrder: 91
+		Prerequisites: ~techlevel.infonly, dome, ~infantry.england
 		Description: General-purpose infantry\nwith increased vision.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -1145,8 +1236,14 @@ MUTANT:
 		Strengths: + Strong vs Infantry.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
 		Attributes: • Prones a large group of infantry.
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 169
+		Prerequisites: ~barracks, stek, adept, ~infantry.kazakhstan, ~techlevel.infonly
+		Description:  Chemically mutated general-purpose infantry.
 	Valued:
-		Cost: 350
+		Cost: 400
 	Mobile:
 		Speed: 50
 	Tooltip:
@@ -1157,7 +1254,7 @@ MUTANT:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 8000
+		HP: 6000
 	Armament@PRIMARY:
 		Name: secondary
 		Weapon: LightMachineGun
@@ -1185,11 +1282,16 @@ RPGMUTANT:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	TooltipExtras:
-		Strengths: + Strong vs Infantry.
+		Strengths: + Strong vs Vehicles.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
-		Attributes: • Prones a large group of infantry.
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 170
+		Prerequisites: ~barracks, stek, adept, ~infantry.kazakhstan, ~techlevel.high
+		Description:  Chemically mutated anti-tank unit.
 	Valued:
-		Cost: 350
+		Cost: 500
 	Mobile:
 		Speed: 50
 	Tooltip:
@@ -1200,11 +1302,11 @@ RPGMUTANT:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 8000
+		HP: 6000
 	Armament@PRIMARY:
 		Name: secondary
 		Weapon: busterrocket
-		LocalOffset: 0,0,200
+		LocalOffset: 120,0,450
 	Armament@GARRISONED:
 		Name: garrisoned
 		Weapon: busterrocket
@@ -1231,7 +1333,7 @@ E11:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 47
-		Prerequisites: ~infantry.entente, adept
+		Prerequisites: ~infantry.grunt, adept
 		Description: Heavily armed general-purpose infantry.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -1285,8 +1387,8 @@ HVGATLING:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 75
-		Prerequisites: ~infantry.china, stek
+		BuildPaletteOrder: 95
+		Prerequisites: ~infantry.china, commcent
 		Description: Heavily armed general-purpose infantry.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Vehicles.
@@ -1363,8 +1465,8 @@ MAROZNIK:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 92
-		Prerequisites: ~infantry.belarus, commcent
+		BuildPaletteOrder: 96
+		Prerequisites: commcent, ~infantry.russia, ~techlevel.high
 		Description: Shoots bursts of cryo spray.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -1413,7 +1515,7 @@ WASTETROOPER:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 75
+		BuildPaletteOrder: 92
 		Prerequisites: ~infantry.kazakhstan, commcent
 		Description: Shoots bursts of corrosive acid.
 	TooltipExtras:
@@ -1500,6 +1602,8 @@ KULAK:
 		Condition: penal
 	ExternalCondition@sbearer:
 		Condition: sbearer
+	ExternalCondition@chronocommando:
+		Condition: chronocommando
 	ExternalCondition@germantrooper:
 		Condition: germantrooper
 	ExternalCondition@pretorian:
@@ -1879,11 +1983,15 @@ MEDIUM:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 101
-		Prerequisites: dome, ~infantry.austria, ~techlevel.medium
+		Prerequisites: commcent, ~infantry.germany, ~techlevel.medium
 		Description: Operates a portable lazarus device \nthat can reanimate dead infantry.
+	Infiltrates@arzinfiltration:
+		Types: ArzInfiltration
+		ValidRelationships: Ally
+		Voice: Action
 	TooltipExtras:
 		Weaknesses: - Unarmed.
-		Attributes: • Can resurrect infantry.
+		Attributes: • Can resurrect infantry.\n• Can enter vehicles to slowly heal them.
 	Valued:
 		Cost: 350
 	Tooltip:
@@ -1921,21 +2029,15 @@ MEDIUM.Husk:
 	Tooltip:
 		Name: Corpse (Lazarene Medium)
 	SpawnActorOnDeath:
-		Actor: ARZ
+		Actor: MEDIUM
 	GrantExternalConditionToKiller:
-		Condition: arz
+		Condition: medium
 
 WARDEN:
 	Inherits: ^Soldier
 	TooltipExtras:
 		Weaknesses: - Unarmed.
 		Attributes: • Can heal and repair units.
-	Buildable:
-		Queue: Infantry
-		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 150
-		Prerequisites: mtek, ~infantry.austria, ~techlevel.medium
-		Description: Operates a portable lazarus device that heals units.
 	Valued:
 		Cost: 350
 	Tooltip:
@@ -1980,12 +2082,6 @@ WARDEN.Husk:
 
 ARZ:
 	Inherits: ^Soldier
-	Buildable:
-		Queue: Infantry
-		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 120
-		Prerequisites: ~infantry.austria, commcent
-		Description: Can enter a vehicle to repair it slowly.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
 		Attributes: • Can resurrect infantry.
@@ -2165,7 +2261,7 @@ E2:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 41
-		Prerequisites: ~infantry.komintern, ~techlevel.infonly
+		Prerequisites: ~infantry.grenadier, ~techlevel.infonly
 		Description: Infantry armed with grenades.
 	TooltipExtras:
 		Strengths: + Strong vs Buildings, Infantry.
@@ -2213,6 +2309,12 @@ E2.Husk:
 SCREENER:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 76
+		Prerequisites: dome, ~infantry.persia, ~techlevel.high
+		Description: Throws smoke screen grenades on your infantry.
 	TooltipExtras:
 		Strengths: + Strong vs Buildings, Infantry.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
@@ -2266,7 +2368,7 @@ DEMOMAN:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 96
+		BuildPaletteOrder: 101
 		Prerequisites: ~infantry.persia, dome
 		Description: Infantry armed with timed explosives.
 	TooltipExtras:
@@ -2470,7 +2572,7 @@ INFORMANT:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 72
+		BuildPaletteOrder: 45
 		Prerequisites: ~barracks, ~infantry.england, ~techlevel.infonly
 		Description: Civilian informant.\n Must be force fired upon.\nWeak against everything.
 	GrantRandomCondition:
@@ -2807,7 +2909,7 @@ MECH:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 90
+		BuildPaletteOrder: 50
 		Prerequisites: adept, ~infantry.mechanic, ~techlevel.medium
 		Description: Military mechanic.
 	TooltipExtras:
@@ -2871,8 +2973,8 @@ THF:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 95
-		Prerequisites: commcent, ~infantry.komintern, ~techlevel.medium
+		BuildPaletteOrder: 94
+		Prerequisites: commcent, ~infantry.thief, ~techlevel.medium
 		Description: Professional procurer.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
@@ -3002,8 +3104,8 @@ CYBORGHIJACKER:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 150
-		Prerequisites: stek, adept, cyberlab, ~infantry.transcaucasia, ~techlevel.high
+		BuildPaletteOrder: 171
+		Prerequisites: stek, adept, cyberlab, ~infantry.ukraine, ~techlevel.high
 		Description: Cyborg hacker.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
@@ -3042,6 +3144,12 @@ CYBORGHIJACKER:
 	IgnoresDisguise:
 	Armament@PRIMARY:
 		Weapon: EnslaveBuilding
+		LocalOffset: 150,0,400
+		PauseOnCondition: !ammo
+		Name: primary
+	Armament@secondary:
+		Name: secondary
+		Weapon: HackingRay
 		LocalOffset: 150,0,400
 		PauseOnCondition: !ammo
 	MindController:
@@ -3135,7 +3243,7 @@ TNKCMNDR:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 90
-		Prerequisites: commcent, ~infantry.germany, ~techlevel.infonly
+		Prerequisites: dome, ~infantry.austria, ~techlevel.infonly
 		Description: Crack tank crew commander.
 	TooltipExtras:
 		Weaknesses: - Weak vs Everything.
@@ -3246,8 +3354,8 @@ POLITRUK:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 71
-		Prerequisites: ~barracks, commcent, ~infantry.china, ~techlevel.infonly
+		BuildPaletteOrder: 101
+		Prerequisites: ~barracks, dome, ~infantry.politruk, ~techlevel.infonly
 		Description: Communist party political officer.
 	TooltipExtras:
 		Weaknesses: - Weak vs Everything.
@@ -3514,7 +3622,7 @@ OFFICER:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 76
-		Prerequisites: ~barracks, dome, ~infantry.zentrum, ~techlevel.infonly
+		Prerequisites: ~barracks, dome, ~infantry.officer, ~techlevel.infonly
 		Description: Commissioned officer.
 	TooltipExtras:
 		Weaknesses: - Weak vs Everything.
@@ -3640,7 +3748,7 @@ STIMDOC:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 76
-		Prerequisites: ~barracks, commcent, ~infantry.kazakhstan, ~techlevel.infonly
+		Prerequisites: ~barracks, dome, ~infantry.kazakhstan, ~techlevel.infonly
 		Description: Chemical weapons researcher.
 	TooltipExtras:
 		Weaknesses: - Weak vs Everything.
@@ -3763,9 +3871,8 @@ ISHMAELITE:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Infantry
-		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 150
-		Prerequisites: ~barracks, mtek, ~infantry.abyssinia, ~techlevel.high
+		Prerequisites: ~barracks, stek, ~infantry.kazakhstan, ~techlevel.high
 		Description: Psychic enslavement unit.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
@@ -3782,8 +3889,6 @@ ISHMAELITE:
 		InitialStanceAI: ReturnFire
 	Mobile:
 		Voice: Move
-	AttackFrontal:
-		Voice: Attack
 	AttackMove:
 		Voice: Move
 	Passenger:
@@ -3802,17 +3907,23 @@ ISHMAELITE:
 	SpawnActorOnDeath@BulletDeath:
 		Actor: ISHMAELITE.Husk
 	IgnoresDisguise:
-	Armament@PRIMARY:
+	Armament@secondary:
+		Name: secondary
 		Weapon: EnslaveInfantry
 		LocalOffset: 150,0,400
 		PauseOnCondition: !ammo
-	Armament@SECONDARY:
-		Name: secondary
+	Armament@tertiary:
+		Name: tertiary
 		Weapon: EnslaveVehicle
 		LocalOffset: 150,0,400
 		PauseOnCondition: !ammo
+	Armament@primary:
+		Name: primary
+		Weapon: EnslaveRay
+		LocalOffset: 150,0,400
+		PauseOnCondition: !ammo
 	MindController:
-		ArmamentNames: primary, secondary
+		ArmamentNames: secondary, tertiary
 		Capacity: 1
 		ControlSounds: iyurat1a.aud
 		ReleaseSounds: yuri-release.aud
@@ -3832,6 +3943,9 @@ ISHMAELITE:
 		Delay: 35
 		Count: 1
 		RequiresCondition: !mindcontrolling
+	AttackFrontal:
+		Armaments: primary, secondary, tertiary
+		Voice: Attack
 
 ISHMAELITE.Husk:
 	Inherits: ^InfantryCorpse
@@ -3856,6 +3970,11 @@ HVMG:
 	-ReloadDelayMultiplier@commandered:
 	-SpeedMultiplier@commandered:
 	-ChangesHealth@commandered:
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 45
+		Prerequisites: ~infantry.raj
+		Description: Heavy machine gun crew.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
@@ -4019,7 +4138,7 @@ SCVN:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 41
+		BuildPaletteOrder: 40
 		Prerequisites: ~infantry.arabia, adept, ~techlevel.medium
 		Description: Military scavanger.
 	TooltipExtras:
@@ -4104,11 +4223,17 @@ SCVN:
 	CaptureProgressBar:
 	SpawnActorOnDeath@BulletDeath:
 		Actor: SCVN.Husk
+	GrantConditionOnPrerequisite@scrap:
+		Condition: scrap
+		Prerequisites: scrap
+	CashTricklerMultiplier:
+		Modifier: 200
+		RequiresCondition: scrap
 		
 SCVN.Husk:
 	Inherits: ^InfantryCorpse
 	Tooltip:
-		Name: Corpse (Scavenger)
+		Name: Corpse (Salvager)
 	SpawnActorOnDeath:
 		Actor: SCVN
 	GrantExternalConditionToKiller:
@@ -4121,7 +4246,7 @@ STRMTRPR:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 130
-		Prerequisites: mtek, ~infantry.germany, ~techlevel.high
+		Prerequisites: commcent, ~infantry.austria, ~techlevel.high
 		Description: Elite infantry with a hand-held\ndirect energy weapon.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Vehicles.
@@ -4171,7 +4296,7 @@ MAGNETRON:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Valued:
-		Cost: 400
+		Cost: 300
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Vehicles.
 		Weaknesses: - Weak vs Aircraft.
@@ -4179,7 +4304,7 @@ MAGNETRON:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 130
-		Prerequisites: atek, ~infantry.japan, ~techlevel.high
+		Prerequisites: commcent, ~infantry.japan, ~techlevel.high
 		Description: Elite infantry with a hand-held\ndirect energy weapon.
 	Tooltip:
 		Name: Incinerator
@@ -4226,7 +4351,7 @@ EMITTER:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 130
-		Prerequisites: atek, ~infantry.egypt, ~techlevel.high
+		Prerequisites: commcent, ~infantry.france, ~techlevel.high
 		Description: Elite infantry with a hand-held\ndirect energy weapon.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Vehicles.
@@ -4274,12 +4399,6 @@ EMITTER.Corpse:
 PRETORIAN:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Buildable:
-		Queue: Infantry
-		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 130
-		Prerequisites: atek, ~infantry.france, ~techlevel.high
-		Description: Elite infantry with a hand-held\ndirect energy weapon.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Vehicles.
 		Weaknesses: - Weak vs Aircraft.
@@ -4375,17 +4494,17 @@ WRAITH:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 72
-		Prerequisites: ~barracks, commcent, ~infantry.abyssinia, ~techlevel.infonly
+		BuildPaletteOrder: 40
+		Prerequisites: ~infantry.kazakhstan, ~techlevel.infonly
 		Description: Psychic scouting unit.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Vehicles.
 		Weaknesses: - Weak vs Aircraft.
-		Attributes: • Is able to assume an ethereal form.
+		Attributes: • Infiltrates and captures enemy structures.\n• Restores husks to working condition.\n• Is able to assume an ethereal form.
 	ConvertsDamageToHealth:
 		DamagePercentConverted: 25
 	Valued:
-		Cost: 400
+		Cost: 500
 	Tooltip:
 		Name: Wraith
 	UpdatesPlayerStatistics:
@@ -4416,6 +4535,34 @@ WRAITH:
 	GrantChargingConditionFull:
 		Condition: transform
 		ShowSelectionBarWhenFull: False
+		MaxCharge: 1500
+	Passenger:
+		CustomPipType: yellow
+	InstantlyRepairs:
+	RepairsBridges:
+	CaptureManager:
+	GrantConditionOnPrerequisite@GLOBALREUSABLEENGINEER:
+		Condition: global-reusable-engineers
+		Prerequisites: global-reusable-engineers
+	Captures@Buildings:
+		RequiresCondition: !global-reusable-engineers && !deployed
+		CaptureTypes: building
+		PlayerExperience: 25
+		CaptureDelay: 200
+	Captures@REUSABLE:
+		RequiresCondition: global-reusable-engineers && !deployed
+		CaptureTypes: building
+		PlayerExperience: 25
+		CaptureDelay: 375
+		ConsumedByCapture: False
+		EnterCursor: ability
+		EnterBlockedCursor: move-blocked
+	Captures@Husks:
+		CaptureTypes: huskengie
+		PlayerExperience: 25
+		CaptureDelay: 200
+		EnterCursor: goldwrench
+	CaptureProgressBar:
 
 WRAITH.ETHEREAL:
 	Inherits: ^Soldier
@@ -4435,7 +4582,7 @@ WRAITH.ETHEREAL:
 	Health:
 		HP: 5000
 	Mobile:
-		Speed: 35
+		Speed: 40
 	RevealsShroud:
 		Range: 5c0
 	WithInfantryBody:
@@ -4522,7 +4669,7 @@ LEGIONAIRE:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 72
-		Prerequisites: ~barracks, dome, ~infantry.france, ~techlevel.infonly
+		Prerequisites: ~barracks, adept, ~infantry.france, ~techlevel.infonly
 		Description: Elite general-purpose infantry.
 	TooltipExtras:
 		Strengths: + Strong vs Everything.
@@ -4631,9 +4778,9 @@ TERRORIST:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 71
-		Prerequisites: ~infantry.persia, adept
-		Description: A fanatical follower of the shah.
+		BuildPaletteOrder: 72
+		Prerequisites: ~infantry.arabia, adept
+		Description: This comrade is willing to do the ultimate sacrifice for the proletariat.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
 		Attributes: • Strapped with dynamite.\n• Runs faster while under fire.
@@ -4693,13 +4840,13 @@ HOLLOW:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 72
-		Prerequisites: ~infantry.kazakhstan, adept
+		Prerequisites: ~infantry.kazakhstan
 		Description: Chemically zombified research subject.\nCarries a large explosive charge.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
 		Attributes: • Strapped with dynamite.\n• Becomes hidden while immobile.
 	Valued:
-		Cost: 250
+		Cost: 150
 	Mobile:
 		Speed: 42
 	Voiced:
@@ -4797,6 +4944,12 @@ SNIPER:
 		Name: Sniper
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 180
+		Prerequisites: atek, ~infantry.england, ~techlevel.infonly
+		Description: Advanced anti-infantry unit.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
@@ -4854,7 +5007,7 @@ E4:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 70
-		Prerequisites: adept, ~infantry.zentrum, ~techlevel.infonly
+		Prerequisites: adept, ~infantry.flamer, ~techlevel.infonly
 		Description: Advanced anti-infantry and structure unit.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Buildings, Defenses.
@@ -4917,8 +5070,8 @@ ATGUNNER:
 	-ChangesHealth@commandered:
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 74
-		Prerequisites: ~infantry.raj, dome, ~techlevel.infonly
+		BuildPaletteOrder: 69
+		Prerequisites: ~vehicles.raj, ~techlevel.infonly
 		Description: Infantry operated anti-tank gun.
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles.
@@ -5060,7 +5213,7 @@ AAGUNCREW:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 120
-		Prerequisites: ~vehicles.raj, commcent
+		Prerequisites: ~vehicles.raj, dome
 		Description: Infantry operated anti-air gun.
 	TooltipExtras:
 		Strengths: + Strong vs Aircraft.
@@ -5130,8 +5283,8 @@ NEBELWHERFER:
 	-ChangesHealth@commandered:
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 71
-		Prerequisites: adept, ~vehicles.bulgaria, ~techlevel.infonly
+		BuildPaletteOrder: 75
+		Prerequisites: adept, ~vehicles.egypt, ~techlevel.infonly
 		Description: Infantry operated multiple rocket launcher.
 	TooltipExtras:
 		Strengths: + Strong vs Aircraft.
@@ -5184,6 +5337,121 @@ NEBELWHERFER:
 	WithMuzzleOverlay:
 	ProducibleWithLevel:
 		Prerequisites: infantry.upgraded
+
+GAPCREW:
+	Inherits: ^TrackedVehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@crew: ^Crew
+	-Carryable:
+	-GrantConditionOnInfiltration@commandered:
+	-WithDecoration@commandered:
+	-Targetable@commandered:
+	-DamageMultiplier@commandered:
+	-FirepowerMultiplier@commandered:
+	-ReloadDelayMultiplier@commandered:
+	-SpeedMultiplier@commandered:
+	-ChangesHealth@commandered:
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 75
+		Prerequisites: adept, ~infantry.egypt, ~techlevel.infonly
+		Description: Infantry operated mortar.
+	TooltipExtras:
+		Strengths: + Strong vs Infantry, Buildings, Defenses.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Gap Crew
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 15000
+	Armor:
+		Type: None
+	Mobile:
+		Speed: 55
+		TurnSpeed: 15
+		Locomotor: bigfoot
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 5c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	Armament:
+		Weapon: Mortar
+		LocalOffset: 0,0,230
+		FireDelay: 15
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: Mortar
+	AttackFrontal:
+		FacingTolerance: 30
+	ProducibleWithLevel:
+		Prerequisites: infantry.upgraded
+	Transforms:
+		IntoActor: gapcrewdeploy
+
+GAPCREWDEPLOY:
+	Inherits: ^TrackedVehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@crew: ^Crew
+	-Carryable:
+	-GrantConditionOnInfiltration@commandered:
+	-WithDecoration@commandered:
+	-Targetable@commandered:
+	-DamageMultiplier@commandered:
+	-FirepowerMultiplier@commandered:
+	-ReloadDelayMultiplier@commandered:
+	-SpeedMultiplier@commandered:
+	-ChangesHealth@commandered:
+	TooltipExtras:
+		Strengths: + Strong vs Infantry, Buildings, Defenses.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Gap Crew
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 15000
+	Armor:
+		Type: None
+	Mobile:
+		Speed: 0
+		TurnSpeed: 15
+		Locomotor: bigfoot
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 5c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	Armament:
+		Weapon: Mortar
+		LocalOffset: 0,0,230
+		FireDelay: 15
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: Mortar
+	AttackFrontal:
+		FacingTolerance: 30
+	ProducibleWithLevel:
+		Prerequisites: infantry.upgraded
+	WithFacingSpriteBody:
+		Sequence: deployed
+	WithMakeAnimation:
+		BodyNames: make-body
+	-WithMoveAnimation:
+	-WithMoveAnimation@turn:
+	RenderSprites:
+		Image: gapcrew
+	Transforms:
+		IntoActor: gapcrew
 
 MORTARCREW:
 	Inherits: ^TrackedVehicle
@@ -5393,8 +5661,8 @@ FLKTRP:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 73
-		Prerequisites: dome, ~infantry.china, ~techlevel.infonly
+		BuildPaletteOrder: 11
+		Prerequisites: ~infantry.china, ~techlevel.infonly
 		Description: Anti-air and -ground infantry.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Aircraft.
@@ -5513,8 +5781,8 @@ PANZERFAUST:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 75
-		Prerequisites: ~infantry.china, stek
+		BuildPaletteOrder: 96
+		Prerequisites: ~infantry.china, commcent
 		Description: Heavily armed anti-tank infantry.
 	Valued:
 		Cost: 350
@@ -5557,7 +5825,7 @@ DESOLATOR:
 	Valued:
 		Cost: 400
 	Mobile:
-		Speed: 40
+		Speed: 50
 	Tooltip:
 		Name: Desolator
 	UpdatesPlayerStatistics:
@@ -5667,7 +5935,7 @@ SHKTRP:
 		Strengths: + Strong vs Infantry, Vehicles.
 		Weaknesses: - Weak vs Aircraft.
 	Valued:
-		Cost: 350
+		Cost: 400
 	Tooltip:
 		Name: Tesla Trooper
 	UpdatesPlayerStatistics:
@@ -5676,7 +5944,7 @@ SHKTRP:
 		HP: 5500
 	Mobile:
 		Voice: Move
-		Speed: 40
+		Speed: 46
 	RevealsShroud:
 		Range: 5c0
 	Armament@PRIMARY:
@@ -6064,15 +6332,15 @@ SHOK:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@supercharged: ^SuperchargeTesla
-	Buildable:
-		Queue: Infantry
-		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 76
-		Prerequisites: dome, ~infantry.russia, ~techlevel.high
-		Description: Elite infantry with a portable Tesla coil.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Vehicles.
 		Weaknesses: - Weak vs Aircraft.
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 71
+		Prerequisites: ~infantry.russia, adept
+		Description: Portable tesla infantry.
 	Valued:
 		Cost: 200
 	Tooltip:
@@ -6149,12 +6417,6 @@ CHRONOTROOPER:
 		RequiresCondition: stance-attackanything
 		ValidTargets: Infantry, Vehicle, Ship, Underwater, Structure, Defense, Mine, Temporal
 		InvalidTargets: NoAutoTarget
-	Buildable:
-		Queue: Infantry
-		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 135
-		Prerequisites: mtek, ~infantry.austria, ~techlevel.high
-		Description: Elite infantry with a portable chronoshpere and\na chrono gun capable of disappering enemies.
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles.
 		Weaknesses: - Weak vs Aircraft.
@@ -6233,12 +6495,12 @@ NERVEAGENT:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 91
-		Prerequisites: ~infantry.kazakhstan, dome
+		Prerequisites: ~infantry.kazakhstan, commcent
 		Description: Elite sniper infantry unit.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
-		Attributes: • Killed infantry become zombies.\n• Can detect disquised units.\n• Can only target infantry.
+		Attributes: • Killed infantry become Thralls.\n• Can detect disquised units.\n• Can only target infantry.
 	Health:
 		HP: 8000
 	Passenger:
@@ -6282,8 +6544,8 @@ NIGHTWITCH:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 96
-		Prerequisites: dome, ~infantry.ukraine, ~techlevel.high
+		BuildPaletteOrder: 72
+		Prerequisites: adept, ~infantry.ukraine, ~techlevel.high
 		Description: Elite infantry capable of magnetic levitation.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -6305,12 +6567,12 @@ NIGHTWITCH:
 	RevealsShroud:
 		Range: 5c0
 	Armament@PRIMARY:
-		Weapon: SM_ElectricBolt
+		Weapon: NightwitchGrenade
 		LocalOffset: 427,-100,400, 427,100,400
 		FireDelay: 5
 	Armament@GARRISONED:
 		Name: garrisoned
-		Weapon: SM_ElectricBolt
+		Weapon: NightwitchGrenade
 	TakeCover:
 		ProneOffset: 227,0,-245
 	AttackFrontal:
@@ -6372,7 +6634,7 @@ NIGHTWITCHAIR:
 		Range: 5c0
 		Type: CenterPosition
 	Armament@PRIMARY:
-		Weapon: SM_ElectricBolt
+		Weapon: NightwitchGrenade
 		LocalOffset: 427,-100,341, 427,100,341
 	-EjectOnDeath:
 	AttackFrontal:
@@ -6445,8 +6707,8 @@ JUMPJETGUY:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 101
-		Prerequisites: commcent, ~infantry.serbia, ~techlevel.high
+		BuildPaletteOrder: 73
+		Prerequisites: dome, ~infantry.usa, ~techlevel.high
 		Description: Elite infantry capable of jet levitation.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -6683,7 +6945,7 @@ PNEER:
 		TerrainTypes: Clear, Road, Beach, Ore, Gems, Rough, Bridge
 	MineImmune:
 	AmmoPool:
-		Ammo: 2
+		Ammo: 4
 		RearmSound: minelay1.aud
 	DetectCloaked:
 		Range: 5c0
@@ -6778,7 +7040,7 @@ CAVALRY:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 46
-		Prerequisites: ~infantry.mongolia, ~techlevel.low
+		Prerequisites: ~infantry.china, ~techlevel.low
 		Description: Light general purpose infantry\non horseback.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -6786,7 +7048,7 @@ CAVALRY:
 	Valued:
 		Cost: 200
 	ProductionCostMultiplier@horsebreeder:
-		Multiplier: 50
+		Multiplier: 75
 		Prerequisites: horsebreeder
 	Tooltip:
 		Name: Rifle Cavalry
@@ -6928,6 +7190,158 @@ CAVALRY:
 		Actor: Zombie
 		SkipMakeAnimations: False
 
+SIPAHICAV:
+	Inherits: ^TrackedVehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@PROPAGANDA: ^Propaganda
+	Inherits@cavalrycharge: ^CavalryCharge
+	-WithColoredOverlay@EMPDISABLE:
+	-TimedConditionBar@EMPDISABLE:
+	-PowerMultiplier@EMPDISABLE:
+	-WithIdleOverlay@EMPDISABLED:
+	-ExternalCondition@empdisable:
+	-SpeedMultiplier@InstantStop:
+	-Chronoshiftable:
+	-Targetable@REPAIR:
+	-Repairable:
+	-CaptureManager:
+	-Capturable:
+	-CaptureNotification:
+	-FireWarheadsOnDeath:
+	-WithDamageOverlay:
+	ChangesHealth@HOSPITAL:
+		Step: 500
+		Delay: 100
+		StartIfBelow: 100
+		DamageCooldown: 125
+		RequiresCondition: hospitalheal
+	GrantConditionOnPrerequisite@HOSPITAL:
+		Condition: hospital
+		Prerequisites: hosp
+	GrantConditionOnDamageState@HOSPITAL:
+		Condition: damaged
+		ValidDamageStates: Light, Medium, Heavy, Critical
+	GrantCondition@HOSPITAL:
+		RequiresCondition: hospital && damaged
+		Condition: hospitalheal
+	WithDecoration@REDCROSS:
+		Image: pips
+		Sequence: medic
+		Position: BottomRight
+		Margin: 17, 4
+		RequiresCondition: hospitalheal
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+	EdibleByLeap:
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 71
+		Prerequisites: ~infantry.turkey, adept, ~techlevel.low
+		Description: Light general purpose infantry\non horseback.
+	TooltipExtras:
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
+		Attributes: • Armed with secondary molotov cocktails.
+	Valued:
+		Cost: 350
+	ProductionCostMultiplier@horsebreeder:
+		Multiplier: 86
+		Prerequisites: horsebreeder
+	Tooltip:
+		Name: Sipahi
+		GenericName: Cavalry
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Selectable:
+		Bounds: 1024,1024
+	Health:
+		HP: 12000
+	Armor:
+		Type: None
+	-Mobile:
+	Mobile:
+		TurnSpeed: 320
+		Speed: 85
+		Locomotor: foot
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 5c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	WithMoveAnimation:
+		MoveSequence: run
+		ValidMovementTypes: Horizontal, Turn
+	Turreted:
+		TurnSpeed: 160
+		Offset: 50,0,85
+	Voiced:
+		VoiceSet: GenericVoice
+	AttackTurreted:
+		PauseOnCondition: turnedoff
+		Armaments: primary,secondary
+	WithTurretAttackAnimation@a:
+		Sequence: turret-fire
+		Armament: primary
+	WithTurretAttackAnimation@b:
+		Sequence: turret-fire-molo
+		Armament: secondary
+	GrantConditionOnAttack@rifle:
+		ArmamentNames: primary
+		Condition: rifle_attacking
+		RevokeDelay: 2
+	GrantConditionOnAttack@grenade:
+		ArmamentNames: secondary
+		Condition: grenade_attacking
+		RevokeDelay: 2
+	WithDeathAnimation:
+		DeathTypes:
+			DefaultDeath: 1
+			BulletDeath: 1
+			SmallExplosionDeath: 1
+			ExplosionDeath: 1
+			FireDeath: 2
+			ElectricityDeath: 2
+	WithDeathAnimation@second:
+		DeathTypes:
+			DefaultDeath: 8
+			BulletDeath: 8
+			SmallExplosionDeath: 8
+			ExplosionDeath: 8
+			FireDeath: 7
+			ElectricityDeath: 7
+	WithMuzzleOverlay:
+	WithSpriteTurret:
+	ProducibleWithLevel:
+		Prerequisites: infanry.upgraded
+	Targetable:
+		TargetTypes: GroundActor, Infantry
+	Targetable@HEAL:
+		RequiresCondition: damaged
+		TargetTypes: Heal
+	SpawnActorOnDeath@BulletDeath:
+		Actor: Militia.Corpse
+	Armament@PRIMARY:
+		Weapon: M1Carbine_elite
+		Recoil: 128
+		RecoilRecovery: 38
+		LocalOffset: 720,0,80
+		PauseOnCondition: turnedoff && grenade_attacking
+		Name: primary
+	Armament@secondary:
+		Weapon: Molotov
+		LocalOffset: 0,0,555
+		FireDelay: 10
+		Name: secondary
+		PauseOnCondition: turnedoff && rifle_attacking
+	SpawnActorOnDeath@zombiefy:
+		DeathType: Zombiefy
+		OwnerType: Killer
+		Actor: Zombie
+		SkipMakeAnimations: False
+
 DRAGOON:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
@@ -6951,8 +7365,8 @@ DRAGOON:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 47
-		Prerequisites: ~infantry.mongolia, adept, ~techlevel.low
+		BuildPaletteOrder: 72
+		Prerequisites: ~infantry.china, adept, ~techlevel.low
 		Description: Light general purpose infantry\non horseback.
 	ChangesHealth@HOSPITAL:
 		Step: 500
@@ -7078,9 +7492,9 @@ BOLTER:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 47
-		Prerequisites: ~infantry.ukraine, stek, ~techlevel.low
-		Description: Electromagnetic bolt soldier.
+		BuildPaletteOrder: 130
+		Prerequisites: atek, ~infantry.usa, ~techlevel.high
+		Description: Elite infantry with portable electromagnetic\narc thrower.
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles.
 		Weaknesses: - Weak vs Aircraft.
@@ -7088,7 +7502,7 @@ BOLTER:
 	Valued:
 		Cost: 350
 	Tooltip:
-		Name: Magnetron
+		Name: Arc Blaster
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
@@ -7106,7 +7520,7 @@ BOLTER:
 	TakeCover:
 		ProneOffset: 227,0,-245
 	AttackFrontal:
-		Voice: Attack
+		Voice: Action
 		FacingTolerance: 0
 	AttackMove:
 		Voice: Move
@@ -7122,8 +7536,6 @@ BOLTER:
 		RequiresCondition: parachute
 		Palette: player
 		IsPlayerPalette: true
-	Voiced:
-		VoiceSet: ShokVoice
 	ProducibleWithLevel:
 		Prerequisites: barracks.upgraded
 	SpawnActorOnDeath@BulletDeath:
@@ -7132,7 +7544,7 @@ BOLTER:
 BOLTER.Corpse:
 	Inherits: ^InfantryCorpse
 	Tooltip:
-		Name: Corpse (Bolt Blaster)
+		Name: Corpse (Arc Blaster)
 	SpawnActorOnDeath:
 		Actor: BOLTER
 	GrantExternalConditionToKiller:
@@ -7144,7 +7556,7 @@ SHINOBI:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 77
+		BuildPaletteOrder: 101
 		Prerequisites: dome, ~infantry.japan, ~techlevel.high
 		Description: Elite spying phase infantry.
 	TooltipExtras:
@@ -7190,6 +7602,23 @@ SHINOBI:
 	IgnoresDisguise:
 	SpawnActorOnDeath@BulletDeath:
 		Actor: SHINOBI.Corpse
+	DetectCloaked@mine:
+		Range: 5c0
+		DetectionTypes: Mine
+	Rearmable:
+		RearmActors: fix
+	Minelayer:
+		Mine: SPYCAMERA
+		TileUnknownName: build-valid
+		TerrainTypes: Clear, Road, Beach, Ore, Gems, Rough, Bridge
+	MineImmune:
+	AmmoPool:
+		Ammo: 2
+		RearmSound: minelay1.aud
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		Margin: 4, 3
+		RequiresSelection: true
 
 SHINOBI.Corpse:
 	Inherits: ^InfantryCorpse
@@ -7206,8 +7635,8 @@ GUERILLA:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 77
-		Prerequisites: dome, ~infantry.persia, ~techlevel.high
+		BuildPaletteOrder: 71
+		Prerequisites: adept, ~infantry.persia, ~techlevel.high
 		Description: Elite commando infantry.
 	TooltipExtras:
 		Strengths: + Strong vs. infantry
@@ -7298,17 +7727,17 @@ IRONMAN:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 77
-		Prerequisites: ~techlevel.infonly, ~infantry.kazakhstan, stek
+		BuildPaletteOrder: 31
+		Prerequisites: ~techlevel.infonly, ~infantry.kazakhstan
 		Description: Chemically mutated general-purpose melee infantry.
 	Valued:
-		Cost: 400
+		Cost: 300
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Vehicles.
 		Weaknesses: - Weak vs Aircraft.
 		Attributes: • Can be Iron Curtained.
 	Tooltip:
-		Name: Brute
+		Name: Mutant Brute
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
@@ -7335,13 +7764,14 @@ IRONMAN:
 		Actor: IRONMAN.Corpse
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
+		IdleSequences: idle1,idle2,
 	Voiced:
 		VoiceSet: ZombieVoice
 
 IRONMAN.Corpse:
 	Inherits: ^InfantryCorpse
 	Tooltip:
-		Name: Corpse (Cyborg Iron Man)
+		Name: Corpse (Brute)
 	SpawnActorOnDeath:
 		Actor: IRONMAN
 	GrantExternalConditionToKiller:
@@ -7353,17 +7783,17 @@ WORKER:
 	Inherits@supercharged: ^SuperchargeTesla
 	Inherits@ironcurtainable: ^IronCurtainable
 	Valued:
-		Cost: 60
+		Cost: 300
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 45
+		BuildPaletteOrder: 40
 		Prerequisites: ~infantry.raj
 		Description: Melee labourer.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
 		Weaknesses: - Weak vs Aircraft, Vehicles.
-		Attributes: • Heals damaged structures.
+		Attributes: • Infiltrates and captures enemy structures.\n• Restores husks to working condition.\n• Heals damaged structures.
 	Tooltip:
 		Name: Worker
 	UpdatesPlayerStatistics:
@@ -7389,6 +7819,39 @@ WORKER:
 		Actor: WORKER.Corpse
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
+	RepairsBridges:
+	CaptureManager:
+	GrantConditionOnPrerequisite@GLOBALREUSABLEENGINEER:
+		Condition: global-reusable-engineers
+		Prerequisites: global-reusable-engineers
+	Captures@Buildings:
+		RequiresCondition: !global-reusable-engineers && !deployed
+		CaptureTypes: building
+		PlayerExperience: 25
+		CaptureDelay: 200
+	Captures@REUSABLE:
+		RequiresCondition: global-reusable-engineers && !deployed
+		CaptureTypes: building
+		PlayerExperience: 25
+		CaptureDelay: 375
+		ConsumedByCapture: False
+		EnterCursor: ability
+		EnterBlockedCursor: move-blocked
+	DetectCloaked:
+		Range: 5c0
+		DetectionTypes: Mine
+		RequiresCondition: deployed
+	GrantConditionOnDeploy:
+		DeployedCondition: deployed
+	SpeedMultiplier:
+		RequiresCondition: deployed
+		Modifier: 50
+	Captures@Husks:
+		CaptureTypes: huskengie
+		PlayerExperience: 25
+		CaptureDelay: 200
+		EnterCursor: goldwrench
+	CaptureProgressBar:
 
 WORKER.Corpse:
 	Inherits: ^InfantryCorpse
@@ -7594,8 +8057,8 @@ DISCTHROW:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 41
-		Prerequisites: ~infantry.usa, ~techlevel.infonly
+		BuildPaletteOrder: 48
+		Prerequisites: ~infantry.usa, adept, ~techlevel.infonly
 		Description: Infantry armed with discus grenades.
 	TooltipExtras:
 		Strengths: + Strong vs Buildings, Infantry.

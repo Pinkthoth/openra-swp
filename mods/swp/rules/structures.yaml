@@ -1,5 +1,5 @@
 FACT:
-	Inherits: ^Building
+	Inherits: ^FactionBuilding
 	Inherits@rubbles: ^3x3Rubbles
 	Inherits@sabotable: ^Sabotable
 	Inherits@EMPDISABLE: ^EmpDisable
@@ -49,6 +49,9 @@ FACT:
 	ProvidesPrerequisite@soviet:
 		Factions: soviet, russia, ukraine, china, mongolia, kazakhstan, belarus, arabia, transcaucasia
 		Prerequisite: structures.komintern
+	ProvidesPrerequisite@sentry:
+		Factions: soviet, russia, ukraine, china, mongolia, belarus, arabia, transcaucasia
+		Prerequisite: structures.sentry
 	ProvidesPrerequisite@sovietvanilla:
 		Factions: soviet
 		Prerequisite: structures.sovietvanilla
@@ -201,6 +204,8 @@ FACT:
 			transcaucasia: kfact
 			egypt: efact
 			abyssinia: mfact
+	SpawnActorOnDeath@tunnel:
+		Actor: tunnelfact
 
 MSLO:
 	Inherits: ^ScienceBuilding
@@ -332,7 +337,7 @@ GAP:
 		HasMinibib: True
 
 SYRD:
-	Inherits: ^Building
+	Inherits: ^FactionBuilding
 	Inherits@PRIMARY: ^PrimaryBuilding
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
@@ -535,8 +540,8 @@ IRON:
 		Footprint: xx xx
 		Dimensions: 2,2
 	Selectable:
-		Bounds: 1648, 1648, 0, 120
-		DecorationBounds: 1648, 1648, 0, 0
+		Bounds: 2148, 2148, 0, 120
+		DecorationBounds: 2148, 2148, 0, 0
 	Health:
 		HP: 100000
 	Armor:
@@ -722,7 +727,7 @@ PSYCHTOWER:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 102
-		Prerequisites: mtek, ~structures.abyssinia, ~techlevel.medium
+		Prerequisites: stek, ~structures.kazakhstan, ~techlevel.medium
 		Description: Advanced base defense.\nRequires power to operate.
 	TooltipExtras:
 		Weaknesses: - Weak vs Everything.
@@ -745,22 +750,51 @@ PSYCHTOWER:
 	RevealsShroud@GAPGEN:
 		Range: 6c0
 	WithTeslaChargeAnimation:
-	Armament:
-		Weapon: TeslaZap
-		LocalOffset: 0,0,896
-		RequiresCondition: !supercharged
-		PauseOnCondition: disabled || turnedoff
-	Armament@charged:
-		Weapon: TeslaZapCharged
-		LocalOffset: 0,0,896
-		RequiresCondition: supercharged
-		PauseOnCondition: disabled || turnedoff
-	AttackTesla:
-		RequiresCondition: !build-incomplete
-		PauseOnCondition: disabled || turnedoff
-		ChargeAudio: tslachg2.aud
-		MaxCharges: 3
-		ReloadDelay: 120
+	Armament@secondary:
+		Name: secondary
+		Weapon: EnslaveInfantry
+		LocalOffset: 150,0,400
+		PauseOnCondition: !ammo
+	Armament@tertiary:
+		Name: tertiary
+		Weapon: EnslaveVehicle
+		LocalOffset: 150,0,400
+		PauseOnCondition: !ammo
+	Armament@primary:
+		Name: primary
+		Weapon: EnslaveRaySuper
+		LocalOffset: 150,0,400
+		PauseOnCondition: !ammo
+	MindController:
+		ArmamentNames: tertiary, secondary
+		Capacity: 3
+		ControlSounds: iyurat1a.aud
+		ReleaseSounds: yuri-release.aud
+		ControllingCondition: mindcontrolling
+		MaxControlledCondition: maxcontrolled
+		ManualReleaseEnabled: true
+	WithMindControlArc@MC:
+		Color: c71585
+		Transparency: 55
+		Offset: 0,0,511
+		Angle: 32
+		Width: 116
+	AmmoPool:
+		Ammo: 1
+		AmmoCondition: ammo
+	ReloadAmmoPool:
+		Delay: 35
+		Count: 1
+		RequiresCondition: mindcontrolling == 0
+	ReloadAmmoPool@1:
+		Delay: 70
+		Count: 1
+		RequiresCondition: mindcontrolling == 1
+	ReloadAmmoPool@2:
+		Delay: 140
+		Count: 1
+		RequiresCondition: mindcontrolling == 2
+	AttackOmni:
 	Power:
 		Amount: -100
 	DetectCloaked:
@@ -1024,6 +1058,8 @@ ACADEMY:
 		Image: ecom
 	Power:
 		Amount: -40
+	SpawnActorOnDeath@tunnel:
+		Actor: tunnelacademy
 
 RECRUITMENTOFFICE:
 	Inherits: ^ScienceBuilding
@@ -1052,7 +1088,7 @@ RECRUITMENTOFFICE:
 		Description: Forward recruitment and command office\nof the Chinese Red Guards.
 		BuildLimit: 1
 	TooltipExtras:
-		Attributes: • Build limit 1.\n• Passive Ability: Produces two Militia units every 30 seconds for 100$.
+		Attributes: • Build limit 1.\n• Passive Ability: Produces two Militia units every 30 seconds for 100$.\n• Refunds 80% of the cost relative to remaining health of infantry that enter this building.
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -1100,6 +1136,54 @@ RECRUITMENTOFFICE:
 		Image: kcom
 	Power:
 		Amount: -10
+	SpawnActorOnDeath@tunnel:
+		Actor: tunnelrecruitmentoffice
+
+SCRAP:
+	Inherits: ^ScienceBuilding
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Inherits@shape: ^2x2Shape
+	Inherits@rubbles: ^2x2Rubbles
+	Inherits@sabotable: ^Sabotable
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Selectable:
+		Bounds: 2496, 2496
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+		LocalCenterOffset: 0,-206,0
+	Health:
+		HP: 50000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 7c0
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 600
+		Prerequisites: ~structures.arabia, weap, ~techlevel.medium
+		Description: Recycling center for used vehicles.
+		BuildLimit: 1
+	TooltipExtras:
+		Attributes: • Build limit 1.\n• Refunds 80% of the cost relative to remaining health of vehicles that enter this building.\n• Doubles the cash produced by Salvagers while salvaging.
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Scrap Yard
+	Targetable@refund:
+		TargetTypes: RefundInfiltrationVehicle
+	InfiltrateForCashRefund:
+		Types: RefundInfiltrationVehicle
+		Percentage: 80
+	AppearsOnMapPreview:
+	RenderSprites:
+		Image: scrap
+	Power:
+		Amount: -10
+	SpawnActorOnDeath@tunnel:
+		Actor: tunnelscrap
+	ProvidesPrerequisite@buildingname:
 
 BOOTCAMP:
 	Inherits: ^ScienceBuilding
@@ -1224,15 +1308,15 @@ MOROZKO:
 CHEMTUR:
 	Inherits: ^Defense
 	Inherits@AUTOTARGET: ^AutoTargetGround
-	Buildable:
-		Queue: Defense
-		BuildPaletteOrder: 60
-		Prerequisites: dome, ~structures.kazakhstan, ~techlevel.low
-		Description: Guard turret that shoots balls of toxic waste.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
 		Weaknesses: - Weak vs Aircraft.
 		Attributes: • Can detect phased units.
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 40
+		Prerequisites: barr, ~structures.kazakhstan, ~techlevel.medium
+		Description: Anti-infantry base defense.
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -1269,6 +1353,258 @@ CHEMTUR:
 	FireWarheadsOnDeath:
 		Weapon: BuildingExplode
 		EmptyWeapon: BuildingExplode
+
+TUNNELBACKUP:
+	Inherits: ^Defense
+	Inherits@AUTOTARGET: ^AutoTargetAll
+	Inherits@rubbles: ^1x1Rubbles
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Tooltip:
+		Name: Tunnel Network
+	Building:
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 60
+		Prerequisites: barr, ~structures.arabia, ~techlevel.low
+		Description: Pluggable underground tunnel network.
+	TooltipExtras:
+		Attributes: • When the host building is destroyed, it will repair itself after a while.
+	Valued:
+		Cost: 500
+	CustomSellValue:
+		Value: 400
+	Health:
+		HP: 40000
+	Armor:
+		Type: Concrete
+	RevealsShroud:
+		MinRange: 5c0
+		Range: 6c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 5c0
+	Turreted:
+		TurnSpeed: 512
+	-QuantizeFacingsFromSequence:
+	BodyOrientation:
+		QuantizedFacings: 8
+	InstantlyRepairable:
+		RequiresCondition: damaged
+	GrantConditionOnDamageState@DAMAGED:
+		Condition: damaged
+		ValidDamageStates: Light, Medium, Heavy, Critical
+	SpawnActorsOnSell:
+	AttackTurreted:
+		RequiresCondition: !build-incomplete
+	Armament:
+		Weapon: Vulcan
+		LocalYaw: 0, 176, 341, 512, 682, 853
+		MuzzleSequence: muzzle
+		LocalOffset: 300,0,0
+		PauseOnCondition: turnedoff
+	WithMuzzleOverlay:
+	RenderRangeCircle:
+		FallbackRange: 6c0
+	Power:
+		Amount: -20
+	DetectCloaked:
+		Range: 6c0
+	Plug:
+		Type: tunnel
+
+TUNNEL2X2:
+	Inherits: ^Defense
+	Inherits@rubbles: ^2x2Rubbles
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Tooltip:
+		Name: Tunnel Network
+	Building:
+		Footprint: == ==
+		Dimensions: 2,2
+	TooltipExtras:
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
+		Attributes: • Can detect phased units.
+	CustomSellValue:
+		Value: 400
+	Health:
+		HP: 80000
+	Armor:
+		Type: Concrete
+	RevealsShroud:
+		MinRange: 1c0
+		Range: 1c512
+		RevealGeneratedShroud: False
+		Type: CenterPosition
+	RevealsShroud@GAPGEN:
+		Range: 1c0
+		Type: CenterPosition
+	-QuantizeFacingsFromSequence:
+	BodyOrientation:
+		QuantizedFacings: 8
+	InstantlyRepairable:
+		RequiresCondition: damaged
+	GrantConditionOnDamageState@DAMAGED:
+		Condition: damaged
+		ValidDamageStates: Light, Medium, Heavy, Critical
+	Power:
+		Amount: -20
+	-RenderRangeCircle:
+	GrantChargingConditionFull:
+		Condition: transform
+		ShowSelectionBarWhenFull: False
+		MaxCharge: 750
+	TransformOnCondition@repaired:
+		IntoActor: powr
+		RequiresCondition: transform
+		SkipMakeAnims: false
+	RenderSprites:
+		Image: tunnel2x2
+	WithBuildingBib:
+		HasMinibib: False
+
+
+TUNNEL3X3:
+	Inherits: TUNNEL2X2
+	Inherits@rubbles: ^3x3Rubbles
+	RenderSprites:
+		Image: tunnel3x3
+	Building:
+		Footprint: === === ===
+		Dimensions: 3,3
+
+TUNNEL3X2:
+	Inherits: TUNNEL3X3
+	Inherits@rubbles: ^3x2Rubbles
+	RenderSprites:
+		Image: tunnel3x2
+	Building:
+		Footprint: === ===
+		Dimensions: 3,2
+
+TUNNELPOWR:
+	Inherits: TUNNEL2X2
+	TransformOnCondition@repaired:
+		IntoActor: powr
+
+TUNNELAPWR:
+	Inherits: TUNNEL3X2
+	GrantChargingConditionFull:
+		Condition: transform
+	TransformOnCondition@repaired:
+		IntoActor: apwr
+
+TUNNELFIX:
+	Inherits: TUNNEL3X3
+	TransformOnCondition@repaired:
+		IntoActor: fix
+
+TUNNELFACT:
+	Inherits: TUNNEL3X3
+	TransformOnCondition@repaired:
+		IntoActor: fact
+
+TUNNELPROC:
+	Inherits: TUNNEL3X3
+	TransformOnCondition@repaired:
+		IntoActor: proc
+
+TUNNELADEPT:
+	Inherits: TUNNEL3X3
+	TransformOnCondition@repaired:
+		IntoActor: adept
+
+TUNNELWEAP:
+	Inherits: TUNNEL3X3
+	TransformOnCondition@repaired:
+		IntoActor: weap
+
+TUNNELDOME:
+	Inherits: TUNNEL2X2
+	TransformOnCondition@repaired:
+		IntoActor: dome
+
+TUNNELCOMMCENT:
+	Inherits: TUNNEL2X2
+	TransformOnCondition@repaired:
+		IntoActor: commcent
+
+TUNNELTRIAGE:
+	Inherits: TUNNEL3X3
+	TransformOnCondition@repaired:
+		IntoActor: triage
+
+TUNNELHPAD:
+	Inherits: TUNNEL2X2
+	TransformOnCondition@repaired:
+		IntoActor: hpad
+
+TUNNELAFLD:
+	Inherits: TUNNEL3X2
+	TransformOnCondition@repaired:
+		IntoActor: afld
+
+TUNNELATEK:
+	Inherits: TUNNEL3X3
+	TransformOnCondition@repaired:
+		IntoActor: atek
+
+TUNNELSTEK:
+	Inherits: TUNNEL3X3
+	TransformOnCondition@repaired:
+		IntoActor: stek
+
+TUNNELMTEK:
+	Inherits: TUNNEL3X3
+	TransformOnCondition@repaired:
+		IntoActor: mtek
+
+TUNNELRECRUITMENTOFFICE:
+	Inherits: TUNNEL2X2
+	TransformOnCondition@repaired:
+		IntoActor: recruitmentoffice
+
+TUNNELSCRAP:
+	Inherits: TUNNEL2X2
+	TransformOnCondition@repaired:
+		IntoActor: scrap
+
+TUNNELHORSEBREEDER:
+	Inherits: TUNNEL2X2
+	TransformOnCondition@repaired:
+		IntoActor: horsebreeder
+
+TUNNELCYBERLAB:
+	Inherits: TUNNEL2X2
+	TransformOnCondition@repaired:
+		IntoActor: cyberlab
+
+TUNNELMILACADEMY:
+	Inherits: TUNNEL2X2
+	TransformOnCondition@repaired:
+		IntoActor: milacademy
+
+TUNNELACADEMY:
+	Inherits: TUNNEL2X2
+	TransformOnCondition@repaired:
+		IntoActor: academy
+
+TUNNELINDPLANT:
+	Inherits: TUNNEL3X3
+	TransformOnCondition@repaired:
+		IntoActor: indplant
+
+TUNNELBARR:
+	Inherits: TUNNEL2X2
+	TransformOnCondition@repaired:
+		IntoActor: barr
+
+TUNNELTESLAPP:
+	Inherits: TUNNEL3X2
+	TransformOnCondition@repaired:
+		IntoActor: teslapp
 
 PBOX:
 	Inherits: ^Defense
@@ -1341,21 +1677,19 @@ SPAINBUNKER:
 	Building:
 	Buildable:
 		Queue: Defense
-		BuildPaletteOrder: 60
-		Prerequisites: barr, ~structures.serbia, ~techlevel.low
-		Description: Static base defense.
+		BuildPaletteOrder: 40
+		Prerequisites: ~structures.raj, ~techlevel.low
+		Description: A simple bunker.
 	TooltipExtras:
 		Strengths: + Strength depends on the cargo.
 		Weaknesses: - Weakness depends on the cargo.
-		Attributes: • Weapon depends on the cargo.\n• Can hold 4 infantry units inside.\n• Can detect phased units.
+		Attributes: • Up to 4 infantry units can garrison inside.\n• Garrisoned infantry can shoot from inside.
 	Valued:
-		Cost: 400
-	CustomSellValue:
-		Value: 300
+		Cost: 500
 	Health:
-		HP: 40000
+		HP: 80000
 	Armor:
-		Type: Concrete
+		Type: Heavy
 	RevealsShroud:
 		MinRange: 5c0
 		Range: 6c0
@@ -1369,14 +1703,14 @@ SPAINBUNKER:
 	-QuantizeFacingsFromSequence:
 	BodyOrientation:
 		QuantizedFacings: 8
+	InstantlyRepairable:
+		RequiresCondition: damaged
 	GrantConditionOnDamageState@DAMAGED:
 		Condition: damaged
 		ValidDamageStates: Light, Medium, Heavy, Critical
 	Cargo:
 		Types: Infantry
 		MaxWeight: 4
-		InitialUnits: e1
-		EjectOnDeath: True
 	-SpawnActorsOnSell:
 	AttackGarrisoned:
 		PauseOnCondition: build-incomplete
@@ -1387,7 +1721,7 @@ SPAINBUNKER:
 	RenderRangeCircle:
 		FallbackRange: 6c0
 	Power:
-		Amount: -20
+		Amount: 0
 	DetectCloaked:
 		Range: 6c0
 
@@ -1530,7 +1864,7 @@ INDIANGUN:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 102
-		Prerequisites: dome, adept, ~structures.bulgaria, ~techlevel.medium
+		Prerequisites: dome, adept, ~structures.austria, ~techlevel.medium
 		Description: Heavy Anti-Armor base defense.
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles.
@@ -1628,15 +1962,15 @@ TURKEYGUN:
 	Armament:
 		Name: primary
 		Weapon: Desolator
-		LocalOffset: 620,0,100
+		LocalOffset: 720,0,125
 	Armament@linedamage:
 		Name: secondary
 		Weapon: Desolator_LineDamage
-		LocalOffset: 620,0,100
+		LocalOffset: 720,0,125
 	Armament@effect:
 		Name: tertiary
 		Weapon: Desolator_Effect
-		LocalOffset: 620,0,100
+		LocalOffset: 720,0,125
 	AttackTurreted:
 		RequiresCondition: !build-incomplete
 		Armaments: primary, secondary, tertiary
@@ -1664,7 +1998,7 @@ USAGUN:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 102
-		Prerequisites: dome, ~structures.ukraine, ~techlevel.medium
+		Prerequisites: commcent, ~structures.usa, ~techlevel.medium
 		Description: Anti-Armor base defense.
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles.
@@ -1846,7 +2180,7 @@ GATLINGGUN:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 40
-		Prerequisites: barr, ~structures.komintern, ~techlevel.medium
+		Prerequisites: barr, ~structures.sentry, ~techlevel.medium
 		Description: Anti-infantry base defense.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -1981,7 +2315,7 @@ GRANDCANNON:
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Buildable:
 		Queue: Defense
-		BuildPaletteOrder: 102
+		BuildPaletteOrder: 103
 		Prerequisites: mtek, ~structures.italy, ~techlevel.medium
 		Description: Extra long ranged stationary artillery.
 	TooltipExtras:
@@ -2163,7 +2497,7 @@ SAM:
 		Sequence: build
 
 ADEPT:
-	Inherits: ^Building
+	Inherits: ^FactionBuilding
 	Inherits@shape: ^3x2Shape
 	Inherits@rubbles: ^AdeptRubbles
 	Inherits@discount: ^BuildTimeDiscount
@@ -2236,6 +2570,8 @@ ADEPT:
 	TransformOnCondition@sabotaged:
 		IntoActor: adept.disabled
 		RequiresCondition: sabotagedtimer
+	SpawnActorOnDeath@tunnel:
+		Actor: tunneladept
 
 ADEPT.disabled:
 	Inherits: ADEPT
@@ -2257,7 +2593,7 @@ ADEPT.disabled:
 		Condition: sabotagedtimer
 		Duration: 750
 	TransformOnCondition@sabotaged:
-		IntoActor: proc.resumed
+		IntoActor: adept
 		RequiresCondition: !sabotaged
 	GrantCondition@sabotaged:
 		Condition: turnedoff
@@ -2277,17 +2613,18 @@ MILACADEMY:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 602
-		Prerequisites: dome, ~structures.usa, ~techlevel.high
+		Prerequisites: dome, ~structures.austria, ~techlevel.high
 		Description: Military training facility.
+		BuildLimit: 1
 	TooltipExtras:
-		Attributes: • Promotes friendly units to the maximum rank of three.
+		Attributes:  • Build limit 1.\n• Promotes friendly units to the maximum rank of three.
 	Valued:
 		Cost: 1600
 	Tooltip:
 		Name: Military Academy
 	Building:
-		Footprint: xxx xxx xxx
-		Dimensions: 3,3
+		Footprint: xx xx
+		Dimensions: 2,2
 		LocalCenterOffset: 0,-512,0
 	Health:
 		HP: 60000
@@ -2332,9 +2669,11 @@ MILACADEMY:
 		PipCount: 6
 		EmptySequence: pip-emptyammo
 		FullSequence: pip-tech
+	SpawnActorOnDeath@tunnel:
+		Actor: tunnelmilacademy
 
 COMMCENT:
-	Inherits: ^Building
+	Inherits: ^FactionBuilding
 	Inherits@POWER_OUTAGE: ^DisabledByPowerOutage
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
@@ -2487,7 +2826,7 @@ COMMCENT:
 		Icon: icon
 		Name: Produce Assimilator
 		Description: Produces a cyborg Assimilator from the Communications Center.
-		Prerequisites: support.transcaucasia
+		Prerequisites: support.ukraine
 		EndChargeSpeechNotification: SupportPowerReady
 		SelectTargetSpeechNotification: SelectTarget
 		InsufficientPowerSpeechNotification: InsufficientPower
@@ -2527,7 +2866,7 @@ COMMCENT:
 		SupportPowerPaletteOrder: 10
 		Dimensions: 2, 2
 		Footprint: xx xx
-		Prerequisites: support.germany
+		Prerequisites: support.egypt
 		ExplosionWeapon: ChronohasteBurst
 		ExplosionDelay : 0
 	DetonateWeaponPower@Promotion:
@@ -2553,7 +2892,7 @@ COMMCENT:
 		TargetCircleRange: 2c0
 		TargetCircleColor: 0000FF90
 		Duration: 350
-		Prerequisites: support.usa
+		Prerequisites: support.austria
 		Sequence: idle
 	SpawnActorPower@Burrow:
 		Actor: BURROW
@@ -2573,10 +2912,10 @@ COMMCENT:
 		EffectImage: dig
 		EffectSequence: idle
 		EffectPalette: tseffects
-		Prerequisites: support.persia
+		Prerequisites: support.egypt
 	AirstrikePower@spyplane:
 		OrderName: SovietSpyPlane
-		Prerequisites: support.egypt
+		Prerequisites: support.japan
 		Icon: uav
 		ChargeInterval: 3750
 		Name: Recon Drone
@@ -2650,7 +2989,7 @@ COMMCENT:
 		PauseOnCondition: turnedoff || disabled
 		OrderName: EMP Bomb
 		Icon: empbombicon
-		Prerequisites: ~support.ukraine
+		Prerequisites: ~support.usa
 		ChargeInterval: 8500
 		Name: EMP Bomb
 		Description: A Thunderbolt drops an EMP bomb\ndisabling mechanical units.
@@ -2710,7 +3049,7 @@ COMMCENT:
 		PauseOnCondition: turnedoff || disabled
 		OrderName: DedMaroz
 		Icon: blizzardicon
-		Prerequisites: support.belarus
+		Prerequisites: support.russia
 		ChargeInterval: 8500
 		Name: Blizzard
 		Description: A freezing blizzard approaches the map\nfrom the chosen direction.
@@ -2880,7 +3219,7 @@ COMMCENT:
 		TargetCircleRange: 4c0
 		TargetCircleColor: 0000FF90
 		Duration: 350
-		Prerequisites: support.japan
+		Prerequisites: support.persia
 		Sequence: idle
 	GrantExternalConditionPowerCA@PROPAGANDA:
 		OrderName: Propaganda
@@ -2919,7 +3258,7 @@ COMMCENT:
 		SupportPowerPaletteOrder: 10
 		Dimensions: 2, 2
 		Footprint: xx xx
-		Prerequisites: support.russia
+		Prerequisites: support.belarus
 		ExplosionWeapon: SuperchargeBurst
 		ExplosionDelay : 0
 	GrantExternalConditionPowerCA@SUPPLYARMS:
@@ -2940,7 +3279,7 @@ COMMCENT:
 		Dimensions: 2, 2
 		Footprint: xx xx
 		Prerequisites: support.arabia
-		ExplosionWeapon: SuperchargeBurst
+		ExplosionWeapon: ArmsBurst
 		ExplosionDelay : 0
 	AirstrikePower@Paramine:
 		PauseOnCondition: turnedoff || disabled
@@ -2998,7 +3337,7 @@ COMMCENT:
 		Name: Metempsychosis
 		EndChargeSpeechNotification: SupportPowerReady
 		ActivationDelay: 1
-		Description: Raises dead infantry corpses as zombies.
+		Description: Raises dead infantry corpses as Thralls.
 		Weapon: Metempsychosis
 		AirburstAltitude: 0c0
 		AllowMultiple: false
@@ -3038,11 +3377,13 @@ COMMCENT:
 		TargetCircleRange: 2c0
 		TargetCircleColor: 0000FF90
 		Duration: 350
-		Prerequisites: support.austria
+		Prerequisites: support.germany
 		Sequence: idle
+	SpawnActorOnDeath@tunnel:
+		Actor: tunnelcommcent
 
 TRIAGE:
-	Inherits: ^Building
+	Inherits: ^FactionBuilding
 	Inherits@POWER_OUTAGE: ^DisabledByPowerOutage
 	Inherits@shape: ^3x3Shape
 	Inherits@rubbles: ^3x3Rubbles
@@ -3112,9 +3453,11 @@ TRIAGE:
 			kazakhstan: ktriage
 			arabia: ktriage
 			transcaucasia: ktriage
+	SpawnActorOnDeath@tunnel:
+		Actor: tunneltriage
 
 WEAP:
-	Inherits: ^Building
+	Inherits: ^FactionBuilding
 	Inherits@shape: ^3x3Shape
 	Inherits@PRIMARY: ^PrimaryBuilding
 	Inherits@rubbles: ^3x3Rubbles
@@ -3133,7 +3476,7 @@ WEAP:
 	Valued:
 		Cost: 1700
 	Tooltip:
-		Name: Heavy Factory
+		Name: War Factory
 	Building:
 		Footprint: x+x xxx x+x
 		Dimensions: 3,3
@@ -3279,32 +3622,41 @@ WEAP:
 	GrantExternalConditionToProduced@spawned:
 		Duration: 100
 		Condition: spawned
+	ProvidesPrerequisite@msam:
+		Factions: germany, austria, italy, abyssinia, turkey
+		Prerequisite: vehicles.msam
 	ProvidesPrerequisite@leopard:
-		Factions: germany, austria, bulgaria, abyssinia, turkey, persia
+		Factions: germany, austria, bulgaria, abyssinia, turkey
 		Prerequisite: vehicles.leopard
 	ProvidesPrerequisite@bobcat:
-		Factions: germany, austria, italy, bulgaria, abyssinia, persia, turkey
+		Factions: germany, austria, italy, bulgaria, abyssinia, turkey
 		Prerequisite: vehicles.bobcat
-	ProvidesPrerequisite@puma:
-		Factions: austria, italy, bulgaria, abyssinia, persia
-		Prerequisite: vehicles.puma
+	ProvidesPrerequisite@wiesel:
+		Factions: austria, italy, bulgaria, abyssinia, turkey
+		Prerequisite: vehicles.wiesel
+	ProvidesPrerequisite@halftrack:
+		Factions: italy, germany, turkey, austria
+		Prerequisite: vehicles.halftrack
 	ProvidesPrerequisite@jeep:
-		Factions: england, france, japan, raj, egypt
+		Factions: england, france, raj, egypt
 		Prerequisite: vehicles.jeep
 	ProvidesPrerequisite@apc:
-		Factions: usa, france, japan, raj, serbia, egypt
+		Factions: usa, france, serbia, egypt, raj
 		Prerequisite: vehicles.apc
 	ProvidesPrerequisite@squire:
-		Factions: england, france, usa, japan, raj, serbia, egypt
+		Factions: france, usa, serbia, egypt, egnland
 		Prerequisite: vehicles.squire
+	ProvidesPrerequisite@paladin:
+		Factions: england, usa, serbia, egypt
+		Prerequisite: vehicles.paladin
+	ProvidesPrerequisite@arty:
+		Factions: england, france, usa, serbia, egypt, japan
+		Prerequisite: vehicles.arty
 	ProvidesPrerequisite@crusader:
-		Factions: england, france, usa, raj, serbia, egypt
+		Factions: england, france, usa, serbia, egypt
 		Prerequisite: vehicles.crusader
-	ProvidesPrerequisite@squire:
-		Factions: england, france, usa, raj, japan, egypt
-		Prerequisite: vehicles.squire
 	ProvidesPrerequisite@tankette:
-		Factions: russia, ukraine, belarus, transcaucasia, kazakhstan, china
+		Factions: russia, ukraine, belarus, transcaucasia, kazakhstan
 		Prerequisite: vehicles.tankette
 	ProvidesPrerequisite@ftrk:
 		Factions: russia, ukraine, belarus, transcaucasia, kazakhstan, china
@@ -3312,25 +3664,29 @@ WEAP:
 	ProvidesPrerequisite@transporter:
 		Factions: russia, ukraine, belarus, transcaucasia, kazakhstan, china, arabia, mongolia
 		Prerequisite: vehicles.transporter
+	ProvidesPrerequisite@katy:
+		Factions: russia, china, arabia, kazakhstan, ukraine
+		Prerequisite: vehicles.katy
 	ProvidesPrerequisite@btr:
-		Factions: russia, ukraine, belarus, transcaucasia, kazakhstan
+		Factions: belarus, transcaucasia, kazakhstan, ukraine
 		Prerequisite: vehicles.btr
 	ProvidesPrerequisite@mnly:
-		Factions: russia, ukraine, belarus, transcaucasia, kazakhstan, china, arabia, mongolia, england, usa, france, japan, raj, serbia, germany, austria, turkey, persia, italy, abyssinia, bulgaria
+		Factions: russia, ukraine, usa, belarus, turkey, transcaucasia, kazakhstan, china, arabia, mongolia, england, france, raj, serbia, germany, austria, persia, italy, abyssinia, bulgaria
 		Prerequisite: vehicles.mnly
 	ProvidesPrerequisite@leopard:
 		Factions: germany, austria, abyssinia, bulgaria, turkey
 		Prerequisite: vehicles.leopard
 	ProvidesPrerequisite@v2rl:
-		Factions: germany, austria, abyssinia, bulgaria, turkey, persia
+		Factions: germany, austria, abyssinia, bulgaria, turkey
 		Prerequisite: vehicles.v2rl
 	ProvidesPrerequisite@cossack:
-		Factions: russia, ukraine, belarus, transcaucasia, kazakhstan
+		Factions: ukraine, belarus, transcaucasia, kazakhstan, china
 		Prerequisite: vehicles.cossack
-
+	SpawnActorOnDeath@tunnel:
+		Actor: tunnelweap
 
 DOME:
-	Inherits: ^Building
+	Inherits: ^FactionBuilding
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
@@ -3409,9 +3765,11 @@ DOME:
 	InfiltrateForSupportPower@spied-dome:
 		Proxy: proxy.spied-dome
 		Types: SpyInfiltrate
+	SpawnActorOnDeath@tunnel:
+		Actor: tunneldome
 
 PROC:
-	Inherits: ^Building
+	Inherits: ^FactionBuilding
 	Inherits@rubbles: ^3x3Rubbles
 	Inherits@sabotable: ^Sabotable
 	Buildable:
@@ -3452,7 +3810,7 @@ PROC:
 	StoresPlayerResources:
 		Capacity: 2000
 	CustomSellValue:
-		Value: 300
+		Value: 200
 	FreeActor:
 		Actor: HARV
 		SpawnOffset: 1,1
@@ -3509,6 +3867,13 @@ PROC:
 	TransformOnCondition@sabotaged:
 		IntoActor: proc.disabled
 		RequiresCondition: sabotagedtimer
+	SpawnActorOnDeath@tunnel:
+		Actor: tunnelproc
+
+PROC.NOHARV:
+	Inherits: PROC
+	-FreeActor:
+	-Buildable:
 
 PROC.disabled:
 	Inherits: PROC
@@ -3541,7 +3906,7 @@ PROC.resumed:
 	-MapEditorData:
 
 SILO:
-	Inherits: ^Building
+	Inherits: ^FactionBuilding
 	Inherits@rubbles: ^1x1Rubbles
 	Selectable:
 		Bounds: 1024, 1448
@@ -3589,14 +3954,14 @@ SILO:
 		HasMinibib: True
 
 STHGENSM:
-	Inherits: ^Building
+	Inherits: ^FactionBuilding
 	Inherits@rubbles: ^1x1Rubbles
 	Selectable:
 		Bounds: 1024, 1448
 	Buildable:
 		Queue: Defense
-		BuildPaletteOrder: 35
-		Prerequisites: atek, ~structures.japan, ~techlevel.infonly
+		BuildPaletteOrder: 100
+		Prerequisites: atek, ~structures.france, ~techlevel.infonly
 		Description: Small phase station.
 	Valued:
 		Cost: 1300
@@ -3650,7 +4015,7 @@ LAZARUSPLATFORM:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 180
-		Prerequisites: dome, ~structures.austria, ~techlevel.medium
+		Prerequisites: dome, ~structures.germany, ~techlevel.medium
 		Description: Slowly heals or repairs surrounding units\nby gathering bits of their past selves\nfrom the space-time continuum.
 	TooltipExtras:
 		Attributes: • Passive Ability: Passively heals surrounding units.
@@ -3685,7 +4050,7 @@ LAZARUSPLATFORM:
 		Color: 00FFFF
 
 HPAD:
-	Inherits: ^Building
+	Inherits: ^FactionBuilding
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
 	Inherits@PRIMARY: ^PrimaryBuilding
@@ -3740,6 +4105,9 @@ HPAD:
 	ProvidesPrerequisite@allies:
 		Factions: allies, england, france, usa, japan, serbia, raj, egypt
 		Prerequisite: helicopter.allies
+	ProvidesPrerequisite@longbow:
+		Factions: england, france, usa, serbia, raj, egypt, japan
+		Prerequisite: helicopter.longbow
 	ProvidesPrerequisite@england:
 		Factions: england
 		Prerequisite: helicopter.england
@@ -3761,6 +4129,9 @@ HPAD:
 	ProvidesPrerequisite@soviet:
 		Factions: soviet, ukraine, mongolia, russia, china, kazakhstan, belarus, arabia, transcaucasia
 		Prerequisite: helicopter.soviet
+	ProvidesPrerequisite@halo:
+		Factions: soviet, ukraine, mongolia, russia, kazakhstan, belarus, arabia, transcaucasia
+		Prerequisite: helicopter.halo
 	ProvidesPrerequisite@ukraine:
 		Factions: ukraine
 		Prerequisite: helicopter.ukraine
@@ -3806,9 +4177,6 @@ HPAD:
 	ProvidesPrerequisite@egypt:
 		Factions: egypt
 		Prerequisite: helicopter.egypt
-	ProvidesPrerequisite@china:
-		Factions: china
-		Prerequisite: hpad.support.china
 	ProvidesPrerequisite@buildingname:
 	Targetable:
 		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
@@ -3832,6 +4200,8 @@ HPAD:
 			arabia: shpad
 			abyssinia: mhpad
 			transcaucasia: shpad
+	SpawnActorOnDeath@tunnel:
+		Actor: tunnelhpad
 
 HPAD.RAJ:
 	Inherits: HPAD
@@ -3839,9 +4209,20 @@ HPAD.RAJ:
 		Prerequisites: ~techlevel.medium, ~structures.raj
 	RenderSprites:
 		Image: hpad
+	TooltipExtras:
+		Attributes: • India may build Helipads without Radar Dome.
+
+AFLD.RAJ:
+	Inherits: AFLD
+	Buildable:
+		Prerequisites: dome, ~techlevel.medium, ~structures.raj
+	RenderSprites:
+		Image: afld
+	TooltipExtras:
+		Attributes: • Support Power: Paratroopers.\n• India may build Airfields with Radar Dome.
 
 AFLD:
-	Inherits: ^Building
+	Inherits: ^FactionBuilding
 	Inherits@shape: ^3x2Shape
 	Inherits@rubbles: ^3x2Rubbles
 	Inherits@PRIMARY: ^PrimaryBuilding
@@ -3908,13 +4289,13 @@ AFLD:
 		Factions: england, france, usa, serbia
 		Prerequisite: aircraft.longbow
 	ProvidesPrerequisite@tacticalbomber:
-		Factions: china, mongolia, arabia, kazakhstan, russia, belarus, transcaucasia
+		Factions: china, mongolia, arabia, kazakhstan, russia, belarus, transcaucasia, ukraine
 		Prerequisite: aircraft.tacticalbomber
 	ProvidesPrerequisite@stuka:
 		Factions: austria, italy, germany, persia, turkey, abyssinia
 		Prerequisite: aircraft.stuka
 	ProvidesPrerequisite@messer:
-		Factions: austria, italy, germany, persia, turkey, abyssinia
+		Factions: italy, germany, persia, turkey, abyssinia
 		Prerequisite: aircraft.messer
 	ProvidesPrerequisite@gebard:
 		Factions: austria, italy, persia
@@ -4047,9 +4428,11 @@ AFLD:
 		DirectionArrowAnimation: paradirection
 		SupportPowerPaletteOrder: 50
 		EndChargeSpeechNotification: ReinforcementsReady
+	SpawnActorOnDeath@tunnel:
+		Actor: tunnelafld
 
 TELEPORTTUNNEL:
-	Inherits: ^Building
+	Inherits: ^FactionBuilding
 	Inherits@POWER_OUTAGE: ^DisabledByPowerOutage
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
@@ -4057,11 +4440,6 @@ TELEPORTTUNNEL:
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@sabotable: ^Sabotable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
-	Buildable:
-		Queue: Building
-		BuildPaletteOrder: 400
-		Prerequisites: ~vehicles.arabia, stek, ~techlevel.medium
-		Description: Tracked motorbike,\narmed with two rocket launchers.
 	Selectable:
 		Bounds: 2496, 2496
 	HitShape:
@@ -4102,7 +4480,7 @@ TELEPORTTUNNEL:
 		HasMinibib: True
 
 POWR:
-	Inherits: ^Building
+	Inherits: ^FactionBuilding
 	Inherits@POWER_OUTAGE: ^DisabledByPowerOutage
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
@@ -4163,9 +4541,11 @@ POWR:
 			france: epowr
 			egypt: epowr
 			abyssinia: mpowr
+	SpawnActorOnDeath@tunnel:
+		Actor: tunnelpowr
 
 APWR:
-	Inherits: ^Building
+	Inherits: ^FactionBuilding
 	Inherits@POWER_OUTAGE: ^DisabledByPowerOutage
 	Inherits@shape: ^3x2Shape
 	Inherits@rubbles: ^3x2Rubbles
@@ -4229,9 +4609,11 @@ APWR:
 			france: eapwr
 			egypt: eapwr
 			abyssinia: mapwr
+	SpawnActorOnDeath@tunnel:
+		Actor: tunnelapwr
 
 TESLAPP:
-	Inherits: ^Building
+	Inherits: ^FactionBuilding
 	Inherits@POWER_OUTAGE: ^DisabledByPowerOutage
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
@@ -4279,9 +4661,11 @@ TESLAPP:
 	WithDeathAnimation:
 		DeathSequence: dead
 		UseDeathTypeSuffix: false
+	SpawnActorOnDeath@tunnel:
+		Actor: tunnelteslapp
 
 CYBERLAB:
-	Inherits: ^Building
+	Inherits: ^FactionBuilding
 	Inherits@POWER_OUTAGE: ^DisabledByPowerOutage
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
@@ -4325,9 +4709,11 @@ CYBERLAB:
 	Targetable:
 		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration
 	ProvidesPrerequisite@cyberlab:
+	SpawnActorOnDeath@tunnel:
+		Actor: tunnelcyberlab
 
 HORSEBREEDER:
-	Inherits: ^Building
+	Inherits: ^FactionBuilding
 	Inherits@POWER_OUTAGE: ^DisabledByPowerOutage
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
@@ -4338,7 +4724,7 @@ HORSEBREEDER:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 600
-		Prerequisites: ~vehicles.mongolia, ~techlevel.medium
+		Prerequisites: ~vehicles.china, ~techlevel.medium
 		Description: Horse breeding center.
 	ProductionTimeMultiplier@basediscount:
 		Multiplier: 85
@@ -4370,9 +4756,11 @@ HORSEBREEDER:
 	Targetable:
 		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration
 	ProvidesPrerequisite@cyberlab:
+	SpawnActorOnDeath@tunnel:
+		Actor: tunnelhorsebreeder
 
 APWR:
-	Inherits: ^Building
+	Inherits: ^FactionBuilding
 	Inherits@POWER_OUTAGE: ^DisabledByPowerOutage
 	Inherits@shape: ^3x2Shape
 	Inherits@rubbles: ^3x2Rubbles
@@ -4431,6 +4819,8 @@ APWR:
 			france: eapwr
 			egypt: eapwr
 			abyssinia: mapwr
+	SpawnActorOnDeath@tunnel:
+		Actor: tunnelapwr
 
 STEK:
 	Inherits: ^ScienceBuilding
@@ -4476,6 +4866,8 @@ STEK:
 	HitShape:
 		UseTargetableCellsOffsets: false
 		TargetableOffsets: 0,0,0, 490,-470,0, 355,512,0, -355,-512,0, -630,512,0
+	SpawnActorOnDeath@tunnel:
+		Actor: tunnelstek
 
 MTEK:
 	Inherits: ^ScienceBuilding
@@ -4522,6 +4914,8 @@ MTEK:
 	HitShape:
 		UseTargetableCellsOffsets: false
 		TargetableOffsets: 0,0,0, 490,-470,0, 355,512,0, -355,-512,0, -630,512,0
+	SpawnActorOnDeath@tunnel:
+		Actor: tunnelmtek
 
 ATEK:
 	Inherits: ^ScienceBuilding
@@ -4567,9 +4961,11 @@ ATEK:
 	HitShape:
 		UseTargetableCellsOffsets: false
 		TargetableOffsets: 0,0,0, 490,-470,0, 355,512,0, -355,-512,0, -630,512,0
+	SpawnActorOnDeath@tunnel:
+		Actor: tunnelatek
 
 INDPLANT:
-	Inherits: ^Building
+	Inherits: ^FactionBuilding
 	Inherits@POWER_OUTAGE: ^DisabledByPowerOutage
 	Inherits@shape: ^3x2Shape
 	Inherits@rubbles: ^3x2Rubbles
@@ -4616,9 +5012,11 @@ INDPLANT:
 		UseDeathTypeSuffix: false
 	RenderSprites:
 	ProvidesPrerequisite:
+	SpawnActorOnDeath@tunnel:
+		Actor: tunnelindplant
 
 FIX:
-	Inherits: ^Building
+	Inherits: ^FactionBuilding
 	Inherits@rubbles: ^FixRubbles
 	Inherits@sabotable: ^Sabotable
 	Inherits@discount: ^BuildTimeDiscount
@@ -4683,9 +5081,11 @@ FIX:
 			abyssinia: mfix
 	WithBuildingBib:
 		HasMinibib: True
+	SpawnActorOnDeath@tunnel:
+		Actor: tunnelfix
 
 BARR:
-	Inherits: ^Building
+	Inherits: ^FactionBuilding
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
 	Inherits@PRIMARY: ^PrimaryBuilding
@@ -4747,20 +5147,6 @@ BARR:
 	Production:
 		Produces: Infantry, Soldier
 		PauseOnCondition: being-captured || turnedoff
-	ProductionQueue:
-		Type: Infantry
-		DisplayOrder: 2
-		Group: Infantry
-		LowPowerModifier: 150
-		ReadyAudio: UnitReady
-		ReadyTextNotification: notification-unit-ready
-		BlockedAudio: NoBuild
-		BlockedTextNotification: notification-unable-to-build-more
-		LimitedAudio: BuildingInProgress
-		LimitedTextNotification: notification-unable-to-comply-building-in-progress
-		QueuedAudio: Training
-		OnHoldAudio: OnHold
-		CancelledAudio: Cancelled
 	GrantExternalConditionToProduced:
 		Condition: produced
 	ProductionBar:
@@ -4770,21 +5156,45 @@ BARR:
 	ProvidesPrerequisite@medic:
 		Factions: usa, raj, japan, france, england, serbia, egypt
 		Prerequisite: infantry.medic
+	ProvidesPrerequisite@officer:
+		Factions: germany, turkey, italy, austria
+		Prerequisite: infantry.officer
+	ProvidesPrerequisite@flamer:
+		Factions: germany, turkey, italy, austria
+		Prerequisite: infantry.flamer
+	ProvidesPrerequisite@grunt:
+		Factions: usa, raj, japan
+		Prerequisite: infantry.grunt
 	ProvidesPrerequisite@spy:
 		Factions: usa, raj, france, serbia
 		Prerequisite: infantry.spy
+	ProvidesPrerequisite@saboteur:
+		Factions: germany, austria, turkey, persia
+		Prerequisite: infantry.saboteur
+	ProvidesPrerequisite@politruk:
+		Factions: arabia, russia, china, ukraine
+		Prerequisite: infantry.politruk
+	ProvidesPrerequisite@thief:
+		Factions: arabia, russia, china, ukraine
+		Prerequisite: infantry.thief
+	ProvidesPrerequisite@penal:
+		Factions: arabia, china
+		Prerequisite: infantry.penal
+	ProvidesPrerequisite@dog:
+		Factions: germany, austria, italy, turkey
+		Prerequisite: infantry.dog
+	ProvidesPrerequisite@grenadier:
+		Factions: arabia, russia, china
+		Prerequisite: infantry.grenadier
 	ProvidesPrerequisite@rifleman:
-		Factions: russia, ukraine, mongolia, arabia, germany, austria, persia, turkey, england, france, usa, japan, raj, serbia, kazakhstan, egypt, abyssinia, bulgaria, belarus, transcaucasia
+		Factions: russia, ukraine, mongolia, arabia, germany, austria, persia, turkey, england, france, usa, japan, raj, serbia, egypt, abyssinia, bulgaria, belarus, transcaucasia
 		Prerequisite: infantry.rifleman
 	ProvidesPrerequisite@rocketman:
-		Factions: russia, ukraine, mongolia, arabia, germany, austria, persia, turkey, england, france, usa, japan, raj, serbia, kazakhstan, egypt, abyssinia, bulgaria, belarus, transcaucasia
+		Factions: russia, ukraine, mongolia, arabia, germany, austria, persia, turkey, england, france, usa, japan, raj, serbia, egypt, abyssinia, bulgaria, belarus, transcaucasia
 		Prerequisite: infantry.rocketman
 	ProvidesPrerequisite@engineer:
-		Factions: russia, ukraine, mongolia, china, germany, austria, persia, italy, turkey, england, france, usa, japan, raj, kazakhstan, bulgaria, serbia, belarus, egypt, transcaucasia
+		Factions: russia, ukraine, mongolia, china, germany, austria, persia, italy, turkey, england, france, usa, japan, bulgaria, serbia, belarus, egypt, transcaucasia
 		Prerequisite: infantry.engineer
-	ProvidesPrerequisite@dog:
-		Factions: germany, austria, persia, turkey, bulgaria, italy
-		Prerequisite: infantry.dog
 	ProvidesPrerequisite@mechanic:
 		Factions: raj, usa, france, japan, england, serbia, egypt
 		Prerequisite: infantry.mechanic
@@ -4899,6 +5309,8 @@ BARR:
 			france: erax
 			egypt: erax
 			abyssinia: mrax
+	SpawnActorOnDeath@tunnel:
+		Actor: tunnelbarr
 
 FLKGUN:
 	Inherits: AGUN
@@ -4941,7 +5353,7 @@ ROBOCOM:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 150
-		Prerequisites: adept, ~structures.egypt, ~techlevel.unrestricted
+		Prerequisites: adept, ~structures.japan, ~techlevel.unrestricted
 		BuildLimit: 1
 		Description: Reveals the map and enemy positions.
 	TooltipExtras:
@@ -5022,7 +5434,7 @@ UPLINK:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 150
-		Prerequisites: atek, ~structures.entente, ~techlevel.unrestricted
+		Prerequisites: mtek, ~structures.zentrum, ~techlevel.unrestricted
 		BuildLimit: 1
 		Description: Reveals the map and enemy positions.
 	TooltipExtras:
@@ -5205,7 +5617,7 @@ EMPGUN:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 112
-		Prerequisites: stek, ~structures.komintern, ~techlevel.unrestricted
+		Prerequisites: atek, ~structures.entente, ~techlevel.unrestricted
 		Description: Disables mechanical units in an area.\nLimited range.\nRequires power to operate.
 	TooltipExtras:
 		Attributes: • Build limit 1.\n• Support Power: EM Pulse
@@ -5267,7 +5679,7 @@ SRIMP:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 170
-		Prerequisites: mtek, ~structures.zentrum, ~techlevel.unrestricted
+		Prerequisites: mtek, ~structures.egypt, ~techlevel.unrestricted
 		BuildLimit: 1
 		Description: Provides a local shroud Gap.\nRequires power to operate.
 	TooltipExtras:
@@ -5329,6 +5741,86 @@ SRIMP:
 		Sequence: damaged-active
 	WithBuildingBib:
 		HasMinibib: True
+
+PSYCHICDOMINATOR:
+	Inherits: ^ScienceBuilding
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Inherits@shape: ^2x2Shape
+	Inherits@rubbles: ^2x2Rubbles
+	Inherits@sabotable: ^Sabotable
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Health:
+		HP: 100000
+	Armor:
+		Type: Wood
+	Valued:
+		Cost: 1600
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 170
+		Prerequisites: stek, ~structures.komintern, ~techlevel.unrestricted
+		BuildLimit: 1
+		Description: Provides a local shroud Gap.\nRequires power to operate.
+	TooltipExtras:
+		Attributes: • Build limit 1.\n• Support Power: Gap.
+	RevealsShroud:
+		MinRange: 5c0
+		Range: 6c0
+		RequiresCondition: !disabled
+		RevealGeneratedShroud: False
+	RevealsShroud@Offline:
+		Range: 5c0
+		RequiresCondition: disabled
+	RevealsShroud@GAPGEN:
+		Range: 5c0
+		RequiresCondition: !disabled
+	MustBeDestroyed:
+		RequiredForShortGame: false
+	InfiltrateForSupportPowerReset:
+		Types: SpyInfiltrate
+	Targetable:
+		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
+	Selectable:
+		Bounds: 2148, 2508, 0, 120
+		DecorationBounds: 2148, 2608, 0, -300
+	SpawnActorPower:
+		Actor: CENTRALSRIMP
+		LifeTime: 500
+		SelectTargetSpeechNotification: SelectTarget
+		InsufficientPowerSpeechNotification: InsufficientPower
+		ChargeInterval: 6000
+		Icon: dominate
+		Name: Dominate
+		Description: Takes control of enemy units in the proximity.
+		Cursor: attack
+		OrderName: SpawnActorPowerInfoOrderSrimp
+		PauseOnCondition: disabled || turnedoff
+		EndChargeSpeechNotification: VeilReady
+		EffectImage: empty
+		EffectSequence: idle
+		SupportPowerPaletteOrder: 1
+		BlockedCursor: move-blocked
+	SupportPowerChargeBar:
+	Tooltip:
+		Name: Psychic Dominator
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Power:
+		Amount: -200
+	GrantConditionOnHealth:
+		Condition: iambroken
+		MaxHP: 50000
+	WithSupportPowerActivationOverlay@FullHealth:
+		RequiresCondition: !iambroken
+		Sequence: active
+	WithSupportPowerActivationOverlay@DAMAGED:
+		RequiresCondition: iambroken
+		Sequence: damaged-active
+	WithBuildingBib:
+		HasMinibib: True
+
 
 SBAG:
 	Inherits: ^Wall
@@ -5551,7 +6043,7 @@ TRENCH:
 		Sequence: build
 
 BURROW:
-	Inherits: ^Building
+	Inherits: ^FactionBuilding
 	Inherits@shape: ^2x2Shape
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Inherits@CARGOPIPS: ^CargoPips

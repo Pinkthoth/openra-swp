@@ -187,6 +187,23 @@
 			Ore: 70
 			Gems: 70
 			Beach: 70
+	Locomotor@amphibious:
+		Name: amphibious
+		Crushes: wall, mine, crate
+		TerrainSpeeds:
+			Clear: 80
+			Pavement: 90
+			Rough: 70
+			Sand: 60
+			TallGrass: 75
+			Road: 100
+			PavedRoad: 100
+			Bridge: 100
+			Ore: 70
+			Gems: 70
+			Beach: 70
+			River: 40
+			Water: 40
 	Locomotor@HOVER:
 		Name: hover
 		Crushes: crate
@@ -260,21 +277,6 @@
 		InternalName: germany
 		Side: Pact
 		Description: faction-germany.description
-	Faction@100:
-		Name: Bulgaria
-		InternalName: bulgaria
-		Side: Pact
-		Description: faction-bulgaria.description
-	Faction@101:
-		Name: Spain
-		InternalName: serbia
-		Side: Entente
-		Description: faction-spain.description
-	Faction@102:
-		Name: Belarus
-		InternalName: belarus
-		Side: Komintern
-		Description: faction-belarus.description
 	Faction@18:
 		Name: Persia
 		InternalName: persia
@@ -295,11 +297,6 @@
 		InternalName: arabia
 		Side: Komintern
 		Description: faction-arabia.description
-	Faction@25:
-		Name: Mongolia
-		InternalName: mongolia
-		Side: Komintern
-		Description: faction-mongolia.description
 	Faction@6:
 		Name: Ukraine
 		InternalName: ukraine
@@ -350,21 +347,6 @@
 		InternalName: raj
 		Side: Entente
 		Description: faction-raj.description
-	Faction@21:
-		Name: Romania
-		InternalName: abyssinia
-		Side: Pact
-		Description: faction-abyssinia.description
-	Faction@22:
-		Name: Korea
-		InternalName: egypt
-		Side: Entente
-		Description: faction-egypt.description
-	Faction@23:
-		Name: Transcaucasia
-		InternalName: transcaucasia
-		Side: Komintern
-		Description: faction-transcaucasia.description
 	Faction@random:
 		Name: Any
 		InternalName: Random
@@ -374,19 +356,19 @@
 	Faction@randomallies:
 		Name: Entente
 		InternalName: RandomAllies
-		RandomFactionMembers: england, france, usa, japan, raj, serbia, egypt
+		RandomFactionMembers: england, france, usa, japan, raj
 		Side: Random
 		Description: faction-allies.description
 	Faction@randomsoviet:
 		Name: Komintern
 		InternalName: RandomSoviet
-		RandomFactionMembers: russia, ukraine, china, kazakhstan, arabia, belarus, transcaucasia, mongolia
+		RandomFactionMembers: russia, ukraine, china, kazakhstan, arabia 
 		Side: Random
 		Description: faction-soviet.description
 	Faction@randomzentrum:
 		Name: Pact
 		InternalName: Randomzentrum
-		RandomFactionMembers: germany, austria, turkey, italy, persia, bulgaria, abyssinia
+		RandomFactionMembers: germany, austria, turkey, italy, persia
 		Side: Random
 		Description: faction-zentrum.description
 	ResourceRenderer:
