@@ -237,6 +237,10 @@
 	PaletteFromFile@POISONPAL:
 		Name: poisonpal
 		Filename: poisonpal.pal
+	PaletteFromPaletteWithAlpha@poison:
+		Name: poison-alpha
+		BasePalette: poisonpal
+		Alpha: 0.55
 	PaletteFromFile@FROSTPAL:
 		Name: frostpal
 		Filename: frostpal.pal

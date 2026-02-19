@@ -360,7 +360,7 @@ SiegeGun:
 	TargetActorCenter: true
 	Projectile: Bullet
 		ContrailLength: 30
-		Speed: 170
+		Speed: 120
 		Inaccuracy: 1c138
 		ContrailStartColor: 4CFF00
 		ContrailEndColor: 007F0E
@@ -371,7 +371,7 @@ SiegeGun:
 		Versus:
 			None: 60
 			Concrete: 55
-		Damage: 8000
+		Damage: 1000
 	Warhead@3Eff: CreateEffect
 		Explosions: small_tox
 		ExplosionPalette: poisonpal
@@ -380,6 +380,29 @@ SiegeGun:
 		Duration: 100
 		Range: 3c00
 		ValidTargets: Infantry
+	Warhead@spawn: SpawnActor
+		Delay: 20
+		Actors: poisoncloud
+		ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
+
+155mm_SiegeChopper:
+	Inherits: ^Artillery
+	ReloadDelay: 120
+	MinRange: 4c0
+	Range: 10c512
+	Report: howshell.aud
+	TargetActorCenter: true
+	Projectile: Bullet
+		ContrailLength: 30
+		Speed: 170
+		LaunchAngle: 90
+		Inaccuracy: 1c250
+	Warhead@1Dam: SpreadDamage
+		Falloff: 100, 55, 20, 5
+		Damage: 10000
+		Versus:
+			None: 60
+			Concrete: 55
 
 155mm_Howitzer:
 	Inherits: ^Artillery
@@ -1046,6 +1069,36 @@ bigberthagun:
 	Warhead@8Eff: CreateEffect
 		Explosions: napalm
 		ValidTargets: Ground, GroundActor, Ship, WaterActor, Trees, Trees, Corpse
+
+BikeMortar:
+	Inherits: ^Artillery
+	ReloadDelay: 90
+	Report: glnch4.aud
+	Range: 6c512
+	Projectile: Bullet
+		LaunchAngle: 140
+		Speed: 90
+		Inaccuracy: 1c0
+		Image: BOMB
+		ContrailStartWidth: 40
+		ContrailLength: 30
+	Warhead@1Dam: SpreadDamage
+		Spread: 256
+		Falloff: 100, 75, 50, 25, 0
+		Damage: 4500
+		Versus:
+			None: 65
+			Wood: 85
+			Light: 55
+			Medium: 40
+			Heavy: 30
+			Concrete: 50
+	Warhead@3Eff: CreateEffect
+		Explosions: med_explosion
+		ImpactSounds: kaboom25.aud
+	Warhead@4EffWater: CreateEffect
+		Explosions: small_splash
+
 
 GrenadeLauncher:
 	Inherits: ^Artillery

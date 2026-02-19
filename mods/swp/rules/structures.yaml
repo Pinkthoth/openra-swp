@@ -50,7 +50,7 @@ FACT:
 		Factions: soviet, russia, ukraine, china, mongolia, kazakhstan, belarus, arabia, transcaucasia
 		Prerequisite: structures.komintern
 	ProvidesPrerequisite@sentry:
-		Factions: soviet, russia, ukraine, china, mongolia, belarus, arabia, transcaucasia
+		Factions: soviet, russia, ukraine, china, mongolia, belarus, arabia, transcaucasia, kazakhstan
 		Prerequisite: structures.sentry
 	ProvidesPrerequisite@sovietvanilla:
 		Factions: soviet
@@ -669,7 +669,7 @@ TSLA:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 43
-		Prerequisites: weap, ~structures.komintern, ~techlevel.medium
+		Prerequisites: weap, ~structures.komintern, ~techlevel.medium, ~!illicitlab
 		Description: Advanced base defense.\nRequires power to operate.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Vehicles.
@@ -726,8 +726,8 @@ PSYCHTOWER:
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Buildable:
 		Queue: Defense
-		BuildPaletteOrder: 102
-		Prerequisites: stek, ~structures.kazakhstan, ~techlevel.medium
+		BuildPaletteOrder: 44
+		Prerequisites: stek, ~structures.kazakhstan, ~techlevel.medium, ~illicitlab
 		Description: Advanced base defense.\nRequires power to operate.
 	TooltipExtras:
 		Weaknesses: - Weak vs Everything.
@@ -1315,7 +1315,7 @@ CHEMTUR:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 40
-		Prerequisites: barr, ~structures.kazakhstan, ~techlevel.medium
+		Prerequisites: barr, ~structures.kazakhstan, ~techlevel.medium, ~illicitlab
 		Description: Anti-infantry base defense.
 	Valued:
 		Cost: 600
@@ -1581,6 +1581,11 @@ TUNNELCYBERLAB:
 	TransformOnCondition@repaired:
 		IntoActor: cyberlab
 
+TUNNELILLICITLAB:
+	Inherits: TUNNEL2X2
+	TransformOnCondition@repaired:
+		IntoActor: illicitlab
+
 TUNNELMILACADEMY:
 	Inherits: TUNNEL2X2
 	TransformOnCondition@repaired:
@@ -1678,7 +1683,7 @@ SPAINBUNKER:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 40
-		Prerequisites: ~structures.raj, ~techlevel.low
+		Prerequisites: ~structures.egypt, ~techlevel.low
 		Description: A simple bunker.
 	TooltipExtras:
 		Strengths: + Strength depends on the cargo.
@@ -2180,7 +2185,7 @@ GATLINGGUN:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 40
-		Prerequisites: barr, ~structures.sentry, ~techlevel.medium
+		Prerequisites: barr, ~structures.sentry, ~techlevel.medium, ~!illicitlab
 		Description: Anti-infantry base defense.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -3456,6 +3461,114 @@ TRIAGE:
 	SpawnActorOnDeath@tunnel:
 		Actor: tunneltriage
 
+WEAP.KOMINTERN:
+	Inherits: WEAP
+	Targetable@komintern:
+		RequiresCondition: kominternweap
+		TargetTypes: KominternWeap
+	GrantConditionOnFaction@kominternweap:
+		Condition: kominternweap
+		Factions: russia, ukraine, arabia, kazakhstan, china
+	InfiltrateForSupportPower@komintern:
+		Proxy: proxy.kominternweap
+		Types: KominternWeap
+		RequiresCondition: kominternweap
+	-Buildable:
+	-TransformOnCondition@entente:
+	-TransformOnCondition@komintern:
+	-TransformOnCondition@mittel:
+	Tooltip:
+		Name: Komintern War Factory
+	RenderSprites:
+		Image: weap
+		FactionImages:
+			austria: mweap
+			germany: mweap
+			turkey: mweap
+			italy: mweap
+			bulgaria: mweap
+			persia: mweap
+			raj: eweap
+			usa: eweap
+			japan: eweap
+			england: eweap
+			france: eweap
+			serbia: eweap
+			egypt: eweap
+			abyssinia: mweap
+
+WEAP.MITTEL:
+	Inherits: WEAP
+	Targetable@mittel:
+		RequiresCondition: mittelweap
+		TargetTypes: MittelWeap
+	GrantConditionOnFaction@mittelweap:
+		Condition: mittelweap
+		Factions: germany, austria, persia, turkey, italy
+	InfiltrateForSupportPower@mittel:
+		Proxy: proxy.mittelweap
+		Types: MittelWeap
+		RequiresCondition: mittelweap
+	-Buildable:
+	-TransformOnCondition@entente:
+	-TransformOnCondition@komintern:
+	-TransformOnCondition@mittel:
+	Tooltip:
+		Name: Pact War Factory
+	RenderSprites:
+		Image: weap
+		FactionImages:
+			austria: mweap
+			germany: mweap
+			turkey: mweap
+			italy: mweap
+			bulgaria: mweap
+			persia: mweap
+			raj: eweap
+			usa: eweap
+			japan: eweap
+			england: eweap
+			france: eweap
+			serbia: eweap
+			egypt: eweap
+			abyssinia: mweap
+
+WEAP.ENTENTE:
+	Inherits: WEAP
+	Targetable@entente:
+		RequiresCondition: ententeweap
+		TargetTypes: EntenteWeap
+	GrantConditionOnFaction@ententeweap:
+		Condition: ententeweap
+		Factions: usa, england, france, raj, japan
+	InfiltrateForSupportPower@entente:
+		Proxy: proxy.ententeweap
+		Types: EntenteWeap
+		RequiresCondition: ententeweap
+	-Buildable:
+	-TransformOnCondition@entente:
+	-TransformOnCondition@komintern:
+	-TransformOnCondition@mittel:
+	Tooltip:
+		Name: Entente War Factory
+	RenderSprites:
+		Image: weap
+		FactionImages:
+			austria: mweap
+			germany: mweap
+			turkey: mweap
+			italy: mweap
+			bulgaria: mweap
+			persia: mweap
+			raj: eweap
+			usa: eweap
+			japan: eweap
+			england: eweap
+			france: eweap
+			serbia: eweap
+			egypt: eweap
+			abyssinia: mweap
+
 WEAP:
 	Inherits: ^FactionBuilding
 	Inherits@shape: ^3x3Shape
@@ -3464,6 +3577,23 @@ WEAP:
 	Inherits@sabotable: ^Sabotable
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	TransformOnCondition@komintern:
+		RequiresCondition: komiternweap
+		IntoActor: weap.komintern
+	TransformOnCondition@entente:
+		RequiresCondition: ententeweap
+		IntoActor: weap.entente
+	TransformOnCondition@mittel:
+		IntoActor: weap.mittel
+	GrantConditionOnFaction@ententeweap:
+		Condition: ententeweap
+		Factions: usa, england, france, raj, japan
+	GrantConditionOnFaction@mittelweap:
+		Condition: mittelweap
+		Factions: germany, austria, persia, turkey, italy
+	GrantConditionOnFaction@komiternweap:
+		Condition: komiternweap
+		Factions: russia, ukraine, arabia, kazakhstan, china
 	ProductionTimeMultiplier@basediscount:
 		Multiplier: 90
 	Selectable:
@@ -3471,7 +3601,7 @@ WEAP:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 85
-		Prerequisites: anypower, ~techlevel.low
+		Prerequisites: anypower, barr, ~techlevel.low, ~!structures.raj
 		Description: Produces heavy vehicles.
 	Valued:
 		Cost: 1700
@@ -3638,10 +3768,10 @@ WEAP:
 		Factions: italy, germany, turkey, austria
 		Prerequisite: vehicles.halftrack
 	ProvidesPrerequisite@jeep:
-		Factions: england, france, raj, egypt
+		Factions: france, egypt, england, usa
 		Prerequisite: vehicles.jeep
 	ProvidesPrerequisite@apc:
-		Factions: usa, france, serbia, egypt, raj
+		Factions: usa, france, serbia, egypt
 		Prerequisite: vehicles.apc
 	ProvidesPrerequisite@squire:
 		Factions: france, usa, serbia, egypt, egnland
@@ -3668,10 +3798,10 @@ WEAP:
 		Factions: russia, china, arabia, kazakhstan, ukraine
 		Prerequisite: vehicles.katy
 	ProvidesPrerequisite@btr:
-		Factions: belarus, transcaucasia, kazakhstan, ukraine
+		Factions: belarus, transcaucasia, kazakhstan, ukraine, arabia, russia
 		Prerequisite: vehicles.btr
 	ProvidesPrerequisite@mnly:
-		Factions: russia, ukraine, usa, belarus, turkey, transcaucasia, kazakhstan, china, arabia, mongolia, england, france, raj, serbia, germany, austria, persia, italy, abyssinia, bulgaria
+		Factions: russia, ukraine, japan, belarus, turkey, transcaucasia, kazakhstan, china, arabia, mongolia, england, france, raj, serbia, germany, austria, persia, italy, abyssinia, bulgaria
 		Prerequisite: vehicles.mnly
 	ProvidesPrerequisite@leopard:
 		Factions: germany, austria, abyssinia, bulgaria, turkey
@@ -3684,6 +3814,30 @@ WEAP:
 		Prerequisite: vehicles.cossack
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelweap
+
+WEAP.RAJ:
+	Inherits: WEAP
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 85
+		Prerequisites: anypower, ~techlevel.low, ~structures.raj
+	RenderSprites:
+		Image: weap
+		FactionImages:
+			austria: mweap
+			germany: mweap
+			turkey: mweap
+			italy: mweap
+			bulgaria: mweap
+			persia: mweap
+			raj: eweap
+			usa: eweap
+			japan: eweap
+			england: eweap
+			france: eweap
+			serbia: eweap
+			egypt: eweap
+			abyssinia: mweap
 
 DOME:
 	Inherits: ^FactionBuilding
@@ -3759,9 +3913,6 @@ DOME:
 			arabia: kdome
 			transcaucasia: kdome
 			abyssinia: mdome
-	ProvidesPrerequisite@RadarOnline:
-		Prerequisite: radaronline
-		RequiresCondition: !disabled && !turnedoff
 	InfiltrateForSupportPower@spied-dome:
 		Proxy: proxy.spied-dome
 		Types: SpyInfiltrate
@@ -3798,7 +3949,7 @@ PROC:
 		Type: Wood
 	DockHost:
 		Type: Unload
-		DockAngle: 256
+		DockAngle: 763
 		DockOffset: 0, 0c0, 0
 	RevealsShroud:
 		MinRange: 4c0
@@ -4057,6 +4208,9 @@ HPAD:
 	Inherits@sabotable: ^Sabotable
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	GrantExternalConditionToProduced@spawned:
+		Duration: 100
+		Condition: spawned
 	Selectable:
 		Bounds: 2496, 2496
 	HitShape:
@@ -4440,6 +4594,11 @@ TELEPORTTUNNEL:
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@sabotable: ^Sabotable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 400
+		Prerequisites: mtek, ~structures.persia, ~techlevel.medium
+		Description: Produces and reloads aircraft.
 	Selectable:
 		Bounds: 2496, 2496
 	HitShape:
@@ -4711,6 +4870,58 @@ CYBERLAB:
 	ProvidesPrerequisite@cyberlab:
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelcyberlab
+	RenderSprites:
+		Image: illicitlab
+
+ILLICITLAB:
+	Inherits: ^FactionBuilding
+	Inherits@POWER_OUTAGE: ^DisabledByPowerOutage
+	Inherits@shape: ^2x2Shape
+	Inherits@rubbles: ^2x2Rubbles
+	Inherits@supercharge: ^SuperchargePower
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@sabotable: ^Sabotable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	ProductionTimeMultiplier@basediscount:
+		Multiplier: 85
+	Selectable:
+		Bounds: 2496, 2496
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 640,-384,0, 640,512,0, -710,-512,0, -710,512,0
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 601
+		Prerequisites: dome, ~structures.kazakhstan, ~techlevel.infonly
+		Description: Parascientific laboratory.
+		BuildLimit: 1
+	TooltipExtras:
+		Attributes: • Build limit 1.\n• Ability: Changes infantry and vehicle options while on the map.
+	Valued:
+		Cost: 1200
+	Tooltip:
+		Name: Illicit Laboratory
+	ProvidesPrerequisite:
+		Prerequisite: anypower
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+		LocalCenterOffset: 0,-512,0
+	Health:
+		HP: 45000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4c0
+	Power:
+		Amount: -100
+	Targetable:
+		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration
+	ProvidesPrerequisite@cyberlab:
+	SpawnActorOnDeath@tunnel:
+		Actor: tunnelillicitlab
+	RenderSprites:
+		Image: cyberlab
 
 HORSEBREEDER:
 	Inherits: ^FactionBuilding
@@ -5172,28 +5383,28 @@ BARR:
 		Factions: germany, austria, turkey, persia
 		Prerequisite: infantry.saboteur
 	ProvidesPrerequisite@politruk:
-		Factions: arabia, russia, china, ukraine
+		Factions: arabia, russia, china, kazakhstan
 		Prerequisite: infantry.politruk
 	ProvidesPrerequisite@thief:
-		Factions: arabia, russia, china, ukraine
+		Factions: arabia, russia, china, kazakhstan
 		Prerequisite: infantry.thief
 	ProvidesPrerequisite@penal:
-		Factions: arabia, china
+		Factions: arabia, china, kazakhstan, ukraine
 		Prerequisite: infantry.penal
 	ProvidesPrerequisite@dog:
 		Factions: germany, austria, italy, turkey
 		Prerequisite: infantry.dog
 	ProvidesPrerequisite@grenadier:
-		Factions: arabia, russia, china
+		Factions: russia, china, kazakhstan, ukraine
 		Prerequisite: infantry.grenadier
 	ProvidesPrerequisite@rifleman:
-		Factions: russia, ukraine, mongolia, arabia, germany, austria, persia, turkey, england, france, usa, japan, raj, serbia, egypt, abyssinia, bulgaria, belarus, transcaucasia
+		Factions: russia, kazakhstan, ukraine, mongolia, arabia, germany, austria, persia, turkey, england, france, usa, japan, raj, serbia, egypt, abyssinia, bulgaria, belarus, transcaucasia
 		Prerequisite: infantry.rifleman
 	ProvidesPrerequisite@rocketman:
-		Factions: russia, ukraine, mongolia, arabia, germany, austria, persia, turkey, england, france, usa, japan, raj, serbia, egypt, abyssinia, bulgaria, belarus, transcaucasia
+		Factions: russia, kazakhstan, ukraine, mongolia, arabia, germany, austria, persia, turkey, england, france, usa, japan, raj, serbia, egypt, abyssinia, bulgaria, belarus, transcaucasia
 		Prerequisite: infantry.rocketman
 	ProvidesPrerequisite@engineer:
-		Factions: russia, ukraine, mongolia, china, germany, austria, persia, italy, turkey, england, france, usa, japan, bulgaria, serbia, belarus, egypt, transcaucasia
+		Factions: russia, kazakhstan, ukraine, mongolia, china, germany, austria, persia, italy, turkey, england, france, usa, japan, bulgaria, serbia, belarus, egypt, transcaucasia
 		Prerequisite: infantry.engineer
 	ProvidesPrerequisite@mechanic:
 		Factions: raj, usa, france, japan, england, serbia, egypt
@@ -5421,6 +5632,9 @@ ROBOCOM:
 		RangeCircleType: CarrierRange
 		Color: 0000FF80
 	ProvidesPrerequisite:
+	ProvidesPrerequisite@RadarOnline:
+		Prerequisite: radaronline
+		RequiresCondition: !disabled && !turnedoff
 
 UPLINK:
 	Inherits: ^ScienceBuilding

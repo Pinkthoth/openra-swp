@@ -765,9 +765,12 @@
 ^IronCurtainable:
 	WithColoredOverlay@IRONCURTAIN:
 		RequiresCondition: invulnerability
-	DamageMultiplier@IRONCURTAIN:
+	Shielded:
+		MaxStrength: 60000
 		RequiresCondition: invulnerability
-		Modifier: 0
+		ShieldsUpCondition: shielded
+		RegenAmount: 500
+		RegenDelay: 25
 	TimedConditionBar:
 		Condition: invulnerability
 	ExternalCondition@INVULNERABILITY:
@@ -1193,6 +1196,40 @@
 	Inherits@Parasite: ^ParasiteAttach
 	Inherits@terrordrone: ^TerrorDroneable
 	Inherits@battledroneable: ^BattleDroneAttach
+	WithDecoration@poison:
+		Image: pips
+		Sequence: poison
+		Position: BottomLeft
+		Margin: 17, 4
+		RequiresCondition: poisoned > 0
+	ExternalCondition@poisoned:
+		Condition: poisoned
+	Targetable@poisoned:
+		TargetTypes: CriticalPoison
+		RequiresCondition: poisoned > 10
+	ExternalCondition@microwave:
+		Condition: microwave
+	WithDecoration@thermo1:
+		Image: pips
+		Sequence: thermo1
+		Position: BottomLeft
+		Margin: 17, 4
+		RequiresCondition: microwave > 0
+	WithDecoration@thermo2:
+		Image: pips
+		Sequence: thermo2
+		Position: BottomLeft
+		Margin: 17, 4
+		RequiresCondition: microwave > 6
+	WithDecoration@thermo3:
+		Image: pips
+		Sequence: thermo3
+		Position: BottomLeft
+		Margin: 17, 4
+		RequiresCondition: microwave > 12
+	Targetable@cooked:
+		TargetTypes: Cooked
+		RequiresCondition: microwave > 17
 	MindControllable:
 		RequiresCondition: slaving > 6 || mindcontrolled
 	Infiltrates@refunder:
@@ -1554,6 +1591,40 @@
 	GrantCondition@HOSPITAL:
 		RequiresCondition: hospital && damaged
 		Condition: hospitalheal
+	WithDecoration@poison:
+		Image: pips
+		Sequence: poison
+		Position: BottomLeft
+		Margin: 17, 4
+		RequiresCondition: poisoned > 0
+	ExternalCondition@poisoned:
+		Condition: poisoned
+	Targetable@poisoned:
+		TargetTypes: CriticalPoison
+		RequiresCondition: poisoned > 7
+	ExternalCondition@microwave:
+		Condition: microwave
+	WithDecoration@thermo1:
+		Image: pips
+		Sequence: thermo1
+		Position: BottomLeft
+		Margin: 17, 4
+		RequiresCondition: microwave > 0
+	WithDecoration@thermo2:
+		Image: pips
+		Sequence: thermo2
+		Position: BottomLeft
+		Margin: 17, 4
+		RequiresCondition: microwave > 2
+	WithDecoration@thermo3:
+		Image: pips
+		Sequence: thermo3
+		Position: BottomLeft
+		Margin: 17, 4
+		RequiresCondition: microwave > 4
+	Targetable@cooked:
+		TargetTypes: Cooked
+		RequiresCondition: microwave > 5
 	WithDecoration@REDCROSS:
 		Image: pips
 		Sequence: medic
@@ -1700,6 +1771,40 @@
 	Inherits@warpable: ^Warpable
 	Inherits@freezable: ^Freezable
 	Inherits@demoable: ^DemoAttachable
+	WithDecoration@poison:
+		Image: pips
+		Sequence: poison
+		Position: BottomLeft
+		Margin: 17, 4
+		RequiresCondition: poisoned > 0
+	ExternalCondition@poisoned:
+		Condition: poisoned
+	Targetable@poisoned:
+		TargetTypes: CriticalPoison
+		RequiresCondition: poisoned > 15
+	ExternalCondition@microwave:
+		Condition: microwave
+	WithDecoration@thermo1:
+		Image: pips
+		Sequence: thermo1
+		Position: BottomLeft
+		Margin: 17, 4
+		RequiresCondition: microwave > 0
+	WithDecoration@thermo2:
+		Image: pips
+		Sequence: thermo2
+		Position: BottomLeft
+		Margin: 17, 4
+		RequiresCondition: microwave > 10
+	WithDecoration@thermo3:
+		Image: pips
+		Sequence: thermo3
+		Position: BottomLeft
+		Margin: 17, 4
+		RequiresCondition: microwave > 20
+	Targetable@cooked:
+		TargetTypes: Cooked
+		RequiresCondition: microwave > 29
 	ProductionTimeMultiplier@foundry:
 		Prerequisites: indiaplant
 		Multiplier: 90
@@ -1832,6 +1937,40 @@
 	Inherits@flarevision: ^FlareVision
 	Inherits@warpable: ^Warpable
 	Inherits@freezable: ^Freezable
+	WithDecoration@poison:
+		Image: pips
+		Sequence: poison
+		Position: BottomLeft
+		Margin: 17, 4
+		RequiresCondition: poisoned > 0
+	ExternalCondition@poisoned:
+		Condition: poisoned
+	Targetable@poisoned:
+		TargetTypes: CriticalPoison
+		RequiresCondition: poisoned > 8
+	ExternalCondition@microwave:
+		Condition: microwave
+	WithDecoration@thermo1:
+		Image: pips
+		Sequence: thermo1
+		Position: BottomLeft
+		Margin: 17, 4
+		RequiresCondition: microwave > 0
+	WithDecoration@thermo2:
+		Image: pips
+		Sequence: thermo2
+		Position: BottomLeft
+		Margin: 17, 4
+		RequiresCondition: microwave > 4
+	WithDecoration@thermo3:
+		Image: pips
+		Sequence: thermo3
+		Position: BottomLeft
+		Margin: 17, 4
+		RequiresCondition: microwave > 8
+	Targetable@cooked:
+		TargetTypes: Cooked
+		RequiresCondition: microwave > 11
 	RejectsOrders:
 		RequiresCondition: turnedoff
 	Huntable:
@@ -1970,6 +2109,40 @@
 	Inherits@freezable: ^Freezable
 	Inherits@demoable: ^DemoAttachable
 	Inherits@quickrepair: ^QuickRepariable
+	WithDecoration@poison:
+		Image: pips
+		Sequence: poison
+		Position: BottomLeft
+		Margin: 17, 4
+		RequiresCondition: poisoned > 0
+	ExternalCondition@poisoned:
+		Condition: poisoned
+	Targetable@poisoned:
+		TargetTypes: CriticalPoison
+		RequiresCondition: poisoned > 19
+	ExternalCondition@microwave:
+		Condition: microwave
+	WithDecoration@thermo1:
+		Image: pips
+		Sequence: thermo1
+		Position: BottomLeft
+		Margin: 17, 4
+		RequiresCondition: microwave > 0
+	WithDecoration@thermo2:
+		Image: pips
+		Sequence: thermo2
+		Position: BottomLeft
+		Margin: 17, 4
+		RequiresCondition: microwave > 15
+	WithDecoration@thermo3:
+		Image: pips
+		Sequence: thermo3
+		Position: BottomLeft
+		Margin: 17, 4
+		RequiresCondition: microwave > 30
+	Targetable@cooked:
+		TargetTypes: Cooked
+		RequiresCondition: microwave > 44
 	ExternalCondition@tunnelfix:
 		Condition: tunnel
 	Targetable@REPAIR:

@@ -64,8 +64,8 @@ HARV:
 		RequiresSelection: true
 		PipCount: 7
 		ResourceSequences:
-			Ore: pip-green
-			Gems: pip-blue
+			Ore: pip-yellow
+			Gems: pip-red
 	StoresResources:
 		Resources: Ore,Gems
 		Capacity: 20
@@ -312,7 +312,7 @@ HAMMERHEAD:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 690
-		Prerequisites: ~vehicles.japan, fix, ~techlevel.medium
+		Prerequisites: ~vehicles.usa, fix, ~techlevel.medium
 		Description: Lays mines to destroy\nunwary enemy aircraft.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
@@ -666,6 +666,53 @@ BIKE:
 		EmptyWeapon: SmallUnitExplode
 		Weapon: SmallUnitExplode
 
+MORTARBIKE:
+	Inherits: ^TrackedVehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 20
+		Prerequisites: ~vehicles.raj, ~techlevel.low
+		Description: Fast scouting motorcycle.
+	TooltipExtras:
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Tanks, Aircraft.
+	Valued:
+		Cost: 450
+	Tooltip:
+		Name: Mortar Bike
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 6500
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 145
+		TurnSpeed: 25
+		PauseOnCondition: being-captured
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 5c512
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c512
+	Armament@primary:
+		Weapon: BikeMortar
+		Name: primary
+		LocalOffset: -50,200,100
+	AttackFrontal:
+		PauseOnCondition: turnedoff
+		Armaments: primary, secondary
+		FacingTolerance: 0
+	WithMuzzleOverlay:
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
+	FireWarheadsOnDeath:
+		EmptyWeapon: SmallUnitExplode
+		Weapon: SmallUnitExplode
+
 ATTACKBIKE:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
@@ -716,6 +763,9 @@ ARMCR:
 	Inherits: ^Vehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	WithProductionIconOverlay@blueprint:
+		Types: Blueprint
+		Prerequisites: raj.bobcat
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 20
@@ -783,8 +833,8 @@ HUMVEE:
 		Weaknesses: - Weak vs Tanks, Aircraft.
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 20
-		Prerequisites: ~vehicles.usa, ~techlevel.low
+		BuildPaletteOrder: 80
+		Prerequisites: ~vehicles.usa, adept, ~techlevel.low
 		Description: Plated scout & anti-infantry vehicle.
 	Valued:
 		Cost: 700
@@ -841,10 +891,13 @@ HLFTRK:
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@CARGOPIPS: ^CargoPips
+	WithProductionIconOverlay@blueprint:
+		Types: Blueprint
+		Prerequisites: raj.halftrack
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 1
-		Prerequisites: ~vehicles.halftrack, ~techlevel.low
+		Prerequisites: ~vehicles.halftrack, ~techlevel.low, ~!illicitlab
 		Description: Armoured transport vehicle.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -1100,6 +1153,9 @@ V2RL:
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@artilleryobserver: ^ArtilleryObservable
+	WithProductionIconOverlay@blueprint:
+		Types: Blueprint
+		Prerequisites: raj.v2rl
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 80
@@ -1156,6 +1212,9 @@ MSAM:
 	Inherits: ^TrackedVehicle
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMovePlusBombers
+	WithProductionIconOverlay@blueprint:
+		Types: Blueprint
+		Prerequisites: raj.msam
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -1697,8 +1756,7 @@ MRJ.Husk:
 	RenderSprites:
 		Image: mrj
 
-#Komintern units
-TRNSPRT:
+RAJTRNSPRT:
 	Inherits: ^Vehicle
 	Inherits@CARGOPIPS: ^CargoPips
 	-ExperienceTrickler@OfficerNearby:
@@ -1707,7 +1765,59 @@ TRNSPRT:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 10
-		Prerequisites: ~vehicles.transporter, ~techlevel.low
+		Prerequisites: ~vehicles.raj, ~techlevel.low
+		Description: Fast transport vehicle.
+	TooltipExtras:
+		Weaknesses: - Unarmed.
+		Attributes: • Can transport up to 5 infantry units.
+	Valued:
+		Cost: 350
+	Tooltip:
+		Name: Transport Carrier
+	Health:
+		HP: 20000
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 125
+		PauseOnCondition: notmobile || being-captured
+	RevealsShroud:
+		Range: 4c0
+	Cargo:
+		Types: Infantry
+		MaxWeight: 5
+		LoadingCondition: notmobile
+	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
+		Actor: RAJTRNSPRT.Husk
+
+RAJTRNSPRT.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Transport Truck)
+	TransformOnCapture@Mechanic:
+		IntoActor: RAJTRNSPRT
+	TransformOnCapture@Engineer:
+		IntoActor: RAJTRNSPRT
+	InfiltrateForTransform:
+		IntoActor: RAJTRNSPRT
+	RenderSprites:
+		Image: rajtrnsprt
+
+#Komintern units
+TRNSPRT:
+	Inherits: ^Vehicle
+	Inherits@CARGOPIPS: ^CargoPips
+	-ExperienceTrickler@OfficerNearby:
+	-GainsExperienceMultiplier@OfficerNearby:
+	-ExternalCondition@OfficerNearby:
+	WithProductionIconOverlay@blueprint:
+		Types: Blueprint
+		Prerequisites: raj.transporter
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 10
+		Prerequisites: ~vehicles.transporter, ~techlevel.low, ~!illicitlab
 		Description: Fast transport vehicle.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
@@ -1750,10 +1860,13 @@ FTRK:
 	Inherits: ^Vehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMovePlusBombers
+	WithProductionIconOverlay@blueprint:
+		Types: Blueprint
+		Prerequisites: raj.ftrk
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 20
-		Prerequisites: ~vehicles.ftrk, ~techlevel.low
+		Prerequisites: ~vehicles.ftrk, ~techlevel.low, ~!illicitlab
 		Description: Mobile unit with mounted Flak cannon.
 	TooltipExtras:
 		Strengths: + Strong vs Aircraft.
@@ -1824,6 +1937,90 @@ FTRK.Husk:
 		IntoActor: FTRK
 	RenderSprites:
 		Image: ftrk
+
+TURKFTRK:
+	Inherits: ^Vehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMovePlusBombers
+	Inherits@CARGOPIPS: ^CargoPips
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 20
+		Prerequisites: ~vehicles.kazakhstan, ~techlevel.low, ~illicitlab
+		Description: Mobile unit with mounted Flak cannon.
+	TooltipExtras:
+		Strengths: + Strong vs Aircraft.
+		Weaknesses: - Weak vs Vehicles, Infantry.
+	Valued:
+		Cost: 600
+	RenderSprites:
+		Image: turkftrk
+	Tooltip:
+		Name: Toad Flak Truck
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 18000
+	Armor:
+		Type: Light
+	Mobile:
+		TurnSpeed: 40
+		Speed: 125
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 6c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	Turreted:
+		TurnSpeed: 40
+		Offset: 75,0,290
+	AttackTurreted:
+		PauseOnCondition: turnedoff
+	WithMuzzleOverlay:
+	WithSpriteTurret:
+		RequiresCondition: !ag_attacking
+	WithSpriteTurret@ag:
+		RequiresCondition: ag_attacking
+		Sequence: turret-ag
+	Armament@AA:
+		Weapon: APCGun.AA
+		Recoil: 85
+		LocalOffset: 612,-130,172, 612,130,172
+		MuzzleSequence: muzzle
+	Armament@AG:
+		Name: secondary
+		Weapon: APCGun
+		Recoil: 85
+		LocalOffset: 612,-130,232, 612,130,232
+		MuzzleSequence: muzzle
+	GrantConditionOnAttack@ag:
+		Condition: ag_attacking
+		ArmamentNames: secondary
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
+	Selectable:
+		DecorationBounds: 1289, 1289
+	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
+		Actor: TURKFTRK.Husk
+	Cargo:
+		Types: Infantry
+		MaxWeight: 3
+		LoadingCondition: notmobile
+
+TURKFTRK.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Mobile Flak)
+	TransformOnCapture@Mechanic:
+		IntoActor: TURKFTRK
+	TransformOnCapture@Engineer:
+		IntoActor: TURKFTRK
+	InfiltrateForTransform:
+		IntoActor: TURKFTRK
+	RenderSprites:
+		Image: turkftrk
 
 QUAD:
 	Inherits: ^Vehicle
@@ -1906,6 +2103,9 @@ WIESEL:
 	Inherits: ^Vehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMovePlusBombers
+	WithProductionIconOverlay@blueprint:
+		Types: Blueprint
+		Prerequisites: raj.wiesel
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 40
@@ -2102,8 +2302,8 @@ DRAKE:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 70
-		Prerequisites: ~vehicles.egypt, dome
-		Description: Mobile unit with a mounted flamethrower.
+		Prerequisites: ~vehicles.kazakhstan, ~illicitlab
+		Description: Mobile unit with a mounted wastethrower.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Buildings.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
@@ -2120,7 +2320,7 @@ DRAKE:
 	Armor:
 		Type: Medium
 	Mobile:
-		TurnSpeed: 35
+		TurnSpeed: 25
 		Speed: 85
 	RevealsShroud:
 		MinRange: 4c0
@@ -2129,16 +2329,13 @@ DRAKE:
 	RevealsShroud@GAPGEN:
 		Range: 4c0
 	Armament@AG:
-		Name: secondary
-		Weapon: Flamer
+		Weapon: ToxBallLauncherTanker
 		LocalOffset: 350,0,232
-		MuzzleSequence: muzzle
 	AttackTurreted:
 		PauseOnCondition: turnedoff
 	Turreted:
 		Offset: 0,0,260
 		TurnSpeed: 28
-	WithMuzzleOverlay:
 	WithFacingSpriteBody:
 	WithSpriteTurret:
 	ProducibleWithLevel:
@@ -2311,10 +2508,13 @@ TNKT:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	WithProductionIconOverlay@blueprint:
+		Types: Blueprint
+		Prerequisites: raj.tankette
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 70
-		Prerequisites: ~vehicles.tankette, ~techlevel.low
+		Prerequisites: ~vehicles.tankette, ~techlevel.low, ~!illicitlab
 		Description: Tough anti-infantry vehicle.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Vehicles.
@@ -2433,10 +2633,13 @@ BTR:
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@CARGOPIPS: ^CargoPips
+	WithProductionIconOverlay@blueprint:
+		Types: Blueprint
+		Prerequisites: raj.btr
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 80
-		Prerequisites: weap, ~vehicles.btr, ~techlevel.low
+		Prerequisites: weap, ~vehicles.btr, ~techlevel.low, ~!illicitlab
 		Description: Tough infantry transport.
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles.
@@ -2567,7 +2770,7 @@ MARAUDER:
 	Valued:
 		Cost: 750
 	Tooltip:
-		Name: Marauder
+		Name: Corsair
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
@@ -2617,10 +2820,13 @@ MTNK:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	WithProductionIconOverlay@blueprint:
+		Types: Blueprint
+		Prerequisites: raj.cossack
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 72
-		Prerequisites: adept, ~vehicles.cossack, ~techlevel.medium
+		Prerequisites: adept, ~vehicles.cossack, ~techlevel.medium, ~!illicitlab
 		Description: Komintern main battle tank.n\Heavily armoured,\nbut versatile.
 	TooltipExtras:
 		Strengths: + Strong vs Tanks.
@@ -3355,9 +3561,14 @@ SLINGSHOT:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMovePlusBombers
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 271
+		Prerequisites: ~vehicles.egypt, commcent
+		Description: Hovering tank armed with AA-cannons.
 	TooltipExtras:
-		Strengths: + Strong vs Infantry, Buildings, Defenses.
-		Weaknesses: - Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry, Aircraft.
+		Weaknesses: - Weak vs Vehicles.
 	Valued:
 		Cost: 1025
 	Tooltip:
@@ -3440,6 +3651,9 @@ KATYA:
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@artilleryobserver: ^ArtilleryObservable
+	WithProductionIconOverlay@blueprint:
+		Types: Blueprint
+		Prerequisites: raj.katy
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -3449,7 +3663,7 @@ KATYA:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 82
-		Prerequisites: dome, adept, ~vehicles.katy, ~techlevel.medium
+		Prerequisites: dome, adept, ~vehicles.katy, ~techlevel.medium, ~!illicitlab
 		Description: Long range multiple rocket launcher.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Buildings, Defenses.
@@ -3620,9 +3834,8 @@ BURROWER:
 	-ExternalCondition@OfficerNearby:
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 700
-		Prerequisites: ~vehicles.persia, dome, ~techlevel.medium
-		BuildDurationModifier: 50
+		BuildPaletteOrder: 82
+		Prerequisites: ~vehicles.persia, commcent, ~techlevel.medium
 		Description: Burrowing vehicle.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
@@ -4548,6 +4761,9 @@ JEEP:
 	Inherits: ^Vehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	WithProductionIconOverlay@blueprint:
+		Types: Blueprint
+		Prerequisites: raj.jeep
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 20
@@ -4613,6 +4829,9 @@ APC:
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@CARGOPIPS: ^CargoPips
+	WithProductionIconOverlay@blueprint:
+		Types: Blueprint
+		Prerequisites: raj.apc
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 10
@@ -4744,8 +4963,8 @@ SHAH:
 		RequiresCondition: stance-attackanything || assault-move && !maxcontrolled
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 331
-		Prerequisites: mtek, ~vehicles.kazakhstan, ~techlevel.high
+		BuildPaletteOrder: 402
+		Prerequisites: mtek, ~vehicles.kazakhstan, ~techlevel.high, ~illicitlab
 		Description: Psychic enslavement vehicle.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
@@ -4844,8 +5063,8 @@ WASTETANKER:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 81
-		Prerequisites: ~vehicles.kazakhstan, commcent
+		BuildPaletteOrder: 83
+		Prerequisites: ~vehicles.kazakhstan, commcent, ~illicitlab
 		Description: Tough tank that shoots corrosive acid.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Vehicles.
@@ -4857,7 +5076,7 @@ WASTETANKER:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 35000
+		HP: 37500
 	Armor:
 		Type: Heavy
 	Mobile:
@@ -4995,6 +5214,9 @@ RTNK:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	WithProductionIconOverlay@blueprint:
+		Types: Blueprint
+		Prerequisites: raj.squire
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 69
@@ -5484,6 +5706,9 @@ PANZER38:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	WithProductionIconOverlay@blueprint:
+		Types: Blueprint
+		Prerequisites: raj.leopard
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 73
@@ -5563,19 +5788,19 @@ RONIN:
 		Strengths: + Strong vs Vehicles, Infantry.
 		Weaknesses: - Weak vs Aircraft
 	Valued:
-		Cost: 950
+		Cost: 1000
 	Tooltip:
 		Name: Kitsune
 		GenericName: Tank
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 43000
+		HP: 48000
 	Armor:
 		Type: Heavy
 	Mobile:
 		Locomotor: lighttracked
-		Speed: 110
+		Speed: 90
 	RevealsShroud:
 		MinRange: 4c0
 		Range: 5c0
@@ -5953,6 +6178,9 @@ LTNK:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	WithProductionIconOverlay@blueprint:
+		Types: Blueprint
+		Prerequisites: raj.crusader
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 71
@@ -6951,15 +7179,17 @@ MGTELEDRONE:
 
 LIMPETMINE:
 	Inherits: ^Vehicle
-	Inherits@drone: ^Drone
+	Inherits: ^Drone
 	Inherits@selection: ^SelectableSupportUnit
 	-ExperienceTrickler@OfficerNearby:
 	-GainsExperienceMultiplier@OfficerNearby:
 	-ExternalCondition@OfficerNearby:
+	Voiced:
+		VoiceSet: TeleVoice
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 691
-		Prerequisites: dome, fix, ~vehicles.usa, ~techlevel.medium
+		Prerequisites: dome, fix, ~vehicles.japan, ~techlevel.medium
 		Description: Tele controlled deployable mine.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
@@ -6994,12 +7224,14 @@ LIMPETMINE:
 		ZOffset: -10
 		Offset: 0,0,-500
 	FireWarheadsOnDeath:
-		Weapon: EMPMine
+		Weapon: DemoBombExplode
 
 LIMPETMINE.DEPLOYED:
 	Inherits: ^Mine
+	Inherits: ^Drone
 	Inherits@turnedoff: ^EmpDisable
-	Inherits@drone: ^Drone
+	Voiced:
+		VoiceSet: TeleVoice
 	-Interactable:
 	Selectable:
 	SelectionDecorations:
@@ -7012,7 +7244,7 @@ LIMPETMINE.DEPLOYED:
 	Mine:
 		AvoidFriendly: True
 	FireWarheadsOnDeath:
-		Weapon: EMPMine
+		Weapon: DemoBombExplode
 	RevealsShroud:
 		Range: 2c0
 	WithSpriteBody:
@@ -7365,6 +7597,9 @@ ARTY:
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@artilleryobserver: ^ArtilleryObservable
+	WithProductionIconOverlay@blueprint:
+		Types: Blueprint
+		Prerequisites: raj.arty
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 73
@@ -7515,13 +7750,21 @@ TOXINARTY:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	TooltipExtras:
-		Strengths: + Strong vs Tanks.
-		Weaknesses: - Weak vs Infantry, Aircraft.
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 82
+		Prerequisites: dome, ~vehicles.kazakhstan, ~techlevel.medium, ~illicitlab
+		Description: Long range multiple rocket launcher.
 
 ARCHER:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	WithProductionIconOverlay@blueprint:
+		Types: Blueprint
+		Prerequisites: raj.paladin
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 320
@@ -7884,7 +8127,12 @@ GRINDER:
 	-SpeedMultiplier@CRUSHSUCCESFUL:
 	TooltipExtras:
 		Weaknesses: - Unarmed.
-		Attributes: • Deploy to activate Iron Curtain.\n• Once the Iron Curtain runs out, the vehicle explodes.\n• Does not slow down while crushing.
+		Attributes: • Deploy to charge faster.\n• Does not slow down while crushing.
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 73
+		Prerequisites: adept, ~vehicles.kazakhstan, ~techlevel.low, ~illicitlab
+		Description: Large tank with a grinder in front.
 	Valued:
 		Cost: 2300
 	Tooltip:
@@ -7908,11 +8156,11 @@ GRINDER:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	GrantConditionOnDeploy:
-		DeployedCondition: invulnerability-trigger
-		PauseOnCondition: invulnerability
+		DeployedCondition: haste-trigger
+		PauseOnCondition: haste
 	GrantCondition:
-		RequiresCondition: invulnerability-trigger
-		Condition: invulnerability
+		RequiresCondition: haste-trigger
+		Condition: haste
 	WithMoveAnimation:
 		MoveSequence: move
 		RequiresCondition: moving
@@ -7921,9 +8169,7 @@ GRINDER:
 	GrantChargingConditionFull:
 		Condition: charged
 		MaxCharge: 200
-		PauseOnCondition: !invulnerability-trigger
-	KillsSelf:
-		RequiresCondition: charged
+		PauseOnCondition: !haste-trigger
 	Selectable:
 		DecorationBounds: 1589, 1589
 
@@ -7939,8 +8185,8 @@ TTNK:
 		Attributes: • Can carry 5 infantry units.
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 80
-		Prerequisites: adept, ~vehicles.russia, ~techlevel.low
+		BuildPaletteOrder: 83
+		Prerequisites: dome, ~vehicles.russia, ~techlevel.low
 		Description: Tough infantry transport.
 	Valued:
 		Cost: 1000
@@ -9587,7 +9833,7 @@ DTRK:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 330
-		Prerequisites: commcent, ~vehicles.persia, ~techlevel.high
+		Prerequisites: commcent, ~vehicles.arabia, ~techlevel.high
 		Description: Truck loaded with highly explosive materials.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
@@ -9618,7 +9864,6 @@ DTRK:
 		Condition: triggered
 	GrantConditionOnDeploy:
 		DeployedCondition: triggered
-	-DamageMultiplier@IRONCURTAIN:
 	KillsSelf:
 		RequiresCondition: invulnerability || triggered
 	Chronoshiftable:
@@ -9632,7 +9877,7 @@ TOXINTRUCK:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 330
-		Prerequisites: ~vehicles.kazakhstan, stek
+		Prerequisites: ~vehicles.kazakhstan, dome, ~illicitlab
 		Description: Truck loaded with toxic materials.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
@@ -9644,11 +9889,55 @@ TOXINTRUCK:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 5000
+		HP: 15000
 	Armor:
 		Type: Light
 	Mobile:
 		Speed: 100
+	RevealsShroud:
+		Range: 4c0
+	FireWarheadsOnDeath@toxin:
+		Weapon: ToxinTruckExplosion
+		EmptyWeapon: ToxinTruckExplosion
+		DamageSource: Killer
+	AttackFrontal:
+		FacingTolerance: 512
+	Armament@PRIMARY:
+		Weapon: DemoTruckTargeting
+	GrantConditionOnAttack:
+		Condition: triggered
+	GrantConditionOnDeploy:
+		DeployedCondition: triggered
+	KillsSelf:
+		RequiresCondition: invulnerability || triggered
+	Chronoshiftable:
+		ExplodeInstead: true
+
+CHAOSDRONE:
+	Inherits: ^Vehicle
+	-ExperienceTrickler@OfficerNearby:
+	-GainsExperienceMultiplier@OfficerNearby:
+	-ExternalCondition@OfficerNearby:
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 330
+		Prerequisites: ~vehicles.kazakhstan, commcent, ~illicitlab
+		Description: Truck loaded with toxic materials.
+	TooltipExtras:
+		Weaknesses: - Unarmed.
+		Attributes: • Deploy to detonate cargo.
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Chaos Drone
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 5000
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 125
 	RevealsShroud:
 		Range: 4c0
 	FireWarheadsOnDeath@nerve:
@@ -9663,7 +9952,6 @@ TOXINTRUCK:
 		Condition: triggered
 	GrantConditionOnDeploy:
 		DeployedCondition: triggered
-	-DamageMultiplier@IRONCURTAIN:
 	KillsSelf:
 		RequiresCondition: invulnerability || triggered
 	Chronoshiftable:

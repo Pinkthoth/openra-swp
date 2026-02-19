@@ -997,7 +997,7 @@ IfritMissile:
 227mm_Nebel:
 	Inherits: ^AntiGroundMissile
 	ReloadDelay: 165
-	Range: 8c512
+	Range: 9c512
 	MinRange: 3c0
 	Burst: 6
 	BurstDelays: 4

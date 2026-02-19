@@ -171,6 +171,14 @@ toxintruck:
 	icon:
 		Filename: toxintruckicon.shp
 
+chaosdrone:
+	idle:
+		Filename: chaosdrone.shp
+		Facings: 32
+		UseClassicFacings: True
+	icon:
+		Filename: chaosdroneicon.shp
+
 harv:
 	Defaults:
 		Filename: harv.shp
@@ -437,6 +445,27 @@ ttnk:
 		Length: 32
 	icon:
 		Filename: ttnkicon.shp
+
+turkftrk:
+	idle:
+		Filename: turkftrk.shp
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Filename: turkftrk.shp
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	turret-ag:
+		Filename: turkftrk.shp
+		Start: 64
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 2
+	icon:
+		Filename: turkftrkicon.shp
 
 ftrk:
 	idle:
@@ -950,7 +979,16 @@ msam:
 		UseClassicFacings: True
 	icon:
 		Filename: msamicon.shp
-	
+
+rajtrnsprt:
+	idle:
+		Filename: rajtransport.shp
+		Facings: 32
+		UseClassicFacings: True
+		Offset: 0,2
+	icon:
+		Filename: rajtransporticon.shp
+
 #Komintern
 trnsprt:
 	idle:
@@ -1014,6 +1052,25 @@ bike:
 		Start: 1
 	icon:
 		Filename: bikeicon.shp
+
+mortarbike:
+	Defaults:
+		Filename: mortarbike.shp
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	open:
+		Start: 1
+		Length: 3
+	unload:
+		Start: 1
+	icon:
+		Filename: mortarbikeicon.shp
+
 
 lasertank:
 	Defaults:

@@ -573,6 +573,90 @@ DemoTruckExplosion:
 		Explosions: large_napalm
 		ValidTargets: Ground, GroundActor, Trees, Ship, WaterActor
 
+ToxinTruckExplosion:
+	Warhead@2: FireCluster
+		Weapon: ToxinExplosion
+		Dimensions: 3,3
+		Footprint: XXX XXX XXX
+		Delay: 2
+		ValidTargets: Ground, GroundActor
+	Warhead@3: FireCluster
+		Weapon: ToxinExplosion
+		Dimensions: 5,5
+		Footprint: _XXX_ X___X X___X X___X _XXX_
+		Delay: 4
+		ValidTargets: Ground, GroundActor
+	Warhead@4: FireCluster
+		Weapon: ToxinExplosion
+		Dimensions: 7,7
+		Footprint: __XXX__ _X___X_ X_____X X_____X X_____X _X___X_ __XXX__
+		Delay: 6
+		ValidTargets: Ground, GroundActor
+	Warhead@5: FireCluster
+		Weapon: ToxinExplosion
+		Dimensions: 9,9
+		Footprint: ___XXX___ __X___X__ _X_____X_ X_______X X_______X X_______X _X_____X_ __X___X__ ___XXX___
+		Delay: 8
+	Warhead@a3: FireCluster
+		Weapon: ToxinCloudSpawner
+		Dimensions: 5,5
+		Footprint: _xxx_ x___x x___x x___x _xxx_
+		Delay: 4
+		RandomClusterCount: 3
+		ValidTargets: Ground, GroundActor
+	Warhead@a4: FireCluster
+		Weapon: ToxinCloudSpawner
+		Dimensions: 7,7
+		Footprint: __xxx__ _x___x_ x_____x x_____x x_____x _x___x_ __xxx__
+		Delay: 6
+		RandomClusterCount: 6
+		ValidTargets: Ground, GroundActor
+	Warhead@a5: FireCluster
+		Weapon: ToxinCloudSpawner
+		Dimensions: 9,9
+		Footprint: ___xxx___ __x___x__ _x_____x_ x_______x x_______x x_______x _x_____x_ __x___x__ ___xxx___
+		Delay: 8
+		RandomClusterCount: 9
+		ValidTargets: Ground, GroundActor
+
+ToxinExplosion:
+	Projectile: InstantHit
+	ValidTargets: Ground, Water, Air, GroundActor, Trees,  Ship, WaterActor, AirborneActor
+	Warhead@1Dam: SpreadDamage
+		Spread: 426
+		Damage: 5000
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
+		Versus:
+			None: 90
+			Wood: 75
+			Light: 60
+			Medium: 40
+			Heavy: 25
+			Concrete: 100
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@Smu: LeaveSmudge
+		SmudgeType: Crater
+		ValidTargets: Ground, Vehicle, Infantry
+	Warhead@2Eff: CreateEffect
+		Explosions: small_tox
+		ExplosionPalette: poisonpal
+		ImpactSounds: acid1.aud, acid2.aud, acid3.aud
+		Palette: poisonpal
+		ValidTargets: Ground, Air, GroundActor, Trees,  AirborneActor, Ship, WaterActor, Trees
+	Warhead@3EffWater: CreateEffect
+		Explosions: small_tox
+		ExplosionPalette: poisonpal
+		ImpactSounds: acid1.aud, acid2.aud, acid3.aud
+		ValidTargets: Water, Underwater
+		InvalidTargets: Bridge
+
+ToxinCloudSpawner:
+	Projectile: InstantHit
+	Warhead@spawn: SpawnActor
+		Delay: 20
+		Actors: poisoncloud
+		ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
+
 DemoBombExplode:
 	ValidTargets: Ground, GroundActor, Trees,  Trees, Water, Ship, WaterActor, Underwater, Air, AirborneActor
 	InvalidTargets: demoed
@@ -796,6 +880,35 @@ DesolatorExplosion3:
 		Weapon: IfritAreaFire
 		RandomClusterCount: -1
 		ValidTargets: Ground, GroundActor
+
+PoisonCloudExplosion:
+	ReloadDelay: 100
+	ValidTargets: Ground, Water, Air, GroundActor, Trees, Ship, WaterActor, AirborneActor
+	Projectile: InstantHit
+	Warhead@emp: GrantExternalCondition
+		Range: 2c0
+		Duration: 500
+		Condition: poisoned
+		ValidRelationships: Ally, Enemy, Neutral
+		ValidTargets: Ground, GroundActor, Trees,  Ship, WaterActor, Water, Air, AirborneBomber, AirborneActor
+	Warhead@1Dam: SpreadDamage
+		Spread: 426
+		Damage: 5000000
+		ValidTargets: CriticalPoison
+		InvalidTargets: Structure, Vehicle, Ship, AirborneActor
+		Versus:
+			None: 90
+			Wood: 75
+			Light: 60
+			Medium: 40
+			Heavy: 25
+			Concrete: 100
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, AcidDeath
+	Warhead@ChangeOwner: ChangeOwnerToNeutral
+		Range: 2c0
+		ValidTargets: CriticalPoison
+		InvalidTargets: Infantry
+		Owner: Neutral
 
 PropagandaBurstTruck:
 	ValidTargets: Ground, Water, Air, GroundActor, Trees, Ship, WaterActor, AirborneActor

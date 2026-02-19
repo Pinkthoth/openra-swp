@@ -112,13 +112,27 @@
 		HelixColor: FF6A00
 		QuantizationCount: 64
 		Duration: 10
+		TargetActorCenter: True
 	Warhead@effect: CreateEffect
 		Image: microwavesparks
 		Explosions: idle
 		ExplosionPalette: tseffects
 		ValidTargets: Water, Ground, WaterActor, GroundActor, AirborneActor
+	Warhead@condition: GrantExternalCondition
+		Duration: 200
+		Condition: microwave
+		ValidTargets: GroundActor, Trees, WaterActor
+		InvalidTargets: Structure, Ship
+		ValidRelationships: Enemy, Neutral, Ally
+		Range: 0c126
+	Warhead@condition1: GrantExternalCondition
+		Duration: 200
+		Condition: microwave
+		ValidTargets: Structure, Ship
+		ValidRelationships: Enemy, Neutral, Ally
+		Range: 1c0
 	Warhead@1: SpreadDamage
-		Damage: 1000
+		Damage: 150
 		Spread: 0c126
 		Versus:
 			None: 10
@@ -128,7 +142,19 @@
 			Wood: 30
 			Concrete: 25
 		ValidTargets: GroundActor, Trees,  Ship, WaterActor
-		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, SmallExplosionDeath
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath
+	Warhead@2: SpreadDamage
+		Damage: 100000
+		Spread: 0c126
+		Versus:
+			None: 100
+			Light: 100
+			Medium: 100
+			Heavy: 100
+			Wood: 100
+			Concrete: 100
+		ValidTargets: Cooked
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath
 
 ^MagneticWeapon:
 	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor
@@ -181,6 +207,32 @@
 			Concrete: 5
 		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
 		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Ground
+
+^RadBeam:
+	ReloadDelay: 60
+	Range: 7c0
+	Report: bigggun1.aud
+	ValidTargets: GroundActor, Trees,  Ship, WaterActor, Ground
+	Projectile: RadBeam
+		Color: 4CFF00
+		Amplitude: 162
+	Warhead@1Dam: SpreadDamage
+		Range: 0, 32
+		Falloff: 100, 100
+		Damage: 10000
+		AffectsParent: false
+		Versus:
+			None: 150
+			Wood: 50
+			Light: 80
+			Medium: 60
+			Heavy: 40
+			Concrete: 40
+		DamageTypes: Prone100Percent, TriggerProne, AcidDeath
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Ground
+
+RadRifle:
+	Inherits: ^RadBeam
 
 SoundRifle:
 	ReloadDelay: 60
@@ -385,7 +437,7 @@ MagneticBolt:
 	Report: magray.aud
 	Burst: 1
 	BurstDelays: 5
-	ReloadDelay: 25
+	ReloadDelay: 80
 	Projectile: Missile
 		Image: magnetoburst
 		Palette: tseffects
@@ -683,8 +735,50 @@ ToxBallLauncher:
 		TrailPalette: poisonpal
 		Palette: poisonpal
 	Warhead@1Dam: SpreadDamage
+		Spread: 213
+		Damage: 15000
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Trees
 		Versus:
-			Light: 50
+			None: 60
+			Wood: 10
+			Tree: 10
+			Light: 35
+			Medium: 25
+			Heavy: 15
+			Concrete: 5
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, AcidDeath
+	Warhead@3Eff: CreateEffect
+		Explosions: small_tox
+		ExplosionPalette: poisonpal
+		ImpactSounds: acid1.aud, acid2.aud, acid3.aud
+		ImpactActors: false
+		ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor, Trees, Corpse
+
+ToxBallLauncherTanker:
+	Inherits: ^FireWeapon
+	Burst: 3
+	StartBurstReport: flamethrower2.aud
+	BurstDelays: 0
+	FollowingBurstTargetOffset: 1c0,0,0
+	Projectile: Bullet
+		Speed: 250
+		TrailImage: fb2
+		Image: FB1
+		TrailPalette: poisonpal
+		Palette: poisonpal
+	Warhead@1Dam: SpreadDamage
+		Spread: 213
+		Damage: 17500
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Trees
+		Versus:
+			None: 60
+			Wood: 10
+			Tree: 10
+			Light: 35
+			Medium: 25
+			Heavy: 15
+			Concrete: 5
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, AcidDeath
 	Warhead@3Eff: CreateEffect
 		Explosions: small_tox
 		ExplosionPalette: poisonpal
@@ -894,7 +988,7 @@ TruckToxxer:
 	Burst: 20
 	ReloadDelay: 75
 	Warhead@1Dam: SpreadDamage
-		Damage: 1800
+		Damage: 1200
 		Falloff: 180, 150, 130, 100, 50, 25
 
 LazareneRifle:
@@ -2269,8 +2363,9 @@ MicrowaveTank:
 	Projectile: Railgun
 		HitAnim: microwavesparks
 		HitAnimPalette: tseffects
+		TargetActorCenter: True
 	Warhead@1: SpreadDamage
-		Damage: 7500
+		Damage: 750
 		Versus:
 			None: 70
 			Light: 75
@@ -2278,6 +2373,32 @@ MicrowaveTank:
 			Heavy: 110
 			Wood: 30
 			Concrete: 25
+	Warhead@condition3: GrantExternalCondition
+		Duration: 200
+		Condition: microwave
+		ValidTargets: GroundActor, Trees, WaterActor
+		InvalidTargets: Structure, Ship
+		ValidRelationships: Enemy, Neutral, Ally
+		Range: 0c126
+	Warhead@condition4: GrantExternalCondition
+		Duration: 200
+		Condition: microwave
+		ValidTargets: GroundActor, Trees, WaterActor
+		InvalidTargets: Structure, Ship
+		ValidRelationships: Enemy, Neutral, Ally
+		Range: 0c126
+	Warhead@condition5: GrantExternalCondition
+		Duration: 200
+		Condition: microwave
+		ValidTargets: Structure, Ship
+		ValidRelationships: Enemy, Neutral, Ally
+		Range: 1c0
+	Warhead@condition6: GrantExternalCondition
+		Duration: 200
+		Condition: microwave
+		ValidTargets: Structure, Ship
+		ValidRelationships: Enemy, Neutral, Ally
+		Range: 1c0
 
 MicrowaveGuy:
 	Inherits: ^MicrowaveWeapon
@@ -2290,8 +2411,9 @@ MicrowaveGuy:
 		Duration: 10
 		HitAnim: microwavesparks
 		HitAnimPalette: tseffects
+		TargetActorCenter: True
 	Warhead@1: SpreadDamage
-		Damage: 7500
+		Damage: 100
 		Versus:
 			None: 70
 			Light: 75

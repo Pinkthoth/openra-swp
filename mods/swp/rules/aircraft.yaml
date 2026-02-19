@@ -1225,12 +1225,12 @@ BANSHEE:
 		Type: GroundPosition
 	Armament@PRIMARY:
 		Name: primary
-		Weapon: MeRail
+		Weapon: MagneticBolt
 		LocalOffset: 256,-213,0
 		PauseOnCondition: !ammo || !airborne
 	Armament@secondary:
 		Name: secondary
-		Weapon: MeRail
+		Weapon: MagneticBolt
 		LocalOffset: 256,213,0
 		PauseOnCondition: !ammo || !airborne
 	AttackAircraft:
@@ -2485,7 +2485,7 @@ SAUCER:
 	Buildable:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
-		BuildPaletteOrder: 230
+		BuildPaletteOrder: 300
 		Prerequisites: hpad, ~aircraft.ukraine, stek, ~techlevel.high
 		Description: Levitating disc armed with magnetic rays.
 	TooltipExtras:
@@ -2511,11 +2511,11 @@ SAUCER:
 		Range: 10c0
 		Type: GroundPosition
 	Armament@PRIMARY:
-		Weapon: SM_ElectricBolt
+		Weapon: MagneticBolt
 		LocalOffset: 0,0,-50
 		PauseOnCondition: attacking
 	Armament@SECONDARY:
-		Weapon: SM_ElectricBolt
+		Weapon: MagneticBolt
 		Name: secondary
 	AttackTurreted:
 	Turreted:
@@ -2818,7 +2818,7 @@ SIEGECHOPPER:
 	Buildable:
 		Queue: Helicopter
 		BuildPaletteOrder: 227
-		Prerequisites: commcent, ~vehicles.russia, ~techlevel.medium
+		Prerequisites: mtek, ~vehicles.persia, ~techlevel.medium
 		Description: Siege helicopter.
 	Valued:
 		Cost: 2250
@@ -2887,7 +2887,7 @@ SIEGECHOPPER.Deployed:
 	RevealsShroud@GAPGEN:
 		Range: 6c0
 	Armament:
-		Weapon: 155mm_Howitzer
+		Weapon: 155mm_SiegeChopper
 		LocalOffset: 300,0,100
 		PauseOnCondition: turnedoff || build-incomplete
 	AttackTurreted:
@@ -3762,6 +3762,7 @@ UAV:
 BATTLEDRONE:
 	Inherits: ^Helicopter
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits: ^Drone
 	Buildable:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
@@ -3791,7 +3792,7 @@ BATTLEDRONE:
 		Weapon: TankMachineGun
 		LocalOffset: 50,0,-25
 		MuzzleSequence: muzzle
-		PauseOnCondition: !airborne
+		PauseOnCondition: !airborne || turnedoff
 	AttackTurreted:
 	WithSpriteTurret:
 	Turreted:

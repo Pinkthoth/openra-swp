@@ -38,7 +38,7 @@ MINHH:
 	RevealsShroud@GAPGEN:
 		Range: 4c0
 	FireWarheadsOnDeath:
-		Weapon: HHMine
+		Weapon: EMPMine
 	RenderSprites:
 		Image: minp
 	Targetable:
@@ -480,6 +480,238 @@ proxy.spied-dome:
 		AllowMultiple: true
 		Icon: espionageicon
 
+proxy.kominternweap:
+	AlwaysVisible:
+	GrantRandomCondition:
+		Conditions: a1, a2, a3, a4, a5, a6
+	ProvidesPrerequisite@1:
+		Prerequisite: vehicles.transporter
+		RequiresCondition: a1
+	ProvidesPrerequisite@2:
+		Prerequisite: vehicles.ftrk
+		RequiresCondition: a2
+	ProvidesPrerequisite@3:
+		Prerequisite: vehicles.tankette
+		RequiresCondition: a3
+	ProvidesPrerequisite@4:
+		Prerequisite: vehicles.cossack
+		RequiresCondition: a4
+	ProvidesPrerequisite@5:
+		Prerequisite: vehicles.btr
+		RequiresCondition: a5
+	ProvidesPrerequisite@6:
+		Prerequisite: vehicles.katy
+		RequiresCondition: a6
+	ProvidesPrerequisite@b1:
+		Prerequisite: raj.transporter
+		RequiresCondition: a1
+	ProvidesPrerequisite@b2:
+		Prerequisite: raj.ftrk
+		RequiresCondition: a2
+	ProvidesPrerequisite@b3:
+		Prerequisite: raj.tankette
+		RequiresCondition: a3
+	ProvidesPrerequisite@b4:
+		Prerequisite: raj.cossack
+		RequiresCondition: a4
+	ProvidesPrerequisite@b5:
+		Prerequisite: raj.btr
+		RequiresCondition: a5
+	ProvidesPrerequisite@b6:
+		Prerequisite: raj.katy
+		RequiresCondition: a6
+	GrantCondition@1:
+		RequiresCondition: a1 > 2
+		Condition: a2
+	GrantCondition@2:
+		RequiresCondition: a2 > 2
+		Condition: a3
+	GrantCondition@3:
+		RequiresCondition: a3 > 2
+		Condition: a4
+	GrantCondition@4:
+		RequiresCondition: a4 > 2
+		Condition: a5
+	GrantCondition@5:
+		RequiresCondition: a5 > 2
+		Condition: a6
+	GrantCondition@6:
+		RequiresCondition: a6 > 2
+		Condition: a1
+	GrantConditionOnPrerequisite@1:
+		Prerequisites: vehicles.transporter
+		Condition: a1
+	GrantConditionOnPrerequisite@2:
+		Prerequisites: vehicles.ftrk
+		Condition: a2
+	GrantConditionOnPrerequisite@3:
+		Prerequisites: vehicles.tankette
+		Condition: a3
+	GrantConditionOnPrerequisite@4:
+		Prerequisites: vehicles.cossack
+		Condition: a4
+	GrantConditionOnPrerequisite@5:
+		Prerequisites: vehicles.btr
+		Condition: a5
+	GrantConditionOnPrerequisite@6:
+		Prerequisites: vehicles.katy
+		Condition: a6
+		
+
+proxy.ententeweap:
+	AlwaysVisible:
+	GrantRandomCondition:
+		Conditions: a1, a2, a3, a4, a5, a6
+	ProvidesPrerequisite@1:
+		Prerequisite: vehicles.apc
+		RequiresCondition: a1
+	ProvidesPrerequisite@2:
+		Prerequisite: vehicles.jeep
+		RequiresCondition: a2
+	ProvidesPrerequisite@3:
+		Prerequisite: vehicles.squire
+		RequiresCondition: a3
+	ProvidesPrerequisite@4:
+		Prerequisite: vehicles.crusader
+		RequiresCondition: a4
+	ProvidesPrerequisite@5:
+		Prerequisite: vehicles.arty
+		RequiresCondition: a5
+	ProvidesPrerequisite@6:
+		Prerequisite: vehicles.paladin
+		RequiresCondition: a6
+	ProvidesPrerequisite@b1:
+		Prerequisite: raj.apc
+		RequiresCondition: a1
+	ProvidesPrerequisite@b2:
+		Prerequisite: raj.jeep
+		RequiresCondition: a2
+	ProvidesPrerequisite@b3:
+		Prerequisite: raj.squire
+		RequiresCondition: a3
+	ProvidesPrerequisite@b4:
+		Prerequisite: raj.crusader
+		RequiresCondition: a4
+	ProvidesPrerequisite@b5:
+		Prerequisite: raj.arty
+		RequiresCondition: a5
+	ProvidesPrerequisite@b6:
+		Prerequisite: raj.paladin
+		RequiresCondition: a6
+	GrantCondition@1:
+		RequiresCondition: a1 > 2
+		Condition: a2
+	GrantCondition@2:
+		RequiresCondition: a2 > 2
+		Condition: a3
+	GrantCondition@3:
+		RequiresCondition: a3 > 2
+		Condition: a4
+	GrantCondition@4:
+		RequiresCondition: a4 > 2
+		Condition: a5
+	GrantCondition@5:
+		RequiresCondition: a5 > 2
+		Condition: a6
+	GrantCondition@6:
+		RequiresCondition: a6 > 2
+		Condition: a1
+	GrantConditionOnPrerequisite@1:
+		Prerequisites: vehicles.apc
+		Condition: a1
+	GrantConditionOnPrerequisite@2:
+		Prerequisites: vehicles.jeep
+		Condition: a2
+	GrantConditionOnPrerequisite@3:
+		Prerequisites: vehicles.squire
+		Condition: a3
+	GrantConditionOnPrerequisite@4:
+		Prerequisites: vehicles.crusader
+		Condition: a4
+	GrantConditionOnPrerequisite@5:
+		Prerequisites: vehicles.arty
+		Condition: a5
+	GrantConditionOnPrerequisite@6:
+		Prerequisites: vehicles.paladin
+		Condition: a6
+
+proxy.mittelweap:
+	AlwaysVisible:
+	GrantRandomCondition:
+		Conditions: a1, a2, a3, a4, a5, a6
+	ProvidesPrerequisite@1:
+		Prerequisite: vehicles.halftrack
+		RequiresCondition: a1
+	ProvidesPrerequisite@2:
+		Prerequisite: vehicles.bobcat
+		RequiresCondition: a2
+	ProvidesPrerequisite@3:
+		Prerequisite: vehicles.wiesel
+		RequiresCondition: a3
+	ProvidesPrerequisite@4:
+		Prerequisite: vehicles.leopard
+		RequiresCondition: a4
+	ProvidesPrerequisite@5:
+		Prerequisite: vehicles.v2rl
+		RequiresCondition: 5
+	ProvidesPrerequisite@6:
+		Prerequisite: vehicles.msam
+		RequiresCondition: a6
+	ProvidesPrerequisite@b1:
+		Prerequisite: raj.halftrack
+		RequiresCondition: a1
+	ProvidesPrerequisite@b2:
+		Prerequisite: raj.bobcat
+		RequiresCondition: a2
+	ProvidesPrerequisite@b3:
+		Prerequisite: raj.wiesel
+		RequiresCondition: a3
+	ProvidesPrerequisite@b4:
+		Prerequisite: raj.leopard
+		RequiresCondition: a4
+	ProvidesPrerequisite@b5:
+		Prerequisite: raj.v2rl
+		RequiresCondition: 5
+	ProvidesPrerequisite@b6:
+		Prerequisite: raj.msam
+		RequiresCondition: a6
+	GrantCondition@1:
+		RequiresCondition: a1 > 2
+		Condition: a2
+	GrantCondition@2:
+		RequiresCondition: a2 > 2
+		Condition: a3
+	GrantCondition@3:
+		RequiresCondition: a3 > 2
+		Condition: a4
+	GrantCondition@4:
+		RequiresCondition: a4 > 2
+		Condition: a5
+	GrantCondition@5:
+		RequiresCondition: a5 > 2
+		Condition: a6
+	GrantCondition@6:
+		RequiresCondition: a6 > 2
+		Condition: a1
+	GrantConditionOnPrerequisite@1:
+		Prerequisites: vehicles.halftrack
+		Condition: a1
+	GrantConditionOnPrerequisite@2:
+		Prerequisites: vehicles.bobcat
+		Condition: a2
+	GrantConditionOnPrerequisite@3:
+		Prerequisites: vehicles.wiesel
+		Condition: a3
+	GrantConditionOnPrerequisite@4:
+		Prerequisites: vehicles.leopard
+		Condition: a4
+	GrantConditionOnPrerequisite@5:
+		Prerequisites: vehicles.v2rl
+		Condition: a5
+	GrantConditionOnPrerequisite@6:
+		Prerequisites: vehicles.msam
+		Condition: a6
+
 proxy.atektech:
 	AlwaysVisible:
 	ProvidesPrerequisite:
@@ -688,11 +920,11 @@ SMOKECLOUD:
 		Speed: 10
 		Repulsable: False
 		CruiseAltitude: 0c256
+		-Crushes:
 	Wanders:
-		WanderMoveRadius: 2
-		MinMoveDelay: 10
-		MaxMoveDelay: 15
-		RequiresCondition: airborne
+		WanderMoveRadius: 1
+		MinMoveDelay: 25
+		MaxMoveDelay: 50
 	Health:
 		HP: 100
 	KillsSelf:
@@ -704,6 +936,96 @@ SMOKECLOUD:
 	WithDeathAnimation:
 		UseDeathTypeSuffix: False
 		FallbackSequence: die
+		DeathSequencePalette: basic-alpha
+		DeathPaletteIsPlayerPalette: False
+		CrushedSequencePalette: basic-alpha
+		CrushedPaletteIsPlayerPalette: False
+
+POISONCLOUD:
+	Inherits@helicopter: ^Helicopter
+	-DamageMultiplier@RANK-1:
+	-DamageMultiplier@RANK-2:
+	-DamageMultiplier@RANK-3:
+	-DamageMultiplier@RANK-4:
+	-DamageMultiplier@RANK-5:
+	-DamageMultiplier@RANK-6:
+	-DamageMultiplier@RANK-7:
+	-FirepowerMultiplier@RANK-1:
+	-FirepowerMultiplier@RANK-2:
+	-FirepowerMultiplier@RANK-3:
+	-FirepowerMultiplier@RANK-4:
+	-FirepowerMultiplier@RANK-5:
+	-FirepowerMultiplier@RANK-6:
+	-FirepowerMultiplier@RANK-7:
+	-ReloadDelayMultiplier@RANK-1:
+	-ReloadDelayMultiplier@RANK-2:
+	-ReloadDelayMultiplier@RANK-3:
+	-ReloadDelayMultiplier@RANK-4:
+	-ReloadDelayMultiplier@RANK-5:
+	-ReloadDelayMultiplier@RANK-6:
+	-ReloadDelayMultiplier@RANK-7:
+	-ChangesHealth@ELITE:
+	-WithDecoration@RANK-1:
+	-WithDecoration@RANK-2:
+	-WithDecoration@RANK-3:
+	-WithDecoration@RANK-4:
+	-WithDecoration@RANK-5:
+	-WithDecoration@RANK-6:
+	-WithDecoration@RANK-7:
+	SpeedMultiplier:
+		RequiresCondition: rank-veteran
+		Modifier: 101
+	ExternalCondition:
+		Condition: rank-veteran
+	-SpawnActorOnDeath:
+	-WithShadow:
+	-Selectable:
+	-Tooltip:
+	-EjectOnDeath:
+	-ActorLostNotification:
+	-Targetable@GROUND:
+	-Targetable@AIRBORNE:
+	-Targetable@REPAIR:
+	-GpsDot:
+	-MustBeDestroyed:
+	-FireWarheadsOnDeath:
+	-CaptureManager:
+	-Capturable:
+	-GainsExperience:
+	-CaptureNotification:
+	-UpdatesPlayerStatistics:
+	GrantConditionOnDamageState@DAMAGED:
+	-MapEditorData:
+	Interactable:
+	RenderSprites:
+		Image: poisoncloud
+		Palette: poison-alpha
+	Aircraft:
+		Speed: 10
+		Repulsable: False
+		CruiseAltitude: 0c256
+		-Crushes:
+	WithSpriteBody:
+		Palette: poison-alpha
+	Wanders:
+		WanderMoveRadius: 1
+		MinMoveDelay: 25
+		MaxMoveDelay: 50
+	Health:
+		HP: 100
+	KillsSelf:
+		Delay: 500
+	PeriodicExplosion@poison:
+		Weapon: PoisonCloudExplosion
+		InitialDelay: 0
+	WithMakeAnimation:
+	WithDeathAnimation:
+		UseDeathTypeSuffix: False
+		FallbackSequence: die
+		DeathSequencePalette: poison-alpha
+		DeathPaletteIsPlayerPalette: False
+		CrushedSequencePalette: poison-alpha
+		CrushedPaletteIsPlayerPalette: False
 
 FLARE:
 	Inherits: ^HelicopterHusk

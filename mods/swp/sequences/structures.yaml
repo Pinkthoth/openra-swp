@@ -192,6 +192,26 @@ lazarusplatform:
 	icon:
 		Filename: lazarusplatformicon.shp
 
+illicitlab:
+	Defaults:
+		Filename: illicitlab.shp
+	idle:
+		Start: 1
+		Length: 6
+	damaged-idle:
+		Start: 8
+		Length: 6
+	make:
+		Start: 16
+		Length: *
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib3.tem
+			DESERT: bib3.des
+		Length: *
+	icon:
+		Filename: illicitlabicon.shp
+
 cyberlab:
 	Defaults:
 		Filename: cyberlab.shp
@@ -238,7 +258,7 @@ oilplat:
 		Offset: 4,-4
 	damaged-idle: 
 		Filename: oilplat.shp
-		Start: 9
+		Start: 10
 		Tick: 100
 		Length: 9
 		Offset: 4,-4

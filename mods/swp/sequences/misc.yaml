@@ -411,6 +411,21 @@ explosion:
 	crazyexplode:
 		Filename: crazyexplode.shp
 
+poisoncloud:
+	idle:
+		Filename: poisoncloud.shp
+		Length: *
+	make:
+		Filename: poisoncloudmakedie.shp
+		Start: 0
+		Length: 25
+		Tick: 50
+	die:
+		Filename: poisoncloudmakedie.shp
+		Start: 25
+		Length: 25
+		Tick: 50
+
 cloud:
 	idle:
 		Filename: cloud.shp
@@ -503,6 +518,26 @@ pips:
 		Frames: 9,10,11,12,13,14,15,16,17,8
 		Length: 10
 		Offset: 9, 5
+	poison:
+		Filename: poison.shp
+		Start: 0
+		Length: 1
+		Offset: 0,0
+	thermo1:
+		Filename: thermo.shp
+		Start: 0
+		Length: 1
+		Offset: 0,0
+	thermo2:
+		Filename: thermo.shp
+		Start: 1
+		Length: 1
+		Offset: 0,0
+	thermo3:
+		Filename: thermo.shp
+		Start: 2
+		Length: 1
+		Offset: 0,0
 	medic:
 		Start: 20
 		Offset: 15, 1
@@ -1172,6 +1207,9 @@ iconchevrons:
 	veteran:
 		Filename: iconchevrons.shp
 		Offset: 2, 2
+	blueprint:
+		Filename: blueprint.shp
+		Offset: -1, 4
 
 atomic:
 	up:

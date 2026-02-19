@@ -201,6 +201,10 @@ Player:
 		Image: iconchevrons
 		Sequence: veteran
 		Type: Veterancy
+	ProductionIconOverlayManager@blueprint:
+		Image: iconchevrons
+		Sequence: blueprint
+		Type: Blueprint
 	ResourceStorageWarning:
 	PlayerExperience:
 	GameSaveViewportManager:

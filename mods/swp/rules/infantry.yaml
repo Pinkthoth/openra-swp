@@ -156,6 +156,10 @@ HOUND:
 
 GENEHORROR:
 	Inherits: ^Soldier
+	-SpawnActorOnDeath@BulletDeath:
+	-WithDecoration@poison:
+	-ExternalCondition@poisoned:
+	-Targetable@poisoned:
 	Valued:
 		Cost: 200
 	Tooltip:
@@ -167,12 +171,12 @@ GENEHORROR:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 42
-		Prerequisites: ~techlevel.infonly, ~infantry.kazakhstan
+		Prerequisites: ~techlevel.infonly, ~infantry.kazakhstan, ~illicitlab
 		Description: Chemically mutated general-purpose melee infantry.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
-		Attributes: • Can detect disquised and phased units.\n • Resurrects killed infantry as Thralls.
+		Attributes: • Can detect disquised and phased units.\n • Resurrects killed infantry as Thralls.\n • Immune to poison.
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Selectable:
@@ -434,7 +438,7 @@ E1:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 10
-		Prerequisites: ~techlevel.infonly, ~infantry.rifleman
+		Prerequisites: ~techlevel.infonly, ~infantry.rifleman, ~!illicitlab
 		Description: General-purpose infantry.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -534,7 +538,7 @@ PENAL:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 71
-		Prerequisites: ~infantry.penal, adept
+		Prerequisites: ~infantry.penal, adept, ~!illicitlab
 		Description: Tough shotgun armed general purpose infantry.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -862,7 +866,9 @@ MILPOL:
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
-		Attributes: • Detects cloaked and disguised units in a long range.
+		Attributes: • Detects cloaked and disguised units in a long range.\n• Large vision.
+	RevealsShroud:
+		Range: 5c0
 	Valued:
 		Cost: 150
 	Tooltip:
@@ -973,7 +979,7 @@ INITIATE:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 10
-		Prerequisites: ~infantry.kazakhstan, ~techlevel.infonly
+		Prerequisites: ~infantry.kazakhstan, ~techlevel.infonly, ~illicitlab
 		Description: Anti-infantry psychic unit.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -1013,6 +1019,134 @@ INITIATE.Husk:
 	GrantExternalConditionToKiller:
 		Condition: initiate
 
+COPYCAT:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	-ExperienceTrickler@OfficerNearby:
+	-GainsExperienceMultiplier@OfficerNearby:
+	-ExternalCondition@OfficerNearby:
+	-GainsExperience:
+	GainsExperience:
+		LevelUpNotification: LevelUp
+		Conditions:
+			50: rank-veteran
+			100: rank-veteran
+			150: rank-veteran
+		LevelUpImage: crate-effects
+	-DamageMultiplier@RANK-4:
+	-DamageMultiplier@RANK-5:
+	-DamageMultiplier@RANK-6:
+	-DamageMultiplier@RANK-7:
+	-FirepowerMultiplier@RANK-4:
+	-FirepowerMultiplier@RANK-5:
+	-FirepowerMultiplier@RANK-6:
+	-FirepowerMultiplier@RANK-7:
+	-ReloadDelayMultiplier@RANK-4:
+	-ReloadDelayMultiplier@RANK-5:
+	-ReloadDelayMultiplier@RANK-6:
+	-ReloadDelayMultiplier@RANK-7:
+	ChangesHealth@ELITE:
+		Step: 0
+		PercentageStep: 5
+		Delay: 100
+		StartIfBelow: 100
+		DamageCooldown: 125
+		RequiresCondition: rank-veteran > 2
+	WithDecoration@RANK-1:
+		Image: rank
+		Sequence: rank-veteran-8
+		Palette: effect
+		Position: BottomRight
+		Margin: 5, 6
+		ValidRelationships: Ally, Enemy, Neutral
+		RequiresCondition: rank-veteran == 1
+	WithDecoration@RANK-2:
+		Image: rank
+		Sequence: rank-veteran-9
+		Palette: effect
+		Position: BottomRight
+		Margin: 5, 6
+		ValidRelationships: Ally, Enemy, Neutral
+		RequiresCondition: rank-veteran == 2
+	WithDecoration@RANK-3:
+		Image: rank
+		Sequence: rank-veteran-10
+		Palette: effect
+		Position: BottomRight
+		Margin: 5, 6
+		ValidRelationships: Ally, Enemy, Neutral
+		RequiresCondition: rank-veteran == 3
+	-WithDecoration@RANK-4:
+	-WithDecoration@RANK-5:
+	-WithDecoration@RANK-6:
+	-WithDecoration@RANK-7:
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 100
+		Prerequisites: ~infantry.raj, dome, ~techlevel.medium
+		Description: Military intelligence service specialist.
+	TooltipExtras:
+		Weaknesses: - Weak vs Everything.
+		Attributes: • Can disguise as any infantry.\n• Can detect disguised units.\n• Can infiltrate enemy Warfactory to steal blueprints.
+	Valued:
+		Cost: 350
+	-Tooltip:
+	DisguiseTooltip:
+		Name: Copycat
+		GenericName: Soldier
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	-Guard:
+	Mobile:
+		Voice: Move
+	RevealsShroud:
+		Range: 5c0
+	Passenger:
+		CustomPipType: blue
+		Voice: Move
+	Disguise:
+		DisguisedCondition: disguise
+	WithDisguisingInfantryBody:
+		DefaultAttackSequence: shoot
+		IdleSequences: idle1,idle2
+		StandSequences: stand,stand2
+	WithDecoration@disguise:
+		Position: Top
+		Margin: 0, -6
+		Image: pips
+		Sequence: tag-spy
+		Palette: effect
+		RequiresCondition: disguise
+	Infiltrates:
+		Types: KominternWeap, EntenteWeap, MittelWeap
+		Notification: BuildingInfiltrated
+	AutoTarget:
+		InitialStance: HoldFire
+		InitialStanceAI: HoldFire
+		ScanRadius: 5
+	-WithInfantryBody:
+	IgnoresDisguise:
+	Armament:
+		Weapon: SilencedPPK
+	AttackMove:
+		Voice: Move
+	RenderSprites:
+		Image: copycat
+	Voiced:
+		VoiceSet: SpyVoice
+	SpawnActorOnDeath@BulletDeath:
+		Actor: COPYCAT.Husk
+
+COPYCAT.Husk:
+	Inherits: ^InfantryCorpse
+	Tooltip:
+		Name: Corpse (Copycat)
+	SpawnActorOnDeath:
+		Actor: COPYCAT
+	GrantExternalConditionToKiller:
+		Condition: copycat
+
 RADIST:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
@@ -1030,8 +1164,6 @@ RADIST:
 		Class: E1
 	Valued:
 		Cost: 200
-	RevealsShroud:
-		Range: 5c0
 	Tooltip:
 		Name: Radist
 	UpdatesPlayerStatistics:
@@ -1055,8 +1187,8 @@ RADIST:
 	SpawnActorOnDeath@BulletDeath:
 		Actor: RADIST.Husk
 	RangedGpsRadarProvider:
-		Range: 8c512
-		TargetTypes: Infantry, Vehicle, Building, Aircraft
+		Range: 7c0
+		TargetTypes: Infantry, Vehicle, Building, Aircraft, Ship
 
 RADIST.Husk:
 	Inherits: ^InfantryCorpse
@@ -1239,15 +1371,15 @@ MUTANT:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 169
-		Prerequisites: ~barracks, stek, adept, ~infantry.kazakhstan, ~techlevel.infonly
+		BuildPaletteOrder: 101
+		Prerequisites: ~barracks, commcent, adept, ~infantry.kazakhstan, ~techlevel.infonly, ~illicitlab
 		Description:  Chemically mutated general-purpose infantry.
 	Valued:
 		Cost: 400
 	Mobile:
 		Speed: 50
 	Tooltip:
-		Name: Mutant Brute
+		Name: Mutant Pillager
 		GenericName: Mutant
 	Voiced:
 		VoiceSet: ZombieVoice
@@ -1287,8 +1419,8 @@ RPGMUTANT:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 170
-		Prerequisites: ~barracks, stek, adept, ~infantry.kazakhstan, ~techlevel.high
+		BuildPaletteOrder: 102
+		Prerequisites: ~barracks, commcent, adept, ~infantry.kazakhstan, ~techlevel.high, ~illicitlab
 		Description:  Chemically mutated anti-tank unit.
 	Valued:
 		Cost: 500
@@ -1516,7 +1648,7 @@ WASTETROOPER:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 92
-		Prerequisites: ~infantry.kazakhstan, commcent
+		Prerequisites: ~infantry.kazakhstan, adept, ~illicitlab
 		Description: Shoots bursts of corrosive acid.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Vehicles.
@@ -1598,6 +1730,8 @@ KULAK:
 		Condition: e1
 	ExternalCondition@hunter:
 		Condition: hunter
+	ExternalCondition@defiler:
+		Condition: defiler
 	ExternalCondition@penal:
 		Condition: penal
 	ExternalCondition@sbearer:
@@ -2178,7 +2312,7 @@ GLIDER:
 GLIDER.Husk:
 	Inherits: ^InfantryCorpse
 	Tooltip:
-		Name: Corpse (Grenadier)
+		Name: Corpse (Glider)
 	SpawnActorOnDeath:
 		Actor: GLIDER
 	GrantExternalConditionToKiller:
@@ -2261,7 +2395,7 @@ E2:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 41
-		Prerequisites: ~infantry.grenadier, ~techlevel.infonly
+		Prerequisites: ~infantry.grenadier, ~techlevel.infonly, ~!illicitlab
 		Description: Infantry armed with grenades.
 	TooltipExtras:
 		Strengths: + Strong vs Buildings, Infantry.
@@ -2428,7 +2562,7 @@ E3:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 30
-		Prerequisites: ~techlevel.infonly, ~infantry.rocketman
+		Prerequisites: ~techlevel.infonly, ~infantry.rocketman, ~!illicitlab
 		Description: Anti-tank and -helicopter infantry.
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles, Helicopters.
@@ -2488,7 +2622,7 @@ E6:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 40
-		Prerequisites: ~barracks, ~infantry.engineer, ~techlevel.infonly
+		Prerequisites: ~barracks, ~infantry.engineer, ~techlevel.infonly, ~!illicitlab
 		Description: Military engineer.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
@@ -2685,7 +2819,7 @@ SPY:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 100
-		Prerequisites: ~infantry.spy, atek, ~techlevel.medium
+		Prerequisites: ~infantry.spy, commcent, ~techlevel.medium
 		Description: Military intelligence service specialist.
 	TooltipExtras:
 		Weaknesses: - Weak vs Everything.
@@ -2974,7 +3108,7 @@ THF:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 94
-		Prerequisites: commcent, ~infantry.thief, ~techlevel.medium
+		Prerequisites: dome, ~infantry.thief, ~techlevel.medium, ~!illicitlab
 		Description: Professional procurer.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
@@ -3355,7 +3489,7 @@ POLITRUK:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 101
-		Prerequisites: ~barracks, dome, ~infantry.politruk, ~techlevel.infonly
+		Prerequisites: ~barracks, commcent, ~infantry.politruk, ~techlevel.infonly, ~!illicitlab
 		Description: Communist party political officer.
 	TooltipExtras:
 		Weaknesses: - Weak vs Everything.
@@ -3748,7 +3882,7 @@ STIMDOC:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 76
-		Prerequisites: ~barracks, dome, ~infantry.kazakhstan, ~techlevel.infonly
+		Prerequisites: ~barracks, dome, ~infantry.kazakhstan, ~techlevel.infonly, ~illicitlab
 		Description: Chemical weapons researcher.
 	TooltipExtras:
 		Weaknesses: - Weak vs Everything.
@@ -3872,7 +4006,7 @@ ISHMAELITE:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 150
-		Prerequisites: ~barracks, stek, ~infantry.kazakhstan, ~techlevel.high
+		Prerequisites: ~barracks, stek, ~infantry.kazakhstan, ~techlevel.high, ~illicitlab
 		Description: Psychic enslavement unit.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
@@ -4495,7 +4629,7 @@ WRAITH:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 40
-		Prerequisites: ~infantry.kazakhstan, ~techlevel.infonly
+		Prerequisites: ~infantry.kazakhstan, ~techlevel.infonly, ~illicitlab
 		Description: Psychic scouting unit.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Vehicles.
@@ -4778,8 +4912,8 @@ TERRORIST:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 72
-		Prerequisites: ~infantry.arabia, adept
+		BuildPaletteOrder: 42
+		Prerequisites: ~infantry.arabia
 		Description: This comrade is willing to do the ultimate sacrifice for the proletariat.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
@@ -4817,6 +4951,10 @@ HOLLOW:
 		IdleSequences: idle1,idle2
 		StandSequences: stand
 		RequiresCondition: !parachute
+	-SpawnActorOnDeath@BulletDeath:
+	-WithDecoration@poison:
+	-ExternalCondition@poisoned:
+	-Targetable@poisoned:
 	Tooltip:
 		Name: Hollow
 	-Guard:
@@ -4840,11 +4978,11 @@ HOLLOW:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 72
-		Prerequisites: ~infantry.kazakhstan
+		Prerequisites: ~infantry.kazakhstan, ~illicitlab
 		Description: Chemically zombified research subject.\nCarries a large explosive charge.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
-		Attributes: • Strapped with dynamite.\n• Becomes hidden while immobile.
+		Attributes: • Strapped with dynamite.\n• Becomes hidden while immobile.\n • Immune to poison.
 	Valued:
 		Cost: 150
 	Mobile:
@@ -5283,8 +5421,8 @@ NEBELWHERFER:
 	-ChangesHealth@commandered:
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 75
-		Prerequisites: adept, ~vehicles.egypt, ~techlevel.infonly
+		BuildPaletteOrder: 83
+		Prerequisites: commcent, ~vehicles.egypt, ~techlevel.infonly
 		Description: Infantry operated multiple rocket launcher.
 	TooltipExtras:
 		Strengths: + Strong vs Aircraft.
@@ -6328,6 +6466,74 @@ JARMEN:
 		Condition: cloak-force-disabled
 		ValidDamageStates: Critical
 
+DEFILER:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	TooltipExtras:
+		Strengths: + Strong vs Infantry, Vehicles.
+		Weaknesses: - Weak vs Aircraft.
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 149
+		Prerequisites: ~infantry.kazakhstan, stek, ~illicitlab
+		Description: Armed with a massive radiation weapon.
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Defiler
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 5000
+	Mobile:
+		Voice: Move
+	RevealsShroud:
+		Range: 5c0
+	Armament@PRIMARY:
+		Weapon: RadRifle
+		FireDelay: 0
+		LocalOffset: 100,0,290
+		RequiresCondition: !supercharged
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: RadRifle
+		RequiresCondition: !supercharged
+	TakeCover:
+		ProneOffset: 227,0,-245
+	AttackFrontal:
+		Voice: Attack
+	AttackMove:
+		Voice: Move
+	Passenger:
+		Voice: Move
+	Guard:
+		Voice: Move
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+		RequiresCondition: !parachute
+	WithInfantryBody@PARACHUTE:
+		StandSequences: parachute
+		RequiresCondition: parachute
+		IsPlayerPalette: true
+	Voiced:
+		VoiceSet: ShokVoice
+	ProducibleWithLevel:
+		Prerequisites: barracks.upgraded
+	SpawnActorOnDeath@BulletDeath:
+		Actor: DEFILER.Corpse
+	RenderSprites:
+		Image: defiler
+		
+DEFILER.Corpse:
+	Inherits: ^InfantryCorpse
+	Tooltip:
+		Name: Corpse (Defiler)
+	SpawnActorOnDeath:
+		Actor: DEFILER
+	GrantExternalConditionToKiller:
+		Condition: defiler
+
 SHOK:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
@@ -6495,7 +6701,7 @@ NERVEAGENT:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 91
-		Prerequisites: ~infantry.kazakhstan, commcent
+		Prerequisites: ~infantry.kazakhstan, commcent, ~illicitlab
 		Description: Elite sniper infantry unit.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -6544,8 +6750,8 @@ NIGHTWITCH:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 72
-		Prerequisites: adept, ~infantry.ukraine, ~techlevel.high
+		BuildPaletteOrder: 102
+		Prerequisites: dome, ~infantry.ukraine, ~techlevel.high
 		Description: Elite infantry capable of magnetic levitation.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -6567,12 +6773,12 @@ NIGHTWITCH:
 	RevealsShroud:
 		Range: 5c0
 	Armament@PRIMARY:
-		Weapon: NightwitchGrenade
+		Weapon: SMMagneticBolt
 		LocalOffset: 427,-100,400, 427,100,400
 		FireDelay: 5
 	Armament@GARRISONED:
 		Name: garrisoned
-		Weapon: NightwitchGrenade
+		Weapon: SMMagneticBolt
 	TakeCover:
 		ProneOffset: 227,0,-245
 	AttackFrontal:
@@ -6634,7 +6840,7 @@ NIGHTWITCHAIR:
 		Range: 5c0
 		Type: CenterPosition
 	Armament@PRIMARY:
-		Weapon: NightwitchGrenade
+		Weapon: SMMagneticBolt
 		LocalOffset: 427,-100,341, 427,100,341
 	-EjectOnDeath:
 	AttackFrontal:
@@ -7728,7 +7934,7 @@ IRONMAN:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 31
-		Prerequisites: ~techlevel.infonly, ~infantry.kazakhstan
+		Prerequisites: ~techlevel.infonly, ~infantry.kazakhstan, ~illicitlab
 		Description: Chemically mutated general-purpose melee infantry.
 	Valued:
 		Cost: 300
@@ -7946,6 +8152,9 @@ Zombie:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	-SpawnActorOnDeath@BulletDeath:
+	-WithDecoration@poison:
+	-ExternalCondition@poisoned:
+	-Targetable@poisoned:
 	Valued:
 		Cost: 100
 	Tooltip:

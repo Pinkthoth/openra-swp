@@ -151,7 +151,7 @@ Player:
 					Attractiveness: -2
 					TargetMetric: Value
 					CheckRadius: 2c0
-	HarvesterBotModule:
+	HarvesterBotModuleSwp:
 		RequiresCondition: enable-normal-ai
 		HarvesterTypes: harv
 		RefineryTypes: proc
