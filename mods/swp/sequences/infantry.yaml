@@ -10693,6 +10693,69 @@ pneer:
 	icon:
 		Filename: pneericon.shp
 
+iedcrew:
+	Inherits: ^SharedDeaths
+	Defaults:
+		Filename: iedcrew.shp
+	stand:
+		Facings: 8
+	run:
+		Start: 24
+		Length: 6
+		Facings: 8
+		Tick: 100
+	prone-stand:
+		Start: 16
+		Facings: 8
+	prone-run:
+		Start: 72
+		Length: 6
+		Facings: 8
+		Tick: 100
+	liedown:
+		Start: 0
+		Length: 1
+		Facings: 8
+	standup:
+		Start: 0
+		Length: 1
+		Facings: 8
+	die1:
+		Start: 120
+		Length: 21
+		Tick: 40
+	die2:
+		Start: 149
+		Length: 21
+		Tick: 40
+	die3:
+		Start: 174
+		Length: 20
+		Tick: 40
+	die4:
+		Start: 174
+		Length: 20
+		Tick: 40
+	die5:
+		Filename: tnkcmndr.shp
+		Start: 246
+		Length: 18
+		Tick: 80
+	die6:
+		Filename: electro.tem
+		Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+		Length: *
+		Tick: 80
+	die-crushed:
+		Filename: corpse1.tem
+		Length: 6
+		Tick: 1600
+		ZOffset: -511
+	die8:
+		Filename: empty.shp
+	icon:
+		Filename: iedcrewicon.shp
+
 dragoon:
 	Defaults:
 		Filename: cavalry.shp

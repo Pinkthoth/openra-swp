@@ -897,7 +897,7 @@ HLFTRK:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 1
-		Prerequisites: ~vehicles.halftrack, ~techlevel.low, ~!illicitlab
+		Prerequisites: ~vehicles.halftrack, ~techlevel.low
 		Description: Armoured transport vehicle.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -1079,7 +1079,7 @@ HVTNK:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 81
-		Prerequisites: adept, ~vehicles.austria, dome, ~techlevel.medium
+		Prerequisites: adept, ~vehicles.egypt, dome, ~techlevel.medium
 		Description: Slow but strudy tank.
 	TooltipExtras:
 		Strengths: + Strong vs Tanks.
@@ -1557,21 +1557,26 @@ MAUS:
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	TooltipExtras:
-		Strengths: + Strong vs Vehicles, Defenses.
+		Strengths: + Strong vs Vehicles.
 		Weaknesses: - Weak vs Infantry, Aircraft.
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 330
+		Prerequisites: commcent, adept, ~vehicles.raj, ~techlevel.high
+		Description: Self-propelled anti-tank gun.
 	Valued:
-		Cost: 1850
+		Cost: 1000
 	Tooltip:
-		Name: Mouse
+		Name: Raj Self-Propelled Gun
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 45000
+		HP: 40000
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 45
-		TurnSpeed: 12
+		Speed: 75
+		TurnSpeed: 10
 		PauseOnCondition: being-captured
 	RevealsShroud:
 		MinRange: 4c0
@@ -1580,7 +1585,7 @@ MAUS:
 	RevealsShroud@GAPGEN:
 		Range: 4c0
 	Armament:
-		Weapon: MausCannon
+		Weapon: hvtnkfire
 		Recoil: 128
 		RecoilRecovery: 38
 		LocalOffset: 1200,60,100
@@ -1600,7 +1605,7 @@ MAUS:
 MAUS.Husk:
 	Inherits: ^Husk
 	Tooltip:
-		Name: Husk (Mouse)
+		Name: Husk (Raj Self-Propelled Gun)
 	TransformOnCapture@Mechanic:
 		IntoActor: MAUS
 	TransformOnCapture@Engineer:
@@ -1817,7 +1822,7 @@ TRNSPRT:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 10
-		Prerequisites: ~vehicles.transporter, ~techlevel.low, ~!illicitlab
+		Prerequisites: ~vehicles.transporter, ~techlevel.low
 		Description: Fast transport vehicle.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
@@ -1866,7 +1871,7 @@ FTRK:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 20
-		Prerequisites: ~vehicles.ftrk, ~techlevel.low, ~!illicitlab
+		Prerequisites: ~vehicles.ftrk, ~techlevel.low
 		Description: Mobile unit with mounted Flak cannon.
 	TooltipExtras:
 		Strengths: + Strong vs Aircraft.
@@ -1945,14 +1950,14 @@ TURKFTRK:
 	Inherits@CARGOPIPS: ^CargoPips
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 20
-		Prerequisites: ~vehicles.kazakhstan, ~techlevel.low, ~illicitlab
+		BuildPaletteOrder: 80
+		Prerequisites: ~vehicles.china, adept, ~techlevel.low, ~illicitlab
 		Description: Mobile unit with mounted Flak cannon.
 	TooltipExtras:
 		Strengths: + Strong vs Aircraft.
 		Weaknesses: - Weak vs Vehicles, Infantry.
 	Valued:
-		Cost: 600
+		Cost: 750
 	RenderSprites:
 		Image: turkftrk
 	Tooltip:
@@ -1960,9 +1965,9 @@ TURKFTRK:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 18000
+		HP: 25000
 	Armor:
-		Type: Light
+		Type: Medium
 	Mobile:
 		TurnSpeed: 40
 		Speed: 125
@@ -1986,13 +1991,13 @@ TURKFTRK:
 	Armament@AA:
 		Weapon: APCGun.AA
 		Recoil: 85
-		LocalOffset: 612,-130,172, 612,130,172
+		LocalOffset: 612,-150,172, 612,150,172
 		MuzzleSequence: muzzle
 	Armament@AG:
 		Name: secondary
 		Weapon: APCGun
 		Recoil: 85
-		LocalOffset: 612,-130,232, 612,130,232
+		LocalOffset: 612,-150,232, 612,150,232
 		MuzzleSequence: muzzle
 	GrantConditionOnAttack@ag:
 		Condition: ag_attacking
@@ -2302,7 +2307,7 @@ DRAKE:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 70
-		Prerequisites: ~vehicles.kazakhstan, ~illicitlab
+		Prerequisites: ~vehicles.egypt, ~illicitlab
 		Description: Mobile unit with a mounted wastethrower.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Buildings.
@@ -2514,7 +2519,7 @@ TNKT:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 70
-		Prerequisites: ~vehicles.tankette, ~techlevel.low, ~!illicitlab
+		Prerequisites: ~vehicles.tankette, ~techlevel.low
 		Description: Tough anti-infantry vehicle.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Vehicles.
@@ -2639,7 +2644,7 @@ BTR:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 80
-		Prerequisites: weap, ~vehicles.btr, ~techlevel.low, ~!illicitlab
+		Prerequisites: weap, ~vehicles.btr, ~techlevel.low
 		Description: Tough infantry transport.
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles.
@@ -2761,8 +2766,8 @@ MARAUDER:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 21
-		Prerequisites: ~vehicles.arabia, ~techlevel.medium
+		BuildPaletteOrder: 70
+		Prerequisites: ~vehicles.persia, ~techlevel.medium
 		Description: Fast scouting vehicle armed with a\nlong range missile launcher.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -2826,7 +2831,7 @@ MTNK:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 72
-		Prerequisites: adept, ~vehicles.cossack, ~techlevel.medium, ~!illicitlab
+		Prerequisites: adept, ~vehicles.cossack, ~techlevel.medium
 		Description: Komintern main battle tank.n\Heavily armoured,\nbut versatile.
 	TooltipExtras:
 		Strengths: + Strong vs Tanks.
@@ -2900,9 +2905,9 @@ MARAUDERTANK:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 399
-		Prerequisites: ~vehicles.arabia, adept, commcent, ~techlevel.medium
-		Description: Tracked heavy tank.
+		BuildPaletteOrder: 402
+		Prerequisites: ~vehicles.arabia, adept, stek, ~techlevel.medium
+		Description: Nuclear tracked heavy tank.
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles.
 		Weaknesses: - Weak vs Infantry, Aircraft.
@@ -2931,36 +2936,34 @@ MARAUDERTANK:
 		TurnSpeed: 28
 		Offset: 50,0,200
 	Armament:
-		Weapon: ltnkfire-scorpion
+		Weapon: RadCannon
 		Recoil: 128
 		RecoilRecovery: 38
 		LocalOffset: 720,0,90
-		MuzzleSequence: muzzle
-		RequiresCondition: drilled < 3
+		RequiresCondition: drilled == 0 || drilled == 1
 	Armament@quinary:
-		Weapon: ltnkfire-scorpion-double
+		Weapon: RadCannon-double
 		Recoil: 128
 		RecoilRecovery: 38
-		LocalOffset: 720,0,90
-		MuzzleSequence: muzzle
+		LocalOffset: 720,-100,90, 720,100,90
 		Name: quinary
-		RequiresCondition: drilled > 2
+		RequiresCondition: drilled > 1
 	Armament@secondary:
 		Name: secondary
-		Weapon: TankMachineGun-scorpion
+		Weapon: TankMachineGun-scorpion-double
 		Recoil: 0
 		RecoilRecovery: 38
-		LocalOffset: 125,-140,50
+		LocalOffset: 25,-200,50, 25,200,50
 		MuzzleSequence: muzzle-mg
-		RequiresCondition: drilled > 0
+		RequiresCondition: drilled > 3
 	Armament@tertiary:
 		Name: tertiary
-		Weapon: 227mm-Scorpion
+		Weapon: 227mm-Scorpion-Rad
 		Recoil: 128
 		RecoilRecovery: 38
-		LocalOffset: 0,0,90
+		LocalOffset: -50,100,90, -50,-100,90
 		MuzzleSequence: muzzle
-		RequiresCondition: drilled > 4
+		RequiresCondition: drilled > 5
 	Armament@quarternary:
 		Name: quarternary
 		Weapon: ScorpionDrill
@@ -2994,10 +2997,10 @@ MARAUDERTANK:
 		Armaments: primary,secondary,tertiary,quarternary,quinary
 	WithMuzzleOverlay:
 	WithSpriteTurret:
-		RequiresCondition: drilled == 0 || drilled == 1 || drilled == 2
+		RequiresCondition: drilled == 0 || drilled == 1
 		Sequence: turret
 	WithSpriteTurret@2:
-		RequiresCondition: drilled == 3 || drilled == 4
+		RequiresCondition: drilled == 2 || drilled == 3
 		Sequence: turret2
 	WithSpriteTurret@3:
 		RequiresCondition: drilled == 4 || drilled == 5
@@ -3207,19 +3210,19 @@ CHINATANK:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 335
-		Prerequisites: commcent, ~vehicles.raj, ~techlevel.medium
+		BuildPaletteOrder: 72
+		Prerequisites: adept, ~vehicles.china, ~techlevel.medium
 		Description: Light battle tank.
 	TooltipExtras:
 		Strengths: + Strong vs Tanks.
 		Weaknesses: - Weak vs Aircraft.
 		Attributes: • Armed with a secondary machine gun.\n • Increased damage, speed and armor while near other Horde Tanks.
 	Health:
-		HP: 53000
+		HP: 40000
 	Armor:
 		Type: Heavy
 	Valued:
-		Cost: 1050
+		Cost: 1000
 	Mobile:
 		Speed: 85
 	Armament:
@@ -3663,7 +3666,7 @@ KATYA:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 82
-		Prerequisites: dome, adept, ~vehicles.katy, ~techlevel.medium, ~!illicitlab
+		Prerequisites: dome, adept, ~vehicles.katy, ~techlevel.medium
 		Description: Long range multiple rocket launcher.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Buildings, Defenses.
@@ -3776,6 +3779,7 @@ T100:
 	Tooltip:
 		Name: Mammoth Tank
 		GenericName: Tank
+	-Crushable:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
@@ -4899,8 +4903,8 @@ CRAWLER:
 	Inherits@CARGOPIPS: ^CargoPips
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 72
-		Prerequisites: adept, ~vehicles.china, ~techlevel.medium
+		BuildPaletteOrder: 10
+		Prerequisites: ~vehicles.china, ~techlevel.medium
 		Description: Troop transporter.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
@@ -4908,7 +4912,7 @@ CRAWLER:
 	Valued:
 		Cost: 1000
 	Tooltip:
-		Name: Crawler
+		Name: Troop Crawler
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
@@ -4964,7 +4968,7 @@ SHAH:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 402
-		Prerequisites: mtek, ~vehicles.kazakhstan, ~techlevel.high, ~illicitlab
+		Prerequisites: mtek, ~vehicles.kazakhstan, ~techlevel.high, illicitlab
 		Description: Psychic enslavement vehicle.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
@@ -5064,7 +5068,7 @@ WASTETANKER:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 83
-		Prerequisites: ~vehicles.kazakhstan, commcent, ~illicitlab
+		Prerequisites: ~vehicles.kazakhstan, dome
 		Description: Tough tank that shoots corrosive acid.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Vehicles.
@@ -5283,13 +5287,13 @@ BULLFROG:
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMovePlusBombers
 	TooltipExtras:
-		Strengths: + Strong vs Vehicles, Aircraft.
-		Weaknesses: - Weak vs Infantry.
+		Strengths: + Strong vs Vehicles.
+		Weaknesses: - Weak vs Infantry, Aircraft.
 		Attributes: • Can gather materials from husks to\nbolster it's armour and weaponry.
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 399
-		Prerequisites: adept, stek, ~vehicles.arabia, ~techlevel.medium
+		BuildPaletteOrder: 21
+		Prerequisites: ~vehicles.arabia, ~techlevel.medium
 		Description: Versatile rocket armed vehicle.
 	Valued:
 		Cost: 800
@@ -5299,7 +5303,7 @@ BULLFROG:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 27500
+		HP: 25000
 	Armor:
 		Type: Medium
 	Mobile:
@@ -5313,7 +5317,7 @@ BULLFROG:
 		Range: 4c0
 	Turreted:
 		TurnSpeed: 28
-		Offset: 25,0,250
+		Offset: -25,0,300
 	Armament:
 		Weapon: APTusk.Bullfrog
 		LocalOffset: 50,-75,100, 50,75,100
@@ -5788,7 +5792,7 @@ RONIN:
 		Strengths: + Strong vs Vehicles, Infantry.
 		Weaknesses: - Weak vs Aircraft
 	Valued:
-		Cost: 1000
+		Cost: 1100
 	Tooltip:
 		Name: Kitsune
 		GenericName: Tank
@@ -7554,7 +7558,7 @@ RENAULT:
 		Prerequisites: ~vehicles.persia, ~techlevel.medium
 		Description: Light mortar vehicle.
 	Valued:
-		Cost: 750
+		Cost: 700
 	RenderSprites:
 		Image: renault
 	Tooltip:
@@ -7755,7 +7759,7 @@ TOXINARTY:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 82
-		Prerequisites: dome, ~vehicles.kazakhstan, ~techlevel.medium, ~illicitlab
+		Prerequisites: dome, ~vehicles.egypt, ~techlevel.medium, ~illicitlab
 		Description: Long range multiple rocket launcher.
 
 ARCHER:
@@ -7982,14 +7986,14 @@ HVRTNKTNK:
 		Weaknesses: - Weak vs Infantry, Aircraft.
 		Attributes: • Deploy to enter levitating state.\n• Can not shoot while levitating.
 	Valued:
-		Cost: 1200
+		Cost: 1400
 	Tooltip:
 		Name: Maglev Tank
 		GenericName: Tank
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 30000
+		HP: 35000
 	Armor:
 		Type: Heavy
 	Mobile:
@@ -8125,16 +8129,17 @@ GRINDER:
 	-ExternalCondition@CRUSHSUCCESFUL:
 	-SpeedMultiplier@CRUSHATTEMPT:
 	-SpeedMultiplier@CRUSHSUCCESFUL:
+	-Crushable
 	TooltipExtras:
 		Weaknesses: - Unarmed.
 		Attributes: • Deploy to charge faster.\n• Does not slow down while crushing.
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 73
-		Prerequisites: adept, ~vehicles.kazakhstan, ~techlevel.low, ~illicitlab
+		BuildPaletteOrder: 320
+		Prerequisites: commcent, ~vehicles.kazakhstan, ~techlevel.low, illicitlab
 		Description: Large tank with a grinder in front.
 	Valued:
-		Cost: 2300
+		Cost: 1500
 	Tooltip:
 		Name: Grinder
 	UpdatesPlayerStatistics:
@@ -8146,7 +8151,7 @@ GRINDER:
 	Mobile:
 		Speed: 43
 		PauseOnCondition: being-captured
-		Locomotor: heavytracked
+		Locomotor: superheavytracked
 	RevealsShroud:
 		MinRange: 4c0
 		Range: 5c0
@@ -8157,19 +8162,21 @@ GRINDER:
 		Prerequisites: vehicles.upgraded
 	GrantConditionOnDeploy:
 		DeployedCondition: haste-trigger
-		PauseOnCondition: haste
 	GrantCondition:
 		RequiresCondition: haste-trigger
 		Condition: haste
+	SpeedMultiplier@haste:
+		Modifier: 200
+		RequiresCondition: haste && charged
 	WithMoveAnimation:
 		MoveSequence: move
 		RequiresCondition: moving
 	GrantConditionOnMovement:
 		Condition: moving
-	GrantChargingConditionFull:
+	GrantChargingCondition:
 		Condition: charged
 		MaxCharge: 200
-		PauseOnCondition: !haste-trigger
+		PauseOnCondition: haste-trigger
 	Selectable:
 		DecorationBounds: 1589, 1589
 
@@ -8246,95 +8253,6 @@ TTNK.Husk:
 		IntoActor: TTNK
 	RenderSprites:
 		Image: ttnk
-
-MIRAGETNK:
-	Inherits: ^Vehicle
-	Inherits@GAINSEXPERIENCE: ^GainsExperience
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Valued:
-		Cost: 1500
-	Tooltip:
-		Name: Phase Tank
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Health:
-		HP: 40000
-	Armor:
-		Type: Medium
-	Mobile:
-		Speed: 80
-		Locomotor: heavywheeled
-		PauseOnCondition: being-captured || deployed
-	RevealsShroud:
-		MinRange: 4c0
-		Range: 7c0
-		RevealGeneratedShroud: False
-	RevealsShroud@GAPGEN:
-		Range: 4c0
-	AutoTarget:
-		InitialStance: HoldFire
-		InitialStanceAI: ReturnFire
-	Armament@PRIMARY:
-		Weapon: APTusk.PTNK
-		LocalOffset: -160,-216,232
-		LocalYaw: 60
-		PauseOnCondition: empdisable || deployed
-	Armament@SECONDARY:
-		Weapon: APTusk.PTNK
-		LocalOffset: -160,216,232
-		LocalYaw: -60
-		PauseOnCondition: empdisable || deployed
-	GrantConditionOnMovement@moving:
-		Condition: moving
-	AttackFrontal:
-		FacingTolerance: 10
-	GrantConditionOnAttack@attacking:
-		Condition: attacking
-	GrantConditionOnDeploy:
-		DeployedCondition: deployed
-	Cloak:
-		InitialDelay: 1
-		CloakDelay: 1
-		CloakSound: teleport.aud
-		UncloakSound: holoexplosion.aud
-		IsPlayerPalette: true
-		PauseOnCondition: cloak-force-disabled || moving || attacking || !deployed || empdisable
-	Mobile:
-		TurnSpeed: 28
-		Speed: 85
-	Health:
-		HP: 35000
-	Repairable:
-		HpPerStep: 2046
-	Armor:
-		Type: Medium
-	RevealsShroud:
-		Range: 6c0
-	AttackFrontal:
-		PauseOnCondition: turnedoff
-		FacingTolerance: 0
-	FireWarheadsOnDeath:
-		Weapon: CrateNapalm
-	Selectable:
-		DecorationBounds: 1289, 1289
-	SpawnActorOnDeath:
-		RequiresCondition: !being-warped
-		Actor: MIRAGETNK.Husk
-	ProducibleWithLevel:
-		Prerequisites: vehicles.upgraded
-
-MIRAGETNK.Husk:
-	Inherits: ^Husk
-	Tooltip:
-		Name: Husk (Mirage Tank)
-	TransformOnCapture@Mechanic:
-		IntoActor: MIRAGETNK
-	TransformOnCapture@Engineer:
-		IntoActor: MIRAGETNK
-	InfiltrateForTransform:
-		IntoActor: MIRAGETNK
-	RenderSprites:
-		Image: miragetnk
 
 FLMTNK:
 	Inherits: ^TrackedVehicle
@@ -9196,8 +9114,8 @@ RACER:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 70
-		Prerequisites: ~vehicles.persia, ~techlevel.medium
+		BuildPaletteOrder: 42
+		Prerequisites: ~vehicles.austria, ~techlevel.medium
 		Description: Tracked motorbike,\narmed with two rocket launchers.
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles.
@@ -9297,7 +9215,7 @@ SCORPION:
 		Weapon: ltnkfire-scorpion-double
 		Recoil: 128
 		RecoilRecovery: 38
-		LocalOffset: 720,0,90
+		LocalOffset: 720,-80,90, 720,80,90
 		MuzzleSequence: muzzle
 		Name: quinary
 		RequiresCondition: drilled > 2
@@ -9306,7 +9224,7 @@ SCORPION:
 		Weapon: TankMachineGun-scorpion
 		Recoil: 0
 		RecoilRecovery: 38
-		LocalOffset: 125,-140,50
+		LocalOffset: 25,-180,50
 		MuzzleSequence: muzzle-mg
 		RequiresCondition: drilled > 0
 	Armament@tertiary:
@@ -9316,14 +9234,14 @@ SCORPION:
 		RecoilRecovery: 38
 		LocalOffset: 0,0,90
 		MuzzleSequence: muzzle
-		RequiresCondition: drilled > 4
+		RequiresCondition: drilled > 3
 	Armament@quarternary:
 		Name: quarternary
 		Weapon: ScorpionDrill
 		RecoilRecovery: 38
 		LocalOffset: 0,0,90
 		TargetRelationships: Enemy, Neutral, Ally
-		RequiresCondition: drilled < 5
+		RequiresCondition: drilled < 4
 	WithFacingSpriteBody:
 		RequiresCondition: drilled == 0
 		Sequence: idle
@@ -9333,7 +9251,7 @@ SCORPION:
 		Sequence: idle2
 		Name: body2
 	WithFacingSpriteBody@3:
-		RequiresCondition: drilled > 3
+		RequiresCondition: drilled > 2
 		Sequence: idle3
 		Name: body3
 	GrantConditionOnAttack@drill:
@@ -9352,7 +9270,7 @@ SCORPION:
 		RequiresCondition: drilled == 2 || drilled == 3
 		Sequence: turret2
 	WithSpriteTurret@3:
-		RequiresCondition: drilled > 4
+		RequiresCondition: drilled > 3
 		Sequence: turret3
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
@@ -9877,7 +9795,7 @@ TOXINTRUCK:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 330
-		Prerequisites: ~vehicles.kazakhstan, dome, ~illicitlab
+		Prerequisites: ~vehicles.kazakhstan, dome, illicitlab
 		Description: Truck loaded with toxic materials.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
@@ -9921,7 +9839,7 @@ CHAOSDRONE:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 330
-		Prerequisites: ~vehicles.kazakhstan, commcent, ~illicitlab
+		Prerequisites: ~vehicles.kazakhstan, commcent, illicitlab
 		Description: Truck loaded with toxic materials.
 	TooltipExtras:
 		Weaknesses: - Unarmed.

@@ -1678,7 +1678,12 @@ empty:
 		Filename: empty32.shp
 		Length: *
 		Tick: 20
-	
+
+ied:
+	idle:
+		Filename: ied.shp
+		Start: 0
+
 smine:
 	idle:
 		Filename: smine.shp

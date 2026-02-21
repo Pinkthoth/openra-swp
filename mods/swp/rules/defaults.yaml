@@ -1196,6 +1196,8 @@
 	Inherits@Parasite: ^ParasiteAttach
 	Inherits@terrordrone: ^TerrorDroneable
 	Inherits@battledroneable: ^BattleDroneAttach
+	Crushable:
+		CrushClass: vehicle
 	WithDecoration@poison:
 		Image: pips
 		Sequence: poison

@@ -210,12 +210,13 @@
 
 ^RadBeam:
 	ReloadDelay: 60
-	Range: 7c0
+	Range: 6c0
 	Report: bigggun1.aud
 	ValidTargets: GroundActor, Trees,  Ship, WaterActor, Ground
 	Projectile: RadBeam
 		Color: 4CFF00
 		Amplitude: 162
+		Thickness: 20
 	Warhead@1Dam: SpreadDamage
 		Range: 0, 32
 		Falloff: 100, 100
@@ -233,6 +234,40 @@
 
 RadRifle:
 	Inherits: ^RadBeam
+
+RadCannon:
+	Inherits: ^RadBeam
+	InvalidTargets: Husk
+	Warhead@1Dam: SpreadDamage
+		Range: 0, 32
+		Falloff: 100, 100
+		Damage: 15000
+		AffectsParent: false
+		Versus:
+			None: 150
+			Wood: 50
+			Light: 80
+			Medium: 60
+			Heavy: 40
+			Concrete: 40
+
+RadCannon-double:
+	Inherits: ^RadBeam
+	Burst: 2
+	BurstDelays: 0
+	InvalidTargets: Husk
+	Warhead@1Dam: SpreadDamage
+		Range: 0, 32
+		Falloff: 100, 100
+		Damage: 15000
+		AffectsParent: false
+		Versus:
+			None: 150
+			Wood: 50
+			Light: 80
+			Medium: 60
+			Heavy: 40
+			Concrete: 40
 
 SoundRifle:
 	ReloadDelay: 60
@@ -984,11 +1019,11 @@ Toxxer:
 
 TruckToxxer:
 	Inherits: Toxxer
-	Range: 5c512
+	Range: 8c512
 	Burst: 20
 	ReloadDelay: 75
 	Warhead@1Dam: SpreadDamage
-		Damage: 1200
+		Damage: 1800
 		Falloff: 180, 150, 130, 100, 50, 25
 
 LazareneRifle:
@@ -2312,6 +2347,19 @@ PickaxeHeal:
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, DefaultDeath
 		ValidRelationships: Ally
 
+PickaxeRepair:
+	Inherits: Heal
+	ReloadDelay: 30
+	Range: 1c512
+	Report: zombiehit.wav
+	Projectile: Bullet
+		Speed: 1c682
+	Report: fixit1.aud
+	ValidTargets: Repair
+	Warhead@1Dam: SpreadDamage
+		Damage: -2000
+		ValidTargets: Repair
+
 Claw:
 	ReloadDelay: 30
 	Range: 1c512
@@ -2989,7 +3037,7 @@ MindBlast:
 	Warhead@1Dam: SpreadDamage
 		Range: 0c256
 		Falloff: 100, 25, 0
-		Damage: 1250
+		Damage: 1500
 		Versus:
 			None: 140
 			Wood: 15

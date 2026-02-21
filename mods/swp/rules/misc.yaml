@@ -77,6 +77,34 @@ MINS:
 	FireWarheadsOnDeath:
 		Weapon: SMine
 
+IED:
+	Inherits: ^Mine
+	RenderSprites:
+		Image: ied
+		FactionImages:
+			soviet: ied
+			russia: ied
+			ukraine: ied
+	FireWarheadsOnDeath:
+		Weapon: SMine
+	FireWarheadsOnDeath@demo:
+		Weapon: DemoTruckExplosion
+		Type: CenterPosition
+		DamageThreshold: 75
+		RequiresCondition: goingtodie
+	KillsSelf:
+		RequiresCondition: goingtodie
+	GrantChargingConditionFull@demoes:
+		Condition: goingtodie
+		RequiresCondition: deployed
+		MaxCharge: 75
+	GrantConditionOnDeploy:
+		DeployedCondition: deployed
+		SkipMakeAnimation: True
+	-Interactable:
+	Selectable:
+	SelectionDecorations:
+
 SPILL:
 	Inherits: ^Mine
 	-Mine:

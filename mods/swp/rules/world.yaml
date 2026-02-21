@@ -172,6 +172,22 @@
 			Ore: 70
 			Gems: 70
 			Beach: 70
+	Locomotor@SUPERHEAVYTRACKED:
+		Name: superheavytracked
+		Crushes: wall, infantry, mine, crate, heavywall, tree, vehicle
+		CrushDamageTypes: CrushDeath
+		TerrainSpeeds:
+			Clear: 80
+			Pavement: 90
+			Rough: 70
+			Sand: 40
+			TallGrass: 75
+			Road: 100
+			PavedRoad: 100
+			Bridge: 100
+			Ore: 70
+			Gems: 70
+			Beach: 70
 	Locomotor@superlighttracked:
 		Name: superlighttracked
 		Crushes: mine, crate

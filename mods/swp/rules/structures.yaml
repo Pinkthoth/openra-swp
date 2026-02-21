@@ -49,8 +49,11 @@ FACT:
 	ProvidesPrerequisite@soviet:
 		Factions: soviet, russia, ukraine, china, mongolia, kazakhstan, belarus, arabia, transcaucasia
 		Prerequisite: structures.komintern
+	ProvidesPrerequisite@teslacoil:
+		Factions: soviet, russia, ukraine, china, mongolia, belarus, arabia, transcaucasia
+		Prerequisite: structures.teslacoil
 	ProvidesPrerequisite@sentry:
-		Factions: soviet, russia, ukraine, china, mongolia, belarus, arabia, transcaucasia, kazakhstan
+		Factions: soviet, russia, ukraine, china, mongolia, belarus, arabia, transcaucasia
 		Prerequisite: structures.sentry
 	ProvidesPrerequisite@sovietvanilla:
 		Factions: soviet
@@ -669,7 +672,7 @@ TSLA:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 43
-		Prerequisites: weap, ~structures.komintern, ~techlevel.medium, ~!illicitlab
+		Prerequisites: weap, ~structures.teslacoil, ~techlevel.medium
 		Description: Advanced base defense.\nRequires power to operate.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Vehicles.
@@ -727,7 +730,7 @@ PSYCHTOWER:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 44
-		Prerequisites: stek, ~structures.kazakhstan, ~techlevel.medium, ~illicitlab
+		Prerequisites: ~structures.kazakhstan, ~techlevel.medium, illicitlab
 		Description: Advanced base defense.\nRequires power to operate.
 	TooltipExtras:
 		Weaknesses: - Weak vs Everything.
@@ -1315,7 +1318,7 @@ CHEMTUR:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 40
-		Prerequisites: barr, ~structures.kazakhstan, ~techlevel.medium, ~illicitlab
+		Prerequisites: barr, ~structures.kazakhstan, ~techlevel.medium
 		Description: Anti-infantry base defense.
 	Valued:
 		Cost: 600
@@ -1683,7 +1686,7 @@ SPAINBUNKER:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 40
-		Prerequisites: ~structures.egypt, ~techlevel.low
+		Prerequisites: ~structures.raj, ~techlevel.low
 		Description: A simple bunker.
 	TooltipExtras:
 		Strengths: + Strength depends on the cargo.
@@ -2185,7 +2188,7 @@ GATLINGGUN:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 40
-		Prerequisites: barr, ~structures.sentry, ~techlevel.medium, ~!illicitlab
+		Prerequisites: barr, ~structures.sentry, ~techlevel.medium
 		Description: Anti-infantry base defense.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -3477,8 +3480,6 @@ WEAP.KOMINTERN:
 	-TransformOnCondition@entente:
 	-TransformOnCondition@komintern:
 	-TransformOnCondition@mittel:
-	Tooltip:
-		Name: Komintern War Factory
 	RenderSprites:
 		Image: weap
 		FactionImages:
@@ -3513,8 +3514,6 @@ WEAP.MITTEL:
 	-TransformOnCondition@entente:
 	-TransformOnCondition@komintern:
 	-TransformOnCondition@mittel:
-	Tooltip:
-		Name: Pact War Factory
 	RenderSprites:
 		Image: weap
 		FactionImages:
@@ -3549,8 +3548,6 @@ WEAP.ENTENTE:
 	-TransformOnCondition@entente:
 	-TransformOnCondition@komintern:
 	-TransformOnCondition@mittel:
-	Tooltip:
-		Name: Entente War Factory
 	RenderSprites:
 		Image: weap
 		FactionImages:
@@ -3578,13 +3575,14 @@ WEAP:
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	TransformOnCondition@komintern:
-		RequiresCondition: komiternweap
+		RequiresCondition: komiternweap && !build-incomplete
 		IntoActor: weap.komintern
 	TransformOnCondition@entente:
-		RequiresCondition: ententeweap
+		RequiresCondition: ententeweap && !build-incomplete
 		IntoActor: weap.entente
 	TransformOnCondition@mittel:
 		IntoActor: weap.mittel
+		RequiresCondition: mittelweap && !build-incomplete
 	GrantConditionOnFaction@ententeweap:
 		Condition: ententeweap
 		Factions: usa, england, france, raj, japan
@@ -3786,16 +3784,16 @@ WEAP:
 		Factions: england, france, usa, serbia, egypt
 		Prerequisite: vehicles.crusader
 	ProvidesPrerequisite@tankette:
-		Factions: russia, ukraine, belarus, transcaucasia, kazakhstan
+		Factions: russia, ukraine, belarus, transcaucasia, kazakhstan, china
 		Prerequisite: vehicles.tankette
 	ProvidesPrerequisite@ftrk:
-		Factions: russia, ukraine, belarus, transcaucasia, kazakhstan, china
+		Factions: russia, ukraine, belarus, transcaucasia, kazakhstan
 		Prerequisite: vehicles.ftrk
 	ProvidesPrerequisite@transporter:
-		Factions: russia, ukraine, belarus, transcaucasia, kazakhstan, china, arabia, mongolia
+		Factions: russia, ukraine, belarus, transcaucasia, kazakhstan, arabia, mongolia
 		Prerequisite: vehicles.transporter
 	ProvidesPrerequisite@katy:
-		Factions: russia, china, arabia, kazakhstan, ukraine
+		Factions: russia, china, arabia, ukraine
 		Prerequisite: vehicles.katy
 	ProvidesPrerequisite@btr:
 		Factions: belarus, transcaucasia, kazakhstan, ukraine, arabia, russia
@@ -3810,7 +3808,7 @@ WEAP:
 		Factions: germany, austria, abyssinia, bulgaria, turkey
 		Prerequisite: vehicles.v2rl
 	ProvidesPrerequisite@cossack:
-		Factions: ukraine, belarus, transcaucasia, kazakhstan, china
+		Factions: ukraine, belarus, transcaucasia, kazakhstan
 		Prerequisite: vehicles.cossack
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelweap
@@ -4437,7 +4435,7 @@ AFLD:
 		Factions: ukraine, china, mongolia, arabia, kazakhstan, russia, belarus, transcaucasia
 		Prerequisite: aircraft.hind
 	ProvidesPrerequisite@mig:
-		Factions: china, mongolia, arabia, kazakhstan, russia, belarus, transcaucasia
+		Factions: china, mongolia, arabia, russia, belarus, transcaucasia
 		Prerequisite: aircraft.mig
 	ProvidesPrerequisite@longbow:
 		Factions: england, france, usa, serbia
@@ -4846,7 +4844,7 @@ CYBERLAB:
 		Description: Cyborg research and testing facility.
 		BuildLimit: 1
 	TooltipExtras:
-		Attributes: • Build limit 1.\n• Ability: Can convert regular infantry into cyborgs.
+		Attributes: • Build limit 1.
 	Valued:
 		Cost: 1200
 	Tooltip:
@@ -4892,11 +4890,11 @@ ILLICITLAB:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 601
-		Prerequisites: dome, ~structures.kazakhstan, ~techlevel.infonly
+		Prerequisites: dome, ~structures.kazakhstan, ~techlevel.infonly, anypower
 		Description: Parascientific laboratory.
 		BuildLimit: 1
 	TooltipExtras:
-		Attributes: • Build limit 1.\n• Ability: Changes infantry and vehicle options while on the map.
+		Attributes: • Build limit 1.\n• Ability: Upgrades Thralls into Hollows.
 	Valued:
 		Cost: 1200
 	Tooltip:
@@ -4916,12 +4914,16 @@ ILLICITLAB:
 	Power:
 		Amount: -100
 	Targetable:
-		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration
+		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SaboteurInfiltration, IllicitLab
 	ProvidesPrerequisite@cyberlab:
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelillicitlab
 	RenderSprites:
 		Image: cyberlab
+	InfiltrateToTransformInfiltrator:
+		IntoActor: hollow
+		Types: IllicitLab
+		UpgradePrice: 50
 
 HORSEBREEDER:
 	Inherits: ^FactionBuilding
@@ -5193,14 +5195,14 @@ INDPLANT:
 		Queue: Building
 		BuildPaletteOrder: 602
 		Prerequisites: atek, ~structures.raj, ~techlevel.medium
-		Description: Decreases the build time of all unit types by 5%.
+		Description: Weapons manufacturing plant.
 		BuildLimit: 1
+	TooltipExtras:
+		Attributes: • Decreases the build time of all units by 10%.
 	Valued:
 		Cost: 2000
 	Tooltip:
 		Name: Foundry
-	ProvidesPrerequisite:
-		Prerequisite: anypower
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3,3
@@ -5365,7 +5367,7 @@ BARR:
 	ProvidesPrerequisite:
 		Prerequisite: barracks
 	ProvidesPrerequisite@medic:
-		Factions: usa, raj, japan, france, england, serbia, egypt
+		Factions: usa, japan, france, england, serbia, egypt
 		Prerequisite: infantry.medic
 	ProvidesPrerequisite@officer:
 		Factions: germany, turkey, italy, austria
@@ -5383,19 +5385,22 @@ BARR:
 		Factions: germany, austria, turkey, persia
 		Prerequisite: infantry.saboteur
 	ProvidesPrerequisite@politruk:
-		Factions: arabia, russia, china, kazakhstan
+		Factions: arabia, russia, china
 		Prerequisite: infantry.politruk
+	ProvidesPrerequisite@saboteur:
+		Factions: germany, austria, turkey, italy
+		Prerequisite: infantry.saboteur
 	ProvidesPrerequisite@thief:
-		Factions: arabia, russia, china, kazakhstan
+		Factions: arabia, russia, china
 		Prerequisite: infantry.thief
 	ProvidesPrerequisite@penal:
-		Factions: arabia, china, kazakhstan, ukraine
+		Factions: arabia, china, ukraine
 		Prerequisite: infantry.penal
 	ProvidesPrerequisite@dog:
 		Factions: germany, austria, italy, turkey
 		Prerequisite: infantry.dog
 	ProvidesPrerequisite@grenadier:
-		Factions: russia, china, kazakhstan, ukraine
+		Factions: russia, china, ukraine
 		Prerequisite: infantry.grenadier
 	ProvidesPrerequisite@rifleman:
 		Factions: russia, kazakhstan, ukraine, mongolia, arabia, germany, austria, persia, turkey, england, france, usa, japan, raj, serbia, egypt, abyssinia, bulgaria, belarus, transcaucasia
@@ -5404,10 +5409,10 @@ BARR:
 		Factions: russia, kazakhstan, ukraine, mongolia, arabia, germany, austria, persia, turkey, england, france, usa, japan, raj, serbia, egypt, abyssinia, bulgaria, belarus, transcaucasia
 		Prerequisite: infantry.rocketman
 	ProvidesPrerequisite@engineer:
-		Factions: russia, kazakhstan, ukraine, mongolia, china, germany, austria, persia, italy, turkey, england, france, usa, japan, bulgaria, serbia, belarus, egypt, transcaucasia
+		Factions: russia, kazakhstan, ukraine, mongolia, china, raj, germany, austria, persia, italy, turkey, england, france, usa, japan, bulgaria, serbia, belarus, egypt, transcaucasia
 		Prerequisite: infantry.engineer
 	ProvidesPrerequisite@mechanic:
-		Factions: raj, usa, france, japan, england, serbia, egypt
+		Factions: usa, france, japan, england, serbia, egypt
 		Prerequisite: infantry.mechanic
 	ProvidesPrerequisite@soviet:
 		Factions: soviet, russia, ukraine, china, mongolia, kazakhstan, belarus, arabia, transcaucasia

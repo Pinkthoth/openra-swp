@@ -112,20 +112,21 @@ faction-raj =
      Industrial Capacity
      Special Ability: Quick Repair
      Special Building: Foundry
+     Special Building: Bunker
      Special Aircraft: Colibri
      Special Aircraft: Hawker
      Special Infantry: Heavy Machine Gun Crew
-     Special Infantry: Copycat
      Special Infantry: Gurkha
      Special Vehicle: Sepoy
      Special Vehicle: Mogul
-     Replacement Infantry: Worker (Engineer)
+     Replacement Infantry: Worker (Medic)
+     Replacement Infantry: Copycat (Mechanic)
      Replacement Vehicle: Transport Carrier (APC)
      Replacement Vehicle: Mortar Bike (Ranger)
      Replacement Vehicle: AT-Gun Crew (Squire)
      Replacement Vehicle: Howitzer Crew (Crusader)
      Replacement Vehicle: AA-Gun Crew (Artillery)
-     Replacement Vehicle: Horde Tank (Paladin)
+     Replacement Vehicle: Raj Self-Propelled Gun (Paladin)
 
 faction-spain =
     .name = Spain
@@ -218,15 +219,15 @@ faction-arabia =
      Special Building: Tunnel Network
      Special Building: Scrap Yard
      Special Infantry: Recruit
+     Special Infantry: Defiler
      Special Vehicle: Quad Cannon
      Special Vehicle: Machinist
      Special Vehicle: Marauder Tank
      Special Vehicle: Demolition Truck
-     Special Vehicle: Bullfrog
      Replacement Infantry: Salvager (Engineer)
      Replacement Infantry: Fanatic (Grenadier)
      Replacement Vehicle: Technical (Mobile Flak)
-     Replacement Vehicle: Corsair (Tankette)
+     Replacement Vehicle: Bullfrog (Tankette)
      Replacement Vehicle: Scorpion Tank (Cossack)
 
 faction-china =
@@ -244,7 +245,10 @@ faction-china =
      Special Vehicle: Louchuan
      Replacement Infantry: Militia (Rifleman)
      Replacement Infantry: Flak Trooper (Rocketman)
-     Replacement Vehicle: Troop Crawler (Bronetransporter)
+     Replacement Vehicle: Troop Crawler (Transporter)
+     Replacement Vehicle: Gatling Car (Flak Track)
+     Replacement Vehicle: Horde Tank (Cossack)
+     Replacement Vehicle: Toad (Bronetransporter)
      Replacement Aircraft: Helix (Halo)
 
 
@@ -325,7 +329,7 @@ faction-austria =
      Special Aircraft: Wasp
      Special Infantry: Tank Commander
      Special Infantry: Prism Guard
-     Special Vehicle: Tiger Tank
+     Special Vehicle: Raider
      Special Vehicle: Prism Tank
      Special Vehicle: Prism Cannon
 
@@ -359,7 +363,7 @@ faction-persia =
      Replacement Infantry: Guerilla (Flamethrower)
      Replacement Infantry: Screener (Officer)
      Replacement Vehicle: Buggy (Halftrack)
-     Replacement Vehicle: Raider (Bobcat)
+     Replacement Vehicle: Corsair (Bobcat)
      Replacement Vehicle: Archer (Wisel)
      Replacement Vehicle: Jackal (Leopard)
      Replacement Vehicle: Burrower

@@ -1168,6 +1168,13 @@ TankMachineGun-scorpion:
 	Inherits: TankMachineGun
 	InvalidTargets: Husk
 
+TankMachineGun-scorpion-double:
+	Inherits: TankMachineGun
+	Range: 6c0
+	Burst: 2
+	BurstDelays: 25
+	InvalidTargets: Husk
+
 TankMachineGun-indiachopper:
 	Inherits: TankMachineGun
 	ReloadDelay: 15

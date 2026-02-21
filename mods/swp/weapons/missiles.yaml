@@ -1147,6 +1147,13 @@ Destroyer227mm:
 	MinRange: 0c512
 	InvalidTargets: Husk
 
+227mm-Scorpion-Rad:
+	Inherits: 227mm-Marauder
+	Burst: 2
+	Range: 6c0
+	MinRange: 0c512
+	InvalidTargets: Husk
+
 Hind227mm:
 	Inherits: ^AntiGroundMissile
 	ReloadDelay: 50
@@ -1208,7 +1215,7 @@ APTusk.PTNK:
 
 APTusk.Bullfrog:
 	Inherits: ^AntiGroundMissile
-	ValidTargets: Ground, Air, AirborneBomber, GroundActor, Trees,  AirborneActor, Ship, WaterActor, Trees, Corpse
+	ValidTargets: Ground, Air, GroundActor, Trees, Ship, WaterActor, Trees, Corpse
 	ReloadDelay: 75
 	Range: 6c0
 	Burst: 2
@@ -1217,7 +1224,7 @@ APTusk.Bullfrog:
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
 		Damage: 3000
-		ValidTargets: Ground, Air, AirborneBomber, GroundActor, Trees,  AirborneActor, Ship, WaterActor, Trees, Corpse
+		ValidTargets: Ground, Air, GroundActor, Trees, Ship, WaterActor, Trees, Corpse
 	Projectile: Missile
 		Speed: 298
 		TrailImage: smokey

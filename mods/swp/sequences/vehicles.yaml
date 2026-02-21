@@ -2211,7 +2211,7 @@ maus:
 		Filename: gunfire2.shp
 		Length: 5
 	icon:
-		Filename: mouseicon.shp
+		Filename: mausicon.shp
 
 mrj:
 	Defaults:

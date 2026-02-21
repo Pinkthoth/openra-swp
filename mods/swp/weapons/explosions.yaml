@@ -514,11 +514,15 @@ MiniNuke:
 DemoTruckExplosion:
 	ValidTargets: Ground, GroundActor, Trees,  Trees, Water, Ship, WaterActor, Underwater, Air, AirborneActor
 	Warhead@1Dam_impact: SpreadDamage
-		Spread: 1c0
-		Damage: 15000
+		Spread: 0c512
+		Damage: 10000
 		Falloff: 368, 135, 50, 18, 7
 		ValidTargets: GroundActor, Trees,  Trees, Ship, WaterActor, Underwater, AirborneActor
 		Versus:
+			None: 100
+			Light: 75
+			Medium: 50
+			Heavy: 25
 			Wood: 25
 			Concrete: 25
 		AffectsParent: true
@@ -530,12 +534,16 @@ DemoTruckExplosion:
 		ImpactSounds: kaboom1.aud
 		ImpactActors: false
 	Warhead@4Dam_areanuke1: SpreadDamage
-		Spread: 2c0
+		Spread: 0c512
 		Damage: 6000
-		Falloff: 368, 135, 50, 18
+		Falloff: 368, 250, 150, 100, 50, 18
 		ValidTargets: GroundActor, Trees,  Trees, Ship, WaterActor, Underwater, AirborneActor
 		Versus:
-			Wood: 50
+			None: 100
+			Light: 75
+			Medium: 50
+			Heavy: 25
+			Wood: 25
 			Concrete: 25
 		AffectsParent: true
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath, Incendiary
@@ -545,23 +553,30 @@ DemoTruckExplosion:
 		ImpactSounds: kaboom22.aud
 		ImpactActors: false
 	Warhead@7Dam_areanuke2: SpreadDamage
-		Spread: 3c0
+		Spread: 1c0
 		Damage: 6000
-		Falloff: 368, 135, 50
+		Falloff: 100, 75, 50, 25, 10, 5
 		ValidTargets: GroundActor, Trees,  Trees, Ship, WaterActor, Underwater, AirborneActor
 		Versus:
-			Wood: 50
-			Tree: 200
+			None: 100
+			Light: 75
+			Medium: 50
+			Heavy: 25
+			Wood: 25
 			Concrete: 25
 		AffectsParent: true
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@10Dam_areanuke3: SpreadDamage
-		Spread: 4c0
+		Spread: 1c0
 		Damage: 6000
-		Falloff: 368, 135
+		Falloff: 368, 200, 135
 		ValidTargets: GroundActor, Trees,  Trees, Ship, WaterActor, Underwater
 		Versus:
-			Tree: 300
+			None: 100
+			Light: 75
+			Medium: 50
+			Heavy: 25
+			Wood: 25
 			Concrete: 25
 		AffectsParent: true
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath, Incendiary
@@ -661,12 +676,16 @@ DemoBombExplode:
 	ValidTargets: Ground, GroundActor, Trees,  Trees, Water, Ship, WaterActor, Underwater, Air, AirborneActor
 	InvalidTargets: demoed
 	Warhead@1Dam_impact: SpreadDamage
-		Spread: 1c0
-		Damage: 25000
-		Falloff: 368, 100, 25, 5, 1
+		Spread: 0c256
+		Damage: 15000
+		Falloff: 150, 100, 75, 50, 25, 5
 		ValidTargets: GroundActor, Trees,  Trees, Ship, WaterActor, Underwater, AirborneActor
 		InvalidTargets: Structure, Wall
 		Versus:
+			None: 100
+			Light: 50
+			Medium: 40
+			Heavy: 30
 			Wood: 25
 			Concrete: 25
 		AffectsParent: true

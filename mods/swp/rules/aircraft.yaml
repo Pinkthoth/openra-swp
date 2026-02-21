@@ -628,15 +628,18 @@ ANT40:
 SUPERBOMBER:
 	Inherits: YAK
 	Inherits@HighAltitude: ^HighAltitudePlane
-	-Buildable:
+	Buildable:
+		Prerequisites: ~afld, stek, ~aircraft.kazakhstan, ~techlevel.high
+		Description: Slow bomber that drops toxic bombs.
+		BuildPaletteOrder: 450
 	Tooltip:
-		Name: Seismobomber
+		Name: Badger Toxin Bomber
 	Health:
 		HP: 19000
 	SpawnActorOnDeath:
 		Actor: SUPERBOMBER.Husk
 	Armament@PRIMARY:
-		Weapon: Superbomb
+		Weapon: ToxinBomb
 		LocalOffset: 350,-213,-100
 		MuzzleSequence: muzzle
 		PauseOnCondition: !ammo || !airborne
@@ -3509,8 +3512,12 @@ GOBLIN:
 	Aircraft:
 		TurnSpeed: 15
 		Speed: 145
+		VTOL: True
+		Repulsable: False
+		CanHover: False
+		CanSlide: False
 	Valued:
-		Cost: 1500
+		Cost: 1000
 	Rearmable:
 		RearmActors: ac
 	AmmoPool:

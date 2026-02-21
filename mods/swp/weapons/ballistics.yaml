@@ -609,6 +609,61 @@ DemomanGrenade:
 		Range: 1
 		ValidTargets: demoplantable
 
+ToxinBomb:
+	Inherits: ^Artillery
+	ReloadDelay: 60
+	Range: 4c0
+	Report: superbombdrop.aud
+	Projectile: Bullet
+		Speed: 80
+		Inaccuracy: 1
+		Image: superbomb
+	ValidTargets: Ground, GroundActor, Trees,  Trees, Water, Ship, WaterActor, Underwater, Air, AirborneActor
+	Warhead@2: FireCluster
+		Weapon: ToxinExplosion
+		Dimensions: 3,3
+		Footprint: XXX XXX XXX
+		Delay: 2
+		ValidTargets: Ground, GroundActor
+	Warhead@3: FireCluster
+		Weapon: ToxinExplosion
+		Dimensions: 5,5
+		Footprint: _XXX_ X___X X___X X___X _XXX_
+		Delay: 4
+		ValidTargets: Ground, GroundActor
+	Warhead@4: FireCluster
+		Weapon: ToxinExplosion
+		Dimensions: 7,7
+		Footprint: __XXX__ _X___X_ X_____X X_____X X_____X _X___X_ __XXX__
+		Delay: 6
+		ValidTargets: Ground, GroundActor
+	Warhead@5: FireCluster
+		Weapon: ToxinExplosion
+		Dimensions: 9,9
+		Footprint: ___XXX___ __X___X__ _X_____X_ X_______X X_______X X_______X _X_____X_ __X___X__ ___XXX___
+		Delay: 8
+	Warhead@a3: FireCluster
+		Weapon: ToxinCloudSpawner
+		Dimensions: 5,5
+		Footprint: _xxx_ x___x x___x x___x _xxx_
+		Delay: 4
+		RandomClusterCount: 3
+		ValidTargets: Ground, GroundActor
+	Warhead@a4: FireCluster
+		Weapon: ToxinCloudSpawner
+		Dimensions: 7,7
+		Footprint: __xxx__ _x___x_ x_____x x_____x x_____x _x___x_ __xxx__
+		Delay: 6
+		RandomClusterCount: 6
+		ValidTargets: Ground, GroundActor
+	Warhead@a5: FireCluster
+		Weapon: ToxinCloudSpawner
+		Dimensions: 9,9
+		Footprint: ___xxx___ __x___x__ _x_____x_ x_______x x_______x x_______x _x_____x_ __x___x__ ___xxx___
+		Delay: 8
+		RandomClusterCount: 9
+		ValidTargets: Ground, GroundActor
+
 Superbomb:
 	Inherits: ^Artillery
 	ReloadDelay: 60
@@ -1010,7 +1065,7 @@ augustusgun:
 	Inherits: ^Artillery
 	MinRange: 4c0
 	Range: 13c512
-	ReloadDelay: 240
+	ReloadDelay: 200
 	Report: 120mmf.aud
 	TargetActorCenter: true
 	Projectile: Bullet

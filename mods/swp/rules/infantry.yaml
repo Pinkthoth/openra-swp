@@ -171,7 +171,7 @@ GENEHORROR:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 42
-		Prerequisites: ~techlevel.infonly, ~infantry.kazakhstan, ~illicitlab
+		Prerequisites: ~techlevel.infonly, ~infantry.kazakhstan, illicitlab
 		Description: Chemically mutated general-purpose melee infantry.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -438,7 +438,7 @@ E1:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 10
-		Prerequisites: ~techlevel.infonly, ~infantry.rifleman, ~!illicitlab
+		Prerequisites: ~techlevel.infonly, ~infantry.rifleman
 		Description: General-purpose infantry.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -538,7 +538,7 @@ PENAL:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 71
-		Prerequisites: ~infantry.penal, adept, ~!illicitlab
+		Prerequisites: ~infantry.penal, adept
 		Description: Tough shotgun armed general purpose infantry.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -978,8 +978,8 @@ INITIATE:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 10
-		Prerequisites: ~infantry.kazakhstan, ~techlevel.infonly, ~illicitlab
+		BuildPaletteOrder: 71
+		Prerequisites: ~infantry.kazakhstan, adept, ~techlevel.infonly, illicitlab
 		Description: Anti-infantry psychic unit.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -1083,8 +1083,8 @@ COPYCAT:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 100
-		Prerequisites: ~infantry.raj, dome, ~techlevel.medium
+		BuildPaletteOrder: 50
+		Prerequisites: ~infantry.raj, adept, ~techlevel.medium
 		Description: Military intelligence service specialist.
 	TooltipExtras:
 		Weaknesses: - Weak vs Everything.
@@ -1372,7 +1372,7 @@ MUTANT:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 101
-		Prerequisites: ~barracks, commcent, adept, ~infantry.kazakhstan, ~techlevel.infonly, ~illicitlab
+		Prerequisites: ~barracks, commcent, adept, ~infantry.egypt, ~techlevel.infonly, ~illicitlab
 		Description:  Chemically mutated general-purpose infantry.
 	Valued:
 		Cost: 400
@@ -1420,7 +1420,7 @@ RPGMUTANT:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 102
-		Prerequisites: ~barracks, commcent, adept, ~infantry.kazakhstan, ~techlevel.high, ~illicitlab
+		Prerequisites: ~barracks, commcent, adept, ~infantry.egypt, ~techlevel.high, ~illicitlab
 		Description:  Chemically mutated anti-tank unit.
 	Valued:
 		Cost: 500
@@ -1647,8 +1647,8 @@ WASTETROOPER:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 92
-		Prerequisites: ~infantry.kazakhstan, adept, ~illicitlab
+		BuildPaletteOrder: 91
+		Prerequisites: ~infantry.kazakhstan, dome
 		Description: Shoots bursts of corrosive acid.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Vehicles.
@@ -2395,7 +2395,7 @@ E2:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 41
-		Prerequisites: ~infantry.grenadier, ~techlevel.infonly, ~!illicitlab
+		Prerequisites: ~infantry.grenadier, ~techlevel.infonly
 		Description: Infantry armed with grenades.
 	TooltipExtras:
 		Strengths: + Strong vs Buildings, Infantry.
@@ -2562,7 +2562,7 @@ E3:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 30
-		Prerequisites: ~techlevel.infonly, ~infantry.rocketman, ~!illicitlab
+		Prerequisites: ~techlevel.infonly, ~infantry.rocketman
 		Description: Anti-tank and -helicopter infantry.
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles, Helicopters.
@@ -2622,7 +2622,7 @@ E6:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 40
-		Prerequisites: ~barracks, ~infantry.engineer, ~techlevel.infonly, ~!illicitlab
+		Prerequisites: ~barracks, ~infantry.engineer, ~techlevel.infonly
 		Description: Military engineer.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
@@ -2933,7 +2933,7 @@ SABOTEUR:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 100
-		Prerequisites: ~infantry.zentrum, commcent, ~techlevel.medium
+		Prerequisites: ~infantry.saboteur, commcent, ~techlevel.medium
 		Description: Military saboteur.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -3108,7 +3108,7 @@ THF:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 94
-		Prerequisites: dome, ~infantry.thief, ~techlevel.medium, ~!illicitlab
+		Prerequisites: dome, ~infantry.thief, ~techlevel.medium
 		Description: Professional procurer.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
@@ -3489,7 +3489,7 @@ POLITRUK:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 101
-		Prerequisites: ~barracks, commcent, ~infantry.politruk, ~techlevel.infonly, ~!illicitlab
+		Prerequisites: ~barracks, commcent, ~infantry.politruk, ~techlevel.infonly
 		Description: Communist party political officer.
 	TooltipExtras:
 		Weaknesses: - Weak vs Everything.
@@ -3881,8 +3881,8 @@ STIMDOC:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 76
-		Prerequisites: ~barracks, dome, ~infantry.kazakhstan, ~techlevel.infonly, ~illicitlab
+		BuildPaletteOrder: 101
+		Prerequisites: ~barracks, dome, ~infantry.kazakhstan, ~techlevel.infonly, illicitlab
 		Description: Chemical weapons researcher.
 	TooltipExtras:
 		Weaknesses: - Weak vs Everything.
@@ -4006,7 +4006,7 @@ ISHMAELITE:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 150
-		Prerequisites: ~barracks, stek, ~infantry.kazakhstan, ~techlevel.high, ~illicitlab
+		Prerequisites: ~barracks, stek, ~infantry.kazakhstan, ~techlevel.high, illicitlab
 		Description: Psychic enslavement unit.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
@@ -4629,7 +4629,7 @@ WRAITH:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 40
-		Prerequisites: ~infantry.kazakhstan, ~techlevel.infonly, ~illicitlab
+		Prerequisites: ~infantry.egypt, ~techlevel.infonly, ~illicitlab
 		Description: Psychic scouting unit.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Vehicles.
@@ -4966,8 +4966,8 @@ HOLLOW:
 		Cursor: c4
 		OutsideRangeCursor: c4
 	FireWarheadsOnDeath:
-		Weapon: TerroristExplode
-		EmptyWeapon: TerroristExplode
+		Weapon: DemoBombExplode
+		EmptyWeapon: DemoBombExplode
 	GrantConditionOnAttack:
 		Condition: attacking
 		ArmamentNames: demolisher
@@ -4978,7 +4978,7 @@ HOLLOW:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 72
-		Prerequisites: ~infantry.kazakhstan, ~illicitlab
+		Prerequisites: ~infantry.egypt, ~illicitlab
 		Description: Chemically zombified research subject.\nCarries a large explosive charge.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
@@ -5799,8 +5799,8 @@ FLKTRP:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 11
-		Prerequisites: ~infantry.china, ~techlevel.infonly
+		BuildPaletteOrder: 102
+		Prerequisites: ~infantry.china, dome, ~techlevel.infonly
 		Description: Anti-air and -ground infantry.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Aircraft.
@@ -5919,7 +5919,7 @@ PANZERFAUST:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 96
+		BuildPaletteOrder: 11
 		Prerequisites: ~infantry.china, commcent
 		Description: Heavily armed anti-tank infantry.
 	Valued:
@@ -6476,7 +6476,7 @@ DEFILER:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 149
-		Prerequisites: ~infantry.kazakhstan, stek, ~illicitlab
+		Prerequisites: ~infantry.arabia, stek, ~illicitlab
 		Description: Armed with a massive radiation weapon.
 	Valued:
 		Cost: 600
@@ -6493,7 +6493,7 @@ DEFILER:
 	Armament@PRIMARY:
 		Weapon: RadRifle
 		FireDelay: 0
-		LocalOffset: 100,0,290
+		LocalOffset: 200,-100,290
 		RequiresCondition: !supercharged
 	Armament@GARRISONED:
 		Name: garrisoned
@@ -6700,8 +6700,8 @@ NERVEAGENT:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 91
-		Prerequisites: ~infantry.kazakhstan, commcent, ~illicitlab
+		BuildPaletteOrder: 95
+		Prerequisites: ~infantry.kazakhstan, commcent, illicitlab
 		Description: Elite sniper infantry unit.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -7071,11 +7071,6 @@ JUMPJETGUY.Husk:
 PNEER:
 	Inherits: ^Soldier
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
-	Buildable:
-		Queue: Infantry
-		BuildPaletteOrder: 330
-		Prerequisites: fix, ~vehicles.italy, ~techlevel.high
-		Description: Super heavy tank destroyer.
 	WithInfantryBody:
 		-IdleSequences:
 		StandSequences: stand
@@ -7119,7 +7114,7 @@ PNEER:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 76
+		BuildPaletteOrder: 330
 		Prerequisites: ~infantry.italy, fix, ~techlevel.low
 		Description: Mine laying infantry.
 	Valued:
@@ -7185,9 +7180,6 @@ PNEER:
 		OwnerType: Killer
 		Actor: Zombie
 		SkipMakeAnimations: False
-	WithAmmoPipsDecoration:
-		Position: BottomLeft
-		RequiresSelection: true
 
 PNEER.Corpse:
 	Inherits: ^InfantryCorpse
@@ -7197,6 +7189,118 @@ PNEER.Corpse:
 		Actor: PNEER
 	GrantExternalConditionToKiller:
 		Condition: pneer
+
+IEDCREW:
+	Inherits: ^Soldier
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 330
+		Prerequisites: fix, ~vehicles.persia, ~techlevel.high
+		Description: Super heavy tank destroyer.
+	WithInfantryBody:
+		-IdleSequences:
+		StandSequences: stand
+	ChangesHealth@HOSPITAL:
+		Step: 500
+		Delay: 100
+		StartIfBelow: 100
+		DamageCooldown: 125
+		RequiresCondition: hospitalheal
+	GrantConditionOnPrerequisite@HOSPITAL:
+		Condition: hospital
+		Prerequisites: hosp
+	GrantConditionOnDamageState@HOSPITAL:
+		Condition: damaged
+		ValidDamageStates: Light, Medium, Heavy, Critical
+	GrantCondition@HOSPITAL:
+		RequiresCondition: hospital && damaged
+		Condition: hospitalheal
+	WithDecoration@REDCROSS:
+		Image: pips
+		Sequence: medic
+		Position: BottomRight
+		Margin: 17, 4
+		RequiresCondition: hospitalheal
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+	EdibleByLeap:
+	TakeCover:
+		DamageModifiers:
+			Prone50Percent: 50
+		DamageTriggers: TriggerProne
+		RequiresCondition: !propaganda
+	Passenger:
+		CargoType: Infantry
+		Weight: 2
+	ProximityCaptor:
+		Types: Infantry
+	TooltipExtras:
+		Weaknesses: - Unarmed.
+		Attributes: • Detects mines.\n• Lays controlled explosives.\n• Rearms at an Arms Depot.
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: IED Crew
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 10000
+	Armor:
+		Type: None
+	Mobile:
+		Speed: 56
+		TurnSpeed: 20
+		Locomotor: bigfoot
+		TurnsWhileMoving: True
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 5c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	ProducibleWithLevel:
+		Prerequisites: infantry.upgraded
+	Minelayer:
+		Mine: IED
+		TileUnknownName: build-valid
+		TerrainTypes: Clear, Road, Beach, Ore, Gems, Rough, Bridge
+	MineImmune:
+	AmmoPool:
+		Ammo: 2
+		RearmSound: minelay1.aud
+	DetectCloaked:
+		Range: 5c0
+		DetectionTypes: Mine
+	Rearmable:
+		RearmActors: fix
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		Margin: 4, 3
+		RequiresSelection: true
+	Selectable:
+		Bounds: 1024,1024,0,0
+		DecorationBounds: 1024,1024,0,-6
+	WithDeathAnimation@numer2:
+		DeathTypes:
+			DefaultDeath: 1
+			BulletDeath: 2
+			SmallExplosionDeath: 3
+			ExplosionDeath: 4
+			FireDeath: 5
+			ElectricityDeath: 6
+			AcidDeath: 7
+			Zombiefy: 8
+	Targetable:
+		TargetTypes: GroundActor, Infantry
+	Targetable@HEAL:
+		RequiresCondition: damaged
+		TargetTypes: Heal
+	SpawnActorOnDeath@zombiefytwo:
+		DeathType: Zombiefy
+		OwnerType: Killer
+		Actor: Zombie
+		SkipMakeAnimations: False
 
 CAVALRY:
 	Inherits: ^TrackedVehicle
@@ -7933,8 +8037,8 @@ IRONMAN:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 31
-		Prerequisites: ~techlevel.infonly, ~infantry.kazakhstan, ~illicitlab
+		BuildPaletteOrder: 72
+		Prerequisites: ~techlevel.infonly, adept, ~infantry.kazakhstan, illicitlab
 		Description: Chemically mutated general-purpose melee infantry.
 	Valued:
 		Cost: 300
@@ -7989,17 +8093,17 @@ WORKER:
 	Inherits@supercharged: ^SuperchargeTesla
 	Inherits@ironcurtainable: ^IronCurtainable
 	Valued:
-		Cost: 300
+		Cost: 200
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 40
+		BuildPaletteOrder: 44
 		Prerequisites: ~infantry.raj
 		Description: Melee labourer.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
 		Weaknesses: - Weak vs Aircraft, Vehicles.
-		Attributes: • Infiltrates and captures enemy structures.\n• Restores husks to working condition.\n• Heals damaged structures.
+		Attributes: • Repairs nearby vehicles.\n• Restores husks to working condition.\n• Heals damaged structures.
 	Tooltip:
 		Name: Worker
 	UpdatesPlayerStatistics:
@@ -8019,6 +8123,15 @@ WORKER:
 		OutsideRangeCursor: repair
 		TargetRelationships: Ally
 		ForceTargetRelationships: None
+	Armament@tertiary:
+		Name: tertiary
+		Weapon: PickaxeRepair
+		Cursor: repair
+		OutsideRangeCursor: repair
+		TargetRelationships: Ally
+		ForceTargetRelationships: None
+	AttackFrontal:
+		Armaments: primary, secondary, tertiary
 	ProducibleWithLevel:
 		Prerequisites: barracks.upgraded
 	SpawnActorOnDeath@BulletDeath:
@@ -8026,32 +8139,6 @@ WORKER:
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
 	RepairsBridges:
-	CaptureManager:
-	GrantConditionOnPrerequisite@GLOBALREUSABLEENGINEER:
-		Condition: global-reusable-engineers
-		Prerequisites: global-reusable-engineers
-	Captures@Buildings:
-		RequiresCondition: !global-reusable-engineers && !deployed
-		CaptureTypes: building
-		PlayerExperience: 25
-		CaptureDelay: 200
-	Captures@REUSABLE:
-		RequiresCondition: global-reusable-engineers && !deployed
-		CaptureTypes: building
-		PlayerExperience: 25
-		CaptureDelay: 375
-		ConsumedByCapture: False
-		EnterCursor: ability
-		EnterBlockedCursor: move-blocked
-	DetectCloaked:
-		Range: 5c0
-		DetectionTypes: Mine
-		RequiresCondition: deployed
-	GrantConditionOnDeploy:
-		DeployedCondition: deployed
-	SpeedMultiplier:
-		RequiresCondition: deployed
-		Modifier: 50
 	Captures@Husks:
 		CaptureTypes: huskengie
 		PlayerExperience: 25
@@ -8204,6 +8291,10 @@ Zombie:
 	GrantTimedCondition@turned:
 		Duration: 10
 		Condition: turned
+	Infiltrates:
+		Types: IllicitLab
+		ValidRelationships: Ally
+		EnterBehaviour: Exit
 
 GRENADELAUNCHER:
 	Inherits: ^Soldier
