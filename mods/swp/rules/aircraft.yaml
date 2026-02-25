@@ -293,7 +293,7 @@ HOSPITALLER:
 	ProducibleWithLevel:
 		Prerequisites: aircraft.upgraded
 	Rearmable:
-		RearmActors: afld, sport
+		RearmActors: afld, sport, afld.raj
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		Margin: 4, 3
@@ -1023,7 +1023,7 @@ MIG:
 	ProducibleWithLevel:
 		Prerequisites: aircraft.upgraded
 	Rearmable:
-		RearmActors: afld, sport
+		RearmActors: afld, sport, afld.raj
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		Margin: 4, 3
@@ -1099,7 +1099,7 @@ TESLAPLANE:
 	ProducibleWithLevel:
 		Prerequisites: aircraft.upgraded
 	Rearmable:
-		RearmActors: afld, sport
+		RearmActors: afld, sport, afld.raj
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		Margin: 4, 3
@@ -1187,7 +1187,7 @@ YAK:
 	Selectable:
 		DecorationBounds: 1406, 1406, 0, 120
 	Rearmable:
-		RearmActors: afld, sport
+		RearmActors: afld, sport, afld.raj
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		Margin: 4, 3
@@ -1273,7 +1273,7 @@ BANSHEE:
 	Selectable:
 		DecorationBounds: 1406, 1406, 0, 120
 	Rearmable:
-		RearmActors: afld, sport
+		RearmActors: afld, sport, afld.raj
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		Margin: 4, 3
@@ -1358,7 +1358,7 @@ TESLAHIND:
 	Selectable:
 		DecorationBounds: 1406, 1406
 	Rearmable:
-		RearmActors: hpad
+		RearmActors: hpad, hpad.raj
 	WithAmmoPipsDecoration:
 		AmmoPools: primary, secondary
 		Position: BottomLeft
@@ -1596,7 +1596,7 @@ GATLINGHIND:
 		ReloadDelay: 5
 		AmmoCondition: ammo
 	Rearmable:
-		RearmActors: hpad
+		RearmActors: hpad, hpad.raj
 	WithAmmoPipsDecoration:
 		AmmoPools: primary
 		Position: BottomLeft
@@ -2122,7 +2122,7 @@ IBLIS:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 225
-		Prerequisites: afld, mtek, ~aircraft.turkey, ~techlevel.high
+		Prerequisites: mtek, ~helicopter.turkey, ~techlevel.high
 		Description: Helicopter gunship armed with\nIncendiary missiles.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Buildings.
@@ -2189,7 +2189,7 @@ IBLIS:
 	Selectable:
 		DecorationBounds: 1406, 1406
 	Rearmable:
-		RearmActors: hpad
+		RearmActors: hpad, hpad.raj
 	WithAmmoPipsDecoration:
 		AmmoPools: primary
 		Position: BottomLeft
@@ -2329,7 +2329,7 @@ HEAVYFIGHTER:
 	Selectable:
 		DecorationBounds: 1406, 1406, 0, 120
 	Rearmable:
-		RearmActors: afld, sport
+		RearmActors: afld, sport, afld.raj
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		Margin: 4, 3
@@ -2347,7 +2347,7 @@ TRAN:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 10
-		Prerequisites: hpad, ~helicopter.allies, ~techlevel.medium
+		Prerequisites: ~helicopter.allies, ~techlevel.medium
 		Description: Fast Infantry Transport Helicopter.
 	TooltipExtras:
 		Weaknesses: - Unarmed
@@ -2404,7 +2404,7 @@ HELI:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 40
-		Prerequisites: hpad, ~helicopter.longbow, atek, ~techlevel.high
+		Prerequisites: ~helicopter.longbow, atek, ~techlevel.high
 		Description: Helicopter gunship armed\nwith multi-purpose missiles.
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles, Aircraft.
@@ -2480,7 +2480,7 @@ HELI:
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
 	Rearmable:
-		RearmActors: hpad
+		RearmActors: hpad, hpad.raj
 
 SAUCER:
 	Inherits: ^Helicopter
@@ -2489,7 +2489,7 @@ SAUCER:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 300
-		Prerequisites: hpad, ~aircraft.ukraine, stek, ~techlevel.high
+		Prerequisites: ~aircraft.ukraine, stek, ~techlevel.high
 		Description: Levitating disc armed with magnetic rays.
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles.
@@ -2564,7 +2564,7 @@ HIND:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 225
-		Prerequisites: hpad, commcent, ~aircraft.hind, ~techlevel.high
+		Prerequisites: commcent, ~helicopter.hind, ~techlevel.high
 		Description: Helicopter gunship armed with\nsmall dual machine guns.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -2713,7 +2713,7 @@ HIND:
 		ReloadDelay: 5
 		AmmoCondition: ammo
 	Rearmable:
-		RearmActors: hpad
+		RearmActors: hpad, hpad.raj
 	WithAmmoPipsDecoration:
 		AmmoPools: primary
 		Position: BottomLeft
@@ -2732,7 +2732,7 @@ NADYA:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 230
-		Prerequisites: ~aircraft.komintern, commcent
+		Prerequisites: ~helicopter.komintern, commcent
 		Description: Helicopter gunship armed with rockets.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -2800,7 +2800,7 @@ NADYA:
 	Selectable:
 		DecorationBounds: 1406, 1406
 	Rearmable:
-		RearmActors: hpad
+		RearmActors: hpad, hpad.raj
 	WithAmmoPipsDecoration:
 		AmmoPools: primary, secondary
 		Position: BottomLeft
@@ -3020,7 +3020,7 @@ GEBARD:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 220
-		Prerequisites: hpad, commcent, ~helicopter.zentrum, ~techlevel.high
+		Prerequisites: commcent, ~helicopter.zentrum, ~techlevel.high
 		Description: Fast helicopter gunship armed with rockets.
 	Valued:
 		Cost: 1800
@@ -3085,7 +3085,7 @@ GEBARD:
 	Selectable:
 		DecorationBounds: 1406, 1406
 	Rearmable:
-		RearmActors: hpad
+		RearmActors: hpad, hpad.raj
 	Repairable:
 		RepairActors: afld
 	WithAmmoPipsDecoration:
@@ -3106,7 +3106,7 @@ LASERCHOPPER:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 39
-		Prerequisites: hpad, commcent, ~aircraft.japan, ~techlevel.high
+		Prerequisites: commcent, ~aircraft.japan, ~techlevel.high
 		Description: Fast helicopter gunship armed with laser cannons.
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles.
@@ -3179,7 +3179,7 @@ LASERCHOPPER:
 	Selectable:
 		DecorationBounds: 1406, 1406
 	Rearmable:
-		RearmActors: hpad
+		RearmActors: hpad, hpad.raj
 	Repairable:
 		RepairActors: afld
 	WithAmmoPipsDecoration:
@@ -3254,7 +3254,7 @@ ORCA:
 	Selectable:
 		DecorationBounds: 1406, 1406
 	Rearmable:
-		RearmActors: hpad
+		RearmActors: hpad, hpad.raj
 	Repairable:
 		RepairActors: afld
 	WithAmmoPipsDecoration:
@@ -3348,7 +3348,7 @@ COMET:
 	Selectable:
 		DecorationBounds: 1406, 1406
 	Rearmable:
-		RearmActors: hpad
+		RearmActors: hpad, hpad.raj
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		Margin: 4, 3
@@ -3461,12 +3461,21 @@ TELEKITE:
 	Health:
 		HP: 6500
 	AttackAircraft:
-		Armaments: primary
+		FacingTolerance: 80
+		PersistentTargeting: false
+		OpportunityFire: false
+		PauseOnCondition: empdisable
 	Aircraft:
-		VTOL: True
-		TurnSpeed: 15
-		Speed: 145
-		CruiseAltitude: 1c512
+		CruiseAltitude: 1c513
+		InitialFacing: 192
+		TurnSpeed: 32
+		Speed: 201
+		AltitudeVelocity: 120
+		MaximumPitch: 56
+		CanHover: False
+		CanSlide: False
+		Repulsable: False
+		VTOL: true
 	Valued:
 		Cost: 1500
 	Rearmable:
@@ -3492,7 +3501,6 @@ TELEKITE:
 
 GOBLIN:
 	Inherits: YAK
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	-Buildable:
 	Tooltip:
 		Name: Goblin
@@ -3508,20 +3516,27 @@ GOBLIN:
 	Health:
 		HP: 6500
 	AttackAircraft:
-		Armaments: primary
+		FacingTolerance: 80
+		PersistentTargeting: false
+		OpportunityFire: false
+		PauseOnCondition: empdisable
 	Aircraft:
-		TurnSpeed: 15
-		Speed: 145
-		VTOL: True
-		Repulsable: False
+		CruiseAltitude: 1c513
+		InitialFacing: 192
+		TurnSpeed: 32
+		Speed: 201
+		AltitudeVelocity: 120
+		MaximumPitch: 56
 		CanHover: False
 		CanSlide: False
+		Repulsable: False
+		VTOL: true
 	Valued:
 		Cost: 1000
 	Rearmable:
 		RearmActors: ac
 	AmmoPool:
-		Armaments: primary, secondary
+		Armaments: primary
 		Ammo: 6
 		ReloadDelay: 11
 		AmmoCondition: ammo
@@ -3545,7 +3560,7 @@ MH60:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 20
-		Prerequisites: hpad, ~helicopter.allies, ~techlevel.medium
+		Prerequisites: ~helicopter.allies, ~techlevel.medium
 		Description: Helicopter gunship armed\nwith dual chainguns.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -3615,7 +3630,7 @@ MH60:
 	Selectable:
 		DecorationBounds: 1406, 1406
 	Rearmable:
-		RearmActors: hpad
+		RearmActors: hpad, hpad.raj
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		Margin: 4, 3
@@ -3705,7 +3720,7 @@ INDIACHOPPER:
 	Selectable:
 		DecorationBounds: 1406, 1406
 	Rearmable:
-		RearmActors: hpad
+		RearmActors: hpad, hpad.raj
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		Margin: 4, 3
@@ -3774,7 +3789,7 @@ BATTLEDRONE:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 20
-		Prerequisites: ~helicopter.japan, commcent, ~techlevel.medium
+		Prerequisites: ~helicopter.japan, robocom, ~techlevel.medium
 		Description: Small drone that can be attached to vehicles.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -3922,7 +3937,7 @@ TEUTON:
 	Selectable:
 		DecorationBounds: 1406, 1406
 	Rearmable:
-		RearmActors: hpad
+		RearmActors: hpad, hpad.raj
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		Margin: 4, 3
@@ -3942,7 +3957,7 @@ WASP:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 220
-		Prerequisites: hpad, mtek, ~aircraft.austria, ~techlevel.high
+		Prerequisites: mtek, ~helicopter.austria, ~techlevel.high
 		Description: Helicopter gunship armed\nwith a direct energy weapon.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Vehicles.
@@ -4017,7 +4032,7 @@ WASP:
 		Delay: 200
 		ResetOnFire: True
 	Rearmable:
-		RearmActors: hpad
+		RearmActors: hpad, hpad.raj
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
 
@@ -4096,7 +4111,7 @@ MSRSMT:
 	Selectable:
 		DecorationBounds: 1406, 1406, 0, 120
 	Rearmable:
-		RearmActors: afld, sport
+		RearmActors: afld, sport, afld.raj
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		Margin: 4, 3
@@ -4216,7 +4231,7 @@ A10:
 	Selectable:
 		DecorationBounds: 1406, 1406, 0, 120
 	Rearmable:
-		RearmActors: afld, sport
+		RearmActors: afld, sport, afld.raj
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		Margin: 4, 3
@@ -4323,7 +4338,7 @@ STRMVGL:
 	Selectable:
 		DecorationBounds: 1406, 1406, 0, 120
 	Rearmable:
-		RearmActors: afld, sport
+		RearmActors: afld, sport, afld.raj
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		Margin: 4, 3
@@ -4426,7 +4441,7 @@ HARRIER:
 	Selectable:
 		DecorationBounds: 1406, 1406, 0, 120
 	Rearmable:
-		RearmActors: afld, sport, afld, hpad
+		RearmActors: afld, sport, afld.raj, afld, hpad
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		Margin: 4, 3
@@ -4610,7 +4625,7 @@ MI26:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 100
-		Prerequisites: hpad, ~helicopter.halo, ~techlevel.medium
+		Prerequisites: ~helicopter.halo, ~techlevel.medium
 		Description: Infantry Transport Helicopter.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
@@ -4722,7 +4737,7 @@ AIRCRANE:
 	Carryall:
 		LocalOffset: 0,0,-200
 	Rearmable:
-		RearmActors: hpad
+		RearmActors: hpad, hpad.raj
 		
 TRANSUPPORT:
 	Inherits: ^Helicopter

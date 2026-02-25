@@ -619,8 +619,8 @@ BIKE:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 20
-		Prerequisites: ~vehicles.japan, ~techlevel.low
+		BuildPaletteOrder: 71
+		Prerequisites: ~vehicles.japan, adept, ~techlevel.low
 		Description: Fast scouting motorcycle.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -833,17 +833,17 @@ HUMVEE:
 		Weaknesses: - Weak vs Tanks, Aircraft.
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 80
+		BuildPaletteOrder: 20
 		Prerequisites: ~vehicles.usa, adept, ~techlevel.low
 		Description: Plated scout & anti-infantry vehicle.
 	Valued:
-		Cost: 700
+		Cost: 650
 	Tooltip:
 		Name: Humvee
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 21000
+		HP: 19500
 	Armor:
 		Type: Medium
 	Mobile:
@@ -965,7 +965,7 @@ PUMA:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 41
-		Prerequisites: ~vehicles.germany, ~techlevel.low
+		Prerequisites: ~vehicles.austria, ~techlevel.low
 		Description: Strong armoured car.
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles.
@@ -2230,11 +2230,6 @@ LASERQUAD:
 	TooltipExtras:
 		Strengths: + Strong vs Aircraft.
 		Weaknesses: - Weak vs Vehicles, Infantry.
-	Buildable:
-		BuildPaletteOrder: 321
-		Prerequisites: ~vehicles.japan, commcent, ~techlevel.medium
-		Queue: Vehicle
-		Description: Laser armed anti-aircraft vehicle.
 	Valued:
 		Cost: 800
 	RenderSprites:
@@ -2644,7 +2639,7 @@ BTR:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 80
-		Prerequisites: weap, ~vehicles.btr, ~techlevel.low
+		Prerequisites: adept, ~vehicles.btr, ~techlevel.low
 		Description: Tough infantry transport.
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles.
@@ -2773,7 +2768,7 @@ MARAUDER:
 		Strengths: + Strong vs Infantry.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
 	Valued:
-		Cost: 750
+		Cost: 650
 	Tooltip:
 		Name: Corsair
 	UpdatesPlayerStatistics:
@@ -2913,7 +2908,7 @@ MARAUDERTANK:
 		Weaknesses: - Weak vs Infantry, Aircraft.
 		Attributes: • Can gather materials from husks to\nbolster it's armour and weaponry.
 	Valued:
-		Cost: 1400
+		Cost: 1550
 	Tooltip:
 		Name: Marauder Tank
 	UpdatesPlayerStatistics:
@@ -3037,6 +3032,8 @@ MARAUDERTANK:
 	SpeedMultiplier@3:
 		Modifier: 90
 		RequiresCondition: drilled > 4
+	Selectable:
+		DecorationBounds: 2089, 2089, 0, -482
 
 HAMMER:
 	Inherits: ^TrackedVehicle
@@ -3044,22 +3041,21 @@ HAMMER:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 399
-		Prerequisites: adept, commcent, ~vehicles.ukraine, ~techlevel.low
-		Description: Spiderlike crawler armed with dual tank barrels.
+		BuildPaletteOrder: 401
+		Prerequisites: adept, stek, ~vehicles.ukraine, ~techlevel.low
+		Description: Spiderlike crawler armed with a railgun.
 	TooltipExtras:
-		Strengths: + Strong vs Tanks.
+		Strengths: + Strong vs Tanks, Infantry.
 		Weaknesses: - Weak vs Aircraft.
-		Attributes: • Armed with a secondary machine gun.
 	Valued:
-		Cost: 1000
+		Cost: 1700
 	Tooltip:
 		Name: Hammer Crawler
 		GenericName: Tank
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 46000
+		HP: 60000
 	Armor:
 		Type: Heavy
 	Mobile:
@@ -3071,10 +3067,10 @@ HAMMER:
 	RevealsShroud@GAPGEN:
 		Range: 4c0
 	Armament:
-		Weapon: 105mm
+		Weapon: HvRailgun
 		Recoil: 128
 		RecoilRecovery: 38
-		LocalOffset: 768,85,90, 768,-85,90
+		LocalOffset: 768,0,90
 		MuzzleSequence: muzzle
 	AttackFrontal:
 		FacingTolerance: 15
@@ -4968,7 +4964,7 @@ SHAH:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 402
-		Prerequisites: mtek, ~vehicles.kazakhstan, ~techlevel.high, illicitlab
+		Prerequisites: stek, ~vehicles.kazakhstan, ~techlevel.high, illicitlab
 		Description: Psychic enslavement vehicle.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
@@ -5026,12 +5022,14 @@ SHAH:
 		ControllingCondition: mindcontrolling
 		MaxControlledCondition: maxcontrolled
 		ManualReleaseEnabled: true
+		ControlType: MindControl
 	WithMindControlArc@MC:
 		Color: c71585
 		Transparency: 55
 		Offset: 0,0,511
 		Angle: 32
 		Width: 116
+		ControlType: MindControl
 	AmmoPool:
 		Ammo: 1
 		AmmoCondition: ammo
@@ -5779,7 +5777,7 @@ PANZER38.Husk:
 	RenderSprites:
 		Image: panzer38
 
-RONIN:
+JAPANTANK:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMovePlusBombers
@@ -5789,17 +5787,101 @@ RONIN:
 		Prerequisites: ~vehicles.japan, adept, ~techlevel.low
 		Description: Multipurpose tank, jack of all trades,\nmaster of none.
 	TooltipExtras:
+		Strengths: + Strong vs Vehicles, Aircraft, Infantry.
+		Weaknesses: - Weak vs Tanks.
+	Valued:
+		Cost: 950
+	Tooltip:
+		Name: Ronin
+		GenericName: Tank
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 40000
+	Armor:
+		Type: Heavy
+	Mobile:
+		Locomotor: lighttracked
+		Speed: 90
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 5c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	Turreted:
+		TurnSpeed: 28
+	Turreted:
+		Offset: -150,0,300
+	Armament:
+		Weapon: RoninDrake
+		RecoilRecovery: 25
+		LocalOffset: 730,60,25
+		PauseOnCondition: !ammo
+	Armament@aa:
+		Name: tertiary
+		Weapon: RoninDrakeAA
+		RecoilRecovery: 25
+		LocalOffset: 730,60,25
+		PauseOnCondition: !ammo
+	Armament@secondary:
+		Name: secondary
+		Weapon: M60mg-Ronin
+		RecoilRecovery: 25
+		LocalOffset: 438,-50,25, 438,-65,25
+		MuzzleSequence: muzzle
+	AttackTurreted:
+		PauseOnCondition: turnedoff
+		Armaments: primary, secondary, tertiary
+	WithMuzzleOverlay:
+	WithSpriteTurret:
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
+	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
+		Actor: JAPANTANK.Husk
+	AmmoPool:
+		Armaments: primary, tertiary
+		Ammo: 2
+		AmmoCondition: ammo
+	ReloadAmmoPool:
+		Delay: 90
+		Count: 2
+
+JAPANTANK.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Ronin)
+	TransformOnCapture@Mechanic:
+		IntoActor: JAPANTANK
+	TransformOnCapture@Engineer:
+		IntoActor: JAPANTANK
+	InfiltrateForTransform:
+		IntoActor: JAPANTANK
+	RenderSprites:
+		Image: japantank
+
+RONIN:
+	Inherits: ^TrackedVehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMovePlusBombers
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 320
+		Prerequisites: ~vehicles.japan, adept, ~techlevel.low
+		Description: Multipurpose tank, jack of all trades,\nmaster of none.
+	TooltipExtras:
 		Strengths: + Strong vs Vehicles, Infantry.
 		Weaknesses: - Weak vs Aircraft
 	Valued:
-		Cost: 1100
+		Cost: 1200
 	Tooltip:
 		Name: Kitsune
 		GenericName: Tank
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 48000
+		HP: 52000
 	Armor:
 		Type: Heavy
 	Mobile:
@@ -6043,12 +6125,18 @@ PTNK:
 	GrantConditionOnDeploy:
 		DeployedCondition: deployed
 	Cloak:
-		InitialDelay: 1
-		CloakDelay: 1
-		CloakSound: teleport.aud
-		UncloakSound: holoexplosion.aud
+		CloakedPalette: newcloak
+		CloakStyle: Palette
+		InitialDelay: 125
+		CloakDelay: 175
+		CloakSound: appear1.aud
+		UncloakSound: appear1.aud
 		IsPlayerPalette: true
-		PauseOnCondition: cloak-force-disabled || moving || attacking || !deployed || empdisable
+		PauseOnCondition: cloak-force-disabled || turnedoff
+		UncloakOn: Attack, Heal, Dock
+	GrantConditionOnDamageState@UNCLOAK:
+		Condition: cloak-force-disabled
+		ValidDamageStates: Critical
 	Mobile:
 		TurnSpeed: 28
 		Speed: 85
@@ -6474,18 +6562,18 @@ TITAN:
 		Weaknesses: - Weak vs Aircraft, Vehicles.
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 332
-		Prerequisites: adept, atek, ~vehicles.japan, ~techlevel.low
+		BuildPaletteOrder: 320
+		Prerequisites: adept, commcent, ~vehicles.usa, ~techlevel.low
 		Description: Large walker.
 	Valued:
-		Cost: 1900
+		Cost: 1800
 	Tooltip:
 		Name: Titan
 		GenericName: Tank
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 70000
+		HP: 60000
 	Armor:
 		Type: Heavy
 	Mobile:
@@ -6497,7 +6585,7 @@ TITAN:
 	RevealsShroud@GAPGEN:
 		Range: 4c0
 	Armament:
-		Weapon: LaserTank
+		Weapon: MausCannon
 		Recoil: 128
 		RecoilRecovery: 38
 		LocalOffset: 500,400,600
@@ -6515,7 +6603,7 @@ TITAN:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	Selectable:
-		DecorationBounds: 1289, 1289
+		DecorationBounds: 1289, 1289, 0, -482
 	WithMoveAnimation:
 	WithMoveAnimation@turn:
 		MoveSequence: turn
@@ -6956,7 +7044,7 @@ WOLVERINE:
 		Queue: Vehicle
 		BuildAtProductionType: Vehicle
 		BuildPaletteOrder: 81
-		Prerequisites: ~techlevel.infonly, ~infantry.japan
+		Prerequisites: ~techlevel.infonly, dome, ~infantry.usa
 		Description: General-purpose armored assault suit.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -6964,7 +7052,7 @@ WOLVERINE:
 	Valued:
 		Cost: 650
 	Tooltip:
-		Name: Ronin
+		Name: Wolverine
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
@@ -7120,7 +7208,7 @@ MGTELEDRONE:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 74
-		Prerequisites: ~vehicles.japan, commcent, ~techlevel.medium
+		Prerequisites: ~vehicles.japan, robocom, ~techlevel.medium
 		Queue: Vehicle
 		Description: Radio controlled fast scout. Armed with\na machine gun and rockets.
 	TooltipExtras:
@@ -7129,7 +7217,7 @@ MGTELEDRONE:
 		Attributes: • Requires a functioning Radar Dome.\n • Deploy to switch weapons.
 	Mobile:
 		TurnSpeed: 40
-		Speed: 120
+		Speed: 130
 		Locomotor: wheeled
 	Health:
 		HP: 12000
@@ -7974,31 +8062,28 @@ HVRTNKTNK:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	WithMakeAnimation:
-		Condition: making
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 399
-		Prerequisites: stek, ~vehicles.ukraine, ~techlevel.unrestricted
+		BuildPaletteOrder: 335
+		Prerequisites: commcent, ~vehicles.ukraine, ~techlevel.unrestricted
 		Description: Manipulates Earth's magnetosphere\nto assume a levitating state.
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles.
 		Weaknesses: - Weak vs Infantry, Aircraft.
 		Attributes: • Deploy to enter levitating state.\n• Can not shoot while levitating.
 	Valued:
-		Cost: 1400
+		Cost: 1200
 	Tooltip:
 		Name: Maglev Tank
 		GenericName: Tank
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 35000
+		HP: 30000
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 80
-		TurnSpeed: 19
+		Speed: 85
 		Locomotor: lighttracked
 	RevealsShroud:
 		MinRange: 4c0
@@ -8006,14 +8091,17 @@ HVRTNKTNK:
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 4c0
+	Turreted:
+		TurnSpeed: 28
+		Offset: -200,0,230
 	Armament:
-		Weapon: HvRailgun
+		Weapon: SM_ElectricBolt
 		Recoil: 0
 		RecoilRecovery: 25
-		LocalOffset: 398,0,150
-	AttackFrontal:
+		LocalOffset: 398,0,100
+	AttackTurreted:
 		PauseOnCondition: turnedoff
-		FacingTolerance: 15
+	WithSpriteTurret:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	GrantConditionOnDeploy:
@@ -8044,8 +8132,6 @@ HVRTNKTNK.Husk:
 		
 HVRTNKHVR:
 	Inherits: ^Helicopter
-	WithMakeAnimation:
-		Condition: build-incomplete
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -8132,7 +8218,7 @@ GRINDER:
 	-Crushable
 	TooltipExtras:
 		Weaknesses: - Unarmed.
-		Attributes: • Deploy to charge faster.\n• Does not slow down while crushing.
+		Attributes: • Deploy to charge faster.\n• Does not slow down while crushing.\n• Can crush most vehicles.
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 320
@@ -8192,8 +8278,8 @@ TTNK:
 		Attributes: • Can carry 5 infantry units.
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 83
-		Prerequisites: dome, ~vehicles.russia, ~techlevel.low
+		BuildPaletteOrder: 80
+		Prerequisites: adept, ~vehicles.russia, ~techlevel.low
 		Description: Tough infantry transport.
 	Valued:
 		Cost: 1000
@@ -8266,7 +8352,7 @@ FLMTNK:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 210
+		BuildPaletteOrder: 81
 		Prerequisites: dome, ~vehicles.turkey, ~techlevel.medium
 		Description: Tank that shoots balls of napalm.
 	TooltipExtras:
@@ -9115,7 +9201,7 @@ RACER:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 42
-		Prerequisites: ~vehicles.austria, ~techlevel.medium
+		Prerequisites: ~vehicles.germany, ~techlevel.medium
 		Description: Tracked motorbike,\narmed with two rocket launchers.
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles.

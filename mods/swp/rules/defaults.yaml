@@ -519,6 +519,7 @@
 		RevokingConditions:
 			ishmaelite: restoring
 			shah: mindcontrolled
+		ControlType: MindControl
 	GivesExperienceToMaster:
 	Targetable@mindcontrolled:
 		TargetTypes: MindControlled
@@ -548,6 +549,7 @@
 			cyborghijacker: hacked
 		RevokingConditions:
 			cyborghijacker: dehacking
+		ControlType: Hack
 	GivesExperienceToMaster:
 	Targetable@mindcontrolled:
 		TargetTypes: Hackable
@@ -1707,7 +1709,7 @@
 		DamageModifiers:
 			Prone50Percent: 50
 		DamageTriggers: TriggerProne
-		RequiresCondition: !propaganda
+		RequiresCondition: !propaganda && !sergeant
 	WithInfantryBody:
 		IdleSequences: idle1,idle2
 		StandSequences: stand,stand2
@@ -3215,9 +3217,11 @@ Zombiehusk:
 ^Propaganda:
 	ExternalCondition@PROPAGANDA:
 		Condition: propaganda
+	ExternalCondition@sergeant:
+		Condition: sergeant
 	DamageMultiplier@propaganda:
 		Modifier: 50
-		RequiresCondition: propaganda
+		RequiresCondition: propaganda || sergeant
 	SpeedMultiplier@PROPAGANDA:
 		Modifier: 120
 		RequiresCondition: propaganda

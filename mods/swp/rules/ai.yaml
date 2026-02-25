@@ -151,7 +151,7 @@ Player:
 					Attractiveness: -2
 					TargetMetric: Value
 					CheckRadius: 2c0
-	HarvesterBotModuleSwp:
+	HarvesterBotModule:
 		RequiresCondition: enable-normal-ai
 		HarvesterTypes: harv
 		RefineryTypes: proc
@@ -182,6 +182,7 @@ Player:
 			stek: 1
 			mtek: 1
 			fix: 1
+			commcent: 1
 		BuildingFractions:
 			proc: 15
 			tent: 1
@@ -203,6 +204,7 @@ Player:
 			flkgun: 1
 			atek: 1
 			stek: 1
+			commcent: 1
 			mtek: 1
 			mslo: 1
 		BuildingDelays:
@@ -228,7 +230,7 @@ Player:
 		MaxBaseRadius: 59
 		NavalProductionTypes: syrd
 		AirUnitsTypes: hospitaller, ant40, mig, yak, teslahind, iblis, heavyfighter, heli, saucer, hind, gebard, comet, spitfire, mh60, teuton, wasp, msrsmt, a10, strmvgl, harrier, stuka, zeppelin
-		ProtectionTypes: harv, mcv, mcv.new, fact, mslo, gap, syrd, iron, pdox, tsla, reftwr, agun, cagun, dome, academy, recruitmentoffice, pbox, hbox, gun, camogun, gatlinggun, grandcannon, ftur, sam, adept, mtek, atek, weap, proc, silo, lazarusplatform, hpad, afld, powr, apwr, stek, barr, fix, flkgun, uplink, sthgen, empgun, srimp, fpwr, tenf, weaf, fixf, fapw, atef, sthgenf, empgunf, mslf, facf
+		ProtectionTypes: harv, mcv, mcv.new, fact, mslo, gap, syrd, iron, pdox, tsla, reftwr, agun, cagun, dome, academy, recruitmentoffice, pbox, hbox, gun, camogun, gatlinggun, grandcannon, ftur, sam, adept, mtek, atek, weap, proc, silo, lazarusplatform, hpad, afld, powr, apwr, stek, commcent, barr, fix, flkgun, uplink, sthgen, empgun, srimp, fpwr, tenf, weaf, fixf, fapw, atef, sthgenf, empgunf, mslf, facf
 	UnitBuilderBotModule@normal:
 		UnitQueues: Vehicle, Infantry, Plane, Aircraft, Helicopter
 		IdleBaseUnitsMaximum: 500

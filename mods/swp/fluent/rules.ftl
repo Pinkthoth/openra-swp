@@ -77,14 +77,15 @@ faction-usa =
      Electromagnetic Technology
      Special Ability: EMP Bomb
      Special Building: Arc Tower
-     Special Infantry: Disc Thrower
      Special Infantry: Stinger Trooper
      Special Infantry: Aero Patroller
      Special Infantry: Arc Blaster
      Special Vehicle: Humvee
+     Special Vehicle: Wolverine
      Special Vehicle: Arc Thrower
      Special Vehicle: Mobile EMP Device
      Replacement Vehicle: Hammerhead (Minelayer)
+     Replacement Vehicle: Titan (Paladin)
 
 faction-japan =
     .name = Japan
@@ -92,19 +93,18 @@ faction-japan =
      Robotics and Laser Technology
      Special Ability: Recon Drone
      Special Building: Robot Control
+     Special Building: Obelisk
      Special Aircraft: Vulture
      Special Aircraft: Battle Drone
      Special Infantry: Incinerator
+     Special Vehicle: Recon Bike
      Special Vehicle: Roach Drone
-     Special Vehicle: Ronin
      Special Vehicle: Cicada
-     Special Vehicle: Titan
      Replacement Infantry: Shinobi (Spy)
      Replacement Vehicle: Ebi (APC)
-     Replacement Vehicle: Recon Bike (Ranger)
      Replacement Vehicle: Kumo (Squire)
-     Replacement Vehicle: Kitsune (Crusader)
-     Replacement Vehicle: Laser Quad (Paladin)
+     Replacement Vehicle: Ronin (Crusader)
+     Replacement Vehicle: Kitsune (Paladin)
 
 faction-raj =
     .name = India

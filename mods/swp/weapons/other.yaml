@@ -211,7 +211,7 @@
 ^RadBeam:
 	ReloadDelay: 60
 	Range: 6c0
-	Report: bigggun1.aud
+	Report: idesat1a.aud
 	ValidTargets: GroundActor, Trees,  Ship, WaterActor, Ground
 	Projectile: RadBeam
 		Color: 4CFF00
@@ -1670,6 +1670,31 @@ Laser:
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Scorch
 
+LaserTower:
+	ReloadDelay: 90
+	Range: 7c512
+	Report: obelray1.aud
+	ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
+	Projectile: LaserZap
+		Width: 85
+		HitAnim: laserfire
+		ZOffset: 2047
+		Color: FF0000
+	Warhead@1Dam: SpreadDamage
+		Spread: 42
+		Damage: 15000
+		Versus:
+			None: 100
+			Wood: 45
+			Light: 70
+			Medium: 60
+			Heavy: 40
+			Concrete: 20
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath
+		ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+
 LaserKitsune:
 	ReloadDelay: 90
 	Range: 7c512
@@ -3073,9 +3098,11 @@ CarrierLauncher:
 	ReloadDelay: 15
 	Range: 19c0
 	ValidTargets: Ground, Water, GroundActor, Ship, WaterActor
+	ValidRelationships: Ally, Enemy, Neutral
 	Projectile: InstantHit
 	Warhead@1Dam: TargetDamage
 		ValidTargets: Ground, Water, GroundActor, Ship, WaterActor
+		ValidRelationships: Ally, Enemy, Neutral
 		Damage: 50000
 		Versus:
 			None: 0

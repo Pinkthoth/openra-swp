@@ -134,6 +134,12 @@ namespace OpenRA.Mods.Swp.Traits
 
 		public virtual void OnMasterKilled(Actor self, Actor attacker, SpawnerSlaveDisposal disposal)
 		{
+			if (self.IsDead)
+				return;
+
+			if (attacker.IsDead || attacker.WillDispose)
+				attacker = self;
+
 			// Grant MasterDead condition.
 			self.GrantCondition(info.MasterDeadCondition);
 

@@ -211,7 +211,7 @@ FACT:
 		Actor: tunnelfact
 
 MSLO:
-	Inherits: ^ScienceBuilding
+	Inherits: ^FactionBuilding
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x1Rubbles
@@ -289,7 +289,7 @@ MSLO:
 		HasMinibib: True
 
 GAP:
-	Inherits: ^ScienceBuilding
+	Inherits: ^FactionBuilding
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@rubbles: ^1x1Rubbles
 	Inherits@EMPDISABLE: ^EmpDisable
@@ -520,7 +520,7 @@ SYRD:
 			abyssinia: spen
 
 IRON:
-	Inherits: ^ScienceBuilding
+	Inherits: ^FactionBuilding
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
@@ -591,7 +591,7 @@ IRON:
 		HasMinibib: True
 
 PDOX:
-	Inherits: ^ScienceBuilding
+	Inherits: ^FactionBuilding
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
@@ -660,6 +660,57 @@ PDOX:
 	ProvidesPrerequisite@buildingname:
 	WithBuildingBib:
 		HasMinibib: True
+
+OBLI:
+	Inherits: ^Defense
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@rubbles: ^1x1Rubbles
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Obelisk
+	Buildable:
+		BuildPaletteOrder: 71
+		Prerequisites: structures.japan, adept, ~techlevel.high
+		Queue: Defense
+		Description: Laser armed defensive tower.
+	TooltipExtras:
+		Strengths: + Strong vs Infantry, Vehicles.
+		Weaknesses: - Weak vs Aircraft.
+	Selectable:
+		Bounds: 1024, 1024
+		DecorationBounds: 938, 1877, 0, -426
+	Health:
+		HP: 100000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 8c0
+	WithBuildingBib:
+		HasMinibib: true
+	-WithSpriteBody:
+	WithChargeSpriteBody:
+		Sequence: active
+	Armament:
+		Weapon: LaserTower
+		LocalOffset: 0,-85,1280
+	AttackCharges:
+		PauseOnCondition: disabled || turnedoff || build-incomplete
+		ChargeLevel: 50
+		ChargingCondition: charging
+	AmbientSound:
+		RequiresCondition: charging
+		SoundFiles: obelpowr.aud
+		Interval: 30, 40
+	-SpawnActorsOnSell:
+	DetectCloaked:
+		Range: 5c0
+		RequiresCondition: !disabled
+	Power:
+		Amount: -90
 
 TSLA:
 	Inherits: ^Defense
@@ -776,12 +827,14 @@ PSYCHTOWER:
 		ControllingCondition: mindcontrolling
 		MaxControlledCondition: maxcontrolled
 		ManualReleaseEnabled: true
+		ControlType: MindControl
 	WithMindControlArc@MC:
 		Color: c71585
 		Transparency: 55
 		Offset: 0,0,511
 		Angle: 32
 		Width: 116
+		ControlType: MindControl
 	AmmoPool:
 		Ammo: 1
 		AmmoCondition: ammo
@@ -1003,7 +1056,7 @@ CAGUN:
 		ValidDamageStates: Critical
 
 ACADEMY:
-	Inherits: ^ScienceBuilding
+	Inherits: ^FactionBuilding
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
@@ -1065,7 +1118,7 @@ ACADEMY:
 		Actor: tunnelacademy
 
 RECRUITMENTOFFICE:
-	Inherits: ^ScienceBuilding
+	Inherits: ^FactionBuilding
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
@@ -1143,7 +1196,7 @@ RECRUITMENTOFFICE:
 		Actor: tunnelrecruitmentoffice
 
 SCRAP:
-	Inherits: ^ScienceBuilding
+	Inherits: ^FactionBuilding
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
@@ -1189,7 +1242,7 @@ SCRAP:
 	ProvidesPrerequisite@buildingname:
 
 BOOTCAMP:
-	Inherits: ^ScienceBuilding
+	Inherits: ^FactionBuilding
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
@@ -1247,7 +1300,7 @@ BOOTCAMP:
 		Amount: -10
 
 MOROZKO:
-	Inherits: ^ScienceBuilding
+	Inherits: ^FactionBuilding
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@rubbles: ^1x1Rubbles
 	Inherits@EMPDISABLE: ^EmpDisable
@@ -1942,14 +1995,14 @@ TURKEYGUN:
 		Weaknesses: - Weak vs Infantry, Aircraft.
 		Attributes: • Can detect phased units.
 	Valued:
-		Cost: 1500
+		Cost: 900
 	Tooltip:
 		Name: Inferno Turret
 	Building:
 		Footprint: x
 		Dimensions: 1,1
 	Health:
-		HP: 40000
+		HP: 50000
 	Armor:
 		Type: Concrete
 	RevealsShroud:
@@ -2611,7 +2664,7 @@ ADEPT.disabled:
 		RequiresCondition: disabled || turnedoff
 
 MILACADEMY:
-	Inherits: ^ScienceBuilding
+	Inherits: ^FactionBuilding
 	Inherits@shape: ^3x2Shape
 	Inherits@rubbles: ^3x2Rubbles
 	Inherits@sabotable: ^Sabotable
@@ -3724,6 +3777,7 @@ WEAP:
 	Power:
 		Amount: -30
 	ProvidesPrerequisite@buildingname:
+		Prerequisite: weap
 	Targetable:
 		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
 	InfiltrateForSupportPower:
@@ -3766,16 +3820,16 @@ WEAP:
 		Factions: italy, germany, turkey, austria
 		Prerequisite: vehicles.halftrack
 	ProvidesPrerequisite@jeep:
-		Factions: france, egypt, england, usa
+		Factions: france, egypt, england, japan
 		Prerequisite: vehicles.jeep
 	ProvidesPrerequisite@apc:
 		Factions: usa, france, serbia, egypt
 		Prerequisite: vehicles.apc
 	ProvidesPrerequisite@squire:
-		Factions: france, usa, serbia, egypt, egnland
+		Factions: france, usa, serbia, egypt, england
 		Prerequisite: vehicles.squire
 	ProvidesPrerequisite@paladin:
-		Factions: england, usa, serbia, egypt
+		Factions: england, serbia, egypt
 		Prerequisite: vehicles.paladin
 	ProvidesPrerequisite@arty:
 		Factions: england, france, usa, serbia, egypt, japan
@@ -3796,7 +3850,7 @@ WEAP:
 		Factions: russia, china, arabia, ukraine
 		Prerequisite: vehicles.katy
 	ProvidesPrerequisite@btr:
-		Factions: belarus, transcaucasia, kazakhstan, ukraine, arabia, russia
+		Factions: belarus, transcaucasia, kazakhstan, ukraine, arabia
 		Prerequisite: vehicles.btr
 	ProvidesPrerequisite@mnly:
 		Factions: russia, ukraine, japan, belarus, turkey, transcaucasia, kazakhstan, china, arabia, mongolia, england, france, raj, serbia, germany, austria, persia, italy, abyssinia, bulgaria
@@ -4149,7 +4203,7 @@ STHGENSM:
 		Type: StealthCircle
 
 LAZARUSPLATFORM:
-	Inherits: ^ScienceBuilding
+	Inherits: ^FactionBuilding
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
@@ -4254,6 +4308,9 @@ HPAD:
 		ProductionType: Helicopter
 	Power:
 		Amount: -10
+	ProvidesPrerequisite@hind:
+		Factions: ukraine, china, mongolia, arabia, kazakhstan, russia, belarus, transcaucasia
+		Prerequisite: helicopter.hind
 	ProvidesPrerequisite@allies:
 		Factions: allies, england, france, usa, japan, serbia, raj, egypt
 		Prerequisite: helicopter.allies
@@ -4371,7 +4428,7 @@ AFLD.RAJ:
 	RenderSprites:
 		Image: afld
 	TooltipExtras:
-		Attributes: • Support Power: Paratroopers.\n• India may build Airfields with Radar Dome.
+		Attributes: • Support Power: Paratroopers.\n• India may build Airfields with Communication Center.
 
 AFLD:
 	Inherits: ^FactionBuilding
@@ -4431,9 +4488,6 @@ AFLD:
 	ProvidesPrerequisite@spitfire:
 		Factions: usa, england, france, japan, serbia
 		Prerequisite: aircraft.spitfire
-	ProvidesPrerequisite@hind:
-		Factions: ukraine, china, mongolia, arabia, kazakhstan, russia, belarus, transcaucasia
-		Prerequisite: aircraft.hind
 	ProvidesPrerequisite@mig:
 		Factions: china, mongolia, arabia, russia, belarus, transcaucasia
 		Prerequisite: aircraft.mig
@@ -4674,7 +4728,7 @@ POWR:
 	RevealsShroud:
 		Range: 4c0
 	Power:
-		Amount: 100
+		Amount: 150
 		RequiresCondition: !turnedoff && !disabled
 	Targetable:
 		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration
@@ -4794,7 +4848,7 @@ TESLAPP:
 		Prerequisites: ~techlevel.infonly, dome, ~structures.russia
 		Description: Provides power for other structures.
 	Valued:
-		Cost: 1500
+		Cost: 1300
 	Tooltip:
 		Name: Tesla Reactor
 	ProvidesPrerequisite:
@@ -4810,7 +4864,7 @@ TESLAPP:
 	RevealsShroud:
 		Range: 4c0
 	Power:
-		Amount: 500
+		Amount: 600
 		RequiresCondition: !turnedoff && !disabled
 	Targetable:
 		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration
@@ -5008,7 +5062,7 @@ APWR:
 	RevealsShroud:
 		Range: 5c0
 	Power:
-		Amount: 250
+		Amount: 300
 		RequiresCondition: !disabled && !turnedoff
 	Targetable:
 		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration
@@ -5036,7 +5090,7 @@ APWR:
 		Actor: tunnelapwr
 
 STEK:
-	Inherits: ^ScienceBuilding
+	Inherits: ^FactionBuilding
 	Inherits@shape: ^3x2Shape
 	Inherits@rubbles: ^2x2Rubbles
 	Inherits@sabotable: ^Sabotable
@@ -5083,7 +5137,7 @@ STEK:
 		Actor: tunnelstek
 
 MTEK:
-	Inherits: ^ScienceBuilding
+	Inherits: ^FactionBuilding
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
 	Inherits@sabotable: ^Sabotable
@@ -5131,7 +5185,7 @@ MTEK:
 		Actor: tunnelmtek
 
 ATEK:
-	Inherits: ^ScienceBuilding
+	Inherits: ^FactionBuilding
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
 	Inherits@sabotable: ^Sabotable
@@ -5373,7 +5427,7 @@ BARR:
 		Factions: germany, turkey, italy, austria
 		Prerequisite: infantry.officer
 	ProvidesPrerequisite@flamer:
-		Factions: germany, turkey, italy, austria
+		Factions: germany, turkey, italy
 		Prerequisite: infantry.flamer
 	ProvidesPrerequisite@grunt:
 		Factions: usa, raj, japan
@@ -5558,7 +5612,7 @@ FLKGUN:
 		Attributes: • Can detect phased units.
 
 ROBOCOM:
-	Inherits: ^ScienceBuilding
+	Inherits: ^FactionBuilding
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
@@ -5636,13 +5690,13 @@ ROBOCOM:
 	RenderRangeCircle@Attack:
 		RangeCircleType: CarrierRange
 		Color: 0000FF80
-	ProvidesPrerequisite:
+	ProvidesPrerequisite@name:
 	ProvidesPrerequisite@RadarOnline:
 		Prerequisite: radaronline
 		RequiresCondition: !disabled && !turnedoff
 
 UPLINK:
-	Inherits: ^ScienceBuilding
+	Inherits: ^FactionBuilding
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
@@ -5746,7 +5800,7 @@ UPLINK:
 		HasMinibib: True
 
 STHGEN:
-	Inherits: ^ScienceBuilding
+	Inherits: ^FactionBuilding
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
@@ -5882,7 +5936,7 @@ EMPGUN:
 		Sequence: build
 
 SRIMP:
-	Inherits: ^ScienceBuilding
+	Inherits: ^FactionBuilding
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles
@@ -5962,7 +6016,7 @@ SRIMP:
 		HasMinibib: True
 
 PSYCHICDOMINATOR:
-	Inherits: ^ScienceBuilding
+	Inherits: ^FactionBuilding
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@shape: ^2x2Shape
 	Inherits@rubbles: ^2x2Rubbles

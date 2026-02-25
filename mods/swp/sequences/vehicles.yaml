@@ -2227,29 +2227,43 @@ mrj:
 	
 hvrtnktnk:
 	Defaults:
-		Filename: maglevtank.shp
+		Filename: hvrtnk.shp
 	idle:
 		Start: 0
 		Facings: 32
 		UseClassicFacings: True
 	turret:
-		Start: 33
+		Start: 32
 		Facings: 32
 		UseClassicFacings: True
-	make:
-		Start: 66
-		Length: 14
 	muzzle:
 		Filename: gunfire2.shp
 		Length: 2
 	icon:
 		Filename: hvrtnkicon.shp
 
+japantank:
+	Defaults:
+		Filename: japantank.shp
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: japantankicon.shp
+
 hvrtnkhvr:
 	Defaults:
-		Filename: maglevtank.shp
+		Filename: hvrtnk.shp
 	idle:
-		Start: 80
+		Start: 77
 		Facings: 32
 		UseClassicFacings: True
 	muzzle:
@@ -2257,17 +2271,20 @@ hvrtnkhvr:
 		Length: 6
 		Facings: 8
 	make:
-		Start: 66
-		Length: 14
+		Start: 65
+		Length: 12
 	icon:
 		Filename: placeholder.shp
 	
 hvrtnkhvrhusk:
 	Defaults:
-		Filename: maglevtank.shp
+		Filename: hvrtnk.shp
 	idle:
 		Facings: 32
 		UseClassicFacings: True
+	make:
+		Start: 65
+		Length: 12
 	icon:
 		Filename: placeholder.shp
 	

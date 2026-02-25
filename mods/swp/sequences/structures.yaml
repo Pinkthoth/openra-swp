@@ -572,6 +572,39 @@ mtek:
 		Start: 4
 		Offset: 0,0,0
 
+obli:
+	Defaults:
+		Filename: obli.shp
+		Offset: 0,-12
+	idle:
+	damaged-idle:
+		Start: 4
+	active:
+		Length: 4
+		Tick: 680
+	damaged-active:
+		Start: 4
+		Length: 4
+		Tick: 680
+	dead:
+		Start: 8
+		Tick: 800
+	make:
+		Filename: obli.shp
+		Length: 13
+		Tick: 80
+		Start: 9
+	bib:
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbTSLA.tem
+			DESERT: mbTSLA.des
+		Length: *
+		Offset: -1,-3
+	icon:
+		Filename: obliicon.shp
+		Offset: 0,0
+
 hpad:
 	Defaults:
 		Filename: hpad.shp

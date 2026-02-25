@@ -279,12 +279,16 @@ AC:
 		Margin: 4, 3
 		RequiresSelection: true
 	Exit:
-	AttackFrontal:
+		ExitCell: 0,0
+		SpawnOffset: 0,0,100
+	AttackOmni:
 		TargetFrozenActors: True
-		FacingTolerance: 512
 		PauseOnCondition: empdisable || being-warped
 	Armament:
 		Weapon: CarrierLauncher
+	RenderRangeCircle@Attack:
+		RangeCircleType: CarrierRange
+		Color: 0000FF80
 	RenderRangeCircle@Attack:
 		RangeCircleType: CarrierRange
 		Color: 0000FF80

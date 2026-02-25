@@ -235,9 +235,15 @@ GENEHORROR:
 BUSHI:
 	Inherits: ^Soldier
 	Valued:
-		Cost: 550
+		Cost: 250
 	Tooltip:
 		Name: Bushi
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 179
+		Prerequisites: ~techlevel.infonly, ~infantry.egypt, atek
+		Description: Elite melee infantry armed with a laser sword.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
@@ -247,7 +253,7 @@ BUSHI:
 	Selectable:
 		Bounds: 1024,1024
 	Health:
-		HP: 5000
+		HP: 10000
 	Mobile:
 		Voice: Move
 	Guard:
@@ -274,21 +280,10 @@ BUSHI:
 	IgnoresDisguise:
 	Voiced:
 	TakeCover:
-		SpeedModifier: 133
+		SpeedModifier: 150
 		ProneOffset: 0,0,0
 		Duration: 50
-	Cloak:
-		CloakedPalette: newcloak
-		CloakStyle: Palette
-		InitialDelay: 90
-		CloakDelay: 90
-		CloakSound: appear1td.aud
-		UncloakSound: trans1td.aud
-		IsPlayerPalette: true
-		PauseOnCondition: cloak-force-disabled
-	GrantConditionOnDamageState@UNCLOAK:
-		Condition: cloak-force-disabled
-		ValidDamageStates: Critical
+		DamageModifiers: 25
 
 CYBORGRAILGUNNER:
 	Inherits: ^Soldier
@@ -654,17 +649,17 @@ GERMANTROOPER:
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
-		Attributes: • Runs faster when under attack.\n • Fires a grenade while charging.
+		Attributes: • Runs faster when under attack.\n• Fires a grenade while charging.\n• Increases the fighting abilities of nearby infantry.
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 134
-		Prerequisites: mtek, ~infantry.bulgaria, ~techlevel.high
+		BuildPaletteOrder: 71
+		Prerequisites: adept, ~infantry.austria, ~techlevel.high
 		Description: Tough assault rifle armed general purpose infantry.
 	Valued:
-		Cost: 250
+		Cost: 300
 	Tooltip:
-		Name: Stormtrooper
+		Name: Sergeant
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -673,15 +668,10 @@ GERMANTROOPER:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 10000
+		HP: 8000
 	Armament@PRIMARY:
 		Weapon: MilpolCarbine
 		RequiresCondition: !ammo
-	Armament@secondary:
-		Weapon: GrenadeLauncher
-		Name: secondary
-		RequiresCondition: ammo
-		LocalOffset: 0,0,100
 	GrantConditionOnAttack@secondary:
 		ArmamentNames: secondary
 		Condition: gren
@@ -706,15 +696,36 @@ GERMANTROOPER:
 		Prerequisites: barracks.upgraded
 	SpawnActorOnDeath@BulletDeath:
 		Actor: GERMANTROOPER.Husk
+	-ExternalCondition@sergeant:
 	TakeCover:
-		SpeedModifier: 133
+		SpeedModifier: 100
 		ProneOffset: 0,0,0
 		Duration: 50
+	ProximityExternalCondition@sergeant:
+		Range: 2c0
+		ValidRelationships: Ally
+		Condition: sergeant
+	WithRangeCircle@sergeant:
+		Type: jammer
+		Range: 2c0
+		Color: FFD800
+	Armament@secondary:
+		Weapon: GrenadeLauncher
+		Name: secondary
+		RequiresCondition: ammo
+		LocalOffset: 0,0,100
+	GrantConditionOnAttack@secondary:
+		ArmamentNames: secondary
+		Condition: gren
+		RevokeDelay: 15
+	Armament@PRIMARY:
+		Weapon: MilpolCarbine
+		RequiresCondition: !ammo
 
 GERMANTROOPER.Husk:
 	Inherits: ^InfantryCorpse
 	Tooltip:
-		Name: Corpse (Stormtrooper)
+		Name: Corpse (Sergeant)
 	SpawnActorOnDeath:
 		Actor: GERMANTROOPER
 	GrantExternalConditionToKiller:
@@ -1206,7 +1217,7 @@ ARDITI:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 10
-		Prerequisites: adept, ~infantry.italy, ~techlevel.infonly
+		Prerequisites: ~infantry.italy, ~techlevel.infonly
 		Description: General-purpose infantry capable\nof entrenching itself.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -1283,7 +1294,7 @@ RPGARDITI:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 30
-		Prerequisites: adept, ~infantry.italy, ~techlevel.infonly
+		Prerequisites: ~infantry.italy, ~techlevel.infonly
 		Description: Anti-tank infantry capable\nof entrenching itself.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -1519,7 +1530,7 @@ HVGATLING:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 95
+		BuildPaletteOrder: 102
 		Prerequisites: ~infantry.china, commcent
 		Description: Heavily armed general-purpose infantry.
 	TooltipExtras:
@@ -2893,7 +2904,7 @@ SPY.MI6:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 100
-		Prerequisites: ~infantry.england, atek, ~techlevel.medium
+		Prerequisites: ~infantry.england, commcent, ~techlevel.medium
 	Cloneable:
 		Types: spy.mi6
 	ProducibleWithLevel:
@@ -3294,12 +3305,14 @@ CYBORGHIJACKER:
 		ControllingCondition: mindcontrolling
 		MaxControlledCondition: maxcontrolled
 		ManualReleaseEnabled: true
+		ControlType: Hack
 	WithMindControlArc@MC:
 		Color: c71585
 		Transparency: 55
 		Offset: 0,0,511
 		Angle: 32
 		Width: 116
+		ControlType: Hack
 	AmmoPool:
 		Ammo: 1
 		AmmoCondition: ammo
@@ -3528,12 +3541,12 @@ POLITRUK:
 		IdleSequences: idle1
 		DefaultAttackSequence: shoot
 	ProximityExternalCondition@KOMMISSABLE:
-		Range: 4c0
+		Range: 5c0
 		ValidRelationships: Ally
 		Condition: kommissable
 	WithRangeCircle@KOMMISSABLE:
 		Type: jammer
-		Range: 4c0
+		Range: 5c0
 		Color: FF5432
 	SpawnActorOnDeath@BulletDeath:
 		Actor: POLITRUK.Husk
@@ -3762,9 +3775,9 @@ OFFICER:
 		Weaknesses: - Weak vs Everything.
 		Attributes: • Increases the experience gained by nearby units.\n• Slowly gives experience to nearby units.\n• Can detect disguised units.
 	Valued:
-		Cost: 300
+		Cost: 350
 	Health:
-		HP: 7000
+		HP: 8000
 	RevealsShroud:
 		Range: 4c768
 	AutoTarget:
@@ -4064,12 +4077,14 @@ ISHMAELITE:
 		ControllingCondition: mindcontrolling
 		MaxControlledCondition: maxcontrolled
 		ManualReleaseEnabled: true
+		ControlType: MindControl
 	WithMindControlArc@MC:
 		Color: c71585
 		Transparency: 55
 		Offset: 0,0,511
 		Angle: 32
 		Width: 116
+		ControlType: MindControl
 	AmmoPool:
 		Ammo: 1
 		AmmoCondition: ammo
@@ -4380,7 +4395,7 @@ STRMTRPR:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 130
-		Prerequisites: commcent, ~infantry.austria, ~techlevel.high
+		Prerequisites: mtek, ~infantry.austria, ~techlevel.high
 		Description: Elite infantry with a hand-held\ndirect energy weapon.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Vehicles.
@@ -4802,7 +4817,7 @@ LEGIONAIRE:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 72
+		BuildPaletteOrder: 47
 		Prerequisites: ~barracks, adept, ~infantry.france, ~techlevel.infonly
 		Description: Elite general-purpose infantry.
 	TooltipExtras:
@@ -4912,8 +4927,8 @@ TERRORIST:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 42
-		Prerequisites: ~infantry.arabia
+		BuildPaletteOrder: 50
+		Prerequisites: ~infantry.arabia, adept
 		Description: This comrade is willing to do the ultimate sacrifice for the proletariat.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
@@ -5799,7 +5814,7 @@ FLKTRP:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 102
+		BuildPaletteOrder: 94
 		Prerequisites: ~infantry.china, dome, ~techlevel.infonly
 		Description: Anti-air and -ground infantry.
 	TooltipExtras:
@@ -5920,7 +5935,7 @@ PANZERFAUST:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 11
-		Prerequisites: ~infantry.china, commcent
+		Prerequisites: ~infantry.china
 		Description: Heavily armed anti-tank infantry.
 	Valued:
 		Cost: 350
@@ -6562,7 +6577,7 @@ SHOK:
 	Armament@PRIMARY:
 		Weapon: TeslaCannon
 		FireDelay: 8
-		LocalOffset: 907,0,290
+		LocalOffset: 1107,0,290
 		RequiresCondition: !supercharged
 	Armament@GARRISONED:
 		Name: garrisoned
@@ -6750,7 +6765,7 @@ NIGHTWITCH:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 102
+		BuildPaletteOrder: 94
 		Prerequisites: dome, ~infantry.ukraine, ~techlevel.high
 		Description: Elite infantry capable of magnetic levitation.
 	TooltipExtras:
@@ -8358,7 +8373,7 @@ DISCTHROW:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 48
-		Prerequisites: ~infantry.usa, adept, ~techlevel.infonly
+		Prerequisites: ~infantry.egypt, adept, ~techlevel.infonly
 		Description: Infantry armed with discus grenades.
 	TooltipExtras:
 		Strengths: + Strong vs Buildings, Infantry.

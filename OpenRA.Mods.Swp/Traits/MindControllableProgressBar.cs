@@ -1,11 +1,10 @@
 #region Copyright & License Information
-/*
- * Copyright 2007-2020 The OpenRA Developers (see AUTHORS)
- * This file is part of OpenRA, which is free software. It is made
- * available to you under the terms of the GNU General Public License
- * as published by the Free Software Foundation, either version 3 of
- * the License, or (at your option) any later version. For more
- * information, see COPYING.
+/**
+ * Copyright (c) The OpenRA Combined Arms Developers (see CREDITS).
+ * This file is part of OpenRA Combined Arms, which is free software.
+ * It is made available to you under the terms of the GNU General Public License
+ * as published by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version. For more information, see COPYING.
  */
 #endregion
 
@@ -20,13 +19,16 @@ namespace OpenRA.Mods.Swp.Traits
 	[RequireExplicitImplementation]
 	public interface IMindControlProgressWatcher
 	{
-		void Update(Actor self, Actor captor, Actor target, int progress, int total);
+		void Update(Actor self, Actor captor, Actor target, int progress, int total, string controlType);
 	}
 
 	[Desc("Visualize capture progress.")]
 	class MindControllableProgressBarInfo : ConditionalTraitInfo, Requires<MindControllableInfo>
 	{
-		public readonly Color Color = Color.Orange;
+		[FieldLoader.Require]
+		public readonly HashSet<string> ControlTypes = null;
+
+		public readonly Color Color = Color.HotPink;
 
 		public override object Create(ActorInitializer init) { return new MindControllableProgressBar(init.Self, this); }
 	}
@@ -38,9 +40,9 @@ namespace OpenRA.Mods.Swp.Traits
 		public MindControllableProgressBar(Actor self, MindControllableProgressBarInfo info)
 			: base(info) { }
 
-		void IMindControlProgressWatcher.Update(Actor self, Actor captor, Actor target, int current, int total)
+		void IMindControlProgressWatcher.Update(Actor self, Actor captor, Actor target, int current, int total, string controlType)
 		{
-			if (IsTraitDisabled || self != target)
+			if (IsTraitDisabled || self != target || !Info.ControlTypes.Contains(controlType))
 				return;
 
 			if (total == 0)
