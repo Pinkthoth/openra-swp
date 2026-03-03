@@ -173,9 +173,10 @@ Player:
 		BuildingLimits:
 			proc: 6
 			barr: 5
+			syrd: 4
 			dome: 1
 			adept: 1
-			weap: 4
+			weap: 1
 			hpad: 2
 			afld: 2
 			atek: 1
@@ -183,19 +184,23 @@ Player:
 			mtek: 1
 			fix: 1
 			commcent: 1
+			illicitlab: 1
+			cyberlab: 1
+			indplant: 1
 		BuildingFractions:
-			proc: 15
+			proc: 8
 			tent: 1
+			syrd: 4
 			barr: 1
 			dome: 1
-			weap: 6
+			weap: 2
 			hpad: 4
 			afld: 4
 			pbox: 7
 			gatlinggun: 7
 			gun: 3
 			refgun: 5
-			ftur: 10
+			ftur: 5
 			tsla: 5
 			gap: 2
 			fix: 1
@@ -208,8 +213,8 @@ Player:
 			mtek: 1
 			mslo: 1
 		BuildingDelays:
-			dome: 9000
-			adept: 6000
+			dome: 5000
+			adept: 3000
 		DefenseTypes: tsla, reftwr, agun, cagun, pbox, hbox, gun, camogun, gatlinggun, grandcannon, ftur, sam, flkgun, empgun, trench
 	BuildingRepairBotModule:
 		RequiresCondition: enable-normal-ai
@@ -222,14 +227,14 @@ Player:
 		RequiresCondition: enable-normal-ai
 		SquadSize: 50
 		ExcludeFromSquadsTypes: harv, mcv, dog
-		NavalUnitsTypes: ss,msub,dd,ca,lst,pt
+		NavalUnitsTypes: ss,msub,dd,ca,lst,pt,fr,dd,co,ac,mo,ub,msub,dn,samshp,flkshp,ak,bs,ca,
 		ConstructionYardTypes: fact, mcv
 		IdleScanRadius: 40
 		AttackScanRadius: 59
 		ProtectionScanRadius: 59
 		MaxBaseRadius: 59
 		NavalProductionTypes: syrd
-		AirUnitsTypes: hospitaller, ant40, mig, yak, teslahind, iblis, heavyfighter, heli, saucer, hind, gebard, comet, spitfire, mh60, teuton, wasp, msrsmt, a10, strmvgl, harrier, stuka, zeppelin
+		AirUnitsTypes: hospitaller, ant40, mig, yak, teslahind, iblis, heavyfighter, heli, saucer, hind, gebard, comet, spitfire, mh60, teuton, wasp, msrsmt, a10, strmvgl, harrier, stuka, zeppelin, colibri
 		ProtectionTypes: harv, mcv, mcv.new, fact, mslo, gap, syrd, iron, pdox, tsla, reftwr, agun, cagun, dome, academy, recruitmentoffice, pbox, hbox, gun, camogun, gatlinggun, grandcannon, ftur, sam, adept, mtek, atek, weap, proc, silo, lazarusplatform, hpad, afld, powr, apwr, stek, commcent, barr, fix, flkgun, uplink, sthgen, empgun, srimp, fpwr, tenf, weaf, fixf, fapw, atef, sthgenf, empgunf, mslf, facf
 	UnitBuilderBotModule@normal:
 		UnitQueues: Vehicle, Infantry, Plane, Aircraft, Helicopter
@@ -267,7 +272,17 @@ Player:
 			prismcannon: 15
 			hvtnk: 100
 			bike: 10
-			jeep: 20
+			jeep: 10
+			bullfrog: 20
+			wiesel: 15
+			technical: 15
+			kumo: 15
+			scorpion: 20
+			jackal: 20
+			guerillatank: 15
+			mongoose: 20
+			turkftrk: 20
+			chinatank: 20
 			arty: 15
 			msam: 15
 			maus: 10

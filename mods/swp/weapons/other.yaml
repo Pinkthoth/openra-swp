@@ -216,7 +216,7 @@
 	Projectile: RadBeam
 		Color: 4CFF00
 		Amplitude: 162
-		Thickness: 20
+		Thickness: 30
 	Warhead@1Dam: SpreadDamage
 		Range: 0, 32
 		Falloff: 100, 100
@@ -231,6 +231,12 @@
 			Concrete: 40
 		DamageTypes: Prone100Percent, TriggerProne, AcidDeath
 		ValidTargets: GroundActor, Trees,  Ship, WaterActor, Ground
+	Warhead@1Radiation: CreateTintedCells
+		Spread: 1c0
+		Falloff: 65, 30, 5, 0
+		Level: 250
+		MaxLevel: 750
+		LayerName: radioactivity.medium
 
 RadRifle:
 	Inherits: ^RadBeam
@@ -1369,6 +1375,60 @@ BomberParaBomb:
 		ImpactSounds: splash9.aud
 		ValidTargets: Water, Underwater
 
+KirovParaBomb:
+	ReloadDelay: 50
+	Range: 0c5
+	Burst: 1
+	Report: shellinc1.wav
+	Range: 0c480
+	ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor
+	Projectile: GravityBomb
+		Image: dropbombs
+		OpenSequence: idle
+		Shadow: False
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c126
+		Damage: 10000
+		Falloff: 100, 80, 60, 40, 20, 0
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
+		Versus:
+			None: 80
+			Wood: 50
+			Light: 75
+			Medium: 60
+			Heavy: 50
+			Concrete: 40
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c206
+		Damage: 20000
+		Falloff: 100, 80, 60, 40, 20, 0
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
+		Versus:
+			None: 100
+			Wood: 50
+			Light: 90
+			Medium: 80
+			Heavy: 70
+			Concrete: 40
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ElectricityDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Crater
+		ValidTargets: Ground, Infantry
+	Warhead@3Eff: CreateEffect
+		Explosions: artillery_explosion
+		ImpactSounds: kaboom15.aud
+		ValidTargets: Ground, GroundActor, Trees,  Ship, WaterActor, Trees, Corpse
+	Warhead@4Eff: CreateEffect
+		Explosions: currentring
+		ExplosionPalette: currentpal
+		ImpactSounds: kaboom15.aud
+		ValidTargets: Ground, GroundActor, Trees,  Ship, WaterActor, Trees, Corpse
+	Warhead@4EffWater: CreateEffect
+		Explosions: small_splash
+		ImpactSounds: splash9.aud
+		ValidTargets: Water, Underwater
+
 BlimpParaBomb:
 	ReloadDelay: 50
 	Range: 0c5
@@ -1430,6 +1490,44 @@ DropBombs:
 			Heavy: 100
 			Concrete: 65
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Crater
+		ValidTargets: Ground, Infantry
+	Warhead@3Eff: CreateEffect
+		Explosions: artillery_explosion
+		ImpactSounds: kaboom15.aud
+		ValidTargets: Ground, GroundActor, Trees,  Ship, WaterActor, Trees, Corpse
+	Warhead@4EffWater: CreateEffect
+		Explosions: small_splash
+		ImpactSounds: splash9.aud
+		ValidTargets: Water, Underwater
+
+Handleybombs:
+	ReloadDelay: 50
+	Report: chute1.aud
+	Burst: 4
+	BurstDelays: 6
+	Range: 3c0
+	TargetActorCenter: true
+	ValidTargets: GroundActor, Trees,  Ship, WaterActor, Ground, Water
+	Projectile: GravityBomb
+		Image: dropbombs
+		Velocity: 40, 0, -74
+		Acceleration: 0, 0, 0
+		Shadow: true
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c512
+		Falloff: 100, 75, 25, 5, 0
+		Damage: 5000
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
+		Versus:
+			None: 40
+			Wood: 60
+			Light: 50
+			Medium: 60
+			Heavy: 70
+			Concrete: 50
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Crater
 		ValidTargets: Ground, Infantry
@@ -1685,11 +1783,11 @@ LaserTower:
 		Damage: 15000
 		Versus:
 			None: 100
-			Wood: 45
-			Light: 70
-			Medium: 60
-			Heavy: 40
-			Concrete: 20
+			Wood: 60
+			Light: 100
+			Medium: 90
+			Heavy: 80
+			Concrete: 50
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath
 		ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
 	Warhead@2Smu: LeaveSmudge
@@ -3060,11 +3158,11 @@ MindBlast:
 		Width: 0c40
 		Color: FF4CD550
 	Warhead@1Dam: SpreadDamage
-		Range: 0c256
+		Spread: 0c256
 		Falloff: 100, 25, 0
-		Damage: 1500
+		Damage: 3000
 		Versus:
-			None: 140
+			None: 150
 			Wood: 15
 			Light: 25
 			Medium: 15

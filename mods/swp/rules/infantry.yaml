@@ -82,7 +82,7 @@ HOUND:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 42
-		Prerequisites: ~infantry.belarus, ~techlevel.infonly
+		Prerequisites: ~infantry.russia, ~techlevel.infonly
 		Description: Armoured anti-infantry unit.
 	Valued:
 		Cost: 300
@@ -584,6 +584,12 @@ SBEARER:
 		Strengths: + Strong vs Infantry.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
 		Attributes: • Can use their shields to decrease damage intake and reduce range.
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 77
+		Prerequisites: dome, ~infantry.turkey, ~techlevel.high
+		Description: Tough assault rifle armed general purpose infantry.
 	Valued:
 		Cost: 300
 	Tooltip:
@@ -1145,7 +1151,7 @@ COPYCAT:
 	RenderSprites:
 		Image: copycat
 	Voiced:
-		VoiceSet: SpyVoice
+		VoiceSet: BritFemVoices
 	SpawnActorOnDeath@BulletDeath:
 		Actor: COPYCAT.Husk
 
@@ -1817,6 +1823,8 @@ KULAK:
 		Condition: shktrp
 	ExternalCondition@nerveagent:
 		Condition: nerveagent
+	ExternalCondition@matahari:
+		Condition: matahari
 	ExternalCondition@nightwitch:
 		Condition: nightwitch
 	ExternalCondition@pneer:
@@ -4905,25 +4913,20 @@ TERRORIST:
 		RequiresCondition: !parachute
 	Tooltip:
 		Name: Fanatic
-	TooltipExtras:
-		Strengths: + Strong vs Everything.
-		Attributes: • Armed with a secondary stinger.
 	-Guard:
 	AttackFrontal:
-		Armaments: demolisher
+		Armaments: primary
 	Armament@demolish:
-		Name: demolisher
-		Weapon: TerroristDemo
-		Cursor: c4
-		OutsideRangeCursor: c4
+		Name: primary
+		Weapon: DemoTruckTargeting
 	FireWarheadsOnDeath:
-		Weapon: TerroristExplode
-		EmptyWeapon: TerroristExplode
+		Weapon: DemoBombExplode
+		EmptyWeapon: DemoBombExplode
 	GrantConditionOnAttack:
 		Condition: attacking
-		ArmamentNames: demolisher
+		ArmamentNames: primary
 	KillsSelf:
-		RequiresCondition: attacking
+		RequiresCondition: attacking || deployed
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
@@ -4956,8 +4959,6 @@ TERRORIST:
 		RequiresCondition: disguise
 	GrantConditionOnDeploy:
 		DeployedCondition: deployed
-	KillsSelf:
-		RequiresCondition: deployed
 
 HOLLOW:
 	Inherits@1: ^Soldier
@@ -5436,8 +5437,8 @@ NEBELWHERFER:
 	-ChangesHealth@commandered:
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 83
-		Prerequisites: commcent, ~vehicles.egypt, ~techlevel.infonly
+		BuildPaletteOrder: 79
+		Prerequisites: dome, ~vehicles.persia, ~techlevel.infonly
 		Description: Infantry operated multiple rocket launcher.
 	TooltipExtras:
 		Strengths: + Strong vs Aircraft.
@@ -5876,7 +5877,7 @@ STINGERTROOPER:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 72
-		Prerequisites: dome, ~infantry.usa, ~techlevel.infonly
+		Prerequisites: dome, ~infantry.egypt, ~techlevel.infonly
 		Description: Anti-air and -ground infantry.
 	Valued:
 		Cost: 300
@@ -5988,22 +5989,18 @@ DESOLATOR:
 	Armament:
 		Name: primary
 		Weapon: DesolatorHandHeld
-		LocalOffset: 120,0,600
-		PauseOnCondition: deployed
+		LocalOffset: 120,0,200
 	Armament@linedamage:
 		Name: secondary
 		Weapon: DesolatorHandHeld_LineDamage
-		LocalOffset: 120,0,600
-		PauseOnCondition: deployed
+		LocalOffset: 120,0,200
 	Armament@effect:
 		Name: tertiary
 		Weapon: DesolatorHandHeld_Effect
-		LocalOffset: 120,0,600
-		PauseOnCondition: deployed
+		LocalOffset: 120,0,200
 	AttackFrontal:
 		Armaments: primary, secondary, tertiary
 	Mobile:
-		RequiresCondition: !deployed
 	Armament@Garrisoned:
 		Name: garrisoned
 		Weapon: DesolatorHandHeld
@@ -6020,41 +6017,11 @@ DESOLATOR:
 	SpawnActorOnDeath@BulletDeath:
 		Actor: DESOLATOR.Husk
 	WithInfantryBody:
-		RequiresCondition: !parachute && !deployed && undeployed
+		RequiresCondition: !parachute
 		DefaultAttackSequence: shoot
-	WithInfantryBody@deployed:
-		RequiresCondition: deployed
-		StandSequences: deployed-stand
-		DefaultAttackSequence: deployed-stand
-	WithFacingSpriteBody:
-		Sequence: empty
-		Name: make-body
-		RequiresCondition: !undeployed
-	WithMakeAnimation:
-		BodyNames: make-body
 	WithInfantryBody@PARACHUTE:
 		StandSequences: parachute
 		RequiresCondition: parachute
-	DamageMultiplier@deployed:
-		Modifier: 33
-		RequiresCondition: deployed
-	ProducibleWithLevel:
-		Prerequisites: barracks.upgraded
-	GrantConditionOnDeploy:
-		DeployedCondition: deployed
-		UndeployedCondition: undeployed
-	PeriodicExplosion@1:
-		RequiresCondition: deployed
-		Weapon: DesolatorExplosion1
-		InitialDelay: 0
-	PeriodicExplosion@2:
-		RequiresCondition: deployed
-		Weapon: DesolatorExplosion2
-		InitialDelay: 25
-	PeriodicExplosion@3:
-		RequiresCondition: deployed
-		Weapon: DesolatorExplosion3
-		InitialDelay: 50
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
@@ -6560,7 +6527,7 @@ SHOK:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 71
-		Prerequisites: ~infantry.russia, adept
+		Prerequisites: ~infantry.russia, dome
 		Description: Portable tesla infantry.
 	Valued:
 		Cost: 200
@@ -6758,6 +6725,64 @@ NERVEAGENT.Husk:
 		Actor: NERVEAGENT
 	GrantExternalConditionToKiller:
 		Condition: nerveagent
+
+MATAHARI.Clone:
+	Inherits: MATAHARI
+	RenderSprites:
+		Image: matahari
+	Tooltip:
+		Name: MI6 Honeypot
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Clones
+		BuildPaletteOrder: 100
+		Prerequisites: ~non_buildable
+
+MATAHARI:
+	Inherits: SPY
+	RenderSprites:
+		Image: matahari
+	DisguiseTooltip:
+		Name: MI6 Honeypot
+		GenericName: Soldier
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 100
+		Prerequisites: ~infantry.england, commcent, ~techlevel.medium
+	Cloneable:
+		Types: matahari
+	ProducibleWithLevel:
+		Prerequisites: mi6academy
+	Cloak:
+		InitialDelay: 250
+		CloakDelay: 120
+		UncloakOn: Attack, Unload, Infiltrate, Demolish, Move
+		CloakType: Cloak
+		IsPlayerPalette: true
+		PauseOnCondition: cloak-force-disabled
+	GrantConditionOnDamageState@UNCLOAK:
+		Condition: cloak-force-disabled
+		ValidDamageStates: Critical
+	TooltipExtras:
+		Weaknesses: - Weak vs Everything.
+		Attributes: • Can disguise as any infantry.\n• Can detect disguised units.\n• Can infiltrate enemy structures granting a benefit depending on the building.\n• Becomes cloacked when immobile.
+	WithDisguisingInfantryBody:
+		IdleSequences: idle1, idle2, idle3
+	Infiltrates:
+		Types: MatahariInfiltrate
+		Notification: BuildingInfiltrated
+	Voiced:
+		VoiceSet: BritFemVoices
+
+MATAHARI.Husk:
+	Inherits: ^InfantryCorpse
+	Tooltip:
+		Name: Corpse (Virus)
+	SpawnActorOnDeath:
+		Actor: MATAHARI
+	GrantExternalConditionToKiller:
+		Condition: matahari
 
 NIGHTWITCH:
 	Inherits: ^Soldier
@@ -8372,8 +8397,8 @@ DISCTHROW:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 48
-		Prerequisites: ~infantry.egypt, adept, ~techlevel.infonly
+		BuildPaletteOrder: 45
+		Prerequisites: ~infantry.usa, ~techlevel.infonly
 		Description: Infantry armed with discus grenades.
 	TooltipExtras:
 		Strengths: + Strong vs Buildings, Infantry.

@@ -204,7 +204,12 @@ explosion:
 	targetlock:
 		Filename: targetlock.shp
 		Length: *
-		Scale: 0.5
+		Scale: 0.4
+	currentring:
+		Filename: currentring.shp
+		Length: *
+		Scale: 0.20
+		Tick: 20
 	targetlock_sm:
 		Filename: targetlock.shp
 		Length: *
@@ -511,9 +516,27 @@ nanoshield:
 		Length: 11
 		Tick: 120
 
+bottompips:
+	Defaults:
+		Filename: bottompips.shp
+	sergeant:
+		Start: 2
+		ZOffset: -9997
+	officer:
+		Start: 1
+		ZOffset: -9998
+	politruk:
+		Start: 0
+		ZOffset: -9999
+
 pips:
 	Defaults:
 		Filename: pips.shp
+	lips:
+		Filename: lips.shp
+	repair:
+		Filename: repairpip.shp
+		Start: 0
 	groups:
 		Frames: 9,10,11,12,13,14,15,16,17,8
 		Length: 10
@@ -1210,6 +1233,14 @@ iconchevrons:
 	blueprint:
 		Filename: blueprint.shp
 		Offset: -1, 4
+	costup:
+		Filename: costs.shp
+		Offset: 0,0
+		Start: 0
+	costdown:
+		Filename: costs.shp
+		Offset: 0,0
+		Start: 1
 
 atomic:
 	up:

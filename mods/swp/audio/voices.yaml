@@ -251,6 +251,17 @@ VirusVoices:
 		Zapped: virdie5
 		Freezed: freezedie1
 
+BritFemVoices:
+	Voices:
+		Select: bfreport1, bfreport2, bfreport3, bfreport4, bfreport5
+		Action: bfaction1,bfaction2
+		Attack: bfmove1,bfmove2,bfmove3
+		Move: bfmove1,bfmove2,bfmove3
+		Die: femdie2
+		Burned: femdie1
+		Zapped: femdie1
+		Freezed: freezedie1
+
 RusFemVoices:
 	Voices:
 		Select: femreport1, femreport2, femreport3

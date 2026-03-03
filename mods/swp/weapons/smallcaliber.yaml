@@ -106,7 +106,7 @@ PromotionGun:
 		InvalidTargets: Bridge
 		ValidRelationships: Ally
 	Warhead@prom: Promotion
-		Range: 0c124
+		Range: 0c980
 		ValidTargets: Promotable
 		ValidRelationships: Ally
 

@@ -319,6 +319,16 @@ hospitaller:
 	icon:
 		Filename: hospitallericon.shp
 
+ww1bomber:
+	idle:
+		Filename: ww1bomber.shp
+		Facings: 32
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	icon:
+		Filename: ww1bombericon.shp
+
 ant40:
 	idle:
 		Filename: ant40.shp
@@ -386,6 +396,30 @@ superbomber:
 	icon:
 		Filename: superbombericon.shp
 
+gunship:
+	idle:
+		Filename: empty32.shp
+		Start: 0
+		Facings: 32
+	turret:
+		Filename: gunship.shp
+		Facings: 32
+		UseClassicFacings: False
+	rotor:
+		Filename: yrotorhg.shp
+		Length: 4
+		ZOffset: 5
+	slow-rotor:
+		Filename: yrotorhg.shp
+		Start: 4
+		Length: 8
+		ZOffset: 5
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: nadyaicon.shp
 
 nadya:
 	idle:
@@ -911,7 +945,15 @@ aircrane:
 		Length: 8
 	icon:
 		Filename: aircraneicon.shp
-	
+
+kirov:
+	idle:
+		Filename: kirov.shp
+		Facings: 32
+		UseClassicFacings: False
+	icon:
+		Filename: kirovicon.shp
+
 zeppelin:
 	idle:
 		Filename: zeppelin.shp

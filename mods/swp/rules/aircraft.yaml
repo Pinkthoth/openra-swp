@@ -625,11 +625,82 @@ ANT40:
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
 
+WW1BOMBER:
+	Inherits: YAK
+	Inherits@HighAltitude: ^HighAltitudePlane
+	Tooltip:
+		Name: Handley Bomber
+	Health:
+		HP: 15000
+	SpawnActorOnDeath:
+		Actor: ANT40.Husk
+	Armament@PRIMARY:
+		Weapon: Handleybombs
+		LocalOffset: 350,0,-100
+		MuzzleSequence: muzzle
+		PauseOnCondition: !ammo || !airborne
+	AttackAircraft:
+		Armaments: primary, secondary
+	AmmoPool:
+		Ammo: 24
+		ReloadDelay: 11
+		AmmoCondition: ammo
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		Margin: 4, 3
+		RequiresSelection: true
+		PipCount: 3
+		EmptySequence: pip-emptyammo
+		FullSequence: pip-bomb
+	Aircraft:
+		Speed: 100
+		IdleTurnSpeed: 8
+		TurnSpeed: 12
+	-WithMuzzleOverlay:
+	Targetable@AIRBORNE:
+		RequiresCondition: airborne
+		TargetTypes: AirborneBomber
+	LeavesTrails@0:
+		Offsets: -432,560,0
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+		RequiresCondition: enable-smoke
+	LeavesTrails@1:
+		Offsets: -432,-560,0
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+		RequiresCondition: enable-smoke
+	Contrail:
+		Offset: 0,-553,0
+	Contrail@2:
+		Offset: 0,553,0
+	Buildable:
+		Prerequisites: ~afld, dome, ~aircraft.raj, ~techlevel.high
+		Description: Slow bomber that drops incendiary bombs.
+		BuildPaletteOrder: 501
+	TooltipExtras:
+		Strengths: + Strong vs Buildings, Defenses.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
+	Valued:
+		Cost: 1700
+	Selectable:
+		DecorationBounds: 1606, 1606, 0, 0
+	GrantConditionOnDamageState@SmokeTrail:
+		Condition: enable-smoke
+
 SUPERBOMBER:
 	Inherits: YAK
 	Inherits@HighAltitude: ^HighAltitudePlane
 	Buildable:
-		Prerequisites: ~afld, stek, ~aircraft.kazakhstan, ~techlevel.high
+		Prerequisites: ~afld, stek, ~aircraft.egypt, ~techlevel.high
 		Description: Slow bomber that drops toxic bombs.
 		BuildPaletteOrder: 450
 	Tooltip:
@@ -1290,7 +1361,7 @@ TESLAHIND:
 	Buildable:
 		Queue: Helicopter
 		BuildAtProductionType: Plane
-		BuildPaletteOrder: 1000
+		BuildPaletteOrder: 231
 		Prerequisites: ~helicopter.russia, stek
 		Description: Experimental helicopter armed tesla coils.
 	TooltipExtras:
@@ -1616,7 +1687,7 @@ COLIBRI:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 20
-		Prerequisites: ~helicopter.raj
+		Prerequisites: ~helicopter.egypt
 		Description: Small helicopter.
 	TooltipExtras:
 		Strengths: + Strength depends on the cargo.
@@ -2732,7 +2803,7 @@ NADYA:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 230
-		Prerequisites: ~helicopter.komintern, commcent
+		Prerequisites: ~helicopter.nadya, commcent
 		Description: Helicopter gunship armed with rockets.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -2741,6 +2812,93 @@ NADYA:
 		Cost: 1750
 	Tooltip:
 		Name: Nadya
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 10000
+	RevealsShroud:
+		MinRange: 8c0
+		Range: 10c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 8c0
+		Type: GroundPosition
+	Armament@PRIMARY:
+		Name: primary
+		Weapon: Hind227mm
+		LocalOffset: 0,213,-85, 0,-213,-85
+		PauseOnCondition: !ammo || !airborne
+	AttackTurreted:
+		Armaments: primary, secondary, tertiary
+	WithSpriteTurret:
+	Turreted:
+		TurnSpeed: 30
+		RealignDelay: 10
+	Aircraft:
+		TurnSpeed: 16
+		Speed: 112
+	AutoTarget:
+		InitialStance: HoldFire
+		InitialStanceAI: HoldFire
+	WithIdleOverlay@ROTORAIR:
+		Sequence: rotor
+		RequiresCondition: airborne
+		Offset: 0,0,500
+	WithIdleOverlay@ROTORGROUND:
+		Sequence: slow-rotor
+		RequiresCondition: !airborne
+		Offset: 0,0,500
+	AmmoPool:
+		Armaments: primary, secondary
+		Ammo: 24
+		ReloadDelay: 8
+		AmmoCondition: ammo
+	WithMuzzleOverlay:
+	SpawnActorOnDeath:
+		Actor: NADYA.Husk
+	LeavesTrails:
+		Offsets: -427,0,0
+		Image: smokey
+		MovingInterval: 3
+		StationaryInterval: 3
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+		RequiresCondition: enable-smoke
+	ProducibleWithLevel:
+		Prerequisites: aircraft.upgraded
+	Selectable:
+		DecorationBounds: 1406, 1406
+	Rearmable:
+		RearmActors: hpad, hpad.raj
+	WithAmmoPipsDecoration:
+		AmmoPools: primary, secondary
+		Position: BottomLeft
+		Margin: 4, 3
+		RequiresSelection: true
+		PipCount: 4
+		EmptySequence: pip-emptyammo
+		FullSequence: pip-missile
+	GrantConditionOnDamageState@SmokeTrail:
+		Condition: enable-smoke
+
+GUNSHIP:
+	Inherits: ^Helicopter
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Helicopter
+		BuildAtProductionType: Helicopter
+		BuildPaletteOrder: 230
+		Prerequisites: ~helicopter.bulgaria, mtek
+		Description: Helicopter gunship armed with rockets.
+	TooltipExtras:
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
+	Valued:
+		Cost: 1750
+	Tooltip:
+		Name: Gunship
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
@@ -2821,7 +2979,7 @@ SIEGECHOPPER:
 	Buildable:
 		Queue: Helicopter
 		BuildPaletteOrder: 227
-		Prerequisites: mtek, ~vehicles.persia, ~techlevel.medium
+		Prerequisites: mtek, ~helicopter.persia, ~techlevel.medium
 		Description: Siege helicopter.
 	Valued:
 		Cost: 2250
@@ -3648,7 +3806,7 @@ INDIACHOPPER:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 20
-		Prerequisites: ~helicopter.egypt, ~techlevel.medium
+		Prerequisites: ~helicopter.raj, ~techlevel.medium
 		Description: Helicopter gunship armed\nwith dual machine guns.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -4276,7 +4434,7 @@ STRMVGL:
 		Queue: Aircraft
 		BuildAtProductionType: Plane
 		BuildPaletteOrder: 650
-		Prerequisites: mtek, ~afld, ~aircraft.zentrum, ~techlevel.medium
+		Prerequisites: mtek, ~afld, ~aircraft.stormbird, ~techlevel.medium
 		Description: Fast anti-aircraft fighter.
 	TooltipExtras:
 		Strengths: + Strong vs Aircraft.
@@ -4818,7 +4976,7 @@ ZEPPELIN:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 70000
+		HP: 60000
 	Armor:
 		Type: Medium
 	RevealsShroud:
@@ -4831,7 +4989,7 @@ ZEPPELIN:
 		Type: GroundPosition
 	Aircraft:
 		TurnSpeed: 16
-		Speed: 50
+		Speed: 40
 		CruiseAltitude: 6c0
 	AttackAircraft:
 	AmmoPool:
@@ -4880,3 +5038,84 @@ ZEPPELIN:
 		Condition: enable-smoke
 	PortableChrono:
 		ChargeDelay: 250
+
+KIROV:
+	Inherits: ^Helicopter
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Buildable:
+		Queue: Aircraft
+		BuildAtProductionType: Aircraft
+		BuildPaletteOrder: 700
+		Prerequisites: ~aircraft.germany, mtek
+		Description: Slow moving bomber zeppelin.
+	TooltipExtras:
+		Strengths: + Strong vs Buildings, Defenses.
+		Weaknesses: - Weak vs Infantry, Vehicles, Aircraft.
+		Attributes: • Equiped with a portable chronosphere.\n• Slowly recharges ammo.
+	Valued:
+		Cost: 1800
+	Tooltip:
+		Name: Kirov
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 80000
+	Armor:
+		Type: Medium
+	RevealsShroud:
+		MinRange: 10c0
+		Range: 12c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 10c0
+		Type: GroundPosition
+	Aircraft:
+		TurnSpeed: 16
+		Speed: 55
+		CruiseAltitude: 6c0
+	AttackAircraft:
+	AmmoPool:
+		Ammo: 8
+		Armaments: primary
+		AmmoCondition: ammo
+		Name: primary
+	Armament:
+		Name: primary
+		Weapon: KirovParaBomb
+		PauseOnCondition: !ammo || !airborne
+		LocalOffset: -300,0,-220
+	AutoTarget:
+		InitialStance: HoldFire
+		InitialStanceAI: HoldFire
+	SpawnActorOnDeath:
+		Actor: KIROV.Husk
+	LeavesTrails:
+		Offsets: -427,0,0
+		Image: smokey
+		MovingInterval: 3
+		StationaryInterval: 3
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+		RequiresCondition: enable-smoke
+	ProducibleWithLevel:
+		Prerequisites: aircraft.upgraded
+	Selectable:
+		Bounds: 1706, 1706
+		DecorationBounds: 1706, 1706, 0, -424
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		Margin: 4, 3
+		RequiresSelection: true
+		EmptySequence: pip-emptyammo
+		FullSequence: pip-bomb
+	ReloadAmmoPool:
+		Delay: 110
+		AmmoPool: primary
+	-EjectOnDeath:
+	Targetable@AIRBORNE:
+		RequiresCondition: airborne
+		TargetTypes: AirborneBomber
+	GrantConditionOnDamageState@SmokeTrail:
+		Condition: enable-smoke

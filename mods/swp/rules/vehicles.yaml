@@ -719,7 +719,7 @@ ATTACKBIKE:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 70
+		BuildPaletteOrder: 10
 		Prerequisites: ~vehicles.england, ~techlevel.low
 		Description: Fast raiding motorcycle.
 	TooltipExtras:
@@ -834,7 +834,7 @@ HUMVEE:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 20
-		Prerequisites: ~vehicles.usa, adept, ~techlevel.low
+		Prerequisites: ~vehicles.usa, ~techlevel.low
 		Description: Plated scout & anti-infantry vehicle.
 	Valued:
 		Cost: 650
@@ -1033,7 +1033,7 @@ PRISMCANNON:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 340
-		Prerequisites: mtek, adept, ~vehicles.austria, ~techlevel.medium
+		Prerequisites: mtek, adept, ~vehicles.egypt, ~techlevel.medium
 		Description: Super heavy prism cannon.
 	Valued:
 		Cost: 1500
@@ -1552,7 +1552,7 @@ LEECH.Husk:
 	RenderSprites:
 		Image: leech
 
-MAUS:
+RAJ:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
@@ -1565,13 +1565,13 @@ MAUS:
 		Prerequisites: commcent, adept, ~vehicles.raj, ~techlevel.high
 		Description: Self-propelled anti-tank gun.
 	Valued:
-		Cost: 1000
+		Cost: 1050
 	Tooltip:
 		Name: Raj Self-Propelled Gun
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 40000
+		HP: 50000
 	Armor:
 		Type: Heavy
 	Mobile:
@@ -1597,6 +1597,69 @@ MAUS:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	Selectable:
+		DecorationBounds: 1189, 1189
+	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
+		Actor: MAUS.Husk
+
+RAJ.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Raj Self-Propelled Gun)
+	TransformOnCapture@Mechanic:
+		IntoActor: MAUS
+	TransformOnCapture@Engineer:
+		IntoActor: MAUS
+	InfiltrateForTransform:
+		IntoActor: MAUS
+	RenderSprites:
+		Image: maus
+
+MAUS:
+	Inherits: ^TrackedVehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 401
+		Prerequisites: ~vehicles.bulgaria, mtek, adept
+		Description: Super heavy tank destroyer.
+	TooltipExtras:
+		Strengths: + Strong vs Vehicles, Defenses.
+		Weaknesses: - Weak vs Infantry, Aircraft.
+	Valued:
+		Cost: 1850
+	Tooltip:
+		Name: Mouse
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 45000
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 45
+		TurnSpeed: 12
+		PauseOnCondition: being-captured
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 5c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	Armament:
+		Weapon: MausCannon
+		Recoil: 128
+		RecoilRecovery: 38
+		LocalOffset: 1200,60,100
+		MuzzleSequence: muzzle
+	AttackFrontal:
+		PauseOnCondition: turnedoff
+		FacingTolerance: 0
+	WithMuzzleOverlay:
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
+	Selectable:
 		DecorationBounds: 1589, 1589
 	SpawnActorOnDeath:
 		RequiresCondition: !being-warped
@@ -1605,7 +1668,7 @@ MAUS:
 MAUS.Husk:
 	Inherits: ^Husk
 	Tooltip:
-		Name: Husk (Raj Self-Propelled Gun)
+		Name: Husk (Mouse)
 	TransformOnCapture@Mechanic:
 		IntoActor: MAUS
 	TransformOnCapture@Engineer:
@@ -1943,6 +2006,85 @@ FTRK.Husk:
 	RenderSprites:
 		Image: ftrk
 
+SHILKA:
+	Inherits: ^Vehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMovePlusBombers
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 20
+		Prerequisites: ~vehicles.belarus, adept, dome, ~techlevel.low
+		Description: Mobile unit with mounted Flak cannon.
+	TooltipExtras:
+		Strengths: + Strong vs Aircraft.
+		Weaknesses: - Weak vs Vehicles, Infantry.
+	Valued:
+		Cost: 900
+	RenderSprites:
+		Image: shilka
+	Tooltip:
+		Name: Shilka
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 30000
+	Armor:
+		Type: Medium
+	Mobile:
+		TurnSpeed: 20
+		Speed: 70
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 6c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	Turreted:
+		TurnSpeed: 20
+		Offset: -50,0,250
+	AttackTurreted:
+		PauseOnCondition: turnedoff
+	WithMuzzleOverlay:
+	WithSpriteTurret:
+		RequiresCondition: !ag_attacking
+	WithSpriteTurret@ag:
+		RequiresCondition: ag_attacking
+		Sequence: turret-ag
+	Armament@AA:
+		Weapon: FLAK-23-AA
+		Recoil: 85
+		LocalOffset: 812,0,172
+		MuzzleSequence: muzzle
+	Armament@AG:
+		Name: secondary
+		Weapon: FLAK-23-AG
+		Recoil: 85
+		LocalOffset: 812,0,232
+		MuzzleSequence: muzzle
+	GrantConditionOnAttack@ag:
+		Condition: ag_attacking
+		ArmamentNames: secondary
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
+	Selectable:
+		DecorationBounds: 1289, 1289
+	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
+		Actor: SHILKA.Husk
+
+SHILKA.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Shilka)
+	TransformOnCapture@Mechanic:
+		IntoActor: SHILKA
+	TransformOnCapture@Engineer:
+		IntoActor: SHILKA
+	InfiltrateForTransform:
+		IntoActor: SHILKA
+	RenderSprites:
+		Image: shilka
+
 TURKFTRK:
 	Inherits: ^Vehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
@@ -1950,8 +2092,8 @@ TURKFTRK:
 	Inherits@CARGOPIPS: ^CargoPips
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 80
-		Prerequisites: ~vehicles.china, adept, ~techlevel.low, ~illicitlab
+		BuildPaletteOrder: 81
+		Prerequisites: ~vehicles.china, ~techlevel.low, ~illicitlab
 		Description: Mobile unit with mounted Flak cannon.
 	TooltipExtras:
 		Strengths: + Strong vs Aircraft.
@@ -2190,6 +2332,13 @@ WIESEL.Husk:
 QTNK:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 400
+		Prerequisites: ~vehicles.egypt, stek, adept
+		Description: Mobile seismic wave generator.
+	TooltipExtras:
+		Attributes: • Deals seismic damage to nearby vehicles and structures.
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -2701,6 +2850,76 @@ BTR.Husk:
 	RenderSprites:
 		Image: btr
 
+SEPOYIFV:
+	Inherits: ^TrackedVehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CARGOPIPS: ^CargoPips
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 80
+		Prerequisites: adept, ~vehicles.raj, ~techlevel.low
+		Description: Tough infantry transport.
+	TooltipExtras:
+		Strengths: + Strong vs Vehicles.
+		Weaknesses: - Weak vs Tanks, Infantry, Aircraft.
+		Attributes: • Can transport up to 4 infantry units.
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Sepoy IFV
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 40000
+	Armor:
+		Type: Medium
+	Mobile:
+		Speed: 130
+		Locomotor: wheeled
+		PauseOnCondition: notmobile || being-captured
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 5c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	Armament:
+		Weapon: 25mm-btr
+		Recoil: 60
+		RecoilRecovery: 25
+		LocalOffset: 480,0,30
+		MuzzleSequence: muzzle
+	Turreted:
+		Offset: 10,0,260
+		TurnSpeed: 28
+	AttackTurreted:
+		PauseOnCondition: turnedoff
+	WithSpriteTurret:
+	WithMuzzleOverlay:
+	Cargo:
+		Types: Infantry
+		MaxWeight: 4
+		LoadingCondition: notmobile
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
+	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
+		Actor: SEPOYIFV.Husk
+
+SEPOYIFV.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Sepoy IFV)
+	TransformOnCapture@Mechanic:
+		IntoActor: SEPOYIFV
+	TransformOnCapture@Engineer:
+		IntoActor: SEPOYIFV
+	InfiltrateForTransform:
+		IntoActor: SEPOYIFV
+	RenderSprites:
+		Image: sepoyifv
+
 BGGY:
 	Inherits: ^Vehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
@@ -2761,7 +2980,7 @@ MARAUDER:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 70
+		BuildPaletteOrder: 42
 		Prerequisites: ~vehicles.persia, ~techlevel.medium
 		Description: Fast scouting vehicle armed with a\nlong range missile launcher.
 	TooltipExtras:
@@ -3033,7 +3252,7 @@ MARAUDERTANK:
 		Modifier: 90
 		RequiresCondition: drilled > 4
 	Selectable:
-		DecorationBounds: 2089, 2089, 0, -482
+		DecorationBounds: 1789, 1789, 0, 0
 
 HAMMER:
 	Inherits: ^TrackedVehicle
@@ -3424,7 +3643,7 @@ MAROZILNIK:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 271
-		Prerequisites: ~vehicles.russia, commcent
+		Prerequisites: ~vehicles.belarus, commcent
 		Description: Tank armed with a cryo spray thrower.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -3562,8 +3781,8 @@ SLINGSHOT:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMovePlusBombers
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 271
-		Prerequisites: ~vehicles.egypt, commcent
+		BuildPaletteOrder: 321
+		Prerequisites: ~vehicles.usa, commcent
 		Description: Hovering tank armed with AA-cannons.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Aircraft.
@@ -4153,16 +4372,16 @@ SIPAHI:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 73
-		Prerequisites: ~vehicles.raj, adept
+		Prerequisites: ~vehicles.england, adept
 		Description: Versatile infantry fighting vehicle.
 	TooltipExtras:
 		Strengths: + Strength depends on the cargo.
 		Weaknesses: - Weakness depends on the cargo.
 		Attributes: • Weapon depends on the cargo.
 	Valued:
-		Cost: 500
+		Cost: 700
 	Tooltip:
-		Name: Sepoy
+		Name: IFV
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
@@ -4170,8 +4389,8 @@ SIPAHI:
 	Armor:
 		Type: Medium
 	Mobile:
-		TurnSpeed: 40
-		Speed: 130
+		TurnSpeed: 35
+		Speed: 115
 		PauseOnCondition: being-captured
 	RevealsShroud:
 		MinRange: 4c0
@@ -4193,8 +4412,7 @@ SIPAHI:
 		Delay: 180
 		Count: 1
 	Armament:
-		Weapon: M1Carbine_elite
-		MuzzleSequence: muzzle
+		Weapon: 227mm-Kumo
 		LocalOffset: 210,0,190
 		RequiresCondition: nochange || !hascargo || paslegionaire || passhinobi || pasofficer || pasradist || pasmilpol
 	Armament@shotgun:
@@ -4464,10 +4682,10 @@ SIPAHI:
 		RequiresCondition: pashvgat
 	WithMuzzleOverlay:
 	WithSpriteTurret@editor:
-		Sequence: turret-rifle
+		Sequence: turret-kumo
 		RequiresCondition: !hascargo
 	WithSpriteTurret@rifle:
-		Sequence: turret-rifle
+		Sequence: turret-kumo
 		RequiresCondition: nochange || passhinobi || pasofficer || pasmilpol || paspenal
 	WithSpriteTurret@missile:
 		Sequence: turret-missile
@@ -4899,8 +5117,8 @@ CRAWLER:
 	Inherits@CARGOPIPS: ^CargoPips
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 10
-		Prerequisites: ~vehicles.china, ~techlevel.medium
+		BuildPaletteOrder: 81
+		Prerequisites: ~vehicles.egypt, adept, ~techlevel.medium
 		Description: Troop transporter.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
@@ -5129,7 +5347,7 @@ IFV:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 10
-		Prerequisites: ~vehicles.england, ~techlevel.low
+		Prerequisites: ~vehicles.germany, ~techlevel.low
 		Description: Tough infantry transport, armed\nwith a small AA-cannon.
 	TooltipExtras:
 		Strengths: + Strong vs Aircraft.
@@ -5404,8 +5622,8 @@ GUERILLATANK:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 79
-		Prerequisites: ~vehicles.persia, adept, dome, ~techlevel.medium
+		BuildPaletteOrder: 320
+		Prerequisites: ~vehicles.persia, commcent, ~techlevel.medium
 		Description: Light tank armed with two rocket launchers.
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles.
@@ -5418,7 +5636,7 @@ GUERILLATANK:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 35000
+		HP: 45000
 	Armor:
 		Type: Heavy
 	Mobile:
@@ -5881,7 +6099,7 @@ RONIN:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 52000
+		HP: 50000
 	Armor:
 		Type: Heavy
 	Mobile:
@@ -6426,7 +6644,7 @@ JACKAL.Husk:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 72
-		Prerequisites: adept, ~vehicles.russia, ~techlevel.low
+		Prerequisites: adept, ~vehicles.egypt, ~techlevel.low
 		Description: Double barreled heavy tank.
 	TooltipExtras:
 		Strengths: + Strong vs Tanks.
@@ -6922,11 +7140,11 @@ PRTNK:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 46000
+		HP: 45000
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 85
+		Speed: 70
 	RevealsShroud:
 		MinRange: 4c0
 		Range: 5c0
@@ -6978,18 +7196,18 @@ HVTTNK:
 		Attributes: • Armed with a secondary machine gun.
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 399
-		Prerequisites: stek, ~vehicles.russia, ~techlevel.low
+		BuildPaletteOrder: 83
+		Prerequisites: commcent, ~vehicles.russia, ~techlevel.low
 		Description: Heavy tank armed with dual tesla coils.
 	Valued:
-		Cost: 1500
+		Cost: 1350
 	Tooltip:
 		Name: Tesla Tank
 		GenericName: Tank
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 45000
+		HP: 35000
 	Armor:
 		Type: Heavy
 	Mobile:
@@ -7393,7 +7611,7 @@ ARC:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 50000
+		HP: 40000
 	Armor:
 		Type: Heavy
 	Mobile:
@@ -7642,7 +7860,7 @@ RENAULT:
 		Weaknesses: - Weak vs Vehicles, Aircraft.
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 42
+		BuildPaletteOrder: 70
 		Prerequisites: ~vehicles.persia, ~techlevel.medium
 		Description: Light mortar vehicle.
 	Valued:
@@ -7986,7 +8204,7 @@ ENTENTEAA:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 336
-		Prerequisites: atek, adept, ~vehicles.england, ~techlevel.low
+		Prerequisites: mtek, adept, ~vehicles.austria, ~techlevel.low
 		Description: Heavy anti-air vehicle.
 	TooltipExtras:
 		Strengths: + Strong vs Aircraft.
@@ -9838,7 +10056,7 @@ DTRK:
 		Queue: Vehicle
 		BuildPaletteOrder: 330
 		Prerequisites: commcent, ~vehicles.arabia, ~techlevel.high
-		Description: Truck loaded with highly explosive materials.
+		Description: Truck loaded with unstable nuclear materials.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
 		Attributes: • Deploy to detonate cargo.
@@ -9857,8 +10075,8 @@ DTRK:
 	RevealsShroud:
 		Range: 4c0
 	FireWarheadsOnDeath:
-		Weapon: DemoTruckExplosion
-		EmptyWeapon: DemoTruckExplosion
+		Weapon: NukeTruckExplosion
+		EmptyWeapon: NukeTruckExplosion
 		DamageSource: Killer
 	AttackFrontal:
 		FacingTolerance: 512

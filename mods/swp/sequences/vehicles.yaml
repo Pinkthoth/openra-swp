@@ -737,6 +737,22 @@ puma:
 	icon:
 		Filename: pumaicon.shp
 
+sepoyifv:
+	Defaults:
+		Filename: sepoyifv.shp
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 33
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 2
+	icon:
+		Filename: sepoyifvicon.shp
+
 btr:
 	Defaults:
 		Filename: btr.shp
@@ -789,15 +805,22 @@ gatlingcar:
 
 sipahi:
 	idle:
-		Filename: sipahi.shp
+		Filename: ra2ifv.shp
 		Facings: 32
 		UseClassicFacings: True
 	idle-medic:
-		Filename: sipahimed.shp
+		Filename: ra2ifv.shp
+		Start: 33
 		Facings: 32
 		UseClassicFacings: True
 	idle-mech:
-		Filename: sipahimech.shp
+		Filename: ra2ifv.shp
+		Start: 66
+		Facings: 32
+		UseClassicFacings: True
+	turret-kumo:
+		Filename: kumo.shp
+		Start: 32
 		Facings: 32
 		UseClassicFacings: True
 	turret-rifle:
@@ -1142,6 +1165,26 @@ hvttnk:
 		Length: 2
 	icon:
 		Filename: hvttnkicon.shp
+
+shilka:
+	Defaults:
+		Filename: shilka.shp
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 33
+		Facings: 32
+		UseClassicFacings: True
+	turret-ag:
+		Start: 66
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 2
+	icon:
+		Filename: shilkaicon.shp
 
 ftrk:
 	Defaults:
@@ -2200,7 +2243,6 @@ leech:
 	icon:
 		Filename: leechericon.shp
 
-
 maus:
 	idle:
 		Filename: maus.shp
@@ -2212,6 +2254,18 @@ maus:
 		Length: 5
 	icon:
 		Filename: mausicon.shp
+
+raj:
+	idle:
+		Filename: raj.shp
+		Facings: 32
+		UseClassicFacings: True
+		Offset: 0,4
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	icon:
+		Filename: rajicon.shp
 
 mrj:
 	Defaults:

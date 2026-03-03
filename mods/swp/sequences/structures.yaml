@@ -1317,6 +1317,29 @@ reftwr:
 		Filename: reftwricon.shp
 		Offset: 0,0
 
+gtwr:
+	Defaults:
+		Filename: gtwr.shp
+	idle:
+	damaged-idle:
+		Start: 1
+	make:
+		Filename: pboxmake.shp
+		Length: *
+		Start: 3
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbPBOX.tem
+			DESERT: mbPBOX.des
+		Length: *
+		Offset: 0,-2
+	icon:
+		Filename: gtwricon.shp
+
 pbox:
 	Defaults:
 		Filename: pbox.shp

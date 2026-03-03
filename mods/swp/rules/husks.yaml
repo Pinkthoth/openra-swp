@@ -258,6 +258,15 @@ ANT40.Husk:
 	Aircraft:
 		Speed: 110
 
+WW1BOMBER.Husk:
+	Inherits: YAK.Husk
+	Tooltip:
+		Name: Handley Bomber
+	RenderSprites:
+		Image: ww1bomber
+	Aircraft:
+		Speed: 90
+
 SUPERBOMBER.Husk:
 	Inherits: YAK.Husk
 	Tooltip:
@@ -1313,7 +1322,7 @@ COMET.Husk:
 ZEPPELIN.Husk:
 	Inherits: ^PlaneHusk
 	Tooltip:
-		Name: Chrono Blimp
+		Name: Chrono Zeppelin
 	Aircraft:
 		TurnSpeed: 20
 		Speed: 10
@@ -1335,6 +1344,34 @@ ZEPPELIN.Husk:
 		Type: GroundPosition
 	RenderSprites:
 		Image: zeppelin
+	FallsToEarth:
+		Velocity: 0c40
+
+KIROV.Husk:
+	Inherits: ^PlaneHusk
+	Tooltip:
+		Name: Kirov
+	Aircraft:
+		TurnSpeed: 20
+		Speed: 10
+	LeavesTrails:
+		Offsets: -853,0,171
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+	RevealsShroud:
+		MinRange: 11c0
+		Range: 13c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 11c0
+		Type: GroundPosition
+	RenderSprites:
+		Image: kirov
 	FallsToEarth:
 		Velocity: 0c40
 

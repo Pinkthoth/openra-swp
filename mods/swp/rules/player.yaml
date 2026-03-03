@@ -205,6 +205,14 @@ Player:
 		Image: iconchevrons
 		Sequence: blueprint
 		Type: Blueprint
+	ProductionIconOverlayManager@mataharicostup:
+		Image: iconchevrons
+		Sequence: costup
+		Type: MatahariCostUp
+	ProductionIconOverlayManager@mataharicostdown:
+		Image: iconchevrons
+		Sequence: costdown
+		Type: MatahariCostDown
 	ResourceStorageWarning:
 	PlayerExperience:
 	GameSaveViewportManager:

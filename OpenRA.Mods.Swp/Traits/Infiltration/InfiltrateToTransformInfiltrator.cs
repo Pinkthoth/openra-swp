@@ -73,7 +73,9 @@ namespace OpenRA.Mods.Swp.Traits
 			if (ownerResources.Cash > info.UpgradePrice){
 				infiltrator.QueueActivity(false, transform);
 				ownerResources.TakeCash(info.UpgradePrice);
-				self.World.AddFrameEndTask(w => w.Add(new FloatingText(self.CenterPosition, self.Owner.Color, FloatingText.FormatCashTick(-info.UpgradePrice), 30)));
+				if ( info.UpgradePrice > 0 ){
+					self.World.AddFrameEndTask(w => w.Add(new FloatingText(self.CenterPosition, self.Owner.Color, FloatingText.FormatCashTick(-info.UpgradePrice), 30)));
+				}
 			}
 		}
 	}

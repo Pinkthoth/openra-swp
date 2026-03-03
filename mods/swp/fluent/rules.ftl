@@ -47,11 +47,11 @@ faction-england =
      Special Infantry: Informant
      Special Infantry: Radist
      Special Infantry: Commando
+     Special Infantry: Honeypot
      Special Infantry: Sniper
-     Special Vehicle: Attack Bike
+     Special Vehicle: IFV
      Special Vehicle: Mobile Array
-     Special Vehicle: Marksman
-     Replacement Vehicle: Warthog IFV (APC)
+     Replacement Vehicle: Attack Bike (APC)
      Replacement Infantry: Military Police (Grunt)
      Replacement Infantry: MI6 Agent (Spy)
 
@@ -74,23 +74,24 @@ faction-france =
 faction-usa =
     .name = USA
     .description = United States of America
-     Electromagnetic Technology
+     Shock and Awe
      Special Ability: EMP Bomb
      Special Building: Arc Tower
-     Special Infantry: Stinger Trooper
+     Special Infantry: Disc Thrower
      Special Infantry: Aero Patroller
      Special Infantry: Arc Blaster
-     Special Vehicle: Humvee
      Special Vehicle: Wolverine
+     Special Vehicle: Slingshot
      Special Vehicle: Arc Thrower
      Special Vehicle: Mobile EMP Device
+     Replacement Vehicle: Humvee (Ranger)
      Replacement Vehicle: Hammerhead (Minelayer)
      Replacement Vehicle: Titan (Paladin)
 
 faction-japan =
     .name = Japan
     .description = Japanese Empire
-     Robotics and Laser Technology
+     Shock Troop Doctrine
      Special Ability: Recon Drone
      Special Building: Robot Control
      Special Building: Obelisk
@@ -112,12 +113,12 @@ faction-raj =
      Industrial Capacity
      Special Ability: Quick Repair
      Special Building: Foundry
-     Special Building: Bunker
-     Special Aircraft: Colibri
+     Special Aircraft: Sparrow
      Special Aircraft: Hawker
+     Special Aircraft: Handley Bomber
      Special Infantry: Heavy Machine Gun Crew
      Special Infantry: Gurkha
-     Special Vehicle: Sepoy
+     Special Vehicle: Sepoy IFV
      Special Vehicle: Mogul
      Replacement Infantry: Worker (Medic)
      Replacement Infantry: Copycat (Mechanic)
@@ -158,29 +159,27 @@ faction-egypt =
      Special Vehicle: Irradiator
      Special Vehicle: Hammerhead Layer (Minelayer)
 
-faction-soviet =
-    .name = Komintern
-
 faction-russia =
     .name = Russia
     .description = Russian Soviet Republic
-     Tesla and Cryo Technolocy
+     Red Tide Doctrine
      Special Ability: Blizzard
      Special Building: Tesla Reactor
-     Special Aircraft: Tesla Hind
+     Special Aircraft: Kirov
+     Special Infantry: Hound
+     Special Infantry: Shock Trooper
      Special Infantry: Maroznik
      Special Infantry: Tesla Trooper
-     Special Vehicle: Tesla IFV
-     Special Vehicle: Marozilnik
      Special Vehicle: Tesla Tank
      Special Vehicle: Mammoth Tank
-     Replacement Infantry: Shock Trooper (Penal Trooper)
+     Replacement Aircraft: Tesla Hind (Nadya)
      Replacement Vehicle: Rhino Tank (Cossack Tank)
+     Replacement Vehicle: Tesla IFV (Bronetransporter)
 
 faction-ukraine =
     .name = Ukraine
     .description = Ukrainian Soviet Republic
-     Cybernetic and Magnetic Technology
+     Cybernetic Warfare
      Special Ability: Assimilator
      Special Building: Cybernetic Laboratory
      Special Aircraft: Saucer
@@ -188,8 +187,8 @@ faction-ukraine =
      Special Infantry: Cyborg Railgunner
      Special Infantry: Cyborg Hacker
      Special Vehicle: Terror Drone
-     Special Vehicle: Hammer Crawler
      Special Vehicle: Maglev Tank
+     Special Vehicle: Hammer Crawler
      Replacement Aircraft: Banshee (Mig)
      Replacement Infantry: Night Witch (Politruk)
      Replacement Infantry: Cyborg Rocketeer (Thief)
@@ -201,7 +200,6 @@ faction-mongolia =
      Hit-and-Run Tactics
      Special Ability: Charge
      Special Building: Horse Breeder
-     Special Aircraft: Siege Chopper
      Special Infantry: Cavalry
      Special Infantry: Dragoon
      Special Vehicle: Archer
@@ -213,8 +211,8 @@ faction-mongolia =
 
 faction-arabia =
     .name = Arabia
-    .description = Union of Arab Socialist Republics
-     Salvaging
+    .description = Arab Proletarian Guard
+     Asymmetric Warfare
      Special Ability: Supply Arms
      Special Building: Tunnel Network
      Special Building: Scrap Yard
@@ -233,29 +231,28 @@ faction-arabia =
 faction-china =
     .name = China
     .description = People's Republic of China
-     Infantry Focus
+     Human Wave Doctrine
      Special Ability: Propaganda
      Special Building: Forward Command
      Special Building: Horse Breeder
+     Special Building: Bunker
      Special Infantry: Cavalry
-     Special Infantry: Dragoon
+     Special Infantry: Flak Trooper
      Special Infantry: Cadre
-     Special Infantry: Tank Buster
      Special Vehicle: Propaganda Truck
      Special Vehicle: Louchuan
      Replacement Infantry: Militia (Rifleman)
-     Replacement Infantry: Flak Trooper (Rocketman)
-     Replacement Vehicle: Troop Crawler (Transporter)
+     Replacement Infantry: Tank Buster (Rocketman)
+     Replacement Infantry: Dragoon (Penal Trooper)
      Replacement Vehicle: Gatling Car (Flak Track)
      Replacement Vehicle: Horde Tank (Cossack)
      Replacement Vehicle: Toad (Bronetransporter)
      Replacement Aircraft: Helix (Halo)
 
-
 faction-transcaucasia =
     .name = Transcaucasia
     .description = Transcaucasian Socialist Federative Soviet Republic
-     Cyborg Technology
+     Cybernetic Warfare
      Special Ability: Assimilator Drop
      Special Building: Cybernetic Laboratory
      Special Infantry: Cyborg Minigunner
@@ -281,33 +278,28 @@ faction-belarus =
 faction-kazakhstan =
     .name = Turkmenia
     .description = Federation of Turkic Soviets
-     Bioweapon and Parascientific Research
-     Special Rule: Illicit Laboratory changes many build tabs.
+     Vanguard Initiative
      Special Ability: Metempsychosis
      Special Building: Illicit Laboratory
-     Special Infantry: Waste Warrior
-     Special Infantry: Mutant Pillager
-     Special Infantry: Mutant Reaver
+     Special Infantry: Mutant Brute
+     Special Infantry: Virus
      Special Infantry: Disciple
-     Special Infantry: Defiler
      Special Vehicle: Toxin Truck
-     Special Vehicle: Waste Tanker
      Special Vehicle: Chaos Drone
+     Special Vehicle: Gas Artillery
      Special Vehicle: Mastermind
-     Replacement Building: Waste Turret
-     Replacement Building: Psychic Tower
-     Replacement Infantry: Initiate (Rifleman)
-     Replacement Infantry: Mutant Brute (Rocketman)
-     Replacement Infantry: Wraith (Engineer)
+     Replacement Building: Waste Turret (Gatling Sentry)
+     Replacement Building: Psychic Tower (Tesla Coil)
      Replacement Infantry: Genetic Horror (Grenadier)
-     Replacement Infantry: Hollow (Penal Trooper)
+     Replacement Infantry: Initiate (Penal Trooper)
+     Replacement Infantry: Waste Warrior (Politruk)
      Replacement Infantry: Stim Doc (Politruk)
-     Replacement Infantry: Virus (Thief)
+     Replacement Vehicle: Waste Tanker (Katyusha)
 
 faction-germany =
     .name = Germany
     .description = German Empire
-     Applied Chrono Technology
+     Chronokrieg
      Special Ability: Lazarene Ray
      Special Building: Gap Generator
      Special Building: Lazarus Platform
@@ -317,57 +309,64 @@ faction-germany =
      Special Vehicle: Mobile Gap Generator
      Special Vehicle: Chrono Tank
      Special Vehicle: Chrono APC
-     Replacement Vehicle: Puma (Wiesel)
+     Replacement Vehicle: Halftrack (Warthog)
+     Replacement Vehicle: Raider (Wiesel)
+     Replacement Vehicle: Tiger (Leopard)
 
 faction-austria =
     .name = Austria
     .description = Austro-Hungarian Empire
-     Prism Technology
+     Elite Officer Corps
      Special Ability: Field Promotion
      Special Building: Heavy Turret
      Special Building: Military Academy
      Special Aircraft: Wasp
      Special Infantry: Tank Commander
      Special Infantry: Prism Guard
-     Special Vehicle: Raider
+     Special Vehicle: Puma
      Special Vehicle: Prism Tank
-     Special Vehicle: Prism Cannon
+     Special Vehicle: Marksman
+     Replacement Infantry: Adler (Messerschmitt)
+     Replacement Infantry: Sergeant (Flamethrower)
 
 faction-turkey =
     .name = Turkey
     .description = Ottoman Empire
-     Thermal Weaponry
+     Thermal Warfare
      Special Ability: Napalm Spill
-     Special Building: Inferno Turret
+     Special Building: Flame Tower
      Special Aircraft: Iblis
-     Special Infantry: Molotov Thrower
      Special Infantry: Sipahi
+     Special Infantry: Champion
      Special Infantry: Desolator
      Special Vehicle: Napalm Spiller
      Special Vehicle: Flame Tank
      Special Vehicle: Ifrit
+     Replacement Infantry: Molotov Thrower (Dog)
 
 faction-persia =
     .name = Persia
-    .description = Shahdom of Persia
+    .description = Persian Resistance Front
      Guerilla Warfare
      Special Ability: Smokescreen
      Special Building: Boobytrapped Buildings
      Special Building: Tunnel
-     Special Aircraft: Siege Chopper
      Special Infantry: Glider
-     Special Infantry: Crazy Ali
+     Special Infantry: IED Crew
+     Special Vehicle: Mongoose
      Special Vehicle: Antlion
      Special Vehicle: Sapper
      Special Vehicle: Molerat
+     Replacement Aircraft: Siege Chopper (Stormbird)
      Replacement Infantry: Guerilla (Flamethrower)
      Replacement Infantry: Screener (Officer)
+     Replacement Infantry: Crazy Ali (Saboteur)
      Replacement Vehicle: Buggy (Halftrack)
      Replacement Vehicle: Corsair (Bobcat)
      Replacement Vehicle: Archer (Wisel)
      Replacement Vehicle: Jackal (Leopard)
      Replacement Vehicle: Burrower
-     Replacement Vehicle: Mongoose (V2 Missile Launcher)
+     Replacement Vehicle: Rocket Launcher Crew (V2 Missile Launcher)
 
 faction-bulgaria =
     .name = Bulgaria

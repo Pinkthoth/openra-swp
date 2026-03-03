@@ -494,19 +494,541 @@ powerproxy.parabombs:
 		ClockSequence: clock
 		CircleSequence: circles
 
-proxy.spied-dome:
+proxy.matahariheal:
 	AlwaysVisible:
-	RevealActorsPower:
-		CameraActor: camera.spied-dome
-		LifeTime: 750
-		TargetActors: fact, barr, proc, fix, hpad, afld, powr, apwr, mslo, gap, syrd, iron, pdox, tsla, reftwr, agun, cagun, dome, academy, recruitmentoffice, pbox, hbox, gun, camogun, gatlinggun, grandcannon, ftur, sam, adept, mtek, atek, stek, weap, proc.disabled, proc.resumed, silo, lazarusplatform, flkgun, uplink, sthgen, empgun, srimp, trench
-		OrderName: RevealActorsSpied-Dome
-		EffectImage: empty
-		Name: Espionage
-		Description: Reveals all enemy structures for 20 seconds.
-		OneShot: true
-		AllowMultiple: true
-		Icon: espionageicon
+	Immobile:
+		OccupiesSpace: False
+	ProvidesPrerequisite:
+		Prerequisite: hosp
+	ProximityExternalCondition@jam:
+		Condition: triagesurge
+		Range: 2c0
+		ValidRelationships: Enemy
+	RevealsShroud:
+		Range: 4c0
+		Type: CenterPosition
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: Center
+		Margin: 17, 4
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+	Selectable:
+		Bounds: 1024,1024
+	SelectionDecorations:
+
+proxy.mataharirepair:
+	AlwaysVisible:
+	Immobile:
+		OccupiesSpace: False
+	ProvidesPrerequisite:
+		Prerequisite: mshop
+	ProximityExternalCondition@jam:
+		Condition: fixsurge
+		Range: 2c0
+		ValidRelationships: Enemy
+	RevealsShroud:
+		Range: 4c0
+		Type: CenterPosition
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: Center
+		Margin: 17, 4
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+	Selectable:
+		Bounds: 1024,1024
+	SelectionDecorations:
+
+proxy.matahariproc:
+	AlwaysVisible:
+	Immobile:
+		OccupiesSpace: False
+	ProximityExternalCondition@jam:
+		Condition: procsurge
+		Range: 2c0
+		ValidRelationships: Enemy
+	CashTrickler:
+		Amount: 5
+		RequiresCondition: procsurged
+		ShowTicks: False
+	ExternalCondition:
+		Condition: procsurged
+	RevealsShroud:
+		Range: 4c0
+		Type: CenterPosition
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: Center
+		Margin: 17, 4
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+	Selectable:
+		Bounds: 1024,1024
+	SelectionDecorations:
+
+proxy.mataharipowr:
+	AlwaysVisible:
+	Immobile:
+		OccupiesSpace: False
+	ProximityExternalCondition@jam:
+		Condition: powersurge
+		Range: 2c0
+		ValidRelationships: Enemy
+	Power:
+		Amount: 75
+		RequiresCondition: surged
+	ExternalCondition:
+		Condition: surged
+	RevealsShroud:
+		Range: 4c0
+		Type: CenterPosition
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: Center
+		Margin: 17, 4
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+	Selectable:
+		Bounds: 1024,1024
+	SelectionDecorations:
+
+proxy.matahariapwr:
+	AlwaysVisible:
+	Immobile:
+		OccupiesSpace: False
+	ProximityExternalCondition@jam:
+		Condition: powersurge
+		Range: 2c0
+		ValidRelationships: Enemy
+	Power:
+		Amount: 150
+		RequiresCondition: surged
+	ExternalCondition:
+		Condition: surged
+	RevealsShroud:
+		Range: 4c0
+		Type: CenterPosition
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: Center
+		Margin: 17, 4
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+	Selectable:
+		Bounds: 1024,1024
+	SelectionDecorations:
+
+proxy.matahariteslapp:
+	AlwaysVisible:
+	Immobile:
+		OccupiesSpace: False
+	ProximityExternalCondition@jam:
+		Condition: powersurge
+		Range: 2c0
+		ValidRelationships: Enemy
+	Power:
+		Amount: 300
+		RequiresCondition: surged
+	ExternalCondition:
+		Condition: surged
+	RevealsShroud:
+		Range: 4c0
+		Type: CenterPosition
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: Center
+		Margin: 17, 4
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+	Selectable:
+		Bounds: 1024,1024
+	SelectionDecorations:
+
+proxy.mataharicommcent:
+	AlwaysVisible:
+	Immobile:
+		OccupiesSpace: False
+	ProximityExternalCondition@jam:
+		Condition: commcentsurge
+		Range: 2c0
+		ValidRelationships: Enemy
+	ProvidesPrerequisite:
+		Prerequisite: matahari-vision
+	RevealsShroud:
+		Range: 4c0
+		Type: CenterPosition
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: Center
+		Margin: 17, 4
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+	Selectable:
+		Bounds: 1024,1024
+	SelectionDecorations:
+
+proxy.matahariadept:
+	AlwaysVisible:
+	Immobile:
+		OccupiesSpace: False
+	ProximityExternalCondition@jam:
+		Condition: adeptsurge
+		Range: 2c0
+		ValidRelationships: Enemy
+	ProvidesPrerequisite:
+		Prerequisite: matahari-armor
+	RevealsShroud:
+		Range: 4c0
+		Type: CenterPosition
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: Center
+		Margin: 17, 4
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+	Selectable:
+		Bounds: 1024,1024
+	SelectionDecorations:
+
+proxy.mataharitek:
+	AlwaysVisible:
+	Immobile:
+		OccupiesSpace: False
+	ProximityExternalCondition@jam:
+		Condition: teksurge
+		Range: 2c0
+		ValidRelationships: Enemy
+	ProvidesPrerequisite:
+		Prerequisite: matahari-firepower
+	RevealsShroud:
+		Range: 4c0
+		Type: CenterPosition
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: Center
+		Margin: 17, 4
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+	Selectable:
+		Bounds: 1024,1024
+	SelectionDecorations:
+
+proxy.mataharimilacademy:
+	AlwaysVisible:
+	Immobile:
+		OccupiesSpace: False
+	ProximityExternalCondition@jam:
+		Condition: milacademysurge
+		Range: 2c0
+		ValidRelationships: Enemy
+	ProvidesPrerequisite:
+		Prerequisite: matahari-officer
+	RevealsShroud:
+		Range: 4c0
+		Type: CenterPosition
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: Center
+		Margin: 17, 4
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+	Selectable:
+		Bounds: 1024,1024
+	SelectionDecorations:
+
+proxy.mataharihorsebreeder:
+	AlwaysVisible:
+	Immobile:
+		OccupiesSpace: False
+	ProximityExternalCondition@jam:
+		Condition: horsesurge
+		Range: 2c0
+		ValidRelationships: Enemy
+	ProvidesPrerequisite:
+		Prerequisite: matahari-speed
+	RevealsShroud:
+		Range: 4c0
+		Type: CenterPosition
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: Center
+		Margin: 17, 4
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+	Selectable:
+		Bounds: 1024,1024
+	SelectionDecorations:
+	ExternalCondition@surged:
+		Condition: surged
+
+proxy.matahariindplant:
+	AlwaysVisible:
+	Immobile:
+		OccupiesSpace: False
+	ProximityExternalCondition@jam:
+		Condition: indplantsurge
+		Range: 2c0
+		ValidRelationships: Enemy
+	ProvidesPrerequisite:
+		Prerequisite: indplant
+	RevealsShroud:
+		Range: 4c0
+		Type: CenterPosition
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: Center
+		Margin: 17, 4
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+	Selectable:
+		Bounds: 1024,1024
+	SelectionDecorations:
+
+proxy.mataharimi6:
+	AlwaysVisible:
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: Center
+		Margin: 17, 4
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+	Selectable:
+		Bounds: 1024,1024
+	SelectionDecorations:
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+		LocalCenterOffset: 0,-206,0
+	RevealsShroud:
+		Range: 7c0
+	RallyPoint:
+	Exit@2:
+		SpawnOffset: 725,640,0
+		ExitCell: 0,2
+		ProductionTypes: Clones
+	Production:
+		Produces: Clones
+	PeriodicProducerWithPrice:
+		Actors: spy.mi6.clone
+		Type: Clones
+		Price: 250
+		ChargeDuration: 3000
+		ShowSelectionBar: True
+		ReadyAudio: UnitReady
+
+proxy.mataharicyberlab:
+	AlwaysVisible:
+	Immobile:
+		OccupiesSpace: False
+	ProximityExternalCondition@jam:
+		Condition: cyberlabsurge
+		Range: 2c0
+		ValidRelationships: Enemy
+	ProvidesPrerequisite:
+		Prerequisite: matahari-reload
+	ExternalCondition@surged:
+		Condition: surged
+	RevealsShroud:
+		Range: 4c0
+		Type: CenterPosition
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: Center
+		Margin: 17, 4
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+	Selectable:
+		Bounds: 1024,1024
+	SelectionDecorations:
+
+proxy.mataharifact:
+	AlwaysVisible:
+	Immobile:
+		OccupiesSpace: False
+	ProximityExternalCondition@jam:
+		Condition: factsurge
+		Range: 2c0
+		ValidRelationships: Enemy
+	ProvidesPrerequisite:
+		Prerequisite: matahari-targeter
+	RevealsShroud:
+		Range: 4c0
+		Type: CenterPosition
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: Center
+		Margin: 17, 4
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+	Selectable:
+		Bounds: 1024,1024
+	SelectionDecorations:
+
+proxy.mataharibarr:
+	AlwaysVisible:
+	Immobile:
+		OccupiesSpace: False
+	ProximityExternalCondition@jam:
+		Condition: barrsurge
+		Range: 2c0
+		ValidRelationships: Enemy
+	ProvidesPrerequisite:
+		Prerequisite: matahari-targeter-infantry
+	RevealsShroud:
+		Range: 4c0
+		Type: CenterPosition
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: Center
+		Margin: 17, 4
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+	Selectable:
+		Bounds: 1024,1024
+	SelectionDecorations:
+
+proxy.matahariweap:
+	AlwaysVisible:
+	Immobile:
+		OccupiesSpace: False
+	ProximityExternalCondition@jam:
+		Condition: weapsurge
+		Range: 2c0
+		ValidRelationships: Enemy
+	ProvidesPrerequisite:
+		Prerequisite: matahari-targeter-vehicle
+	RevealsShroud:
+		Range: 4c0
+		Type: CenterPosition
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: Center
+		Margin: 17, 4
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+	Selectable:
+		Bounds: 1024,1024
+	SelectionDecorations:
+
+proxy.mataharihpad:
+	AlwaysVisible:
+	Immobile:
+		OccupiesSpace: False
+	ProximityExternalCondition@jam:
+		Condition: hpadsurge
+		Range: 2c0
+		ValidRelationships: Enemy
+	ProvidesPrerequisite:
+		Prerequisite: matahari-targeter-helicopter
+	RevealsShroud:
+		Range: 4c0
+		Type: CenterPosition
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: Center
+		Margin: 17, 4
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+	Selectable:
+		Bounds: 1024,1024
+	SelectionDecorations:
+
+proxy.matahariafld:
+	AlwaysVisible:
+	Immobile:
+		OccupiesSpace: False
+	ProximityExternalCondition@jam:
+		Condition: afldsurge
+		Range: 2c0
+		ValidRelationships: Enemy
+	ProvidesPrerequisite:
+		Prerequisite: matahari-targeter-airplane
+	RevealsShroud:
+		Range: 4c0
+		Type: CenterPosition
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: Center
+		Margin: 17, 4
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+	Selectable:
+		Bounds: 1024,1024
+	SelectionDecorations:
+
+proxy.mataharidome:
+	AlwaysVisible:
+	Immobile:
+		OccupiesSpace: False
+	RangedGpsRadarProvider:
+		Range: 15c0
+		TargetTypes: Infantry, Vehicle, Structure
+	ProximityExternalCondition@jam:
+		Condition: domesurge
+		Range: 2c0
+		ValidRelationships: Enemy
+	RenderDetectionCircleSWP:
+		Visible: Always
+		TrailCount: 1
+		UpdateLineTick: 4092
+		BorderWidth: 5
+		Width: 3
+		Color: 008CFF
+	DetectCloaked:
+		Range: 15c0
+	RevealsShroud:
+		Range: 4c0
+		Type: CenterPosition
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: Center
+		Margin: 17, 4
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+	Selectable:
+		Bounds: 1024,1024
+	SelectionDecorations:
 
 proxy.kominternweap:
 	AlwaysVisible:

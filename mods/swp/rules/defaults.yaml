@@ -557,12 +557,56 @@
 	ExternalCondition@hacking:
 		Condition: hacking
 
-
 ^Hackable:
 	Inherits: ^HackableBase
 	Targetable@MINDCONTROL:
 		TargetTypes: Hackable
 		RequiresCondition: !hacked && !dehacking && hacking > 3
+
+^MatahariVision:
+	GrantConditionOnPrerequisite@matahari-vision:
+		Prerequisites: matahari-vision
+		Condition: visionboost
+	RevealsShroudMultiplier@matahari:
+		Modifier: 125
+		RequiresCondition: visionboost
+
+^MatahariReload:
+	GrantConditionOnPrerequisite@matahari-reload:
+		Prerequisites: matahari-reload
+		Condition: reloadboost
+	ReloadDelayMultiplier@matahari:
+		Modifier: 90
+		RequiresCondition: reloadboost
+
+^MatahariArmor:
+	GrantConditionOnPrerequisite@matahari-armor:
+		Prerequisites: matahari-armor
+		Condition: armorboost
+	DamageMultiplier@armor:
+		Modifier: 90
+		RequiresCondition: armorboost
+
+^MatahariFirepower:
+	GrantConditionOnPrerequisite@matahari-firepower:
+		Prerequisites: matahari-firepower
+		Condition: firepowerboost
+	DamageMultiplier@firepower:
+		Modifier: 110
+		RequiresCondition: firepowerboost
+
+^MatahariSpeed:
+	GrantConditionOnPrerequisite@matahari-speed:
+		Prerequisites: matahari-speed
+		Condition: speedboost
+	SpeedMultiplier@speed:
+		Modifier: 110
+		RequiresCondition: speedboost
+
+^MatahariOfficer:
+	GrantConditionOnPrerequisite@matahari-officer:
+		Prerequisites: matahari-officer
+		Condition: matahari-officer
 
 ^GainsExperience:
 	GainsExperience:
@@ -714,8 +758,13 @@
 	ExternalCondition@OfficerNearby:
 		Condition: officer-nearby
 	GainsExperienceMultiplier@OfficerNearby:
-		RequiresCondition: officer-nearby
+		RequiresCondition: officer-nearby || matahari-officer
 		Modifier: 200
+	WithIdleOverlay@OFFICER:
+		Image: bottompips
+		Sequence: officer
+		RequiresCondition: officer-nearby
+		Palette: basic-alpha
 
 ^Kommissable:
 	ExternalCondition@IamKommissable:
@@ -726,6 +775,18 @@
 	FirepowerMultiplier@KOMMISSABLE:
 		RequiresCondition: kommissable
 		Modifier: 110
+	WithIdleOverlay@KOMMISSABLE:
+		Image: bottompips
+		Sequence: politruk
+		RequiresCondition: kommissable
+		Palette: basic-alpha
+
+^Sergeant:
+	WithIdleOverlay@SARGE:
+		Image: bottompips
+		Sequence: sergeant
+		RequiresCondition: sergeant
+		Palette: basic-alpha
 
 ^Logistable:
 	ExternalCondition@IamLogistable:
@@ -1198,8 +1259,59 @@
 	Inherits@Parasite: ^ParasiteAttach
 	Inherits@terrordrone: ^TerrorDroneable
 	Inherits@battledroneable: ^BattleDroneAttach
+	Inherits@mataharivision: ^MatahariVision
+	Inherits@matahariarmor: ^MatahariArmor
+	Inherits@mataharifirepower: ^MatahariFirepower
+	Inherits@mataharieloadr: ^MatahariReload
+	Inherits@mataharispeedr: ^MatahariSpeed
+	Inherits@matahariofficerr: ^MatahariOfficer
+	ProductionCostMultiplier@matahari-target:
+		Prerequisites: matahari-target-vehicle
+		Multiplier: 110
+	ProductionCostMultiplier@matahari-targeter:
+		Prerequisites: matahari-targeter-vehicle
+		Multiplier: 90
+	WithProductionIconOverlay@matahariyp:
+		Types: MatahariCostUp
+		Prerequisites: matahari-target-vehicle
+	WithProductionIconOverlay@mataharidown:
+		Types: MatahariCostDown
+		Prerequisites: matahari-targeter-vehicle
+	ChangesHealth@MSHOP:
+		Step: 500
+		Delay: 100
+		StartIfBelow: 100
+		DamageCooldown: 125
+		RequiresCondition: mshopheal
+	GrantConditionOnPrerequisite@MSHOP:
+		Condition: hasmshop
+		Prerequisites: mshop
+	GrantConditionOnDamageState@MSHOP:
+		Condition: damaged
+		ValidDamageStates: Light, Medium, Heavy, Critical
+	GrantCondition@MSHOP:
+		RequiresCondition: hasmshop && damaged
+		Condition: mshopheal
+	WithDecoration@wrench:
+		Image: pips
+		Sequence: repair
+		Position: BottomRight
+		Margin: 17, 4
+		RequiresCondition: mshopheal
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+	DamagedByTintedCells@RADSTRONG:
+		Damage: 100
+		DamageInterval: 16
+		DamageTypes: RadiationDeath
+		LayerName: radioactivity.strong
+	DamagedByTintedCells@RADMED:
+		Damage: 40
+		DamageInterval: 16
+		DamageTypes: RadiationDeath
+		LayerName: radioactivity.medium
 	Crushable:
-		CrushClass: vehicle
+		CrushClasses: vehicle
 	WithDecoration@poison:
 		Image: pips
 		Sequence: poison
@@ -1242,7 +1354,7 @@
 	EdibleByLeap:
 	TeleportNetworkTransportable:
 	ProductionTimeMultiplier@foundry:
-		Prerequisites: indiaplant
+		Prerequisites: indplant
 		Multiplier: 90
 		Queue: Vehicle
 	DetectCloaked@phase:
@@ -1501,10 +1613,44 @@
 	Inherits@demoable: ^DemoAttachable
 	Inherits@Parasite: ^ParasiteAttach
 	Inherits@bloodlust: ^BloodLust
+	Inherits@sergeant: ^Sergeant
+	Inherits@mataharivision: ^MatahariVision
+	Inherits@matahariarmor: ^MatahariArmor
+	Inherits@mataharifirepower: ^MatahariFirepower
+	Inherits@mataharieloadr: ^MatahariReload
+	Inherits@mataharispeedr: ^MatahariSpeed
+	Inherits@matahariofficerr: ^MatahariOfficer
+	ProductionCostMultiplier@matahari-target:
+		Prerequisites: matahari-target-infantry
+		Multiplier: 110
+	ProductionCostMultiplier@matahari-targeter:
+		Prerequisites: matahari-targeter-infantry
+		Multiplier: 90
+	WithProductionIconOverlay@matahariyp:
+		Types: MatahariCostUp
+		Prerequisites: matahari-target-infantry
+	WithProductionIconOverlay@mataharidown:
+		Types: MatahariCostDown
+		Prerequisites: matahari-targeter-infantry
+	DamagedByTintedCells@RADSTRONG:
+		Damage: 500
+		DamageInterval: 16
+		DamageTypes: RadiationDeath
+		LayerName: radioactivity.strong
+	DamagedByTintedCells@RADMED:
+		Damage: 250
+		DamageInterval: 16
+		DamageTypes: RadiationDeath
+		LayerName: radioactivity.medium
+	DamagedByTintedCells@RADWEAK:
+		Damage: 125
+		DamageInterval: 16
+		DamageTypes: RadiationDeath
+		LayerName: radioactivity.weak
 	TeleportNetworkTransportable:
 	-GrantCondition@warped:
 	ProductionTimeMultiplier@foundry:
-		Prerequisites: indiaplant
+		Prerequisites: indplant
 		Multiplier: 90
 		Queue: Infantry
 	Infiltrates@refunder:
@@ -1775,6 +1921,12 @@
 	Inherits@warpable: ^Warpable
 	Inherits@freezable: ^Freezable
 	Inherits@demoable: ^DemoAttachable
+	Inherits@mataharivision: ^MatahariVision
+	Inherits@matahariarmor: ^MatahariArmor
+	Inherits@mataharifirepower: ^MatahariFirepower
+	Inherits@mataharieloadr: ^MatahariReload
+	Inherits@mataharispeedr: ^MatahariSpeed
+	Inherits@matahariofficerr: ^MatahariOfficer
 	WithDecoration@poison:
 		Image: pips
 		Sequence: poison
@@ -1810,7 +1962,7 @@
 		TargetTypes: Cooked
 		RequiresCondition: microwave > 29
 	ProductionTimeMultiplier@foundry:
-		Prerequisites: indiaplant
+		Prerequisites: indplant
 		Multiplier: 90
 		Queue: Ship
 	HitShape@front:
@@ -1941,6 +2093,12 @@
 	Inherits@flarevision: ^FlareVision
 	Inherits@warpable: ^Warpable
 	Inherits@freezable: ^Freezable
+	Inherits@mataharivision: ^MatahariVision
+	Inherits@matahariarmor: ^MatahariArmor
+	Inherits@mataharifirepower: ^MatahariFirepower
+	Inherits@mataharieloadr: ^MatahariReload
+	Inherits@mataharispeedr: ^MatahariSpeed
+	Inherits@matahariofficerr: ^MatahariOfficer
 	WithDecoration@poison:
 		Image: pips
 		Sequence: poison
@@ -2060,6 +2218,18 @@
 
 ^Plane:
 	Inherits: ^NeutralPlane
+	ProductionCostMultiplier@matahari-target:
+		Prerequisites: matahari-target-airplane
+		Multiplier: 110
+	ProductionCostMultiplier@matahari-targeter:
+		Prerequisites: matahari-targeter-airplane
+		Multiplier: 90
+	WithProductionIconOverlay@matahariyp:
+		Types: MatahariCostUp
+		Prerequisites: matahari-target-airplane
+	WithProductionIconOverlay@mataharidown:
+		Types: MatahariCostDown
+		Prerequisites: matahari-targeter-airplane
 	Inherits@2: ^GainsExperience
 	Inherits@lazarus: ^Lazarus
 	Repairable:
@@ -2070,12 +2240,24 @@
 	Aircraft:
 		TakeOffOnResupply: true
 	ProductionTimeMultiplier@foundry:
-		Prerequisites: indiaplant
+		Prerequisites: indplant
 		Multiplier: 90
 		Queue: Aircraft
 
 ^Helicopter:
 	Inherits: ^Plane
+	ProductionCostMultiplier@matahari-target:
+		Prerequisites: matahari-target-helicopter
+		Multiplier: 110
+	ProductionCostMultiplier@matahari-targeter:
+		Prerequisites: matahari-targeter-helicopter
+		Multiplier: 90
+	WithProductionIconOverlay@matahariyp:
+		Types: MatahariCostUp
+		Prerequisites: matahari-target-helicopter
+	WithProductionIconOverlay@mataharidown:
+		Types: MatahariCostDown
+		Prerequisites: matahari-targeter-helicopter
 	Tooltip:
 		GenericName: meta-helicopter-generic-name
 	Aircraft:
@@ -2113,6 +2295,24 @@
 	Inherits@freezable: ^Freezable
 	Inherits@demoable: ^DemoAttachable
 	Inherits@quickrepair: ^QuickRepariable
+	Inherits@mataharivision: ^MatahariVision
+	Inherits@matahariarmor: ^MatahariArmor
+	Inherits@mataharifirepower: ^MatahariFirepower
+	Inherits@mataharieloadr: ^MatahariReload
+	Inherits@mataharispeedr: ^MatahariSpeed
+	Inherits@matahariofficerr: ^MatahariOfficer
+	ProductionCostMultiplier@matahari-target:
+		Prerequisites: matahari-target
+		Multiplier: 110
+	ProductionCostMultiplier@matahari-targeter:
+		Prerequisites: matahari-targeter
+		Multiplier: 90
+	WithProductionIconOverlay@matahariyp:
+		Types: MatahariCostUp
+		Prerequisites: matahari-target
+	WithProductionIconOverlay@mataharidown:
+		Types: MatahariCostDown
+		Prerequisites: matahari-targeter
 	WithDecoration@poison:
 		Image: pips
 		Sequence: poison

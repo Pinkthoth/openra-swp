@@ -237,6 +237,9 @@
 	PaletteFromFile@POISONPAL:
 		Name: poisonpal
 		Filename: poisonpal.pal
+	PaletteFromFile@currentpal:
+		Name: currentpal
+		Filename: current.pal
 	PaletteFromPaletteWithAlpha@poison:
 		Name: poison-alpha
 		BasePalette: poisonpal

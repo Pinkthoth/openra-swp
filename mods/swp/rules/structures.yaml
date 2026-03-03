@@ -5,7 +5,7 @@ FACT:
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Targetable:
-		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SaboteurInfiltration
+		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SaboteurInfiltration, MatahariInfiltrate
 	Selectable:
 		Bounds: 2825, 2825
 	Building:
@@ -209,6 +209,25 @@ FACT:
 			abyssinia: mfact
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelfact
+	InfiltrateToSpawnActor@matahari:
+		Actor: proxy.mataharifact
+		Types: MatahariInfiltrate
+		LinkedToParent: True
+	ExternalCondition@factsurge:
+		Condition: factsurge
+	ProvidesPrerequisite@matahari:
+		Prerequisite: matahari-target
+		RequiresCondition: factsurge
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: BottomRight
+		Margin: 17, 4
+		RequiresCondition: factsurge
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+		RequiresSelection: True
 
 MSLO:
 	Inherits: ^FactionBuilding
@@ -674,7 +693,7 @@ OBLI:
 		Name: Obelisk
 	Buildable:
 		BuildPaletteOrder: 71
-		Prerequisites: structures.japan, adept, ~techlevel.high
+		Prerequisites: ~structures.japan, adept, ~techlevel.high
 		Queue: Defense
 		Description: Laser armed defensive tower.
 	TooltipExtras:
@@ -1082,7 +1101,7 @@ ACADEMY:
 		Description: Forward office of the British secret service.
 		BuildLimit: 1
 	TooltipExtras:
-		Attributes: • Build limit 1.\n• Passive Ability: Produces an additional MI6 Agent for every trained MI6 Agent.\n• Passive Ability: Produces an MI6 Agent every two minutes for free.\n• Passive Ability: Promotes produced spies.
+		Attributes: • Build limit 1.\n• Passive Ability: Produces an additional MI6 Agent for every trained MI6 Agent.\n• Passive Ability: Produces an additional MI6 Honeypot for every trained MI6 Honeypot.\n• Passive Ability: Produces a MI6 Agent and MI6 Honeypot every two minutes for free.\n• Passive Ability: Promotes produced spies.
 	Valued:
 		Cost: 700
 	Tooltip:
@@ -1093,7 +1112,7 @@ ACADEMY:
 	AppearsOnMapPreview:
 	ClonesProducedUnits:
 		ProductionType: Clones
-		CloneableTypes: spy.mi6
+		CloneableTypes: spy.mi6, matahari
 	RallyPoint:
 	Exit@2:
 		RequiresCondition: !being-captured || !turnedoff
@@ -1103,9 +1122,10 @@ ACADEMY:
 	Production:
 		Produces: Clones
 		PauseOnCondition: being-captured || turnedoff || disabled
-	PeriodicProducer:
-		Actors: spy.mi6.clone
+	PeriodicProducerWithPrice:
+		Actors: spy.mi6.clone, matahari.clone
 		Type: Clones
+		Price: 500
 		ChargeDuration: 3000
 		ShowSelectionBar: True
 		PauseOnCondition: being-captured || turnedoff || disabled
@@ -1116,6 +1136,24 @@ ACADEMY:
 		Amount: -40
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelacademy
+	InfiltrateToSpawnActor@matahari:
+		Actor: proxy.mataharimi6
+		Types: MatahariInfiltrate
+		LinkedToParent: True
+	ExternalCondition@powersurge:
+		Condition: mataharimi6
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: BottomRight
+		Margin: 17, 4
+		RequiresCondition: mataharimi6
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+		RequiresSelection: True
+	Targetable:
+		TargetTypes: GroundActor, C4, DetonateAttack, Structure, MatahariInfiltrate
 
 RECRUITMENTOFFICE:
 	Inherits: ^FactionBuilding
@@ -1194,6 +1232,24 @@ RECRUITMENTOFFICE:
 		Amount: -10
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelrecruitmentoffice
+	InfiltrateToSpawnActor@matahari:
+		Actor: proxy.matahariheal
+		Types: MatahariInfiltrate
+		LinkedToParent: True
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: BottomRight
+		Margin: 17, 4
+		RequiresCondition: triagesurge
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+		RequiresSelection: True
+	ExternalCondition@matahari:
+		Condition: triagesurge
+	Targetable:
+		TargetTypes: GroundActor, C4, DetonateAttack, Structure, MatahariInfiltrate
 
 SCRAP:
 	Inherits: ^FactionBuilding
@@ -1204,7 +1260,7 @@ SCRAP:
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Selectable:
-		Bounds: 2496, 2496
+		Bounds: 2896, 2896
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3,3
@@ -1240,6 +1296,24 @@ SCRAP:
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelscrap
 	ProvidesPrerequisite@buildingname:
+	InfiltrateToSpawnActor@matahari:
+		Actor: proxy.mataharirepair
+		Types: MatahariInfiltrate
+		LinkedToParent: True
+	Targetable:
+		TargetTypes: GroundActor, Structure, C4, DetonateAttack, MatahariInfiltrate
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: BottomRight
+		Margin: 17, 4
+		RequiresCondition: fixsurge
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+		RequiresSelection: True
+	ExternalCondition@matahari:
+		Condition: fixsurge
 
 BOOTCAMP:
 	Inherits: ^FactionBuilding
@@ -1726,6 +1800,65 @@ PBOX:
 	DetectCloaked:
 		Range: 6c0
 
+GTWR:
+	Inherits: ^Defense
+	Inherits@AUTOTARGET: ^AutoTargetAll
+	Inherits@rubbles: ^1x1Rubbles
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Tooltip:
+		Name: Guard Tower
+	Building:
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 60
+		Prerequisites: barr, ~structures.zentrum, ~techlevel.low
+		Description: Static anti-infantry base defense.
+	TooltipExtras:
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
+		Attributes: • Can detect phased units.
+	Valued:
+		Cost: 800
+	CustomSellValue:
+		Value: 400
+	Health:
+		HP: 40000
+	Armor:
+		Type: Concrete
+	RevealsShroud:
+		MinRange: 5c0
+		Range: 6c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 5c0
+	Turreted:
+		TurnSpeed: 512
+	-QuantizeFacingsFromSequence:
+	BodyOrientation:
+		QuantizedFacings: 8
+	InstantlyRepairable:
+		RequiresCondition: damaged
+	GrantConditionOnDamageState@DAMAGED:
+		Condition: damaged
+		ValidDamageStates: Light, Medium, Heavy, Critical
+	SpawnActorsOnSell:
+	AttackTurreted:
+		RequiresCondition: !build-incomplete
+	Armament:
+		Weapon: Vulcan
+		LocalYaw: 0, 176, 341, 512, 682, 853
+		MuzzleSequence: muzzle
+		LocalOffset: 300,0,0
+		PauseOnCondition: turnedoff
+	WithMuzzleOverlay:
+	RenderRangeCircle:
+		FallbackRange: 6c0
+	Power:
+		Amount: -20
+	DetectCloaked:
+		Range: 6c0
+
 SPAINBUNKER:
 	Inherits: ^Defense
 	Inherits@AUTOTARGET: ^AutoTargetAll
@@ -1988,7 +2121,7 @@ TURKEYGUN:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 102
-		Prerequisites: dome, adept, ~structures.turkey, ~techlevel.medium
+		Prerequisites: dome, adept, ~structures.egypt, ~techlevel.medium
 		Description: Anti-Infantry base defense.
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles.
@@ -2439,7 +2572,7 @@ FTUR:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 100
-		Prerequisites: barr, ~structures.zentrum, ~techlevel.low
+		Prerequisites: barr, ~structures.turkey, ~techlevel.low
 		Description: Anti-Infantry base defense.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -2628,40 +2761,26 @@ ADEPT:
 	ProximityExternalCondition:
 		Condition: keepchargeralive
 		Range: 3c0
-	TransformOnCondition@sabotaged:
-		IntoActor: adept.disabled
-		RequiresCondition: sabotagedtimer
 	SpawnActorOnDeath@tunnel:
 		Actor: tunneladept
-
-ADEPT.disabled:
-	Inherits: ADEPT
-	Inherits@sabotable: ^Sabotable
-	GrantTimedCondition@sabotage-start:
-		Condition: sabotaged
-		Duration: 750
-	TransformOnCondition:
-		IntoActor: adept
-		RequiresCondition: !sabotaged
-	-Buildable:
-	-ProximityExternalCondition:
-	-MapEditorData:
-	-PeriodicExplosion@saboteurexplode:
-	GrantTimedCondition@sabotage-start:
-		Condition: sabotaged
-		Duration: 750
-	GrantTimedCondition@sabotagedtimer:
-		Condition: sabotagedtimer
-		Duration: 750
-	TransformOnCondition@sabotaged:
-		IntoActor: adept
-		RequiresCondition: !sabotaged
-	GrantCondition@sabotaged:
-		Condition: turnedoff
-		RequiresCondition: sabotaged
-	-Targetable@sabotable:
-	WithColoredOverlay@IDISABLE:
-		RequiresCondition: disabled || turnedoff
+	InfiltrateToSpawnActor@matahari:
+		Actor: proxy.matahariadept
+		Types: MatahariInfiltrate
+		LinkedToParent: True
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: BottomRight
+		Margin: 17, 4
+		RequiresCondition: adeptsurge
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+		RequiresSelection: True
+	ExternalCondition@matahari:
+		Condition: adeptsurge
+	Targetable:
+		TargetTypes: GroundActor, C4, DetonateAttack, Structure, MatahariInfiltrate
 
 MILACADEMY:
 	Inherits: ^FactionBuilding
@@ -2698,7 +2817,7 @@ MILACADEMY:
 	RevealsShroud@GAPGEN:
 		Range: 4c0
 	Targetable:
-		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
+		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration, MatahariInfiltrate
 	Power:
 		Amount: -200
 	HitShape:
@@ -2732,6 +2851,30 @@ MILACADEMY:
 		FullSequence: pip-tech
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelmilacademy
+	InfiltrateToSpawnActor@matahari:
+		Actor: proxy.mataharimilacademy
+		Types: MatahariInfiltrate
+		LinkedToParent: True
+	ExternalCondition@powersurge:
+		Condition: milacademysurge
+	PowerMultiplier@matahari:
+		RequiresCondition: milacademysurge
+		Modifier: 50
+	ProximityExternalCondition@jam:
+		Condition: surged
+		RequiresCondition: milacademysurge
+		Range: 2c0
+		ValidRelationships: Enemy
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: BottomRight
+		Margin: 17, 4
+		RequiresCondition: milacademysurge
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+		RequiresSelection: True
 
 COMMCENT:
 	Inherits: ^FactionBuilding
@@ -2774,7 +2917,7 @@ COMMCENT:
 		Amount: -100
 		RequiresCondition: !turnedoff && !disabled
 	Targetable:
-		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration
+		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration, MatahariInfiltrate
 	RenderSprites:
 		FactionImages:
 			austria: mcommcent
@@ -3110,7 +3253,7 @@ COMMCENT:
 		PauseOnCondition: turnedoff || disabled
 		OrderName: DedMaroz
 		Icon: blizzardicon
-		Prerequisites: support.russia
+		Prerequisites: support.belarus
 		ChargeInterval: 8500
 		Name: Blizzard
 		Description: A freezing blizzard approaches the map\nfrom the chosen direction.
@@ -3319,7 +3462,7 @@ COMMCENT:
 		SupportPowerPaletteOrder: 10
 		Dimensions: 2, 2
 		Footprint: xx xx
-		Prerequisites: support.belarus
+		Prerequisites: support.russia
 		ExplosionWeapon: SuperchargeBurst
 		ExplosionDelay : 0
 	GrantExternalConditionPowerCA@SUPPLYARMS:
@@ -3442,6 +3585,22 @@ COMMCENT:
 		Sequence: idle
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelcommcent
+	InfiltrateToSpawnActor@matahari:
+		Actor: proxy.mataharicommcent
+		Types: MatahariInfiltrate
+		LinkedToParent: True
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: BottomRight
+		Margin: 17, 4
+		RequiresCondition: commcentsurge
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+		RequiresSelection: True
+	ExternalCondition@matahari:
+		Condition: commcentsurge
 
 TRIAGE:
 	Inherits: ^FactionBuilding
@@ -3488,7 +3647,7 @@ TRIAGE:
 		Amount: 100
 		RequiresCondition: !turnedoff && !disabled
 	Targetable:
-		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration
+		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration, MatahariInfiltrate
 	ScalePowerWithHealth:
 	RenderSprites:
 		FactionImages:
@@ -3516,6 +3675,22 @@ TRIAGE:
 			transcaucasia: ktriage
 	SpawnActorOnDeath@tunnel:
 		Actor: tunneltriage
+	InfiltrateToSpawnActor@matahari:
+		Actor: proxy.matahariheal
+		Types: MatahariInfiltrate
+		LinkedToParent: True
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: BottomRight
+		Margin: 17, 4
+		RequiresCondition: triagesurge
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+		RequiresSelection: True
+	ExternalCondition@matahari:
+		Condition: triagesurge
 
 WEAP.KOMINTERN:
 	Inherits: WEAP
@@ -3779,7 +3954,7 @@ WEAP:
 	ProvidesPrerequisite@buildingname:
 		Prerequisite: weap
 	Targetable:
-		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
+		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration, MatahariInfiltrate
 	InfiltrateForSupportPower:
 		Proxy: vehicles.upgraded
 		Types: SpyInfiltrate
@@ -3817,7 +3992,7 @@ WEAP:
 		Factions: austria, italy, bulgaria, abyssinia, turkey
 		Prerequisite: vehicles.wiesel
 	ProvidesPrerequisite@halftrack:
-		Factions: italy, germany, turkey, austria
+		Factions: italy, turkey, austria
 		Prerequisite: vehicles.halftrack
 	ProvidesPrerequisite@jeep:
 		Factions: france, egypt, england, japan
@@ -3844,7 +4019,7 @@ WEAP:
 		Factions: russia, ukraine, belarus, transcaucasia, kazakhstan
 		Prerequisite: vehicles.ftrk
 	ProvidesPrerequisite@transporter:
-		Factions: russia, ukraine, belarus, transcaucasia, kazakhstan, arabia, mongolia
+		Factions: russia, ukraine, belarus, transcaucasia, kazakhstan, arabia, mongolia, china
 		Prerequisite: vehicles.transporter
 	ProvidesPrerequisite@katy:
 		Factions: russia, china, arabia, ukraine
@@ -3862,10 +4037,29 @@ WEAP:
 		Factions: germany, austria, abyssinia, bulgaria, turkey
 		Prerequisite: vehicles.v2rl
 	ProvidesPrerequisite@cossack:
-		Factions: ukraine, belarus, transcaucasia, kazakhstan
+		Factions: ukraine, belarus, transcaucasia, kazakhstan, russia
 		Prerequisite: vehicles.cossack
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelweap
+	InfiltrateToSpawnActor@matahari:
+		Actor: proxy.matahariweap
+		Types: MatahariInfiltrate
+		LinkedToParent: True
+	ExternalCondition@factsurge:
+		Condition: weapsurge
+	ProvidesPrerequisite@matahari:
+		Prerequisite: matahari-target-vehicle
+		RequiresCondition: weapsurge
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: BottomRight
+		Margin: 17, 4
+		RequiresCondition: weapsurge
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+		RequiresSelection: True
 
 WEAP.RAJ:
 	Inherits: WEAP
@@ -3921,7 +4115,7 @@ DOME:
 		Dimensions: 2,2
 		LocalCenterOffset: 0,-512,0
 	Targetable:
-		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration
+		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration, MatahariInfiltrate
 	Health:
 		HP: 100000
 	Armor:
@@ -3965,11 +4159,24 @@ DOME:
 			arabia: kdome
 			transcaucasia: kdome
 			abyssinia: mdome
-	InfiltrateForSupportPower@spied-dome:
-		Proxy: proxy.spied-dome
-		Types: SpyInfiltrate
 	SpawnActorOnDeath@tunnel:
 		Actor: tunneldome
+	InfiltrateToSpawnActor@matahari:
+		Actor: proxy.mataharidome
+		Types: MatahariInfiltrate
+		LinkedToParent: True
+	ExternalCondition@matahari:
+		Condition: domesurge
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: BottomRight
+		Margin: 17, 4
+		RequiresCondition: domesurge
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+		RequiresSelection: True
 
 PROC:
 	Inherits: ^FactionBuilding
@@ -3992,7 +4199,7 @@ PROC:
 		Bounds: 2672, 2615, 0, -241
 		DecorationBounds: 2825, 2825, 30, -241
 	Targetable:
-		TargetTypes: GroundActor, Structure, C4, DetonateAttack, ThiefInfiltrate, SpyInfiltrate
+		TargetTypes: GroundActor, Structure, C4, DetonateAttack, ThiefInfiltrate, SpyInfiltrate, MatahariInfiltrate
 	Targetable@sabotable:
 		TargetTypes: SaboteurInfiltration
 	Health:
@@ -4072,6 +4279,37 @@ PROC:
 		RequiresCondition: sabotagedtimer
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelproc
+	InfiltrateToSpawnActor@matahari:
+		Actor: proxy.matahariproc
+		Types: MatahariInfiltrate
+		LinkedToParent: True
+	ExternalCondition@powersurge:
+		Condition: procsurge
+	PowerMultiplier@matahari:
+		RequiresCondition: procsurge
+		Modifier: 50
+	ProximityExternalCondition@jam:
+		Condition: procsurged
+		RequiresCondition: procsurge
+		Range: 2c0
+		ValidRelationships: Enemy
+	CashTrickler:
+		Amount: -5	
+		RequiresCondition: procsurge
+		ShowTicks: False
+	GrantConditionOnPlayerResources@procsurge:
+		Threshold: 5
+		Condition: matahari-money
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: BottomRight
+		Margin: 17, 4
+		RequiresCondition: procsurge
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+		RequiresSelection: True
 
 PROC.NOHARV:
 	Inherits: PROC
@@ -4309,7 +4547,7 @@ HPAD:
 	Power:
 		Amount: -10
 	ProvidesPrerequisite@hind:
-		Factions: ukraine, china, mongolia, arabia, kazakhstan, russia, belarus, transcaucasia
+		Factions: ukraine, china, mongolia, arabia, kazakhstan, belarus, transcaucasia
 		Prerequisite: helicopter.hind
 	ProvidesPrerequisite@allies:
 		Factions: allies, england, france, usa, japan, serbia, raj, egypt
@@ -4338,6 +4576,9 @@ HPAD:
 	ProvidesPrerequisite@soviet:
 		Factions: soviet, ukraine, mongolia, russia, china, kazakhstan, belarus, arabia, transcaucasia
 		Prerequisite: helicopter.soviet
+	ProvidesPrerequisite@nadya:
+		Factions: soviet, ukraine, mongolia, china, kazakhstan, belarus, arabia, transcaucasia
+		Prerequisite: helicopter.nadya
 	ProvidesPrerequisite@halo:
 		Factions: soviet, ukraine, mongolia, russia, kazakhstan, belarus, arabia, transcaucasia
 		Prerequisite: helicopter.halo
@@ -4388,7 +4629,7 @@ HPAD:
 		Prerequisite: helicopter.egypt
 	ProvidesPrerequisite@buildingname:
 	Targetable:
-		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
+		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration, MatahariInfiltrate
 	InfiltrateForSupportPower:
 		Proxy: aircraft.upgraded
 		Types: SpyInfiltrate
@@ -4411,6 +4652,26 @@ HPAD:
 			transcaucasia: shpad
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelhpad
+	InfiltrateToSpawnActor@matahari:
+		Actor: proxy.mataharihpad
+		Types: MatahariInfiltrate
+		LinkedToParent: True
+	ExternalCondition@factsurge:
+		Condition: hpadsurge
+	ProvidesPrerequisite@matahari:
+		Prerequisite: matahari-target-helicopter
+		RequiresCondition: hpadsurge
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: BottomRight
+		Margin: 17, 4
+		RequiresCondition: hpadsurge
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+		RequiresSelection: True
+
 
 HPAD.RAJ:
 	Inherits: HPAD
@@ -4489,8 +4750,11 @@ AFLD:
 		Factions: usa, england, france, japan, serbia
 		Prerequisite: aircraft.spitfire
 	ProvidesPrerequisite@mig:
-		Factions: china, mongolia, arabia, russia, belarus, transcaucasia
+		Factions: china, mongolia, arabia, russia, belarus, transcaucasia, kazakhstan
 		Prerequisite: aircraft.mig
+	ProvidesPrerequisite@stormbird:
+		Factions: germany, austria, italy, turkey
+		Prerequisite: aircraft.stormbird
 	ProvidesPrerequisite@longbow:
 		Factions: england, france, usa, serbia
 		Prerequisite: aircraft.longbow
@@ -4589,7 +4853,7 @@ AFLD:
 	ProvidesPrerequisite@buildingname:
 		Prerequisite: afld
 	Targetable:
-		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
+		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration, MatahariInfiltrate
 	InfiltrateForSupportPower:
 		Proxy: aircraft.upgraded
 		Types: SpyInfiltrate
@@ -4636,6 +4900,26 @@ AFLD:
 		EndChargeSpeechNotification: ReinforcementsReady
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelafld
+	InfiltrateToSpawnActor@matahari:
+		Actor: proxy.matahariafld
+		Types: MatahariInfiltrate
+		LinkedToParent: True
+	ExternalCondition@factsurge:
+		Condition: afldsurge
+	ProvidesPrerequisite@matahari:
+		Prerequisite: matahari-target-airplane
+		RequiresCondition: afldsurge
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: BottomRight
+		Margin: 17, 4
+		RequiresCondition: afldsurge
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+		RequiresSelection: True
+
 
 TELEPORTTUNNEL:
 	Inherits: ^FactionBuilding
@@ -4731,7 +5015,7 @@ POWR:
 		Amount: 150
 		RequiresCondition: !turnedoff && !disabled
 	Targetable:
-		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration
+		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration, MatahariInfiltrate
 	ScalePowerWithHealth:
 	WithDeathAnimation:
 		DeathSequence: dead
@@ -4754,6 +5038,31 @@ POWR:
 			abyssinia: mpowr
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelpowr
+	InfiltrateToSpawnActor@matahari:
+		Actor: proxy.mataharipowr
+		Types: MatahariInfiltrate
+		LinkedToParent: True
+	ExternalCondition@powersurge:
+		Condition: powersurge
+	PowerMultiplier@matahari:
+		RequiresCondition: powersurge
+		Modifier: 50
+	ProximityExternalCondition@jam:
+		Condition: surged
+		RequiresCondition: powersurge
+		Range: 2c0
+		ValidRelationships: Enemy
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: BottomRight
+		Margin: 17, 4
+		RequiresCondition: powersurge
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+		RequiresSelection: True
+
 
 APWR:
 	Inherits: ^FactionBuilding
@@ -4788,7 +5097,7 @@ APWR:
 		LocalCenterOffset: 0,-512,0
 	Selectable:
 		Bounds: 2696, 2696
-		DecorationBounds: 2696, 2696, 0, -603
+		DecorationBounds: 3096, 3096, 0, 0
 	Health:
 		HP: 75000
 	Armor:
@@ -4796,10 +5105,10 @@ APWR:
 	RevealsShroud:
 		Range: 5c0
 	Power:
-		Amount: 200
+		Amount: 300
 		RequiresCondition: !disabled && !turnedoff
 	Targetable:
-		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration
+		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration, MatahariInfiltrate
 	ScalePowerWithHealth:
 	WithDeathAnimation:
 		DeathSequence: dead
@@ -4822,6 +5131,30 @@ APWR:
 			abyssinia: mapwr
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelapwr
+	InfiltrateToSpawnActor@matahari:
+		Actor: proxy.matahariapwr
+		Types: MatahariInfiltrate
+		LinkedToParent: True
+	ExternalCondition@powersurge:
+		Condition: powersurge
+	PowerMultiplier@matahari:
+		RequiresCondition: powersurge
+		Modifier: 50
+	ProximityExternalCondition@jam:
+		Condition: surged
+		RequiresCondition: powersurge
+		Range: 2c0
+		ValidRelationships: Enemy
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: BottomRight
+		Margin: 17, 4
+		RequiresCondition: powersurge
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+		RequiresSelection: True
 
 TESLAPP:
 	Inherits: ^FactionBuilding
@@ -4867,13 +5200,37 @@ TESLAPP:
 		Amount: 600
 		RequiresCondition: !turnedoff && !disabled
 	Targetable:
-		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration
+		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration, MatahariInfiltrate
 	ScalePowerWithHealth:
 	WithDeathAnimation:
 		DeathSequence: dead
 		UseDeathTypeSuffix: false
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelteslapp
+	InfiltrateToSpawnActor@matahari:
+		Actor: proxy.matahariteslapp
+		Types: MatahariInfiltrate
+		LinkedToParent: True
+	ExternalCondition@powersurge:
+		Condition: powersurge
+	PowerMultiplier@matahari:
+		RequiresCondition: powersurge
+		Modifier: 50
+	ProximityExternalCondition@jam:
+		Condition: surged
+		RequiresCondition: powersurge
+		Range: 2c0
+		ValidRelationships: Enemy
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: BottomRight
+		Margin: 17, 4
+		RequiresCondition: powersurge
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+		RequiresSelection: True
 
 CYBERLAB:
 	Inherits: ^FactionBuilding
@@ -4918,12 +5275,56 @@ CYBERLAB:
 	Power:
 		Amount: -100
 	Targetable:
-		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration
+		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration, MatahariInfiltrate
 	ProvidesPrerequisite@cyberlab:
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelcyberlab
 	RenderSprites:
 		Image: illicitlab
+	ExternalCondition@powersurge:
+		Condition: milacademysurge
+	InfiltrateToSpawnActor@matahari:
+		Actor: proxy.mataharicyberlab
+		Types: MatahariInfiltrate
+		LinkedToParent: True
+	PowerMultiplier@matahari:
+		RequiresCondition: milacademysurge
+		Modifier: 50
+	ProximityExternalCondition@jam:
+		Condition: surged
+		RequiresCondition: milacademysurge
+		Range: 2c0
+		ValidRelationships: Enemy
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: BottomRight
+		Margin: 17, 4
+		RequiresCondition: powersurge
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+		RequiresSelection: True
+	ExternalCondition@powersurge:
+		Condition: cyberlabsurge
+	PowerMultiplier@matahari:
+		RequiresCondition: cyberlabsurge
+		Modifier: 50
+	ProximityExternalCondition@jam:
+		Condition: surged
+		RequiresCondition: cyberlabsurge
+		Range: 2c0
+		ValidRelationships: Enemy
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: BottomRight
+		Margin: 17, 4
+		RequiresCondition: cyberlabsurge
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+		RequiresSelection: True
 
 ILLICITLAB:
 	Inherits: ^FactionBuilding
@@ -4978,6 +5379,26 @@ ILLICITLAB:
 		IntoActor: hollow
 		Types: IllicitLab
 		UpgradePrice: 50
+	ExternalCondition@powersurge:
+		Condition: milacademysurge
+	PowerMultiplier@matahari:
+		RequiresCondition: milacademysurge
+		Modifier: 50
+	ProximityExternalCondition@jam:
+		Condition: surged
+		RequiresCondition: milacademysurge
+		Range: 2c0
+		ValidRelationships: Enemy
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: BottomRight
+		Margin: 17, 4
+		RequiresCondition: powersurge
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+		RequiresSelection: True
 
 HORSEBREEDER:
 	Inherits: ^FactionBuilding
@@ -5021,73 +5442,31 @@ HORSEBREEDER:
 	Power:
 		Amount: -100
 	Targetable:
-		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration
+		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration, MatahariInfiltrate
 	ProvidesPrerequisite@cyberlab:
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelhorsebreeder
-
-APWR:
-	Inherits: ^FactionBuilding
-	Inherits@POWER_OUTAGE: ^DisabledByPowerOutage
-	Inherits@shape: ^3x2Shape
-	Inherits@rubbles: ^3x2Rubbles
-	Inherits@supercharge: ^SuperchargePower
-	Inherits@EMPDISABLE: ^EmpDisable
-	Inherits@sabotable: ^Sabotable
-	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
-	ProductionTimeMultiplier@basediscount:
-		Multiplier: 85
-	HitShape:
-		TargetableOffsets: 840,0,0, 598,-640,0, 598,640,0, -1060,0,0, -768,-640,0, -768,640,0, 0,0,0
-		Type: Polygon
-			Points: -1536,-300, -640,-811, 640,-811, 1536,-300, 1536,555, 640,1110, -640,1110, -1536,555
-		UseTargetableCellsOffsets: False
-	Valued:
-		Cost: 650
-	Tooltip:
-		Name: Advanced Power Plant
-	ProvidesPrerequisite:
-		Prerequisite: anypower
-	Building:
-		Footprint: xxx xxx
-		Dimensions: 3,2
-		LocalCenterOffset: 0,-512,0
-	Selectable:
-		Bounds: 2696, 2696
-		DecorationBounds: 2696, 2696, 0, -603
-	Health:
-		HP: 75000
-	Armor:
-		Type: Wood
-	RevealsShroud:
-		Range: 5c0
-	Power:
-		Amount: 300
-		RequiresCondition: !disabled && !turnedoff
-	Targetable:
-		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration
-	ScalePowerWithHealth:
-	WithDeathAnimation:
-		DeathSequence: dead
-		UseDeathTypeSuffix: false
-	RenderSprites:
-		FactionImages:
-			austria: mapwr
-			germany: mapwr
-			turkey: mapwr
-			italy: mapwr
-			bulgaria: mapwr
-			persia: mapwr
-			raj: eapwr
-			serbia: eapwr
-			usa: eapwr
-			japan: eapwr
-			england: eapwr
-			france: eapwr
-			egypt: eapwr
-			abyssinia: mapwr
-	SpawnActorOnDeath@tunnel:
-		Actor: tunnelapwr
+	InfiltrateToSpawnActor@matahari:
+		Actor: proxy.mataharihorsebreeder
+		Types: MatahariInfiltrate
+		LinkedToParent: True
+	ExternalCondition@powersurge:
+		Condition: horsesurge
+	ProximityExternalCondition@jam:
+		Condition: surged
+		RequiresCondition: horsesurge
+		Range: 2c0
+		ValidRelationships: Enemy
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: BottomRight
+		Margin: 17, 4
+		RequiresCondition: horsesurge
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+		RequiresSelection: True
 
 STEK:
 	Inherits: ^FactionBuilding
@@ -5125,7 +5504,7 @@ STEK:
 	Power:
 		Amount: -100
 	Targetable:
-		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
+		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration, MatahariInfiltrate
 	ProvidesPrerequisite@buildingname:
 	InfiltrateForSupportPower@stektech:
 		Types: SpyInfiltrate
@@ -5135,6 +5514,22 @@ STEK:
 		TargetableOffsets: 0,0,0, 490,-470,0, 355,512,0, -355,-512,0, -630,512,0
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelstek
+	InfiltrateToSpawnActor@matahari:
+		Actor: proxy.mataharitek
+		Types: MatahariInfiltrate
+		LinkedToParent: True
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: BottomRight
+		Margin: 17, 4
+		RequiresCondition: teksurge
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+		RequiresSelection: True
+	ExternalCondition@matahari:
+		Condition: teksurge
 
 MTEK:
 	Inherits: ^FactionBuilding
@@ -5170,7 +5565,7 @@ MTEK:
 	RevealsShroud@GAPGEN:
 		Range: 4c0
 	Targetable:
-		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
+		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration, MatahariInfiltrate
 	Power:
 		Amount: -200
 	ProvidesPrerequisite@buildingname:
@@ -5183,6 +5578,22 @@ MTEK:
 		TargetableOffsets: 0,0,0, 490,-470,0, 355,512,0, -355,-512,0, -630,512,0
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelmtek
+	InfiltrateToSpawnActor@matahari:
+		Actor: proxy.mataharitek
+		Types: MatahariInfiltrate
+		LinkedToParent: True
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: BottomRight
+		Margin: 17, 4
+		RequiresCondition: teksurge
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+		RequiresSelection: True
+	ExternalCondition@matahari:
+		Condition: teksurge
 
 ATEK:
 	Inherits: ^FactionBuilding
@@ -5218,7 +5629,7 @@ ATEK:
 	RevealsShroud@GAPGEN:
 		Range: 4c0
 	Targetable:
-		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
+		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration, MatahariInfiltrate
 	Power:
 		Amount: -200
 	ProvidesPrerequisite@buildingname:
@@ -5230,6 +5641,22 @@ ATEK:
 		TargetableOffsets: 0,0,0, 490,-470,0, 355,512,0, -355,-512,0, -630,512,0
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelatek
+	InfiltrateToSpawnActor@matahari:
+		Actor: proxy.mataharitek
+		Types: MatahariInfiltrate
+		LinkedToParent: True
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: BottomRight
+		Margin: 17, 4
+		RequiresCondition: teksurge
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+		RequiresSelection: True
+	ExternalCondition@matahari:
+		Condition: teksurge
 
 INDPLANT:
 	Inherits: ^FactionBuilding
@@ -5262,8 +5689,8 @@ INDPLANT:
 		Dimensions: 3,3
 		LocalCenterOffset: 0,-512,0
 	Selectable:
-		Bounds: 2696, 2696
-		DecorationBounds: 2696, 2696, 0, -603
+		Bounds: 3096, 3096
+		DecorationBounds: 3096, 3096, 0, 20
 	Health:
 		HP: 75000
 	Armor:
@@ -5273,14 +5700,32 @@ INDPLANT:
 	Power:
 		Amount: -200
 	Targetable:
-		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration
+		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration, MatahariInfiltrate
 	WithDeathAnimation:
 		DeathSequence: dead
 		UseDeathTypeSuffix: false
 	RenderSprites:
 	ProvidesPrerequisite:
+		Prerequisite: indplant
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelindplant
+	InfiltrateToSpawnActor@matahari:
+		Actor: proxy.matahariindplant
+		Types: MatahariInfiltrate
+		LinkedToParent: True
+	ExternalCondition@powersurge:
+		Condition: indplantsurge
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: BottomRight
+		Margin: 17, 4
+		RequiresCondition: indplantsurge
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+		RequiresSelection: True
+
 
 FIX:
 	Inherits: ^FactionBuilding
@@ -5350,6 +5795,24 @@ FIX:
 		HasMinibib: True
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelfix
+	InfiltrateToSpawnActor@matahari:
+		Actor: proxy.mataharirepair
+		Types: MatahariInfiltrate
+		LinkedToParent: True
+	Targetable:
+		TargetTypes: GroundActor, Structure, C4, DetonateAttack, MatahariInfiltrate
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: BottomRight
+		Margin: 17, 4
+		RequiresCondition: fixsurge
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+		RequiresSelection: True
+	ExternalCondition@matahari:
+		Condition: fixsurge
 
 BARR:
 	Inherits: ^FactionBuilding
@@ -5448,10 +5911,10 @@ BARR:
 		Factions: arabia, russia, china
 		Prerequisite: infantry.thief
 	ProvidesPrerequisite@penal:
-		Factions: arabia, china, ukraine
+		Factions: arabia, ukraine, russia
 		Prerequisite: infantry.penal
 	ProvidesPrerequisite@dog:
-		Factions: germany, austria, italy, turkey
+		Factions: germany, austria, italy
 		Prerequisite: infantry.dog
 	ProvidesPrerequisite@grenadier:
 		Factions: russia, china, ukraine
@@ -5562,7 +6025,7 @@ BARR:
 		Proxy: barracks.upgraded
 		Types: SpyInfiltrate
 	Targetable:
-		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration
+		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration, MatahariInfiltrate
 	RenderSprites:
 		FactionImages:
 			austria: mrax
@@ -5581,6 +6044,26 @@ BARR:
 			abyssinia: mrax
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelbarr
+	InfiltrateToSpawnActor@matahari:
+		Actor: proxy.mataharibarr
+		Types: MatahariInfiltrate
+		LinkedToParent: True
+	ExternalCondition@factsurge:
+		Condition: barrsurge
+	ProvidesPrerequisite@matahari:
+		Prerequisite: matahari-target-infantry
+		RequiresCondition: barrsurge
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: BottomRight
+		Margin: 17, 4
+		RequiresCondition: barrsurge
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+		RequiresSelection: True
+
 
 FLKGUN:
 	Inherits: AGUN

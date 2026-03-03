@@ -47,8 +47,8 @@ TeslaCannon:
 	-Projectile:
 	Projectile: Missile
 		Arm: 2
-		Blockable: True
-		HorizontalRateOfTurn: 20
+		Blockable: False
+		HorizontalRateOfTurn: 40
 		RangeLimit: 6c512
 		Image: teslabolt
 		Shadow: False
@@ -60,18 +60,23 @@ TeslaCannon:
 		Jammable: False
 		Inaccuracy: 0c0
 		CloseEnough: 0c0
+		LaunchAngle: 30
+		Gravity: 0
+		CruiseAltitude: 1c0
+		HomingActivationDelay: 2
+		AllowSnapping: True
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c128
 		Falloff: 100, 75, 50, 25
-		Damage: 4000
+		Damage: 2000
 		ValidTargets: GroundActor, Trees,  Ship, WaterActor
 		Versus:
-			None: 150
-			Wood: 10
+			None: 125
+			Wood: 15
 			Light: 85
 			Medium: 75
 			Heavy: 60
-			Concrete: 5
+			Concrete: 10
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ElectricityDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Scorch

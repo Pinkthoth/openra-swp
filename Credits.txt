@@ -37,6 +37,7 @@ Graphics:
 -Target Lock animation by QuantumGhost
 -Dynamite by Fryone
 -Toxic explosion by ppap11404
+-Current ring by ppap11404
 
 Various icons
 -Mig Eater from Revora.net
