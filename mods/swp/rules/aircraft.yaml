@@ -683,9 +683,9 @@ WW1BOMBER:
 	Contrail@2:
 		Offset: 0,553,0
 	Buildable:
-		Prerequisites: ~afld, dome, ~aircraft.raj, ~techlevel.high
+		Prerequisites: ~afld, ~aircraft.raj, ~techlevel.high
 		Description: Slow bomber that drops incendiary bombs.
-		BuildPaletteOrder: 501
+		BuildPaletteOrder: 499
 	TooltipExtras:
 		Strengths: + Strong vs Buildings, Defenses.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
@@ -1188,7 +1188,7 @@ YAK:
 		Queue: Aircraft
 		BuildAtProductionType: Plane
 		BuildPaletteOrder: 400
-		Prerequisites: ~afld, ~aircraft.komintern, ~techlevel.medium
+		Prerequisites: ~afld, commcent, ~aircraft.komintern, ~techlevel.medium
 		Description: Attack Plane armed with\ndual machine guns.
 	TooltipExtras:
 		Strengths: + Strong vs Aircraft.
@@ -1362,7 +1362,7 @@ TESLAHIND:
 		Queue: Helicopter
 		BuildAtProductionType: Plane
 		BuildPaletteOrder: 231
-		Prerequisites: ~helicopter.russia, stek
+		Prerequisites: ~helicopter.russia, commcent
 		Description: Experimental helicopter armed tesla coils.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Vehicles.
@@ -1452,7 +1452,7 @@ HELIX:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 101
-		Prerequisites: ~helicopter.china
+		Prerequisites: ~helicopter.china, dome
 		Description: Transport helicopter.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Vehicles.
@@ -2279,7 +2279,7 @@ HEAVYFIGHTER:
 		Queue: Aircraft
 		BuildAtProductionType: Plane
 		BuildPaletteOrder: 501
-		Prerequisites: ~afld, ~aircraft.austria, ~techlevel.medium
+		Prerequisites: ~afld, commcent, ~aircraft.austria, ~techlevel.medium
 		Description: Attack Plane armed with\nquadruble machine guns.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Aircraft.
@@ -2418,7 +2418,7 @@ TRAN:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 10
-		Prerequisites: ~helicopter.allies, ~techlevel.medium
+		Prerequisites: ~helicopter.allies, dome, ~techlevel.medium
 		Description: Fast Infantry Transport Helicopter.
 	TooltipExtras:
 		Weaknesses: - Unarmed
@@ -2560,7 +2560,7 @@ SAUCER:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 300
-		Prerequisites: ~aircraft.ukraine, stek, ~techlevel.high
+		Prerequisites: ~helicopter.ukraine, stek, ~techlevel.high
 		Description: Levitating disc armed with magnetic rays.
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles.
@@ -2635,7 +2635,7 @@ HIND:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 225
-		Prerequisites: commcent, ~helicopter.hind, ~techlevel.high
+		Prerequisites: dome, ~helicopter.hind, ~techlevel.high
 		Description: Helicopter gunship armed with\nsmall dual machine guns.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -2815,7 +2815,7 @@ NADYA:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 10000
+		HP: 15000
 	RevealsShroud:
 		MinRange: 8c0
 		Range: 10c0
@@ -3181,7 +3181,7 @@ GEBARD:
 		Prerequisites: commcent, ~helicopter.zentrum, ~techlevel.high
 		Description: Fast helicopter gunship armed with rockets.
 	Valued:
-		Cost: 1800
+		Cost: 1650
 	Tooltip:
 		Name: Dragonfly
 	UpdatesPlayerStatistics:
@@ -3438,7 +3438,7 @@ COMET:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 200
-		Prerequisites: ~helicopter.zentrum, commcent
+		Prerequisites: ~helicopter.zentrum, dome
 		Description: Helicopter gunship armed\nwith dual chainguns.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -3533,7 +3533,7 @@ GLOSTER:
 		Cost: 1000
 	Buildable:
 		Prerequisites: ~aircraft.raj, ~afld, ~techlevel.medium
-		BuildPaletteOrder: 500
+		BuildPaletteOrder: 498
 	Armament@PRIMARY:
 		Name: primary
 		Weapon: ChainGun.Yak.AA
@@ -3586,7 +3586,7 @@ SPITFIRE:
 	Valued:
 		Cost: 1500
 	Buildable:
-		Prerequisites: ~aircraft.entente, ~afld, ~techlevel.medium
+		Prerequisites: ~aircraft.entente, commcent, ~afld, ~techlevel.medium
 		BuildPaletteOrder: 500
 	AmmoPool:
 		Armaments: primary, secondary
@@ -3688,7 +3688,7 @@ GOBLIN:
 		CanHover: False
 		CanSlide: False
 		Repulsable: False
-		VTOL: true
+		VTOL: False
 	Valued:
 		Cost: 1000
 	Rearmable:
@@ -3718,7 +3718,7 @@ MH60:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 20
-		Prerequisites: ~helicopter.allies, ~techlevel.medium
+		Prerequisites: ~helicopter.allies, dome, ~techlevel.medium
 		Description: Helicopter gunship armed\nwith dual chainguns.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
@@ -3805,7 +3805,7 @@ INDIACHOPPER:
 	Buildable:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
-		BuildPaletteOrder: 20
+		BuildPaletteOrder: 19
 		Prerequisites: ~helicopter.raj, ~techlevel.medium
 		Description: Helicopter gunship armed\nwith dual machine guns.
 	TooltipExtras:
@@ -4201,7 +4201,7 @@ MSRSMT:
 		Queue: Aircraft
 		BuildAtProductionType: Plane
 		BuildPaletteOrder: 600
-		Prerequisites: ~afld, ~aircraft.messer, ~techlevel.medium
+		Prerequisites: ~afld, ~aircraft.messer, commcent, ~techlevel.medium
 		Description: Attack Plane armed with\ndual machine guns.
 	TooltipExtras:
 		Strengths: + Strong vs Aircraft.
@@ -4727,7 +4727,7 @@ STUKA:
 	Buildable:
 		BuildPaletteOrder: 500
 	Buildable:
-		Prerequisites: ~afld, ~aircraft.stuka, ~techlevel.high
+		Prerequisites: ~afld, ~aircraft.stuka, commcent, ~techlevel.high
 		Description: Dive bomber that drops highly\neffective bombs on a small target area.
 		BuildPaletteOrder: 610
 	TooltipExtras:
@@ -4783,7 +4783,7 @@ MI26:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 100
-		Prerequisites: ~helicopter.halo, ~techlevel.medium
+		Prerequisites: ~helicopter.halo, dome, ~techlevel.medium
 		Description: Infantry Transport Helicopter.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
@@ -4846,7 +4846,7 @@ AIRCRANE:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 199
-		Prerequisites: ~helicopter.zentrum
+		Prerequisites: ~helicopter.zentrum, dome
 		Description: Vehicle Transport Helicopter.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
@@ -5046,7 +5046,7 @@ KIROV:
 		Queue: Aircraft
 		BuildAtProductionType: Aircraft
 		BuildPaletteOrder: 700
-		Prerequisites: ~aircraft.germany, mtek
+		Prerequisites: ~aircraft.russia, stek
 		Description: Slow moving bomber zeppelin.
 	TooltipExtras:
 		Strengths: + Strong vs Buildings, Defenses.

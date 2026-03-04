@@ -2093,7 +2093,7 @@ TURKFTRK:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 81
-		Prerequisites: ~vehicles.china, ~techlevel.low, ~illicitlab
+		Prerequisites: ~vehicles.china, ~techlevel.low, adept
 		Description: Mobile unit with mounted Flak cannon.
 	TooltipExtras:
 		Strengths: + Strong vs Aircraft.
@@ -2256,7 +2256,7 @@ WIESEL:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 40
-		Prerequisites: ~vehicles.wiesel, adept
+		Prerequisites: ~vehicles.wiesel
 		Description: Mobile unit with a mounted anti air gun.
 	TooltipExtras:
 		Strengths: + Strong vs Aircraft.
@@ -3851,6 +3851,8 @@ SLINGSHOT:
 
 SLINGSHOT.Husk:
 	Inherits: ^Husk
+	WithFacingSpriteBody:
+		Sequence: turret
 	Tooltip:
 		Name: Husk (Slingshot)
 	ThrowsParticle@turret:
@@ -3863,6 +3865,9 @@ SLINGSHOT.Husk:
 		IntoActor: SLINGSHOT
 	RenderSprites:
 		Image: slingshot
+	Selectable:
+		Bounds: 1289,1289
+		DecorationBounds: 1289,1289
 
 KATYA:
 	Inherits: ^TrackedVehicle
@@ -6086,7 +6091,7 @@ RONIN:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 320
-		Prerequisites: ~vehicles.japan, adept, ~techlevel.low
+		Prerequisites: ~vehicles.japan, commcent, ~techlevel.low
 		Description: Multipurpose tank, jack of all trades,\nmaster of none.
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles, Infantry.
@@ -8440,7 +8445,7 @@ GRINDER:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 320
-		Prerequisites: commcent, ~vehicles.kazakhstan, ~techlevel.low, illicitlab
+		Prerequisites: commcent, ~vehicles.egypt, ~techlevel.low, illicitlab
 		Description: Large tank with a grinder in front.
 	Valued:
 		Cost: 1500
@@ -9234,6 +9239,9 @@ TESTUDO:
 		Turret: deployed-turret
 		TurnSpeed: 28
 		RequiresCondition: deployed
+	WithSpriteTurret@faketurret:
+		Turret: undeployed-turret
+		RequiresCondition: !exists
 	WithSpriteTurret@undeployed:
 		Turret: undeployed-turret
 		RequiresCondition: undeployed
@@ -9297,6 +9305,8 @@ TESTUDO:
 		Actor: TESTUDO.Husk
 	Selectable:
 		DecorationBounds: 1289, 1289
+	GrantCondition@exists:
+		Condition: exists
 
 MOLERAT:
 	Inherits: ^TrackedVehicle
@@ -9761,8 +9771,8 @@ ORDA:
 	-ExternalCondition@OfficerNearby:
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 335
-		Prerequisites: mtek, ~vehicles.italy, ~techlevel.high
+		BuildPaletteOrder: 329
+		Prerequisites: commcent, ~vehicles.italy, ~techlevel.high
 		Description: Deployable construction platform.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
@@ -10059,7 +10069,7 @@ DTRK:
 		Description: Truck loaded with unstable nuclear materials.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
-		Attributes: • Deploy to detonate cargo.
+		Attributes: • Deploy to detonate cargo.\n• Can lay Nuclear Materials.
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -10075,9 +10085,25 @@ DTRK:
 	RevealsShroud:
 		Range: 4c0
 	FireWarheadsOnDeath:
-		Weapon: NukeTruckExplosion
-		EmptyWeapon: NukeTruckExplosion
+		Weapon: UnitExplode
+		EmptyWeapon: UnitExplode
 		DamageSource: Killer
+		RequiresCondition: ammo == 0
+	FireWarheadsOnDeath@1:
+		Weapon: NukeTruckExplosion1
+		EmptyWeapon: NukeTruckExplosion1
+		DamageSource: Killer
+		RequiresCondition: ammo > 0
+	FireWarheadsOnDeath@2:
+		Weapon: NukeTruckExplosion2
+		EmptyWeapon: NukeTruckExplosion2
+		DamageSource: Killer
+		RequiresCondition: ammo > 1
+	FireWarheadsOnDeath@3:
+		Weapon: NukeTruckExplosion3
+		EmptyWeapon: NukeTruckExplosion3
+		DamageSource: Killer
+		RequiresCondition: ammo > 2
 	AttackFrontal:
 		FacingTolerance: 512
 	Armament@PRIMARY:
@@ -10090,6 +10116,33 @@ DTRK:
 		RequiresCondition: invulnerability || triggered
 	Chronoshiftable:
 		ExplodeInstead: true
+	Minelayer:
+		Mine: NUKEMAT
+		TileUnknownName: build-valid
+		TerrainTypes: Clear, Road, Beach, Ore, Gems, Rough, Bridge
+	AmmoPool:
+		Ammo: 3
+		RearmSound: minelay1.aud
+		AmmoCondition: ammo
+	Rearmable:
+		RearmActors: fix
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		Margin: 4, 3
+		RequiresSelection: true
+	WithFacingSpriteBody:
+		RequiresCondition: ammo == 3 || !exists
+	WithFacingSpriteBody@1:
+		RequiresCondition: ammo == 1
+		Sequence: idle2
+	WithFacingSpriteBody@2:
+		RequiresCondition: ammo == 2
+		Sequence: idle3
+	WithFacingSpriteBody@3:
+		RequiresCondition: ammo == 0 && exists
+		Sequence: idle4
+	GrantCondition@exists:
+		Condition: exists
 
 TOXINTRUCK:
 	Inherits: ^Vehicle

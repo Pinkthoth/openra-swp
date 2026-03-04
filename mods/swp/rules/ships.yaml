@@ -281,8 +281,9 @@ AC:
 	Exit:
 		ExitCell: 0,0
 		SpawnOffset: 0,0,100
-	AttackOmni:
+	AttackFrontal:
 		TargetFrozenActors: True
+		FacingTolerance: 512
 		PauseOnCondition: empdisable || being-warped
 	Armament:
 		Weapon: CarrierLauncher

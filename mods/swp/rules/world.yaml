@@ -278,6 +278,11 @@
 		InternalName: allies
 		Side: Entente
 		Selectable: False
+	Faction@8:
+		Name: USA
+		InternalName: usa
+		Side: Entente
+		Description: faction-usa.description
 	Faction@1:
 		Name: Britain
 		InternalName: england
@@ -288,11 +293,41 @@
 		InternalName: france
 		Side: Entente
 		Description: faction-france.description
+	Faction@7:
+		Name: Japan
+		InternalName: japan
+		Side: Entente
+		Description: faction-japan.description
+	Faction@20:
+		Name: India
+		InternalName: raj
+		Side: Entente
+		Description: faction-raj.description
+	Faction@14:
+		Name: Pact
+		InternalName: zentrum
+		Side: Pact
+		Selectable: False
 	Faction@3:
 		Name: Germany
 		InternalName: germany
 		Side: Pact
 		Description: faction-germany.description
+	Faction@12:
+		Name: Austria
+		InternalName: austria
+		Side: Pact
+		Description: faction-austria.description
+	Faction@10:
+		Name: Italy
+		InternalName: italy
+		Side: Pact
+		Description: faction-italy.description
+	Faction@13:
+		Name: Turkey
+		InternalName: turkey
+		Side: Pact
+		Description: faction-turkey.description
 	Faction@18:
 		Name: Persia
 		InternalName: persia
@@ -308,26 +343,11 @@
 		InternalName: russia
 		Side: Komintern
 		Description: faction-russia.description
-	Faction@24:
-		Name: Arabia
-		InternalName: arabia
-		Side: Komintern
-		Description: faction-arabia.description
 	Faction@6:
 		Name: Ukraine
 		InternalName: ukraine
 		Side: Komintern
 		Description: faction-ukraine.description
-	Faction@7:
-		Name: Japan
-		InternalName: japan
-		Side: Entente
-		Description: faction-japan.description
-	Faction@8:
-		Name: USA
-		InternalName: usa
-		Side: Entente
-		Description: faction-usa.description
 	Faction@9:
 		Name: China
 		InternalName: china
@@ -338,31 +358,11 @@
 		InternalName: kazakhstan
 		Side: Komintern
 		Description: faction-kazakhstan.description
-	Faction@10:
-		Name: Italy
-		InternalName: italy
-		Side: Pact
-		Description: faction-italy.description
-	Faction@12:
-		Name: Austria
-		InternalName: austria
-		Side: Pact
-		Description: faction-austria.description
-	Faction@13:
-		Name: Turkey
-		InternalName: turkey
-		Side: Pact
-		Description: faction-turkey.description
-	Faction@14:
-		Name: Pact
-		InternalName: zentrum
-		Side: Pact
-		Selectable: False
-	Faction@20:
-		Name: India
-		InternalName: raj
-		Side: Entente
-		Description: faction-raj.description
+	Faction@24:
+		Name: Arabia
+		InternalName: arabia
+		Side: Komintern
+		Description: faction-arabia.description
 	Faction@random:
 		Name: Any
 		InternalName: Random

@@ -3850,15 +3850,15 @@ sbearer:
 		Facings: 8
 	idle1:
 		Start: 224
-		Length: 24
+		Length: 9
 		Tick: 120
 	idle2:
 		Start: 261
 		Length: 15
 		Tick: 120
 	idle3:
-		Start: 261
-		Length: 15
+		Start: 250
+		Length: 12
 		Tick: 120
 	die1:
 		Start: 276

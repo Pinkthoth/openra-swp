@@ -2584,6 +2584,18 @@
 	MapEditorData:
 		Categories: Fake
 	WithBuildingBib:
+	WithDecoration@fake:
+		ValidRelationships: Ally
+		Image: fakedeco
+		Sequence: idle
+		Position: Center
+	GrantCondition@exists:
+		Condition: exists
+	WithIdleOverlay:
+		RequiresCondition: !exists
+		Image: fakedeco
+		Palette: chrome
+		Sequence: idle
 
 ^BoobyTrapBuilding:
 	Inherits: ^FakeBuilding
@@ -2612,6 +2624,17 @@
 	GrantConditionOnDeploy:
 		DeployedCondition: deployed
 		SkipMakeAnimation: True
+	WithDecoration@fake:
+		ValidRelationships: Ally
+		Image: trapdeco
+		Sequence: idle
+		Position: Center
+	GrantCondition@exists:
+		Condition: exists
+	WithIdleOverlay:
+		RequiresCondition: !exists
+		Image: trapdeco
+		Sequence: idle
 
 ^InfiltratableFake:
 	Targetable:

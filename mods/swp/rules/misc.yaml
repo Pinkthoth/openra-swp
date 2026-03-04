@@ -1,3 +1,8 @@
+FLAGS:
+	Inherits: ^Vehicle
+	Tooltip:
+		Name: Flag
+
 MINV:
 	Inherits: ^Mine
 	RenderSprites:
@@ -85,6 +90,8 @@ IED:
 			soviet: ied
 			russia: ied
 			ukraine: ied
+	Tooltip:
+		Name: IED
 	FireWarheadsOnDeath:
 		Weapon: SMine
 	FireWarheadsOnDeath@demo:
@@ -370,6 +377,41 @@ FLAREOLD:
 		ShowOwnerRow: false
 	MapEditorData:
 		Categories: Decoration
+
+NUKEMAT:
+	Inherits@1: ^SpriteActor
+	HiddenUnderShroud:
+	Tooltip:
+		Name: Nuclear Materials
+	RenderSprites:
+		Palette: terrain
+	WithSpriteBody:
+	Building:
+		Footprint: x
+		Dimensions: 1,1
+	AppearsOnRadar:
+	RadarColorFromTerrain:
+		Terrain: Wall
+	AppearsOnMapPreview:
+		Terrain: Wall
+	MapEditorData:
+	PeriodicExplosion@nuke:
+		Weapon: NukeWaste
+		InitialDelay: 100
+	Health:
+		HP: 5000
+	Selectable:
+		Bounds: 1024,1024
+	SelectionDecorations:
+	Armor:
+		Type: None
+	HitShape:
+	Targetable:
+		TargetTypes: GroundActor
+	FireWarheadsOnDeath:
+		Weapon: ToxinExplosion
+		EmptyWeapon: ToxinExplosion
+		DamageSource: Killer
 
 MINE:
 	Inherits@1: ^SpriteActor
@@ -1032,235 +1074,116 @@ proxy.mataharidome:
 
 proxy.kominternweap:
 	AlwaysVisible:
-	GrantRandomCondition:
-		Conditions: a1, a2, a3, a4, a5, a6
 	ProvidesPrerequisite@1:
 		Prerequisite: vehicles.transporter
-		RequiresCondition: a1
 	ProvidesPrerequisite@2:
 		Prerequisite: vehicles.ftrk
-		RequiresCondition: a2
 	ProvidesPrerequisite@3:
 		Prerequisite: vehicles.tankette
-		RequiresCondition: a3
-	ProvidesPrerequisite@4:
-		Prerequisite: vehicles.cossack
-		RequiresCondition: a4
-	ProvidesPrerequisite@5:
-		Prerequisite: vehicles.btr
-		RequiresCondition: a5
-	ProvidesPrerequisite@6:
-		Prerequisite: vehicles.katy
-		RequiresCondition: a6
 	ProvidesPrerequisite@b1:
 		Prerequisite: raj.transporter
-		RequiresCondition: a1
 	ProvidesPrerequisite@b2:
 		Prerequisite: raj.ftrk
-		RequiresCondition: a2
 	ProvidesPrerequisite@b3:
 		Prerequisite: raj.tankette
-		RequiresCondition: a3
+
+proxy.kominternadept:
+	AlwaysVisible:
+	ProvidesPrerequisite@4:
+		Prerequisite: vehicles.cossack
+	ProvidesPrerequisite@5:
+		Prerequisite: vehicles.btr
 	ProvidesPrerequisite@b4:
 		Prerequisite: raj.cossack
-		RequiresCondition: a4
 	ProvidesPrerequisite@b5:
 		Prerequisite: raj.btr
-		RequiresCondition: a5
+
+proxy.kominterndome:
+	AlwaysVisible:
+	ProvidesPrerequisite@6:
+		Prerequisite: vehicles.katy
 	ProvidesPrerequisite@b6:
 		Prerequisite: raj.katy
-		RequiresCondition: a6
-	GrantCondition@1:
-		RequiresCondition: a1 > 2
-		Condition: a2
-	GrantCondition@2:
-		RequiresCondition: a2 > 2
-		Condition: a3
-	GrantCondition@3:
-		RequiresCondition: a3 > 2
-		Condition: a4
-	GrantCondition@4:
-		RequiresCondition: a4 > 2
-		Condition: a5
-	GrantCondition@5:
-		RequiresCondition: a5 > 2
-		Condition: a6
-	GrantCondition@6:
-		RequiresCondition: a6 > 2
-		Condition: a1
-	GrantConditionOnPrerequisite@1:
-		Prerequisites: vehicles.transporter
-		Condition: a1
-	GrantConditionOnPrerequisite@2:
-		Prerequisites: vehicles.ftrk
-		Condition: a2
-	GrantConditionOnPrerequisite@3:
-		Prerequisites: vehicles.tankette
-		Condition: a3
-	GrantConditionOnPrerequisite@4:
-		Prerequisites: vehicles.cossack
-		Condition: a4
-	GrantConditionOnPrerequisite@5:
-		Prerequisites: vehicles.btr
-		Condition: a5
-	GrantConditionOnPrerequisite@6:
-		Prerequisites: vehicles.katy
-		Condition: a6
-		
+
+proxy.kominterncommcent:
+	AlwaysVisible:
 
 proxy.ententeweap:
 	AlwaysVisible:
-	GrantRandomCondition:
-		Conditions: a1, a2, a3, a4, a5, a6
 	ProvidesPrerequisite@1:
 		Prerequisite: vehicles.apc
-		RequiresCondition: a1
 	ProvidesPrerequisite@2:
 		Prerequisite: vehicles.jeep
-		RequiresCondition: a2
 	ProvidesPrerequisite@3:
 		Prerequisite: vehicles.squire
-		RequiresCondition: a3
-	ProvidesPrerequisite@4:
-		Prerequisite: vehicles.crusader
-		RequiresCondition: a4
-	ProvidesPrerequisite@5:
-		Prerequisite: vehicles.arty
-		RequiresCondition: a5
-	ProvidesPrerequisite@6:
-		Prerequisite: vehicles.paladin
-		RequiresCondition: a6
 	ProvidesPrerequisite@b1:
 		Prerequisite: raj.apc
-		RequiresCondition: a1
 	ProvidesPrerequisite@b2:
 		Prerequisite: raj.jeep
-		RequiresCondition: a2
 	ProvidesPrerequisite@b3:
 		Prerequisite: raj.squire
-		RequiresCondition: a3
+
+proxy.ententeadept:
+	AlwaysVisible:
+	ProvidesPrerequisite@4:
+		Prerequisite: vehicles.crusader
 	ProvidesPrerequisite@b4:
 		Prerequisite: raj.crusader
-		RequiresCondition: a4
+
+proxy.ententedome:
+	AlwaysVisible:
+	ProvidesPrerequisite@5:
+		Prerequisite: vehicles.arty
 	ProvidesPrerequisite@b5:
 		Prerequisite: raj.arty
-		RequiresCondition: a5
+
+proxy.ententecommcent:
+	AlwaysVisible:
+	ProvidesPrerequisite@6:
+		Prerequisite: vehicles.paladin
 	ProvidesPrerequisite@b6:
 		Prerequisite: raj.paladin
-		RequiresCondition: a6
-	GrantCondition@1:
-		RequiresCondition: a1 > 2
-		Condition: a2
-	GrantCondition@2:
-		RequiresCondition: a2 > 2
-		Condition: a3
-	GrantCondition@3:
-		RequiresCondition: a3 > 2
-		Condition: a4
-	GrantCondition@4:
-		RequiresCondition: a4 > 2
-		Condition: a5
-	GrantCondition@5:
-		RequiresCondition: a5 > 2
-		Condition: a6
-	GrantCondition@6:
-		RequiresCondition: a6 > 2
-		Condition: a1
-	GrantConditionOnPrerequisite@1:
-		Prerequisites: vehicles.apc
-		Condition: a1
-	GrantConditionOnPrerequisite@2:
-		Prerequisites: vehicles.jeep
-		Condition: a2
-	GrantConditionOnPrerequisite@3:
-		Prerequisites: vehicles.squire
-		Condition: a3
-	GrantConditionOnPrerequisite@4:
-		Prerequisites: vehicles.crusader
-		Condition: a4
-	GrantConditionOnPrerequisite@5:
-		Prerequisites: vehicles.arty
-		Condition: a5
-	GrantConditionOnPrerequisite@6:
-		Prerequisites: vehicles.paladin
-		Condition: a6
 
 proxy.mittelweap:
 	AlwaysVisible:
-	GrantRandomCondition:
-		Conditions: a1, a2, a3, a4, a5, a6
 	ProvidesPrerequisite@1:
 		Prerequisite: vehicles.halftrack
-		RequiresCondition: a1
 	ProvidesPrerequisite@2:
 		Prerequisite: vehicles.bobcat
-		RequiresCondition: a2
 	ProvidesPrerequisite@3:
 		Prerequisite: vehicles.wiesel
-		RequiresCondition: a3
-	ProvidesPrerequisite@4:
-		Prerequisite: vehicles.leopard
-		RequiresCondition: a4
-	ProvidesPrerequisite@5:
-		Prerequisite: vehicles.v2rl
-		RequiresCondition: 5
-	ProvidesPrerequisite@6:
-		Prerequisite: vehicles.msam
-		RequiresCondition: a6
 	ProvidesPrerequisite@b1:
 		Prerequisite: raj.halftrack
-		RequiresCondition: a1
 	ProvidesPrerequisite@b2:
 		Prerequisite: raj.bobcat
-		RequiresCondition: a2
 	ProvidesPrerequisite@b3:
 		Prerequisite: raj.wiesel
-		RequiresCondition: a3
+
+proxy.mitteladept:
+	AlwaysVisible:
+	ProvidesPrerequisite@4:
+		Prerequisite: vehicles.leopard
 	ProvidesPrerequisite@b4:
 		Prerequisite: raj.leopard
-		RequiresCondition: a4
+		
+proxy.mitteldome:
+	AlwaysVisible:
+	ProvidesPrerequisite@5:
+		Prerequisite: vehicles.v2rl
 	ProvidesPrerequisite@b5:
 		Prerequisite: raj.v2rl
-		RequiresCondition: 5
+		
+proxy.mittelcommcent:
+	AlwaysVisible:
+	ProvidesPrerequisite@6:
+		Prerequisite: vehicles.msam
 	ProvidesPrerequisite@b6:
 		Prerequisite: raj.msam
-		RequiresCondition: a6
-	GrantCondition@1:
-		RequiresCondition: a1 > 2
-		Condition: a2
-	GrantCondition@2:
-		RequiresCondition: a2 > 2
-		Condition: a3
-	GrantCondition@3:
-		RequiresCondition: a3 > 2
-		Condition: a4
-	GrantCondition@4:
-		RequiresCondition: a4 > 2
-		Condition: a5
-	GrantCondition@5:
-		RequiresCondition: a5 > 2
-		Condition: a6
-	GrantCondition@6:
-		RequiresCondition: a6 > 2
-		Condition: a1
-	GrantConditionOnPrerequisite@1:
-		Prerequisites: vehicles.halftrack
-		Condition: a1
-	GrantConditionOnPrerequisite@2:
-		Prerequisites: vehicles.bobcat
-		Condition: a2
-	GrantConditionOnPrerequisite@3:
-		Prerequisites: vehicles.wiesel
-		Condition: a3
-	GrantConditionOnPrerequisite@4:
-		Prerequisites: vehicles.leopard
-		Condition: a4
-	GrantConditionOnPrerequisite@5:
-		Prerequisites: vehicles.v2rl
-		Condition: a5
-	GrantConditionOnPrerequisite@6:
-		Prerequisites: vehicles.msam
-		Condition: a6
+
+
+
+
+
 
 proxy.atektech:
 	AlwaysVisible:

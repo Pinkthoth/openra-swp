@@ -3,6 +3,22 @@ shroud:
 		Filename: shadow.shp
 		Length: *
 
+fakedeco:
+	idle:
+		Filename: fakedeco.shp
+		Start: 1
+
+trapdeco:
+	idle:
+		Filename: fakedeco.shp
+		Start: 0
+
+flags:
+	idle:
+		Filename: flags.shp
+		Facings: 32
+		UseClassicFacings: True
+
 bib_1x1:
 	idle:
 		Filename: bibs.shp
@@ -194,6 +210,10 @@ magneticshield:
 spydish:
 	idle:
 		Filename: spydish.shp
+
+nukemat:
+	idle:
+		Filename: nukemat.shp
 
 explosion:
 	Defaults:

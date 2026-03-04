@@ -42,6 +42,7 @@ faction-england =
     .name = England
     .description = British Empire
      Military Intelligence
+     
      Special Ability: Radar Scan
      Special Building: MI6 Command Post
      Special Infantry: Informant
@@ -59,6 +60,7 @@ faction-france =
     .name = France
     .description = Republic of France
      Deception and Misdirection
+     
      Special Ability: Mirage
      Special Building: Fake Structures
      Special Building: Camouflaged Defensive Structures
@@ -75,6 +77,7 @@ faction-usa =
     .name = USA
     .description = United States of America
      Shock and Awe
+     
      Special Ability: EMP Bomb
      Special Building: Arc Tower
      Special Infantry: Disc Thrower
@@ -92,6 +95,7 @@ faction-japan =
     .name = Japan
     .description = Japanese Empire
      Shock Troop Doctrine
+     
      Special Ability: Recon Drone
      Special Building: Robot Control
      Special Building: Obelisk
@@ -111,6 +115,7 @@ faction-raj =
     .name = India
     .description = British Raj
      Industrial Capacity
+     
      Special Ability: Quick Repair
      Special Building: Foundry
      Special Aircraft: Sparrow
@@ -133,6 +138,7 @@ faction-spain =
     .name = Spain
     .description = Republic of Spain
      Versatility
+     
      Special Ability: IFV Drop
      Special Building: Bunker
      Special Aircraft: Colibri
@@ -148,6 +154,7 @@ faction-egypt =
     .name = Korea
     .description = Protectorate of Korea
      Robotics
+     
      Special Ability: Recon Drone
      Special Building: Robot Control
      Special Aircraft: Battle Drone
@@ -163,6 +170,7 @@ faction-russia =
     .name = Russia
     .description = Russian Soviet Republic
      Red Tide Doctrine
+     
      Special Ability: Blizzard
      Special Building: Tesla Reactor
      Special Aircraft: Kirov
@@ -180,6 +188,7 @@ faction-ukraine =
     .name = Ukraine
     .description = Ukrainian Soviet Republic
      Cybernetic Warfare
+     
      Special Ability: Assimilator
      Special Building: Cybernetic Laboratory
      Special Aircraft: Saucer
@@ -213,6 +222,7 @@ faction-arabia =
     .name = Arabia
     .description = Arab Proletarian Guard
      Asymmetric Warfare
+     
      Special Ability: Supply Arms
      Special Building: Tunnel Network
      Special Building: Scrap Yard
@@ -232,6 +242,7 @@ faction-china =
     .name = China
     .description = People's Republic of China
      Human Wave Doctrine
+     
      Special Ability: Propaganda
      Special Building: Forward Command
      Special Building: Horse Breeder
@@ -279,6 +290,7 @@ faction-kazakhstan =
     .name = Turkmenia
     .description = Federation of Turkic Soviets
      Vanguard Initiative
+     
      Special Ability: Metempsychosis
      Special Building: Illicit Laboratory
      Special Infantry: Mutant Brute
@@ -300,6 +312,7 @@ faction-germany =
     .name = Germany
     .description = German Empire
      Chronokrieg
+     
      Special Ability: Lazarene Ray
      Special Building: Gap Generator
      Special Building: Lazarus Platform
@@ -317,6 +330,7 @@ faction-austria =
     .name = Austria
     .description = Austro-Hungarian Empire
      Elite Officer Corps
+     
      Special Ability: Field Promotion
      Special Building: Heavy Turret
      Special Building: Military Academy
@@ -333,6 +347,7 @@ faction-turkey =
     .name = Turkey
     .description = Ottoman Empire
      Thermal Warfare
+     
      Special Ability: Napalm Spill
      Special Building: Flame Tower
      Special Aircraft: Iblis
@@ -348,6 +363,7 @@ faction-persia =
     .name = Persia
     .description = Persian Resistance Front
      Guerilla Warfare
+     
      Special Ability: Smokescreen
      Special Building: Boobytrapped Buildings
      Special Building: Tunnel
@@ -386,6 +402,7 @@ faction-italy =
     .name = Italy
     .description = Kingdom of Italy
      Trench Warfare
+     
      Special Ability: Paramines
      Special Building: Grand Cannon
      Special Infantry: Mortar Crew

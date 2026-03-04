@@ -2713,7 +2713,7 @@ ADEPT:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 90
-		Prerequisites: proc, ~techlevel.medium
+		Prerequisites: proc, ~techlevel.medium, anypower
 		Description: Makes unit production faster.\nNeeds to be upgraded to unit type for faster production.
 	TooltipExtras:
 		Attributes: • Press V to change to upgrade tool.
@@ -2781,6 +2781,26 @@ ADEPT:
 		Condition: adeptsurge
 	Targetable:
 		TargetTypes: GroundActor, C4, DetonateAttack, Structure, MatahariInfiltrate
+	GrantConditionOnFaction@entente:
+		Condition: entente
+		Factions: usa, england, france, raj, japan
+	GrantConditionOnFaction@mittelAdept:
+		Condition: mittel
+		Factions: germany, austria, persia, turkey, italy
+	GrantConditionOnFaction@komiternAdept:
+		Condition: komintern
+		Factions: russia, ukraine, arabia, kazakhstan, china
+	ExternalCondition@copied:
+		Condition: copycatcopied
+	Targetable@entente:
+		RequiresCondition: entente && !copycatcopied
+		TargetTypes: EntenteAdept
+	Targetable@komintern:
+		RequiresCondition: komintern && !copycatcopied
+		TargetTypes: KominternAdept
+	Targetable@mittel:
+		RequiresCondition: mittel && !copycatcopied
+		TargetTypes: MittelAdept
 
 MILACADEMY:
 	Inherits: ^FactionBuilding
@@ -2895,7 +2915,7 @@ COMMCENT:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 96
-		Prerequisites: dome, ~techlevel.infonly
+		Prerequisites: dome, ~techlevel.infonly, anypower
 		Description: Provides power for other structures.
 	Valued:
 		Cost: 1500
@@ -3601,6 +3621,28 @@ COMMCENT:
 		RequiresSelection: True
 	ExternalCondition@matahari:
 		Condition: commcentsurge
+	ExternalCondition@copied:
+		Condition: copycatcopied
+	GrantConditionOnFaction@entente:
+		Condition: entente
+		Factions: usa, england, france, raj, japan
+	GrantConditionOnFaction@mittelCommcent:
+		Condition: mittel
+		Factions: germany, austria, persia, turkey, italy
+	GrantConditionOnFaction@komiternCommcent:
+		Condition: komintern
+		Factions: russia, ukraine, arabia, kazakhstan, china
+	ExternalCondition@copied:
+		Condition: copycatcopied
+	Targetable@entente:
+		RequiresCondition: entente && !copycatcopied
+		TargetTypes: EntenteCommcent
+	Targetable@komintern:
+		RequiresCondition: komintern && !copycatcopied
+		TargetTypes: KominternCommcent
+	Targetable@mittel:
+		RequiresCondition: mittel && !copycatcopied
+		TargetTypes: MittelCommcent
 
 TRIAGE:
 	Inherits: ^FactionBuilding
@@ -3620,7 +3662,7 @@ TRIAGE:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 101
-		Prerequisites: barr, ~techlevel.infonly
+		Prerequisites: barr, ~techlevel.infonly, anypower
 		Description: Heals infantry.
 	RepairsUnits:
 		HpPerStep: 1000
@@ -3692,108 +3734,6 @@ TRIAGE:
 	ExternalCondition@matahari:
 		Condition: triagesurge
 
-WEAP.KOMINTERN:
-	Inherits: WEAP
-	Targetable@komintern:
-		RequiresCondition: kominternweap
-		TargetTypes: KominternWeap
-	GrantConditionOnFaction@kominternweap:
-		Condition: kominternweap
-		Factions: russia, ukraine, arabia, kazakhstan, china
-	InfiltrateForSupportPower@komintern:
-		Proxy: proxy.kominternweap
-		Types: KominternWeap
-		RequiresCondition: kominternweap
-	-Buildable:
-	-TransformOnCondition@entente:
-	-TransformOnCondition@komintern:
-	-TransformOnCondition@mittel:
-	RenderSprites:
-		Image: weap
-		FactionImages:
-			austria: mweap
-			germany: mweap
-			turkey: mweap
-			italy: mweap
-			bulgaria: mweap
-			persia: mweap
-			raj: eweap
-			usa: eweap
-			japan: eweap
-			england: eweap
-			france: eweap
-			serbia: eweap
-			egypt: eweap
-			abyssinia: mweap
-
-WEAP.MITTEL:
-	Inherits: WEAP
-	Targetable@mittel:
-		RequiresCondition: mittelweap
-		TargetTypes: MittelWeap
-	GrantConditionOnFaction@mittelweap:
-		Condition: mittelweap
-		Factions: germany, austria, persia, turkey, italy
-	InfiltrateForSupportPower@mittel:
-		Proxy: proxy.mittelweap
-		Types: MittelWeap
-		RequiresCondition: mittelweap
-	-Buildable:
-	-TransformOnCondition@entente:
-	-TransformOnCondition@komintern:
-	-TransformOnCondition@mittel:
-	RenderSprites:
-		Image: weap
-		FactionImages:
-			austria: mweap
-			germany: mweap
-			turkey: mweap
-			italy: mweap
-			bulgaria: mweap
-			persia: mweap
-			raj: eweap
-			usa: eweap
-			japan: eweap
-			england: eweap
-			france: eweap
-			serbia: eweap
-			egypt: eweap
-			abyssinia: mweap
-
-WEAP.ENTENTE:
-	Inherits: WEAP
-	Targetable@entente:
-		RequiresCondition: ententeweap
-		TargetTypes: EntenteWeap
-	GrantConditionOnFaction@ententeweap:
-		Condition: ententeweap
-		Factions: usa, england, france, raj, japan
-	InfiltrateForSupportPower@entente:
-		Proxy: proxy.ententeweap
-		Types: EntenteWeap
-		RequiresCondition: ententeweap
-	-Buildable:
-	-TransformOnCondition@entente:
-	-TransformOnCondition@komintern:
-	-TransformOnCondition@mittel:
-	RenderSprites:
-		Image: weap
-		FactionImages:
-			austria: mweap
-			germany: mweap
-			turkey: mweap
-			italy: mweap
-			bulgaria: mweap
-			persia: mweap
-			raj: eweap
-			usa: eweap
-			japan: eweap
-			england: eweap
-			france: eweap
-			serbia: eweap
-			egypt: eweap
-			abyssinia: mweap
-
 WEAP:
 	Inherits: ^FactionBuilding
 	Inherits@shape: ^3x3Shape
@@ -3802,24 +3742,26 @@ WEAP:
 	Inherits@sabotable: ^Sabotable
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
-	TransformOnCondition@komintern:
-		RequiresCondition: komiternweap && !build-incomplete
-		IntoActor: weap.komintern
-	TransformOnCondition@entente:
-		RequiresCondition: ententeweap && !build-incomplete
-		IntoActor: weap.entente
-	TransformOnCondition@mittel:
-		IntoActor: weap.mittel
-		RequiresCondition: mittelweap && !build-incomplete
-	GrantConditionOnFaction@ententeweap:
-		Condition: ententeweap
+	ExternalCondition@copied:
+		Condition: copycatcopied
+	GrantConditionOnFaction@entente:
+		Condition: entente
 		Factions: usa, england, france, raj, japan
 	GrantConditionOnFaction@mittelweap:
-		Condition: mittelweap
+		Condition: mittel
 		Factions: germany, austria, persia, turkey, italy
 	GrantConditionOnFaction@komiternweap:
-		Condition: komiternweap
+		Condition: komintern
 		Factions: russia, ukraine, arabia, kazakhstan, china
+	Targetable@entente:
+		RequiresCondition: entente && !copycatcopied
+		TargetTypes: EntenteWeap
+	Targetable@komintern:
+		RequiresCondition: komintern && !copycatcopied
+		TargetTypes: KominternWeap
+	Targetable@mittel:
+		RequiresCondition: mittel && !copycatcopied
+		TargetTypes: MittelWeap
 	ProductionTimeMultiplier@basediscount:
 		Multiplier: 90
 	Selectable:
@@ -3827,7 +3769,7 @@ WEAP:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 85
-		Prerequisites: anypower, barr, ~techlevel.low, ~!structures.raj
+		Prerequisites: anypower, ~techlevel.low
 		Description: Produces heavy vehicles.
 	Valued:
 		Cost: 1700
@@ -4061,30 +4003,6 @@ WEAP:
 		ValidRelationships: Ally
 		RequiresSelection: True
 
-WEAP.RAJ:
-	Inherits: WEAP
-	Buildable:
-		Queue: Building
-		BuildPaletteOrder: 85
-		Prerequisites: anypower, ~techlevel.low, ~structures.raj
-	RenderSprites:
-		Image: weap
-		FactionImages:
-			austria: mweap
-			germany: mweap
-			turkey: mweap
-			italy: mweap
-			bulgaria: mweap
-			persia: mweap
-			raj: eweap
-			usa: eweap
-			japan: eweap
-			england: eweap
-			france: eweap
-			serbia: eweap
-			egypt: eweap
-			abyssinia: mweap
-
 DOME:
 	Inherits: ^FactionBuilding
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
@@ -4102,7 +4020,7 @@ DOME:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 95
-		Prerequisites: proc, ~techlevel.medium
+		Prerequisites: proc, ~techlevel.medium, anypower
 		Description: Provides an overview of the battlefield.\nRequires power to operate.
 	TooltipExtras:
 		Attributes: • Provides minimap.
@@ -4177,6 +4095,26 @@ DOME:
 		BlinkPattern: Off, On
 		ValidRelationships: Ally
 		RequiresSelection: True
+	ExternalCondition@copied:
+		Condition: copycatcopied
+	GrantConditionOnFaction@entente:
+		Condition: entente
+		Factions: usa, england, france, raj, japan
+	GrantConditionOnFaction@mittelDome:
+		Condition: mittel
+		Factions: germany, austria, persia, turkey, italy
+	GrantConditionOnFaction@komiternDome:
+		Condition: komintern
+		Factions: russia, ukraine, arabia, kazakhstan, china
+	Targetable@entente:
+		RequiresCondition: entente && !copycatcopied
+		TargetTypes: EntenteDome
+	Targetable@komintern:
+		RequiresCondition: komintern && !copycatcopied
+		TargetTypes: KominternDome
+	Targetable@mittel:
+		RequiresCondition: mittel && !copycatcopied
+		TargetTypes: MittelDome
 
 PROC:
 	Inherits: ^FactionBuilding
@@ -4509,7 +4447,7 @@ HPAD:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 120
-		Prerequisites: dome, ~techlevel.medium, ~!structures.raj
+		Prerequisites: dome, ~techlevel.medium, ~!structures.raj, anypower
 		Description: Produces and reloads\nhelicopters.
 	Valued:
 		Cost: 900
@@ -4676,7 +4614,7 @@ HPAD:
 HPAD.RAJ:
 	Inherits: HPAD
 	Buildable:
-		Prerequisites: ~techlevel.medium, ~structures.raj
+		Prerequisites: ~techlevel.medium, ~structures.raj, anypower
 	RenderSprites:
 		Image: hpad
 	TooltipExtras:
@@ -4685,7 +4623,7 @@ HPAD.RAJ:
 AFLD.RAJ:
 	Inherits: AFLD
 	Buildable:
-		Prerequisites: dome, ~techlevel.medium, ~structures.raj
+		Prerequisites: dome, ~techlevel.medium, ~structures.raj, anypower
 	RenderSprites:
 		Image: afld
 	TooltipExtras:
@@ -4706,7 +4644,7 @@ AFLD:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 130
-		Prerequisites: commcent, ~techlevel.medium, ~!structures.raj
+		Prerequisites: commcent, ~techlevel.medium, ~!structures.raj, anypower
 		Description: Produces and reloads aircraft.
 	TooltipExtras:
 		Attributes: • Support Power: Paratroopers.
@@ -5345,7 +5283,7 @@ ILLICITLAB:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 601
-		Prerequisites: dome, ~structures.kazakhstan, ~techlevel.infonly, anypower
+		Prerequisites: ~structures.kazakhstan, ~techlevel.infonly, anypower
 		Description: Parascientific laboratory.
 		BuildLimit: 1
 	TooltipExtras:
@@ -5479,7 +5417,7 @@ STEK:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 150
-		Prerequisites: commcent, ~structures.komintern, ~techlevel.high
+		Prerequisites: commcent, ~structures.komintern, ~techlevel.high, anypower
 		Description: Provides Komintern advanced technologies.
 	Valued:
 		Cost: 1600
@@ -5542,7 +5480,7 @@ MTEK:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 140
-		Prerequisites: commcent, ~structures.zentrum, ~techlevel.high
+		Prerequisites: commcent, ~structures.zentrum, ~techlevel.high, anypower
 		Description: Provides Pact advanced technologies.
 	Valued:
 		Cost: 1600
@@ -5606,7 +5544,7 @@ ATEK:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 140
-		Prerequisites: commcent, ~structures.entente, ~techlevel.high
+		Prerequisites: commcent, ~structures.entente, ~techlevel.high, anypower
 		Description: Provides Entente advanced technologies.
 	Valued:
 		Cost: 1600
@@ -5735,7 +5673,7 @@ FIX:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 100
-		Prerequisites: weap, ~techlevel.medium
+		Prerequisites: weap, ~techlevel.medium, anypower
 		Description: Repairs vehicles for credits.
 	Valued:
 		Cost: 1500

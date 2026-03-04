@@ -2111,8 +2111,10 @@ TeutonPrism:
 DesolatorHandHeld:
 	ReloadDelay: 100
 	Burst: 10
+	FollowingBurstTargetOffset: 0c126,0,0
 	BurstDelays: 1
 	Range: 6c0
+	StartBurstReport: desolator_weapon.wav
 	ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
 	Projectile: Bullet
 		Speed: 0c256
@@ -2122,6 +2124,7 @@ DesolatorHandHeld:
 		Image: fb2
 		Inaccuracy: 0c0
 		Width: 0c10
+		LaunchAngle: 40
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c256
 		Falloff: 200, 100, 50, 25, 5
@@ -2135,6 +2138,13 @@ DesolatorHandHeld:
 			Concrete: 40
 		DamageTypes: NotCrushDeath, Prone50Percent, TriggerProne, FireDeath, Incendiary
 		ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+		ValidTargets: Ground, GroundActor
+	Warhead@3Eff: CreateEffect
+		Explosions: small_napalm
+		ImpactSounds: firebl3.aud
+		ValidTargets: Ground, GroundActor, Trees,  Ship, WaterActor, Trees, Corpse
 
 Desolator:
 	Inherits: DesolatorHandHeld
@@ -2203,7 +2213,10 @@ Desolator_LineDamage:
 DesolatorHandHeld_Effect:
 	ReloadDelay: 109
 	Range: 6c0
-	Report: desolator_weapon.wav
+	Burst: 10
+	FollowingBurstTargetOffset: 0c126,0,0
+	BurstDelays: 1
+	StartBurstReport: desolator_weapon.wav
 	ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
 	Projectile: Bullet
 		Speed: 0c266
@@ -3238,3 +3251,52 @@ MADTankDetonate:
 		Explosions: med_explosion
 		ImpactSounds: mineblo1.aud
 		ImpactActors: false
+
+CopyWeapon:
+	Range: 2c0
+	ReloadDelay: 20
+		TargetActorCenter: True
+	Report: camerasound.aud
+	Projectile: InstantHit
+	ValidTargets: EntenteWeap, KominternWeap, MittelWeap, EntenteAdept, KominternAdept, MittelAdept, EntenteDome, KominternDome, MittelDome ,EntenteCommcent, KominternCommcent, MittelCommcent
+	Warhead@ententeweap: SpawnActor
+		Actors: proxy.ententeweap
+		ValidTargets: EntenteWeap
+	Warhead@kominternweap: SpawnActor
+		Actors: proxy.kominternweap
+		ValidTargets: KominternWeap
+	Warhead@mittelweap: SpawnActor
+		Actors: proxy.mittelweap
+		ValidTargets: MittelWeap
+	Warhead@ententeDome: SpawnActor
+		Actors: proxy.ententedome
+		ValidTargets: EntenteDome
+	Warhead@kominternDome: SpawnActor
+		Actors: proxy.kominterndome
+		ValidTargets: KominternDome
+	Warhead@mittelDome: SpawnActor
+		Actors: proxy.mitteldome
+		ValidTargets: MittelDome
+	Warhead@ententeAdept: SpawnActor
+		Actors: proxy.ententeadept
+		ValidTargets: EntenteAdept
+	Warhead@kominternAdept: SpawnActor
+		Actors: proxy.kominternadept
+		ValidTargets: KominternAdept
+	Warhead@mittelAdept: SpawnActor
+		Actors: proxy.mitteladept
+		ValidTargets: MittelAdept
+	Warhead@ententeCommcent: SpawnActor
+		Actors: proxy.ententecommcent
+		ValidTargets: EntenteCommcent
+	Warhead@kominternCommcent: SpawnActor
+		Actors: proxy.kominterncommcent
+		ValidTargets: KominternCommcent
+	Warhead@mittelCommcent: SpawnActor
+		Actors: proxy.mittelcommcent
+		ValidTargets: MittelCommcent
+	Warhead@copied: GrantExternalCondition
+		Condition: copycatcopied
+		Range: 1c512
+		Duration: 50
+		ValidTargets: EntenteWeap, KominternWeap, MittelWeap, EntenteAdept, KominternAdept, MittelAdept, EntenteDome, KominternDome, MittelDome ,EntenteCommcent, KominternCommcent, MittelCommcent

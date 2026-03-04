@@ -606,6 +606,7 @@ SBEARER:
 		MuzzleSequence: garrison-muzzle
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
+		IdleSequences: idle1,idle2,idle3
 		RequiresCondition: !parachute && !deployed
 	WithFacingSpriteBody:
 		Sequence: empty
@@ -1135,9 +1136,6 @@ COPYCAT:
 		Sequence: tag-spy
 		Palette: effect
 		RequiresCondition: disguise
-	Infiltrates:
-		Types: KominternWeap, EntenteWeap, MittelWeap
-		Notification: BuildingInfiltrated
 	AutoTarget:
 		InitialStance: HoldFire
 		InitialStanceAI: HoldFire
@@ -1146,6 +1144,13 @@ COPYCAT:
 	IgnoresDisguise:
 	Armament:
 		Weapon: SilencedPPK
+	Armament@ententeweap:
+		Weapon: CopyWeapon
+		Name: secondary
+		Cursor: copycatcamera
+		OutsideRangeCursor: copycatcamera
+	AttackFrontal:
+		Armaments: primary, secondary
 	AttackMove:
 		Voice: Move
 	RenderSprites:
@@ -3258,7 +3263,7 @@ CYBORGHIJACKER:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 171
-		Prerequisites: stek, adept, cyberlab, ~infantry.ukraine, ~techlevel.high
+		Prerequisites: stek, cyberlab, ~infantry.ukraine, ~techlevel.high
 		Description: Cyborg hacker.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
@@ -5989,15 +5994,7 @@ DESOLATOR:
 	Armament:
 		Name: primary
 		Weapon: DesolatorHandHeld
-		LocalOffset: 120,0,200
-	Armament@linedamage:
-		Name: secondary
-		Weapon: DesolatorHandHeld_LineDamage
-		LocalOffset: 120,0,200
-	Armament@effect:
-		Name: tertiary
-		Weapon: DesolatorHandHeld_Effect
-		LocalOffset: 120,0,200
+		LocalOffset: 380,0,300
 	AttackFrontal:
 		Armaments: primary, secondary, tertiary
 	Mobile:
