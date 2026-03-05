@@ -1093,7 +1093,7 @@ HVTNK:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 75000
+		HP: 80000
 	Armor:
 		Type: Heavy
 	Mobile:
@@ -1450,7 +1450,7 @@ SIEGETNK:
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 35
+		Speed: 40
 		TurnSpeed: 12
 		PauseOnCondition: being-captured
 		Locomotor: heavytracked
@@ -3433,11 +3433,11 @@ CHINATANK:
 		Weaknesses: - Weak vs Aircraft.
 		Attributes: • Armed with a secondary machine gun.\n • Increased damage, speed and armor while near other Horde Tanks.
 	Health:
-		HP: 40000
+		HP: 38000
 	Armor:
 		Type: Heavy
 	Valued:
-		Cost: 1000
+		Cost: 950
 	Mobile:
 		Speed: 85
 	Armament:
@@ -4384,7 +4384,7 @@ SIPAHI:
 		Weaknesses: - Weakness depends on the cargo.
 		Attributes: • Weapon depends on the cargo.
 	Valued:
-		Cost: 700
+		Cost: 750
 	Tooltip:
 		Name: IFV
 	UpdatesPlayerStatistics:
@@ -4950,7 +4950,7 @@ SONIQUE:
 		Range: 6c0
 	Armament:
 		Weapon: DisruptionBeam
-		LocalOffset: 200,0,25
+		LocalOffset: 200,0,75
 	WithSpriteTurret:
 	Turreted:
 		TurnSpeed: 40
@@ -5641,7 +5641,7 @@ GUERILLATANK:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 45000
+		HP: 50000
 	Armor:
 		Type: Heavy
 	Mobile:
@@ -6109,7 +6109,7 @@ RONIN:
 		Type: Heavy
 	Mobile:
 		Locomotor: lighttracked
-		Speed: 90
+		Speed: 95
 	RevealsShroud:
 		MinRange: 4c0
 		Range: 5c0
@@ -6408,7 +6408,7 @@ KUMO:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 20000
+		HP: 22500
 	Armor:
 		Type: Medium
 	Buildable:
@@ -6656,7 +6656,7 @@ JACKAL.Husk:
 		Weaknesses: - Weak vs Aircraft.
 		Attributes: • Armed with a secondary machine gun.
 	Valued:
-		Cost: 1400
+		Cost: 1200
 	Tooltip:
 		Name: Rhino Tank
 		GenericName: Tank
@@ -6796,7 +6796,7 @@ TITAN:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 60000
+		HP: 65000
 	Armor:
 		Type: Heavy
 	Mobile:
@@ -8099,7 +8099,7 @@ ARCHER:
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 110
+		Speed: 80
 		TurnSpeed: 12
 		PauseOnCondition: being-captured
 	RevealsShroud:
@@ -8884,7 +8884,7 @@ AUGUSTUS:
 		Weaknesses: - Weak vs Vehicles, Aircraft.
 		Attributes: • Deploy to enter firing or mobile states.
 	Valued:
-		Cost: 1500
+		Cost: 1300
 	Health:
 		HP: 25000
 	Armor:
@@ -9496,7 +9496,7 @@ SCORPION:
 		Weaknesses: - Weak vs Infantry, Aircraft.
 		Attributes: • Can gather materials from husks to\nbolster it's armour and weaponry.
 	Valued:
-		Cost: 800
+		Cost: 850
 	Tooltip:
 		Name: Scorpion Tank
 	UpdatesPlayerStatistics:
@@ -9656,7 +9656,7 @@ TECHNICAL:
 		Type: Light
 	Mobile:
 		TurnSpeed: 40
-		Speed: 145
+		Speed: 155
 		Locomotor: wheeled
 	RevealsShroud:
 		MinRange: 4c0

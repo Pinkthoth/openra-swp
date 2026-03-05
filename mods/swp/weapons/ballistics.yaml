@@ -60,11 +60,12 @@ TeslaCannon:
 		Jammable: False
 		Inaccuracy: 0c0
 		CloseEnough: 0c0
-		LaunchAngle: 30
 		Gravity: 0
 		CruiseAltitude: 1c0
 		HomingActivationDelay: 2
 		AllowSnapping: True
+		MinimumLaunchAngle: 90
+		MaximumLaunchAngle: 91
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c128
 		Falloff: 100, 75, 50, 25
@@ -340,6 +341,12 @@ SiegeGun:
 		Duration: 10
 		Intensity: 1
 		Multiplier: 1,0
+	Warhead@condition: GrantExternalCondition
+		Duration: 500
+		Condition: confusion
+		ValidTargets: GroundActor, Trees, Ship, WaterActor, Infantry
+		ValidRelationships: Enemy, Neutral, Ally
+		Range: 2c512
 
 155mm:
 	Inherits: ^Artillery
@@ -1066,7 +1073,7 @@ Mortar:
 	Warhead@4EffWater: CreateEffect
 		Explosions: small_splash
 
-augustusgun:
+Augustusgun:
 	Inherits: ^Artillery
 	MinRange: 4c0
 	Range: 13c512
@@ -1082,7 +1089,7 @@ augustusgun:
 		LaunchAngle: 100
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c526
-		Damage: 32000
+		Damage: 25000
 		Falloff: 100, 55, 25, 5
 		Versus:
 			None: 80

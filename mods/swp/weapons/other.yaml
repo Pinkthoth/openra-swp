@@ -126,7 +126,7 @@
 		ValidRelationships: Enemy, Neutral, Ally
 		Range: 0c126
 	Warhead@condition1: GrantExternalCondition
-		Duration: 200
+		Duration: 300
 		Condition: microwave
 		ValidTargets: Structure, Ship
 		ValidRelationships: Enemy, Neutral, Ally
@@ -254,7 +254,7 @@ RadCannon:
 			Wood: 50
 			Light: 80
 			Medium: 60
-			Heavy: 40
+			Heavy: 50
 			Concrete: 40
 
 RadCannon-double:
@@ -272,7 +272,7 @@ RadCannon-double:
 			Wood: 50
 			Light: 80
 			Medium: 60
-			Heavy: 40
+			Heavy: 50
 			Concrete: 40
 
 SoundRifle:
@@ -1805,13 +1805,13 @@ LaserKitsune:
 		Color: FF0000
 	Warhead@1Dam: SpreadDamage
 		Spread: 42
-		Damage: 12000
+		Damage: 15000
 		Versus:
 			None: 100
 			Wood: 45
-			Light: 75
-			Medium: 65
-			Heavy: 45
+			Light: 80
+			Medium: 70
+			Heavy: 50
 			Concrete: 25
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath
 		ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
@@ -2241,7 +2241,7 @@ Desolator_Effect:
 
 Firelance:
 	ReloadDelay: 150
-	Range: 6c0
+	Range: 7c0
 	Report: hk_flame_turret_1.wav
 	ValidTargets: GroundActor, Trees,  Ship, WaterActor, Ground, Water
 	Projectile: LinearPulse
@@ -2322,7 +2322,7 @@ KineticBeam:
 
 DisruptionBeam:
 	ReloadDelay: 100
-	Range: 6c0
+	Range: 6c512
 	Report: sonic4.aud
 	ValidTargets: GroundActor, Trees,  Ship, WaterActor, Ground, Water
 	Projectile: AreaBeam
@@ -2565,20 +2565,20 @@ MicrowaveTank:
 		ValidRelationships: Enemy, Neutral, Ally
 		Range: 0c126
 	Warhead@condition4: GrantExternalCondition
-		Duration: 200
+		Duration: 400
 		Condition: microwave
 		ValidTargets: GroundActor, Trees, WaterActor
 		InvalidTargets: Structure, Ship
 		ValidRelationships: Enemy, Neutral, Ally
 		Range: 0c126
 	Warhead@condition5: GrantExternalCondition
-		Duration: 200
+		Duration: 350
 		Condition: microwave
 		ValidTargets: Structure, Ship
 		ValidRelationships: Enemy, Neutral, Ally
 		Range: 1c0
 	Warhead@condition6: GrantExternalCondition
-		Duration: 200
+		Duration: 250
 		Condition: microwave
 		ValidTargets: Structure, Ship
 		ValidRelationships: Enemy, Neutral, Ally

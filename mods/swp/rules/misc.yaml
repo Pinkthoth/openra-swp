@@ -15,61 +15,15 @@ MINV:
 		Weapon: ATMine
 
 MINHH:
-	Inherits: ^TrackedVehicle
-	Inherits: ^EmpDisable
-	Inherits@fire: ^AutoTargetAllPlusBombers
-	Inherits@selection: ^SelectableSupportUnit
-	-ExperienceTrickler@OfficerNearby:
-	-GainsExperienceMultiplier@OfficerNearby:
-	-ExternalCondition@OfficerNearby:
-	Inherits@Drone: ^Drone
-	Valued:
-		Cost: 800
-	Tooltip:
-		Name: Trench Layer
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Health:
-		HP: 20000
-	Armor:
-		Type: Light
-	Mobile:
-		Speed: 0
-		Locomotor: lighttracked
-	RevealsShroud:
-		MinRange: 4c0
-		Range: 5c0
-		RevealGeneratedShroud: False
-	RevealsShroud@GAPGEN:
-		Range: 4c0
-	FireWarheadsOnDeath:
-		Weapon: EMPMine
+	Inherits: ^Mine
 	RenderSprites:
 		Image: minp
-	Targetable:
-		TargetTypes: GroundActor, Vehicle, Mine
-	Mine:
-		CrushClasses: mine
-		DetonateClasses: mine
-		AvoidFriendly: false
-		BlockFriendly: false
-	GrantConditionOnAttack:
-		Condition: attacking
-	AttackOmni:
-	Armament:
-		Name: primary
-		Weapon: HammerheadMine
-		RequiresCondition: !empdisable
-	KillsSelf:
-		RemoveInstead: True
-		RequiresCondition: attacking
-	Cloak:
-		CloakSound:
-		UncloakSound:
-		CloakType: Mine
-		InitialDelay: 0
-	-WithFacingSpriteBody:
-	WithSpriteBody:
+		FactionImages:
+			soviet: minp
+			russia: minp
+			ukraine: minp
+	FireWarheadsOnDeath:
+		Weapon: EMPMine
 
 MINS:
 	Inherits: ^Mine

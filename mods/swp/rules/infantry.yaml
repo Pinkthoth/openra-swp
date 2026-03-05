@@ -2472,7 +2472,7 @@ SCREENER:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 76
 		Prerequisites: dome, ~infantry.persia, ~techlevel.high
-		Description: Throws smoke screen grenades on your infantry.
+		Description: Armed with grenades and smoke grenades.
 	TooltipExtras:
 		Strengths: + Strong vs Buildings, Infantry.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
@@ -2491,6 +2491,11 @@ SCREENER:
 		LocalOffset: 0,0,555
 		FireDelay: 15
 		TargetRelationships: Ally
+	Armament@secondary:
+		Name: secondary
+		Weapon: Grenade
+		LocalOffset: 0,0,555
+		FireDelay: 15
 	Armament@GARRISONED:
 		Name: garrisoned
 		Weapon: SmokeGrenade
@@ -5450,7 +5455,7 @@ NEBELWHERFER:
 		Weaknesses: - Weak vs Vehicles, Infantry.
 		Attributes: • Has stronger armour in the front.
 	Valued:
-		Cost: 550
+		Cost: 600
 	Tooltip:
 		Name: Rocket Launcher Crew
 	UpdatesPlayerStatistics:

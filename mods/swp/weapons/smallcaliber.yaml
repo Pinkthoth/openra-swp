@@ -124,12 +124,12 @@ AGGatlingStart:
 
 AGGatling:
 	Inherits: ^Gatling
-	ReloadDelay: 8
+	ReloadDelay: 6
 	BurstDelays: 4
 	Range: 6c0
 	Burst: 2
 	Warhead@1Dam: SpreadDamage
-		Damage: 900
+		Damage: 775
 		Versus:
 			None: 80
 			Light: 40
@@ -140,17 +140,17 @@ AGGatling:
 
 AGGatling2:
 	Inherits: AGGatling
-	ReloadDelay: 6
+	ReloadDelay: 4
 	BurstDelays: 3
 
 AGGatling3:
 	Inherits: AGGatling
-	ReloadDelay: 4
+	ReloadDelay: 2
 	BurstDelays: 2
 
 AGGatling4:
 	Inherits: AGGatling
-	ReloadDelay: 2
+	ReloadDelay: 1
 	BurstDelays: 1
 
 PresbyterGatingStart:
@@ -340,7 +340,7 @@ FLAK-23-AG:
 			None: 55
 			Wood: 20
 			Light: 45
-			Medium: 25
+			Medium: 35
 			Heavy: 10
 			Concrete: 5
 	Warhead@2Eff: CreateEffect
@@ -460,11 +460,11 @@ Wiesel-AG:
 	Warhead@1Dam: SpreadDamage
 		Damage: 800
 		Versus:
-			None: 75
+			None: 80
 			Wood: 20
 			Light: 55
-			Medium: 25
-			Heavy: 15
+			Medium: 35
+			Heavy: 20
 			Concrete: 10
 		ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
 

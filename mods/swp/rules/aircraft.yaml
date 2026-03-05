@@ -2684,25 +2684,25 @@ HIND:
 		PauseOnCondition: !ammo || !airborne
 	Armament@ag-0:
 		Weapon: AGGatling_Hind
-		LocalOffset: 100,-200,-25
+		LocalOffset: 100,-250,-75
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling == 1
 		PauseOnCondition: !ammo || !airborne
 	Armament@ag-1:
 		Weapon: AGGatling2_Hind
-		LocalOffset: 100,-200,-25
+		LocalOffset: 100,-250,-75
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling == 2
 		PauseOnCondition: !ammo || !airborne
 	Armament@ag-2:
 		Weapon: AGGatling3_Hind
-		LocalOffset: 100,-200,-25
+		LocalOffset: 100,-250,-75
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling == 3
 		PauseOnCondition: !ammo || !airborne
 	Armament@ag-3:
 		Weapon: AGGatling4_Hind
-		LocalOffset: 100,-200,-25
+		LocalOffset: 100,-250,-75
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling >= 4
 		PauseOnCondition: !ammo || !airborne
@@ -2714,28 +2714,28 @@ HIND:
 	Armament@ag-0s:
 		Name: secondary
 		Weapon: AGGatling_Hind
-		LocalOffset: 100,200,-25
+		LocalOffset: 100,250,-75
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling == 1
 		PauseOnCondition: !ammo || !airborne
 	Armament@ag-1s:
 		Name: secondary
 		Weapon: AGGatling2_Hind
-		LocalOffset: 100,200,-25
+		LocalOffset: 100,250,-75
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling == 2
 		PauseOnCondition: !ammo || !airborne
 	Armament@ag-2s:
 		Name: secondary
 		Weapon: AGGatling3_Hind
-		LocalOffset: 100,200,-25
+		LocalOffset: 100,250,-75
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling == 3
 		PauseOnCondition: !ammo || !airborne
 	Armament@ag-3s:
 		Name: secondary
 		Weapon: AGGatling4_Hind
-		LocalOffset: 100,200,-25
+		LocalOffset: 100,250,-75
 		MuzzleSequence: muzzle
 		RequiresCondition: gatling >= 4
 		PauseOnCondition: !ammo || !airborne
