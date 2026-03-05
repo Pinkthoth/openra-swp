@@ -1030,11 +1030,6 @@ PRISMCANNON:
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Vehicles.
 		Weaknesses: - Weak vs Aircraft.	
-	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 340
-		Prerequisites: mtek, adept, ~vehicles.egypt, ~techlevel.medium
-		Description: Super heavy prism cannon.
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -1335,9 +1330,30 @@ ECTNK:
 		PauseOnCondition: turnedoff
 		FacingTolerance: 0
 	WithMuzzleOverlay:
-	PortableChrono:
-		ChargeDelay: 250
+		FacingTolerance: 0
+	PortableChronoCA:
+		Charges: 1
+		ChargeDelay: 375
+		Cooldown: 75
+		HasDistanceLimit: true
+		MaxDistance: 48
+		MaxInstantDistance: 12
+		PreChargeTicksPerCell: 7
+		MaxPreChargeTicks: 250
+		ResetRechargeOnUse: false
+		RequiresCondition: !empdisable && !being-warped && !chronoshifted
+		ShowSelectionBarWhenFull: false
+		ShowCooldownSelectionBar: true
+		RequireEmptyDestination: true
+		PreChargeCondition: chronoprep
+		MaxInstantCircleColor: EEEEEE44
 		KillCargo: False
+		WarpFromImage: explosion
+		WarpFromSequence: chronoexpbg
+		WarpToImage: explosion
+		WarpToSequence: chronoexpbg
+		WarpEffectPalette: chronopal
+		TeleportCondition: teleported
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	Selectable:
@@ -1398,14 +1414,34 @@ CTNK:
 		Range: 4c0
 	Armament@PRIMARY:
 		Weapon: NeutronCannon
-		LocalOffset: -160,-276,232
+		LocalOffset: 260,0,50
 		LocalYaw: 60
 		PauseOnCondition: turnedoff
 	AttackFrontal:
 		FacingTolerance: 0
 		PauseOnCondition: turnedoff
-	PortableChrono:
-		ChargeDelay: 250
+	PortableChronoCA:
+		Charges: 1
+		ChargeDelay: 375
+		Cooldown: 75
+		HasDistanceLimit: true
+		MaxDistance: 48
+		MaxInstantDistance: 12
+		PreChargeTicksPerCell: 7
+		MaxPreChargeTicks: 250
+		ResetRechargeOnUse: false
+		RequiresCondition: !empdisable && !being-warped && !chronoshifted
+		ShowSelectionBarWhenFull: false
+		ShowCooldownSelectionBar: true
+		RequireEmptyDestination: true
+		PreChargeCondition: chronoprep
+		MaxInstantCircleColor: EEEEEE44
+		WarpFromImage: explosion
+		WarpFromSequence: chronoexpbg
+		WarpToImage: explosion
+		WarpToSequence: chronoexpbg
+		WarpEffectPalette: chronopal
+		TeleportCondition: teleported
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	Selectable:
@@ -2010,11 +2046,6 @@ SHILKA:
 	Inherits: ^Vehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMovePlusBombers
-	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 20
-		Prerequisites: ~vehicles.belarus, adept, dome, ~techlevel.low
-		Description: Mobile unit with mounted Flak cannon.
 	TooltipExtras:
 		Strengths: + Strong vs Aircraft.
 		Weaknesses: - Weak vs Vehicles, Infantry.
@@ -2332,11 +2363,6 @@ WIESEL.Husk:
 QTNK:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
-	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 400
-		Prerequisites: ~vehicles.egypt, stek, adept
-		Description: Mobile seismic wave generator.
 	TooltipExtras:
 		Attributes: • Deals seismic damage to nearby vehicles and structures.
 	Valued:
@@ -2354,8 +2380,7 @@ QTNK:
 		RequiresCondition: !deployed
 		PauseOnCondition: being-captured
 		Speed: 46
-	Chronoshiftable:
-		RequiresCondition: !deployed && !being-captured
+	-ChronoshiftableCA:
 	RevealsShroud:
 		MinRange: 4c0
 		Range: 6c0
@@ -2578,11 +2603,6 @@ KINTNK:
 	Inherits: ^Vehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMovePlusBombers
-	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 81
-		Prerequisites: ~vehicles.abyssinia, dome, ~techlevel.low
-		Description: Mobile unit with psychic kinetic weapon.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
@@ -3640,11 +3660,6 @@ MAROZILNIK:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 271
-		Prerequisites: ~vehicles.belarus, commcent
-		Description: Tank armed with a cryo spray thrower.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
@@ -4759,6 +4774,8 @@ SIPAHI:
 		CloakStyle: Palette
 		InitialDelay: 125
 		CloakDelay: 175
+		CloakType: Hiding
+		DetectionTypes: Hiding
 		CloakSound: appear1.aud
 		UncloakSound: appear1.aud
 		IsPlayerPalette: true
@@ -4775,7 +4792,7 @@ SIPAHI:
 		BorderWidth: 5
 		Width: 3
 	DetectCloaked@phase:
-		DetectionTypes: Phase
+		DetectionTypes: Phase, Hiding
 		Range: 7c0
 		RequiresCondition: passpy
 	RevealsShroud:
@@ -4871,7 +4888,7 @@ SIPAHI:
 			milpol: pasmilpol
 			scout: nochange
 	DetectCloaked@phase:
-		DetectionTypes: Cloak
+		DetectionTypes: Cloak, Hiding, Phase
 		Range: 5c0
 		RequiresCondition: pasmilpol
 	RevealsShroudMultiplier@radist:
@@ -5120,11 +5137,6 @@ CRAWLER:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@CARGOPIPS: ^CargoPips
-	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 81
-		Prerequisites: ~vehicles.egypt, adept, ~techlevel.medium
-		Description: Troop transporter.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
 		Attributes: • Can transport infantry.\n • Has 8 Militias inside when built.
@@ -7688,8 +7700,7 @@ EMPDEVICE:
 		RequiresCondition: !deployed
 		PauseOnCondition: being-captured
 		Speed: 56
-	Chronoshiftable:
-		RequiresCondition: !deployed && !being-captured
+	-ChronoshiftableCA:
 	RevealsShroud:
 		MinRange: 4c0
 		Range: 6c0
@@ -8146,11 +8157,6 @@ MAGNATE:
 	TooltipExtras:
 		Strengths: + Strong vs Tanks.
 		Weaknesses: - Weak vs Infantry, Aircraft.
-	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 340
-		Prerequisites: adept, stek, ~vehicles.mongolia, ~techlevel.medium
-		Description: Versatile tank destroyer.
 	Valued:
 		Cost: 1150
 	Tooltip:
@@ -8442,11 +8448,6 @@ GRINDER:
 	TooltipExtras:
 		Weaknesses: - Unarmed.
 		Attributes: • Deploy to charge faster.\n• Does not slow down while crushing.\n• Can crush most vehicles.
-	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 320
-		Prerequisites: commcent, ~vehicles.egypt, ~techlevel.low, illicitlab
-		Description: Large tank with a grinder in front.
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -10114,8 +10115,7 @@ DTRK:
 		DeployedCondition: triggered
 	KillsSelf:
 		RequiresCondition: invulnerability || triggered
-	Chronoshiftable:
-		ExplodeInstead: true
+	-ChronoshiftableCA:
 	Minelayer:
 		Mine: NUKEMAT
 		TileUnknownName: build-valid
@@ -10185,8 +10185,7 @@ TOXINTRUCK:
 		DeployedCondition: triggered
 	KillsSelf:
 		RequiresCondition: invulnerability || triggered
-	Chronoshiftable:
-		ExplodeInstead: true
+	-ChronoshiftableCA:
 
 CHAOSDRONE:
 	Inherits: ^Vehicle
@@ -10202,13 +10201,13 @@ CHAOSDRONE:
 		Weaknesses: - Unarmed.
 		Attributes: • Deploy to detonate cargo.
 	Valued:
-		Cost: 1000
+		Cost: 600
 	Tooltip:
 		Name: Chaos Drone
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 5000
+		HP: 15000
 	Armor:
 		Type: Light
 	Mobile:
@@ -10219,15 +10218,35 @@ CHAOSDRONE:
 		Weapon: NerveGas
 		EmptyWeapon: NerveGas
 		DamageSource: Killer
+		RequiresCondition: ammo
 	AttackFrontal:
 		FacingTolerance: 512
 	Armament@PRIMARY:
 		Weapon: DemoTruckTargeting
 	GrantConditionOnAttack:
 		Condition: triggered
-	GrantConditionOnDeploy:
+	-ChronoshiftableCA:
+	AmmoPool:
+		Name: primaryammo
+		Armaments: primaryammo
+		ReloadDelay: 0
+		InitialAmmo: 0
+		AmmoCondition: ammo
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		Margin: 4, 3
+		RequiresSelection: true
+		FullSequence: pip-red
+	ReloadAmmoPool:
+		AmmoPool: primaryammo
+		Delay: 150
+	GrantTimedConditionOnDeploy:
 		DeployedCondition: triggered
-	KillsSelf:
-		RequiresCondition: invulnerability || triggered
-	Chronoshiftable:
-		ExplodeInstead: true
+		CooldownTicks: 150
+		DeployedTicks: 10
+		RequiresCondition: !(empdisable || being-warped)
+		Instant: true
+	PeriodicExplosion:
+		Weapon: NerveGas
+		RequiresCondition: triggered && ammo
+		AmmoPoolName: primaryammo

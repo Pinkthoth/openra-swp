@@ -63,13 +63,13 @@ SlaveExplosion:
 		Condition: confusion
 		ValidTargets: GroundActor, Trees, Ship, WaterActor, Infantry
 		ValidRelationships: Enemy, Neutral
-		Range: 6c512
+		Range: 3c512
 	Warhead@conditionb: GrantExternalCondition
 		Duration: 500
 		Condition: slaving
 		ValidTargets: GroundActor, Trees, Ship, WaterActor, Infantry
 		ValidRelationships: Enemy, Neutral
-		Range: 6c512
+		Range: 3c512
 
 UnitExplode:
 	Inherits: ^Explosion
@@ -330,7 +330,8 @@ EMPMine:
 	Inherits: ATMine
 	Report: empmineboom.aud
 	Warhead@1Dam: SpreadDamage
-		Spread: 256
+		Spread: 0c256
+		Damage: 800
 		Falloff: 110, 60, 35, 10, 5
 		Versus:
 			None: 35
@@ -1390,11 +1391,13 @@ ChronoExplosion:
 		Explosions: chronoexp
 		ImpactSounds: ichrmova.wav
 		ValidTargets: Ground, Air, GroundActor, Trees,  AirborneActor, Ship, WaterActor, Trees
+		ExplosionPalette: chronopal
 	Warhead@3EffWater: CreateEffect
 		Explosions: chronoexp
 		ImpactSounds: ichrmova.wav
 		ValidTargets: Water, Underwater
 		InvalidTargets: Bridge
+		ExplosionPalette: chronopal
 
 ChronoExplosionSM:
 	ValidTargets: Ground, Water, Air, GroundActor, Trees,  Ship, WaterActor, AirborneActor
@@ -1405,11 +1408,13 @@ ChronoExplosionSM:
 		Explosions: chronoexpsm
 		ImpactSounds: ichrmova.wav
 		ValidTargets: Ground, Air, GroundActor, Trees,  AirborneActor, Ship, WaterActor, Trees
+		ExplosionPalette: chronopal
 	Warhead@3EffWater: CreateEffect
 		Explosions: chronoexpsm
 		ImpactSounds: ichrmova.wav
 		ValidTargets: Water, Underwater
 		InvalidTargets: Bridge
+		ExplosionPalette: chronopal
 
 ChronoExplosionBG:
 	ValidTargets: Ground, Water, Air, GroundActor, Trees,  Ship, WaterActor, AirborneActor
@@ -1420,11 +1425,13 @@ ChronoExplosionBG:
 		Explosions: chronoexpbg
 		ImpactSounds: ichrmova.wav
 		ValidTargets: Ground, Air, GroundActor, Trees,  AirborneActor, Ship, WaterActor, Trees
+		ExplosionPalette: chronopal
 	Warhead@3EffWater: CreateEffect
 		Explosions: chronoexpbg
 		ImpactSounds: ichrmova.wav
 		ValidTargets: Water, Underwater
 		InvalidTargets: Bridge
+		ExplosionPalette: chronopal
 
 Dominate:
 	ValidTargets: Ground, Water, Air, GroundActor, Trees,  Ship, WaterActor, AirborneActor

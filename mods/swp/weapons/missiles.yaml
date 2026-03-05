@@ -548,6 +548,9 @@ APTusk:
 	Inherits: ^AntiGroundMissile
 	ReloadDelay: 60
 	Range: 6c0
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 3000
 	Projectile: Missile
 		Speed: 298
 		TrailImage: smokey

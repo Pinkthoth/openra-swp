@@ -3052,7 +3052,7 @@ NeutronCannon:
 		SecondaryBeamColor: 0094FF
 	TargetActorCenter: true
 	Warhead@Damage: WarpPercentDamage
-		Damage: 1
+		Damage: 4
 		Spread: 1
 		Versus:
 			Wood: 15
@@ -3126,13 +3126,13 @@ EnslaveRay:
 		Condition: confusion
 		ValidTargets: GroundActor, Trees, Ship, WaterActor, Infantry
 		ValidRelationships: Enemy, Neutral
-		Range: 0c56
+		Range: 0c126
 	Warhead@conditionb: GrantExternalCondition
 		Duration: 500
 		Condition: slaving
 		ValidTargets: GroundActor, Trees, Ship, WaterActor, Infantry
 		ValidRelationships: Enemy, Neutral
-		Range: 0c56
+		Range: 0c126
 
 EnslaveRaySuper:
 	ReloadDelay: 20
@@ -3147,19 +3147,25 @@ EnslaveRaySuper:
 		Condition: confusion
 		ValidTargets: GroundActor, Trees, Ship, WaterActor, Infantry
 		ValidRelationships: Enemy, Neutral
-		Range: 0c56
+		Range: 0c126
 	Warhead@conditionb: GrantExternalCondition
 		Duration: 500
 		Condition: slaving
 		ValidTargets: GroundActor, Trees, Ship, WaterActor, Infantry
 		ValidRelationships: Enemy, Neutral
-		Range: 0c56
+		Range: 0c126
 	Warhead@conditionc: GrantExternalCondition
 		Duration: 750
 		Condition: slaving
 		ValidTargets: GroundActor, Trees, Ship, WaterActor, Infantry
 		ValidRelationships: Enemy, Neutral
-		Range: 0c56
+		Range: 0c126
+	Warhead@conditiond: GrantExternalCondition
+		Duration: 750
+		Condition: slaving
+		ValidTargets: GroundActor, Trees, Ship, WaterActor, Infantry
+		ValidRelationships: Enemy, Neutral
+		Range: 0c126
 
 MindBlast:
 	ReloadDelay: 30

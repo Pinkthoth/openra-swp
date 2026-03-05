@@ -940,7 +940,7 @@ LST:
 		MaxWeight: 20
 		PassengerFacing: 0
 		LoadingCondition: notmobile
-	-Chronoshiftable:
+	-ChronoshiftableCA:
 	Selectable:
 		DecorationBounds: 1536, 1536
 	WithCargoPipsDecoration:

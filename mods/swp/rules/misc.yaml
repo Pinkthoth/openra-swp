@@ -1576,14 +1576,6 @@ CENTRALSRIMP:
 		QuantizedFacings: 1
 	RenderSpritesEditorOnly:
 		Image: gap
-	CreatesShroud:
-		Range: 49c0
-		Type: CenterPosition
-	WithRangeCircle@JAMMER:
-		Type: veilprojector
-		Range: 18c0
-		Color: 0000FF80
-		Visible: Always
 	AmbientSound@veil:
 		SoundFiles: veil_sound.wav
 		Interval: 336
@@ -1625,10 +1617,12 @@ CENTRALDOMINATE:
 		Name: secondary
 		Weapon: EnslaveInfantry
 		LocalOffset: 150,0,400
+		TargetRelationships: Enemy, Neutral
 	Armament@tertiary:
 		Name: primary
 		Weapon: EnslaveVehicle
 		LocalOffset: 150,0,400
+		TargetRelationships: Enemy, Neutral
 	MindController:
 		ArmamentNames: primary, secondary
 		Capacity: 10

@@ -238,12 +238,6 @@ BUSHI:
 		Cost: 250
 	Tooltip:
 		Name: Bushi
-	Buildable:
-		Queue: Infantry
-		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 179
-		Prerequisites: ~techlevel.infonly, ~infantry.egypt, atek
-		Description: Elite melee infantry armed with a laser sword.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
@@ -515,7 +509,29 @@ CHRONOCOMMANDO:
 		SpeedModifier: 133
 		ProneOffset: 0,0,0
 		Duration: 50
-	PortableChrono:
+	PortableChronoCA:
+		Charges: 1
+		ChargeDelay: 375
+		Cooldown: 75
+		HasDistanceLimit: true
+		MaxDistance: 24
+		MaxInstantDistance: 6
+		PreChargeTicksPerCell: 7
+		MaxPreChargeTicks: 250
+		ResetRechargeOnUse: false
+		RequiresCondition: !empdisable && !being-warped && !chronoshifted
+		ShowSelectionBarWhenFull: false
+		ShowCooldownSelectionBar: true
+		RequireEmptyDestination: true
+		PreChargeCondition: chronoprep
+		MaxInstantCircleColor: EEEEEE44
+		KillCargo: False
+		WarpFromImage: explosion
+		WarpFromSequence: chronoexpsm
+		WarpToImage: explosion
+		WarpToSequence: chronoexpsm
+		WarpEffectPalette: chronopal
+		TeleportCondition: teleported
 
 CHRONOCOMMANDO.Husk:
 	Inherits: ^InfantryCorpse
@@ -823,12 +839,6 @@ DISTURBER.Husk:
 PARASITER:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Buildable:
-		Queue: Infantry
-		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 73
-		Prerequisites: ~infantry.abyssinia, dome, ~techlevel.infonly
-		Description: Anti-infantry unit.
 	Valued:
 		Cost: 200
 	UpdatesPlayerStatistics:
@@ -1390,12 +1400,6 @@ MUTANT:
 		Strengths: + Strong vs Infantry.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
 		Attributes: • Prones a large group of infantry.
-	Buildable:
-		Queue: Infantry
-		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 101
-		Prerequisites: ~barracks, commcent, adept, ~infantry.egypt, ~techlevel.infonly, ~illicitlab
-		Description:  Chemically mutated general-purpose infantry.
 	Valued:
 		Cost: 400
 	Mobile:
@@ -1438,12 +1442,6 @@ RPGMUTANT:
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
-	Buildable:
-		Queue: Infantry
-		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 102
-		Prerequisites: ~barracks, commcent, adept, ~infantry.egypt, ~techlevel.high, ~illicitlab
-		Description:  Chemically mutated anti-tank unit.
 	Valued:
 		Cost: 500
 	Mobile:
@@ -2705,6 +2703,9 @@ E6:
 		PlayerExperience: 25
 		CaptureDelay: 200
 		EnterCursor: goldwrench
+	DetectCloaked:
+		Range: 5c0
+		DetectionTypes: Mine
 	CaptureProgressBar:
 	SpawnActorOnDeath@BulletDeath:
 		Actor: E6.Husk
@@ -4658,12 +4659,6 @@ IMPG.Corpse:
 WRAITH:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Buildable:
-		Queue: Infantry
-		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 40
-		Prerequisites: ~infantry.egypt, ~techlevel.infonly, ~illicitlab
-		Description: Psychic scouting unit.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Vehicles.
 		Weaknesses: - Weak vs Aircraft.
@@ -5000,12 +4995,6 @@ HOLLOW:
 	KillsSelf:
 		RequiresCondition: attacking
 	-TakeCover:
-	Buildable:
-		Queue: Infantry
-		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 72
-		Prerequisites: ~infantry.egypt, ~illicitlab
-		Description: Chemically zombified research subject.\nCarries a large explosive charge.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
 		Attributes: • Strapped with dynamite.\n• Becomes hidden while immobile.\n • Immune to poison.
@@ -5516,11 +5505,6 @@ GAPCREW:
 	-ReloadDelayMultiplier@commandered:
 	-SpeedMultiplier@commandered:
 	-ChangesHealth@commandered:
-	Buildable:
-		Queue: Infantry
-		BuildPaletteOrder: 75
-		Prerequisites: adept, ~infantry.egypt, ~techlevel.infonly
-		Description: Infantry operated mortar.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Buildings, Defenses.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
@@ -5883,12 +5867,6 @@ STINGERTROOPER:
 	TooltipExtras:
 		Strengths: + Strong vs Everything.
 		Attributes: • Armed with a secondary stinger.
-	Buildable:
-		Queue: Infantry
-		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 72
-		Prerequisites: dome, ~infantry.egypt, ~techlevel.infonly
-		Description: Anti-air and -ground infantry.
 	Valued:
 		Cost: 300
 	Tooltip:
@@ -7356,7 +7334,7 @@ CAVALRY:
 	-WithIdleOverlay@EMPDISABLED:
 	-ExternalCondition@empdisable:
 	-SpeedMultiplier@InstantStop:
-	-Chronoshiftable:
+	-ChronoshiftableCA:
 	-Targetable@REPAIR:
 	-Repairable:
 	-CaptureManager:
@@ -7554,7 +7532,7 @@ SIPAHICAV:
 	-WithIdleOverlay@EMPDISABLED:
 	-ExternalCondition@empdisable:
 	-SpeedMultiplier@InstantStop:
-	-Chronoshiftable:
+	-ChronoshiftableCA:
 	-Targetable@REPAIR:
 	-Repairable:
 	-CaptureManager:
@@ -7706,7 +7684,7 @@ DRAGOON:
 	-WithIdleOverlay@EMPDISABLED:
 	-ExternalCondition@empdisable:
 	-SpeedMultiplier@InstantStop:
-	-Chronoshiftable:
+	-ChronoshiftableCA:
 	-Targetable@REPAIR:
 	-Repairable:
 	-CaptureManager:
@@ -8187,6 +8165,7 @@ WORKER:
 		CaptureDelay: 200
 		EnterCursor: goldwrench
 	CaptureProgressBar:
+	CaptureManager:
 
 WORKER.Corpse:
 	Inherits: ^InfantryCorpse

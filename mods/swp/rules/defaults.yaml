@@ -516,9 +516,11 @@
 		ControlledConditions:
 			ishmaelite: mindcontrolled
 			shah: mindcontrolled
+			psychtower: mindcontrolled
 		RevokingConditions:
 			ishmaelite: restoring
-			shah: mindcontrolled
+			shah: restoring
+			psychtower: restoring
 		ControlType: MindControl
 	GivesExperienceToMaster:
 	Targetable@mindcontrolled:
@@ -530,12 +532,22 @@
 		RequiresCondition: mindcontrolled
 		Condition: confusion
 
+^Chronoshiftable:
+	ChronoshiftableCA:
+		Image: explosion
+		InitialWarpFromSequence: chronoexp
+		ReturnWarpFromSequence: chronoexp
+		ReturnWarpToSequence: chronoexp
+		RequiresCondition: !being-warped
+		Palette: chronopal
+		ReturnToAvoidDeath: true
+		Condition: chronoshifted
 
 ^MindControllable:
 	Inherits: ^MindControllableBase
 	Targetable@MINDCONTROL:
 		TargetTypes: MindControllable
-		RequiresCondition: !mindcontrolled && !restoring && slaving > 5
+		RequiresCondition: !mindcontrolled && !restoring && slaving > 3
 	PeriodicExplosion@mindblast:
 		RequiresCondition: mindcontrolled && mindblast
 		Weapon: MindBlaster
@@ -1265,6 +1277,7 @@
 	Inherits@mataharieloadr: ^MatahariReload
 	Inherits@mataharispeedr: ^MatahariSpeed
 	Inherits@matahariofficerr: ^MatahariOfficer
+	Inherits@chronoshift: ^Chronoshiftable
 	ProductionCostMultiplier@matahari-target:
 		Prerequisites: matahari-target-vehicle
 		Multiplier: 110
@@ -1346,8 +1359,9 @@
 	Targetable@cooked:
 		TargetTypes: Cooked
 		RequiresCondition: microwave > 17
-	MindControllable:
-		RequiresCondition: slaving > 6 || mindcontrolled
+	Targetable@MINDCONTROL:
+		TargetTypes: MindControllable
+		RequiresCondition: !mindcontrolled && !restoring && slaving > 6
 	Infiltrates@refunder:
 		Types: RefundInfiltrationVehicle
 		ValidRelationships: Ally
@@ -1385,8 +1399,6 @@
 		Modifier: 0
 	Repairable:
 		RepairActors: fix
-	Chronoshiftable:
-		ReturnToOrigin: False
 	Passenger:
 		CargoType: Vehicle
 		Weight: 5
@@ -1927,6 +1939,7 @@
 	Inherits@mataharieloadr: ^MatahariReload
 	Inherits@mataharispeedr: ^MatahariSpeed
 	Inherits@matahariofficerr: ^MatahariOfficer
+	Inherits@chronoshift: ^Chronoshiftable
 	WithDecoration@poison:
 		Image: pips
 		Sequence: poison
@@ -2022,8 +2035,6 @@
 		Notification: NavalUnitLost
 	ProximityCaptor:
 		Types: Ship
-	Chronoshiftable:
-		ReturnToOrigin: False
 	RepairableNear:
 		RepairActors: syrd
 	GpsDot:
@@ -2977,6 +2988,7 @@
 ^Husk:
 	Inherits: ^BasicHusk
 	Inherits@2: ^ClassicFacingSpriteActor
+	Inherits@chronoshift: ^Chronoshiftable
 	Husk:
 		AllowedTerrain: Clear, Rough, Road, Ore, Gems, Beach, TallGrass, Pavement, PavedRoad
 	WithIdleOverlay@Burns:
@@ -3007,8 +3019,6 @@
 		TargetTypes: GroundActor, Husk, NoAutoTarget
 		RequiresForceFire: false
 		RequiresCondition: !being-warped
-	Chronoshiftable:
-		ReturnToOrigin: False
 	Tooltip:
 		GenericName: Destroyed Vehicle
 	FireWarheadsOnDeath:
@@ -3250,6 +3260,7 @@ Zombiehusk:
 		CloakSound:
 		UncloakSound:
 		CloakType: Mine
+		DetectionTypes: Mine
 		InitialDelay: 0
 	Mine:
 		CrushClasses: mine

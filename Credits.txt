@@ -47,3 +47,6 @@ Civilian nuclear plant warning sound
 
 Advice, consulting and help
 -Darkademic, Inq, Mustapha, Abarrat
+
+Bug reports:
+-Innocent Guy, justrelax

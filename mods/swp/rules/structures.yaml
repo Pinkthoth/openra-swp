@@ -650,23 +650,42 @@ PDOX:
 	RevealsShroud@GAPGEN:
 		Range: 5c0
 		RequiresCondition: !disabled
-	ChronoshiftPower@chronoshift:
+	ChronoshiftPowerCA@chronoshift:
 		OrderName: Chronoshift
-		PauseOnCondition: disabled || turnedoff
-		Prerequisites: !pdox.germany
+		PauseOnCondition: disabled || empdisable || being-warped
+		Duration: 600
+		EnemyDuration: 400
 		Icon: chrono
-		ChargeInterval: 3000
+		ChargeInterval: 4500
 		Name: Chronoshift
-		Description: Teleports a group of units across\nthe map for 20 seconds.
+		Description: Teleports up to 9 selected vehicles to a targeted location, returning them to their original location after a short time.\n\n• If killed, units are returned with 20% health\n• Units with larger health pools take additional damage\n• Passengers cannot be unloaded\n• Enemy units are teleported for reduced duration
 		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: Select target.
 		InsufficientPowerSpeechNotification: InsufficientPower
+		BeginChargeSpeechNotification: ChronosphereCharging
 		EndChargeSpeechNotification: ChronosphereReady
-		Duration: 400
-		KillCargo: true
+		EndChargeTextNotification: Chronosphere ready.
+		LaunchSound: chrono2.aud
+		IncomingSound: chrono2.aud
+		KillCargo: false
 		DisplayRadarPing: True
-		SupportPowerPaletteOrder: 1
-		Dimensions: 3, 3
-		Footprint: xxx xxx xxx
+		Range: 4c512
+		MaxTargets: 9
+		TargetCountFont: Tiny
+		InvalidTargetTypes: Husk, ChronoshiftImmune
+		DisplayTimerRelationships: Ally, Neutral, Enemy
+		SupportPowerPaletteOrder: 20
+		ShowSelectionBoxes: true
+		HoverSelectionBoxColor: b6f4ff
+		ShowTargetCircle: true
+		TargetCircleColor: b6f4ff
+		TargetTintColor: b6f4ff33
+		ShowDestinationCircle: true
+		WarpFromImage: chronoeffect
+		WarpFromSequence: chronoin
+		WarpToImage: chronoeffect
+		WarpToSequence: chronoout
+		WarpEffectPalette: chronopal
 	SupportPowerChargeBar:
 	InfiltrateForSupportPowerReset:
 		Types: SpyInfiltrate
@@ -857,6 +876,7 @@ PSYCHTOWER:
 	AmmoPool:
 		Ammo: 1
 		AmmoCondition: ammo
+		Armaments: secondary, tertiary
 	ReloadAmmoPool:
 		Delay: 35
 		Count: 1
@@ -870,6 +890,7 @@ PSYCHTOWER:
 		Count: 1
 		RequiresCondition: mindcontrolling == 2
 	AttackOmni:
+		Armaments: primary, secondary, tertiary
 	Power:
 		Amount: -100
 	DetectCloaked:
@@ -6485,7 +6506,8 @@ PSYCHICDOMINATOR:
 		InsufficientPowerSpeechNotification: InsufficientPower
 		ChargeInterval: 6000
 		Icon: dominate
-		Name: Dominate
+		Name: Psychic Dominator
+		DisplayTimerRelationships: Ally, Neutral, Enemy
 		Description: Takes control of enemy units in the proximity.
 		Cursor: attack
 		OrderName: SpawnActorPowerInfoOrderSrimp
