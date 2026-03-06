@@ -1002,7 +1002,7 @@ Toxxer:
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c126
 		Falloff: 120, 80, 50, 25, 10, 5
-		Damage: 1500
+		Damage: 1200
 		Versus:
 			None: 60
 			Wood: 10
@@ -1029,8 +1029,8 @@ TruckToxxer:
 	Burst: 20
 	ReloadDelay: 75
 	Warhead@1Dam: SpreadDamage
-		Damage: 1800
-		Falloff: 180, 150, 130, 100, 50, 25
+		Damage: 1500
+		Falloff: 110, 90, 70, 50, 30, 10
 
 LazareneRifle:
 	Inherits: ^LazareneBeam
@@ -2471,7 +2471,7 @@ PickaxeHeal:
 		Speed: 1c682
 	Warhead@1Dam: SpreadDamage
 		Spread: 126
-		Damage: -500
+		Damage: -250
 		ValidTargets: Structure
 		Versus:
 			None: 100
@@ -2493,7 +2493,7 @@ PickaxeRepair:
 	Report: fixit1.aud
 	ValidTargets: Repair
 	Warhead@1Dam: SpreadDamage
-		Damage: -2000
+		Damage: -1000
 		ValidTargets: Repair
 
 Claw:
@@ -2991,7 +2991,7 @@ DemoTruckTargeting:
 
 EnslaveBuilding:
 	Range: 7c0
-	ReloadDelay: 1
+	ReloadDelay: 25
 	Projectile: InstantHit
 	ValidTargets: Hackable
 	Warhead@1Dam: TargetDamage
@@ -3007,7 +3007,7 @@ EnslaveBuilding:
 
 EnslaveInfantry:
 	Range: 6c0
-	ReloadDelay: 1
+	ReloadDelay: 25
 	Projectile: InstantHit
 	ValidTargets: MindControllable
 	InvalidTargets: Vehicle, Ship, Defense, MindControlImmune
@@ -3023,7 +3023,7 @@ EnslaveInfantry:
 
 EnslaveVehicle:
 	Range: 6c0
-	ReloadDelay: 1
+	ReloadDelay: 25
 	Projectile: InstantHit
 	ValidTargets: MindControllable
 	InvalidTargets: Infantry, Defense, MindControlImmune
@@ -3090,7 +3090,7 @@ NeutronTurret:
 		DamageTypes: ChronoDeath
 
 HackingRay:
-	ReloadDelay: 25
+	ReloadDelay: 50
 	Range: 6c0
 	ValidTargets: GroundActor, Water, Trees, Ship, WaterActor, Infantry
 	TargetActorCenter: True
@@ -3098,12 +3098,6 @@ HackingRay:
 	Warhead@2Eff: CreateEffect
 		ValidTargets: Ground, GroundActor, Trees, Air, AirborneActor, Ship, WaterActor, Trees, Corpse, Infantry
 		ImpactSounds: hacking1.aud, hacking2.aud, hacking3.aud, hacking4.aud, hacking5.aud, hacking6.aud
-	Warhead@conditionb: GrantExternalCondition
-		Duration: 500
-		Condition: hacking
-		ValidTargets: GroundActor, Trees, Ship, WaterActor, Infantry, Structure
-		ValidRelationships: Enemy, Neutral
-		Range: 1c0
 	Warhead@3Eff: CreateEffect
 		ValidTargets: GroundActor, Trees, Ship, WaterActor, Infantry, Structure
 		InvalidTargets: Bridge
@@ -3114,7 +3108,7 @@ HackingRay:
 		Explosions: targetlock_sm
 
 EnslaveRay:
-	ReloadDelay: 20
+	ReloadDelay: 50
 	Range: 6c0
 	ValidTargets: GroundActor, Water, Trees, Ship, WaterActor, Infantry
 	Projectile: InstantHit
@@ -3124,18 +3118,12 @@ EnslaveRay:
 	Warhead@condition: GrantExternalCondition
 		Duration: 500
 		Condition: confusion
-		ValidTargets: GroundActor, Trees, Ship, WaterActor, Infantry
-		ValidRelationships: Enemy, Neutral
-		Range: 0c126
-	Warhead@conditionb: GrantExternalCondition
-		Duration: 500
-		Condition: slaving
 		ValidTargets: GroundActor, Trees, Ship, WaterActor, Infantry
 		ValidRelationships: Enemy, Neutral
 		Range: 0c126
 
 EnslaveRaySuper:
-	ReloadDelay: 20
+	ReloadDelay: 50
 	Range: 6c0
 	ValidTargets: GroundActor, Water, Trees, Ship, WaterActor, Infantry
 	Projectile: InstantHit
@@ -3145,24 +3133,6 @@ EnslaveRaySuper:
 	Warhead@condition: GrantExternalCondition
 		Duration: 500
 		Condition: confusion
-		ValidTargets: GroundActor, Trees, Ship, WaterActor, Infantry
-		ValidRelationships: Enemy, Neutral
-		Range: 0c126
-	Warhead@conditionb: GrantExternalCondition
-		Duration: 500
-		Condition: slaving
-		ValidTargets: GroundActor, Trees, Ship, WaterActor, Infantry
-		ValidRelationships: Enemy, Neutral
-		Range: 0c126
-	Warhead@conditionc: GrantExternalCondition
-		Duration: 750
-		Condition: slaving
-		ValidTargets: GroundActor, Trees, Ship, WaterActor, Infantry
-		ValidRelationships: Enemy, Neutral
-		Range: 0c126
-	Warhead@conditiond: GrantExternalCondition
-		Duration: 750
-		Condition: slaving
 		ValidTargets: GroundActor, Trees, Ship, WaterActor, Infantry
 		ValidRelationships: Enemy, Neutral
 		Range: 0c126

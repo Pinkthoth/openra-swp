@@ -1386,7 +1386,7 @@ morozko:
 
 centraldominate:
 	Defaults:
-		Filename: dominatering.shp
+		Filename: empty.shp
 	idle:
 		Length: *
 		Start: 0
@@ -2922,7 +2922,7 @@ tunnelbackup:
 		Length: *
 		Offset: 0,-2
 	icon:
-		Filename: tunnelicon.shp
+		Filename: sheltericon.shp
 
 tunnel2x2:
 	Defaults:

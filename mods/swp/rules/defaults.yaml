@@ -511,6 +511,17 @@
 	ExternalCondition@flarevision:
 		Condition: flarevision
 
+^Chronoshiftable:
+	ChronoshiftableCA:
+		Image: explosion
+		InitialWarpFromSequence: chronoexp
+		ReturnWarpFromSequence: chronoexp
+		ReturnWarpToSequence: chronoexp
+		RequiresCondition: !being-warped
+		Palette: chronopal
+		ReturnToAvoidDeath: true
+		Condition: chronoshifted
+
 ^MindControllableBase:
 	MindControllable:
 		ControlledConditions:
@@ -526,28 +537,17 @@
 	Targetable@mindcontrolled:
 		TargetTypes: MindControlled
 		RequiresCondition: mindcontrolled
-	ExternalCondition@slaving:
-		Condition: slaving
 	GrantCondition@mindcontrolconfusion:
 		RequiresCondition: mindcontrolled
 		Condition: confusion
-
-^Chronoshiftable:
-	ChronoshiftableCA:
-		Image: explosion
-		InitialWarpFromSequence: chronoexp
-		ReturnWarpFromSequence: chronoexp
-		ReturnWarpToSequence: chronoexp
-		RequiresCondition: !being-warped
-		Palette: chronopal
-		ReturnToAvoidDeath: true
-		Condition: chronoshifted
+	MindControllableProgressBar:
+		ControlTypes: MindControllable
 
 ^MindControllable:
 	Inherits: ^MindControllableBase
 	Targetable@MINDCONTROL:
 		TargetTypes: MindControllable
-		RequiresCondition: !mindcontrolled && !restoring && slaving > 3
+		RequiresCondition: !mindcontrolled && !restoring
 	PeriodicExplosion@mindblast:
 		RequiresCondition: mindcontrolled && mindblast
 		Weapon: MindBlaster
@@ -568,12 +568,14 @@
 		RequiresCondition: hacked
 	ExternalCondition@hacking:
 		Condition: hacking
+	MindControllableProgressBar:
+		ControlTypes: MindControllable
 
 ^Hackable:
 	Inherits: ^HackableBase
 	Targetable@MINDCONTROL:
 		TargetTypes: Hackable
-		RequiresCondition: !hacked && !dehacking && hacking > 3
+		RequiresCondition: !hacked && !dehacking
 
 ^MatahariVision:
 	GrantConditionOnPrerequisite@matahari-vision:
@@ -840,13 +842,13 @@
 ^IronCurtainable:
 	WithColoredOverlay@IRONCURTAIN:
 		RequiresCondition: invulnerability
-	Shielded:
+	Shielded@IC:
 		MaxStrength: 60000
 		RequiresCondition: invulnerability
 		ShieldsUpCondition: shielded
 		RegenAmount: 500
 		RegenDelay: 25
-	TimedConditionBar:
+	TimedConditionBar@ic:
 		Condition: invulnerability
 	ExternalCondition@INVULNERABILITY:
 		Condition: invulnerability
@@ -1361,7 +1363,7 @@
 		RequiresCondition: microwave > 17
 	Targetable@MINDCONTROL:
 		TargetTypes: MindControllable
-		RequiresCondition: !mindcontrolled && !restoring && slaving > 6
+		RequiresCondition: !mindcontrolled && !restoring
 	Infiltrates@refunder:
 		Types: RefundInfiltrationVehicle
 		ValidRelationships: Ally
@@ -1421,6 +1423,11 @@
 	Capturable:
 		Types: vehicle
 		CancelActivity: True
+	GrantConditionOnCombatantOwner:
+		Condition: playerowned
+	Capturable@emptyvessel:
+		Types: emptyvessel
+		RequiresCondition: !playerowned
 	CaptureNotification:
 		Notification: UnitStolen
 		LoseNotification: UnitLost
@@ -1940,6 +1947,8 @@
 	Inherits@mataharispeedr: ^MatahariSpeed
 	Inherits@matahariofficerr: ^MatahariOfficer
 	Inherits@chronoshift: ^Chronoshiftable
+	ProductionTimeMultiplier@basediscount:
+		Multiplier: 70
 	WithDecoration@poison:
 		Image: pips
 		Sequence: poison
@@ -2035,7 +2044,7 @@
 		Notification: NavalUnitLost
 	ProximityCaptor:
 		Types: Ship
-	RepairableNear:
+	Repairable:
 		RepairActors: syrd
 	GpsDot:
 		String: Ship
@@ -3001,22 +3010,17 @@
 		Delay: 8
 	OwnerLostAction:
 		Action: ChangeOwner
-	CaptureManager:
-	Capturable:
-		Types: huskmech
-	Capturable@huskengie:
-		Types: huskengie
-	TransformOnCapture@Mechanic:
-		ForceHealthPercentage: 25
-		CaptureTypes: huskmech
-	TransformOnCapture@Engineer:
-		ForceHealthPercentage: 15
-		CaptureTypes: huskengie
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange@Worker:
+		ForceHealthPercentage: 10
+		Types: HuskWorker
+	InfiltrateForTransformWithOwnerChange@Engineer:
+		ForceHealthPercentage: 20
+		Types: HuskEngie
+	InfiltrateForTransformWithOwnerChange:
 		Types: Husk
-		ForceHealthPercentage: 25
+		ForceHealthPercentage: 30
 	Targetable:
-		TargetTypes: GroundActor, Husk, NoAutoTarget
+		TargetTypes: GroundActor, Husk, NoAutoTarget, HuskEngie, HuskWorker
 		RequiresForceFire: false
 		RequiresCondition: !being-warped
 	Tooltip:

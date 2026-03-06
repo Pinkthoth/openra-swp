@@ -3,7 +3,7 @@ FPWR:
 	Inherits@infiltrate: ^InfiltratableFake
 	Inherits@shape: ^2x2Shape
 	Selectable:
-		Bounds: 1448, 2896
+		Bounds: 2496, 2496
 	HitShape:
 		UseTargetableCellsOffsets: false
 		TargetableOffsets: 0,0,0, 640,-384,0, 640,512,0, -710,-512,0, -710,512,0
@@ -52,7 +52,10 @@ TENF:
 	Inherits@infiltrate: ^InfiltratableFake
 	Inherits@shape: ^2x2Shape
 	Selectable:
-		Bounds: 1448, 2896
+		Bounds: 2496, 2496
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 490,-470,0, 355,512,0, -355,-512,0, -630,512,0
 	Buildable:
 		BuildPaletteOrder: 880
 		Queue: Defense
@@ -101,7 +104,7 @@ WEAF:
 	Inherits@infiltrate: ^InfiltratableFake
 	Inherits@shape: ^2x2Shape
 	Selectable:
-		Bounds: 2172, 2896
+		Bounds: 2896, 2896
 	Buildable:
 		BuildPaletteOrder: 920
 		Prerequisites: ~structures.france, ~techlevel.medium
@@ -157,9 +160,13 @@ FIXF:
 	Inherits@infiltrate: ^InfiltratableFake
 	InfiltrateForDecoration:
 		Types: SpyInfiltrate, SaboteurInfiltration
+	HitShape:
+		TargetableOffsets: 840,0,0, 598,-640,0, 598,640,0, -1060,0,0, -768,-640,0, -768,640,0, 0,0,0
+		Type: Polygon
+			Points: -1536,-300, -640,-811, 640,-811, 1536,-300, 1536,555, 640,1110, -640,1110, -1536,555
 	Selectable:
 		Bounds: 2051, 2051, 0, 181
-		DecorationBounds: 2172, 2896
+		DecorationBounds: 2896, 2896
 	Buildable:
 		BuildPaletteOrder: 940
 		Queue: Defense
@@ -198,10 +205,6 @@ FIXF:
 			kazakhstan: fix
 	Valued:
 		Cost: 120
-	HitShape:
-		TargetableOffsets: 840,0,0, 598,-640,0, 598,640,0, -1060,0,0, -768,-640,0, -768,640,0, 0,0,0
-		Type: Polygon
-			Points: -1536,-300, -640,-811, 640,-811, 1536,-300, 1536,555, 640,1110, -640,1110, -1536,555
 	WithBuildingBib:
 		HasMinibib: True
 
@@ -252,8 +255,13 @@ FAPW:
 			bulgaria: mapwr
 			kazakhstan: apwr
 	Selectable:
-		Bounds: 2172, 2896
-		DecorationBounds: 2172, 4102, 0, -603
+		Bounds: 2696, 2696
+		DecorationBounds: 3096, 3096, 0, 0
+	HitShape:
+		TargetableOffsets: 840,0,0, 598,-640,0, 598,640,0, -1060,0,0, -768,-640,0, -768,640,0, 0,0,0
+		Type: Polygon
+			Points: -1536,-300, -640,-811, 640,-811, 1536,-300, 1536,555, 640,1110, -640,1110, -1536,555
+		UseTargetableCellsOffsets: False
 	Valued:
 		Cost: 50
 
@@ -264,8 +272,6 @@ ATEF:
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Inherits@infiltrate: ^InfiltratableFake
-	Selectable:
-		Bounds: 1448, 2896
 	Tooltip:
 		Name: Fake Allied Tech Center
 		GenericName: Allied Tech Center
@@ -291,7 +297,9 @@ ATEF:
 		Type: Wood
 	HitShape:
 		UseTargetableCellsOffsets: false
-		TargetableOffsets: 0,0,0, 630,-512,0, 355,512,0, -281,-512,0, -630,512,0
+		TargetableOffsets: 0,0,0, 490,-470,0, 355,512,0, -355,-512,0, -630,512,0
+	Selectable:
+		Bounds: 2696, 2696
 
 STHGENF:
 	Inherits: ^FakeBuilding
@@ -301,7 +309,6 @@ STHGENF:
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Inherits@infiltrate: ^InfiltratableFake
 	Selectable:
-		Bounds: 1448, 2896
 	Tooltip:
 		Name: Fake Phase Generator
 		GenericName: Phase Generator
@@ -338,7 +345,6 @@ EMPGUNF:
 	Inherits@infiltrate: ^InfiltratableFake
 	Inherits@shape: ^2x2Shape
 	Selectable:
-		Bounds: 1448, 2896
 	Tooltip:
 		Name: Fake EMP Cannon
 		GenericName: EMP Cannon
@@ -414,7 +420,7 @@ FACF:
 	InfiltrateForDecoration:
 		Types: SpyInfiltrate, SaboteurInfiltration
 	Selectable:
-		Bounds: 2172, 4344
+		Bounds: 2825, 2825
 	Buildable:
 		BuildPaletteOrder: 1000
 		Queue: Defense

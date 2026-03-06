@@ -81,11 +81,11 @@ HARV.FullHusk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Ore Truck)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: harv
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: harv
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: harv
 	RenderSprites:
 		Image: hhusk
@@ -94,11 +94,11 @@ HARV.EmptyHusk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Ore Truck)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: harv
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: harv
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: harv
 	RenderSprites:
 		Image: hhusk2
@@ -107,11 +107,11 @@ MCV.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Mobile Construction Vehicle)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: mcv
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: mcv
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: mcv
 	RenderSprites:
 		Image: mcvhusk
@@ -122,11 +122,11 @@ PRISMCANNON.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Prism Cannon)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: PRISMCANNON
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: PRISMCANNON
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: PRISMCANNON
 	RenderSprites:
 		Image: prismcannon
@@ -137,11 +137,11 @@ RAILGUNTANK.Husk:
 		Name: Husk (Railgun Tank)
 	ThrowsParticle@turret:
 		Anim: turret
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: RAILGUNTANK
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: RAILGUNTANK
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: RAILGUNTANK
 	RenderSprites:
 		Image: railguntank
@@ -153,11 +153,11 @@ T100.Husk:
 		Name: Husk (Mammoth Tank)
 	ThrowsParticle@turret:
 		Anim: turret
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: T100
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: T100
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: T100
 	RenderSprites:
 		Image: 4tnk
@@ -166,11 +166,11 @@ LOUCHUAN.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Louchuan)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: louchuan
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: louchuan
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: louchuan
 	RenderSprites:
 		Image: louchuan
@@ -179,11 +179,11 @@ ORDA.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Orda)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: orda
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: orda
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: orda
 	RenderSprites:
 		Image: orda
@@ -356,11 +356,11 @@ SAUCER.GROUND.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Saucer)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: SAUCER
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: SAUCER
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: SAUCER
 	RenderSprites:
 		Image: saucer
@@ -374,10 +374,9 @@ TRAN.Husk1:
 		Name: Husk (Chinook)
 	RenderSprites:
 		Image: tran1husk
-	-Capturable:
-	-TransformOnCapture@Mechanic:
-	-TransformOnCapture@Engineer:
-	-InfiltrateForTransform:
+	-InfiltrateForTransformWithOwnerChange@Worker
+	-InfiltrateForTransformWithOwnerChange@Engineer:
+	-InfiltrateForTransformWithOwnerChange:
 
 TRAN.Husk2:
 	Inherits: ^Husk
@@ -385,10 +384,9 @@ TRAN.Husk2:
 		Name: Husk (Chinook)
 	RenderSprites:
 		Image: tran2husk
-	-Capturable:
-	-TransformOnCapture@Mechanic:
-	-TransformOnCapture@Engineer:
-	-InfiltrateForTransform:
+	-InfiltrateForTransformWithOwnerChange@Worker
+	-InfiltrateForTransformWithOwnerChange@Engineer:
+	-InfiltrateForTransformWithOwnerChange:
 
 BADR.Husk:
 	Inherits: ^PlaneHusk

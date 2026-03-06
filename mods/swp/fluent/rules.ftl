@@ -44,7 +44,7 @@ faction-england =
      Military Intelligence
      
      Special Ability: Radar Scan
-     Special Building: MI6 Command Post
+     Special Building: MI6 Field Office
      Special Infantry: Informant
      Special Infantry: Radist
      Special Infantry: Commando
@@ -118,14 +118,15 @@ faction-raj =
      
      Special Ability: Quick Repair
      Special Building: Foundry
+     Special Building: Heavy Turret
      Special Aircraft: Sparrow
      Special Aircraft: Hawker
      Special Aircraft: Handley Bomber
-     Special Infantry: Heavy Machine Gun Crew
      Special Infantry: Gurkha
      Special Vehicle: Sepoy IFV
      Special Vehicle: Mogul
-     Replacement Infantry: Worker (Medic)
+     Replacement Infantry: Worker (Engineer)
+     Replacement Infantry: Heavy Machine Gun Crew (Medic)
      Replacement Infantry: Copycat (Mechanic)
      Replacement Vehicle: Transport Carrier (APC)
      Replacement Vehicle: Mortar Bike (Ranger)
@@ -332,7 +333,6 @@ faction-austria =
      Elite Officer Corps
      
      Special Ability: Field Promotion
-     Special Building: Heavy Turret
      Special Building: Military Academy
      Special Aircraft: Wasp
      Special Infantry: Tank Commander
@@ -340,6 +340,7 @@ faction-austria =
      Special Vehicle: Puma
      Special Vehicle: Prism Tank
      Special Vehicle: Marksman
+     Special Vehicle: Prism Cannon
      Replacement Infantry: Adler (Messerschmitt)
      Replacement Infantry: Sergeant (Flamethrower)
 

@@ -1098,12 +1098,12 @@ HOVERCRAFT:
 HOVERCRAFT.Husk:
 	Inherits: ^Husk
 	Tooltip:
-		Name: Husk (Armored Personnel Carrier)
-	TransformOnCapture@Mechanic:
+		Name: Husk (Hovercraft)
+	InfiltrateForTransformWithOwnerChange@Worker:
 		IntoActor: HOVERCRAFT
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: HOVERCRAFT
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: HOVERCRAFT
 	RenderSprites:
 		Image: hovercraft

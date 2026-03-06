@@ -1085,6 +1085,23 @@ Shotgun:
 		ValidTargets: Water, Underwater
 		InvalidTargets: Bridge
 
+ChampionShotgun:
+	Inherits: ^LightMG
+	Range: 4c512
+	Report: championshotgun.aud
+	Warhead@1Dam: SpreadDamage
+		Falloff: 250, 150, 100, 50, 25, 10, 5
+		Spread: 0c124
+			None: 180
+	Warhead@2Eff2: CreateEffect
+		Explosions: a10piffs
+		ExplosionPalette: ra2effects
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, Ship, WaterActor, Trees, Corpse
+	Warhead@3EffWater2: CreateEffect
+		Explosions: water_piffs
+		ValidTargets: Water, Underwater
+		InvalidTargets: Bridge
+
 BerzerkerShotgun:
 	Inherits: Shotgun
 	Range: 5c0

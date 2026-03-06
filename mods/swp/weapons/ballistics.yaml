@@ -368,6 +368,7 @@ SiegeGun:
 	Inherits: ^Artillery
 	MinRange: 4c0
 	Range: 11c0
+	ReloadDelay: 100
 	Report: toxarty.aud
 	TargetActorCenter: true
 	Projectile: Bullet
@@ -387,11 +388,6 @@ SiegeGun:
 	Warhead@3Eff: CreateEffect
 		Explosions: small_tox
 		ExplosionPalette: poisonpal
-	Warhead@condition: GrantExternalCondition
-		Condition: zombiefy
-		Duration: 100
-		Range: 3c00
-		ValidTargets: Infantry
 	Warhead@spawn: SpawnActor
 		Delay: 20
 		Actors: poisoncloud

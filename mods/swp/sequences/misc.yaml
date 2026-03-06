@@ -241,6 +241,10 @@ explosion:
 		Filename: targetlock.shp
 		Length: *
 		Scale: 0.4
+	dominating:
+		Filename: dominatering.shp
+		Length:*
+		Scale: 0.5
 	currentring:
 		Filename: currentring.shp
 		Length: *

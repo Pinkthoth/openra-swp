@@ -58,7 +58,7 @@ IED:
 	GrantChargingConditionFull@demoes:
 		Condition: goingtodie
 		RequiresCondition: deployed
-		MaxCharge: 75
+		MaxCharge: 25
 	GrantConditionOnDeploy:
 		DeployedCondition: deployed
 		SkipMakeAnimation: True
@@ -1576,10 +1576,6 @@ CENTRALSRIMP:
 		QuantizedFacings: 1
 	RenderSpritesEditorOnly:
 		Image: gap
-	AmbientSound@veil:
-		SoundFiles: veil_sound.wav
-		Interval: 336
-		Delay: 0
 	FreeActor:
 		Actor: centraldominate
 
@@ -1610,19 +1606,23 @@ CENTRALDOMINATE:
 		Range: 7c0
 		RevealGeneratedShroud: False
 		Type: CenterPosition
+		RequiresCondition: active
 	RevealsShroud@GAPGEN:
 		Range: 6c0
 		Type: CenterPosition
+		RequiresCondition: active
 	Armament@secondary:
 		Name: secondary
 		Weapon: EnslaveInfantry
 		LocalOffset: 150,0,400
 		TargetRelationships: Enemy, Neutral
+		RequiresCondition: active && !maxcontrolled
 	Armament@tertiary:
 		Name: primary
 		Weapon: EnslaveVehicle
 		LocalOffset: 150,0,400
 		TargetRelationships: Enemy, Neutral
+		RequiresCondition: active && !maxcontrolled
 	MindController:
 		ArmamentNames: primary, secondary
 		Capacity: 10
@@ -1641,12 +1641,9 @@ CENTRALDOMINATE:
 		ControlType: MindControl
 	-WithBuildingBib:
 	AttackOmni:
-	Power:
-		Amount: -100
 	DetectCloaked:
 		Range: 6c0
-		RequiresCondition: !disabled
-	ProvidesPrerequisite@buildingname:
+		RequiresCondition: active
 	-Targetable:
 	RenderSprites:
 	AutoTarget:
@@ -1654,9 +1651,15 @@ CENTRALDOMINATE:
 	PeriodicExplosion@1:
 		Weapon: SlaveExplosion
 		InitialDelay: 0
-	KillsSelf:
-		Delay: 500
-		RemoveInstead: True
+		RequiresCondition: active
+	AmbientSound@veil:
+		SoundFiles: veil_sound.wav
+		Interval: 336
+		Delay: 0
+		RequiresCondition: active
+	GrantTimedCondition:
+		Condition: active
+		Duration: 250
 
 RADARSCAN:
 	Interactable:

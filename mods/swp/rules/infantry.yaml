@@ -287,10 +287,10 @@ CYBORGRAILGUNNER:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 170
 		Prerequisites: ~techlevel.infonly, ~infantry.ukraine, cyberlab, stek, adept
-		Description: Cyborg general-purpose infantry.
+		Description: Elite cyborg general-purpose infantry.
 	TooltipExtras:
-		Strengths: + Strong vs Infantry.
-		Weaknesses: - Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Infantry, Vehicles.
+		Weaknesses: - Weak vs Aircraft.
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -476,7 +476,7 @@ CHRONOCOMMANDO:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 131
 		Prerequisites: ~infantry.germany, mtek
-		Description: Tough shotgun armed general purpose infantry.
+		Description: Tough shock gun armed general purpose infantry.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
@@ -605,7 +605,7 @@ SBEARER:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 77
 		Prerequisites: dome, ~infantry.turkey, ~techlevel.high
-		Description: Tough assault rifle armed general purpose infantry.
+		Description: Tough shotgun armed general purpose infantry.
 	Valued:
 		Cost: 300
 	Tooltip:
@@ -615,10 +615,10 @@ SBEARER:
 	Health:
 		HP: 12000
 	Armament@PRIMARY:
-		Weapon: Shotgun
+		Weapon: ChampionShotgun
 	Armament@GARRISONED:
 		Name: garrisoned
-		Weapon: Shotgun
+		Weapon: ChampionShotgun
 		MuzzleSequence: garrison-muzzle
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
@@ -896,7 +896,7 @@ MILPOL:
 		Weaknesses: - Weak vs Vehicles, Aircraft.
 		Attributes: • Detects cloaked and disguised units in a long range.\n• Large vision.
 	RevealsShroud:
-		Range: 5c0
+		Range: 4c512
 	Valued:
 		Cost: 150
 	Tooltip:
@@ -1113,10 +1113,10 @@ COPYCAT:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 50
 		Prerequisites: ~infantry.raj, adept, ~techlevel.medium
-		Description: Military intelligence service specialist.
+		Description: Industrial espionage specialist.
 	TooltipExtras:
 		Weaknesses: - Weak vs Everything.
-		Attributes: • Can disguise as any infantry.\n• Can detect disguised units.\n• Can infiltrate enemy Warfactory to steal blueprints.
+		Attributes: • Can disguise as any infantry.\n• Can detect disguised units.\n• Can infiltrate enemy buildings to steal blueprints.
 	Valued:
 		Cost: 350
 	-Tooltip:
@@ -1187,11 +1187,11 @@ RADIST:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 91
 		Prerequisites: ~techlevel.infonly, dome, ~infantry.england
-		Description: General-purpose infantry\nwith increased vision.
+		Description: General-purpose infantry.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
-		Attributes: • Large vision.
+		Attributes: • Reveals enemy units under shroud.
 	Selectable:
 		Class: E1
 	Valued:
@@ -1619,7 +1619,7 @@ MAROZNIK:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 96
 		Prerequisites: commcent, ~infantry.russia, ~techlevel.high
-		Description: Shoots bursts of cryo spray.
+		Description: Cryospray infantry.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
@@ -1669,7 +1669,7 @@ WASTETROOPER:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 91
 		Prerequisites: ~infantry.kazakhstan, dome
-		Description: Shoots bursts of corrosive acid.
+		Description: Acid sludge infantry.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Vehicles.
 		Weaknesses: - Weak vs Aircraft.
@@ -2470,7 +2470,7 @@ SCREENER:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 76
 		Prerequisites: dome, ~infantry.persia, ~techlevel.high
-		Description: Armed with grenades and smoke grenades.
+		Description: Infantry armed with grenades and smoke grenades.
 	TooltipExtras:
 		Strengths: + Strong vs Buildings, Infantry.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
@@ -2489,11 +2489,14 @@ SCREENER:
 		LocalOffset: 0,0,555
 		FireDelay: 15
 		TargetRelationships: Ally
+		Cursor: ability
+		OutsideRangeCursor: ability
 	Armament@secondary:
 		Name: secondary
 		Weapon: Grenade
 		LocalOffset: 0,0,555
 		FireDelay: 15
+		TargetRelationships: Neutral, Enemy
 	Armament@GARRISONED:
 		Name: garrisoned
 		Weapon: SmokeGrenade
@@ -2686,6 +2689,10 @@ E6:
 		ConsumedByCapture: False
 		EnterCursor: ability
 		EnterBlockedCursor: move-blocked
+	Captures@emptyvessel:
+		RequiresCondition: !deployed
+		CaptureTypes: emptyvessel
+		PlayerExperience: 25
 	Voiced:
 		VoiceSet: EngineerVoice
 	-AttackFrontal:
@@ -2698,17 +2705,16 @@ E6:
 	SpeedMultiplier:
 		RequiresCondition: deployed
 		Modifier: 50
-	Captures@Husks:
-		CaptureTypes: huskengie
-		PlayerExperience: 25
-		CaptureDelay: 200
-		EnterCursor: goldwrench
 	DetectCloaked:
 		Range: 5c0
 		DetectionTypes: Mine
 	CaptureProgressBar:
 	SpawnActorOnDeath@BulletDeath:
 		Actor: E6.Husk
+	Infiltrates:
+		Types: HuskEngie
+		ValidRelationships: Ally, Neutral, Enemy
+		EnterCursor: goldwrench
 		
 E6.Husk:
 	Inherits: ^InfantryCorpse
@@ -2729,6 +2735,9 @@ INFORMANT:
 		GenericName: Civilian
 		GenericVisibility: Enemy, Neutral
 		GenericStancePrefix: False
+	TooltipExtras:
+		Weaknesses: - Unarmed.
+		Attributes: • Must be force fired upon.
 	Targetable:
 		RequiresCondition: !parachute
 		TargetTypes: GroundActor, Informant, Disguise
@@ -2738,7 +2747,7 @@ INFORMANT:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 45
 		Prerequisites: ~barracks, ~infantry.england, ~techlevel.infonly
-		Description: Civilian informant.\n Must be force fired upon.\nWeak against everything.
+		Description: Civilian informant.
 	GrantRandomCondition:
 		Conditions: c1, c2, c4, c5, c6, c7, c8, c9, c10
 	WithInfantryBody@none:
@@ -3103,13 +3112,9 @@ MECH:
 		ForceTargetRelationships: None
 	AttackFrontal:
 		Voice: Action
-	CaptureManager:
-	Captures:
-		CaptureTypes: huskmech
-		PlayerExperience: 25
 	Infiltrates:
 		Types: Husk
-		ValidRelationships: Ally
+		ValidRelationships: Ally, Neutral, Enemy
 		EnterCursor: goldwrench
 	WithInfantryBody:
 		IdleSequences: idle
@@ -3122,6 +3127,11 @@ MECH:
 		ValidTargets: Vehicle, Ship
 	SpawnActorOnDeath@BulletDeath:
 		Actor: MECH.Husk
+	Captures@emptyvessel:
+		CaptureTypes: emptyvessel
+		PlayerExperience: 25
+		EnterCursor: goldwrench
+	CaptureManager:
 		
 MECH.Husk:
 	Inherits: ^InfantryCorpse
@@ -3270,7 +3280,7 @@ CYBORGHIJACKER:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 171
 		Prerequisites: stek, cyberlab, ~infantry.ukraine, ~techlevel.high
-		Description: Cyborg hacker.
+		Description: Hacker specialist.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
 		Attributes: • Can mind control one enemy building.\n• Can detect disguised units.
@@ -3309,13 +3319,11 @@ CYBORGHIJACKER:
 	Armament@PRIMARY:
 		Weapon: EnslaveBuilding
 		LocalOffset: 150,0,400
-		PauseOnCondition: !ammo
 		Name: primary
 	Armament@secondary:
 		Name: secondary
 		Weapon: HackingRay
 		LocalOffset: 150,0,400
-		PauseOnCondition: !ammo
 	MindController:
 		ArmamentNames: primary
 		Capacity: 1
@@ -3325,6 +3333,10 @@ CYBORGHIJACKER:
 		MaxControlledCondition: maxcontrolled
 		ManualReleaseEnabled: true
 		ControlType: Hack
+		TicksToControl: 250
+		TicksToRevoke: 25
+		TargetTypeTicksToControl:
+			Infantry: 200
 	WithMindControlArc@MC:
 		Color: c71585
 		Transparency: 55
@@ -3332,13 +3344,6 @@ CYBORGHIJACKER:
 		Angle: 32
 		Width: 116
 		ControlType: Hack
-	AmmoPool:
-		Ammo: 1
-		AmmoCondition: ammo
-	ReloadAmmoPool:
-		Delay: 35
-		Count: 1
-		RequiresCondition: !mindcontrolling
 
 TNKCMNDR:
 	Inherits: ^Soldier
@@ -4077,17 +4082,14 @@ ISHMAELITE:
 		Name: secondary
 		Weapon: EnslaveInfantry
 		LocalOffset: 150,0,400
-		PauseOnCondition: !ammo
 	Armament@tertiary:
 		Name: tertiary
 		Weapon: EnslaveVehicle
 		LocalOffset: 150,0,400
-		PauseOnCondition: !ammo
 	Armament@primary:
 		Name: primary
 		Weapon: EnslaveRay
 		LocalOffset: 150,0,400
-		PauseOnCondition: !ammo
 	MindController:
 		ArmamentNames: secondary, tertiary
 		Capacity: 1
@@ -4097,6 +4099,9 @@ ISHMAELITE:
 		MaxControlledCondition: maxcontrolled
 		ManualReleaseEnabled: true
 		ControlType: MindControl
+		TicksToControl: 250
+		TargetTypeTicksToControl:
+			Infantry: 200
 	WithMindControlArc@MC:
 		Color: c71585
 		Transparency: 55
@@ -4104,13 +4109,6 @@ ISHMAELITE:
 		Angle: 32
 		Width: 116
 		ControlType: MindControl
-	AmmoPool:
-		Ammo: 1
-		AmmoCondition: ammo
-	ReloadAmmoPool:
-		Delay: 35
-		Count: 1
-		RequiresCondition: !mindcontrolling
 	AttackFrontal:
 		Armaments: primary, secondary, tertiary
 		Voice: Attack
@@ -4123,6 +4121,243 @@ ISHMAELITE.Husk:
 		Actor: ISHMAELITE
 	GrantExternalConditionToKiller:
 		Condition: ishmaelite
+
+PNEER:
+	Inherits: ^TrackedVehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@crew: ^Crew
+	-WithFacingSpriteBody:
+	-WithMoveAnimation:
+	-WithMoveAnimation@turn:
+	-WithAttackAnimation:
+	-SpawnActorOnDeath@crew_member1:
+	-SpawnActorOnDeath@crew_member2:
+	-ChronoshiftableCA:
+	-WithColoredOverlay@IRONCURTAIN:
+	-Shielded@IC:
+	-TimedConditionBar@ic:
+	-ExternalCondition@INVULNERABILITY:
+	-Targetable@REPAIR:
+	ChangesHealth@HOSPITAL:
+		Step: 500
+		Delay: 100
+		StartIfBelow: 100
+		DamageCooldown: 125
+		RequiresCondition: hospitalheal
+	GrantConditionOnPrerequisite@HOSPITAL:
+		Condition: hospital
+		Prerequisites: hosp
+	GrantConditionOnDamageState@HOSPITAL:
+		Condition: damaged
+		ValidDamageStates: Light, Medium, Heavy, Critical
+	GrantCondition@HOSPITAL:
+		RequiresCondition: hospital && damaged
+		Condition: hospitalheal
+	WithDecoration@REDCROSS:
+		Image: pips
+		Sequence: medic
+		Position: BottomRight
+		Margin: 17, 4
+		RequiresCondition: hospitalheal
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+	EdibleByLeap:
+	TakeCover:
+		DamageModifiers:
+			Prone50Percent: 50
+		DamageTriggers: TriggerProne
+		RequiresCondition: !propaganda
+	Passenger:
+		CargoType: Infantry
+		Weight: 2
+	ProximityCaptor:
+		Types: Infantry
+	WithInfantryBody:
+	TakeCover:
+		DamageModifiers:
+			Prone50Percent: 50
+		DamageTriggers: TriggerProne
+		RequiresCondition: !propaganda
+	RenderSprites: 
+		Image: pneer
+	Mobile:
+		PauseOnCondition: turnedoff || being-captured
+		Locomotor: wheeled
+		TurnSpeed: 20
+		Speed: 50
+	TooltipExtras:
+		Weaknesses: - Unarmed.
+		Attributes: • Detects mines.\n• Lays anti-infantry mines.\n• Rearms at an Arms Depot.
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 330
+		Prerequisites: ~infantry.italy, fix, ~techlevel.low
+		Description: Mine laying infantry.
+	Valued:
+		Cost: 450
+	Tooltip:
+		Name: Pioneer Crew
+	Health:
+		HP: 8000
+	Minelayer:
+		Mine: SMINE
+		TileUnknownName: build-valid
+		TerrainTypes: Clear, Road, Beach, Ore, Gems, Rough, Bridge
+	MineImmune:
+	AmmoPool:
+		Ammo: 4
+		RearmSound: minelay1.aud
+	DetectCloaked:
+		Range: 5c0
+		DetectionTypes: Mine
+	Rearmable:
+		RearmActors: fix
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		Margin: 4, 3
+		RequiresSelection: true
+	Selectable:
+		Bounds: 1024,1024,0,0
+		DecorationBounds: 1024,1024,0,-6
+	WithDeathAnimation@numer2:
+		DeathTypes:
+			DefaultDeath: 1
+			BulletDeath: 2
+			SmallExplosionDeath: 3
+			ExplosionDeath: 4
+			FireDeath: 5
+			ElectricityDeath: 6
+			AcidDeath: 7
+			Zombiefy: 8
+	Targetable:
+		TargetTypes: GroundActor, Infantry
+	Targetable@HEAL:
+		RequiresCondition: damaged
+		TargetTypes: Heal
+	SpawnActorOnDeath@zombiefytwo:
+		DeathType: Zombiefy
+		OwnerType: Killer
+		Actor: Zombie
+		SkipMakeAnimations: False
+
+IEDCREW:
+	Inherits: ^TrackedVehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@crew: ^Crew
+	-WithFacingSpriteBody:
+	-WithMoveAnimation:
+	-WithMoveAnimation@turn:
+	-WithAttackAnimation:
+	-SpawnActorOnDeath@crew_member1:
+	-SpawnActorOnDeath@crew_member2:
+	-ChronoshiftableCA:
+	-WithColoredOverlay@IRONCURTAIN:
+	-Shielded@IC:
+	-TimedConditionBar@ic:
+	-ExternalCondition@INVULNERABILITY:
+	-Targetable@REPAIR:
+	ChangesHealth@HOSPITAL:
+		Step: 500
+		Delay: 100
+		StartIfBelow: 100
+		DamageCooldown: 125
+		RequiresCondition: hospitalheal
+	GrantConditionOnPrerequisite@HOSPITAL:
+		Condition: hospital
+		Prerequisites: hosp
+	GrantConditionOnDamageState@HOSPITAL:
+		Condition: damaged
+		ValidDamageStates: Light, Medium, Heavy, Critical
+	GrantCondition@HOSPITAL:
+		RequiresCondition: hospital && damaged
+		Condition: hospitalheal
+	WithDecoration@REDCROSS:
+		Image: pips
+		Sequence: medic
+		Position: BottomRight
+		Margin: 17, 4
+		RequiresCondition: hospitalheal
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+	EdibleByLeap:
+	TakeCover:
+		DamageModifiers:
+			Prone50Percent: 50
+		DamageTriggers: TriggerProne
+		RequiresCondition: !propaganda
+	Passenger:
+		CargoType: Infantry
+		Weight: 2
+	ProximityCaptor:
+		Types: Infantry
+	WithInfantryBody:
+	TakeCover:
+		DamageModifiers:
+			Prone50Percent: 50
+		DamageTriggers: TriggerProne
+		RequiresCondition: !propaganda
+	RenderSprites: 
+		Image: iedcrew
+	Mobile:
+		PauseOnCondition: turnedoff || being-captured
+		Locomotor: wheeled
+		TurnSpeed: 20
+		Speed: 50
+	TooltipExtras:
+		Weaknesses: - Unarmed.
+		Attributes: • Detects mines.\n• Lays anti-infantry mines.\n• Rearms at an Arms Depot.
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 330
+		Prerequisites: fix, ~vehicles.persia, ~techlevel.high
+		Description: Pioneer mine crew.
+	Valued:
+		Cost: 450
+	Tooltip:
+		Name: Pioneer Crew
+	Health:
+		HP: 8000
+	Minelayer:
+		Mine: IED
+		TileUnknownName: build-valid
+		TerrainTypes: Clear, Road, Beach, Ore, Gems, Rough, Bridge
+	MineImmune:
+	AmmoPool:
+		Ammo: 2
+		RearmSound: minelay1.aud
+	DetectCloaked:
+		Range: 5c0
+		DetectionTypes: Mine
+	Rearmable:
+		RearmActors: fix
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		Margin: 4, 3
+		RequiresSelection: true
+	Selectable:
+		Bounds: 1024,1024,0,0
+		DecorationBounds: 1024,1024,0,-6
+	WithDeathAnimation@numer2:
+		DeathTypes:
+			DefaultDeath: 1
+			BulletDeath: 2
+			SmallExplosionDeath: 3
+			ExplosionDeath: 4
+			FireDeath: 5
+			ElectricityDeath: 6
+			AcidDeath: 7
+			Zombiefy: 8
+	Targetable:
+		TargetTypes: GroundActor, Infantry
+	Targetable@HEAL:
+		RequiresCondition: damaged
+		TargetTypes: Heal
+	SpawnActorOnDeath@zombiefytwo:
+		DeathType: Zombiefy
+		OwnerType: Killer
+		Actor: Zombie
+		SkipMakeAnimations: False
 
 HVMG:
 	Inherits: ^TrackedVehicle
@@ -4147,7 +4382,7 @@ HVMG:
 		Strengths: + Strong vs Infantry.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
 	Valued:
-		Cost: 500
+		Cost: 400
 	Tooltip:
 		Name: Heavy Machine Gun Crew
 	UpdatesPlayerStatistics:
@@ -4370,8 +4605,16 @@ SCVN:
 		PlayerExperience: 25
 		CaptureDelay: 375
 		ConsumedByCapture: False
-		EnterCursor: ability
+		EnterCursor: goldwrench
 		EnterBlockedCursor: move-blocked
+	Captures@emptyvessel:
+		CaptureTypes: emptyvessel
+		PlayerExperience: 25
+		EnterCursor: goldwrench
+	Infiltrates:
+		Types: HuskEngie
+		ValidRelationships: Ally
+		EnterCursor: goldwrench
 	Voiced:
 		VoiceSet: EngineerVoice
 	DetectCloaked:
@@ -4383,11 +4626,6 @@ SCVN:
 	SpeedMultiplier:
 		RequiresCondition: deployed
 		Modifier: 50
-	Captures@Husks:
-		CaptureTypes: huskengie
-		PlayerExperience: 25
-		CaptureDelay: 200
-		EnterCursor: goldwrench
 	CaptureProgressBar:
 	SpawnActorOnDeath@BulletDeath:
 		Actor: SCVN.Husk
@@ -4937,7 +5175,7 @@ TERRORIST:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 50
 		Prerequisites: ~infantry.arabia, adept
-		Description: This comrade is willing to do the ultimate sacrifice for the proletariat.
+		Description: Infantry strapped with explosives.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
 		Attributes: • Strapped with dynamite.\n• Runs faster while under fire.
@@ -6030,7 +6268,7 @@ SHKTRP:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 135
 		Prerequisites: stek, ~infantry.russia, ~techlevel.high
-		Description: Elite infantry with a portable Tesla coil.
+		Description: Elite infantry with a portable tesla coil.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Vehicles.
 		Weaknesses: - Weak vs Aircraft.
@@ -6431,15 +6669,18 @@ JARMEN:
 DEFILER:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	-DamagedByTintedCells@RADSTRONG:
+	-DamagedByTintedCells@RADMED:
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Vehicles.
 		Weaknesses: - Weak vs Aircraft.
+		Attributes: • Undamaged by radiation.
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 149
 		Prerequisites: ~infantry.arabia, stek, ~illicitlab
-		Description: Armed with a massive radiation weapon.
+		Description: Armed with a radiation weapon.
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -7088,240 +7329,6 @@ JUMPJETGUY.Husk:
 		Explosion: NightWitchSquish
 		Velocity: 0c150
 
-PNEER:
-	Inherits: ^Soldier
-	Inherits@GAINSEXPERIENCE: ^GainsExperience
-	WithInfantryBody:
-		-IdleSequences:
-		StandSequences: stand
-	ChangesHealth@HOSPITAL:
-		Step: 500
-		Delay: 100
-		StartIfBelow: 100
-		DamageCooldown: 125
-		RequiresCondition: hospitalheal
-	GrantConditionOnPrerequisite@HOSPITAL:
-		Condition: hospital
-		Prerequisites: hosp
-	GrantConditionOnDamageState@HOSPITAL:
-		Condition: damaged
-		ValidDamageStates: Light, Medium, Heavy, Critical
-	GrantCondition@HOSPITAL:
-		RequiresCondition: hospital && damaged
-		Condition: hospitalheal
-	WithDecoration@REDCROSS:
-		Image: pips
-		Sequence: medic
-		Position: BottomRight
-		Margin: 17, 4
-		RequiresCondition: hospitalheal
-		BlinkInterval: 32
-		BlinkPattern: Off, On
-	EdibleByLeap:
-	TakeCover:
-		DamageModifiers:
-			Prone50Percent: 50
-		DamageTriggers: TriggerProne
-		RequiresCondition: !propaganda
-	Passenger:
-		CargoType: Infantry
-		Weight: 2
-	ProximityCaptor:
-		Types: Infantry
-	TooltipExtras:
-		Weaknesses: - Unarmed.
-		Attributes: • Detects mines.\n• Lays anti-infantry mines.\n• Rearms at an Arms Depot.
-	Buildable:
-		Queue: Infantry
-		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 330
-		Prerequisites: ~infantry.italy, fix, ~techlevel.low
-		Description: Mine laying infantry.
-	Valued:
-		Cost: 450
-	Tooltip:
-		Name: Pioneer Crew
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Health:
-		HP: 10000
-	Armor:
-		Type: None
-	Mobile:
-		Speed: 56
-		TurnSpeed: 20
-		Locomotor: bigfoot
-		TurnsWhileMoving: True
-	RevealsShroud:
-		MinRange: 4c0
-		Range: 5c0
-		RevealGeneratedShroud: False
-	RevealsShroud@GAPGEN:
-		Range: 4c0
-	ProducibleWithLevel:
-		Prerequisites: infantry.upgraded
-	Minelayer:
-		Mine: SMINE
-		TileUnknownName: build-valid
-		TerrainTypes: Clear, Road, Beach, Ore, Gems, Rough, Bridge
-	MineImmune:
-	AmmoPool:
-		Ammo: 4
-		RearmSound: minelay1.aud
-	DetectCloaked:
-		Range: 5c0
-		DetectionTypes: Mine
-	Rearmable:
-		RearmActors: fix
-	WithAmmoPipsDecoration:
-		Position: BottomLeft
-		Margin: 4, 3
-		RequiresSelection: true
-	Selectable:
-		Bounds: 1024,1024,0,0
-		DecorationBounds: 1024,1024,0,-6
-	WithDeathAnimation@numer2:
-		DeathTypes:
-			DefaultDeath: 1
-			BulletDeath: 2
-			SmallExplosionDeath: 3
-			ExplosionDeath: 4
-			FireDeath: 5
-			ElectricityDeath: 6
-			AcidDeath: 7
-			Zombiefy: 8
-	Targetable:
-		TargetTypes: GroundActor, Infantry
-	Targetable@HEAL:
-		RequiresCondition: damaged
-		TargetTypes: Heal
-	SpawnActorOnDeath@zombiefytwo:
-		DeathType: Zombiefy
-		OwnerType: Killer
-		Actor: Zombie
-		SkipMakeAnimations: False
-
-PNEER.Corpse:
-	Inherits: ^InfantryCorpse
-	Tooltip:
-		Name: Corpse (Pioneer)
-	SpawnActorOnDeath:
-		Actor: PNEER
-	GrantExternalConditionToKiller:
-		Condition: pneer
-
-IEDCREW:
-	Inherits: ^Soldier
-	Inherits@GAINSEXPERIENCE: ^GainsExperience
-	Buildable:
-		Queue: Infantry
-		BuildPaletteOrder: 330
-		Prerequisites: fix, ~vehicles.persia, ~techlevel.high
-		Description: Super heavy tank destroyer.
-	WithInfantryBody:
-		-IdleSequences:
-		StandSequences: stand
-	ChangesHealth@HOSPITAL:
-		Step: 500
-		Delay: 100
-		StartIfBelow: 100
-		DamageCooldown: 125
-		RequiresCondition: hospitalheal
-	GrantConditionOnPrerequisite@HOSPITAL:
-		Condition: hospital
-		Prerequisites: hosp
-	GrantConditionOnDamageState@HOSPITAL:
-		Condition: damaged
-		ValidDamageStates: Light, Medium, Heavy, Critical
-	GrantCondition@HOSPITAL:
-		RequiresCondition: hospital && damaged
-		Condition: hospitalheal
-	WithDecoration@REDCROSS:
-		Image: pips
-		Sequence: medic
-		Position: BottomRight
-		Margin: 17, 4
-		RequiresCondition: hospitalheal
-		BlinkInterval: 32
-		BlinkPattern: Off, On
-	EdibleByLeap:
-	TakeCover:
-		DamageModifiers:
-			Prone50Percent: 50
-		DamageTriggers: TriggerProne
-		RequiresCondition: !propaganda
-	Passenger:
-		CargoType: Infantry
-		Weight: 2
-	ProximityCaptor:
-		Types: Infantry
-	TooltipExtras:
-		Weaknesses: - Unarmed.
-		Attributes: • Detects mines.\n• Lays controlled explosives.\n• Rearms at an Arms Depot.
-	Valued:
-		Cost: 500
-	Tooltip:
-		Name: IED Crew
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Health:
-		HP: 10000
-	Armor:
-		Type: None
-	Mobile:
-		Speed: 56
-		TurnSpeed: 20
-		Locomotor: bigfoot
-		TurnsWhileMoving: True
-	RevealsShroud:
-		MinRange: 4c0
-		Range: 5c0
-		RevealGeneratedShroud: False
-	RevealsShroud@GAPGEN:
-		Range: 4c0
-	ProducibleWithLevel:
-		Prerequisites: infantry.upgraded
-	Minelayer:
-		Mine: IED
-		TileUnknownName: build-valid
-		TerrainTypes: Clear, Road, Beach, Ore, Gems, Rough, Bridge
-	MineImmune:
-	AmmoPool:
-		Ammo: 2
-		RearmSound: minelay1.aud
-	DetectCloaked:
-		Range: 5c0
-		DetectionTypes: Mine
-	Rearmable:
-		RearmActors: fix
-	WithAmmoPipsDecoration:
-		Position: BottomLeft
-		Margin: 4, 3
-		RequiresSelection: true
-	Selectable:
-		Bounds: 1024,1024,0,0
-		DecorationBounds: 1024,1024,0,-6
-	WithDeathAnimation@numer2:
-		DeathTypes:
-			DefaultDeath: 1
-			BulletDeath: 2
-			SmallExplosionDeath: 3
-			ExplosionDeath: 4
-			FireDeath: 5
-			ElectricityDeath: 6
-			AcidDeath: 7
-			Zombiefy: 8
-	Targetable:
-		TargetTypes: GroundActor, Infantry
-	Targetable@HEAL:
-		RequiresCondition: damaged
-		TargetTypes: Heal
-	SpawnActorOnDeath@zombiefytwo:
-		DeathType: Zombiefy
-		OwnerType: Killer
-		Actor: Zombie
-		SkipMakeAnimations: False
-
 CAVALRY:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
@@ -7337,9 +7344,6 @@ CAVALRY:
 	-ChronoshiftableCA:
 	-Targetable@REPAIR:
 	-Repairable:
-	-CaptureManager:
-	-Capturable:
-	-CaptureNotification:
 	-FireWarheadsOnDeath:
 	-WithDamageOverlay:
 	ChangesHealth@HOSPITAL:
@@ -7535,9 +7539,6 @@ SIPAHICAV:
 	-ChronoshiftableCA:
 	-Targetable@REPAIR:
 	-Repairable:
-	-CaptureManager:
-	-Capturable:
-	-CaptureNotification:
 	-FireWarheadsOnDeath:
 	-WithDamageOverlay:
 	ChangesHealth@HOSPITAL:
@@ -7687,9 +7688,6 @@ DRAGOON:
 	-ChronoshiftableCA:
 	-Targetable@REPAIR:
 	-Repairable:
-	-CaptureManager:
-	-Capturable:
-	-CaptureNotification:
 	-FireWarheadsOnDeath:
 	-WithDamageOverlay:
 	Buildable:
@@ -7697,7 +7695,7 @@ DRAGOON:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 72
 		Prerequisites: ~infantry.china, adept, ~techlevel.low
-		Description: Light general purpose infantry\non horseback.
+		Description: Light anti-tank infantry on horseback.
 	ChangesHealth@HOSPITAL:
 		Step: 500
 		Delay: 100
@@ -8052,8 +8050,6 @@ GUERILLA.Corpse:
 IRONMAN:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Inherits@supercharged: ^SuperchargeTesla
-	Inherits@ironcurtainable: ^IronCurtainable
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
@@ -8110,24 +8106,27 @@ IRONMAN.Corpse:
 WORKER:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Inherits@supercharged: ^SuperchargeTesla
-	Inherits@ironcurtainable: ^IronCurtainable
 	Valued:
-		Cost: 200
+		Cost: 100
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 44
+		BuildPaletteOrder: 41
 		Prerequisites: ~infantry.raj
 		Description: Melee labourer.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
 		Weaknesses: - Weak vs Aircraft, Vehicles.
-		Attributes: • Repairs nearby vehicles.\n• Restores husks to working condition.\n• Heals damaged structures.
+		Attributes: • Repairs nearby vehicles.\n• Restores husks to working condition.\n• Heals damaged structures.\n• Sabotages and captures enemy structures.
 	Tooltip:
 		Name: Worker
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
+	CaptureManager:
+	Captures@emptyvessel:
+		CaptureTypes: emptyvessel
+		PlayerExperience: 25
+		EnterCursor: goldwrench
 	Mobile:
 		Speed: 71
 	AutoTarget:
@@ -8159,13 +8158,16 @@ WORKER:
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
 	RepairsBridges:
-	Captures@Husks:
-		CaptureTypes: huskengie
-		PlayerExperience: 25
-		CaptureDelay: 200
-		EnterCursor: goldwrench
-	CaptureProgressBar:
 	CaptureManager:
+	Captures@CAPTURES:
+		CaptureTypes: building
+		SabotageThreshold: 33
+		SabotageHPRemoval: 25
+		PlayerExperience: 10
+	Infiltrates:
+		Types: HuskWorker
+		ValidRelationships: Ally, Neutral, Enemy
+		EnterCursor: goldwrench
 
 WORKER.Corpse:
 	Inherits: ^InfantryCorpse

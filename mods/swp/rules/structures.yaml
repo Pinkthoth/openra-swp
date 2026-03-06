@@ -392,7 +392,7 @@ SYRD:
 		Prerequisites: anypower, ~techlevel.low
 		Description: Produces and repairs\nships and transports.
 	Building:
-		Footprint: =x= x+x =x=
+		Footprint: =x= x=x =x=
 		Dimensions: 3,3
 		TerrainTypes: Water
 	RequiresBuildableArea:
@@ -820,7 +820,7 @@ PSYCHTOWER:
 		Queue: Defense
 		BuildPaletteOrder: 44
 		Prerequisites: ~structures.kazakhstan, ~techlevel.medium, illicitlab
-		Description: Advanced base defense.\nRequires power to operate.
+		Description: Mind control device.\nRequires power to operate.
 	TooltipExtras:
 		Weaknesses: - Weak vs Everything.
 		Attributes: • Can mind control enemy units.
@@ -846,17 +846,14 @@ PSYCHTOWER:
 		Name: secondary
 		Weapon: EnslaveInfantry
 		LocalOffset: 150,0,400
-		PauseOnCondition: !ammo
 	Armament@tertiary:
 		Name: tertiary
 		Weapon: EnslaveVehicle
 		LocalOffset: 150,0,400
-		PauseOnCondition: !ammo
 	Armament@primary:
 		Name: primary
 		Weapon: EnslaveRaySuper
 		LocalOffset: 150,0,400
-		PauseOnCondition: !ammo
 	MindController:
 		ArmamentNames: tertiary, secondary
 		Capacity: 3
@@ -866,6 +863,10 @@ PSYCHTOWER:
 		MaxControlledCondition: maxcontrolled
 		ManualReleaseEnabled: true
 		ControlType: MindControl
+		TicksToControl: 150
+		TargetTypeTicksToControl:
+			Infantry: 100
+		TicksToRevoke: 25
 	WithMindControlArc@MC:
 		Color: c71585
 		Transparency: 55
@@ -873,22 +874,6 @@ PSYCHTOWER:
 		Angle: 32
 		Width: 116
 		ControlType: MindControl
-	AmmoPool:
-		Ammo: 1
-		AmmoCondition: ammo
-		Armaments: secondary, tertiary
-	ReloadAmmoPool:
-		Delay: 35
-		Count: 1
-		RequiresCondition: mindcontrolling == 0
-	ReloadAmmoPool@1:
-		Delay: 70
-		Count: 1
-		RequiresCondition: mindcontrolling == 1
-	ReloadAmmoPool@2:
-		Delay: 140
-		Count: 1
-		RequiresCondition: mindcontrolling == 2
 	AttackOmni:
 		Armaments: primary, secondary, tertiary
 	Power:
@@ -1126,7 +1111,7 @@ ACADEMY:
 	Valued:
 		Cost: 700
 	Tooltip:
-		Name: MI6 Command Post
+		Name: MI6 Field Office
 	ProvidesPrerequisite:
 		Prerequisite: mi6academy
 	ProvidesPrerequisite@buildingname:
@@ -1406,11 +1391,6 @@ MOROZKO:
 	Tooltip:
 		Name: Morozko
 	Building:
-	Buildable:
-		Queue: Defense
-		BuildPaletteOrder: 111
-		Prerequisites: dome, ~structures.belarus, ~techlevel.medium
-		Description: Static blizzard generating structure.
 	TooltipExtras:
 		Attributes: • Passive Ability: Passively slows down surrounding units and decreases their vision.\n• Can detect phased units.
 	Valued:
@@ -1512,7 +1492,7 @@ TUNNELBACKUP:
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Tooltip:
-		Name: Tunnel Network
+		Name: Shelter Network
 	Building:
 	Buildable:
 		Queue: Defense
@@ -1520,7 +1500,7 @@ TUNNELBACKUP:
 		Prerequisites: barr, ~structures.arabia, ~techlevel.low
 		Description: Pluggable underground tunnel network.
 	TooltipExtras:
-		Attributes: • When the host building is destroyed, it will repair itself after a while.
+		Attributes: • When the host building is destroyed, it will rebuild itself after a while.
 	Valued:
 		Cost: 500
 	CustomSellValue:
@@ -2079,7 +2059,7 @@ INDIANGUN:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 102
-		Prerequisites: dome, adept, ~structures.austria, ~techlevel.medium
+		Prerequisites: dome, adept, ~structures.raj, ~techlevel.medium
 		Description: Heavy Anti-Armor base defense.
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles.
@@ -2139,11 +2119,6 @@ TURKEYGUN:
 	HitShape:
 		UseTargetableCellsOffsets: false
 		TargetableOffsets: 0,0,0, 640,-384,0, 640,512,0, -710,-512,0, -710,512,0
-	Buildable:
-		Queue: Defense
-		BuildPaletteOrder: 102
-		Prerequisites: dome, adept, ~structures.egypt, ~techlevel.medium
-		Description: Anti-Infantry base defense.
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles.
 		Weaknesses: - Weak vs Infantry, Aircraft.
@@ -2218,7 +2193,7 @@ USAGUN:
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles.
 		Weaknesses: - Weak vs Infantry, Aircraft.
-		Attributes: • Can detect phased units.
+		Attributes: • Can disable enemy vehicles.\n• Can detect phased units.
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -3095,25 +3070,6 @@ COMMCENT:
 		EffectSequence: idle
 		EffectPalette: player
 		Prerequisites: support.england
-	GrantExternalConditionPowerCA@chronohaste:
-		PauseOnCondition: disabled || turnedoff
-		OrderName: Overdrive
-		Icon: chronohasteicon
-		ChargeInterval: 7500
-		Name: Overdrive
-		Description: Makes a group of units move faster\nfor 20 seconds.
-		Duration: 500
-		SelectTargetSpeechNotification: SelectTarget
-		EndChargeSpeechNotification: SupportPowerReady
-		DisplayRadarPing: True
-		Condition: chronohaste
-		OnFireSound: ichrkill.wav
-		SupportPowerPaletteOrder: 10
-		Dimensions: 2, 2
-		Footprint: xx xx
-		Prerequisites: support.egypt
-		ExplosionWeapon: ChronohasteBurst
-		ExplosionDelay : 0
 	DetonateWeaponPower@Promotion:
 		OrderName: promotionorder
 		Icon: promotionicon
@@ -3139,27 +3095,8 @@ COMMCENT:
 		Duration: 350
 		Prerequisites: support.austria
 		Sequence: idle
-	SpawnActorPower@Burrow:
-		Actor: BURROW
-		LifeTime: -1
-		SelectTargetSpeechNotification: SelectTarget
-		InsufficientPowerSpeechNotification: InsufficientPower
-		ChargeInterval: 6750
-		Icon: burrowicon
-		Name: Burrow
-		Terrain: Clear
-		Description: Creates a Burrow in the selected area.
-		Cursor: ability
-		OrderName: BurrowOrder
-		PauseOnCondition: disabled || turnedoff
-		EndChargeSpeechNotification: SupportPowerReady
-		LaunchSound: crumble.aud
-		EffectImage: dig
-		EffectSequence: idle
-		EffectPalette: tseffects
-		Prerequisites: support.egypt
 	AirstrikePower@spyplane:
-		OrderName: SovietSpyPlane
+		OrderName: JapanSpyPlane
 		Prerequisites: support.japan
 		Icon: uav
 		ChargeInterval: 3750
@@ -3206,30 +3143,6 @@ COMMCENT:
 		Duration: 350
 		Prerequisites: support.raj
 		Sequence: idle
-	InterceptorPower@AirDef:
-		OrderName: interceptors
-		Prerequisites: support.bulgaria
-		PauseOnCondition: turnedoff
-		Icon: intercepticon
-		ChargeInterval: 6750
-		Name: Intercept
-		Description: Two Garud heavy fighters\nengages enemy aircraft within\nover a selected area.
-		SelectTargetSpeechNotification: SelectTarget
-		EndChargeSpeechNotification: SupportPowerReady
-		CameraActor: camera
-		CameraRemoveDelay: 450
-		UnitType: aguila.interceptor
-		QuantizedFacings: 8
-		DisplayBeacon: true
-		BeaconPoster: interceptionbeacon
-		SquadSize: 2
-		ArrowSequence: arrow
-		ClockSequence: clock
-		CircleSequence: circles
-		UseDirectionalTarget: True
-		DirectionArrowAnimation: paradirection
-		GuardDuration: 500
-		Cordon: 5c0
 	AirstrikePower@empbomb:
 		PauseOnCondition: turnedoff || disabled
 		OrderName: EMP Bomb
@@ -3255,41 +3168,6 @@ COMMCENT:
 		SupportPowerPaletteOrder: 75
 		EndChargeSpeechNotification: AirstrikeReady
 		IncomingSpeechNotification: AirstrikeIncoming
-	GrantPrerequisiteChargeDrainPower:
-		PauseOnCondition: turnedoff
-		OrderName: Charge
-		Icon: charge
-		Name: Cavalry Charge
-		ChargeInterval: 4000
-		DischargeModifier: 2000
-		Description: Increases the speed of cavalry units.
-		EndChargeSpeechNotification: SupportPowerReady
-		Prerequisite: cavalrycharge
-		Prerequisites: support.mongolia
-	ParatroopersPower@ifvdrop:
-		PauseOnCondition: turnedoff
-		OrderName: IFV Drop
-		UnitType: transportplane
-		Icon: ifvdropicon
-		ChargeInterval: 10000
-		Name: IFV Drop
-		Description: A transport plane drops two Caballeros\nanywhere on the map.
-		DropItems: sipahi, sipahi
-		ReinforcementsArrivedSpeechNotification: ReinforcementsArrived
-		SelectTargetSpeechNotification: SelectTarget
-		AllowImpassableCells: false
-		QuantizedFacings: 8
-		CameraActor: camera.paradrop
-		DisplayBeacon: true
-		BeaconPoster: ifvdropbeacon
-		ArrowSequence: arrow
-		ClockSequence: clock
-		CircleSequence: circles
-		UseDirectionalTarget: True
-		DirectionArrowAnimation: paradirection
-		SupportPowerPaletteOrder: 50
-		EndChargeSpeechNotification: ReinforcementsReady
-		Prerequisites: support.serbia
 	AirstrikePower@dedmaroz:
 		PauseOnCondition: turnedoff || disabled
 		OrderName: DedMaroz
@@ -3423,24 +3301,6 @@ COMMCENT:
 		Duration: 350
 		Prerequisites: support.france
 		Sequence: idle
-	GrantExternalConditionPower@MindBlast:
-		PauseOnCondition: disabled || turnedoff
-		OrderName: MindBlast
-		Icon: mindblasticon
-		ChargeInterval: 3000
-		Name: Mind Blast
-		Description: Sends a damaging psychic shockwave from\nenslaved units within the area.
-		Duration: 500
-		SelectTargetSpeechNotification: SelectTarget
-		InsufficientPowerSpeechNotification: InsufficientPower
-		EndChargeSpeechNotification: SupportPowerReady
-		DisplayRadarPing: True
-		Condition: mindblast
-		OnFireSound: ironcur9.aud
-		SupportPowerPaletteOrder: 10
-		Dimensions: 3, 3
-		Footprint: xxx xxx xxx
-		Prerequisites: support.abyssinia
 	DetonateWeaponPower@SmokeScreen:
 		OrderName: smokescreen
 		Icon: smokescreenicon
@@ -3486,26 +3346,6 @@ COMMCENT:
 		Prerequisites: support.china
 		ExplosionWeapon: PropagandaBurst
 		ExplosionDelay: 0
-	GrantExternalConditionPowerCA@SUPERCHARGE:
-		OrderName: Supercharge
-		PauseOnCondition: turnedoff || disabled
-		Icon: superchargeicon
-		ChargeInterval: 7500
-		Name: Supercharge
-		Description: Increases the power output of power plants by 50%\nor grants tesla units' weapons\nchain lightning.
-		Duration: 500
-		SelectTargetSpeechNotification: SelectTarget
-		InsufficientPowerSpeechNotification: InsufficientPower
-		EndChargeSpeechNotification: SupportPowerReady
-		DisplayRadarPing: True
-		Condition: supercharged
-		OnFireSound: chargepwr1.wav
-		SupportPowerPaletteOrder: 10
-		Dimensions: 2, 2
-		Footprint: xx xx
-		Prerequisites: support.russia
-		ExplosionWeapon: SuperchargeBurst
-		ExplosionDelay : 0
 	GrantExternalConditionPowerCA@SUPPLYARMS:
 		OrderName: SupplyArms
 		PauseOnCondition: turnedoff || disabled
@@ -4394,6 +4234,7 @@ STHGENSM:
 	ProximityExternalCondition@stealther:
 		Condition: stealth
 		Range: 7c0
+		AffectsParent: True
 	WithRangeCircle@stealth:
 		Range: 7c0
 		Color: 4CFF00
@@ -5034,11 +4875,6 @@ APWR:
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	ProductionTimeMultiplier@basediscount:
 		Multiplier: 85
-	HitShape:
-		TargetableOffsets: 840,0,0, 598,-640,0, 598,640,0, -1060,0,0, -768,-640,0, -768,640,0, 0,0,0
-		Type: Polygon
-			Points: -1536,-300, -640,-811, 640,-811, 1536,-300, 1536,555, 640,1110, -640,1110, -1536,555
-		UseTargetableCellsOffsets: False
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 110
@@ -5057,6 +4893,11 @@ APWR:
 	Selectable:
 		Bounds: 2696, 2696
 		DecorationBounds: 3096, 3096, 0, 0
+	HitShape:
+		TargetableOffsets: 840,0,0, 598,-640,0, 598,640,0, -1060,0,0, -768,-640,0, -768,640,0, 0,0,0
+		Type: Polygon
+			Points: -1536,-300, -640,-811, 640,-811, 1536,-300, 1536,555, 640,1110, -640,1110, -1536,555
+		UseTargetableCellsOffsets: False
 	Health:
 		HP: 75000
 	Armor:
@@ -5560,8 +5401,6 @@ ATEK:
 	Inherits@rubbles: ^2x2Rubbles
 	Inherits@sabotable: ^Sabotable
 	Inherits@discount: ^BuildTimeDiscount
-	Selectable:
-		Bounds: 2696, 2696
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 140
@@ -5598,6 +5437,8 @@ ATEK:
 	HitShape:
 		UseTargetableCellsOffsets: false
 		TargetableOffsets: 0,0,0, 490,-470,0, 355,512,0, -355,-512,0, -630,512,0
+	Selectable:
+		Bounds: 2696, 2696
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelatek
 	InfiltrateToSpawnActor@matahari:
@@ -5703,9 +5544,6 @@ FIX:
 	Building:
 		Footprint: =+= +++ =+=
 		Dimensions: 3,3
-	Selectable:
-		Bounds: 2051, 2051, 0, 181
-		DecorationBounds: 2896, 2896
 	Health:
 		HP: 80000
 	Armor:
@@ -5734,6 +5572,9 @@ FIX:
 		TargetableOffsets: 840,0,0, 598,-640,0, 598,640,0, -1060,0,0, -768,-640,0, -768,640,0, 0,0,0
 		Type: Polygon
 			Points: -1536,-300, -640,-811, 640,-811, 1536,-300, 1536,555, 640,1110, -640,1110, -1536,555
+	Selectable:
+		Bounds: 2051, 2051, 0, 181
+		DecorationBounds: 2896, 2896
 	RenderSprites:
 		FactionImages:
 			austria: mfix
@@ -5885,7 +5726,7 @@ BARR:
 		Factions: russia, kazakhstan, ukraine, mongolia, arabia, germany, austria, persia, turkey, england, france, usa, japan, raj, serbia, egypt, abyssinia, bulgaria, belarus, transcaucasia
 		Prerequisite: infantry.rocketman
 	ProvidesPrerequisite@engineer:
-		Factions: russia, kazakhstan, ukraine, mongolia, china, raj, germany, austria, persia, italy, turkey, england, france, usa, japan, bulgaria, serbia, belarus, egypt, transcaucasia
+		Factions: russia, kazakhstan, ukraine, mongolia, china, germany, austria, persia, italy, turkey, england, france, usa, japan, bulgaria, serbia, belarus, egypt, transcaucasia
 		Prerequisite: infantry.engineer
 	ProvidesPrerequisite@mechanic:
 		Factions: usa, france, japan, england, serbia, egypt

@@ -160,12 +160,12 @@ dtrk:
 		Filename: dtrk.shp
 		Facings: 32
 		UseClassicFacings: True
-	idle2:
+	idle3:
 		Filename: dtrk.shp
 		Start: 33
 		Facings: 32
 		UseClassicFacings: True
-	idle3:
+	idle2:
 		Filename: dtrk.shp
 		Start: 66
 		Facings: 32

@@ -57,19 +57,16 @@ CrateExplosion:
 
 SlaveExplosion:
 	ValidTargets: Ground, Water, Air, GroundActor, Trees,  Ship, WaterActor, AirborneActor
-	ReloadDelay: 10
+	ReloadDelay: 25
 	Warhead@condition: GrantExternalCondition
 		Duration: 500
 		Condition: confusion
 		ValidTargets: GroundActor, Trees, Ship, WaterActor, Infantry
 		ValidRelationships: Enemy, Neutral
-		Range: 3c512
-	Warhead@conditionb: GrantExternalCondition
-		Duration: 500
-		Condition: slaving
-		ValidTargets: GroundActor, Trees, Ship, WaterActor, Infantry
-		ValidRelationships: Enemy, Neutral
-		Range: 3c512
+		Range: 2c516
+	Warhead@2Eff: CreateEffect
+		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, Ship, WaterActor, Trees
+		Explosions: dominating
 
 UnitExplode:
 	Inherits: ^Explosion
@@ -330,8 +327,8 @@ EMPMine:
 	Inherits: ATMine
 	Report: empmineboom.aud
 	Warhead@1Dam: SpreadDamage
-		Spread: 0c256
-		Damage: 800
+		Spread: 0c512
+		Damage: 6000
 		Falloff: 110, 60, 35, 10, 5
 		Versus:
 			None: 35
@@ -340,7 +337,8 @@ EMPMine:
 			Medium: 100
 			Heavy: 100
 			Concrete: 50
-	Warhead@2Eff: CreateEffect
+		InvalidTargets: Mine
+	Warhead@4Eff: CreateEffect
 		Explosions: empxpld
 		ExplosionPalette: swpeffects
 	Warhead@3Eff: CreateEffect

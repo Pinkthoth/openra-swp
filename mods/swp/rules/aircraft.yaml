@@ -684,7 +684,7 @@ WW1BOMBER:
 		Offset: 0,553,0
 	Buildable:
 		Prerequisites: ~afld, ~aircraft.raj, ~techlevel.high
-		Description: Slow bomber that drops incendiary bombs.
+		Description: Slow bomber that drops bombs.
 		BuildPaletteOrder: 499
 	TooltipExtras:
 		Strengths: + Strong vs Buildings, Defenses.
@@ -1449,7 +1449,7 @@ HELIX:
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 101
 		Prerequisites: ~helicopter.china, dome
-		Description: Transport helicopter.
+		Description: Infantry transport helicopter.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Vehicles.
 		Weaknesses: - Weak vs Aircraft.
@@ -2184,7 +2184,7 @@ IBLIS:
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 225
 		Prerequisites: mtek, ~helicopter.turkey, ~techlevel.high
-		Description: Helicopter gunship armed with\nIncendiary missiles.
+		Description: Helicopter gunship armed with\nincendiary missiles.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Buildings.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
@@ -2626,7 +2626,7 @@ HIND:
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 225
 		Prerequisites: dome, ~helicopter.hind, ~techlevel.high
-		Description: Helicopter gunship armed with\nsmall dual machine guns.
+		Description: Helicopter gunship armed with\nsmall dual gatling guns.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
@@ -2770,7 +2770,7 @@ HIND:
 		DecorationBounds: 1406, 1406
 	AmmoPool:
 		Armaments: primary
-		Ammo: 60
+		Ammo: 66
 		ReloadDelay: 5
 		AmmoCondition: ammo
 	Rearmable:
@@ -5053,9 +5053,9 @@ KIROV:
 		Prerequisites: ~aircraft.russia, stek
 		Description: Slow moving bomber zeppelin.
 	TooltipExtras:
-		Strengths: + Strong vs Buildings, Defenses.
-		Weaknesses: - Weak vs Infantry, Vehicles, Aircraft.
-		Attributes: • Equiped with a portable chronosphere.\n• Slowly recharges ammo.
+		Strengths: + Strong vs Buildings, Defenses, Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
+		Attributes: • Slowly recharges ammo.
 	Valued:
 		Cost: 1800
 	Tooltip:

@@ -220,11 +220,11 @@ MNLY.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Minelayer)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: MNLY
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: MNLY
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: MNLY
 	RenderSprites:
 		Image: mnly
@@ -294,11 +294,11 @@ TRENCHLAYER.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Trench Layer)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: TRENCHLAYER
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: TRENCHLAYER
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: TRENCHLAYER
 	RenderSprites:
 		Image: trenchlayer
@@ -313,7 +313,7 @@ HAMMERHEAD:
 		Queue: Vehicle
 		BuildPaletteOrder: 690
 		Prerequisites: ~vehicles.usa, fix, ~techlevel.medium
-		Description: Lays mines to destroy\nunwary enemy aircraft.
+		Description: Lays EMP mines.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
 		Attributes: • Can detect mines.
@@ -368,11 +368,11 @@ HAMMERHEAD.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Hammerhead)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: HAMMERHEAD
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: HAMMERHEAD
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: HAMMERHEAD
 	RenderSprites:
 		Image: hammerhead
@@ -566,11 +566,11 @@ COMBINE.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Combine)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: COMBINE
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: COMBINE
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: COMBINE
 	RenderSprites:
 		Image: combine
@@ -584,7 +584,7 @@ PROPTRUCK:
 		Queue: Vehicle
 		BuildPaletteOrder: 167
 		Prerequisites: ~techlevel.low, ~vehicles.china, commcent
-		Description: Red Army propaganda vehicle.
+		Description: Communist agitation vehicle.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
 		Attributes: • Deploy to increase morale of nearby infantry.
@@ -674,7 +674,7 @@ MORTARBIKE:
 		Queue: Vehicle
 		BuildPaletteOrder: 20
 		Prerequisites: ~vehicles.raj, ~techlevel.low
-		Description: Fast scouting motorcycle.
+		Description: Fast scouting motorcycle armed with a small mortar.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
 		Weaknesses: - Weak vs Tanks, Aircraft.
@@ -815,11 +815,11 @@ ARMCR.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Bobcat)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: ARMCR
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: ARMCR
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: ARMCR
 	RenderSprites:
 		Image: armcr
@@ -877,11 +877,11 @@ HUMVEE.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Humvee)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: HUMVEE
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: HUMVEE
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: HUMVEE
 	RenderSprites:
 		Image: humvee
@@ -949,11 +949,11 @@ HLFTRK.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Halftrack)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: HLFTRK
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: HLFTRK
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: HLFTRK
 	RenderSprites:
 		Image: hlftrk
@@ -1014,11 +1014,11 @@ PUMA.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Puma)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: PUMA
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: PUMA
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: PUMA
 	RenderSprites:
 		Image: puma
@@ -1029,9 +1029,14 @@ PRISMCANNON:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Vehicles.
-		Weaknesses: - Weak vs Aircraft.	
+		Weaknesses: - Weak vs Aircraft.
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 336
+		Prerequisites: mtek, adept, ~vehicles.austria, ~techlevel.low
+		Description: Heavy prism cannon.
 	Valued:
-		Cost: 1500
+		Cost: 1600
 	Tooltip:
 		Name: Prism Cannon
 	UpdatesPlayerStatistics:
@@ -1134,11 +1139,11 @@ HVTNK.Husk:
 		Name: Husk (Jaeger)
 	ThrowsParticle@turret:
 		Anim: turret
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: hvtnk
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: hvtnk
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: hvtnk
 	RenderSprites:
 		Image: hvtnk
@@ -1272,11 +1277,11 @@ MSAM.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Mobile S.A.M)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: MSAM
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: MSAM
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: MSAM
 	RenderSprites:
 		Image: msam
@@ -1370,11 +1375,11 @@ ECTNK.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Chrono Tortoise)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: ECTNK
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: ECTNK
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: ECTNK
 	RenderSprites:
 		Image: ectnk
@@ -1454,11 +1459,11 @@ CTNK.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Chrono Tank)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: CTNK
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: CTNK
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: CTNK
 	RenderSprites:
 		Image: ctnk
@@ -1476,7 +1481,7 @@ SIEGETNK:
 		Strengths: + Strong vs Vehicles, Defenses.
 		Weaknesses: - Weak vs Infantry, Aircraft.
 	Valued:
-		Cost: 1850
+		Cost: 1800
 	Tooltip:
 		Name: Siege Tank
 	UpdatesPlayerStatistics:
@@ -1518,11 +1523,11 @@ SIEGETNK.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Siege Tank)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: SIEGETNK
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: SIEGETNK
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: SIEGETNK
 	RenderSprites:
 		Image: siegetnk
@@ -1579,11 +1584,11 @@ LEECH.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Leecher)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: LEECH
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: LEECH
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: LEECH
 	RenderSprites:
 		Image: leech
@@ -1642,11 +1647,11 @@ RAJ.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Raj Self-Propelled Gun)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: MAUS
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: MAUS
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: MAUS
 	RenderSprites:
 		Image: maus
@@ -1655,11 +1660,6 @@ MAUS:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 401
-		Prerequisites: ~vehicles.bulgaria, mtek, adept
-		Description: Super heavy tank destroyer.
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles, Defenses.
 		Weaknesses: - Weak vs Infantry, Aircraft.
@@ -1705,11 +1705,11 @@ MAUS.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Mouse)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: MAUS
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: MAUS
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: MAUS
 	RenderSprites:
 		Image: maus
@@ -1787,11 +1787,11 @@ ASSIMILATOR.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Assimilator)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: ASSIMILATOR
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: ASSIMILATOR
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: ASSIMILATOR
 	WithFacingSpriteBody:
 		Sequence: dead
@@ -1851,11 +1851,11 @@ MRJ.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Mobile Radar Jammer)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: MRJ
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: MRJ
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: MRJ
 	RenderSprites:
 		Image: mrj
@@ -1899,11 +1899,11 @@ RAJTRNSPRT.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Transport Truck)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: RAJTRNSPRT
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: RAJTRNSPRT
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: RAJTRNSPRT
 	RenderSprites:
 		Image: rajtrnsprt
@@ -1951,11 +1951,11 @@ TRNSPRT.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Transport Truck)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: TRNSPRT
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: TRNSPRT
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: TRNSPRT
 	RenderSprites:
 		Image: trnsprt
@@ -1971,7 +1971,7 @@ FTRK:
 		Queue: Vehicle
 		BuildPaletteOrder: 20
 		Prerequisites: ~vehicles.ftrk, ~techlevel.low
-		Description: Mobile unit with mounted Flak cannon.
+		Description: Mobile unit with mounted flak cannon.
 	TooltipExtras:
 		Strengths: + Strong vs Aircraft.
 		Weaknesses: - Weak vs Vehicles, Infantry.
@@ -2033,11 +2033,11 @@ FTRK.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Mobile Flak)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: FTRK
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: FTRK
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: FTRK
 	RenderSprites:
 		Image: ftrk
@@ -2107,11 +2107,11 @@ SHILKA.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Shilka)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: SHILKA
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: SHILKA
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: SHILKA
 	RenderSprites:
 		Image: shilka
@@ -2125,7 +2125,7 @@ TURKFTRK:
 		Queue: Vehicle
 		BuildPaletteOrder: 81
 		Prerequisites: ~vehicles.china, ~techlevel.low, adept
-		Description: Mobile unit with mounted Flak cannon.
+		Description: Mobile unit with a dual flak cannon.
 	TooltipExtras:
 		Strengths: + Strong vs Aircraft.
 		Weaknesses: - Weak vs Vehicles, Infantry.
@@ -2191,11 +2191,11 @@ TURKFTRK.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Mobile Flak)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: TURKFTRK
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: TURKFTRK
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: TURKFTRK
 	RenderSprites:
 		Image: turkftrk
@@ -2211,7 +2211,7 @@ QUAD:
 		Queue: Vehicle
 		BuildPaletteOrder: 90
 		Prerequisites: ~vehicles.arabia, dome, ~techlevel.medium
-		Description: Tracked truck,\narmed with a quad cannon.
+		Description: Tracked truck, armed with a quad cannon.
 	Valued:
 		Cost: 750
 	RenderSprites:
@@ -2268,11 +2268,11 @@ QUAD.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Quad Cannon)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: QUAD
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: QUAD
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: QUAD
 	RenderSprites:
 		Image: quad
@@ -2351,11 +2351,11 @@ WIESEL.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Wiesel)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: WIESEL
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: WIESEL
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: WIESEL
 	RenderSprites:
 		Image: wiesel
@@ -2460,11 +2460,11 @@ LASERQUAD.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Laser Quad)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: LASERQUAD
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: LASERQUAD
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: LASERQUAD
 	RenderSprites:
 		Image: laserquad
@@ -2524,11 +2524,11 @@ DRAKE.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Drake)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: DRAKE
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: DRAKE
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: DRAKE
 	RenderSprites:
 		Image: drake
@@ -2590,11 +2590,11 @@ MICTNK.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Irradiator)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: MICTNK
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: MICTNK
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: MICTNK
 	RenderSprites:
 		Image: mictnk
@@ -2664,11 +2664,11 @@ KINTNK.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Kinetic Tank)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: KINTNK
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: KINTNK
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: KINTNK
 	RenderSprites:
 		Image: kintnk
@@ -2727,11 +2727,11 @@ TNKT.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Tankette)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: TNKT
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: TNKT
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: TNKT
 	RenderSprites:
 		Image: tnkt
@@ -2788,11 +2788,11 @@ TRAKTOR.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Traktor)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: TRAKTOR
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: TRAKTOR
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: TRAKTOR
 	RenderSprites:
 		Image: traktor
@@ -2861,11 +2861,11 @@ BTR.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Bronetransporter)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: BTR
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: BTR
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: BTR
 	RenderSprites:
 		Image: btr
@@ -2931,11 +2931,11 @@ SEPOYIFV.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Sepoy IFV)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: SEPOYIFV
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: SEPOYIFV
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: SEPOYIFV
 	RenderSprites:
 		Image: sepoyifv
@@ -2953,7 +2953,7 @@ BGGY:
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
 		Weaknesses: - Weak vs Tanks, Aircraft.
-		Attributes: • Can transport up to 2 infantry units.
+		Attributes: • Can transport up to 1 infantry units.
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -2986,7 +2986,7 @@ BGGY:
 	WithSpriteTurret:
 	Cargo:
 		Types: Infantry
-		MaxWeight: 2
+		MaxWeight: 1
 		LoadingCondition: notmobile
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
@@ -3046,11 +3046,11 @@ MARAUDER.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Marauder)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: MARAUDER
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: MARAUDER
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: MARAUDER
 	RenderSprites:
 		Image: bggy
@@ -3124,11 +3124,11 @@ MTNK.Husk:
 		Name: Husk (Cossack)
 	ThrowsParticle@turret:
 		Anim: turret
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: MTNK
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: MTNK
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: MTNK
 	RenderSprites:
 		Image: mtnk
@@ -3137,6 +3137,8 @@ MARAUDERTANK:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	-DamagedByTintedCells@RADSTRONG:
+	-DamagedByTintedCells@RADMED:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 402
@@ -3145,7 +3147,7 @@ MARAUDERTANK:
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles.
 		Weaknesses: - Weak vs Infantry, Aircraft.
-		Attributes: • Can gather materials from husks to\nbolster it's armour and weaponry.
+		Attributes: • Can gather materials from husks to\nbolster it's armour and weaponry.\n• Undamaged by radiation.
 	Valued:
 		Cost: 1550
 	Tooltip:
@@ -3344,11 +3346,11 @@ HAMMER.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Hammer Crawler)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: HAMMER
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: HAMMER
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: HAMMER
 	RenderSprites:
 		Image: hammerhusk
@@ -3359,11 +3361,11 @@ MARAUDERTANK.Husk:
 		Name: Husk (Marauder)
 	ThrowsParticle@turret:
 		Anim: turret
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: MARAUDERTANK
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: MARAUDERTANK
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: MARAUDERTANK
 	RenderSprites:
 		Image: maraudertank
@@ -3430,11 +3432,11 @@ BULGARIATANK.Husk:
 		Name: Husk (Marauder)
 	ThrowsParticle@turret:
 		Anim: turret
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: BULGARIATANK
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: BULGARIATANK
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: BULGARIATANK
 	RenderSprites:
 		Image: bulgariatank
@@ -3453,7 +3455,7 @@ CHINATANK:
 		Weaknesses: - Weak vs Aircraft.
 		Attributes: • Armed with a secondary machine gun.\n • Increased damage, speed and armor while near other Horde Tanks.
 	Health:
-		HP: 38000
+		HP: 35000
 	Armor:
 		Type: Heavy
 	Valued:
@@ -3581,11 +3583,11 @@ CHINATANK.Husk:
 		Name: Husk (Horde Tank)
 	ThrowsParticle@turret:
 		Anim: turret
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: CHINATANK
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: CHINATANK
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: CHINATANK
 	RenderSprites:
 		Image: chinatank
@@ -3647,11 +3649,11 @@ MIRTNK.Husk:
 		Name: Husk (Mirage Tank)
 	ThrowsParticle@turret:
 		Anim: turret
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: MIRTNK
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: MIRTNK
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: MIRTNK
 	RenderSprites:
 		Image: mirtnk
@@ -3709,11 +3711,11 @@ MAROZILNIK.Husk:
 		Name: Husk (Marozilnik)
 	ThrowsParticle@turret:
 		Anim: turret
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: MAROZILNIK
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: MAROZILNIK
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: MAROZILNIK
 	RenderSprites:
 		Image: marozilnik
@@ -3781,11 +3783,11 @@ TEMPLAR.Husk:
 		Name: Husk (Templar)
 	ThrowsParticle@turret:
 		Anim: turret
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: TEMPLAR
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: TEMPLAR
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: TEMPLAR
 	RenderSprites:
 		Image: templar.husk
@@ -3803,14 +3805,14 @@ SLINGSHOT:
 		Strengths: + Strong vs Infantry, Aircraft.
 		Weaknesses: - Weak vs Vehicles.
 	Valued:
-		Cost: 1025
+		Cost: 850
 	Tooltip:
 		Name: Slingshot
 		GenericName: Tank
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 38000
+		HP: 35000
 	Armor:
 		Type: Medium
 	Mobile:
@@ -3872,11 +3874,11 @@ SLINGSHOT.Husk:
 		Name: Husk (Slingshot)
 	ThrowsParticle@turret:
 		Anim: turret
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: SLINGSHOT
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: SLINGSHOT
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: SLINGSHOT
 	RenderSprites:
 		Image: slingshot
@@ -3987,11 +3989,11 @@ MGG.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Mobile Gap Generator)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: MGG
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: MGG
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: MGG
 	RenderSprites:
 		Image: mgg
@@ -4243,11 +4245,11 @@ MONSTERTANK.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Bishop Tank)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: MONSTERTANK
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: MONSTERTANK
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: MONSTERTANK
 	RenderSprites:
 		Image: monstertank
@@ -4374,11 +4376,11 @@ GATLINGTANK.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Deacon Tank)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: GATLINGTANK
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: GATLINGTANK
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: GATLINGTANK
 	RenderSprites:
 		Image: gatlingtank
@@ -4926,11 +4928,11 @@ SIPAHI.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Sepoy)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: SIPAHI
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: SIPAHI
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: SIPAHI
 	RenderSprites:
 		Image: sipahi
@@ -4988,11 +4990,11 @@ SONIQUE.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Disruptor)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: SONIQUE
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: SONIQUE
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: SONIQUE
 	RenderSprites:
 		Image: sonique
@@ -5055,11 +5057,11 @@ JEEP.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Ranger)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: JEEP
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: JEEP
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: JEEP
 	RenderSprites:
 		Image: jeep
@@ -5124,11 +5126,11 @@ APC.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Armored Personnel Carrier)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: APC
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: APC
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: APC
 	RenderSprites:
 		Image: apc
@@ -5179,11 +5181,11 @@ CRAWLER.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Crawler)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: CRAWLER
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: CRAWLER
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: CRAWLER
 	RenderSprites:
 		Image: crawler
@@ -5238,17 +5240,14 @@ SHAH:
 		Name: secondary
 		Weapon: EnslaveInfantry
 		LocalOffset: 150,0,400
-		PauseOnCondition: !ammo
 	Armament@tertiary:
 		Name: tertiary
 		Weapon: EnslaveVehicle
 		LocalOffset: 150,0,400
-		PauseOnCondition: !ammo
 	Armament@primary:
 		Name: primary
 		Weapon: EnslaveRaySuper
 		LocalOffset: 150,0,400
-		PauseOnCondition: !ammo
 	MindController:
 		ArmamentNames: tertiary, secondary
 		Capacity: 3
@@ -5258,6 +5257,10 @@ SHAH:
 		MaxControlledCondition: maxcontrolled
 		ManualReleaseEnabled: true
 		ControlType: MindControl
+		TicksToControl: 200
+		TargetTypeTicksToControl:
+			Infantry: 150
+		TicksToRevoke: 25
 	WithMindControlArc@MC:
 		Color: c71585
 		Transparency: 55
@@ -5265,31 +5268,16 @@ SHAH:
 		Angle: 32
 		Width: 116
 		ControlType: MindControl
-	AmmoPool:
-		Ammo: 1
-		AmmoCondition: ammo
-	ReloadAmmoPool:
-		Delay: 35
-		Count: 1
-		RequiresCondition: mindcontrolling == 0
-	ReloadAmmoPool@1:
-		Delay: 70
-		Count: 1
-		RequiresCondition: mindcontrolling == 1
-	ReloadAmmoPool@2:
-		Delay: 140
-		Count: 1
-		RequiresCondition: mindcontrolling == 2
 
 SHAH.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Shahanshah)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: SHAH
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: SHAH
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: SHAH
 	RenderSprites:
 		Image: shah
@@ -5302,7 +5290,7 @@ WASTETANKER:
 		Queue: Vehicle
 		BuildPaletteOrder: 83
 		Prerequisites: ~vehicles.kazakhstan, dome
-		Description: Tough tank that shoots corrosive acid.
+		Description: Tough tank that shoots corrosive acid sludge.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Vehicles.
 		Weaknesses: - Weak vs Tanks, Aircraft.
@@ -5341,11 +5329,11 @@ WASTETANKER.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Waste Tanker)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: WASTETANKER
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: WASTETANKER
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: WASTETANKER
 	RenderSprites:
 		Image: wastetanker
@@ -5438,11 +5426,11 @@ IFV.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Warthog)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: IFV
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: IFV
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: IFV
 	RenderSprites:
 		Image: ifv
@@ -5506,11 +5494,11 @@ RTNK.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Squire)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: RTNK
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: RTNK
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: RTNK
 	RenderSprites:
 		Image: rtnk
@@ -5624,11 +5612,11 @@ BULLFROG.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Bullfrog)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: BULLFROG
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: BULLFROG
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: BULLFROG
 	RenderSprites:
 		Image: bullfrog
@@ -5717,11 +5705,11 @@ GUERILLATANK.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Guerilla Tank)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: GUERILLATANK
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: GUERILLATANK
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: GUERILLATANK
 	RenderSprites:
 		Image: guerillatank
@@ -5821,11 +5809,11 @@ GUERILLAARTY.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Guerilla Artillery)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: GUERILLAARTY
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: GUERILLAARTY
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: GUERILLAARTY
 	RenderSprites:
 		Image: guerillatank
@@ -5838,7 +5826,7 @@ GUERILLAMONGOOSE:
 		Queue: Vehicle
 		BuildPaletteOrder: 80
 		Prerequisites: ~vehicles.persia, dome, ~techlevel.medium
-		Description: Light vehicle armed with a quad cannon.
+		Description: Light vehicle armed with an anti-air cannon.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Aircraft.
 		Weaknesses: - Weak vs Vehicles.
@@ -5930,11 +5918,11 @@ GUERILLAMONGOOSE.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Mongoose)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: GUERILLAMONGOOSE
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: GUERILLAMONGOOSE
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: GUERILLAMONGOOSE
 	RenderSprites:
 		Image: guerillamongoose
@@ -5950,7 +5938,7 @@ PANZER38:
 		Queue: Vehicle
 		BuildPaletteOrder: 73
 		Prerequisites: adept, ~vehicles.leopard, ~techlevel.medium
-		Description: Slow but strudy tank.
+		Description: Pact main battle tank.
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles.
 		Weaknesses: - Weak vs Tanks, Infantry, Aircraft.
@@ -6003,11 +5991,11 @@ PANZER38.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Leopard)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: PANZER38
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: PANZER38
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: PANZER38
 	RenderSprites:
 		Image: panzer38
@@ -6087,11 +6075,11 @@ JAPANTANK.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Ronin)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: JAPANTANK
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: JAPANTANK
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: JAPANTANK
 	RenderSprites:
 		Image: japantank
@@ -6104,7 +6092,7 @@ RONIN:
 		Queue: Vehicle
 		BuildPaletteOrder: 320
 		Prerequisites: ~vehicles.japan, commcent, ~techlevel.low
-		Description: Multipurpose tank, jack of all trades,\nmaster of none.
+		Description: Laser cannon armed tank.
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles, Infantry.
 		Weaknesses: - Weak vs Aircraft
@@ -6151,11 +6139,11 @@ RONIN.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Ronin)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: RONIN
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: RONIN
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: RONIN
 	RenderSprites:
 		Image: ronin
@@ -6216,11 +6204,11 @@ EBI.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Ebi)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: EBI
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: EBI
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: EBI
 	RenderSprites:
 		Image: ebi
@@ -6294,11 +6282,11 @@ PAPC.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Phase APC)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: PAPC
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: PAPC
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: PAPC
 	RenderSprites:
 		Image: papc
@@ -6308,7 +6296,7 @@ PTNK:
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Valued:
-		Cost: 1500
+		Cost: 1400
 	Tooltip:
 		Name: Phase Tank
 	UpdatesPlayerStatistics:
@@ -6400,11 +6388,11 @@ PTNK.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Phase Tank)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: PTNK
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: PTNK
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: PTNK
 	RenderSprites:
 		Image: ptnk
@@ -6492,11 +6480,11 @@ KUMO.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Kumo)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: KUMO
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: KUMO
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: KUMO
 	RenderSprites:
 		Image: kumo
@@ -6570,11 +6558,11 @@ LTNK.Husk:
 		Name: Husk (Crusader)
 	ThrowsParticle@turret:
 		Anim: turret
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: LTNK
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: LTNK
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: LTNK
 	RenderSprites:
 		Image: ltnk
@@ -6645,11 +6633,11 @@ JACKAL.Husk:
 		Name: Husk (Jackal)
 	ThrowsParticle@turret:
 		Anim: turret
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: JACKAL
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: JACKAL
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: JACKAL
 	RenderSprites:
 		Image: jackal
@@ -6720,11 +6708,11 @@ JACKAL.Husk:
 		Name: Husk (Rhino Tank)
 	ThrowsParticle@turret:
 		Anim: turret
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: 3TNK
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: 3TNK
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: 3TNK
 	RenderSprites:
 		Image: 3tnk
@@ -6855,11 +6843,11 @@ TITAN.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Titan)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: TITAN
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: TITAN
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: TITAN
 	RenderSprites:
 		Image: sicklehusk
@@ -6930,11 +6918,11 @@ SICKLE.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Sickle Crawler)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: SICKLE
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: SICKLE
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: SICKLE
 	RenderSprites:
 		Image: sicklehusk
@@ -7193,11 +7181,11 @@ PRTNK.Husk:
 		Name: Husk (Prism Tank)
 	ThrowsParticle@turret:
 		Anim: turret
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: PRTNK
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: PRTNK
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: PRTNK
 	RenderSprites:
 		Image: prtnk
@@ -7263,11 +7251,11 @@ HVTTNK.Husk:
 		Name: Husk (Tesla Tank)
 	ThrowsParticle@turret:
 		Anim: turret
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: HVTTNK
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: HVTTNK
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: HVTTNK
 	RenderSprites:
 		Image: hvttnk
@@ -7369,11 +7357,11 @@ LASERTANK.Husk:
 		Name: Husk (Laser Tank)
 	ThrowsParticle@turret:
 		Anim: turret
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: LASERTANK
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: LASERTANK
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: LASERTANK
 	RenderSprites:
 		Image: lasertank
@@ -7662,11 +7650,11 @@ ARC.Husk:
 		Name: Husk (Arc Thrower)
 	ThrowsParticle@turret:
 		Anim: turret
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: ARC
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: ARC
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: ARC
 	RenderSprites:
 		Image: arc
@@ -7700,6 +7688,9 @@ EMPDEVICE:
 		RequiresCondition: !deployed
 		PauseOnCondition: being-captured
 		Speed: 56
+	FreeActor:
+		Actor: e1
+		RequiresCondition: deployed
 	-ChronoshiftableCA:
 	RevealsShroud:
 		MinRange: 4c0
@@ -7796,11 +7787,11 @@ HOWIZER.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Presbyter Artillery)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: HOWIZER
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: HOWIZER
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: HOWIZER
 	RenderSprites:
 		Image: howizer
@@ -7857,11 +7848,11 @@ DISCUSARTY.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Discus Artillery)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: DISCUSARTY
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: DISCUSARTY
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: DISCUSARTY
 	RenderSprites:
 		Image: howizer
@@ -8141,11 +8132,11 @@ ARCHER.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Paladin)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: ARCHER
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: ARCHER
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: ARCHER
 	RenderSprites:
 		Image: archer
@@ -8199,11 +8190,11 @@ MAGNATE.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Anyushka)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: MAGNATE
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: MAGNATE
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: MAGNATE
 	RenderSprites:
 		Image: magnate
@@ -8278,11 +8269,11 @@ ENTENTEAA.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Marksman)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: ENTENTEAA
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: ENTENTEAA
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: ENTENTEAA
 	RenderSprites:
 		Image: ententeaa
@@ -8350,11 +8341,11 @@ HVRTNKTNK.Husk:
 		Name: Husk (Maglev tank)
 	ThrowsParticle@turret:
 		Anim: turret
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: HVRTNKTNK
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: HVRTNKTNK
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: HVRTNKTNK
 	RenderSprites:
 		Image: HVRTNKTNK
@@ -8506,7 +8497,7 @@ TTNK:
 		Prerequisites: adept, ~vehicles.russia, ~techlevel.low
 		Description: Tough infantry transport.
 	Valued:
-		Cost: 1000
+		Cost: 800
 	Cargo:
 		Types: Infantry
 		MaxWeight: 5
@@ -8555,11 +8546,11 @@ TTNK.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Tesla Tank)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: TTNK
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: TTNK
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: TTNK
 	RenderSprites:
 		Image: ttnk
@@ -8613,11 +8604,11 @@ FLMTNK.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Flame Tank)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: FLMTNK
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: FLMTNK
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: FLMTNK
 	RenderSprites:
 		Image: flmtnk
@@ -8681,11 +8672,11 @@ FLMTNK.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Cuirassier)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: 2TNK
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: 2TNK
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: 2TNK
 	RenderSprites:
 		Image: 2tnk.destroyed
@@ -8695,7 +8686,7 @@ FIRELANCER:
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Valued:
-		Cost: 1650
+		Cost: 1600
 	Tooltip:
 		Name: Ifrit
 	UpdatesPlayerStatistics:
@@ -8745,11 +8736,11 @@ FIRELANCER.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Ifrit)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: FIRELANCER
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: FIRELANCER
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: FIRELANCER
 	RenderSprites:
 		Image: firelancer
@@ -8853,11 +8844,11 @@ HELGA.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Mogul)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: HELGA
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: HELGA
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: HELGA
 	RenderSprites:
 		Image: bigbertha
@@ -8879,7 +8870,7 @@ AUGUSTUS:
 		Queue: Vehicle
 		BuildPaletteOrder: 80
 		Prerequisites: dome, ~vehicles.italy, ~techlevel.high
-		Description: Huge extra long range artillery.
+		Description: Large extra long range artillery.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Buildings, Defenses.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
@@ -8961,11 +8952,11 @@ AUGUSTUS.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Augustus)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: AUGUSTUS
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: AUGUSTUS
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: AUGUSTUS
 	RenderSprites:
 		Image: augustus
@@ -9057,11 +9048,11 @@ MOBILEARRAY.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Mobile Array)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: MOBILEARRAY
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: MOBILEARRAY
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: MOBILEARRAY
 	RenderSprites:
 		Image: mobilearray
@@ -9146,11 +9137,11 @@ SAPPER.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Sapper)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: SAPPER
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: SAPPER
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: SAPPER
 	RenderSprites:
 		Image: sapper
@@ -9161,11 +9152,11 @@ TESTUDO.Husk:
 		Name: Husk (Testudo)
 	ThrowsParticle@turret:
 		Anim: turret
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: TESTUDO
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: TESTUDO
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: TESTUDO
 	RenderSprites:
 		Image: testudo
@@ -9414,11 +9405,11 @@ MOLERAT.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Molerat)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: MOLERAT
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: MOLERAT
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: MOLERAT
 	RenderSprites:
 		Image: molerat
@@ -9474,11 +9465,11 @@ RACER.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Raider)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: RACER
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: RACER
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: RACER
 	RenderSprites:
 		Image: racer
@@ -9623,11 +9614,11 @@ SCORPION.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Scorpion)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: SCORPION
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: SCORPION
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: SCORPION
 	RenderSprites:
 		Image: scorpion
@@ -9756,11 +9747,11 @@ TECHNICAL.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Technical)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: TECHNICAL
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: TECHNICAL
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: TECHNICAL
 	RenderSprites:
 		Image: technical
@@ -9997,11 +9988,11 @@ GATLINGCAR.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Gatling Car)
-	TransformOnCapture@Mechanic:
+	InfiltrateForTransformWithOwnerChange@Worker
 		IntoActor: GATLINGCAR
-	TransformOnCapture@Engineer:
+	InfiltrateForTransformWithOwnerChange@Engineer:
 		IntoActor: GATLINGCAR
-	InfiltrateForTransform:
+	InfiltrateForTransformWithOwnerChange:
 		IntoActor: GATLINGCAR
 	RenderSprites:
 		Image: gatlingcar
@@ -10063,6 +10054,8 @@ DTRK:
 	-ExperienceTrickler@OfficerNearby:
 	-GainsExperienceMultiplier@OfficerNearby:
 	-ExternalCondition@OfficerNearby:
+	-DamagedByTintedCells@RADSTRONG:
+	-DamagedByTintedCells@RADMED:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 330
@@ -10070,7 +10063,7 @@ DTRK:
 		Description: Truck loaded with unstable nuclear materials.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
-		Attributes: • Deploy to detonate cargo.\n• Can lay Nuclear Materials.
+		Attributes: • Deploy to detonate cargo.\n• Can lay Nuclear Materials.\n• Undamaged by radiation.
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -10196,7 +10189,7 @@ CHAOSDRONE:
 		Queue: Vehicle
 		BuildPaletteOrder: 330
 		Prerequisites: ~vehicles.kazakhstan, commcent, illicitlab
-		Description: Truck loaded with toxic materials.
+		Description: Truck loaded with psychoactive gas.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
 		Attributes: • Deploy to detonate cargo.
