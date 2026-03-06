@@ -1302,6 +1302,7 @@ SCRAP:
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelscrap
 	ProvidesPrerequisite@buildingname:
+		RequiresCondition: !sabotaged
 	InfiltrateToSpawnActor@matahari:
 		Actor: proxy.mataharirepair
 		Types: MatahariInfiltrate
@@ -2727,8 +2728,10 @@ ADEPT:
 		Amount: -60
 	ProvidesPrerequisite@adept:
 		Prerequisite: adept
+		RequiresCondition: !sabotaged
 	ProvidesPrerequisite@domeoradept:
 		Prerequisite: domeoradept
+		RequiresCondition: !sabotaged
 	HitShape:
 		TargetableOffsets: 1273,939,0, -980,-640,0, -980,640,0, 0,0,0
 		Type: Rectangle
@@ -2952,6 +2955,7 @@ COMMCENT:
 			ukraine: kcommcent
 			transcaucasia: kcommcent
 	ProvidesPrerequisite@self:
+		RequiresCondition: !sabotaged
 	ProvidesPrerequisite@usa:
 		Factions: usa
 		Prerequisite: support.usa
@@ -3917,8 +3921,10 @@ DOME:
 	Power:
 		Amount: -40
 	ProvidesPrerequisite@buildingname:
+		RequiresCondition: !sabotaged
 	ProvidesPrerequisite@domeoradept:
 		Prerequisite: domeoradept
+		RequiresCondition: !sabotaged
 	ExternalCondition@JAMMED:
 		Condition: jammed
 	RenderSprites:
@@ -5171,6 +5177,7 @@ ILLICITLAB:
 	Targetable:
 		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SaboteurInfiltration, IllicitLab
 	ProvidesPrerequisite@cyberlab:
+		RequiresCondition: !sabotaged
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelillicitlab
 	RenderSprites:
@@ -5244,6 +5251,7 @@ HORSEBREEDER:
 	Targetable:
 		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration, MatahariInfiltrate
 	ProvidesPrerequisite@cyberlab:
+		RequiresCondition: !sabotaged
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelhorsebreeder
 	InfiltrateToSpawnActor@matahari:
@@ -5306,6 +5314,7 @@ STEK:
 	Targetable:
 		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate, SaboteurInfiltration, MatahariInfiltrate
 	ProvidesPrerequisite@buildingname:
+		RequiresCondition: !sabotaged
 	InfiltrateForSupportPower@stektech:
 		Types: SpyInfiltrate
 		Proxy: proxy.stektech
@@ -5350,6 +5359,7 @@ MTEK:
 		Name: Pact Tech Center
 	ProvidesPrerequisite:
 		Prerequisite: techcenter
+		RequiresCondition: !sabotaged
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 3,2
@@ -5370,6 +5380,7 @@ MTEK:
 		Amount: -200
 	ProvidesPrerequisite@buildingname:
 		Prerequisite: mtek
+		RequiresCondition: !sabotaged
 	InfiltrateForSupportPower@mtektech:
 		Types: SpyInfiltrate
 		Proxy: proxy.mtektech
@@ -5412,6 +5423,7 @@ ATEK:
 		Name: Entente Tech Center
 	ProvidesPrerequisite:
 		Prerequisite: techcenter
+		RequiresCondition: !sabotaged
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 3,2
@@ -5431,6 +5443,7 @@ ATEK:
 	Power:
 		Amount: -200
 	ProvidesPrerequisite@buildingname:
+		RequiresCondition: !sabotaged
 	InfiltrateForSupportPower@atektech:
 		Types: SpyInfiltrate
 		Proxy: proxy.atektech
@@ -5507,6 +5520,7 @@ INDPLANT:
 	RenderSprites:
 	ProvidesPrerequisite:
 		Prerequisite: indplant
+		RequiresCondition: !sabotaged
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelindplant
 	InfiltrateToSpawnActor@matahari:

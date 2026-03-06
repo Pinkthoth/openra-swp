@@ -2109,7 +2109,7 @@ BloodLustGun:
 		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, Ship, WaterActor, Trees, Corpse
 	Warhead@condition: GrantExternalCondition
 		Condition: bloodlust
-		Range: 0c05
+		Range: 0c512
 		Duration: 250
 		ValidTargets: Infantry
 		ValidRelationships: Ally

@@ -952,8 +952,8 @@ DemoBombExplode:
 			Light: 50
 			Medium: 40
 			Heavy: 30
-			Wood: 25
-			Concrete: 25
+			Wood: 50
+			Concrete: 40
 		AffectsParent: true
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@2dam: HealthPercentageDamage

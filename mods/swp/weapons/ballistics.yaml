@@ -607,7 +607,7 @@ DemomanGrenade:
 	ReloadDelay: 50
 	Range: 1c530
 	Report: grenade1.aud
-	ValidTargets: demoplantable
+	ValidTargets: DemoPlantable
 	Projectile: InstantHit
 	Warhead@AttachDelayedWeapon: AttachDelayedWeapon
 		Weapon: DemoBombExplode
@@ -615,7 +615,7 @@ DemomanGrenade:
 		TriggerTime: 100
 		DeathTypes: ExplosionDeath
 		Range: 1
-		ValidTargets: demoplantable
+		ValidTargets: DemoPlantable
 
 ToxinBomb:
 	Inherits: ^Artillery

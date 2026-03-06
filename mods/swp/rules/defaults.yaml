@@ -429,7 +429,8 @@
 		Condition: demoed
 		ProgressBarColor: FF000080
 	Targetable@demoplantable:
-		TargetTypes: demoplantable
+		TargetTypes: DemoPlantable
+		RequiresCondition: !demoed
 	Targetable@demoed:
 		TargetTypes: demoed
 		RequiresCondition: demoed
@@ -903,13 +904,11 @@
 	Targetable@bloodlust:
 		TargetTypes: Bloodlust
 		RequiresCondition: bloodlust
-	WithDecoration@bloodlust:
+	WithIdleOverlay@BLOODLUST:
 		Image: pips
 		Sequence: pip-bloodlust
-		Position: TopRight
-		ValidRelationships: Ally, Neutral
 		RequiresCondition: bloodlust
-		RequiresSelection: False
+		Palette: basic-alpha
 
 ^Smoked:
 	ExternalCondition@smoked:
