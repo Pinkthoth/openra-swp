@@ -75,6 +75,8 @@ DOG:
 	RangedGpsRadarProvider:
 		Range: 8c512
 		TargetTypes: Infantry
+	-SpawnActorOnDeath@zombiefy:
+	-SpawnActorOnDeath@BulletDeath:
 
 HOUND:
 	Inherits: ^Soldier
@@ -153,6 +155,8 @@ HOUND:
 	RangedGpsRadarProvider:
 		Range: 8c512
 		TargetTypes: Infantry
+	-SpawnActorOnDeath@zombiefy:
+	-SpawnActorOnDeath@BulletDeath:
 
 GENEHORROR:
 	Inherits: ^Soldier
@@ -167,6 +171,7 @@ GENEHORROR:
 		GenericName: Mutant
 	Voiced:
 		VoiceSet: ZombieVoice
+		Volume: 0.4
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
@@ -230,6 +235,7 @@ GENEHORROR:
 	IgnoresDisguise:
 	Voiced:
 		VoiceSet: ZombieVoice
+		Volume: 0.4
 	-TakeCover:
 
 BUSHI:
@@ -303,7 +309,7 @@ CYBORGRAILGUNNER:
 		Type: Light
 	Armament@PRIMARY:
 		Weapon: LtRail
-		LocalOffset: 200,-20,400
+		LocalOffset: 200,-40,400
 	Armament@GARRISONED:
 		Name: garrisoned
 		Weapon: LtRail
@@ -1166,7 +1172,8 @@ COPYCAT:
 	RenderSprites:
 		Image: copycat
 	Voiced:
-		VoiceSet: BritFemVoices
+		VoiceSet: IndiaFemVoices
+		Volume: 2
 	SpawnActorOnDeath@BulletDeath:
 		Actor: COPYCAT.Husk
 
@@ -1409,6 +1416,7 @@ MUTANT:
 		GenericName: Mutant
 	Voiced:
 		VoiceSet: ZombieVoice
+		Volume: 0.4
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
@@ -1451,6 +1459,7 @@ RPGMUTANT:
 		GenericName: Mutant
 	Voiced:
 		VoiceSet: ZombieVoice
+		Volume: 0.4
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
@@ -2656,7 +2665,7 @@ E6:
 		Description: Military engineer.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
-		Attributes: • Infiltrates and captures enemy structures.\n• Restores husks to working condition.
+		Attributes: • Infiltrates and captures enemy structures.\n• Can instantly repair buildings.\n• Restores husks to working condition.\n• Can reclaim abandoned vehicles.
 	Valued:
 		Cost: 400
 	Tooltip:
@@ -3087,7 +3096,7 @@ MECH:
 		Description: Military mechanic.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
-		Attributes: • Repairs nearby vehicles.\n• Restores husks to working condition.
+		Attributes: • Repairs nearby vehicles.\n• Restores husks to working condition.\n• Can reclaim abandoned vehicles.
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -3594,12 +3603,6 @@ LOGISTICIAN:
 	-GainsExperienceMultiplier@OfficerNearby:
 	-ExternalCondition@OfficerNearby:
 	-GainsExperience:
-	Buildable:
-		Queue: Infantry
-		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 71
-		Prerequisites: ~barracks, commcent, fix, ~infantry.egypt, ~techlevel.infonly
-		Description: Spy camera operator.
 	GainsExperience:
 		LevelUpNotification: LevelUp
 		Conditions:
@@ -4311,11 +4314,11 @@ IEDCREW:
 		Queue: Infantry
 		BuildPaletteOrder: 330
 		Prerequisites: fix, ~vehicles.persia, ~techlevel.high
-		Description: Pioneer mine crew.
+		Description: IED laying crew.
 	Valued:
 		Cost: 450
 	Tooltip:
-		Name: Pioneer Crew
+		Name: IED Crew
 	Health:
 		HP: 8000
 	Minelayer:
@@ -4358,6 +4361,12 @@ IEDCREW:
 		OwnerType: Killer
 		Actor: Zombie
 		SkipMakeAnimations: False
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 5c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
 
 HVMG:
 	Inherits: ^TrackedVehicle
@@ -4808,6 +4817,12 @@ PRETORIAN:
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Vehicles.
 		Weaknesses: - Weak vs Aircraft.
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 135
+		Prerequisites: atek, ~infantry.atek, ~techlevel.high
+		Description: Elite infantry with a hand-held\nsonic weapon.
 	Valued:
 		Cost: 400
 	Tooltip:
@@ -5242,6 +5257,7 @@ HOLLOW:
 		Speed: 42
 	Voiced:
 		VoiceSet: ZombieVoice
+		Volume: 0.4
 	Cloak:
 		InitialDelay: 250
 		CloakDelay: 120
@@ -5459,6 +5475,11 @@ ATGUNNER:
 	-ReloadDelayMultiplier@commandered:
 	-SpeedMultiplier@commandered:
 	-ChangesHealth@commandered:
+	-EdibleByLeap:
+	-Targetable@infantry:
+	Targetable:
+		RequiresCondition: !parachute && !being-warped
+		TargetTypes: GroundActor, Vehicle
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 69
@@ -5521,6 +5542,11 @@ HOWITZERCREW:
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@crew: ^Crew
+	Targetable:
+		RequiresCondition: !parachute && !being-warped
+		TargetTypes: GroundActor, Vehicle
+	-EdibleByLeap:
+	-Targetable@infantry:
 	-Carryable:
 	-GrantConditionOnInfiltration@commandered:
 	-WithDecoration@commandered:
@@ -5592,6 +5618,11 @@ AAGUNCREW:
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMovePlusBombers
 	Inherits@crew: ^Crew
+	Targetable:
+		RequiresCondition: !parachute && !being-warped
+		TargetTypes: GroundActor, Vehicle
+	-EdibleByLeap:
+	-Targetable@infantry:
 	-Carryable:
 	-GrantConditionOnInfiltration@commandered:
 	-WithDecoration@commandered:
@@ -5663,6 +5694,16 @@ NEBELWHERFER:
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMovePlusBombers
 	Inherits@crew: ^Crew
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 79
+		Prerequisites: ~vehicles.persia, dome, ~techlevel.infonly
+		Description: Infantry operated multiple rocket launcher.
+	Targetable:
+		RequiresCondition: !parachute && !being-warped
+		TargetTypes: GroundActor, Vehicle
+	-EdibleByLeap:
+	-Targetable@infantry:
 	-Carryable:
 	-GrantConditionOnInfiltration@commandered:
 	-WithDecoration@commandered:
@@ -5672,11 +5713,6 @@ NEBELWHERFER:
 	-ReloadDelayMultiplier@commandered:
 	-SpeedMultiplier@commandered:
 	-ChangesHealth@commandered:
-	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 79
-		Prerequisites: dome, ~vehicles.persia, ~techlevel.infonly
-		Description: Infantry operated multiple rocket launcher.
 	TooltipExtras:
 		Strengths: + Strong vs Aircraft.
 		Weaknesses: - Weak vs Vehicles, Infantry.
@@ -6588,6 +6624,11 @@ VOLKOV:
 	WithProductionIconOverlay:
 		Types: Veterancy
 		Prerequisites: barracks.upgraded
+	TakeCover:
+		SpeedModifier: 100
+		ProneOffset: 0,0,0
+		Duration: 50
+		
 
 JARMEN:
 	Inherits: ^Soldier
@@ -6596,16 +6637,15 @@ JARMEN:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 182
-		Prerequisites: mtek, ~infantry.zentrum, ~techlevel.high
+		BuildPaletteOrder: 179
+		Prerequisites: mtek, ~infantry.persia, ~techlevel.high
+		Description: Elite sniper infantry.
 		BuildLimit: 1
-		Description: Elite commando infantry.
 	TooltipExtras:
-		Strengths: + Strong vs Infantry, Vehicles.
+		Strengths: + Strong vs Infantry.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
-		Attributes: • Maximum 1 can be trained.
 	Valued:
-		Cost: 1500
+		Cost: 1400
 	Tooltip:
 		Name: Jarmen Kell
 	UpdatesPlayerStatistics:
@@ -6613,21 +6653,15 @@ JARMEN:
 	Health:
 		HP: 10000
 	Mobile:
-		Speed: 68
+		Speed: 60
 		Voice: Move
 	Guard:
 		Voice: Move
 	RevealsShroud:
-		Range: 6c0
-	Demolition:
-		DetonationDelay: 45
-		Voice: Demolish
+		Range: 5c0
 	Passenger:
 		CustomPipType: red
 		Voice: Move
-	WithInfantryBody:
-		AttackSequences:
-			primary: shoot
 	Armament@PRIMARY:
 		Weapon: JarmenRifle
 		LocalOffset: 0,0,0, 0,0,0
@@ -6636,16 +6670,13 @@ JARMEN:
 		Weapon: JarmenRifle
 		MuzzleSequence: garrison-muzzle
 	WithInfantryBody:
+		AttackSequences:
+			primary: shoot
 		StandSequences: stand
-		RequiresCondition: !parachute
+		RequiresCondition: !parachute && !deployed
 	WithInfantryBody@PARACHUTE:
 		RequiresCondition: parachute
 		IsPlayerPalette: true
-	ExternalCondition@PRODUCED:
-		Condition: produced
-	VoiceAnnouncement:
-		RequiresCondition: produced
-		Voice: Build
 	AnnounceOnKill:
 	Voiced:
 		VoiceSet: StavrosVoice
@@ -6654,17 +6685,46 @@ JARMEN:
 	WithProductionIconOverlay:
 		Types: Veterancy
 		Prerequisites: barracks.upgraded
+	GrantCondition:
+		Condition: exists
+	WithInfantryBody@editorfix:
+		DefaultAttackSequence: shoot
+		RequiresCondition: !exists
+	WithFacingSpriteBody:
+		Sequence: dug
+		Name: make-body
+		RequiresCondition: !undeployed
+	WithMakeAnimation:
+		BodyNames: make-body
+	WithInfantryBody@PARACHUTE:
+		StandSequences: parachute
+		RequiresCondition: parachute
+	ProducibleWithLevel:
+		Prerequisites: barracks.upgraded
+	GrantConditionOnDeploy:
+		DeployedCondition: deployed
+		UndeployedCondition: undeployed
+		DeploySounds: igidepa.wav, igidepb.wav
+		UndeploySounds: igidepa.wav, igidepb.wav
+		UndeployOnMove: true
+		UndeployOnPickup: true
+	SpawnActorOnDeath@BulletDeath:
+		Actor: GUERILLA.Corpse
+	DamageMultiplier@dug:
+		Modifier: 25
+		RequiresCondition: deployed
+	PeriodicExplosion@built:
+		Weapon: DigXplosionSM
+		RequiresCondition: !deployed && !undeployed
 	Cloak:
-		InitialDelay: 250
-		CloakDelay: 120
+		InitialDelay: 1
+		CloakDelay: 1
 		UncloakOn: Attack, Unload, Infiltrate, Demolish, Move
 		CloakType: Cloak
 		IsPlayerPalette: true
 		CloakedCondition: cloaked
 		PauseOnCondition: cloak-force-disabled
-	GrantConditionOnDamageState@UNCLOAK:
-		Condition: cloak-force-disabled
-		ValidDamageStates: Critical
+		RequiresCondition: deployed
 
 DEFILER:
 	Inherits: ^Soldier
@@ -6765,7 +6825,7 @@ SHOK:
 	Armament@PRIMARY:
 		Weapon: TeslaCannon
 		FireDelay: 8
-		LocalOffset: 1107,0,290
+		LocalOffset: 607,0,310
 		RequiresCondition: !supercharged
 	Armament@GARRISONED:
 		Name: garrisoned
@@ -6990,11 +7050,11 @@ MATAHARI:
 		Attributes: • Can disguise as any infantry.\n• Can detect disguised units.\n• Can infiltrate enemy structures granting a benefit depending on the building.\n• Becomes cloacked when immobile.
 	WithDisguisingInfantryBody:
 		IdleSequences: idle1, idle2, idle3
-	Infiltrates:
-		Types: MatahariInfiltrate
-		Notification: BuildingInfiltrated
 	Voiced:
 		VoiceSet: BritFemVoices
+	Infiltrates:
+		Types: MatahariInfiltrate
+		ValidRelationships: Ally, Neutral, Enemy
 
 MATAHARI.Husk:
 	Inherits: ^InfantryCorpse
@@ -7131,17 +7191,11 @@ NIGHTWITCHAIR:
 		Volume: 1.5
 	DeathSounds@NORMAL:
 		DeathTypes: DefaultDeath, BulletDeath, SmallExplosionDeath, ExplosionDeath, AcidDeath
-	GrantTimedCondition@transformed:
-		Condition: transformed
-		Duration: 25
-	Wanders:
-		RequiresCondition: transformed
 	InstantTransforms:
-		RequiresCondition: !transformed
 		IntoActor: nightwitch
 	TransformOnCondition:
 		IntoActor: nightwitch
-		RequiresCondition: !transformed && !airborne
+		RequiresCondition: !airborne
 
 NIGHTWITCHAIR.Husk:
 	Inherits: ^HelicopterHusk
@@ -7565,12 +7619,6 @@ SIPAHICAV:
 		BlinkInterval: 32
 		BlinkPattern: Off, On
 	EdibleByLeap:
-	Buildable:
-		Queue: Infantry
-		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 71
-		Prerequisites: ~infantry.turkey, adept, ~techlevel.low
-		Description: Light general purpose infantry\non horseback.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
@@ -8093,6 +8141,7 @@ IRONMAN:
 		IdleSequences: idle1,idle2,
 	Voiced:
 		VoiceSet: ZombieVoice
+		Volume: 0.4
 
 IRONMAN.Corpse:
 	Inherits: ^InfantryCorpse
@@ -8117,7 +8166,7 @@ WORKER:
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
 		Weaknesses: - Weak vs Aircraft, Vehicles.
-		Attributes: • Repairs nearby vehicles.\n• Restores husks to working condition.\n• Heals damaged structures.\n• Sabotages and captures enemy structures.
+		Attributes: • Repairs nearby vehicles.\n• Restores husks to working condition.\n• Can reclaim abandoned vehicles.\n• Heals damaged structures.\n• Sabotages and captures enemy structures.
 	Tooltip:
 		Name: Worker
 	UpdatesPlayerStatistics:
@@ -8298,6 +8347,7 @@ Zombie:
 		RequiresCondition: eating
 	Voiced:
 		VoiceSet: ZombieVoice
+		Volume: 0.4
 	-TakeCover:
 	AutoTargetPriority@DEFAULT:
 		ValidTargets: Corpse, Infantry, Vehicle, Ship, Underwater, Defense, Mine

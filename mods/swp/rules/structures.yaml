@@ -4,6 +4,12 @@ FACT:
 	Inherits@sabotable: ^Sabotable
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Inherits@matahariattach: ^MatahariAttacheable
+	InfiltrateToAttach@matahari:
+		Actor: proxy.mataharifact
+	ProvidesPrerequisite@mataharied:
+		Prerequisite: matahari-targeted
+		RequiresCondition: mataharied
 	Targetable:
 		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SaboteurInfiltration, MatahariInfiltrate
 	Selectable:
@@ -209,25 +215,7 @@ FACT:
 			abyssinia: mfact
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelfact
-	InfiltrateToSpawnActor@matahari:
-		Actor: proxy.mataharifact
-		Types: MatahariInfiltrate
-		LinkedToParent: True
-	ExternalCondition@factsurge:
-		Condition: factsurge
-	ProvidesPrerequisite@matahari:
-		Prerequisite: matahari-target
-		RequiresCondition: factsurge
-	WithDecoration@lips:
-		Image: pips
-		Sequence: lips
-		Position: BottomRight
-		Margin: 17, 4
-		RequiresCondition: factsurge
-		BlinkInterval: 32
-		BlinkPattern: Off, On
-		ValidRelationships: Ally
-		RequiresSelection: True
+
 
 MSLO:
 	Inherits: ^FactionBuilding
@@ -921,17 +909,33 @@ REFTWR:
 		Weapon: PrismTower
 		LocalOffset: 0,0,1100
 		PauseOnCondition: disabled || turnedoff
-	AttackCharges:
-		PauseOnCondition: disabled || build-incomplete || turnedoff
-		ChargeLevel: 20
-		ChargingCondition: charging
-	AmbientSound@chargesound:
-		RequiresCondition: charging
-		SoundFiles: prismchrg.aud
-		Interval: 30, 40
-	-WithSpriteBody:
-	WithChargeSpriteBody:
-		Sequence: active
+	Armament@secondary:
+		Name: secondary
+		Weapon: PrismSupport
+		LocalOffset: 0,0,1100
+		PauseOnCondition: disabled || turnedoff
+	AttackPrismSupported:
+		PauseOnCondition: build-incomplete || disabled || empdisable || being-warped
+		ChargeAudio: prismchrg.aud
+		MaxCharges: 1
+		ReloadDelay: 120
+		SupportArmament: secondary
+		ReceiverOffset: 0,0,896
+		BuffCondition: prismlink
+	FirepowerMultiplier@prismlink1:
+		RequiresCondition: prismlink == 1
+		Modifier: 125
+	FirepowerMultiplier@prismlink2:
+		RequiresCondition: prismlink == 2
+		Modifier: 150
+	FirepowerMultiplier@prismlink3:
+		RequiresCondition: prismlink == 3
+		Modifier: 175
+	FirepowerMultiplier@prismlink4:
+		RequiresCondition: prismlink == 4
+		Modifier: 200
+	WithSpriteBody:
+	WithPrismChargeAnimation:
 	Power:
 		Amount: -100
 	DetectCloaked:
@@ -1088,6 +1092,9 @@ ACADEMY:
 	Inherits@sabotable: ^Sabotable
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Inherits@matahariattach: ^MatahariAttacheable
+	InfiltrateToAttach@matahari:
+		Actor: proxy.mataharimi6
 	Selectable:
 		Bounds: 2496, 2496
 	Building:
@@ -1142,24 +1149,6 @@ ACADEMY:
 		Amount: -40
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelacademy
-	InfiltrateToSpawnActor@matahari:
-		Actor: proxy.mataharimi6
-		Types: MatahariInfiltrate
-		LinkedToParent: True
-	ExternalCondition@powersurge:
-		Condition: mataharimi6
-	WithDecoration@lips:
-		Image: pips
-		Sequence: lips
-		Position: BottomRight
-		Margin: 17, 4
-		RequiresCondition: mataharimi6
-		BlinkInterval: 32
-		BlinkPattern: Off, On
-		ValidRelationships: Ally
-		RequiresSelection: True
-	Targetable:
-		TargetTypes: GroundActor, C4, DetonateAttack, Structure, MatahariInfiltrate
 
 RECRUITMENTOFFICE:
 	Inherits: ^FactionBuilding
@@ -1169,6 +1158,9 @@ RECRUITMENTOFFICE:
 	Inherits@sabotable: ^Sabotable
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Inherits@matahariattach: ^MatahariAttacheable
+	InfiltrateToAttach@matahari:
+		Actor: proxy.matahariheal
 	Selectable:
 		Bounds: 2496, 2496
 	Building:
@@ -1238,24 +1230,639 @@ RECRUITMENTOFFICE:
 		Amount: -10
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelrecruitmentoffice
-	InfiltrateToSpawnActor@matahari:
+
+CLONINGVATS:
+	Inherits: ^FactionBuilding
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Inherits@shape: ^2x2Shape
+	Inherits@rubbles: ^2x2Rubbles
+	Inherits@sabotable: ^Sabotable
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Inherits@matahariattach: ^MatahariAttacheable
+	InfiltrateToAttach@matahari:
 		Actor: proxy.matahariheal
-		Types: MatahariInfiltrate
-		LinkedToParent: True
-	WithDecoration@lips:
-		Image: pips
-		Sequence: lips
-		Position: BottomRight
-		Margin: 17, 4
-		RequiresCondition: triagesurge
-		BlinkInterval: 32
-		BlinkPattern: Off, On
+	Selectable:
+		Bounds: 2496, 2496
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+		LocalCenterOffset: 0,-206,0
+	Health:
+		HP: 50000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 7c0
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 600
+		Prerequisites: ~structures.kazakhstan, illicitlab, ~techlevel.medium
+		Description: Forward recruitment and command office\nof the Chinese Red Guards.
+		BuildLimit: 1
+	TooltipExtras:
+		Attributes: • Build limit 1.\n• Passive Ability: Produces two Militia units every 30 seconds for 100$.\n• Refunds 80% of the cost relative to remaining health of infantry that enter this building.
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Cloning Vats
+	Targetable@refund:
+		TargetTypes: RefundInfiltration
+	InfiltrateForCashRefund:
+		Types: RefundInfiltration
+		Percentage: 80
+	ProvidesPrerequisite@buildingname:
+	AppearsOnMapPreview:
+	RallyPoint:
+	Exit@1:
+		RequiresCondition: !being-captured || !turnedoff
+		SpawnOffset: 600,100,0
+		ExitCell: 0,-1
+		ProductionTypes: Clones
+	Exit@2:
+		RequiresCondition: !being-captured || !turnedoff
+		SpawnOffset: 600,100,0
+		ExitCell: 1,-1
+		ProductionTypes: Clones
+	Exit@3:
+		RequiresCondition: !being-captured || !turnedoff
+		SpawnOffset: -400,700,0
+		ExitCell: 0,2
+		ProductionTypes: Clones
+	Exit@4:
+		RequiresCondition: !being-captured || !turnedoff
+		SpawnOffset: -400,700,0
+		ExitCell: 1,2
+		ProductionTypes: Clones
+	Production:
+		Produces: Clones
+		PauseOnCondition: being-captured || turnedoff
+	PeriodicProducerWithPrice:
+		Actors: militia.clone, militia.clone
+		Type: Clones
+		Price: 100
+		ChargeDuration: 750
+		ShowSelectionBar: True
+		PauseOnCondition: being-captured || turnedoff || disabled
+		ReadyAudio: UnitReady
+	RenderSprites:
+		Image: cloningvats
+	Power:
+		Amount: -10
+	SpawnActorOnDeath@tunnel:
+		Actor: tunnelcloningvats
+
+DEFENSEPLATFORM:
+	Inherits: ^Defense
+	Inherits@AUTOTARGET: ^AutoTargetAll
+	Inherits@rubbles: ^1x1Rubbles
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Inherits@carbo: ^CargoPips
+	Tooltip:
+		Name: Defense Platform
+	Building:
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 60
+		Prerequisites: barr, ~structures.england, ~techlevel.low
+		Description: Static base defense.
+	TooltipExtras:
+		Strengths: + Strength depends on the cargo.
+		Weaknesses: - Weakness depends on the cargo.
+		Attributes: • Weapon depends on the cargo.\n• Can hold 4 infantry units inside.\n• Can detect phased units.
+	Valued:
+		Cost: 600
+	CustomSellValue:
+		Value: 600
+	Health:
+		HP: 40000
+	Armor:
+		Type: Concrete
+	RevealsShroud:
+		MinRange: 5c0
+		Range: 6c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 5c0
+	WithBuildingBib:
+		HasMinibib: true
+	QuantizeFacingsFromSequence:
+	GrantConditionOnDamageState@DAMAGED:
+		Condition: damaged
+		ValidDamageStates: Light, Medium, Heavy, Critical
+	-SpawnActorsOnSell:
+	Power:
+		Amount: -20
+	Turreted:
+		TurnSpeed: 40
+		Offset: -60,0,60
+	AttackTurreted:
+		PauseOnCondition: turnedoff
+		Armaments: primary, secondary, tertiary
+	AmmoPool:
+		Armaments: secondary
+		Ammo: 1
+		AmmoCondition: ammo
+	ReloadAmmoPool:
+		Delay: 180
+		Count: 1
+	Armament:
+		Weapon: 227mm-Kumo
+		LocalOffset: 210,0,190
+		RequiresCondition: nochange || !hascargo || paslegionaire || passhinobi || pasofficer || pasradist || pasmilpol
+		PauseOnCondition: make-incomplete
+	Armament@shotgun:
+		Weapon: Shotgun
+		MuzzleSequence: muzzle
+		LocalOffset: 210,0,190
+		RequiresCondition: paspenal
+	AmbientSound@gatlingspinning:
+		SoundFiles: turret_loop_11.wav
+		RequiresCondition: gatling && aiming && pashvgat
+	AmbientSound@loopstart:
+		SoundFiles: turret_start_11.wav
+		RequiresCondition: !gatling && aiming && pashvgat
+		Interval: 100
+		Delay: 0
+	AmbientSound@loopend:
+		SoundFiles: turret_end_11.wav
+		RequiresCondition: gatling && !aiming && pashvgat
+		Interval: 100
+		Delay: 0
+	GrantConditionWhileAiming@aiming:
+		Condition: aiming
+	Armament@prism:
+		Weapon: PrismHandHeld
+		LocalOffset: 210,0,190
+		RequiresCondition: passtrmtrpr
+	Armament@Laser:
+		Weapon: Laser
+		LocalOffset: 210,0,190
+		RequiresCondition: pasimpg
+	Armament@paspanzerf:
+		Weapon: busterrocket
+		LocalOffset: 210,0,190
+		RequiresCondition: paspanzerf
+	Armament@ATRifle:
+		Weapon: ATRifle
+		LocalOffset: 210,0,190
+		RequiresCondition: pashunter
+	Armament@LazareneRifle:
+		Weapon: LazareneRifle
+		LocalOffset: 210,0,190
+		RequiresCondition: paswatch
+	Armament@pasprae:
+		Weapon: MicrowaveGuy
+		LocalOffset: 210,0,190
+		RequiresCondition: pasprae
+	Armament@pasnerveagent:
+		Weapon: ZombieGun
+		LocalOffset: 210,0,190
+		RequiresCondition: pasnerveagent
+	Armament@prim_e3:
+		Weapon: CaballeroRedEye
+		LocalOffset: 0,0,555
+		ReloadingCondition: primary-reloading
+		PauseOnCondition: secondary-reloading
+		RequiresCondition: pase3
+	Armament@sec_e3:
+		Name: secondary
+		Weapon: Dragon
+		LocalOffset: 0,0,555
+		ReloadingCondition: secondary-reloading
+		PauseOnCondition: primary-reloading
+		RequiresCondition: pase3
+	Armament@legionairemissile:
+		Name: secondary
+		Weapon: LegionMissile
+		LocalOffset: 0,0,555
+		RequiresCondition: paslegionaire
+		PauseOnCondition: !ammo
+	Armament@legionaireaamissile:
+		Name: tertiary
+		Weapon: LegionMissileAA
+		LocalOffset: 0,0,555
+		RequiresCondition: paslegionaire
+		PauseOnCondition: !ammo
+	Armament@medic:
+		Weapon: Heal
+		Cursor: heal
+		OutsideRangeCursor: heal
+		TargetRelationships: Ally
+		ForceTargetRelationships: None
+		RequiresCondition: pasmedic
+	Armament@lmg:
+		Weapon: LightMachineGun
+		LocalOffset: 300,0,0
+		MuzzleSequence: muzzle
+		RequiresCondition: pase11
+	Armament@tesla:
+		Weapon: PortaTesla
+		LocalOffset: 427,0,341
+		RequiresCondition: passhktrp
+	Armament@tesla2:
+		Weapon: TeslaCannon
+		LocalOffset: 427,0,341
+		RequiresCondition: passhok
+	Armament@tox:
+		Weapon: Toxxer
+		LocalOffset: 427,0,341
+		RequiresCondition: pastox
+	Armament@mech:
+		Weapon: Repair
+		Cursor: repair
+		OutsideRangeCursor: repair
+		TargetRelationships: Ally
+		ForceTargetRelationships: None
+		RequiresCondition: pasmech
+	Armament@flame:
+		Weapon: Flamer
+		LocalOffset: 427,0,341
+		RequiresCondition: pase4
+	Armament@AA:
+		Weapon: FLAK-23-AA
+		Recoil: 85
+		LocalOffset: 512,0,192
+		MuzzleSequence: muzzle
+		RequiresCondition: pasflktrp
+	Armament@AG:
+		Weapon: FLAK-23-AG
+		Recoil: 85
+		LocalOffset: 512,0,192
+		MuzzleSequence: muzzle
+		RequiresCondition: pasflktrp
+	Armament@grenade:
+		Weapon: Grenade
+		LocalOffset: 0,0,555
+		FireDelay: 15
+		RequiresCondition: pase2
+	Armament@DemomanGrenade:
+		Weapon: DemomanGrenade
+		LocalOffset: 0,0,555
+		FireDelay: 15
+		RequiresCondition: pasdemo
+	Armament@disc:
+		Weapon: Discus
+		LocalOffset: 0,0,555
+		FireDelay: 15
+		RequiresCondition: pasdisc
+	Armament@molotov:
+		Weapon: Molotov
+		LocalOffset: 0,0,555
+		FireDelay: 15
+		RequiresCondition: pasmolotov
+	Armament@sniper:
+		Weapon: Sniper
+		LocalOffset: 427,0,341
+		RequiresCondition: passniper
+	Armament@nightwitch:
+		Weapon: SMMagneticBolt
+		LocalOffset: 427,0,341
+		RequiresCondition: pasngwtch
+	Armament@jumpjet:
+		Weapon: WitchMG_Caballero
+		LocalOffset: 427,0,341
+		RequiresCondition: pasjump
+		MuzzleSequence: muzzle
+	Armament@jumpjet2:
+		Name: secondary
+		Weapon: WitchMG_Caballero
+		LocalOffset: 427,0,341
+		RequiresCondition: pasjump
+		MuzzleSequence: muzzle
+	Armament@desolator:
+		Name: primary
+		Weapon: DesolatorHandHeld
+		LocalOffset: 120,0,600
+		RequiresCondition: psngdesolator
+	Armament@desolator_linedamage:
+		Name: secondary
+		Weapon: DesolatorHandHeld_LineDamage
+		LocalOffset: 120,0,600
+		RequiresCondition: psngdesolator
+	Armament@desolator_effect:
+		Name: primary
+		Weapon: DesolatorHandHeld_Effect
+		LocalOffset: 120,0,600
+		RequiresCondition: psngdesolator
+	Armament@grenadelauncher:
+		Weapon: GrenadeLauncher
+		LocalOffset: 427,0,341
+		RequiresCondition: pasgrenlnchr
+	Armament@initiate:
+		Weapon: MindBlast
+		RequiresCondition: pasinitiate || pasishmaelite
+	Armament@scavenger:
+		Weapon: HuskBreaker
+		Cursor: repair
+		OutsideRangeCursor: repair
+		TargetRelationships: Ally, Neutral, Enemy
+		RequiresCondition: passcvn
+		ReloadingCondition: reloading-wrench
+	Armament@bolter:
+		Weapon: SM_ElectricBolt
+		LocalOffset: 427,0,341
+		RequiresCondition: pasbolter
+	Armament@maroznik:
+		Weapon: Marozzer
+		LocalOffset: 427,0,341
+		RequiresCondition: pasmaroznik
+	Armament@chronotrooper:
+		Weapon: NeutronCannon
+		FireDelay: 8
+		LocalOffset: 390,-60,300
+		PauseOnCondition: being-warped
+		RequiresCondition: paschronotrooper
+	Armament@volkov:
+		Weapon: VolkovTeslaCannon
+		FireDelay: 8
+		LocalOffset: 390,-60,300
+		PauseOnCondition: being-warped
+		RequiresCondition: pasvolkov
+	Armament@pase7:
+		Weapon: Colt45
+		FireDelay: 8
+		LocalOffset: 390,-60,300
+		PauseOnCondition: being-warped
+		RequiresCondition: pase7
+	Armament@pasjarmen:
+		Weapon: JarmenRifle
+		FireDelay: 8
+		LocalOffset: 390,-60,300
+		PauseOnCondition: being-warped
+		RequiresCondition: pasjarmen
+	Armament@arz:
+		Weapon: Resurrect
+		Cursor: heal
+		OutsideRangeCursor: heal
+		TargetRelationships: Ally
+		ForceTargetRelationships: None
+		FireDelay: 65
+		RequiresCondition: pasarz
+	Armament@gatling-start-0:
+		Weapon: AGGatlingStart
+		RequiresCondition: pashvgat && !gatling
+		PauseOnCondition: turnedoff
+	Armament@ag-0:
+		Weapon: AGGatling-handheld
+		LocalOffset: 350,-100,110, 350,100,110
+		MuzzleSequence: muzzle
+		RequiresCondition: pashvgat && gatling == 1
+		PauseOnCondition: turnedoff
+	Armament@ag-1:
+		Weapon: AGGatling2-handheld
+		LocalOffset: 350,-100,110, 350,100,110
+		MuzzleSequence: muzzle
+		RequiresCondition: pashvgat && gatling == 2
+		PauseOnCondition: turnedoff
+	Armament@ag-2:
+		Weapon: AGGatling3-handheld
+		LocalOffset: 350,-100,110, 350,100,110
+		MuzzleSequence: muzzle
+		RequiresCondition: pashvgat && gatling == 3
+		PauseOnCondition: turnedoff
+	Armament@ag-3:
+		Weapon: AGGatling4-handheld
+		LocalOffset: 350,-100,110, 350,100,110
+		MuzzleSequence: muzzle
+		RequiresCondition: pashvgat && gatling >= 4
+		PauseOnCondition: turnedoff
+	GrantConditionOnAttack@gatling:
+		Condition: gatling
+		RequiredShotsPerInstance: 12, 24
+		MaximumInstances: 2
+		RevokeDelay: 25
+		RevokeAll: true
+		IsCyclic: false
+		RevokeOnNewTarget: false
+		RequiresCondition: pashvgat
+	WithMuzzleOverlay:
+	WithSpriteTurret@editor:
+		Sequence: turret-kumo
+		RequiresCondition: !hascargo && !make-incomplete
+	WithSpriteTurret@rifle:
+		Sequence: turret-kumo
+		RequiresCondition: nochange || passhinobi || pasofficer || pasmilpol || paspenal
+	WithSpriteTurret@missile:
+		Sequence: turret-missile
+		RequiresCondition: pase3 || paspanzerf
+	WithSpriteTurret@pasbolter:
+		Sequence: turret-arc
+		RequiresCondition: pasbolter || pasinitiate || pasngwtch || pasishmaelite
+	WithSpriteTurret@legionaire:
+		Sequence: turret-ronin
+		RequiresCondition: paslegionaire
+	WithSpriteTurret@flak:
+		Sequence: turret-flak
+		RequiresCondition: pasflktrp
+	WithSpriteTurret@lmg:
+		Sequence: turret-lmg
+		RequiresCondition: pase11
+	WithSpriteTurret@tox:
+		Sequence: turret-tox
+		RequiresCondition: pastox || pasnerveagent
+	WithSpriteTurret@flame:
+		Sequence: turret-flame
+		RequiresCondition: pase4 || pasmaroznik
+	WithSpriteTurret@mortar:
+		Sequence: turret-mortar
+		RequiresCondition: pase2 || pasmolotov || pasgrenlnchr || pasdisc || pasdemo
+	WithIdleOverlay@Shok:
+		Sequence: spinner-ttnk
+		Offset: 0,-40,-50
+		RequiresCondition: passhktrp || passhok
+	WithSpriteTurret@passtrmtrpr:
+		Sequence: turret-sniper
+		RequiresCondition: passtrmtrpr || paschronotrooper || pasprae || pasimpg || paswatch || paswatch || pase7 || pasvolkov || pasjarmen
+	WithSpriteTurret@sniper:
+		Sequence: turret-sniper
+		RequiresCondition: passniper || psngdesolator
+	WithSpriteTurret@jump:
+		Sequence: turret-testudo
+		RequiresCondition: pasjump
+	WithSpriteTurret@heavygatling:
+		Sequence: turret-gatling
+		RequiresCondition: pashvgat
+	WithIdleOverlay@spy:
+		Sequence: spydish
+		Offset: -100,0,100
+		RequiresCondition: passpy
+	CashTrickler:
+		Interval: 80
+		InitialDelay: 0
+		Amount: 50
+		RequiresCondition: reloading-wrench
+	WithSpriteBody:
+		RequiresCondition: !pasmedic && !pasmech && !pasarz && !make-incomplete
+		Name: body
+	WithSpriteBody@Medic:
+		Sequence: idle-medic
+		RequiresCondition: pasmedic || pasarz
+		Name: medic-body
+	WithSpriteBody@Mech:
+		Sequence: idle-mech
+		RequiresCondition: pasmech || passcvn || paslog
+		Name: mech-body
+	WithSpriteBody@empty:
+		Sequence: idle-empty
+		Name: emptybody
+	Cloak@shinobi:
+		CloakedPalette: newcloak
+		CloakStyle: Palette
+		InitialDelay: 125
+		CloakDelay: 175
+		CloakType: Hiding
+		DetectionTypes: Hiding
+		CloakSound: appear1.aud
+		UncloakSound: appear1.aud
+		IsPlayerPalette: true
+		PauseOnCondition: cloak-force-disabled || turnedoff
+		UncloakOn: Attack, Heal, Dock
+		RequiresCondition: passhinobi
+	GrantConditionOnDamageState@UNCLOAK:
+		Condition: cloak-force-disabled
+		ValidDamageStates: Critical
+	RenderDetectionCircleSWP:
+		Visible: Always
+		TrailCount: 1
+		UpdateLineTick: 4092
+		BorderWidth: 5
+		Width: 3
+	DetectCloaked@phase:
+		DetectionTypes: Phase, Hiding
+		Range: 7c0
+		RequiresCondition: passpy
+	RevealsShroud:
+		Range: 7c0
+		RequiresCondition: passpy
+	ProximityExternalCondition@logistable:
+		Range: 4c0
 		ValidRelationships: Ally
-		RequiresSelection: True
-	ExternalCondition@matahari:
-		Condition: triagesurge
-	Targetable:
-		TargetTypes: GroundActor, C4, DetonateAttack, Structure, MatahariInfiltrate
+		Condition: logistable
+		RequiresCondition: paslog
+	WithRangeCircle@logistable:
+		Type: jammer
+		Range: 4c0
+		Color: FFB27F
+		RequiresCondition: paslog
+	Cargo:
+		Types: Infantry
+		MaxWeight: 1
+		LoadedCondition: hascargo
+		PassengerConditions:
+			dog: nochange
+			kulak: nochange
+			saboteur: nochange
+			scvn: passcvn
+			thf: nochange
+			shok: passhok
+			pneer: nochange
+			shinobi: passhinobi
+			mltvthrwr: pasmolotov
+			medium: pasarz
+			e6: nochange
+			worker: nochange
+			spy: passpy
+			spy.mi6: passpy
+			spy.mi6.clone: passpy
+			pretorian: pasprae
+			medi: pasmedic
+			mech: pasmech
+			hunter: pashunter
+			impg: pasimpg
+			volkov: pasvolkov
+			e7: pase7
+			jarmen: pasjarmen
+			cyborghijacker: nochange
+			panzerfaust: paspanzerf
+			watchman: paswatch
+			jumpjetguy: pasjump
+			logistician: paslog
+			politruk: paspolitruk
+			officer: pasofficer
+			artilleryobserver: nochange
+			strmtrpr: passtrmtrpr
+			specop: nochange
+			flktrp: pasflktrp
+			bolter: pasbolter
+			e2: pase2
+			e3: pase3
+			e3r3: pase3
+			e1r3: nochange
+			e4: pase4
+			e11: pase11
+			weakcyborg: nochange
+			weakcyborgrocket: pase3
+			hvgatling: pashvgat
+			sniper: passniper
+			wastetrooper: pastox
+			nerveagent: pasnerveagent
+			shktrp: passhktrp
+			militia: nochange
+			militia.clone: nochange
+			genehorror: nochange
+			nightwitch: pasngwtch
+			ironman: nochange
+			grenadelauncher: pasgrenlnchr
+			guerilla: nochange
+			arditi: nochange
+			desolator: psngdesolator
+			legionaire: paslegionaire
+			e1: nochange
+			mutant: pase11
+			rpgarditi: pase3
+			initiate: pasinitiate
+			ishmaelite: pasishmaelite
+			chronotrooper: paschronotrooper
+			maroznik: pasmaroznik
+			terrorist: nochange
+			demoman: pasdemo
+			radist: pasradist
+			penal: paspenal
+			sbearer: paspenal
+			discthrow: pasdisc
+			informant: nochange
+			germantrooper: nochange
+			milpol: pasmilpol
+			scout: nochange
+	DetectCloaked@phase:
+		DetectionTypes: Cloak, Hiding, Phase
+		Range: 5c0
+		RequiresCondition: pasmilpol
+	RevealsShroudMultiplier@radist:
+		RequiresCondition: pasradist
+		Modifier: 150
+	ProximityExternalCondition@OfficerNearby:
+		Range: 4c0
+		ValidRelationships: Ally
+		Condition: officer-nearby
+		RequiresCondition: pasofficer
+	WithRangeCircle@OFFICER:
+		Type: jammer
+		Range: 4c0
+		Color: FFD700
+		RequiresCondition: pasofficer
+	ProximityExternalCondition@KOMMISSABLE:
+		Range: 4c0
+		ValidRelationships: Ally
+		Condition: kommissable
+		RequiresCondition: paspolitruk
+	WithRangeCircle@KOMMISSABLE:
+		Type: jammer
+		Range: 4c0
+		Color: FF5432
+		RequiresCondition: paspolitruk
+	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
+		Actor: SIPAHI.Husk
+	ReloadDelayMultiplier@baseboost:
+		Modifier: 90
+	FirepowerMultiplier@baseboost:
+		Modifier: 105
+	WithMakeAnimation:
+		Condition: make-incomplete
+		BodyNames: body, mech-body, medic-body, emptybody
 
 SCRAP:
 	Inherits: ^FactionBuilding
@@ -1265,6 +1872,9 @@ SCRAP:
 	Inherits@sabotable: ^Sabotable
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Inherits@matahariattach: ^MatahariAttacheable
+	InfiltrateToAttach@matahari:
+		Actor: proxy.mataharirepair
 	Selectable:
 		Bounds: 2896, 2896
 	Building:
@@ -1303,24 +1913,6 @@ SCRAP:
 		Actor: tunnelscrap
 	ProvidesPrerequisite@buildingname:
 		RequiresCondition: !sabotaged
-	InfiltrateToSpawnActor@matahari:
-		Actor: proxy.mataharirepair
-		Types: MatahariInfiltrate
-		LinkedToParent: True
-	Targetable:
-		TargetTypes: GroundActor, Structure, C4, DetonateAttack, MatahariInfiltrate
-	WithDecoration@lips:
-		Image: pips
-		Sequence: lips
-		Position: BottomRight
-		Margin: 17, 4
-		RequiresCondition: fixsurge
-		BlinkInterval: 32
-		BlinkPattern: Off, On
-		ValidRelationships: Ally
-		RequiresSelection: True
-	ExternalCondition@matahari:
-		Condition: fixsurge
 
 BOOTCAMP:
 	Inherits: ^FactionBuilding
@@ -1551,7 +2143,7 @@ TUNNEL2X2:
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Tooltip:
-		Name: Tunnel Network
+		Name: Shelter Network
 	Building:
 		Footprint: == ==
 		Dimensions: 2,2
@@ -1620,6 +2212,11 @@ TUNNELPOWR:
 	Inherits: TUNNEL2X2
 	TransformOnCondition@repaired:
 		IntoActor: powr
+
+TUNNELOUTPOST:
+	Inherits: TUNNEL2X2
+	TransformOnCondition@repaired:
+		IntoActor: outpost
 
 TUNNELAPWR:
 	Inherits: TUNNEL3X2
@@ -2695,6 +3292,9 @@ ADEPT:
 	Inherits@sabotable: ^Sabotable
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Inherits@matahariattach: ^MatahariAttacheable
+	InfiltrateToAttach@matahari:
+		Actor: proxy.matahariadept
 	Selectable:
 		Bounds: 2696, 2696
 	WithSpriteBody:
@@ -2757,29 +3357,8 @@ ADEPT:
 			raj: eadept
 			egypt: eadept
 			abyssinia: madept
-	ProximityExternalCondition:
-		Condition: keepchargeralive
-		Range: 3c0
 	SpawnActorOnDeath@tunnel:
 		Actor: tunneladept
-	InfiltrateToSpawnActor@matahari:
-		Actor: proxy.matahariadept
-		Types: MatahariInfiltrate
-		LinkedToParent: True
-	WithDecoration@lips:
-		Image: pips
-		Sequence: lips
-		Position: BottomRight
-		Margin: 17, 4
-		RequiresCondition: adeptsurge
-		BlinkInterval: 32
-		BlinkPattern: Off, On
-		ValidRelationships: Ally
-		RequiresSelection: True
-	ExternalCondition@matahari:
-		Condition: adeptsurge
-	Targetable:
-		TargetTypes: GroundActor, C4, DetonateAttack, Structure, MatahariInfiltrate
 	GrantConditionOnFaction@entente:
 		Condition: entente
 		Factions: usa, england, france, raj, japan
@@ -2807,6 +3386,9 @@ MILACADEMY:
 	Inherits@rubbles: ^3x2Rubbles
 	Inherits@sabotable: ^Sabotable
 	Inherits@discount: ^BuildTimeDiscount
+	Inherits@matahariattach: ^MatahariAttacheable
+	InfiltrateToAttach@matahari:
+		Actor: proxy.mataharimilacademy
 	Selectable:
 		Bounds: 2696, 2696
 	Buildable:
@@ -2870,30 +3452,6 @@ MILACADEMY:
 		FullSequence: pip-tech
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelmilacademy
-	InfiltrateToSpawnActor@matahari:
-		Actor: proxy.mataharimilacademy
-		Types: MatahariInfiltrate
-		LinkedToParent: True
-	ExternalCondition@powersurge:
-		Condition: milacademysurge
-	PowerMultiplier@matahari:
-		RequiresCondition: milacademysurge
-		Modifier: 50
-	ProximityExternalCondition@jam:
-		Condition: surged
-		RequiresCondition: milacademysurge
-		Range: 2c0
-		ValidRelationships: Enemy
-	WithDecoration@lips:
-		Image: pips
-		Sequence: lips
-		Position: BottomRight
-		Margin: 17, 4
-		RequiresCondition: milacademysurge
-		BlinkInterval: 32
-		BlinkPattern: Off, On
-		ValidRelationships: Ally
-		RequiresSelection: True
 
 COMMCENT:
 	Inherits: ^FactionBuilding
@@ -2904,6 +3462,9 @@ COMMCENT:
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@sabotable: ^Sabotable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Inherits@matahariattach: ^MatahariAttacheable
+	InfiltrateToAttach@matahari:
+		Actor: proxy.mataharicommcent
 	ProductionTimeMultiplier@basediscount:
 		Multiplier: 85
 	Selectable:
@@ -3049,7 +3610,7 @@ COMMCENT:
 		OrderName: ProduceAssimilatorOrder
 		Icon: icon
 		Name: Produce Assimilator
-		Description: Produces a cyborg Assimilator from the Communications Center.
+		Description: Produces a cyborg Assimilator from the Communications Center. Assimilators turn corpses into cyborgs.
 		Prerequisites: support.ukraine
 		EndChargeSpeechNotification: SupportPowerReady
 		SelectTargetSpeechNotification: SelectTarget
@@ -3172,7 +3733,7 @@ COMMCENT:
 		SupportPowerPaletteOrder: 75
 		EndChargeSpeechNotification: AirstrikeReady
 		IncomingSpeechNotification: AirstrikeIncoming
-	AirstrikePower@dedmaroz:
+	SpawnActorPower@dedmaroz:
 		PauseOnCondition: turnedoff || disabled
 		OrderName: DedMaroz
 		Icon: blizzardicon
@@ -3183,7 +3744,7 @@ COMMCENT:
 		SelectTargetSpeechNotification: SelectTarget
 		CameraActor: camera
 		CameraRemoveDelay: 150
-		UnitType: dedmaroz
+		Actor: dedmaroz
 		QuantizedFacings: 8
 		DisplayBeacon: true
 		BeaconPoster: blizzardbeacon
@@ -3470,22 +4031,6 @@ COMMCENT:
 		Sequence: idle
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelcommcent
-	InfiltrateToSpawnActor@matahari:
-		Actor: proxy.mataharicommcent
-		Types: MatahariInfiltrate
-		LinkedToParent: True
-	WithDecoration@lips:
-		Image: pips
-		Sequence: lips
-		Position: BottomRight
-		Margin: 17, 4
-		RequiresCondition: commcentsurge
-		BlinkInterval: 32
-		BlinkPattern: Off, On
-		ValidRelationships: Ally
-		RequiresSelection: True
-	ExternalCondition@matahari:
-		Condition: commcentsurge
 	ExternalCondition@copied:
 		Condition: copycatcopied
 	GrantConditionOnFaction@entente:
@@ -3517,6 +4062,9 @@ TRIAGE:
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@sabotable: ^Sabotable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Inherits@matahariattach: ^MatahariAttacheable
+	InfiltrateToAttach@matahari:
+		Actor: proxy.matahariheal
 	ProductionTimeMultiplier@basediscount:
 		Multiplier: 85
 	Selectable:
@@ -3582,22 +4130,6 @@ TRIAGE:
 			transcaucasia: ktriage
 	SpawnActorOnDeath@tunnel:
 		Actor: tunneltriage
-	InfiltrateToSpawnActor@matahari:
-		Actor: proxy.matahariheal
-		Types: MatahariInfiltrate
-		LinkedToParent: True
-	WithDecoration@lips:
-		Image: pips
-		Sequence: lips
-		Position: BottomRight
-		Margin: 17, 4
-		RequiresCondition: triagesurge
-		BlinkInterval: 32
-		BlinkPattern: Off, On
-		ValidRelationships: Ally
-		RequiresSelection: True
-	ExternalCondition@matahari:
-		Condition: triagesurge
 
 WEAP:
 	Inherits: ^FactionBuilding
@@ -3607,6 +4139,12 @@ WEAP:
 	Inherits@sabotable: ^Sabotable
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Inherits@matahariattach: ^MatahariAttacheable
+	InfiltrateToAttach@matahari:
+		Actor: proxy.matahariweap
+	ProvidesPrerequisite@mataharied:
+		Prerequisite: matahari-targeted-vehicle
+		RequiresCondition: mataharied
 	ExternalCondition@copied:
 		Condition: copycatcopied
 	GrantConditionOnFaction@entente:
@@ -3805,10 +4343,10 @@ WEAP:
 		Factions: france, egypt, england, japan
 		Prerequisite: vehicles.jeep
 	ProvidesPrerequisite@apc:
-		Factions: usa, france, serbia, egypt
+		Factions: usa, france, serbia, egypt, england
 		Prerequisite: vehicles.apc
 	ProvidesPrerequisite@squire:
-		Factions: france, usa, serbia, egypt, england
+		Factions: france, usa, serbia, egypt
 		Prerequisite: vehicles.squire
 	ProvidesPrerequisite@paladin:
 		Factions: england, serbia, egypt
@@ -3848,25 +4386,6 @@ WEAP:
 		Prerequisite: vehicles.cossack
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelweap
-	InfiltrateToSpawnActor@matahari:
-		Actor: proxy.matahariweap
-		Types: MatahariInfiltrate
-		LinkedToParent: True
-	ExternalCondition@factsurge:
-		Condition: weapsurge
-	ProvidesPrerequisite@matahari:
-		Prerequisite: matahari-target-vehicle
-		RequiresCondition: weapsurge
-	WithDecoration@lips:
-		Image: pips
-		Sequence: lips
-		Position: BottomRight
-		Margin: 17, 4
-		RequiresCondition: weapsurge
-		BlinkInterval: 32
-		BlinkPattern: Off, On
-		ValidRelationships: Ally
-		RequiresSelection: True
 
 DOME:
 	Inherits: ^FactionBuilding
@@ -3877,6 +4396,9 @@ DOME:
 	Inherits@sabotable: ^Sabotable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Inherits@discount: ^BuildTimeDiscount
+	Inherits@matahariattach: ^MatahariAttacheable
+	InfiltrateToAttach@matahari:
+		Actor: proxy.mataharidome
 	Selectable:
 		Bounds: 2496, 2496
 	HitShape:
@@ -3946,22 +4468,6 @@ DOME:
 			abyssinia: mdome
 	SpawnActorOnDeath@tunnel:
 		Actor: tunneldome
-	InfiltrateToSpawnActor@matahari:
-		Actor: proxy.mataharidome
-		Types: MatahariInfiltrate
-		LinkedToParent: True
-	ExternalCondition@matahari:
-		Condition: domesurge
-	WithDecoration@lips:
-		Image: pips
-		Sequence: lips
-		Position: BottomRight
-		Margin: 17, 4
-		RequiresCondition: domesurge
-		BlinkInterval: 32
-		BlinkPattern: Off, On
-		ValidRelationships: Ally
-		RequiresSelection: True
 	ExternalCondition@copied:
 		Condition: copycatcopied
 	GrantConditionOnFaction@entente:
@@ -3987,6 +4493,11 @@ PROC:
 	Inherits: ^FactionBuilding
 	Inherits@rubbles: ^3x3Rubbles
 	Inherits@sabotable: ^Sabotable
+	Inherits@matahariattach: ^MatahariAttacheable
+	InfiltrateToAttach@matahari:
+		Actor: proxy.matahariproc
+	CashHackable:
+		ValidTypes: CashHack
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 60
@@ -4084,37 +4595,6 @@ PROC:
 		RequiresCondition: sabotagedtimer
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelproc
-	InfiltrateToSpawnActor@matahari:
-		Actor: proxy.matahariproc
-		Types: MatahariInfiltrate
-		LinkedToParent: True
-	ExternalCondition@powersurge:
-		Condition: procsurge
-	PowerMultiplier@matahari:
-		RequiresCondition: procsurge
-		Modifier: 50
-	ProximityExternalCondition@jam:
-		Condition: procsurged
-		RequiresCondition: procsurge
-		Range: 2c0
-		ValidRelationships: Enemy
-	CashTrickler:
-		Amount: -5	
-		RequiresCondition: procsurge
-		ShowTicks: False
-	GrantConditionOnPlayerResources@procsurge:
-		Threshold: 5
-		Condition: matahari-money
-	WithDecoration@lips:
-		Image: pips
-		Sequence: lips
-		Position: BottomRight
-		Margin: 17, 4
-		RequiresCondition: procsurge
-		BlinkInterval: 32
-		BlinkPattern: Off, On
-		ValidRelationships: Ally
-		RequiresSelection: True
 
 PROC.NOHARV:
 	Inherits: PROC
@@ -4161,6 +4641,8 @@ SILO:
 		BuildPaletteOrder: 35
 		Prerequisites: proc, ~techlevel.infonly
 		Description: Stores excess refined\nOre and Gems.
+	CashHackable:
+		ValidTypes: CashHack
 	Valued:
 		Cost: 200
 	Targetable:
@@ -4304,6 +4786,12 @@ HPAD:
 	Inherits@sabotable: ^Sabotable
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Inherits@matahariattach: ^MatahariAttacheable
+	InfiltrateToAttach@matahari:
+		Actor: proxy.mataharihpad
+	ProvidesPrerequisite@mataharied:
+		Prerequisite: matahari-targeted-helicopter
+		RequiresCondition: mataharied
 	GrantExternalConditionToProduced@spawned:
 		Duration: 100
 		Condition: spawned
@@ -4359,7 +4847,7 @@ HPAD:
 		Factions: allies, england, france, usa, japan, serbia, raj, egypt
 		Prerequisite: helicopter.allies
 	ProvidesPrerequisite@longbow:
-		Factions: england, france, usa, serbia, raj, egypt, japan
+		Factions: england, france, serbia, raj, egypt, japan
 		Prerequisite: helicopter.longbow
 	ProvidesPrerequisite@england:
 		Factions: england
@@ -4458,25 +4946,6 @@ HPAD:
 			transcaucasia: shpad
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelhpad
-	InfiltrateToSpawnActor@matahari:
-		Actor: proxy.mataharihpad
-		Types: MatahariInfiltrate
-		LinkedToParent: True
-	ExternalCondition@factsurge:
-		Condition: hpadsurge
-	ProvidesPrerequisite@matahari:
-		Prerequisite: matahari-target-helicopter
-		RequiresCondition: hpadsurge
-	WithDecoration@lips:
-		Image: pips
-		Sequence: lips
-		Position: BottomRight
-		Margin: 17, 4
-		RequiresCondition: hpadsurge
-		BlinkInterval: 32
-		BlinkPattern: Off, On
-		ValidRelationships: Ally
-		RequiresSelection: True
 
 
 HPAD.RAJ:
@@ -4505,6 +4974,12 @@ AFLD:
 	Inherits@sabotable: ^Sabotable
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Inherits@matahariattach: ^MatahariAttacheable
+	InfiltrateToAttach@matahari:
+		Actor: proxy.matahariafld
+	ProvidesPrerequisite@mataharied:
+		Prerequisite: matahari-targeted-airplane
+		RequiresCondition: mataharied
 	-WithBuildingBib:
 	HitShape:
 		UseTargetableCellsOffsets: false
@@ -4550,7 +5025,7 @@ AFLD:
 		Factions: usa, england, france, raj, japan, serbia, egypt
 		Prerequisite: aircraft.allies
 	ProvidesPrerequisite@stormbird:
-		Factions: germany, persia, italy
+		Factions: germany, persia, italy, persia
 		Prerequisite: aircraft.stormbird
 	ProvidesPrerequisite@spitfire:
 		Factions: usa, england, france, japan, serbia
@@ -4706,25 +5181,6 @@ AFLD:
 		EndChargeSpeechNotification: ReinforcementsReady
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelafld
-	InfiltrateToSpawnActor@matahari:
-		Actor: proxy.matahariafld
-		Types: MatahariInfiltrate
-		LinkedToParent: True
-	ExternalCondition@factsurge:
-		Condition: afldsurge
-	ProvidesPrerequisite@matahari:
-		Prerequisite: matahari-target-airplane
-		RequiresCondition: afldsurge
-	WithDecoration@lips:
-		Image: pips
-		Sequence: lips
-		Position: BottomRight
-		Margin: 17, 4
-		RequiresCondition: afldsurge
-		BlinkInterval: 32
-		BlinkPattern: Off, On
-		ValidRelationships: Ally
-		RequiresSelection: True
 
 
 TELEPORTTUNNEL:
@@ -4736,11 +5192,6 @@ TELEPORTTUNNEL:
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@sabotable: ^Sabotable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
-	Buildable:
-		Queue: Building
-		BuildPaletteOrder: 400
-		Prerequisites: mtek, ~structures.persia, ~techlevel.medium
-		Description: Produces and reloads aircraft.
 	Selectable:
 		Bounds: 2496, 2496
 	HitShape:
@@ -4789,6 +5240,17 @@ POWR:
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@sabotable: ^Sabotable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Inherits@matahariattach: ^MatahariAttacheable
+	ExternalCondition@spawnmataharipowr:
+		Condition: spawnmataharipowr
+	FreeActor:
+		Actor: e1
+		AllowRespawn: True
+		RequiresCondition: spawnmataharipowr
+	Targetable@mataharipowr:
+		TargetTypes: MatahariPowerDrain
+	InfiltrateToAttach@matahari:
+		Actor: proxy.mataharipowr
 	ProductionTimeMultiplier@basediscount:
 		Multiplier: 85
 	Selectable:
@@ -4844,31 +5306,54 @@ POWR:
 			abyssinia: mpowr
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelpowr
-	InfiltrateToSpawnActor@matahari:
-		Actor: proxy.mataharipowr
-		Types: MatahariInfiltrate
-		LinkedToParent: True
-	ExternalCondition@powersurge:
-		Condition: powersurge
 	PowerMultiplier@matahari:
-		RequiresCondition: powersurge
+		RequiresCondition: mataharied
 		Modifier: 50
-	ProximityExternalCondition@jam:
-		Condition: surged
-		RequiresCondition: powersurge
-		Range: 2c0
-		ValidRelationships: Enemy
-	WithDecoration@lips:
-		Image: pips
-		Sequence: lips
-		Position: BottomRight
-		Margin: 17, 4
-		RequiresCondition: powersurge
-		BlinkInterval: 32
-		BlinkPattern: Off, On
-		ValidRelationships: Ally
-		RequiresSelection: True
 
+OUTPOST:
+	Inherits: ^FactionBuilding
+	Inherits@shape: ^2x2Shape
+	Inherits@rubbles: ^2x2Rubbles
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	ExternalCondition@spawnmataharipowr:
+		Condition: spawnmataharipowr
+	Selectable:
+		Bounds: 2496, 2496
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 640,-384,0, 640,512,0, -710,-512,0, -710,512,0
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 10
+		Prerequisites: ~techlevel.infonly, ~structures.italy, dome
+		Description: Provides power for other structures.
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Outpost
+	ProvidesPrerequisite:
+		Prerequisite: anypower
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+		LocalCenterOffset: 0,-512,0
+	Health:
+		HP: 45000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4c0
+	Power:
+		Amount: 150
+		RequiresCondition: !turnedoff && !disabled
+	Targetable:
+		TargetTypes: GroundActor, Structure, C4, DetonateAttack
+	SpawnActorOnDeath@tunnel:
+		Actor: tunneloutpost
+	BaseProvider:
+		PauseOnCondition: being-captured
+		Range: 6c0
+		RequiresCondition: !turnedoff
 
 APWR:
 	Inherits: ^FactionBuilding
@@ -4879,6 +5364,9 @@ APWR:
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@sabotable: ^Sabotable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Inherits@matahariattach: ^MatahariAttacheable
+	InfiltrateToAttach@matahari:
+		Actor: proxy.matahariapwr
 	ProductionTimeMultiplier@basediscount:
 		Multiplier: 85
 	Buildable:
@@ -4937,30 +5425,9 @@ APWR:
 			abyssinia: mapwr
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelapwr
-	InfiltrateToSpawnActor@matahari:
-		Actor: proxy.matahariapwr
-		Types: MatahariInfiltrate
-		LinkedToParent: True
-	ExternalCondition@powersurge:
-		Condition: powersurge
 	PowerMultiplier@matahari:
-		RequiresCondition: powersurge
+		RequiresCondition: mataharied
 		Modifier: 50
-	ProximityExternalCondition@jam:
-		Condition: surged
-		RequiresCondition: powersurge
-		Range: 2c0
-		ValidRelationships: Enemy
-	WithDecoration@lips:
-		Image: pips
-		Sequence: lips
-		Position: BottomRight
-		Margin: 17, 4
-		RequiresCondition: powersurge
-		BlinkInterval: 32
-		BlinkPattern: Off, On
-		ValidRelationships: Ally
-		RequiresSelection: True
 
 TESLAPP:
 	Inherits: ^FactionBuilding
@@ -4971,6 +5438,9 @@ TESLAPP:
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@sabotable: ^Sabotable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Inherits@matahariattach: ^MatahariAttacheable
+	InfiltrateToAttach@matahari:
+		Actor: proxy.matahariteslapp
 	ProductionTimeMultiplier@basediscount:
 		Multiplier: 85
 	Selectable:
@@ -4993,8 +5463,8 @@ TESLAPP:
 	ProvidesPrerequisite:
 		Prerequisite: anypower
 	Building:
-		Footprint: xxx xxx
-		Dimensions: 3,2
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
 		LocalCenterOffset: 0,-512,0
 	Health:
 		HP: 80000
@@ -5013,30 +5483,9 @@ TESLAPP:
 		UseDeathTypeSuffix: false
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelteslapp
-	InfiltrateToSpawnActor@matahari:
-		Actor: proxy.matahariteslapp
-		Types: MatahariInfiltrate
-		LinkedToParent: True
-	ExternalCondition@powersurge:
-		Condition: powersurge
 	PowerMultiplier@matahari:
-		RequiresCondition: powersurge
+		RequiresCondition: mataharied
 		Modifier: 50
-	ProximityExternalCondition@jam:
-		Condition: surged
-		RequiresCondition: powersurge
-		Range: 2c0
-		ValidRelationships: Enemy
-	WithDecoration@lips:
-		Image: pips
-		Sequence: lips
-		Position: BottomRight
-		Margin: 17, 4
-		RequiresCondition: powersurge
-		BlinkInterval: 32
-		BlinkPattern: Off, On
-		ValidRelationships: Ally
-		RequiresSelection: True
 
 CYBERLAB:
 	Inherits: ^FactionBuilding
@@ -5047,6 +5496,9 @@ CYBERLAB:
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@sabotable: ^Sabotable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Inherits@matahariattach: ^MatahariAttacheable
+	InfiltrateToAttach@matahari:
+		Actor: proxy.mataharicyberlab
 	ProductionTimeMultiplier@basediscount:
 		Multiplier: 85
 	Selectable:
@@ -5087,50 +5539,6 @@ CYBERLAB:
 		Actor: tunnelcyberlab
 	RenderSprites:
 		Image: illicitlab
-	ExternalCondition@powersurge:
-		Condition: milacademysurge
-	InfiltrateToSpawnActor@matahari:
-		Actor: proxy.mataharicyberlab
-		Types: MatahariInfiltrate
-		LinkedToParent: True
-	PowerMultiplier@matahari:
-		RequiresCondition: milacademysurge
-		Modifier: 50
-	ProximityExternalCondition@jam:
-		Condition: surged
-		RequiresCondition: milacademysurge
-		Range: 2c0
-		ValidRelationships: Enemy
-	WithDecoration@lips:
-		Image: pips
-		Sequence: lips
-		Position: BottomRight
-		Margin: 17, 4
-		RequiresCondition: powersurge
-		BlinkInterval: 32
-		BlinkPattern: Off, On
-		ValidRelationships: Ally
-		RequiresSelection: True
-	ExternalCondition@powersurge:
-		Condition: cyberlabsurge
-	PowerMultiplier@matahari:
-		RequiresCondition: cyberlabsurge
-		Modifier: 50
-	ProximityExternalCondition@jam:
-		Condition: surged
-		RequiresCondition: cyberlabsurge
-		Range: 2c0
-		ValidRelationships: Enemy
-	WithDecoration@lips:
-		Image: pips
-		Sequence: lips
-		Position: BottomRight
-		Margin: 17, 4
-		RequiresCondition: cyberlabsurge
-		BlinkInterval: 32
-		BlinkPattern: Off, On
-		ValidRelationships: Ally
-		RequiresSelection: True
 
 ILLICITLAB:
 	Inherits: ^FactionBuilding
@@ -5141,10 +5549,13 @@ ILLICITLAB:
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@sabotable: ^Sabotable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Inherits@matahariattach: ^MatahariAttacheable
+	InfiltrateToAttach@matahari:
+		Actor: proxy.matahariheal
 	ProductionTimeMultiplier@basediscount:
 		Multiplier: 85
 	Selectable:
-		Bounds: 2496, 2496
+		Bounds: 2496, 3396
 	HitShape:
 		UseTargetableCellsOffsets: false
 		TargetableOffsets: 0,0,0, 640,-384,0, 640,512,0, -710,-512,0, -710,512,0
@@ -5159,12 +5570,12 @@ ILLICITLAB:
 	Valued:
 		Cost: 1200
 	Tooltip:
-		Name: Illicit Laboratory
+		Name: Battle Lab
 	ProvidesPrerequisite:
 		Prerequisite: anypower
 	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
+		Footprint: xxx xxx
+		Dimensions: 3,2
 		LocalCenterOffset: 0,-512,0
 	Health:
 		HP: 45000
@@ -5186,26 +5597,6 @@ ILLICITLAB:
 		IntoActor: hollow
 		Types: IllicitLab
 		UpgradePrice: 50
-	ExternalCondition@powersurge:
-		Condition: milacademysurge
-	PowerMultiplier@matahari:
-		RequiresCondition: milacademysurge
-		Modifier: 50
-	ProximityExternalCondition@jam:
-		Condition: surged
-		RequiresCondition: milacademysurge
-		Range: 2c0
-		ValidRelationships: Enemy
-	WithDecoration@lips:
-		Image: pips
-		Sequence: lips
-		Position: BottomRight
-		Margin: 17, 4
-		RequiresCondition: powersurge
-		BlinkInterval: 32
-		BlinkPattern: Off, On
-		ValidRelationships: Ally
-		RequiresSelection: True
 
 HORSEBREEDER:
 	Inherits: ^FactionBuilding
@@ -5216,11 +5607,15 @@ HORSEBREEDER:
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@sabotable: ^Sabotable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Inherits@matahariattach: ^MatahariAttacheable
+	InfiltrateToAttach@matahari:
+		Actor: proxy.mataharihorsebreeder
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 600
 		Prerequisites: ~vehicles.china, ~techlevel.medium
 		Description: Horse breeding center.
+		BuildLimit: 1
 	ProductionTimeMultiplier@basediscount:
 		Multiplier: 85
 	Selectable:
@@ -5254,27 +5649,6 @@ HORSEBREEDER:
 		RequiresCondition: !sabotaged
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelhorsebreeder
-	InfiltrateToSpawnActor@matahari:
-		Actor: proxy.mataharihorsebreeder
-		Types: MatahariInfiltrate
-		LinkedToParent: True
-	ExternalCondition@powersurge:
-		Condition: horsesurge
-	ProximityExternalCondition@jam:
-		Condition: surged
-		RequiresCondition: horsesurge
-		Range: 2c0
-		ValidRelationships: Enemy
-	WithDecoration@lips:
-		Image: pips
-		Sequence: lips
-		Position: BottomRight
-		Margin: 17, 4
-		RequiresCondition: horsesurge
-		BlinkInterval: 32
-		BlinkPattern: Off, On
-		ValidRelationships: Ally
-		RequiresSelection: True
 
 STEK:
 	Inherits: ^FactionBuilding
@@ -5282,6 +5656,9 @@ STEK:
 	Inherits@rubbles: ^2x2Rubbles
 	Inherits@sabotable: ^Sabotable
 	Inherits@discount: ^BuildTimeDiscount
+	Inherits@matahariattach: ^MatahariAttacheable
+	InfiltrateToAttach@matahari:
+		Actor: proxy.mataharitek
 	Selectable:
 		Bounds: 2696, 2696
 	Buildable:
@@ -5323,22 +5700,6 @@ STEK:
 		TargetableOffsets: 0,0,0, 490,-470,0, 355,512,0, -355,-512,0, -630,512,0
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelstek
-	InfiltrateToSpawnActor@matahari:
-		Actor: proxy.mataharitek
-		Types: MatahariInfiltrate
-		LinkedToParent: True
-	WithDecoration@lips:
-		Image: pips
-		Sequence: lips
-		Position: BottomRight
-		Margin: 17, 4
-		RequiresCondition: teksurge
-		BlinkInterval: 32
-		BlinkPattern: Off, On
-		ValidRelationships: Ally
-		RequiresSelection: True
-	ExternalCondition@matahari:
-		Condition: teksurge
 
 MTEK:
 	Inherits: ^FactionBuilding
@@ -5346,6 +5707,9 @@ MTEK:
 	Inherits@rubbles: ^2x2Rubbles
 	Inherits@sabotable: ^Sabotable
 	Inherits@discount: ^BuildTimeDiscount
+	Inherits@matahariattach: ^MatahariAttacheable
+	InfiltrateToAttach@matahari:
+		Actor: proxy.mataharitek
 	Selectable:
 		Bounds: 2696, 2696
 	Buildable:
@@ -5389,22 +5753,6 @@ MTEK:
 		TargetableOffsets: 0,0,0, 490,-470,0, 355,512,0, -355,-512,0, -630,512,0
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelmtek
-	InfiltrateToSpawnActor@matahari:
-		Actor: proxy.mataharitek
-		Types: MatahariInfiltrate
-		LinkedToParent: True
-	WithDecoration@lips:
-		Image: pips
-		Sequence: lips
-		Position: BottomRight
-		Margin: 17, 4
-		RequiresCondition: teksurge
-		BlinkInterval: 32
-		BlinkPattern: Off, On
-		ValidRelationships: Ally
-		RequiresSelection: True
-	ExternalCondition@matahari:
-		Condition: teksurge
 
 ATEK:
 	Inherits: ^FactionBuilding
@@ -5412,6 +5760,9 @@ ATEK:
 	Inherits@rubbles: ^2x2Rubbles
 	Inherits@sabotable: ^Sabotable
 	Inherits@discount: ^BuildTimeDiscount
+	Inherits@matahariattach: ^MatahariAttacheable
+	InfiltrateToAttach@matahari:
+		Actor: proxy.mataharitek
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 140
@@ -5454,22 +5805,6 @@ ATEK:
 		Bounds: 2696, 2696
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelatek
-	InfiltrateToSpawnActor@matahari:
-		Actor: proxy.mataharitek
-		Types: MatahariInfiltrate
-		LinkedToParent: True
-	WithDecoration@lips:
-		Image: pips
-		Sequence: lips
-		Position: BottomRight
-		Margin: 17, 4
-		RequiresCondition: teksurge
-		BlinkInterval: 32
-		BlinkPattern: Off, On
-		ValidRelationships: Ally
-		RequiresSelection: True
-	ExternalCondition@matahari:
-		Condition: teksurge
 
 INDPLANT:
 	Inherits: ^FactionBuilding
@@ -5480,6 +5815,9 @@ INDPLANT:
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@sabotable: ^Sabotable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Inherits@matahariattach: ^MatahariAttacheable
+	InfiltrateToAttach@matahari:
+		Actor: proxy.matahariindplant
 	HitShape:
 		TargetableOffsets: 840,0,0, 598,-640,0, 598,640,0, -1060,0,0, -768,-640,0, -768,640,0, 0,0,0
 		Type: Polygon
@@ -5523,22 +5861,6 @@ INDPLANT:
 		RequiresCondition: !sabotaged
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelindplant
-	InfiltrateToSpawnActor@matahari:
-		Actor: proxy.matahariindplant
-		Types: MatahariInfiltrate
-		LinkedToParent: True
-	ExternalCondition@powersurge:
-		Condition: indplantsurge
-	WithDecoration@lips:
-		Image: pips
-		Sequence: lips
-		Position: BottomRight
-		Margin: 17, 4
-		RequiresCondition: indplantsurge
-		BlinkInterval: 32
-		BlinkPattern: Off, On
-		ValidRelationships: Ally
-		RequiresSelection: True
 
 
 FIX:
@@ -5546,6 +5868,9 @@ FIX:
 	Inherits@rubbles: ^FixRubbles
 	Inherits@sabotable: ^Sabotable
 	Inherits@discount: ^BuildTimeDiscount
+	Inherits@matahariattach: ^MatahariAttacheable
+	InfiltrateToAttach@matahari:
+		Actor: proxy.mataharirepair
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 100
@@ -5609,24 +5934,6 @@ FIX:
 		HasMinibib: True
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelfix
-	InfiltrateToSpawnActor@matahari:
-		Actor: proxy.mataharirepair
-		Types: MatahariInfiltrate
-		LinkedToParent: True
-	Targetable:
-		TargetTypes: GroundActor, Structure, C4, DetonateAttack, MatahariInfiltrate
-	WithDecoration@lips:
-		Image: pips
-		Sequence: lips
-		Position: BottomRight
-		Margin: 17, 4
-		RequiresCondition: fixsurge
-		BlinkInterval: 32
-		BlinkPattern: Off, On
-		ValidRelationships: Ally
-		RequiresSelection: True
-	ExternalCondition@matahari:
-		Condition: fixsurge
 
 BARR:
 	Inherits: ^FactionBuilding
@@ -5636,6 +5943,12 @@ BARR:
 	Inherits@sabotable: ^Sabotable
 	Inherits@EMPDISABLE: ^EmpDisable
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Inherits@matahariattach: ^MatahariAttacheable
+	InfiltrateToAttach@matahari:
+		Actor: proxy.mataharibarr
+	ProvidesPrerequisite@mataharied:
+		Prerequisite: matahari-targeted-infantry
+		RequiresCondition: mataharied
 	Selectable:
 		Bounds: 2496, 2496
 	HitShape:
@@ -5704,7 +6017,7 @@ BARR:
 		Factions: germany, turkey, italy, austria
 		Prerequisite: infantry.officer
 	ProvidesPrerequisite@flamer:
-		Factions: germany, turkey, italy
+		Factions: germany, turkey, italy, austria
 		Prerequisite: infantry.flamer
 	ProvidesPrerequisite@grunt:
 		Factions: usa, raj, japan
@@ -5725,7 +6038,7 @@ BARR:
 		Factions: arabia, russia, china
 		Prerequisite: infantry.thief
 	ProvidesPrerequisite@penal:
-		Factions: arabia, ukraine, russia
+		Factions: arabia, ukraine, russia, china
 		Prerequisite: infantry.penal
 	ProvidesPrerequisite@dog:
 		Factions: germany, austria, italy
@@ -5858,25 +6171,6 @@ BARR:
 			abyssinia: mrax
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelbarr
-	InfiltrateToSpawnActor@matahari:
-		Actor: proxy.mataharibarr
-		Types: MatahariInfiltrate
-		LinkedToParent: True
-	ExternalCondition@factsurge:
-		Condition: barrsurge
-	ProvidesPrerequisite@matahari:
-		Prerequisite: matahari-target-infantry
-		RequiresCondition: barrsurge
-	WithDecoration@lips:
-		Image: pips
-		Sequence: lips
-		Position: BottomRight
-		Margin: 17, 4
-		RequiresCondition: barrsurge
-		BlinkInterval: 32
-		BlinkPattern: Off, On
-		ValidRelationships: Ally
-		RequiresSelection: True
 
 
 FLKGUN:

@@ -513,7 +513,7 @@ MiniNuke:
 DemoTruckExplosion:
 	ValidTargets: Ground, GroundActor, Trees,  Trees, Water, Ship, WaterActor, Underwater, Air, AirborneActor
 	Warhead@1Dam_impact: SpreadDamage
-		Spread: 0c512
+		Spread: 1c0
 		Damage: 10000
 		Falloff: 368, 135, 50, 18, 7
 		ValidTargets: GroundActor, Trees,  Trees, Ship, WaterActor, Underwater, AirborneActor
@@ -533,7 +533,7 @@ DemoTruckExplosion:
 		ImpactSounds: kaboom1.aud
 		ImpactActors: false
 	Warhead@4Dam_areanuke1: SpreadDamage
-		Spread: 0c512
+		Spread: 1c0
 		Damage: 6000
 		Falloff: 368, 250, 150, 100, 50, 18
 		ValidTargets: GroundActor, Trees,  Trees, Ship, WaterActor, Underwater, AirborneActor
@@ -590,7 +590,7 @@ DemoTruckExplosion:
 NukeTruckExplosion3:
 	ValidTargets: Ground, GroundActor, Trees,  Trees, Water, Ship, WaterActor, Underwater, Air, AirborneActor
 	Warhead@1Dam_impact: SpreadDamage
-		Spread: 0c512
+		Spread: 3c0
 		Damage: 15000
 		Falloff: 368, 135, 50, 18, 7
 		ValidTargets: GroundActor, Trees,  Trees, Ship, WaterActor, Underwater, AirborneActor
@@ -610,7 +610,7 @@ NukeTruckExplosion3:
 		ImpactSounds: kaboom1.aud
 		ImpactActors: false
 	Warhead@4Dam_areanuke1: SpreadDamage
-		Spread: 0c512
+		Spread: 3c0
 		Damage: 9000
 		Falloff: 368, 250, 150, 100, 50, 18
 		ValidTargets: GroundActor, Trees,  Trees, Ship, WaterActor, Underwater, AirborneActor
@@ -629,7 +629,7 @@ NukeTruckExplosion3:
 		ImpactSounds: kaboom22.aud
 		ImpactActors: false
 	Warhead@7Dam_areanuke2: SpreadDamage
-		Spread: 1c0
+		Spread: 3c0
 		Damage: 9000
 		Falloff: 100, 75, 50, 25, 10, 5
 		ValidTargets: GroundActor, Trees,  Trees, Ship, WaterActor, Underwater, AirborneActor
@@ -643,7 +643,7 @@ NukeTruckExplosion3:
 		AffectsParent: true
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, AcidDeath, Incendiary
 	Warhead@10Dam_areanuke3: SpreadDamage
-		Spread: 1c0
+		Spread: 3c0
 		Damage: 9000
 		Falloff: 368, 200, 135
 		ValidTargets: GroundActor, Trees,  Trees, Ship, WaterActor, Underwater
@@ -673,7 +673,7 @@ NukeTruckExplosion3:
 NukeTruckExplosion2:
 	ValidTargets: Ground, GroundActor, Trees,  Trees, Water, Ship, WaterActor, Underwater, Air, AirborneActor
 	Warhead@1Dam_impact: SpreadDamage
-		Spread: 0c512
+		Spread: 2c512
 		Damage: 10000
 		Falloff: 368, 135, 50, 18, 7
 		ValidTargets: GroundActor, Trees,  Trees, Ship, WaterActor, Underwater, AirborneActor
@@ -693,7 +693,7 @@ NukeTruckExplosion2:
 		ImpactSounds: kaboom1.aud
 		ImpactActors: false
 	Warhead@4Dam_areanuke1: SpreadDamage
-		Spread: 0c512
+		Spread: 2c512
 		Damage: 6000
 		Falloff: 368, 250, 150, 100, 50, 18
 		ValidTargets: GroundActor, Trees,  Trees, Ship, WaterActor, Underwater, AirborneActor
@@ -712,7 +712,7 @@ NukeTruckExplosion2:
 		ImpactSounds: kaboom22.aud
 		ImpactActors: false
 	Warhead@7Dam_areanuke2: SpreadDamage
-		Spread: 1c0
+		Spread: 2c512
 		Damage: 6000
 		Falloff: 100, 75, 50, 25, 10, 5
 		ValidTargets: GroundActor, Trees,  Trees, Ship, WaterActor, Underwater, AirborneActor
@@ -726,7 +726,7 @@ NukeTruckExplosion2:
 		AffectsParent: true
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, AcidDeath, Incendiary
 	Warhead@10Dam_areanuke3: SpreadDamage
-		Spread: 1c0
+		Spread: 2c512
 		Damage: 6000
 		Falloff: 368, 200, 135
 		ValidTargets: GroundActor, Trees,  Trees, Ship, WaterActor, Underwater
@@ -1458,3 +1458,263 @@ DigXplosionSM:
 		ValidTargets: Ground, GroundActor
 		ExplosionPalette: tseffects
 		ImpactSounds: crumble.aud
+
+CashHackExplosion:
+	ReloadDelay: 50
+	ValidTargets: Ground, Water, Air, GroundActor, Trees,  Ship, WaterActor, AirborneActor
+	Warhead@Smu: CashHack
+		ValidTargets: Ground, Water, Air, GroundActor, Trees,  Ship, WaterActor
+		Range: 1c512
+		Maximum: 10
+		ValidRelationships: Enemy, Neutral
+		Types: CashHack
+
+MatahariPowerDrain:
+	ReloadDelay: 100
+	ValidTargets: MatahariPowerDrain
+	Warhead@ext: GrantExternalCondition
+		ValidTargets: MatahariPowerDrain
+		Range: 1c512
+		Duratio: 50
+		Condition: spawnmataharipowr
+	Warhead@DigAnim: CreateEffect
+		Image: dig_sm
+		Explosions: idle
+		ValidTargets: Ground, GroundActor
+		ExplosionPalette: tseffects
+		ImpactSounds: crumble.aud
+
+OilSiloExplode0:
+	Warhead@Cluster2: FireCluster
+		Weapon: BarrelCluster
+		Dimensions: 2,2
+		Footprint: XX XX
+		Delay: 2
+	Warhead@2Eff: CreateEffect
+		Explosions: building
+		ImpactSounds: kaboom25.aud
+	Warhead@Smu: LeaveSmudge
+		SmudgeType: Scorch
+
+OilSiloExplode1:
+	Warhead@Cluster2: FireCluster
+		Weapon: BarrelCluster
+		Dimensions: 4,4
+		Footprint: _XX_ X__X X__X _XX_
+		Delay: 5
+	Warhead@2Eff: CreateEffect
+		Explosions: building
+		ImpactSounds: kaboom25.aud
+	Warhead@Smu: LeaveSmudge
+		SmudgeType: Scorch
+
+OilSiloExplode2:
+	Warhead@Cluster3: FireCluster
+		Weapon: BarrelCluster
+		Dimensions: 4,4
+		Footprint: X__X ____ ____ X__X
+		Delay: 10
+	Warhead@2Eff: CreateEffect
+		Explosions: building
+		ImpactSounds: kaboom25.aud
+	Warhead@Smu: LeaveSmudge
+		SmudgeType: Scorch
+
+OilSiloExplode3:
+	Warhead@Cluster3: FireCluster
+		Weapon: BarrelCluster
+		Dimensions: 6,6
+		Footprint: __XX__ ______ X____X X____X ______ __XX__
+		Delay: 15
+	Warhead@2Eff: CreateEffect
+		Explosions: building
+		ImpactSounds: kaboom25.aud
+	Warhead@Smu: LeaveSmudge
+		SmudgeType: Scorch
+
+OilSiloExplode4:
+	Warhead@Cluster3: FireCluster
+		Weapon: BarrelCluster
+		Dimensions: 6,6
+		Footprint: _X__X_ X____X ______ ______ X____X _X__X_
+		Delay: 20
+	Warhead@2Eff: CreateEffect
+		Explosions: building
+		ImpactSounds: kaboom25.aud
+	Warhead@Smu: LeaveSmudge
+		SmudgeType: Scorch
+
+OilSiloExplode5:
+	Warhead@Cluster3: FireCluster
+		Weapon: BarrelCluster
+		Dimensions: 8,8
+		Footprint: ___XX___ ________ ________ X______X X______X ________ ________ ___XX___
+		Delay: 25
+	Warhead@2Eff: CreateEffect
+		Explosions: building
+		ImpactSounds: kaboom25.aud
+	Warhead@Smu: LeaveSmudge
+		SmudgeType: Scorch
+
+OilSiloExplode6:
+	Warhead@Cluster3: FireCluster
+		Weapon: BarrelCluster
+		Dimensions: 8,8
+		Footprint: __X__X__ _X____X_ X______X ________ ________ X______X _X____X_ __X__X__
+		Delay: 30
+	Warhead@2Eff: CreateEffect
+		Explosions: building
+		ImpactSounds: kaboom25.aud
+	Warhead@Smu: LeaveSmudge
+		SmudgeType: Scorch
+
+OilSiloExplode7:
+	Warhead@Cluster3: FireCluster
+		Weapon: BarrelCluster
+		Dimensions: 8,8
+		Footprint: _X____X_ X______X ________ ________ ________ ________ X______X _X____X_
+		Delay: 35
+	Warhead@2Eff: CreateEffect
+		Explosions: building
+		ImpactSounds: kaboom25.aud
+	Warhead@Smu: LeaveSmudge
+		SmudgeType: Scorch
+
+OilRefineryExplosion:
+	Warhead@Cluster: FireCluster
+		Weapon: BarrelCluster
+		Dimensions: 1,1
+		Footprint: X
+	Warhead@Cluster2: FireCluster
+		Weapon: BarrelCluster
+		Dimensions: 3,3
+		Footprint: _X_ X_X _X_
+		Delay: 15
+	Warhead@Cluster3: FireCluster
+		Weapon: BarrelCluster
+		Dimensions: 5,5
+		Footprint: __X__ _X_X_ X___X _X_X_ __X__
+		Delay: 30
+	Warhead@Cluster4: FireCluster
+		Weapon: BarrelCluster
+		Dimensions: 7,7
+		Footprint: ___X___ __X_X__ _X___X_ X_____X _X___X_ __X_X__ ___X___
+		Delay: 30
+	Warhead@2Eff: CreateEffect
+		Explosions: building
+		ImpactSounds: kaboom25.aud
+	Warhead@Smu: LeaveSmudge
+		SmudgeType: Scorch
+
+OilDerrickExplosion:
+	Warhead@Cluster: FireCluster
+		Weapon: BarrelCluster
+		Dimensions: 1,1
+		Footprint: X
+	Warhead@Cluster2: FireCluster
+		Weapon: BarrelCluster
+		Dimensions: 3,3
+		Footprint: _X_ X_X _X_
+		Delay: 15
+	Warhead@Cluster3: FireCluster
+		Weapon: BarrelCluster
+		Dimensions: 5,5
+		Footprint: __X__ _X_X_ X___X _X_X_ __X__
+		Delay: 30
+	Warhead@2Eff: CreateEffect
+		Explosions: building
+		ImpactSounds: kaboom25.aud
+	Warhead@Smu: LeaveSmudge
+		SmudgeType: Scorch
+
+StorageTankExplode:
+	Warhead@Cluster: FireCluster
+		Weapon: BarrelCluster
+		Dimensions: 1,1
+		Footprint: X
+	Warhead@Cluster2: FireCluster
+		Weapon: BarrelCluster
+		Dimensions: 3,3
+		Footprint: _X_ X_X _X_
+		Delay: 15
+	Warhead@Cluster3: FireCluster
+		Weapon: BarrelCluster
+		Dimensions: 5,5
+		Footprint: __X__ _X_X_ X___X _X_X_ __X__
+		Delay: 30
+	Warhead@2Eff: CreateEffect
+		Explosions: building
+		ImpactSounds: kaboom25.aud
+	Warhead@Smu: LeaveSmudge
+		SmudgeType: Scorch
+
+GaspipeExplosion:
+	Inherits: ^Explosion
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Spread: 325
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		Delay: 12
+		ValidTargets: GroundActor, Trees, Air, Ground
+		Versus:
+			None: 120
+			Light: 50
+			Wood: 20
+			Concrete: 10
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@2Eff: CreateEffect
+		Explosions: large_napalm
+		ImpactSounds: firebl3.aud
+	-Warhead@3EffWater:
+	Warhead@Smu: LeaveSmudge
+		SmudgeType: Scorch
+		Chance: 100
+		Delay: 1
+		InvalidTargets: Structure, Wall
+
+BarrelCluster:
+	Inherits: ^Explosion
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Spread: 325
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		Delay: 5
+		ValidTargets: GroundActor, Trees
+		Versus:
+			None: 120
+			Light: 50
+			Wood: 20
+			Concrete: 10
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@2Eff: CreateEffect
+		Explosions: large_napalm
+		ImpactSounds: firebl3.aud
+		Delay: 5
+	-Warhead@3EffWater:
+	Warhead@Smu: LeaveSmudge
+		SmudgeType: Scorch
+
+RamExplode:
+	Warhead@Cluster: FireCluster
+		Weapon: BarrelCluster
+		Dimensions: 1,1
+		Footprint: X
+	Warhead@Cluster2: FireCluster
+		Weapon: BarrelCluster
+		Dimensions: 3,3
+		Footprint: _X_ X_X _X_
+		Delay: 15
+	Warhead@Cluster3: FireCluster
+		Weapon: IfritAreaFire
+		Dimensions: 1,1
+		Footprint: X
+	Warhead@Cluster4: FireCluster
+		Weapon: IfritAreaFire
+		Dimensions: 3,3
+		Footprint: _X_ X_X _X_
+		Delay: 15
+	Warhead@2Eff: CreateEffect
+		Explosions: building
+		ImpactSounds: kaboom25.aud
+	Warhead@Smu: LeaveSmudge
+		SmudgeType: Scorch

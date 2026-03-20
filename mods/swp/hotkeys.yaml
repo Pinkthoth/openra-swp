@@ -13,7 +13,7 @@ ProductionTypeInfantry: T
 	Types: Production
 	Contexts: Player
 
-ProductionTypeVehicle: U
+ProductionTypeVehicle: Y
 	Description: Vehicle Tab
 	Types: Production
 	Contexts: Player
@@ -23,17 +23,17 @@ ProductionTypeLightVehicle: Y
 	Types: Production
 	Contexts: Player
 
-ProductionTypeAircraft: O
+ProductionTypeAircraft: I
 	Description: Aircraft Tab
 	Types: Production
 	Contexts: Player
 
-ProductionTypeNaval: P
+ProductionTypeNaval: O
 	Description: Naval Tab
 	Types: Production
 	Contexts: Player
 
-ProductionTypeHelicopter: I
+ProductionTypeHelicopter: U
 	Description: Helicopter Tab
 	Types: Production
 	Contexts: Player

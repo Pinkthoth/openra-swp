@@ -454,8 +454,8 @@ Wiesel-AA:
 
 Wiesel-AG:
 	Inherits: Archer-AG
-	Burst: 3
-	BurstDelays: 4
+	Burst: 4
+	BurstDelays: 3
 	Report: bgatweaa.wav, bgatweab.wav, bgatweac.wav, bgatwead.wav
 	Warhead@1Dam: SpreadDamage
 		Damage: 800
@@ -463,7 +463,7 @@ Wiesel-AG:
 			None: 80
 			Wood: 20
 			Light: 55
-			Medium: 35
+			Medium: 40
 			Heavy: 20
 			Concrete: 10
 		ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
@@ -1814,17 +1814,17 @@ ATRifle:
 JarmenRifle:
 	Inherits: ^SnipeWeapon
 	Report: jarmengun.aud
-	ReloadDelay: 25
-	Range: 9c0
+	ReloadDelay: 50
+	Range: 8c512
 	Warhead@1Dam: SpreadDamage
-		Damage: 10000
+		Damage: 8000
 		Versus:
 			None: 100
-			Wood: 50
-			Concrete: 40
-			Light: 80
-			Medium: 70
-			Heavy: 60
+			Wood: 30
+			Concrete: 20
+			Light: 40
+			Medium: 30
+			Heavy: 20
 		ValidTargets: Ground, Infantry, Barrel, Structure, Ship, Vehicle
 	ValidTargets: Ground, Infantry, Barrel, Structure, Ship, Vehicle
 	Projectile: InstantHit

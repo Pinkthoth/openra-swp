@@ -262,6 +262,13 @@ CAMERA:
 	MapEditorData:
 		Categories: System
 
+camera.dummy:
+	Inherits: CAMERA
+	EditorOnlyTooltip:
+		Name: (dummy camera)
+	RevealsShroud:
+		Range: 6c0
+
 camera.paradrop:
 	Inherits: CAMERA
 	EditorOnlyTooltip:
@@ -492,14 +499,13 @@ powerproxy.parabombs:
 
 proxy.matahariheal:
 	AlwaysVisible:
-	Immobile:
-		OccupiesSpace: False
+	Aircraft:
+		Speed: 100
+		CanHover: True
+		Repulsable: False
+	RejectsOrders:
 	ProvidesPrerequisite:
 		Prerequisite: hosp
-	ProximityExternalCondition@jam:
-		Condition: triagesurge
-		Range: 2c0
-		ValidRelationships: Enemy
 	RevealsShroud:
 		Range: 4c0
 		Type: CenterPosition
@@ -514,17 +520,20 @@ proxy.matahariheal:
 	Selectable:
 		Bounds: 1024,1024
 	SelectionDecorations:
+	Attachable:
+		Type: Matahari
+		TargetTypes: Structure
+		ValidRelationships: Enemy
 
 proxy.mataharirepair:
 	AlwaysVisible:
-	Immobile:
-		OccupiesSpace: False
+	Aircraft:
+		Speed: 100
+		CanHover: True
+		Repulsable: False
+	RejectsOrders:
 	ProvidesPrerequisite:
 		Prerequisite: mshop
-	ProximityExternalCondition@jam:
-		Condition: fixsurge
-		Range: 2c0
-		ValidRelationships: Enemy
 	RevealsShroud:
 		Range: 4c0
 		Type: CenterPosition
@@ -539,21 +548,21 @@ proxy.mataharirepair:
 	Selectable:
 		Bounds: 1024,1024
 	SelectionDecorations:
+	Attachable:
+		Type: Matahari
+		TargetTypes: Structure
+		ValidRelationships: Enemy
 
 proxy.matahariproc:
 	AlwaysVisible:
-	Immobile:
-		OccupiesSpace: False
-	ProximityExternalCondition@jam:
-		Condition: procsurge
-		Range: 2c0
-		ValidRelationships: Enemy
-	CashTrickler:
-		Amount: 5
-		RequiresCondition: procsurged
-		ShowTicks: False
-	ExternalCondition:
-		Condition: procsurged
+	Aircraft:
+		Speed: 100
+		CanHover: True
+		Repulsable: False
+	RejectsOrders:
+	PeriodicExplosion@poison:
+		Weapon: CashHackExplosion
+		InitialDelay: 50
 	RevealsShroud:
 		Range: 4c0
 		Type: CenterPosition
@@ -568,20 +577,20 @@ proxy.matahariproc:
 	Selectable:
 		Bounds: 1024,1024
 	SelectionDecorations:
+	Attachable:
+		Type: Matahari
+		TargetTypes: Structure
+		ValidRelationships: Enemy
 
 proxy.mataharipowr:
 	AlwaysVisible:
-	Immobile:
-		OccupiesSpace: False
-	ProximityExternalCondition@jam:
-		Condition: powersurge
-		Range: 2c0
-		ValidRelationships: Enemy
+	Aircraft:
+		Speed: 100
+		CanHover: True
+		Repulsable: False
+	RejectsOrders:
 	Power:
 		Amount: 75
-		RequiresCondition: surged
-	ExternalCondition:
-		Condition: surged
 	RevealsShroud:
 		Range: 4c0
 		Type: CenterPosition
@@ -596,20 +605,20 @@ proxy.mataharipowr:
 	Selectable:
 		Bounds: 1024,1024
 	SelectionDecorations:
+	Attachable:
+		Type: Matahari
+		TargetTypes: Structure
+		ValidRelationships: Enemy
 
 proxy.matahariapwr:
 	AlwaysVisible:
-	Immobile:
-		OccupiesSpace: False
-	ProximityExternalCondition@jam:
-		Condition: powersurge
-		Range: 2c0
-		ValidRelationships: Enemy
+	Aircraft:
+		Speed: 100
+		CanHover: True
+		Repulsable: False
+	RejectsOrders:
 	Power:
 		Amount: 150
-		RequiresCondition: surged
-	ExternalCondition:
-		Condition: surged
 	RevealsShroud:
 		Range: 4c0
 		Type: CenterPosition
@@ -624,20 +633,20 @@ proxy.matahariapwr:
 	Selectable:
 		Bounds: 1024,1024
 	SelectionDecorations:
+	Attachable:
+		Type: Matahari
+		TargetTypes: Structure
+		ValidRelationships: Enemy
 
 proxy.matahariteslapp:
 	AlwaysVisible:
-	Immobile:
-		OccupiesSpace: False
-	ProximityExternalCondition@jam:
-		Condition: powersurge
-		Range: 2c0
-		ValidRelationships: Enemy
+	Aircraft:
+		Speed: 100
+		CanHover: True
+		Repulsable: False
+	RejectsOrders:
 	Power:
 		Amount: 300
-		RequiresCondition: surged
-	ExternalCondition:
-		Condition: surged
 	RevealsShroud:
 		Range: 4c0
 		Type: CenterPosition
@@ -652,15 +661,18 @@ proxy.matahariteslapp:
 	Selectable:
 		Bounds: 1024,1024
 	SelectionDecorations:
+	Attachable:
+		Type: Matahari
+		TargetTypes: Structure
+		ValidRelationships: Enemy
 
 proxy.mataharicommcent:
 	AlwaysVisible:
-	Immobile:
-		OccupiesSpace: False
-	ProximityExternalCondition@jam:
-		Condition: commcentsurge
-		Range: 2c0
-		ValidRelationships: Enemy
+	Aircraft:
+		Speed: 100
+		CanHover: True
+		Repulsable: False
+	RejectsOrders:
 	ProvidesPrerequisite:
 		Prerequisite: matahari-vision
 	RevealsShroud:
@@ -677,15 +689,18 @@ proxy.mataharicommcent:
 	Selectable:
 		Bounds: 1024,1024
 	SelectionDecorations:
+	Attachable:
+		Type: Matahari
+		TargetTypes: Structure
+		ValidRelationships: Enemy
 
 proxy.matahariadept:
 	AlwaysVisible:
-	Immobile:
-		OccupiesSpace: False
-	ProximityExternalCondition@jam:
-		Condition: adeptsurge
-		Range: 2c0
-		ValidRelationships: Enemy
+	Aircraft:
+		Speed: 100
+		CanHover: True
+		Repulsable: False
+	RejectsOrders:
 	ProvidesPrerequisite:
 		Prerequisite: matahari-armor
 	RevealsShroud:
@@ -702,15 +717,18 @@ proxy.matahariadept:
 	Selectable:
 		Bounds: 1024,1024
 	SelectionDecorations:
+	Attachable:
+		Type: Matahari
+		TargetTypes: Structure
+		ValidRelationships: Enemy
 
 proxy.mataharitek:
 	AlwaysVisible:
-	Immobile:
-		OccupiesSpace: False
-	ProximityExternalCondition@jam:
-		Condition: teksurge
-		Range: 2c0
-		ValidRelationships: Enemy
+	Aircraft:
+		Speed: 100
+		CanHover: True
+		Repulsable: False
+	RejectsOrders:
 	ProvidesPrerequisite:
 		Prerequisite: matahari-firepower
 	RevealsShroud:
@@ -727,15 +745,18 @@ proxy.mataharitek:
 	Selectable:
 		Bounds: 1024,1024
 	SelectionDecorations:
+	Attachable:
+		Type: Matahari
+		TargetTypes: Structure
+		ValidRelationships: Enemy
 
 proxy.mataharimilacademy:
 	AlwaysVisible:
-	Immobile:
-		OccupiesSpace: False
-	ProximityExternalCondition@jam:
-		Condition: milacademysurge
-		Range: 2c0
-		ValidRelationships: Enemy
+	Aircraft:
+		Speed: 100
+		CanHover: True
+		Repulsable: False
+	RejectsOrders:
 	ProvidesPrerequisite:
 		Prerequisite: matahari-officer
 	RevealsShroud:
@@ -752,15 +773,18 @@ proxy.mataharimilacademy:
 	Selectable:
 		Bounds: 1024,1024
 	SelectionDecorations:
+	Attachable:
+		Type: Matahari
+		TargetTypes: Structure
+		ValidRelationships: Enemy
 
 proxy.mataharihorsebreeder:
 	AlwaysVisible:
-	Immobile:
-		OccupiesSpace: False
-	ProximityExternalCondition@jam:
-		Condition: horsesurge
-		Range: 2c0
-		ValidRelationships: Enemy
+	Aircraft:
+		Speed: 100
+		CanHover: True
+		Repulsable: False
+	RejectsOrders:
 	ProvidesPrerequisite:
 		Prerequisite: matahari-speed
 	RevealsShroud:
@@ -779,15 +803,18 @@ proxy.mataharihorsebreeder:
 	SelectionDecorations:
 	ExternalCondition@surged:
 		Condition: surged
+	Attachable:
+		Type: Matahari
+		TargetTypes: Structure
+		ValidRelationships: Enemy
 
 proxy.matahariindplant:
 	AlwaysVisible:
-	Immobile:
-		OccupiesSpace: False
-	ProximityExternalCondition@jam:
-		Condition: indplantsurge
-		Range: 2c0
-		ValidRelationships: Enemy
+	Aircraft:
+		Speed: 100
+		CanHover: True
+		Repulsable: False
+	RejectsOrders:
 	ProvidesPrerequisite:
 		Prerequisite: indplant
 	RevealsShroud:
@@ -804,9 +831,18 @@ proxy.matahariindplant:
 	Selectable:
 		Bounds: 1024,1024
 	SelectionDecorations:
+	Attachable:
+		Type: Matahari
+		TargetTypes: Structure
+		ValidRelationships: Enemy
 
 proxy.mataharimi6:
 	AlwaysVisible:
+	Aircraft:
+		Speed: 100
+		CanHover: True
+		Repulsable: False
+	RejectsOrders:
 	WithDecoration@lips:
 		Image: pips
 		Sequence: lips
@@ -816,12 +852,8 @@ proxy.mataharimi6:
 		BlinkPattern: Off, On
 		ValidRelationships: Ally
 	Selectable:
-		Bounds: 1024,1024
+		Bounds: 2496, 2496
 	SelectionDecorations:
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
-		LocalCenterOffset: 0,-206,0
 	RevealsShroud:
 		Range: 7c0
 	RallyPoint:
@@ -838,15 +870,18 @@ proxy.mataharimi6:
 		ChargeDuration: 3000
 		ShowSelectionBar: True
 		ReadyAudio: UnitReady
+	Attachable:
+		Type: Matahari
+		TargetTypes: Structure
+		ValidRelationships: Enemy
 
 proxy.mataharicyberlab:
 	AlwaysVisible:
-	Immobile:
-		OccupiesSpace: False
-	ProximityExternalCondition@jam:
-		Condition: cyberlabsurge
-		Range: 2c0
-		ValidRelationships: Enemy
+	Aircraft:
+		Speed: 100
+		CanHover: True
+		Repulsable: False
+	RejectsOrders:
 	ProvidesPrerequisite:
 		Prerequisite: matahari-reload
 	ExternalCondition@surged:
@@ -865,15 +900,18 @@ proxy.mataharicyberlab:
 	Selectable:
 		Bounds: 1024,1024
 	SelectionDecorations:
+	Attachable:
+		Type: Matahari
+		TargetTypes: Structure
+		ValidRelationships: Enemy
 
 proxy.mataharifact:
 	AlwaysVisible:
-	Immobile:
-		OccupiesSpace: False
-	ProximityExternalCondition@jam:
-		Condition: factsurge
-		Range: 2c0
-		ValidRelationships: Enemy
+	Aircraft:
+		Speed: 100
+		CanHover: True
+		Repulsable: False
+	RejectsOrders:
 	ProvidesPrerequisite:
 		Prerequisite: matahari-targeter
 	RevealsShroud:
@@ -890,15 +928,18 @@ proxy.mataharifact:
 	Selectable:
 		Bounds: 1024,1024
 	SelectionDecorations:
+	Attachable:
+		Type: Matahari
+		TargetTypes: Structure
+		ValidRelationships: Enemy
 
 proxy.mataharibarr:
 	AlwaysVisible:
-	Immobile:
-		OccupiesSpace: False
-	ProximityExternalCondition@jam:
-		Condition: barrsurge
-		Range: 2c0
-		ValidRelationships: Enemy
+	Aircraft:
+		Speed: 100
+		CanHover: True
+		Repulsable: False
+	RejectsOrders:
 	ProvidesPrerequisite:
 		Prerequisite: matahari-targeter-infantry
 	RevealsShroud:
@@ -915,15 +956,18 @@ proxy.mataharibarr:
 	Selectable:
 		Bounds: 1024,1024
 	SelectionDecorations:
+	Attachable:
+		Type: Matahari
+		TargetTypes: Structure
+		ValidRelationships: Enemy
 
 proxy.matahariweap:
 	AlwaysVisible:
-	Immobile:
-		OccupiesSpace: False
-	ProximityExternalCondition@jam:
-		Condition: weapsurge
-		Range: 2c0
-		ValidRelationships: Enemy
+	Aircraft:
+		Speed: 100
+		CanHover: True
+		Repulsable: False
+	RejectsOrders:
 	ProvidesPrerequisite:
 		Prerequisite: matahari-targeter-vehicle
 	RevealsShroud:
@@ -940,15 +984,18 @@ proxy.matahariweap:
 	Selectable:
 		Bounds: 1024,1024
 	SelectionDecorations:
+	Attachable:
+		Type: Matahari
+		TargetTypes: Structure
+		ValidRelationships: Enemy
 
 proxy.mataharihpad:
 	AlwaysVisible:
-	Immobile:
-		OccupiesSpace: False
-	ProximityExternalCondition@jam:
-		Condition: hpadsurge
-		Range: 2c0
-		ValidRelationships: Enemy
+	Aircraft:
+		Speed: 100
+		CanHover: True
+		Repulsable: False
+	RejectsOrders:
 	ProvidesPrerequisite:
 		Prerequisite: matahari-targeter-helicopter
 	RevealsShroud:
@@ -965,15 +1012,18 @@ proxy.mataharihpad:
 	Selectable:
 		Bounds: 1024,1024
 	SelectionDecorations:
+	Attachable:
+		Type: Matahari
+		TargetTypes: Structure
+		ValidRelationships: Enemy
 
 proxy.matahariafld:
 	AlwaysVisible:
-	Immobile:
-		OccupiesSpace: False
-	ProximityExternalCondition@jam:
-		Condition: afldsurge
-		Range: 2c0
-		ValidRelationships: Enemy
+	Aircraft:
+		Speed: 100
+		CanHover: True
+		Repulsable: False
+	RejectsOrders:
 	ProvidesPrerequisite:
 		Prerequisite: matahari-targeter-airplane
 	RevealsShroud:
@@ -990,18 +1040,21 @@ proxy.matahariafld:
 	Selectable:
 		Bounds: 1024,1024
 	SelectionDecorations:
+	Attachable:
+		Type: Matahari
+		TargetTypes: Structure
+		ValidRelationships: Enemy
 
 proxy.mataharidome:
 	AlwaysVisible:
-	Immobile:
-		OccupiesSpace: False
+	Aircraft:
+		Speed: 100
+		CanHover: True
+		Repulsable: False
+	RejectsOrders:
 	RangedGpsRadarProvider:
 		Range: 15c0
 		TargetTypes: Infantry, Vehicle, Structure
-	ProximityExternalCondition@jam:
-		Condition: domesurge
-		Range: 2c0
-		ValidRelationships: Enemy
 	RenderDetectionCircleSWP:
 		Visible: Always
 		TrailCount: 1
@@ -1025,6 +1078,10 @@ proxy.mataharidome:
 	Selectable:
 		Bounds: 1024,1024
 	SelectionDecorations:
+	Attachable:
+		Type: Matahari
+		TargetTypes: Structure
+		ValidRelationships: Enemy
 
 proxy.kominternweap:
 	AlwaysVisible:
@@ -1477,6 +1534,10 @@ FLARE:
 	RenderSprites:
 		Image: empty
 	Aircraft:
+		Speed: 100
+		CanHover: True
+		Repulsable: False
+	RejectsOrders:
 		CruiseAltitude: 10c0
 		Repulsable: False
 		AltitudeVelocity: 59c0
@@ -1691,6 +1752,10 @@ powergps:
 		Name: (GPS Power Dummy)
 	AlwaysVisible:
 	Aircraft:
+		Speed: 100
+		CanHover: True
+		Repulsable: False
+	RejectsOrders:
 		Repulsable: False
 	BodyOrientation:
 		QuantizedFacings: 1

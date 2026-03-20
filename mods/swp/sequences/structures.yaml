@@ -214,14 +214,36 @@ illicitlab:
 
 cyberlab:
 	Defaults:
+		Filename: battlelab.shp
+	idle:
+		Length: 23
+		Offset: 0,-16
+	damaged-idle:
+		Start: 24
+		Length: 23
+		Offset: 0,-16
+	make:
+		Start: 53
+		Length: *
+		Offset: 0,-16
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+			DESERT: bib2.des
+		Length: *
+	icon:
+		Filename: battlelabicon.shp
+
+cloningvats:
+	Defaults:
 		Filename: cyberlab.shp
 	idle:
+		Start: 0
 	damaged-idle:
 		Start: 1
 	make:
-		Filename: cyberlab.shp
 		Start: 2
-		Length: 25
+		Length: *
 	bib:
 		TilesetFilenames:
 			TEMPERAT: bib3.tem
@@ -300,6 +322,28 @@ kcom:
 	icon:
 		Filename: fcomicon.shp
 		Offset: 0,0,0
+
+outpost:
+	idle:
+		Filename: outpost.shp
+		Offset: 15,3
+	damaged-idle:
+		Filename: outpost.shp
+		Start: 2
+		Offset: 15,3
+	make:
+		Filename: outpost.shp
+		Start: 4
+		Length: *
+		Offset: 15,3
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib3.tem
+			DESERT: bib3.des
+		Length: *
+		Offset: 0,3
+	icon:
+		Filename: powricon.shp
 
 mpowr:
 	idle:
@@ -1415,6 +1459,134 @@ spainbunker:
 		Offset: 0,-2
 	icon:
 		Filename: bunkericon.shp
+
+defenseplatform:
+	Defaults:
+		Filename: defenseplatform.shp
+	idle:
+	damaged-idle:
+		Filename: defenseplatform.shp
+		Start: 3
+	idle-empty:
+		Filename: empty.shp
+		Start: 0
+	damaged-idle-empty:
+		Filename: empty.shp
+		Start: 0
+	make:
+		Filename: defenseplatform.shp
+		Start: 7
+		Length: 23
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbPBOX.tem
+			DESERT: mbPBOX.des
+		Length: *
+		Offset: 0,-2
+	idle-medic:
+		Filename: defenseplatform.shp
+	idle-mech:
+		Filename: defenseplatform.shp
+	damaged-idle-medic:
+		Filename: defenseplatform.shp
+	damaged-idle-mech:
+		Filename: defenseplatform.shp
+	turret-rifle:
+		Filename: armcr.shp
+		Start: 33
+		Facings: 32
+		UseClassicFacings: True
+		Scale: 1.25	
+	turret-flame:
+		Filename: sipahiflm.shp
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+		Scale: 1.25
+	turret-missile:
+		Filename: khanlauncher.shp
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+		Scale: 1.25
+	turret-ronin:
+		Filename: ronin.shp
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+		Scale: 1.25
+	turret-arc:
+		Filename: arctower.shp
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+		Scale: 1.25
+	turret-flak:
+		Filename: ftrk.shp
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+		Scale: 1.25
+	turret-mortar:
+		Filename: sipahimortar.shp
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+		Scale: 1.25
+	turret-sniper:
+		Filename: sipahisniper.shp
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+		Scale: 1.25
+	turret-lmg:
+		Filename: sipahilmg.shp
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+		Scale: 1.25
+	turret-tox:
+		Filename: sipahitox.shp
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+		Scale: 1.25
+	spinner-ttnk:
+		Filename: ttnk.shp
+		Start: 32
+		Length: 1
+	spinner-mrj:
+		Filename: mrj.shp
+		Start: 32
+		Length: 32
+	spydish:
+		Filename: spydish.shp
+		Start: 0
+		Length: 32
+	turret-gatling:
+		Filename: gatlingcar.shp
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+		Scale: 1.25
+	turret-testudo:
+		Filename: testudo.shp
+		Start: 100
+		Facings: 32
+		UseClassicFacings: True
+		Scale: 1.25
+	turret-kumo:
+		Filename: kumo.shp
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+		Scale: 1.25
+	icon:
+		Filename: defenseplatformicon.shp
 
 hbox:
 	Defaults:
@@ -3155,15 +3327,12 @@ scrap:
 
 hospital:
 	Defaults:
-		Filename: hospital.shp
-		Offset: 8,-28,0
-		Scale: 0.76
+		Filename: hosp.shp
 	idle:
+		Length: 4
 	damaged-idle:
-		Start: 1
-	overlay:
-		Start: 2
-		Length: 30
+		Start: 4
+		Length: 4
 	dead:
 		Start: 8
 		Tick: 800
@@ -3172,9 +3341,10 @@ hospital:
 		Length: *
 	bib:
 		TilesetFilenames:
-			TEMPERAT: bib2.tem
-			DESERT: bib2.des
-		Scale: 1
+			SNOW: mbHOSP.sno
+			INTERIOR: mbHOSP.int
+			TEMPERAT: mbHOSP.tem
+			DESERT: mbHOSP.des
 		Length: *
 		Offset: 0,1
 	icon:
@@ -3461,3 +3631,233 @@ triage:
 		Filename: triageicon.shp
 	fake-icon:
 		Filename: fpwricon.shp
+
+npowr:
+	idle:
+		Filename: npowr.shp
+		Offset: 0,3
+	damaged-idle:
+		Filename: npowr.shp
+		Start: 1
+		Offset: 0,3
+	dead:
+		Filename: npowr.shp
+		Tick: 1
+		Offset: 0,3
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib3.tem
+			DESERT: bib3.des
+		Length: *
+		Offset: 0,3
+
+mshop:
+	idle:
+		Filename: mshop.shp
+		Offset: 0,-4
+		Length: 3
+		Tick: 125
+		Start: 0
+	damaged-idle:
+		Filename: mshop.shp
+		Length: 3
+		Start: 3
+		Tick: 125
+		Offset: 0,-4
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib3.tem
+			DESERT: bib3.des
+		Length: *
+
+lighttower:
+	idle:
+		Filename: lighttower.shp
+		Offset: 0,0
+	damaged-idle:
+		Filename: lighttower.shp
+		Start: 1
+		Offset: 0,0
+	bib:
+		TilesetFilenames:
+			SNOW: mbAGUN.sno
+			INTERIOR: mbAGUN.int
+			TEMPERAT: mbAGUN.tem
+			DESERT: mbAGUN.des
+		Length: *
+
+oilc:
+	idle:
+		Filename: oilc.shp
+		Length: 1
+		Offset: -7,-14
+	scratched-idle:
+		Filename: oilc.shp
+		Start: 1
+		Length: 1
+		Offset: -7,-14
+	bib:
+		Filename: bib3.tem
+		TilesetFilenames:
+			SNOW: bib3.sno
+			DESERT: bib3.des
+		Length: *
+		Offset: 0,0
+
+oila:
+	Defaults:
+		Filename: oila.shp
+	idle:
+	damaged-idle:
+		Start: 1
+		Length: *
+	make:
+	bib:
+		Filename: bib2.tem
+		TilesetFilenames:
+			SNOW: bib2.sno
+			DESERT: bib2.des
+		Length: *
+
+gaspipe:
+	idle:
+		Filename: gaspipe.shp
+		Length: 16
+	scratched-idle:
+		Filename: gaspipe.shp
+		Start: 0
+		Length: 16
+
+tnkr:
+	idle:
+		Filename: tnkr.shp
+		Start: 0
+	damaged-idle:
+		Filename: tnkr.shp
+		Start: 1
+
+gaspipeup1:
+	idle:
+		Filename: gaspipeup.shp
+		Offset: 0,-6
+		ZOffset: 500
+		Start: 0
+
+gaspipeup2:
+	idle:
+		Filename: gaspipeup.shp
+		Offset: 0,-6
+		ZOffset: 500
+		Start: 1
+
+gaspipeup3:
+	idle:
+		Filename: gaspipeup.shp
+		Offset: 0,-6
+		ZOffset: 500
+		Start: 2
+
+gaspipeup4:
+	idle:
+		Filename: gaspipeup.shp
+		Offset: 0,-6
+		ZOffset: 500
+		Start: 3
+
+gaspipeup5:
+	idle:
+		Filename: gaspipeup.shp
+		Offset: 0,-6
+		ZOffset: 500
+		Start: 4
+
+gaspipeup6:
+	idle:
+		Filename: gaspipeup.shp
+		Offset: 0,-6
+		ZOffset: 500
+		Start: 5
+
+gaspipeup7:
+	idle:
+		Filename: gaspipeup.shp
+		Offset: 0,0
+		ZOffset: 500
+		Start: 6
+
+gaspipeup8:
+	idle:
+		Filename: gaspipeup.shp
+		Offset: 0,-6
+		ZOffset: 500
+		Start: 7
+
+gaspipeup9:
+	idle:
+		Filename: gaspipeup.shp
+		Offset: 0,-6
+		ZOffset: 500
+		Start: 8
+
+gaspipeup10:
+	idle:
+		Filename: gaspipeup.shp
+		Offset: 0,-6
+		ZOffset: 500
+		Start: 9
+
+gaspipeup11:
+	idle:
+		Filename: gaspipeup.shp
+		Offset: 0,-6
+		ZOffset: 500
+		Start: 10
+
+gaspipeup12:
+	idle:
+		Filename: gaspipeup.shp
+		Offset: 0,-6
+		ZOffset: 500
+		Start: 11
+
+gaspipeup13:
+	idle:
+		Filename: gaspipeup.shp
+		Offset: 0,-6
+		ZOffset: 500
+		Start: 12
+
+gaspipeup14:
+	idle:
+		Filename: gaspipeup.shp
+		Offset: 0,-6
+		ZOffset: 500
+		Start: 13
+
+gaspipeup15:
+	idle:
+		Filename: gaspipeup.shp
+		Offset: 0,-6
+		ZOffset: 500
+		Start: 14
+
+gaspipeup16:
+	idle:
+		Filename: gaspipeup.shp
+		Offset: 0,-6
+		ZOffset: 500
+		Start: 15
+
+gaspipeup17:
+	idle:
+		Filename: gaspipeup.shp
+		Offset: 0,-6
+		ZOffset: 500
+		Start: 16
+
+gaspipeup18:
+	idle:
+		Filename: gaspipeup.shp
+		Offset: 0,-6
+		ZOffset: 500
+		Start: 17

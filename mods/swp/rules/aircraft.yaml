@@ -133,10 +133,8 @@ DEDMAROZ:
 	-Targetable@GROUND:
 	-Targetable@REPAIR:
 	-GrantConditionOnDamageState@DAMAGED:
-	AmmoPool:
-		Ammo: 1
-	Armament:
-		Weapon: Empty
+	-AttackBomber
+	-Armament:
 	AmbientSound@storm:
 		SoundFiles: winterstorm.aud
 		Interval: 1500
@@ -554,7 +552,7 @@ ANT40:
 	Tooltip:
 		Name: Tactical Bomber
 	Health:
-		HP: 19000
+		HP: 23000
 	SpawnActorOnDeath:
 		Actor: ANT40.Husk
 	Armament@PRIMARY:
@@ -619,7 +617,7 @@ ANT40:
 		Strengths: + Strong vs Buildings, Defenses.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
 	Valued:
-		Cost: 2200
+		Cost: 1800
 	Selectable:
 		DecorationBounds: 1606, 1606, 0, 0
 	GrantConditionOnDamageState@SmokeTrail:
@@ -701,6 +699,7 @@ SUPERBOMBER:
 	Inherits@HighAltitude: ^HighAltitudePlane
 	Tooltip:
 		Name: Badger Toxin Bomber
+	-Buildable:
 	Health:
 		HP: 19000
 	SpawnActorOnDeath:
@@ -2876,9 +2875,15 @@ NADYA:
 GUNSHIP:
 	Inherits: ^Helicopter
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Helicopter
+		BuildAtProductionType: Helicopter
+		BuildPaletteOrder: 40
+		Prerequisites: ~helicopter.germany, mtek, ~techlevel.high
+		Description: Helicopter gunship armed\nwith anti-ground missiles.
 	TooltipExtras:
-		Strengths: + Strong vs Infantry.
-		Weaknesses: - Weak vs Vehicles, Aircraft.
+		Strengths: + Strong vs Vehicles.
+		Weaknesses: - Weak vs Infantry, Aircraft.
 	Valued:
 		Cost: 1750
 	Tooltip:
@@ -2897,8 +2902,13 @@ GUNSHIP:
 		Type: GroundPosition
 	Armament@PRIMARY:
 		Name: primary
-		Weapon: Hind227mm
+		Weapon: 227mm-Kumo
 		LocalOffset: 0,213,-85, 0,-213,-85
+		PauseOnCondition: !ammo || !airborne
+	Armament@secondary:
+		Name: secondary
+		Weapon: 227mm-Kumo
+		LocalOffset: 0,-213,85, 0,213,85
 		PauseOnCondition: !ammo || !airborne
 	AttackTurreted:
 		Armaments: primary, secondary, tertiary
@@ -2922,7 +2932,7 @@ GUNSHIP:
 		Offset: 0,0,500
 	AmmoPool:
 		Armaments: primary, secondary
-		Ammo: 24
+		Ammo: 48
 		ReloadDelay: 8
 		AmmoCondition: ammo
 	WithMuzzleOverlay:
@@ -4524,6 +4534,12 @@ HARRIER:
 		Strengths: + Strong vs Aircraft.
 		Weaknesses: - Weak vs Vehicles, Infantry.
 		Attributes: • Can rearm in a helipad.
+	Buildable:
+		Queue: Aircraft
+		BuildAtProductionType: Plane
+		BuildPaletteOrder: 800
+		Prerequisites: ~aircraft.entente, atek
+		Description: Attack Plane armed with\nmissiles.
 	Valued:
 		Cost: 2100
 	Tooltip:
@@ -4541,8 +4557,12 @@ HARRIER:
 		Range: 9c0
 		Type: GroundPosition
 	Armament@PRIMARY:
-		Weapon: SturmvogelAA
+		Weapon: HellfireAA
 		LocalOffset: 0,-213,-85, 0,213,-85
+		PauseOnCondition: !ammo || !airborne
+	Armament@SECONDARY:
+		Weapon: HellfireAG
+		LocalOffset: 0,213,-85, 0,-213,-85
 		PauseOnCondition: !ammo || !airborne
 	AttackAircraft:
 		FacingTolerance: 80
@@ -4564,9 +4584,9 @@ HARRIER:
 		AmmoCondition: ammo
 	WithMuzzleOverlay:
 	Contrail@1:
-		Offset: -100,-383,0
+		Offset: -140,-483,0
 	Contrail@2:
-		Offset: -100,383,0
+		Offset: -140,483,0
 	SpawnActorOnDeath:
 		Actor: HARRIER.Husk
 	LeavesTrails:
@@ -4583,7 +4603,7 @@ HARRIER:
 	Selectable:
 		DecorationBounds: 1406, 1406, 0, 120
 	Rearmable:
-		RearmActors: afld, sport, afld.raj, afld, hpad
+		RearmActors: afld, sport, afld.raj, afld, hpad, hpad.raj
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		Margin: 4, 3
@@ -4593,6 +4613,19 @@ HARRIER:
 		FullSequence: pip-missile
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
+
+HARRIER.Heli:
+	Inherits: HARRIER
+	RenderSprites:
+		Image: harrier
+	Buildable:
+		Queue: Helicopter
+		BuildAtProductionType: Helicopter
+		BuildPaletteOrder: 800
+		Prerequisites: ~aircraft.entente, atek
+		Description: Attack Plane armed with\nmissiles.
+	Selectable:
+		Class: HARRIER
 
 HARRIER.Husk:
 	Inherits: ^PlaneHusk

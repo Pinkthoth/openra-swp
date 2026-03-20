@@ -3310,6 +3310,16 @@ jarmen:
 	Inherits: ^SharedDeaths
 	Defaults:
 		Filename: jarmen.shp
+	dug:
+		Filename: burrow.shp
+		ZOffset: -9999
+		Scale: 0.25
+		Start: 0
+		Offset: 0,14
+	make:
+		Start: 224
+		Length: 24
+		Tick: 120
 	stand:
 		Start: 0
 		Facings: 8

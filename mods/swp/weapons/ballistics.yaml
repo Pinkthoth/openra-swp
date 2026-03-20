@@ -81,8 +81,12 @@ TeslaCannon:
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, ElectricityDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Scorch
-	-Warhead@3Eff:
+	Warhead@3Eff: CreateEffect
+		Explosions: thunderstruck, thunderstruck2
+		ExplosionPalette: tseffects
+		ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor, Corpse
 	-Warhead@4EffWater:
+
 
 VolkovTeslaCannon:
 	Inherits: ^Cannon
@@ -389,7 +393,7 @@ SiegeGun:
 		Explosions: small_tox
 		ExplosionPalette: poisonpal
 	Warhead@spawn: SpawnActor
-		Delay: 20
+		Delay: 5
 		Actors: poisoncloud
 		ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
 

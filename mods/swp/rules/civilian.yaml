@@ -181,8 +181,8 @@ HOSP:
 		Priority: 0
 		Bounds: 2896, 2896
 	Building:
-		Footprint: =x= xxx =x=
-		Dimensions: 3,3
+		Footprint: xx xx
+		Dimensions: 2,2
 	Health:
 		HP: 80000
 	CaptureManager:
@@ -210,9 +210,6 @@ HOSP:
 		Image: hospital
 	GpsDot:
 		String: Hospital
-	WithIdleOverlay@animation:
-		Image: hospital
-		Sequence: overlay
 	RepairsUnits:
 		HpPerStep: 1000
 		StartRepairingNotification: Repairing
@@ -1650,7 +1647,6 @@ OILREF:
 		Types: building
 	CapturableProgressBar:
 	CapturableProgressBlink:
-	InstantlyRepairable:
 	Tooltip:
 		Name: Oil Refinery
 	TooltipDescription@ally:
@@ -1712,3 +1708,501 @@ NIQAB:
 	Inherits@1: ^CivInfantry
 	Voiced:
 		VoiceSet: RusFemVoices
+
+NPOWR:
+	Inherits: ^TechBuilding
+	Inherits@shape: ^2x2Shape
+	Inherits@rubbles: ^2x2Rubbles
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 630,-300,0, 420,512,0, -420,-512,0, -630,300,0
+	Selectable:
+		Priority: 0
+		Bounds: 2248, 2248
+	OwnerLostAction:
+		Action: ChangeOwner
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 80000
+	RevealsShroud:
+		Range: 4c0
+	CaptureManager:
+	Capturable:
+		Types: building
+	CapturableProgressBar:
+	CapturableProgressBlink:
+	InstantlyRepairable:
+	Tooltip:
+		Name: Civilian Power Plant
+	TooltipDescription@ally:
+		Description: Civilian Power Plant
+		ValidRelationships: Ally
+	TooltipDescription@other:
+		Description: Civilian Power Plant
+		ValidRelationships: Neutral, Enemy
+	GpsDot:
+		String: Structure
+	AppearsOnMapPreview:
+	WithBuildingBib:
+	Power:
+		Amount: 150
+
+LIGHTTOWER:
+	Inherits: ^TechBuilding
+	Inherits@shape: ^2x2Shape
+	Inherits@rubbles: ^1x1Rubbles
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 630,-300,0, 420,512,0, -420,-512,0, -630,300,0
+	Selectable:
+		Priority: 0
+		Bounds: 1048, 2048
+		DecorationBounds: 1024, 2048, 0, -482
+	OwnerLostAction:
+		Action: ChangeOwner
+	Building:
+		Footprint: x
+		Dimensions: 1,1
+	Health:
+		HP: 80000
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 8c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	CaptureManager:
+	Capturable:
+		Types: building
+	CapturableProgressBar:
+	CapturableProgressBlink:
+	InstantlyRepairable:
+	Tooltip:
+		Name: Observation Tower
+	TooltipDescription@ally:
+		Description: Observation Tower
+		ValidRelationships: Ally
+	TooltipDescription@other:
+		Description: Observation Tower
+		ValidRelationships: Neutral, Enemy
+	GpsDot:
+		String: Structure
+	AppearsOnMapPreview:
+	WithBuildingBib:
+		HasMinibib: True
+
+MSHOP:
+	Inherits: ^TechBuilding
+	Inherits@shape: ^2x2Shape
+	Inherits@rubbles: ^2x2Rubbles
+	OwnerLostAction:
+		Action: ChangeOwner
+	Selectable:
+		Priority: 0
+		Bounds: 2248, 2248
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 80000
+	CaptureManager:
+	Capturable:
+		Types: building
+	CapturableProgressBar:
+	CapturableProgressBlink:
+	InstantlyRepairable:
+	Tooltip:
+		Name: Machine Shop
+	TooltipDescription@ally:
+		Description: Machine Shop
+		ValidRelationships: Ally
+	TooltipDescription@other:
+		Description: Machine Shop
+		ValidRelationships: Neutral, Enemy
+	RevealsShroud:
+		Range: 4c0
+	WithBuildingBib:
+	WithDeathAnimation:
+		DeathSequence: dead
+		UseDeathTypeSuffix: false
+	ProvidesPrerequisite@buildingname:
+		Prerequisite: mshop
+	AppearsOnMapPreview:
+	GpsDot:
+		String: Structure
+
+OILREF:
+	Inherits: ^TechBuilding
+	Inherits@shape: ^2x2Shape
+	Inherits@CARGOPIPS: ^CargoPips
+	GrantConditionOnDamageState@DAMAGED:
+		Condition: damaged
+		ValidDamageStates: Light, Medium, Heavy, Critical
+	InstantlyRepairable:
+		RequiresCondition: damaged
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 630,-300,0, 420,512,0, -420,-512,0, -630,300,0
+	Selectable:
+		Priority: 0
+		Bounds: 2048, 2048
+	OwnerLostAction:
+		Action: ChangeOwner
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	Health:
+		HP: 120000
+	RevealsShroud:
+		Range: 4c0
+	CaptureManager:
+	Capturable:
+		Types: building
+	CapturableProgressBar:
+	CapturableProgressBlink:
+	Tooltip:
+		Name: Oil Refinery
+	TooltipDescription@ally:
+		Description: Oil Refinery
+		ValidRelationships: Ally
+	TooltipDescription@other:
+		Description: Oil Refinery
+		ValidRelationships: Neutral, Enemy
+	AppearsOnMapPreview:
+	WithBuildingBib:
+	CashTrickler:
+		Interval: 375
+		Amount: 50
+		RequiresCondition: enabled
+	GpsDot:
+		String: Oil
+	GivesCashOnCapture:
+		Amount: 200
+	UpdatesDerrickCount:
+	GrantConditionOnCombatantOwner:
+		Condition: enabled
+	Cargo:
+		MaxWeight: 4
+		Types: Engineer
+		PassengerConditions:
+			e6: engineer
+	CashTricklerMultiplier@1:
+		Modifier: 200
+		RequiresCondition: engineer == 1
+	CashTricklerMultiplier@2:
+		Modifier: 300
+		RequiresCondition: engineer == 2
+	CashTricklerMultiplier@3:
+		Modifier: 400
+		RequiresCondition: engineer == 3
+	CashTricklerMultiplier@4:
+		Modifier: 500
+		RequiresCondition: engineer == 4
+	FireWarheadsOnDeath:
+		Weapon: OilRefineryExplosion
+		EmptyWeapon: OilRefineryExplosion
+		Type: CenterPosition
+
+OILA:
+	Inherits: OILB
+	Inherits@shape: ^3x3Shape
+	CashTrickler:
+		Interval: 187
+		Amount: 100
+		RequiresCondition: enabled
+	Tooltip:
+		Name: Large Oil Derrick
+	GivesCashOnCapture:
+		Amount: 200
+	Building:
+		Dimensions: 3,3
+		Footprint: xxx xxx xxx
+	Health:
+		HP: 100000
+	FireWarheadsOnDeath:
+		Weapon: OilDerrickExplosion
+		EmptyWeapon: OilDerrickExplosion
+		Type: CenterPosition
+
+OILB:
+	WithBuildingBib:
+
+OILC:
+	Inherits: ^TechBuilding
+	Inherits@shape: ^2x2Shape
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 630,-300,0, 420,512,0, -420,-512,0, -630,300,0
+	Selectable:
+		Priority: 0
+		Bounds: 2048, 2048
+	OwnerLostAction:
+		Action: ChangeOwner
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 80000
+	RevealsShroud:
+		Range: 4c0
+	CaptureManager:
+	Capturable:
+		Types: building
+	CapturableProgressBar:
+	CapturableProgressBlink:
+	InstantlyRepairable:
+	CashTrickler:
+		Interval: 50
+		Amount: 10
+		RequiresCondition: enabled && ammo < 200
+	Tooltip:
+		Name: Oil Silo
+	TooltipDescription@ally:
+		Description: Provides funds for a limited time.
+		ValidRelationships: Ally
+	TooltipDescription@other:
+		Description: Provides funds for a limited time.
+		ValidRelationships: Neutral, Enemy
+	FireWarheadsOnDeath@0:
+		Weapon: OilSiloExplode0
+		EmptyWeapon: OilSiloExplode0
+		RequiresCondition: ammo < 190
+		Offset: -512,-512,0
+		Type: CenterPosition
+	FireWarheadsOnDeath@1:
+		Weapon: OilSiloExplode1
+		EmptyWeapon: OilSiloExplode1
+		RequiresCondition: ammo < 175
+		Offset: -512,-512,0
+		Type: CenterPosition
+	FireWarheadsOnDeath@2:
+		Weapon: OilSiloExplode2
+		EmptyWeapon: OilSiloExplode2
+		RequiresCondition: ammo < 150
+		Offset: -512,-512,0
+		Type: CenterPosition
+	FireWarheadsOnDeath@3:
+		Weapon: OilSiloExplode3
+		EmptyWeapon: OilSiloExplode3
+		RequiresCondition: ammo < 125
+		Offset: -512,-512,0
+		Type: CenterPosition
+	FireWarheadsOnDeath@4:
+		Weapon: OilSiloExplode4
+		EmptyWeapon: OilSiloExplode4
+		RequiresCondition: ammo < 100
+		Offset: -512,-512,0
+		Type: CenterPosition
+	FireWarheadsOnDeath@5:
+		Weapon: OilSiloExplode5
+		EmptyWeapon: OilSiloExplode5
+		RequiresCondition: ammo < 75
+		Offset: -512,-512,0
+		Type: CenterPosition
+	FireWarheadsOnDeath@6:
+		Weapon: OilSiloExplode6
+		EmptyWeapon: OilSiloExplode6
+		RequiresCondition: ammo < 50
+		Offset: -512,-512,0
+		Type: CenterPosition
+	FireWarheadsOnDeath@7:
+		Weapon: OilSiloExplode7
+		EmptyWeapon: OilSiloExplode7
+		RequiresCondition: ammo < 25
+		Offset: -512,-512,0
+		Type: CenterPosition
+	GpsDot:
+		String: Oil
+	AppearsOnMapPreview:
+	UpdatesDerrickCount:
+	GrantConditionOnCombatantOwner:
+		Condition: enabled
+	Armament:
+		Weapon: M1Carbine
+		RequiresCondition: !started
+	GrantCondition:
+		Condition: started
+	AmmoPool:
+		InitialAmmo: 0
+		Ammo: 200
+		AmmoCondition: ammo
+	WithAmmoPipsDecoration:
+		PipCount: 5
+		EmptySequence: pip-yellow
+		FullSequence: pip-empty
+		PipStride: -4,0
+		Position: BottomRight
+		RequiresSelection: True
+	ReloadAmmoPool:
+		RequiresCondition: enabled
+	AttackOmni:
+		RequiresCondition: !started
+	WithBuildingBib:
+
+GASPIPE:
+	Inherits: ^Wall
+	Tooltip:
+		Name: Oil Pipe
+	-SoundOnDamageTransition:
+	Health:
+		HP: 15000
+	Armor:
+		Type: Light
+	LineBuild:
+		NodeTypes: gaspipe
+	LineBuildNode:
+		Types: gaspipe
+	WithWallSpriteBody:
+		Type: gaspipe
+	FireWarheadsOnDeath:
+		Weapon: GaspipeExplosion
+	WithDamageOverlay@SmallBurn:
+		Image: burn-s
+		Palette: effect
+		MinimumDamageState: Light
+		MaximumDamageState: Medium
+	WithDamageOverlay@MediumBurn:
+		Image: burn-m
+		Palette: effect
+		MinimumDamageState: Medium
+		MaximumDamageState: Heavy
+	WithDamageOverlay@LargeBurn:
+		Image: burn-l
+		Palette: effect
+		MinimumDamageState: Heavy
+		MaximumDamageState: Dead
+	SelectionDecorations:
+	-Interactable:
+	Selectable:
+	ChangesHealth:
+		Step: -50
+		StartIfBelow: 100
+
+GASPIPEUP1:
+	Inherits: ^TechBuilding
+	-Selectable:
+	Health:
+		HP: 15000
+	Building:
+		Footprint: _
+		Dimensions: 1,1
+	Armor:
+		Type: Light
+	FireWarheadsOnDeath:
+		Weapon: GaspipeExplosion
+		EmptyWeapon: GaspipeExplosion
+	Tooltip:
+		Name: Elevated Oil Pipe
+		ShowOwnerRow: False
+	Targetable:
+		TargetTypes: GroundActor, DemoTruck, Barrel, NoAutoTarget
+	-ShakeOnDeath:
+	-SoundOnDamageTransition:
+	-Demolishable:
+	MapEditorData:
+		Categories: Decoration
+	WithDamageOverlay@SmallBurn:
+		Image: burn-s
+		Palette: effect
+		MinimumDamageState: Light
+		MaximumDamageState: Medium
+		Offset: 0,0,1000
+	WithDamageOverlay@MediumBurn:
+		Image: burn-m
+		Palette: effect
+		MinimumDamageState: Medium
+		MaximumDamageState: Heavy
+		Offset: 0,0,1000
+	WithDamageOverlay@LargeBurn:
+		Image: burn-l
+		Palette: effect
+		MinimumDamageState: Heavy
+		MaximumDamageState: Dead
+		Offset: 0,0,1000
+	SelectionDecorations:
+	Selectable:
+	ChangesHealth:
+		Step: -50
+		StartIfBelow: 100
+	-Building:
+	Immobile:
+		OccupiesSpace: False
+	-RequiresBuildableArea:
+	-FrozenUnderFog:
+	-FrozenUnderFogUpdatedByGps:
+	AlwaysVisible:
+
+GASPIPEUP2:
+	Inherits: GASPIPEUP1
+
+GASPIPEUP3:
+	Inherits: GASPIPEUP1
+
+GASPIPEUP4:
+	Inherits: GASPIPEUP1
+
+GASPIPEUP5:
+	Inherits: GASPIPEUP1
+
+GASPIPEUP6:
+	Inherits: GASPIPEUP1
+
+GASPIPEUP7:
+	Inherits: GASPIPEUP1
+
+GASPIPEUP8:
+	Inherits: GASPIPEUP1
+
+GASPIPEUP9:
+	Inherits: GASPIPEUP1
+
+GASPIPEUP10:
+	Inherits: GASPIPEUP1
+
+GASPIPEUP11:
+	Inherits: GASPIPEUP1
+
+GASPIPEUP12:
+	Inherits: GASPIPEUP1
+
+GASPIPEUP13:
+	Inherits: GASPIPEUP1
+
+GASPIPEUP14:
+	Inherits: GASPIPEUP1
+
+GASPIPEUP15:
+	Inherits: GASPIPEUP1
+
+GASPIPEUP16:
+	Inherits: GASPIPEUP1
+
+GASPIPEUP17:
+	Inherits: GASPIPEUP1
+
+GASPIPEUP18:
+	Inherits: GASPIPEUP1
+
+TNKR:
+	Inherits: ^TechBuilding
+	-Selectable:
+	Health:
+		HP: 6000
+	FireWarheadsOnDeath:
+		Weapon: StorageTankExplode
+	Tooltip:
+		Name: Explosive Storage Tank
+		ShowOwnerRow: False
+	Armor:
+		Type: None
+	Targetable:
+		TargetTypes: GroundActor, DemoTruck, Barrel, NoAutoTarget
+	-ShakeOnDeath:
+	-SoundOnDamageTransition:
+	-Demolishable:
+	MapEditorData:
+		Categories: Decoration
+	Interactable:
+		Bounds: 1024,1024

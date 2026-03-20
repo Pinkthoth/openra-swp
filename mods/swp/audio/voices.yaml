@@ -128,7 +128,7 @@ MechanicVoice:
 
 ZombieVoice:
 	Voices:
-		Select: zombiereport1, zombiereport2, zombiereport3
+		Select: zombiereport2, zombiereport3
 		Move: zombiemove1, zombiemove2, zombiemove3
 		Action: zombiemove1, zombiemove2, zombiemove3
 		Die: zombiedie1, zombiedie2
@@ -257,6 +257,17 @@ BritFemVoices:
 		Action: bfaction1,bfaction2
 		Attack: bfmove1,bfmove2,bfmove3
 		Move: bfmove1,bfmove2,bfmove3
+		Die: femdie2
+		Burned: femdie1
+		Zapped: femdie1
+		Freezed: freezedie1
+
+IndiaFemVoices:
+	Voices:
+		Select: ccreport1, ccreport2, ccreport3, ccreport4
+		Action: ccaction1,ccaction2
+		Attack: ccmove1,ccmove2,ccmove3,ccmove4
+		Move: ccmove1,ccmove2,ccmove3,ccmove4
 		Die: femdie2
 		Burned: femdie1
 		Zapped: femdie1

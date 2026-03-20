@@ -45,8 +45,8 @@ faction-england =
      
      Special Ability: Radar Scan
      Special Building: MI6 Field Office
+     Special Building: Defense Platform
      Special Infantry: Informant
-     Special Infantry: Radist
      Special Infantry: Commando
      Special Infantry: Honeypot
      Special Infantry: Sniper
@@ -87,6 +87,7 @@ faction-usa =
      Special Vehicle: Slingshot
      Special Vehicle: Arc Thrower
      Special Vehicle: Mobile EMP Device
+     Replacement Aircraft: Harrier (Longbow)
      Replacement Vehicle: Humvee (Ranger)
      Replacement Vehicle: Hammerhead (Minelayer)
      Replacement Vehicle: Titan (Paladin)
@@ -123,7 +124,7 @@ faction-raj =
      Special Aircraft: Hawker
      Special Aircraft: Handley Bomber
      Special Infantry: Gurkha
-     Special Vehicle: Sepoy IFV
+     Special Vehicle: Rig
      Special Vehicle: Mogul
      Replacement Infantry: Worker (Engineer)
      Replacement Infantry: Heavy Machine Gun Crew (Medic)
@@ -225,7 +226,7 @@ faction-arabia =
      Asymmetric Warfare
      
      Special Ability: Supply Arms
-     Special Building: Tunnel Network
+     Special Building: Shelter Network
      Special Building: Scrap Yard
      Special Infantry: Recruit
      Special Infantry: Defiler
@@ -249,6 +250,7 @@ faction-china =
      Special Building: Horse Breeder
      Special Building: Bunker
      Special Infantry: Cavalry
+     Special Infantry: Dragoon
      Special Infantry: Flak Trooper
      Special Infantry: Cadre
      Special Vehicle: Propaganda Truck
@@ -293,7 +295,7 @@ faction-kazakhstan =
      Vanguard Initiative
      
      Special Ability: Metempsychosis
-     Special Building: Illicit Laboratory
+     Special Building: Battle Lab
      Special Infantry: Mutant Brute
      Special Infantry: Virus
      Special Infantry: Disciple
@@ -341,8 +343,8 @@ faction-austria =
      Special Vehicle: Prism Tank
      Special Vehicle: Marksman
      Special Vehicle: Prism Cannon
-     Replacement Infantry: Adler (Messerschmitt)
      Replacement Infantry: Sergeant (Flamethrower)
+     Replacement Aircraft: Adler (Messerschmitt)
 
 faction-turkey =
     .name = Turkey
@@ -352,24 +354,24 @@ faction-turkey =
      Special Ability: Napalm Spill
      Special Building: Flame Tower
      Special Aircraft: Iblis
-     Special Infantry: Sipahi
      Special Infantry: Champion
      Special Infantry: Desolator
      Special Vehicle: Napalm Spiller
      Special Vehicle: Flame Tank
+     Special Vehicle: Ram
      Special Vehicle: Ifrit
      Replacement Infantry: Molotov Thrower (Dog)
 
 faction-persia =
     .name = Persia
-    .description = Persian Resistance Front
+    .description = Shahdom of Persia
      Guerilla Warfare
      
      Special Ability: Smokescreen
      Special Building: Boobytrapped Buildings
-     Special Building: Tunnel
      Special Infantry: Glider
      Special Infantry: IED Crew
+     Special Infantry: Sharpshooter
      Special Vehicle: Mongoose
      Special Vehicle: Antlion
      Special Vehicle: Sapper

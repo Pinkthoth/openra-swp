@@ -1200,6 +1200,18 @@ TTankChainTesla2:
 		Damage: 500
 	-Warhead@Chain:
 
+RamJaw:
+	ValidTargets: Vehicle
+	ReloadDelay: 10
+	Range: 2c0
+	Report: dogg5p.aud
+	TargetActorCenter: true
+	Projectile: InstantHit
+	Warhead@1Dam: TargetDamage
+		Damage: 100000
+		ValidTargets: Vehicle
+		DamageTypes: NotCrushDeath, DefaultDeath
+
 DogJaw:
 	ValidTargets: Infantry
 	ReloadDelay: 10
@@ -1211,7 +1223,7 @@ DogJaw:
 		Damage: 100000
 		ValidTargets: Infantry
 		InvalidTargets: Ant
-		DamageTypes: NotCrushDeath,  DefaultDeath
+		DamageTypes: NotCrushDeath, DefaultDeath
 
 GeneHorrorJaw:
 	Inherits: DogJaw
@@ -1938,7 +1950,7 @@ Directioner:
 		Footprint: x
 
 Prism:
-	ReloadDelay: 120
+	ReloadDelay: 3
 	Range: 7c0
 	Report: prisray.aud
 	ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
@@ -1966,6 +1978,18 @@ Prism:
 		RandomClusterCount: 3
 		Dimensions: 3,3
 		Footprint: xxx x_x xxx
+
+PrismSupport:
+	ReloadDelay: 120
+	ValidTargets: Ground, Water
+	ReloadDelay: 3
+	Range: 5c0
+	Report: prisray.aud
+	Projectile: LaserZap
+		Width: 85
+		ZOffset: 2047
+		Color: 0094FF
+	AirThreshold: 1000
 
 PrismWasp:
 	Inherits: Prism
@@ -3006,7 +3030,7 @@ EnslaveBuilding:
 		ValidRelationships: Neutral, Enemy
 
 EnslaveInfantry:
-	Range: 6c0
+	Range: 7c0
 	ReloadDelay: 25
 	Projectile: InstantHit
 	ValidTargets: MindControllable
@@ -3022,7 +3046,7 @@ EnslaveInfantry:
 		ValidTargets: GroundActor, Ground, Air, Infantry
 
 EnslaveVehicle:
-	Range: 6c0
+	Range: 7c0
 	ReloadDelay: 25
 	Projectile: InstantHit
 	ValidTargets: MindControllable

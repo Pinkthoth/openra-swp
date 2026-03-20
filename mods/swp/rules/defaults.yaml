@@ -842,9 +842,9 @@
 
 ^IronCurtainable:
 	WithColoredOverlay@IRONCURTAIN:
-		RequiresCondition: invulnerability
+		RequiresCondition: invulnerability && shielded
 	Shielded@IC:
-		MaxStrength: 60000
+		MaxStrength: 100000
 		RequiresCondition: invulnerability
 		ShieldsUpCondition: shielded
 		RegenAmount: 500
@@ -1201,6 +1201,28 @@
 		StartIfBelow: 101
 		Step: 500
 
+^MatahariAttacheable:
+	AttachableTo@matahari:
+		Type: Matahari
+		Limit: 1
+		LimitCondition: mataharied
+	Targetable@matahari:
+		TargetTypes: MatahariInfiltrate
+		RequiresCondition: !mataharied
+	InfiltrateToAttach@matahari:
+		Actor: proxy.matahariheal
+		Types: MatahariInfiltrate
+	WithDecoration@lips:
+		Image: pips
+		Sequence: lips
+		Position: BottomRight
+		Margin: 17, 4
+		RequiresCondition: mataharied
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+		ValidRelationships: Ally
+		RequiresSelection: True
+
 ^BattleDroneAttach:
 	AttachableTo@battledrone:
 		Type: BattleDrone
@@ -1279,6 +1301,7 @@
 	Inherits@mataharispeedr: ^MatahariSpeed
 	Inherits@matahariofficerr: ^MatahariOfficer
 	Inherits@chronoshift: ^Chronoshiftable
+	EdibleByLeap:
 	ProductionCostMultiplier@matahari-target:
 		Prerequisites: matahari-target-vehicle
 		Multiplier: 110
@@ -1300,6 +1323,8 @@
 	GrantConditionOnPrerequisite@MSHOP:
 		Condition: hasmshop
 		Prerequisites: mshop
+	ExternalCondition@mshop:
+		Condition: hasmshop
 	GrantConditionOnDamageState@MSHOP:
 		Condition: damaged
 		ValidDamageStates: Light, Medium, Heavy, Critical
@@ -1366,7 +1391,6 @@
 	Infiltrates@refunder:
 		Types: RefundInfiltrationVehicle
 		ValidRelationships: Ally
-	EdibleByLeap:
 	TeleportNetworkTransportable:
 	ProductionTimeMultiplier@foundry:
 		Prerequisites: indplant
@@ -1461,12 +1485,21 @@
 		Condition: crush-attempt
 	ExternalCondition@CRUSHSUCCESFUL:
 		Condition: crush-succesful
+	ExternalCondition@VEHICLECRUSHATTEMPT:
+		Condition: vehicle-crush-attempt
+	ExternalCondition@VEHICLECRUSHSUCCESFUL:
+		Condition: vehicle-crush-succesful
 	SpeedMultiplier@CRUSHATTEMPT:
 		RequiresCondition: crush-attempt
 		Modifier: 85
 	SpeedMultiplier@CRUSHSUCCESFUL:
 		RequiresCondition: crush-succesful
 		Modifier: 60
+	GrantExternalConditionToCrusher:
+		WarnCrushCondition: vehicle-crush-attempt
+		WarnCrushDuration: 15
+		OnCrushCondition: vehicle-crush-succesful
+		OnCrushDuration: 30
 
 ^TrackedVehicle:
 	Inherits: ^Vehicle
@@ -1753,6 +1786,8 @@
 	GrantConditionOnPrerequisite@HOSPITAL:
 		Condition: hospital
 		Prerequisites: hosp
+	ExternalCondition@hospital:
+		Condition: hospital
 	GrantConditionOnDamageState@HOSPITAL:
 		Condition: damaged
 		ValidDamageStates: Light, Medium, Heavy, Critical

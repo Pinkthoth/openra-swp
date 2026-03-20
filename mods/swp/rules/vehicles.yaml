@@ -2226,7 +2226,7 @@ QUAD:
 		Type: Light
 	Mobile:
 		TurnSpeed: 40
-		Speed: 140
+		Speed: 115
 	RevealsShroud:
 		MinRange: 4c0
 		Range: 6c0
@@ -2546,7 +2546,7 @@ MICTNK:
 		Strengths: + Strong vs Infantry, Vehicles.
 		Weaknesses: - Weak vs Aircraft.
 	Valued:
-		Cost: 1200
+		Cost: 1300
 	RenderSprites:
 		Image: mictnk
 	Tooltip:
@@ -2740,6 +2740,11 @@ TRAKTOR:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 336
+		Prerequisites: commcent, ~vehicles.ukraine, ~techlevel.unrestricted
+		Description: Shoots a magnetic ray that disables enemy units.
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles.
 		Weaknesses: - Weak vs Infantry, Aircraft.
@@ -2825,7 +2830,7 @@ BTR:
 	Armor:
 		Type: Medium
 	Mobile:
-		Speed: 140
+		Speed: 130
 		Locomotor: wheeled
 		PauseOnCondition: notmobile || being-captured
 	RevealsShroud:
@@ -3149,7 +3154,7 @@ MARAUDERTANK:
 		Weaknesses: - Weak vs Infantry, Aircraft.
 		Attributes: • Can gather materials from husks to\nbolster it's armour and weaponry.\n• Undamaged by radiation.
 	Valued:
-		Cost: 1550
+		Cost: 1600
 	Tooltip:
 		Name: Marauder Tank
 	UpdatesPlayerStatistics:
@@ -5135,6 +5140,78 @@ APC.Husk:
 	RenderSprites:
 		Image: apc
 
+RIG:
+	Inherits: ^TrackedVehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 10
+		Prerequisites: ~vehicles.raj, dome, ~techlevel.low
+		Description: Tough infantry transport.
+	TooltipExtras:
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
+		Attributes: • Can repair damaged vehicles.\n• Can heal wouded infantry.
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Rig
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 30000
+	Armor:
+		Type: Medium
+	Mobile:
+		Speed: 95
+		PauseOnCondition: notmobile || being-captured || deployed
+		Locomotor: lighttracked
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 5c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
+	RenderSprites:
+	SpawnActorOnDeath:
+		RequiresCondition: !being-warped
+		Actor: RIG.Husk
+	GrantConditionOnDeploy:
+		DeployedCondition: deployed
+	ProximityExternalCondition@heal:
+		Condition: hospital
+		Range: 3c0
+		RequiresCondition: deployed
+	ProximityExternalCondition@repair:
+		Condition: hasmshop
+		Range: 3c0
+		RequiresCondition: deployed
+	WithSpriteBody:
+		Sequence: idle-deployed
+		RequiresCondition: deployed
+	WithMakeAnimation:
+	WithFacingSpriteBody:
+		RequiresCondition: !deployed
+	WithRangeCircle:
+		Color: FFFF0080
+		Range: 3c0
+		RequiresCondition: deployed
+
+RIG.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Rig)
+	InfiltrateForTransformWithOwnerChange@Worker
+		IntoActor: RIG
+	InfiltrateForTransformWithOwnerChange@Engineer:
+		IntoActor: RIG
+	InfiltrateForTransformWithOwnerChange:
+		IntoActor: RIG
+	RenderSprites:
+		Image: rig
+
 CRAWLER:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
@@ -7023,7 +7100,7 @@ TERRORDRONE:
 	Voiced:
 		VoiceSet: TeleVoice
 	Valued:
-		Cost: 150
+		Cost: 300
 	Tooltip:
 		Name: Terror Drone
 	UpdatesPlayerStatistics:
@@ -7078,6 +7155,10 @@ TERRORDRONE:
 		DamageModifiers:
 			Prone50Percent: 50
 		ProneSequencePrefix:
+	FireWarheadsOnDeath:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+		RequiresCondition: !being-warped
 
 TERRORDRONE.Attached:
 	Inherits: TERRORDRONE
@@ -7205,7 +7286,7 @@ HVTTNK:
 		Prerequisites: commcent, ~vehicles.russia, ~techlevel.low
 		Description: Heavy tank armed with dual tesla coils.
 	Valued:
-		Cost: 1350
+		Cost: 1400
 	Tooltip:
 		Name: Tesla Tank
 		GenericName: Tank
@@ -7263,6 +7344,10 @@ HVTTNK.Husk:
 WOLVERINE:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	-EdibleByLeap:
+	Targetable:
+		RequiresCondition: !parachute && !being-warped
+		TargetTypes: GroundActor, Vehicle
 	Buildable:
 		Queue: Vehicle
 		BuildAtProductionType: Vehicle
@@ -7304,6 +7389,9 @@ WOLVERINE:
 		Weapon: UnitExplodeSmall
 		EmptyWeapon: UnitExplodeSmall
 		RequiresCondition: !being-warped
+	Targetable@HEAL:
+		RequiresCondition: !parachute && damaged && !being-warped
+		TargetTypes: Repair
 
 LASERTANK:
 	Inherits: ^TrackedVehicle
@@ -7661,7 +7749,6 @@ ARC.Husk:
 
 EMPDEVICE:
 	Inherits: ^TrackedVehicle
-	Inherits@drone: ^Drone
 	-ExperienceTrickler@OfficerNearby:
 	-GainsExperienceMultiplier@OfficerNearby:
 	-ExternalCondition@OfficerNearby:
@@ -7674,7 +7761,7 @@ EMPDEVICE:
 		Weaknesses: - Unarmed.
 		Attributes: • Requires a functioning Radar Dome.\n• Deploy to explode the EM pulse.
 	Valued:
-		Cost: 2000
+		Cost: 1200
 	Tooltip:
 		Name: Mobile EMP Device
 		GenericName: Tank
@@ -8427,6 +8514,74 @@ HVRTNKHVR.Husk:
 	SpawnActorOnDeath:
 		RequiresCondition: !being-warped
 		Actor: HVRTNKTNK.Husk
+
+RAM:
+	Inherits: ^TrackedVehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	-ExternalCondition@CRUSHATTEMPT:
+	-ExternalCondition@CRUSHSUCCESFUL:
+	-SpeedMultiplier@CRUSHATTEMPT:
+	-SpeedMultiplier@CRUSHSUCCESFUL:
+	-Crushable
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 335
+		Prerequisites: commcent, ~vehicles.turkey, ~techlevel.unrestricted
+		Description: Rams into enemy vehicles.
+	TooltipExtras:
+		Weaknesses: - Unarmed.
+		Attributes: • Deploy to charge faster.\n• Does not slow down while crushing.\n• Can crush most vehicles.
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Ram
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 35000
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 43
+		TurnSpeed: 20
+		PauseOnCondition: being-captured
+		Locomotor: superheavytracked
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 5c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
+	GrantConditionOnDeploy:
+		DeployedCondition: haste-trigger
+	GrantCondition:
+		RequiresCondition: haste-trigger
+		Condition: haste
+	SpeedMultiplier@haste:
+		Modifier: 200
+		RequiresCondition: haste && charged
+	WithMoveAnimation:
+		MoveSequence: move
+		RequiresCondition: moving
+	GrantConditionOnMovement:
+		Condition: moving
+	GrantChargingCondition:
+		Condition: charged
+		MaxCharge: 200
+		PauseOnCondition: haste-trigger
+	Selectable:
+		DecorationBounds: 1289, 1289
+	AttackLeap:
+	Armament:
+		Weapon: RamJaw
+	KillsSelf:
+		RequiresCondition: vehicle-crush-attempt || vehicle-crush-succesful || attacking
+	FireWarheadsOnDeath:
+		Weapon: RamExplode
+		EmptyWeapon: RamExplode
+		
 
 GRINDER:
 	Inherits: ^TrackedVehicle

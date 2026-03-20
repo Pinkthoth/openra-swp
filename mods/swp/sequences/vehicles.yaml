@@ -681,6 +681,20 @@ ctnk:
 	icon:
 		Filename: ctnkicon.shp
 
+ram:
+	Defaults:
+		Filename: ram.shp
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+		Stride: 4
+	move:
+		Facings: 32
+		UseClassicFacings: True
+		Length: 4
+	icon:
+		Filename: grindericon.shp
+
 grinder:
 	Defaults:
 		Filename: grinder.shp
@@ -1552,6 +1566,20 @@ jeep:
 		Facings: 8
 	icon:
 		Filename: jeepicon.shp
+
+rig:
+	Defaults:
+		Filename: rig.shp
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	make:
+		Start: 32
+		Length: *
+	idle-deployed:
+		Start: 55
+	icon:
+		Filename: apcicon.shp
 
 apc:
 	Defaults:
