@@ -237,6 +237,7 @@ explosion:
 		ZOffset: 2047
 	sovietlogo:
 		Filename: sovietlogo.shp
+		Tick: 15
 	fpower:
 		Filename: fpower.shp
 	targetlock:
@@ -814,6 +815,13 @@ smoke_m:
 		Offset: 2, -5
 		ZOffset: 512
 		Frames: 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0
+
+toxincanister:
+	idle:
+		Filename: toxincanister.shp
+		Facings: 32
+		Length: 7
+		ZOffset: 1023
 
 dragon:
 	idle:

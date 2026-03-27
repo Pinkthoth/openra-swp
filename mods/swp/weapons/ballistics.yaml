@@ -372,7 +372,7 @@ SiegeGun:
 	Inherits: ^Artillery
 	MinRange: 4c0
 	Range: 11c0
-	ReloadDelay: 100
+	ReloadDelay: 125
 	Report: toxarty.aud
 	TargetActorCenter: true
 	Projectile: Bullet
@@ -381,7 +381,9 @@ SiegeGun:
 		Inaccuracy: 1c138
 		ContrailStartColor: 4CFF00
 		ContrailEndColor: 007F0E
+		ContrailStartWidth: 0c0
 		LaunchAngle: 110
+		Image: toxincanister
 		TrailImage: grsmokey
 	Warhead@1Dam: SpreadDamage
 		Falloff: 100, 55, 20, 5

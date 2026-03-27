@@ -543,6 +543,11 @@
 		Condition: confusion
 	MindControllableProgressBar:
 		ControlTypes: MindControllable
+	ExternalCondition@dominable:
+		Condition: dominable
+	Targetable@dominable:
+		RequiresCondition: dominable
+		TargetTypes: Dominable
 
 ^MindControllable:
 	Inherits: ^MindControllableBase

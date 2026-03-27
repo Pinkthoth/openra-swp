@@ -6642,24 +6642,26 @@ PSYCHICDOMINATOR:
 	Selectable:
 		Bounds: 2148, 2508, 0, 120
 		DecorationBounds: 2148, 2608, 0, -300
-	SpawnActorPower:
-		Actor: CENTRALSRIMP
-		LifeTime: 500
+	GrantExternalConditionPowerCA@STEALTH:
+		OrderName: SpawnActorPowerInfoOrderSrimp
+		PauseOnCondition: turnedoff || disabled
+		Icon: dominate
+		ChargeInterval: 3000
+		Name: Psychic Dominator
+		Description: Takes control of enemy units in the proximity.
+		Duration: 500
 		SelectTargetSpeechNotification: SelectTarget
 		InsufficientPowerSpeechNotification: InsufficientPower
-		ChargeInterval: 6000
-		Icon: dominate
-		Name: Psychic Dominator
-		DisplayTimerRelationships: Ally, Neutral, Enemy
-		Description: Takes control of enemy units in the proximity.
-		Cursor: attack
-		OrderName: SpawnActorPowerInfoOrderSrimp
-		PauseOnCondition: disabled || turnedoff
-		EndChargeSpeechNotification: VeilReady
-		EffectImage: empty
-		EffectSequence: idle
+		EndChargeSpeechNotification: SupportPowerReady
+		DisplayRadarPing: True
+		Condition: dominable
+		ValidRelationships: Enemy, Neutral
+		OnFireSound: ironcur9.aud
 		SupportPowerPaletteOrder: 1
-		BlockedCursor: move-blocked
+		Dimensions: 3, 3
+		Footprint: _x_ xxx _x_
+		ExplosionWeapon: Dominate
+		ExplosionDelay : 1
 	SupportPowerChargeBar:
 	Tooltip:
 		Name: Psychic Dominator

@@ -1435,12 +1435,13 @@ ChronoExplosionBG:
 Dominate:
 	ValidTargets: Ground, Water, Air, GroundActor, Trees,  Ship, WaterActor, AirborneActor
 	Warhead@dominate: ChangeOwner
-		Range: 2c0
-		ValidTargets: MindControlled
+		Range: 1c512
+		ValidTargets: Dominable
+		ValidRelationships: Neutral, Enemy
 	Warhead@2Eff: CreateEffect
-		Explosions: chronoexpbg
-		ImpactSounds: ichrmova.wav
-		ValidTargets: Ground, Air, GroundActor, Trees,  AirborneActor, Ship, WaterActor, Trees
+		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, Ship, WaterActor, Trees
+		Explosions: sovietlogo
+		ExplosionPalette: logopal
 
 DigXplosion:
 	ReloadDelay: 100

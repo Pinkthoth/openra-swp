@@ -8110,7 +8110,7 @@ TOXINARTY:
 	RenderSprites:
 		Image: toxinarty
 	Tooltip:
-		Name: Gas Artillery
+		Name: Toxin Artillery
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
@@ -8121,10 +8121,10 @@ TOXINARTY:
 		Queue: Vehicle
 		BuildPaletteOrder: 320
 		Prerequisites: commcent, ~vehicles.kazakhstan, ~illicitlab, ~techlevel.high
-		Description: Long range tank destroyer.
+		Description: Throws canisters that release toxic fumes.
 	Mobile:
-		TurnSpeed: 8
-		Speed: 72
+		TurnSpeed: 7
+		Speed: 52
 		Locomotor: lighttracked
 	RevealsShroud:
 		MinRange: 4c0
@@ -8136,7 +8136,6 @@ TOXINARTY:
 		Weapon: 155mm-Toxin
 		LocalOffset: 600,0,500
 		FireDelay: 6
-		MuzzleSequence: muzzle
 	WithAttackAnimation:
 		Sequence: attack
 	AttackFrontal:
@@ -8144,7 +8143,6 @@ TOXINARTY:
 		ForceFireIgnoresActors: True
 		PauseOnCondition: turnedoff
 		FacingTolerance: 0
-	WithMuzzleOverlay:
 	FireWarheadsOnDeath:
 		Weapon: ArtilleryExplode
 		EmptyWeapon: UnitExplodeSmall
@@ -8521,11 +8519,6 @@ RAM:
 	-SpeedMultiplier@CRUSHATTEMPT:
 	-SpeedMultiplier@CRUSHSUCCESFUL:
 	-Crushable
-	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 335
-		Prerequisites: commcent, ~vehicles.turkey, ~techlevel.unrestricted
-		Description: Rams into enemy vehicles.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
 		Attributes: • Deploy to charge faster.\n• Does not slow down while crushing.\n• Can crush most vehicles.
@@ -8589,6 +8582,11 @@ GRINDER:
 	-SpeedMultiplier@CRUSHATTEMPT:
 	-SpeedMultiplier@CRUSHSUCCESFUL:
 	-Crushable
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 335
+		Prerequisites: commcent, ~vehicles.turkey, ~techlevel.unrestricted
+		Description: Rams into enemy vehicles.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
 		Attributes: • Deploy to charge faster.\n• Does not slow down while crushing.\n• Can crush most vehicles.
@@ -10299,7 +10297,7 @@ TOXINTRUCK:
 		Queue: Vehicle
 		BuildPaletteOrder: 330
 		Prerequisites: ~vehicles.kazakhstan, dome, illicitlab
-		Description: Truck loaded with toxic materials.
+		Description: Truck loaded with toxic matrials.
 	TooltipExtras:
 		Weaknesses: - Unarmed.
 		Attributes: • Deploy to detonate cargo.
