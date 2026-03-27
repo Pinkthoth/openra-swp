@@ -4538,7 +4538,7 @@ HARRIER:
 		Queue: Aircraft
 		BuildAtProductionType: Plane
 		BuildPaletteOrder: 800
-		Prerequisites: ~aircraft.entente, atek
+		Prerequisites: ~aircraft.usa, atek
 		Description: Attack Plane armed with\nmissiles.
 	Valued:
 		Cost: 2100
@@ -4622,7 +4622,7 @@ HARRIER.Heli:
 		Queue: Helicopter
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 800
-		Prerequisites: ~aircraft.entente, atek
+		Prerequisites: ~aircraft.usa, atek
 		Description: Attack Plane armed with\nmissiles.
 	Selectable:
 		Class: HARRIER

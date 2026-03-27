@@ -1189,12 +1189,6 @@ COPYCAT.Husk:
 RADIST:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Buildable:
-		Queue: Infantry
-		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 91
-		Prerequisites: ~techlevel.infonly, dome, ~infantry.england
-		Description: General-purpose infantry.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
@@ -6739,7 +6733,7 @@ DEFILER:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 149
-		Prerequisites: ~infantry.arabia, stek, ~illicitlab
+		Prerequisites: ~infantry.arabia, stek
 		Description: Armed with a radiation weapon.
 	Valued:
 		Cost: 600

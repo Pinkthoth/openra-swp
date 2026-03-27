@@ -224,6 +224,9 @@
 	PaletteFromFile@TSEFFECTS:
 		Name: tseffects
 		Filename: anim.pal
+	PaletteFromFile@logopal:
+		Name: logopal
+		Filename: logo.pal
 	PaletteFromFile@ra2effects:
 		Name: ra2effects
 		Filename: ra2anim.pal

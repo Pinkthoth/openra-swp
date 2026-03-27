@@ -3061,6 +3061,18 @@ EnslaveVehicle:
 		ImpactSounds: spsylo2a.wav
 		ValidTargets: GroundActor, Ground, Air, Vehicle
 
+EnslaveVehicleDominator:
+	Inherits: EnslaveVehicle
+	Range: 3c0
+	MinRange: 0c0
+	ReloadDelay: 1
+
+EnslaveInfantryDominator:
+	Inherits: EnslaveInfantry
+	Range: 3c0
+	MinRange: 0c0
+	ReloadDelay: 1
+
 NeutronCannon:
 	ValidTargets: Infantry, Structure, Vehicle, Temporal
 	ReloadDelay: 5

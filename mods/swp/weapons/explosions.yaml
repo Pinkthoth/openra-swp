@@ -57,16 +57,17 @@ CrateExplosion:
 
 SlaveExplosion:
 	ValidTargets: Ground, Water, Air, GroundActor, Trees,  Ship, WaterActor, AirborneActor
-	ReloadDelay: 25
+	ReloadDelay: 10000
 	Warhead@condition: GrantExternalCondition
 		Duration: 500
 		Condition: confusion
 		ValidTargets: GroundActor, Trees, Ship, WaterActor, Infantry
 		ValidRelationships: Enemy, Neutral
-		Range: 2c516
+		Range: 1c516
 	Warhead@2Eff: CreateEffect
 		ValidTargets: Ground, Water, Air, GroundActor, Trees,  AirborneActor, Ship, WaterActor, Trees
-		Explosions: dominating
+		Explosions: sovietlogo
+		ExplosionPalette: logopal
 
 UnitExplode:
 	Inherits: ^Explosion

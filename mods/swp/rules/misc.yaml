@@ -1645,11 +1645,6 @@ CENTRALDOMINATE:
 	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
 	Building:
 		Footprint: _
-	TooltipExtras:
-		Weaknesses: - Weak vs Everything.
-		Attributes: • Can mind control enemy units.
-	Tooltip:
-		Name: Psychic Tower
 	Selectable:
 		Bounds: 1024, 1448
 		DecorationBounds: 1024, 2413, 0, -482
@@ -1657,6 +1652,7 @@ CENTRALDOMINATE:
 		HP: 40000
 	Armor:
 		Type: Concrete
+	-Tooltip:
 	RevealsShroud:
 		MinRange: 6c0
 		Range: 7c0
@@ -1669,25 +1665,28 @@ CENTRALDOMINATE:
 		RequiresCondition: active
 	Armament@secondary:
 		Name: secondary
-		Weapon: EnslaveInfantry
+		Weapon: EnslaveInfantryDominator
 		LocalOffset: 150,0,400
 		TargetRelationships: Enemy, Neutral
 		RequiresCondition: active && !maxcontrolled
 	Armament@tertiary:
 		Name: primary
-		Weapon: EnslaveVehicle
+		Weapon: EnslaveVehicleDominator
 		LocalOffset: 150,0,400
 		TargetRelationships: Enemy, Neutral
 		RequiresCondition: active && !maxcontrolled
 	MindController:
 		ArmamentNames: primary, secondary
-		Capacity: 10
+		Capacity: 5
 		ControlSounds: iyurat1a.aud
 		ReleaseSounds: yuri-release.aud
 		ControllingCondition: mindcontrolling
 		MaxControlledCondition: maxcontrolled
 		ManualReleaseEnabled: true
 		ControlType: MindControl
+		TargetTypeTicksToControl:
+			Infantry: 0
+			Vehicle: 0
 	WithMindControlArc@MC:
 		Color: c71585
 		Transparency: 55
@@ -1696,11 +1695,13 @@ CENTRALDOMINATE:
 		Width: 116
 		ControlType: MindControl
 	-WithBuildingBib:
+	-SelectionDecorations:
 	AttackOmni:
 	DetectCloaked:
 		Range: 6c0
 		RequiresCondition: active
 	-Targetable:
+	-Selectable:
 	RenderSprites:
 	AutoTarget:
 		InitialStance: AttackAnything

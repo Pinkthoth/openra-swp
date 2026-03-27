@@ -2740,11 +2740,6 @@ TRAKTOR:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 336
-		Prerequisites: commcent, ~vehicles.ukraine, ~techlevel.unrestricted
-		Description: Shoots a magnetic ray that disables enemy units.
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles.
 		Weaknesses: - Weak vs Infantry, Aircraft.
@@ -2880,11 +2875,6 @@ SEPOYIFV:
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@CARGOPIPS: ^CargoPips
-	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 80
-		Prerequisites: adept, ~vehicles.raj, ~techlevel.low
-		Description: Tough infantry transport.
 	TooltipExtras:
 		Strengths: + Strong vs Vehicles.
 		Weaknesses: - Weak vs Tanks, Infantry, Aircraft.
@@ -5145,13 +5135,13 @@ RIG:
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 10
+		BuildPaletteOrder: 121
 		Prerequisites: ~vehicles.raj, dome, ~techlevel.low
-		Description: Tough infantry transport.
+		Description: Repair and triage vehicle.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
-		Attributes: • Can repair damaged vehicles.\n• Can heal wouded infantry.
+		Attributes: • Can repair nearby damaged vehicles.\n• Can heal nearby wouded infantry.
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -8127,6 +8117,11 @@ TOXINARTY:
 		HP: 10000
 	Armor:
 		Type: Medium
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 320
+		Prerequisites: commcent, ~vehicles.kazakhstan, ~illicitlab, ~techlevel.high
+		Description: Long range tank destroyer.
 	Mobile:
 		TurnSpeed: 8
 		Speed: 72
@@ -8140,7 +8135,10 @@ TOXINARTY:
 	Armament:
 		Weapon: 155mm-Toxin
 		LocalOffset: 600,0,500
+		FireDelay: 6
 		MuzzleSequence: muzzle
+	WithAttackAnimation:
+		Sequence: attack
 	AttackFrontal:
 		TargetFrozenActors: True
 		ForceFireIgnoresActors: True

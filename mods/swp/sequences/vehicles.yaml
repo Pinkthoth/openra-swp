@@ -284,14 +284,20 @@ arty:
 
 toxinarty:
 	idle:
-		Filename: toxinarty.shp
+		Filename: ballista.shp
 		Facings: 32
+		UseClassicFacings: True
+	attack:
+		Filename: ballista.shp
+		Facings: 32
+		Start: 32
+		Length: 14
 		UseClassicFacings: True
 	muzzle:
 		Filename: gunfire2.shp
 		Length: 5
 	icon:
-		Filename: toxinartyicon.shp
+		Filename: toxinballistaicon.shp
 
 burrower:
 	idle:
@@ -1579,7 +1585,7 @@ rig:
 	idle-deployed:
 		Start: 55
 	icon:
-		Filename: apcicon.shp
+		Filename: rigicon.shp
 
 apc:
 	Defaults:

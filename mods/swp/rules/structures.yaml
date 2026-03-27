@@ -1254,12 +1254,6 @@ CLONINGVATS:
 		Type: Wood
 	RevealsShroud:
 		Range: 7c0
-	Buildable:
-		Queue: Building
-		BuildPaletteOrder: 600
-		Prerequisites: ~structures.kazakhstan, illicitlab, ~techlevel.medium
-		Description: Forward recruitment and command office\nof the Chinese Red Guards.
-		BuildLimit: 1
 	TooltipExtras:
 		Attributes: • Build limit 1.\n• Passive Ability: Produces two Militia units every 30 seconds for 100$.\n• Refunds 80% of the cost relative to remaining health of infantry that enter this building.
 	Valued:
@@ -1324,7 +1318,7 @@ DEFENSEPLATFORM:
 	Building:
 	Buildable:
 		Queue: Defense
-		BuildPaletteOrder: 60
+		BuildPaletteOrder: 76
 		Prerequisites: barr, ~structures.england, ~techlevel.low
 		Description: Static base defense.
 	TooltipExtras:
@@ -2471,7 +2465,7 @@ SPAINBUNKER:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 40
-		Prerequisites: ~structures.raj, ~techlevel.low
+		Prerequisites: ~structures.china, ~techlevel.low
 		Description: A simple bunker.
 	TooltipExtras:
 		Strengths: + Strength depends on the cargo.
@@ -6038,7 +6032,7 @@ BARR:
 		Factions: arabia, russia, china
 		Prerequisite: infantry.thief
 	ProvidesPrerequisite@penal:
-		Factions: arabia, ukraine, russia, china
+		Factions: arabia, ukraine, russia
 		Prerequisite: infantry.penal
 	ProvidesPrerequisite@dog:
 		Factions: germany, austria, italy
