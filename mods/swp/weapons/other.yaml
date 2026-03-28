@@ -1320,6 +1320,9 @@ Resurrect:
 		ValidTargets: Corpse
 		DebugOverlayColor: 00FF00
 		DamageTypes: NotCrushDeath, ResurrectionDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: lazarusburst_sm
+		ValidTargets: Ground, Corpse
 
 PickUpWeapon:
 	ValidTargets: Corpse

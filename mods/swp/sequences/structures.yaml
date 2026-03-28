@@ -1585,6 +1585,12 @@ defenseplatform:
 		Facings: 32
 		UseClassicFacings: True
 		Scale: 1.25
+	turret-prism
+		Filename: prtnk.shp
+		Start: 33
+		Facings: 32
+		UseClassicFacings: True
+		Scale: 1.25
 	icon:
 		Filename: defenseplatformicon.shp
 

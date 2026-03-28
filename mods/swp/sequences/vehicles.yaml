@@ -853,6 +853,11 @@ sipahi:
 		Start: 66
 		Facings: 32
 		UseClassicFacings: True
+	turret-prism
+		Filename: prtnk.shp
+		Start: 33
+		Facings: 32
+		UseClassicFacings: True
 	turret-kumo:
 		Filename: kumo.shp
 		Start: 32

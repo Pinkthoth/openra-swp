@@ -2161,11 +2161,13 @@ MEDIUM:
 		HP: 6000
 	Mobile:
 		Speed: 50
+		Voice: Move
 	RevealsShroud:
 		Range: 3c0
 	Passenger:
 		CustomPipType: blue
-	AttackFrontal:
+	AttackFrontal:	
+		Voice: Attack
 	Armament@Resurrect:
 		Weapon: Resurrect
 		Cursor: heal
@@ -2176,7 +2178,7 @@ MEDIUM:
 		AttackSequences:
 			primary: heal
 	Voiced:
-		VoiceSet: MedicVoice
+		VoiceSet: LazFemVoices
 	AutoTarget:
 	AutoTargetPriority@DEFAULT:
 		ValidTargets: Corpse
@@ -4811,12 +4813,6 @@ PRETORIAN:
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Vehicles.
 		Weaknesses: - Weak vs Aircraft.
-	Buildable:
-		Queue: Infantry
-		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 135
-		Prerequisites: atek, ~infantry.atek, ~techlevel.high
-		Description: Elite infantry with a hand-held\nsonic weapon.
 	Valued:
 		Cost: 400
 	Tooltip:
@@ -6750,7 +6746,7 @@ DEFILER:
 	Armament@PRIMARY:
 		Weapon: RadRifle
 		FireDelay: 0
-		LocalOffset: 200,-100,290
+		LocalOffset: 250,100,490
 		RequiresCondition: !supercharged
 	Armament@GARRISONED:
 		Name: garrisoned
@@ -6759,13 +6755,9 @@ DEFILER:
 	TakeCover:
 		ProneOffset: 227,0,-245
 	AttackFrontal:
-		Voice: Attack
 	AttackMove:
-		Voice: Move
 	Passenger:
-		Voice: Move
 	Guard:
-		Voice: Move
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
 		RequiresCondition: !parachute
@@ -6774,7 +6766,6 @@ DEFILER:
 		RequiresCondition: parachute
 		IsPlayerPalette: true
 	Voiced:
-		VoiceSet: ShokVoice
 	ProducibleWithLevel:
 		Prerequisites: barracks.upgraded
 	SpawnActorOnDeath@BulletDeath:
@@ -7133,6 +7124,11 @@ NIGHTWITCH.Corpse:
 NIGHTWITCHAIR:
 	Inherits: ^Helicopter
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	GrantTimedCondition@born:
+		Duration: 10
+		Condition: born
+	Wanders:
+		RequiresCondition: born
 	RenderSprites:
 		Image: nightwitch
 	Valued:

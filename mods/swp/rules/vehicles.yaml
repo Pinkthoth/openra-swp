@@ -2473,11 +2473,6 @@ DRAKE:
 	Inherits: ^Vehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMovePlusBombers
-	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 70
-		Prerequisites: ~vehicles.egypt, ~illicitlab
-		Description: Mobile unit with a mounted wastethrower.
 	TooltipExtras:
 		Strengths: + Strong vs Infantry, Buildings.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
@@ -4431,7 +4426,7 @@ SIPAHI:
 	Armament:
 		Weapon: 227mm-Kumo
 		LocalOffset: 210,0,190
-		RequiresCondition: nochange || !hascargo || paslegionaire || passhinobi || pasofficer || pasradist || pasmilpol
+		RequiresCondition: nochange || !hascargo || paslegionaire || passhinobi || pasofficer || pasradist || pasmilpol || paspolitruk
 	Armament@shotgun:
 		Weapon: Shotgun
 		MuzzleSequence: muzzle
@@ -4475,7 +4470,7 @@ SIPAHI:
 	Armament@pasprae:
 		Weapon: MicrowaveGuy
 		LocalOffset: 210,0,190
-		RequiresCondition: pasprae
+		RequiresCondition: pasemitter
 	Armament@pasnerveagent:
 		Weapon: ZombieGun
 		LocalOffset: 210,0,190
@@ -4688,6 +4683,30 @@ SIPAHI:
 		MuzzleSequence: muzzle
 		RequiresCondition: pashvgat && gatling >= 4
 		PauseOnCondition: turnedoff
+	Armament@gurkha:
+		Weapon: ATRifle
+		LocalOffset: 427,0,341
+		RequiresCondition: pasgurkha
+	Armament@cyborgrailgunner:
+		Weapon: LtRail
+		LocalOffset: 427,0,341
+		RequiresCondition: pascyborgrailgunner
+	Armament@chronocommando:
+		Weapon: BerzerkerShotgun
+		LocalOffset: 427,0,341
+		RequiresCondition: paschronocommando
+	Armament@magnetron:
+		Weapon: IncineratorLaser
+		LocalOffset: 427,0,341
+		RequiresCondition: pasmagnetron
+	Armament@stimdoc:
+		Weapon: BloodLustGun
+		LocalOffset: 427,0,341
+		RequiresCondition: passtimdoc
+	Armament@pasdefiler:
+		Weapon: RadRifle
+		LocalOffset: 427,0,0
+		RequiresCondition: pasdefiler
 	GrantConditionOnAttack@gatling:
 		Condition: gatling
 		RequiredShotsPerInstance: 12, 24
@@ -4703,7 +4722,10 @@ SIPAHI:
 		RequiresCondition: !hascargo
 	WithSpriteTurret@rifle:
 		Sequence: turret-kumo
-		RequiresCondition: nochange || passhinobi || pasofficer || pasmilpol || paspenal
+		RequiresCondition: nochange || passhinobi || pasofficer || pasmilpol || paspolitruk
+	WithSpriteTurret@prism:
+		Sequence: turret-prism
+		RequiresCondition: passtrmtrpr
 	WithSpriteTurret@missile:
 		Sequence: turret-missile
 		RequiresCondition: pase3 || paspanzerf
@@ -4712,7 +4734,7 @@ SIPAHI:
 		RequiresCondition: pasbolter || pasinitiate || pasngwtch || pasishmaelite
 	WithSpriteTurret@legionaire:
 		Sequence: turret-ronin
-		RequiresCondition: paslegionaire
+		RequiresCondition: pasmagnetron
 	WithSpriteTurret@flak:
 		Sequence: turret-flak
 		RequiresCondition: pasflktrp
@@ -4734,10 +4756,10 @@ SIPAHI:
 		RequiresCondition: passhktrp || passhok
 	WithSpriteTurret@passtrmtrpr:
 		Sequence: turret-sniper
-		RequiresCondition: passtrmtrpr || paschronotrooper || pasprae || pasimpg || paswatch || paswatch || pase7 || pasvolkov || pasjarmen
+		RequiresCondition: passtrmtrpr || paschronotrooper || pasemitter || pasimpg || paswatch || paswatch || pase7 || pasvolkov || pasjarmen
 	WithSpriteTurret@sniper:
 		Sequence: turret-sniper
-		RequiresCondition: passniper || psngdesolator
+		RequiresCondition: pasdefiler || passniper || psngdesolator || paspenal || pasgurkha || passtimdoc || pascyborgrailgunner || paschronocommando
 	WithSpriteTurret@jump:
 		Sequence: turret-testudo
 		RequiresCondition: pasjump
@@ -4824,7 +4846,11 @@ SIPAHI:
 			spy: passpy
 			spy.mi6: passpy
 			spy.mi6.clone: passpy
+			matahari: passpy
+			matahari.clone: passpy
+			copycat: nochange
 			pretorian: pasprae
+			emitter: pasemitter
 			medi: pasmedic
 			mech: pasmech
 			hunter: pashunter
@@ -4847,6 +4873,8 @@ SIPAHI:
 			e2: pase2
 			e3: pase3
 			e3r3: pase3
+			glider: pase3
+			screener: pase3
 			e1r3: nochange
 			e4: pase4
 			e11: pase11
@@ -4879,11 +4907,19 @@ SIPAHI:
 			radist: pasradist
 			penal: paspenal
 			sbearer: paspenal
+			tnkcmndr: nochange
+			hound: nochange
 			discthrow: pasdisc
 			informant: nochange
 			germantrooper: nochange
 			milpol: pasmilpol
 			scout: nochange
+			gurkha: pasgurkha
+			cyborgrailgunner: pascyborgrailgunner
+			chronocommando: paschronocommando
+			magnetron: pasmagnetron
+			stimdoc: passtimdoc
+			defiler: pasdefiler
 	DetectCloaked@phase:
 		DetectionTypes: Cloak, Hiding, Phase
 		Range: 5c0
@@ -6716,7 +6752,7 @@ JACKAL.Husk:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 72
-		Prerequisites: adept, ~vehicles.egypt, ~techlevel.low
+		Prerequisites: adept, ~vehicles.russia, ~techlevel.low
 		Description: Double barreled heavy tank.
 	TooltipExtras:
 		Strengths: + Strong vs Tanks.
@@ -8591,17 +8627,17 @@ GRINDER:
 		Weaknesses: - Unarmed.
 		Attributes: • Deploy to charge faster.\n• Does not slow down while crushing.\n• Can crush most vehicles.
 	Valued:
-		Cost: 1500
+		Cost: 1750
 	Tooltip:
 		Name: Grinder
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 35000
+		HP: 100000
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 43
+		Speed: 63
 		PauseOnCondition: being-captured
 		Locomotor: superheavytracked
 	RevealsShroud:
@@ -8612,23 +8648,11 @@ GRINDER:
 		Range: 4c0
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
-	GrantConditionOnDeploy:
-		DeployedCondition: haste-trigger
-	GrantCondition:
-		RequiresCondition: haste-trigger
-		Condition: haste
-	SpeedMultiplier@haste:
-		Modifier: 200
-		RequiresCondition: haste && charged
 	WithMoveAnimation:
 		MoveSequence: move
 		RequiresCondition: moving
 	GrantConditionOnMovement:
 		Condition: moving
-	GrantChargingCondition:
-		Condition: charged
-		MaxCharge: 200
-		PauseOnCondition: haste-trigger
 	Selectable:
 		DecorationBounds: 1589, 1589
 

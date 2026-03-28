@@ -1364,7 +1364,7 @@ DEFENSEPLATFORM:
 	Armament:
 		Weapon: 227mm-Kumo
 		LocalOffset: 210,0,190
-		RequiresCondition: nochange || !hascargo || paslegionaire || passhinobi || pasofficer || pasradist || pasmilpol
+		RequiresCondition: nochange || !hascargo || paslegionaire || passhinobi || pasofficer || pasradist || pasmilpol || paspolitruk
 		PauseOnCondition: make-incomplete
 	Armament@shotgun:
 		Weapon: Shotgun
@@ -1409,7 +1409,7 @@ DEFENSEPLATFORM:
 	Armament@pasprae:
 		Weapon: MicrowaveGuy
 		LocalOffset: 210,0,190
-		RequiresCondition: pasprae
+		RequiresCondition: pasemitter
 	Armament@pasnerveagent:
 		Weapon: ZombieGun
 		LocalOffset: 210,0,190
@@ -1622,6 +1622,30 @@ DEFENSEPLATFORM:
 		MuzzleSequence: muzzle
 		RequiresCondition: pashvgat && gatling >= 4
 		PauseOnCondition: turnedoff
+	Armament@gurkha:
+		Weapon: ATRifle
+		LocalOffset: 427,0,341
+		RequiresCondition: pasgurkha
+	Armament@cyborgrailgunner:
+		Weapon: LtRail
+		LocalOffset: 427,0,341
+		RequiresCondition: pascyborgrailgunner
+	Armament@chronocommando:
+		Weapon: BerzerkerShotgun
+		LocalOffset: 427,0,341
+		RequiresCondition: paschronocommando
+	Armament@magnetron:
+		Weapon: IncineratorLaser
+		LocalOffset: 427,0,341
+		RequiresCondition: pasmagnetron
+	Armament@stimdoc:
+		Weapon: BloodLustGun
+		LocalOffset: 427,0,341
+		RequiresCondition: passtimdoc
+	Armament@pasdefiler:
+		Weapon: RadRifle
+		LocalOffset: 427,0,0
+		RequiresCondition: pasdefiler
 	GrantConditionOnAttack@gatling:
 		Condition: gatling
 		RequiredShotsPerInstance: 12, 24
@@ -1637,7 +1661,10 @@ DEFENSEPLATFORM:
 		RequiresCondition: !hascargo && !make-incomplete
 	WithSpriteTurret@rifle:
 		Sequence: turret-kumo
-		RequiresCondition: nochange || passhinobi || pasofficer || pasmilpol || paspenal
+		RequiresCondition: nochange || passhinobi || pasofficer || pasmilpol || paspolitruk
+	WithSpriteTurret@prism:
+		Sequence: turret-prism
+		RequiresCondition: passtrmtrpr
 	WithSpriteTurret@missile:
 		Sequence: turret-missile
 		RequiresCondition: pase3 || paspanzerf
@@ -1646,7 +1673,7 @@ DEFENSEPLATFORM:
 		RequiresCondition: pasbolter || pasinitiate || pasngwtch || pasishmaelite
 	WithSpriteTurret@legionaire:
 		Sequence: turret-ronin
-		RequiresCondition: paslegionaire
+		RequiresCondition: pasmagnetron
 	WithSpriteTurret@flak:
 		Sequence: turret-flak
 		RequiresCondition: pasflktrp
@@ -1664,14 +1691,14 @@ DEFENSEPLATFORM:
 		RequiresCondition: pase2 || pasmolotov || pasgrenlnchr || pasdisc || pasdemo
 	WithIdleOverlay@Shok:
 		Sequence: spinner-ttnk
-		Offset: 0,-40,-50
+		Offset: 0,-100,-60
 		RequiresCondition: passhktrp || passhok
 	WithSpriteTurret@passtrmtrpr:
 		Sequence: turret-sniper
-		RequiresCondition: passtrmtrpr || paschronotrooper || pasprae || pasimpg || paswatch || paswatch || pase7 || pasvolkov || pasjarmen
+		RequiresCondition: paschronotrooper || pasemitter || pasimpg || paswatch || paswatch || pase7 || pasvolkov || pasjarmen
 	WithSpriteTurret@sniper:
 		Sequence: turret-sniper
-		RequiresCondition: passniper || psngdesolator
+		RequiresCondition: pasdefiler || passniper || psngdesolator || paspenal || pasgurkha || passtimdoc || pascyborgrailgunner || paschronocommando
 	WithSpriteTurret@jump:
 		Sequence: turret-testudo
 		RequiresCondition: pasjump
@@ -1761,6 +1788,7 @@ DEFENSEPLATFORM:
 			spy.mi6: passpy
 			spy.mi6.clone: passpy
 			pretorian: pasprae
+			emitter: pasemitter
 			medi: pasmedic
 			mech: pasmech
 			hunter: pashunter
@@ -1782,6 +1810,7 @@ DEFENSEPLATFORM:
 			bolter: pasbolter
 			e2: pase2
 			e3: pase3
+			glider: pase3
 			e3r3: pase3
 			e1r3: nochange
 			e4: pase4
@@ -1802,7 +1831,7 @@ DEFENSEPLATFORM:
 			guerilla: nochange
 			arditi: nochange
 			desolator: psngdesolator
-			legionaire: paslegionaire
+			legionaire: nochange
 			e1: nochange
 			mutant: pase11
 			rpgarditi: pase3
@@ -1815,11 +1844,23 @@ DEFENSEPLATFORM:
 			radist: pasradist
 			penal: paspenal
 			sbearer: paspenal
+			tnkcmndr: nochange
+			hound: nochange
 			discthrow: pasdisc
 			informant: nochange
 			germantrooper: nochange
 			milpol: pasmilpol
 			scout: nochange
+			matahari: passpy
+			matahari.clone: passpy
+			copycat: nochange
+			defiler: pasdefiler
+			screener: pase3
+			gurkha: pasgurkha
+			cyborgrailgunner: pascyborgrailgunner
+			chronocommando: paschronocommando
+			magnetron: pasmagnetron
+			stimdoc: passtimdoc
 	DetectCloaked@phase:
 		DetectionTypes: Cloak, Hiding, Phase
 		Range: 5c0
@@ -4376,7 +4417,7 @@ WEAP:
 		Factions: germany, austria, abyssinia, bulgaria, turkey
 		Prerequisite: vehicles.v2rl
 	ProvidesPrerequisite@cossack:
-		Factions: ukraine, belarus, transcaucasia, kazakhstan, russia
+		Factions: ukraine, belarus, transcaucasia, kazakhstan
 		Prerequisite: vehicles.cossack
 	SpawnActorOnDeath@tunnel:
 		Actor: tunnelweap
@@ -5316,11 +5357,6 @@ OUTPOST:
 	HitShape:
 		UseTargetableCellsOffsets: false
 		TargetableOffsets: 0,0,0, 640,-384,0, 640,512,0, -710,-512,0, -710,512,0
-	Buildable:
-		Queue: Building
-		BuildPaletteOrder: 10
-		Prerequisites: ~techlevel.infonly, ~structures.italy, dome
-		Description: Provides power for other structures.
 	Valued:
 		Cost: 1000
 	Tooltip:

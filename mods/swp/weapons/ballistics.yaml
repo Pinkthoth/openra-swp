@@ -373,7 +373,7 @@ SiegeGun:
 	MinRange: 4c0
 	Range: 11c0
 	ReloadDelay: 125
-	Report: toxarty.aud
+	Report: ballistafire1.aud, ballistafire2.aud
 	TargetActorCenter: true
 	Projectile: Bullet
 		ContrailLength: 30

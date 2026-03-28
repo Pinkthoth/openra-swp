@@ -273,6 +273,17 @@ IndiaFemVoices:
 		Zapped: femdie1
 		Freezed: freezedie1
 
+LazFemVoices:
+	Voices:
+		Select: lazreport1, lazreport2, lazreport3, lazreport4
+		Action: lazaction1, lazaction2, lazaction3, lazaction4
+		Attack: lazaction1, lazaction2, lazaction3, lazaction4
+		Move: lazmove1, lazmove2, lazmove3, lazmove4
+		Die: femdie2
+		Burned: femdie1
+		Zapped: femdie1
+		Freezed: freezedie1
+
 RusFemVoices:
 	Voices:
 		Select: femreport1, femreport2, femreport3
