@@ -1443,6 +1443,10 @@ KirovParaBomb:
 		Explosions: small_splash
 		ImpactSounds: splash9.aud
 		ValidTargets: Water, Underwater
+	Warhead@5Eff: CreateEffect
+		Explosions: teslastruck, teslastruck2
+		ExplosionPalette: player
+		ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor, Corpse
 
 BlimpParaBomb:
 	ReloadDelay: 50
@@ -1982,6 +1986,36 @@ Prism:
 		Dimensions: 3,3
 		Footprint: xxx x_x xxx
 
+PrismTank:
+	ReloadDelay: 90
+	Range: 7c0
+	Report: prisray.aud
+	ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
+	Projectile: LaserZap
+		Width: 85
+		HitAnim: laserfire
+		ZOffset: 2047
+		Color: 0094FF
+	Warhead@1Dam: SpreadDamage
+		Spread: 42
+		Damage: 7500
+		Versus:
+			None: 100
+			Wood: 50
+			Light: 100
+			Medium: 90
+			Heavy: 80
+			Concrete: 30
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, FireDeath
+		ValidTargets: Ground, GroundActor, Trees,  Water, Ship, WaterActor
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+	Warhead@PrismBurst: FireCluster
+		Weapon: PrismTowerBurst
+		RandomClusterCount: 3
+		Dimensions: 3,3
+		Footprint: xxx x_x xxx
+
 PrismSupport:
 	ReloadDelay: 120
 	ValidTargets: Ground, Water
@@ -1996,6 +2030,7 @@ PrismSupport:
 
 PrismWasp:
 	Inherits: Prism
+	ReloadDelay: 75
 	Range: 7c512
 	Warhead@1Dam: SpreadDamage
 		Spread: 42

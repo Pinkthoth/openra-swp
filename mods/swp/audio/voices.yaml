@@ -286,10 +286,10 @@ LazFemVoices:
 
 RusFemVoices:
 	Voices:
-		Select: femreport1, femreport2, femreport3
-		Action: femmove1,femmove2,femmove3
-		Attack: femmove1,femmove2,femmove3
-		Move: femmove1,femmove2,femmove3
+		Select: nwreport1, nwreport2, nwreport3
+		Action: nwmove1,nwmove2,nwmove3
+		Attack: nwattack1,nwattack2,nwattack3
+		Move: nwmove1,nwmove2,nwmove3
 		Die: femdie2
 		Burned: femdie1
 		Zapped: femdie1

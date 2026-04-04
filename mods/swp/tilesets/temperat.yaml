@@ -79,6 +79,32 @@ Terrain:
 		RestrictPlayerColor: true
 
 Templates:
+	Template@25500:
+		Id: 25500
+		Images: pavement.shp
+		Size: 1,1
+		PickAny: True
+		Categories: Terrain
+		Tiles:
+			0: Clear
+			1: Clear
+			2: Clear
+			3: Clear
+			4: Clear
+			5: Clear
+			6: Clear
+			7: Clear
+			8: Clear
+			9: Clear
+			10: Clear
+			11: Clear
+			12: Clear
+			13: Clear
+			14: Clear
+			15: Clear
+			16: Clear
+			17: Clear
+			18: Clear
 	Template@255:
 		Id: 255
 		Images: clear1.tem
@@ -4388,6 +4414,328 @@ Templates:
 	Template@1019:
 		Id: 1019
 		Images: grass_paved_roads.shp
+		Frames: 204,224
+		Size: 1,2
+		Categories: Road
+		Tiles:
+			0: PavedRoad
+			1: PavedRoad
+	Template@16000:
+		Id: 16000
+		Images: paved_paved_roads.shp
+		Frames: 60,61
+		Size: 2,1
+		Categories: Road
+		Tiles:
+			0: Road
+			1: Clear
+	Template@16001:
+		Id: 16001
+		Images: paved_paved_roads.shp
+		Frames: 62,63
+		Size: 2,1
+		Categories: Road
+		Tiles:
+			0: Clear
+			1: Clear
+	Template@16002:
+		Id: 16002
+		Images: paved_paved_roads.shp
+		Frames: 65,85
+		Size: 1,2
+		Categories: Road
+		Tiles:
+			0: Road
+			1: Clear
+	Template@16003:
+		Id: 16003
+		Images: paved_paved_roads.shp
+		Frames: 66,67
+		Size: 2,1
+		Categories: Road
+		Tiles:
+			0: Clear
+			1: Road
+	Template@16004:
+		Id: 16004
+		Images: paved_paved_roads.shp
+		Frames: 68,88
+		Size: 1,2
+		Categories: Road
+		Tiles:
+			0: Clear
+			1: Clear
+	Template@16005:
+		Id: 16005
+		Images: paved_paved_roads.shp
+		Frames: 51
+		Size: 1,1
+		Categories: Road
+		Tiles:
+			0: Road
+	Template@16006:
+		Id: 16006
+		Images: paved_paved_roads.shp
+		Frames: 52
+		Size: 1,1
+		Categories: Road
+		Tiles:
+			0: Road
+	Template@16007:
+		Id: 16007
+		Images: paved_paved_roads.shp
+		Frames: 71
+		Size: 1,1
+		Categories: Road
+		Tiles:
+			0: Road
+	Template@16008:
+		Id: 16008
+		Images: paved_paved_roads.shp
+		Frames: 72
+		Size: 1,1
+		Categories: Road
+		Tiles:
+			0: Road
+	Template@16009:
+		Id: 16009
+		Images: paved_paved_roads.shp
+		Frames: 187,188,189,207,208,209,227,228,229
+		Size: 3,3
+		Categories: Road
+		Tiles:
+			0: Clear
+			1: Road
+			2: Clear
+			3: Road
+			4: Road
+			5: Clear
+			6: Clear
+			7: Road
+			8: Clear
+	Template@16010:
+		Id: 16010
+		Images: paved_paved_roads.shp
+		Frames: 195,196,197,215,216,217,235,236,237
+		Size: 3,3
+		Categories: Road
+		Tiles:
+			0: Clear
+			1: Road
+			2: Clear
+			3: Clear
+			4: Road
+			5: Road
+			6: Clear
+			7: Road
+			8: Clear
+	Template@16011:
+		Id: 16011
+		Images: paved_paved_roads.shp
+		Frames: 191,192,193,211,212,213
+		Size: 3,2
+		Categories: Road
+		Tiles:
+			0: Road
+			1: Road
+			2: Road
+			3: Clear
+			4: Road
+			5: Clear
+	Template@16012:
+		Id: 16012
+		Images: paved_paved_roads.shp
+		Frames: 127,128,147,148
+		Size: 2,2
+		Categories: Road
+		Tiles:
+			1: Clear
+			2: Clear
+			3: Road
+	Template@11000:
+		Id: 11001
+		Images: paved_paved_roads.shp
+		Frames: 0,1,2,20,21,22,40,41,42
+		Size: 3,3
+		Categories: Road
+		Tiles:
+			1: Clear
+			2: PavedRoad
+			3: Clear
+			4: PavedRoad
+			5: Clear
+			6: PavedRoad
+			7: Clear
+	Template@11002:
+		Id: 11002
+		Images: paved_paved_roads.shp
+		Frames: 4,5,6,24,25,26,44,45,46
+		Size: 3,3
+		Categories: Road
+		Tiles:
+			1: Clear
+			2: PavedRoad
+			3: Clear
+			4: PavedRoad
+			5: Clear
+			6: PavedRoad
+			7: Clear
+	Template@11003:
+		Id: 11003
+		Images: paved_paved_roads.shp
+		Frames: 8,9,10,28,29,30,48,49,50
+		Size: 3,3
+		Categories: Road
+		Tiles:
+			0: PavedRoad
+			1: Clear
+			3: Clear
+			4: PavedRoad
+			5: Clear
+			7: Clear
+			8: PavedRoad
+	Template@11004:
+		Id: 11004
+		Images: paved_paved_roads.shp
+		Frames: 12,13,14,32,33,34,52,53,54
+		Size: 3,3
+		Categories: Road
+		Tiles:
+			0: PavedRoad
+			1: Clear
+			3: Clear
+			4: PavedRoad
+			5: Clear
+			7: Clear
+			8: PavedRoad
+	Template@11006:
+		Id: 11006
+		Images: paved_paved_roads.shp
+		Frames: 80,81,100,101
+		Size: 2,2
+		Categories: Road
+		Tiles:
+			1: Clear
+			2: Clear
+			3: PavedRoad
+	Template@11007:
+		Id: 11007
+		Images: paved_paved_roads.shp
+		Frames: 83,84,103,104
+		Size: 2,2
+		Categories: Road
+		Tiles:
+			0: PavedRoad
+			1: Clear
+			2: Clear
+	Template@11008:
+		Id: 11008
+		Images: paved_paved_roads.shp
+		Frames: 86,87,106
+		Size: 2,2
+		Categories: Road
+		Tiles:
+			0: PavedRoad
+			1: Clear
+			2: Clear
+	Template@11009:
+		Id: 11009
+		Images: paved_paved_roads.shp
+		Frames: 89,90,109,110
+		Size: 2,2
+		Categories: Road
+		Tiles:
+			1: Clear
+			2: Clear
+			3: PavedRoad
+	Template@11010:
+		Id: 11010
+		Images: paved_paved_roads.shp
+		Frames: 92,93,112,113
+		Size: 2,2
+		Categories: Road
+		Tiles:
+			0: Clear
+			1: PavedRoad
+			3: Clear
+	Template@11011:
+		Id: 11011
+		Images: paved_paved_roads.shp
+		Frames: 95,96,115,116
+		Size: 2,2
+		Categories: Road
+		Tiles:
+			0: Clear
+			1: PavedRoad
+			3: Clear
+	Template@11012:
+		Id: 11012
+		Images: paved_paved_roads.shp
+		Frames: 152,153,172,176
+		Size: 2,2
+		Categories: Road
+		Tiles:
+			0: Clear
+			2: PavedRoad
+			3: Clear
+	Template@11013:
+		Id: 11013
+		Images: paved_paved_roads.shp
+		Frames: 155,156,175,176
+		Size: 2,2
+		Categories: Road
+		Tiles:
+			0: Clear
+			2: PavedRoad
+			3: Clear
+	Template@11014:
+		Id: 11014
+		Images: paved_paved_roads.shp
+		Frames: 143,144,163,164
+		Size: 2,2
+		Categories: Road
+		Tiles:
+			0: Clear
+			3: Clear
+	Template@11015:
+		Id: 11015
+		Images: paved_paved_roads.shp
+		Frames: 140,141,160,161
+		Size: 2,2
+		Categories: Road
+		Tiles:
+			1: Clear
+			2: Clear
+	Template@11016:
+		Id: 11016
+		Images: paved_paved_roads.shp
+		Frames: 166,167
+		Size: 2,1
+		Categories: Road
+		Tiles:
+			0: PavedRoad
+			1: PavedRoad
+	Template@11017:
+		Id: 11017
+		Images: paved_paved_roads.shp
+		Frames: 169,170
+		Size: 2,1
+		Categories: Road
+		Tiles:
+			0: PavedRoad
+			1: PavedRoad
+	Template@11018:
+		Id: 11018
+		Images: paved_paved_roads.shp
+		Frames: 200,220
+		Size: 1,2
+		Categories: Road
+		Tiles:
+			0: PavedRoad
+			1: PavedRoad
+	Template@11019:
+		Id: 11019
+		Images: paved_paved_roads.shp
 		Frames: 204,224
 		Size: 1,2
 		Categories: Road

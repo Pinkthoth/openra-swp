@@ -142,7 +142,7 @@ Player:
 		CashTickUpNotification: CashTickUp
 		CashTickDownNotification: CashTickDown
 		SelectableCash: 5000, 7500, 12500, 22500
-		DefaultCash: 7500
+		DefaultCash: 5000
 	DeveloperMode:
 		CheckboxDisplayOrder: 10
 	GpsWatcher:

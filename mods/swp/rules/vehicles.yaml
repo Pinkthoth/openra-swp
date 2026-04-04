@@ -689,6 +689,7 @@ MORTARBIKE:
 	Armor:
 		Type: Light
 	Mobile:
+		Locomotor: wheeled
 		Speed: 145
 		TurnSpeed: 25
 		PauseOnCondition: being-captured
@@ -1341,7 +1342,7 @@ ECTNK:
 		ChargeDelay: 375
 		Cooldown: 75
 		HasDistanceLimit: true
-		MaxDistance: 48
+		MaxDistance: 20
 		MaxInstantDistance: 12
 		PreChargeTicksPerCell: 7
 		MaxPreChargeTicks: 250
@@ -1430,7 +1431,7 @@ CTNK:
 		ChargeDelay: 375
 		Cooldown: 75
 		HasDistanceLimit: true
-		MaxDistance: 48
+		MaxDistance: 20
 		MaxInstantDistance: 12
 		PreChargeTicksPerCell: 7
 		MaxPreChargeTicks: 250
@@ -3301,12 +3302,10 @@ HAMMER:
 		Weapon: HvRailgun
 		Recoil: 128
 		RecoilRecovery: 38
-		LocalOffset: 768,0,90
-		MuzzleSequence: muzzle
+		LocalOffset: 788,0,130
 	AttackFrontal:
 		FacingTolerance: 15
 		PauseOnCondition: turnedoff
-	WithMuzzleOverlay:
 	SpawnActorOnDeath:
 		RequiresCondition: !being-warped
 		Actor: HAMMER.Husk
@@ -6770,7 +6769,7 @@ JACKAL.Husk:
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 85
+		Speed: 67
 	RevealsShroud:
 		MinRange: 4c0
 		Range: 5c0
@@ -6899,7 +6898,7 @@ TITAN:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 65000
+		HP: 60000
 	Armor:
 		Type: Heavy
 	Mobile:
@@ -7252,7 +7251,7 @@ PRTNK:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 45000
+		HP: 38000
 	Armor:
 		Type: Heavy
 	Mobile:
@@ -7267,7 +7266,7 @@ PRTNK:
 		TurnSpeed: 28
 		Offset: 0,0,150
 	Armament:
-		Weapon: Prism
+		Weapon: PrismTank
 		Recoil: 0
 		RecoilRecovery: 38
 		LocalOffset: 100,0,150
@@ -9512,7 +9511,7 @@ MOLERAT:
 		Weapon: MoleratGrenade
 		LocalOffset: 120,150,200, 120,-150,200
 	AttackFrontal:
-		PauseOnCondition: turnedoff
+		PauseOnCondition: turnedoff || deployed
 		FacingTolerance: 0
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded

@@ -612,6 +612,131 @@ Vulcan:
 		InvalidTargets: Bridge
 		Delay: 10
 
+SentryVulcan:
+	Inherits: ^HeavyMG
+	Burst: 2
+	BurstDelays: 15
+	Report: sentrymg.aud
+	Warhead@1Dam: SpreadDamage
+		Damage: 250
+		Versus:
+			None: 205
+			Wood: 50
+			Light: 40
+			Medium: 40
+			Heavy: 20
+			Concrete: 35
+	Warhead@4Dam_2: SpreadDamage
+		Spread: 128
+		Damage: 250
+		Delay: 2
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
+		Versus:
+			None: 205
+			Wood: 50
+			Light: 50
+			Medium: 40
+			Heavy: 20
+			Concrete: 35
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
+	Warhead@4Eff_2: CreateEffect
+		Explosions: piffs
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, Ship, WaterActor, Trees, Corpse
+		Delay: 2
+	Warhead@4Eff_2Water: CreateEffect
+		Explosions: water_piffs
+		ValidTargets: Water, Underwater
+		InvalidTargets: Bridge
+		Delay: 2
+	Warhead@5Dam_3: SpreadDamage
+		Spread: 128
+		Damage: 500
+		Delay: 4
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
+		Versus:
+			None: 205
+			Wood: 50
+			Light: 50
+			Medium: 40
+			Heavy: 20
+			Concrete: 35
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
+	Warhead@6Eff_3: CreateEffect
+		Explosions: piffs
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, Ship, WaterActor, Trees, Corpse
+		Delay: 4
+	Warhead@6Eff_3Water: CreateEffect
+		Explosions: water_piffs
+		ValidTargets: Water, Underwater
+		InvalidTargets: Bridge
+		Delay: 4
+	Warhead@7Dam_4: SpreadDamage
+		Spread: 128
+		Damage: 400
+		Delay: 6
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
+		Versus:
+			None: 205
+			Wood: 50
+			Light: 50
+			Medium: 40
+			Heavy: 20
+			Concrete: 35
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
+	Warhead@8Eff_4: CreateEffect
+		Explosions: piffs
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, Ship, WaterActor, Trees, Corpse
+		Delay: 6
+	Warhead@8Eff_4Water: CreateEffect
+		Explosions: water_piffs
+		ValidTargets: Water, Underwater
+		InvalidTargets: Bridge
+		Delay: 6
+	Warhead@9Dam_5: SpreadDamage
+		Spread: 128
+		Damage: 400
+		Delay: 8
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
+		Versus:
+			None: 205
+			Wood: 50
+			Light: 50
+			Medium: 40
+			Heavy: 20
+			Concrete: 35
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
+	Warhead@10Eff_5: CreateEffect
+		Explosions: piffs
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, Ship, WaterActor, Trees, Corpse
+		Delay: 8
+	Warhead@10Eff_5Water: CreateEffect
+		Explosions: water_piffs
+		ValidTargets: Water, Underwater
+		InvalidTargets: Bridge
+		Delay: 8
+	Warhead@11Dam_6: SpreadDamage
+		Spread: 128
+		Damage: 400
+		Delay: 10
+		ValidTargets: GroundActor, Trees,  Ship, WaterActor
+		Versus:
+			None: 205
+			Wood: 50
+			Light: 50
+			Medium: 40
+			Heavy: 20
+			Concrete: 35
+		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
+	Warhead@12Eff_6: CreateEffect
+		Explosions: piffs
+		ValidTargets: Ground, GroundActor, Trees,  Air, AirborneActor, Ship, WaterActor, Trees, Corpse
+		Delay: 10
+	Warhead@12Eff_6Water: CreateEffect
+		Explosions: water_piffs
+		ValidTargets: Water, Underwater
+		InvalidTargets: Bridge
+		Delay: 10
+
 MO_Vulcan:
 	Inherits: ^HeavyMG
 	-Report:
@@ -1170,10 +1295,10 @@ M1Carbine_elite:
 
 TankMachineGun:
 	Inherits: M1Carbine
-	ReloadDelay: 90
+	ReloadDelay: 95
 	Report: iarnattb.wav
 	Warhead@1Dam: SpreadDamage
-		Damage: 1800
+		Damage: 1500
 			None: 140
 			Wood: 15
 			Light: 30
@@ -1327,51 +1452,51 @@ M60mg:
 	Report: medium_mgun1_1.aud
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
-		Damage: 1500
+		Damage: 1250
 		Versus:
-			None: 95
+			None: 100
 			Wood: 10
-			Light: 25
-			Medium: 20
-			Heavy: 5
+			Light: 30
+			Medium: 25
+			Heavy: 10
 			Concrete: 5
 	Warhead@2Dam_2: SpreadDamage
 		Spread: 128
-		Damage: 1500
+		Damage: 1250
 		Delay: 3
 		ValidTargets: GroundActor, Trees,  Ship, WaterActor
 		Versus:
-			None: 95
+			None: 100
 			Wood: 10
-			Light: 25
-			Medium: 20
-			Heavy: 5
+			Light: 30
+			Medium: 25
+			Heavy: 10
 			Concrete: 5
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@3Dam_2: SpreadDamage
 		Spread: 128
-		Damage: 1500
+		Damage: 1250
 		Delay: 6
 		ValidTargets: GroundActor, Trees,  Ship, WaterActor
 		Versus:
-			None: 95
+			None: 100
 			Wood: 10
-			Light: 25
-			Medium: 20
-			Heavy: 5
+			Light: 30
+			Medium: 25
+			Heavy: 10
 			Concrete: 5
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@4Dam_2: SpreadDamage
 		Spread: 128
-		Damage: 1500
+		Damage: 1250
 		Delay: 9
 		ValidTargets: GroundActor, Trees,  Ship, WaterActor
 		Versus:
-			None: 95
+			None: 100
 			Wood: 10
-			Light: 25
-			Medium: 20
-			Heavy: 5
+			Light: 30
+			Medium: 25
+			Heavy: 10
 			Concrete: 5
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
@@ -1461,51 +1586,51 @@ M60mg-Bobcat:
 	Report: mgun11.aud
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
-		Damage: 2150
+		Damage: 1500
 		Versus:
-			None: 130
+			None: 100
 			Wood: 10
-			Light: 25
-			Medium: 20
-			Heavy: 5
+			Light: 30
+			Medium: 25
+			Heavy: 10
 			Concrete: 5
 	Warhead@2Dam_2: SpreadDamage
 		Spread: 128
-		Damage: 2150
+		Damage: 1500
 		Delay: 2
 		ValidTargets: GroundActor, Trees,  Ship, WaterActor
 		Versus:
-			None: 130
+			None: 100
 			Wood: 10
-			Light: 25
-			Medium: 20
-			Heavy: 5
+			Light: 30
+			Medium: 25
+			Heavy: 10
 			Concrete: 5
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@3Dam_2: SpreadDamage
 		Spread: 128
-		Damage: 2150
+		Damage: 1500
 		Delay: 4
 		ValidTargets: GroundActor, Trees,  Ship, WaterActor
 		Versus:
-			None: 130
+			None: 100
 			Wood: 10
-			Light: 25
-			Medium: 20
-			Heavy: 5
+			Light: 30
+			Medium: 25
+			Heavy: 10
 			Concrete: 5
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@4Dam_2: SpreadDamage
 		Spread: 128
-		Damage: 2150
+		Damage: 1500
 		Delay: 6
 		ValidTargets: GroundActor, Trees,  Ship, WaterActor
 		Versus:
-			None: 130
+			None: 100
 			Wood: 10
-			Light: 25
-			Medium: 20
-			Heavy: 5
+			Light: 30
+			Medium: 25
+			Heavy: 10
 			Concrete: 5
 		DamageTypes: NotCrushDeath,  Prone50Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
@@ -1535,13 +1660,13 @@ M60mg-Humvee:
 	Burst: 3
 	BurstDelays: 4
 	Warhead@1Dam: SpreadDamage
-		Damage: 2800
+		Damage: 1800
 		Versus:
 			None: 100
 			Wood: 20
-			Light: 40
-			Medium: 35
-			Heavy: 15
+			Light: 45
+			Medium: 40
+			Heavy: 20
 			Concrete: 10
 	Warhead@2Eff: CreateEffect
 		Inaccuracy: 213
@@ -1814,7 +1939,7 @@ ATRifle:
 JarmenRifle:
 	Inherits: ^SnipeWeapon
 	Report: jarmengun.aud
-	ReloadDelay: 50
+	ReloadDelay: 40
 	Range: 8c512
 	Warhead@1Dam: SpreadDamage
 		Damage: 8000

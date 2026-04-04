@@ -2443,15 +2443,6 @@ GTWR:
 	Tooltip:
 		Name: Guard Tower
 	Building:
-	Buildable:
-		Queue: Defense
-		BuildPaletteOrder: 60
-		Prerequisites: barr, ~structures.zentrum, ~techlevel.low
-		Description: Static anti-infantry base defense.
-	TooltipExtras:
-		Strengths: + Strong vs Infantry.
-		Weaknesses: - Weak vs Vehicles, Aircraft.
-		Attributes: • Can detect phased units.
 	Valued:
 		Cost: 800
 	CustomSellValue:
@@ -3012,7 +3003,7 @@ GATLINGGUN:
 	Valued:
 		Cost: 825
 	Tooltip:
-		Name: Gatling Sentry
+		Name: Gattling Cannon
 	Building:
 	Health:
 		HP: 40000
@@ -3241,6 +3232,69 @@ FTUR:
 		QuantizedFacings: 8
 	Power:
 		Amount: -20
+	DetectCloaked:
+		Range: 6c0
+	ProvidesPrerequisite@buildingname:
+	FireWarheadsOnDeath:
+		Weapon: BuildingExplode
+		EmptyWeapon: BuildingExplode
+	SequencePlaceBuildingPreview:
+		Sequence: build
+	Selectable:
+		Bounds: 844, 1689
+		DecorationBounds: 844, 1689, 0, -362
+
+SENTRYGUN:
+	Inherits: ^Defense
+	Inherits@AUTOTARGET: ^AutoTargetGround
+	Inherits@rubbles: ^1x1Rubbles
+	Inherits@EMPDISABLE: ^EmpDisable
+	Inherits@MAGNETICSUSPENSION: ^MagneticSuspension
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 100
+		Prerequisites: barr, ~structures.zentrum, ~techlevel.low
+		Description: Anti-Infantry base defense.
+	TooltipExtras:
+		Strengths: + Strong vs Infantry.
+		Weaknesses: - Weak vs Vehicles, Aircraft.
+		Attributes: • Can detect phased units.
+	Valued:
+		Cost: 850
+	Tooltip:
+		Name: Sentry Gun
+	Building:
+	Health:
+		HP: 40000
+	Armor:
+		Type: Concrete
+	RevealsShroud:
+		MinRange: 5c0
+		Range: 6c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 5c0
+	Turreted:
+		TurnSpeed: 48
+		InitialFacing: 907
+		RealignDelay: -1
+	WithSpriteTurret:
+		RequiresCondition: !build-incomplete
+		Recoils: false
+	Armament:
+		Weapon: SentryVulcan
+		LocalOffset: 502,115,155, 502,-115,155
+		PauseOnCondition: turnedoff
+		MuzzleSequence: muzzle
+	AttackTurreted:
+		RequiresCondition: !build-incomplete
+		PauseOnCondition: turnedoff
+	-QuantizeFacingsFromSequence:
+	BodyOrientation:
+		QuantizedFacings: 8
+	Power:
+		Amount: -20
+	WithMuzzleOverlay:
 	DetectCloaked:
 		Range: 6c0
 	ProvidesPrerequisite@buildingname:
@@ -4882,7 +4936,7 @@ HPAD:
 		Factions: allies, england, france, usa, japan, serbia, raj, egypt
 		Prerequisite: helicopter.allies
 	ProvidesPrerequisite@longbow:
-		Factions: england, france, serbia, raj, egypt, japan
+		Factions: england, france, serbia, raj, egypt, japan, usa
 		Prerequisite: helicopter.longbow
 	ProvidesPrerequisite@england:
 		Factions: england
@@ -5065,15 +5119,15 @@ AFLD:
 	ProvidesPrerequisite@spitfire:
 		Factions: usa, england, france, japan, serbia
 		Prerequisite: aircraft.spitfire
+	ProvidesPrerequisite@electriclightning:
+		Factions: england, france, japan, serbia
+		Prerequisite: aircraft.electriclightning
 	ProvidesPrerequisite@mig:
 		Factions: china, mongolia, arabia, russia, belarus, transcaucasia, kazakhstan
 		Prerequisite: aircraft.mig
 	ProvidesPrerequisite@stormbird:
 		Factions: germany, austria, italy, turkey
 		Prerequisite: aircraft.stormbird
-	ProvidesPrerequisite@longbow:
-		Factions: england, france, usa, serbia
-		Prerequisite: aircraft.longbow
 	ProvidesPrerequisite@tacticalbomber:
 		Factions: china, mongolia, arabia, kazakhstan, russia, belarus, transcaucasia, ukraine
 		Prerequisite: aircraft.tacticalbomber

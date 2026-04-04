@@ -38,6 +38,7 @@
 	Burst: 2
 	Warhead@1Dam: SpreadDamage
 		Versus:
+			None: 20
 			Heavy: 115
 
 TeslaCannon:
@@ -46,9 +47,10 @@ TeslaCannon:
 	Report: itesatta.aud, itesat2a.aud, itesat2b.aud
 	-Projectile:
 	Projectile: Missile
-		Arm: 2
+		Arm: 1
 		Blockable: False
-		HorizontalRateOfTurn: 40
+		HorizontalRateOfTurn: 80
+		VerticalRateOfTurn: 80
 		RangeLimit: 6c512
 		Image: teslabolt
 		Shadow: False
@@ -62,7 +64,7 @@ TeslaCannon:
 		CloseEnough: 0c0
 		Gravity: 0
 		CruiseAltitude: 1c0
-		HomingActivationDelay: 2
+		HomingActivationDelay: 0
 		AllowSnapping: True
 		MinimumLaunchAngle: 90
 		MaximumLaunchAngle: 91
@@ -82,8 +84,8 @@ TeslaCannon:
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Scorch
 	Warhead@3Eff: CreateEffect
-		Explosions: thunderstruck, thunderstruck2
-		ExplosionPalette: tseffects
+		Explosions: teslastruck, teslastruck2
+		ExplosionPalette: player
 		ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor, Corpse
 	-Warhead@4EffWater:
 
@@ -120,8 +122,8 @@ VolkovTeslaCannon:
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Scorch
 	Warhead@3Eff: CreateEffect
-		Explosions: thunderstruck, thunderstruck2
-		ExplosionPalette: tseffects
+		Explosions: teslastruck, teslastruck2
+		ExplosionPalette: player
 		ImpactSounds: chrge1.aud
 		ValidTargets: Ground, Water, GroundActor, Trees,  Ship, WaterActor, Corpse
 
@@ -230,7 +232,7 @@ VolkovTeslaCannon:
 			Heavy: 115
 			Concrete: 95
 	Warhead@2Dam: SpreadDamage
-		Damage: 2000
+		Damage: 1500
 		Falloff: 200, 150, 100, 50
 		Spread: 0c256
 		Versus:
@@ -891,7 +893,7 @@ hvtnkfire:
 			Heavy: 115
 			Concrete: 95
 	Warhead@2Dam: SpreadDamage
-		Damage: 3000
+		Damage: 2000
 		Falloff: 200, 150, 100, 50
 		Spread: 0c256
 		Versus:
@@ -923,7 +925,7 @@ ltnkfire:
 			Heavy: 95
 			Concrete: 95
 	Warhead@2Dam: SpreadDamage
-		Damage: 1500
+		Damage: 1000
 		Falloff: 200, 150, 100, 50
 		Spread: 0c256
 		Versus:
@@ -969,7 +971,7 @@ monstertankgun:
 		Spread: 0c126
 		Falloff: 100, 50
 		Versus:
-			None: 30
+			None: 20
 			Wood: 65
 			Light: 75
 			Medium: 95
@@ -1013,7 +1015,7 @@ MausCannon:
 		ContrailStartWidth: 0c45
 		ContrailDelay: 1
 	Warhead@1Dam: SpreadDamage
-		Damage: 10000
+		Damage: 8500
 		Versus:
 			None: 30
 			Wood: 60

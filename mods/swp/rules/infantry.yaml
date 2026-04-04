@@ -520,7 +520,7 @@ CHRONOCOMMANDO:
 		ChargeDelay: 375
 		Cooldown: 75
 		HasDistanceLimit: true
-		MaxDistance: 24
+		MaxDistance: 15
 		MaxInstantDistance: 6
 		PreChargeTicksPerCell: 7
 		MaxPreChargeTicks: 250
@@ -2713,7 +2713,6 @@ E6:
 	DetectCloaked:
 		Range: 5c0
 		DetectionTypes: Mine
-	CaptureProgressBar:
 	SpawnActorOnDeath@BulletDeath:
 		Actor: E6.Husk
 	Infiltrates:
@@ -4387,7 +4386,7 @@ HVMG:
 		Strengths: + Strong vs Infantry.
 		Weaknesses: - Weak vs Vehicles, Aircraft.
 	Valued:
-		Cost: 400
+		Cost: 450
 	Tooltip:
 		Name: Heavy Machine Gun Crew
 	UpdatesPlayerStatistics:
@@ -4631,7 +4630,6 @@ SCVN:
 	SpeedMultiplier:
 		RequiresCondition: deployed
 		Modifier: 50
-	CaptureProgressBar:
 	SpawnActorOnDeath@BulletDeath:
 		Actor: SCVN.Husk
 	GrantConditionOnPrerequisite@scrap:
@@ -4967,7 +4965,6 @@ WRAITH:
 		PlayerExperience: 25
 		CaptureDelay: 200
 		EnterCursor: goldwrench
-	CaptureProgressBar:
 
 WRAITH.ETHEREAL:
 	Inherits: ^Soldier
@@ -5480,7 +5477,7 @@ ATGUNNER:
 		Weaknesses: - Weak vs Infantry, Aircraft.
 		Attributes: • Has stronger armour in the front.
 	Valued:
-		Cost: 600
+		Cost: 700
 	Tooltip:
 		Name: Anti-Tank Gun Crew
 	UpdatesPlayerStatistics:
@@ -5556,7 +5553,7 @@ HOWITZERCREW:
 		Weaknesses: - Weak vs Infantry, Aircraft.
 		Attributes: • Has stronger armour in the front.
 	Valued:
-		Cost: 700
+		Cost: 750
 	Tooltip:
 		Name: Howitzer Crew
 	UpdatesPlayerStatistics:
@@ -5632,7 +5629,7 @@ AAGUNCREW:
 		Weaknesses: - Weak vs Vehicles, Infantry.
 		Attributes: • Has stronger armour in the front.
 	Valued:
-		Cost: 550
+		Cost: 600
 	Tooltip:
 		Name: Anti-Air Gun Crew
 	UpdatesPlayerStatistics:
@@ -5708,7 +5705,7 @@ NEBELWHERFER:
 		Weaknesses: - Weak vs Vehicles, Infantry.
 		Attributes: • Has stronger armour in the front.
 	Valued:
-		Cost: 600
+		Cost: 700
 	Tooltip:
 		Name: Rocket Launcher Crew
 	UpdatesPlayerStatistics:
@@ -7088,6 +7085,7 @@ NIGHTWITCH:
 	TakeCover:
 		ProneOffset: 227,0,-245
 	AttackFrontal:
+		Voice: Attack
 	AttackMove:
 	Passenger:
 	Guard:
@@ -7110,7 +7108,7 @@ NIGHTWITCH:
 		NoTransformNotification: BuildingCannotPlaceAudio
 	Voiced:
 		VoiceSet: RusFemVoices
-		Volume: 1.5
+		Volume: 2
 
 NIGHTWITCH.Corpse:
 	Inherits: ^InfantryCorpse
@@ -7124,11 +7122,6 @@ NIGHTWITCH.Corpse:
 NIGHTWITCHAIR:
 	Inherits: ^Helicopter
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	GrantTimedCondition@born:
-		Duration: 10
-		Condition: born
-	Wanders:
-		RequiresCondition: born
 	RenderSprites:
 		Image: nightwitch
 	Valued:
@@ -7156,6 +7149,7 @@ NIGHTWITCHAIR:
 	-EjectOnDeath:
 	AttackFrontal:
 		FacingTolerance: 0
+		Voice: Attack
 	AttackMove:
 	Guard:
 	WithMoveAnimation:
@@ -7178,14 +7172,20 @@ NIGHTWITCHAIR:
 		Actor: NIGHTWITCHAIR.Husk
 	Voiced:
 		VoiceSet: RusFemVoices
-		Volume: 1.5
+		Volume: 2
 	DeathSounds@NORMAL:
 		DeathTypes: DefaultDeath, BulletDeath, SmallExplosionDeath, ExplosionDeath, AcidDeath
+	GrantTimedCondition@transformed:
+		Condition: transformed
+		Duration: 25
+	Wanders:
+		RequiresCondition: transformed
 	InstantTransforms:
+		RequiresCondition: !transformed && !airborne
 		IntoActor: nightwitch
 	TransformOnCondition:
 		IntoActor: nightwitch
-		RequiresCondition: !airborne
+		RequiresCondition: !transformed && !airborne
 
 NIGHTWITCHAIR.Husk:
 	Inherits: ^HelicopterHusk
@@ -7282,9 +7282,6 @@ JUMPJETGUY.Corpse:
 JUMPJETGUYAIR:
 	Inherits: ^Helicopter
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	GrantTimedCondition@transformed:
-		Condition: transformed
-		Duration: 10
 	Voiced:
 		VoiceSet: GenericVoice
 	RenderSprites:
@@ -8144,6 +8141,7 @@ IRONMAN.Corpse:
 
 WORKER:
 	Inherits: ^Soldier
+	Inherits@selection: ^SelectableSupportUnit
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Valued:
 		Cost: 100

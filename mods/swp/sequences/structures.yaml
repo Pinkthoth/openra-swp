@@ -1259,6 +1259,41 @@ ftur:
 		Filename: flmturicon.shp
 		Offset: 0,0
 
+sentrygun:
+	Defaults:
+		Filename: sentrygun.shp
+		Offset: 0,-5
+	idle:
+		Filename: gunmake.shp
+	turret:
+		Start: 0
+		Facings: 32
+		UseClassicFacings: True
+	damaged-turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	damaged-idle:
+		Filename: gunmake.shp
+	make:
+		Start: 65
+		Length: *
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbFTUR.tem
+			DESERT: mbFTUR.des
+		Length: *
+		Offset: 0,0
+	build:
+		Start: 0
+	icon:
+		Filename: sentrygunicon.shp
+		Offset: 0,0
+
 psychtower:
 	Defaults:
 		Filename: psychtower.shp

@@ -309,10 +309,10 @@ DISH:
 		RequiresCondition: powerdown
 		Position: Center
 	Selectable:
-		Bounds: 1448, 2896
+		Bounds: 2896, 2896
 	HitShape:
 		UseTargetableCellsOffsets: false
-		TargetableOffsets: 0,0,0, 630,-384,0, 630,384,0, -700,-512,0, -700,512,0
+		TargetableOffsets: 0,0,0, 730,-384,0, 730,384,0, -700,-612,0, -700,612,0
 	Tooltip:
 		Name: Radar Dish
 	Building:

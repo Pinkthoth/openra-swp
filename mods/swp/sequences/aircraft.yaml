@@ -27,6 +27,13 @@ transportplane:
 		Facings: 32
 		UseClassicFacings: True
 
+electriclightning:
+	idle:
+		Filename: electriclightning.shp
+		Facings: 32
+	icon:
+		Filename: electriclightningicon.shp
+
 mig:
 	idle:
 		Filename: mig.shp

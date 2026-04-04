@@ -148,12 +148,12 @@ electrobolt:
 teslabolt:
 	idle:
 		Filename: teslabolt.shp
-		Facings: 32
+		InterpolatedFacings: 64
 		Length: 4
 		Tick: 100
 	idle_fast:
 		Filename: teslabolt.shp
-		Facings: 32
+		InterpolatedFacings: 64
 		Length: 4
 		Tick: 50
 
@@ -394,6 +394,12 @@ explosion:
 		Filename: thunderstruck.shp
 		Length: *
 	thunderstruck2:
+		Filename: thunderstruck2.shp
+		Length: *
+	teslastruck:
+		Filename: thunderstruck.shp
+		Length: *
+	teslastruck2:
 		Filename: thunderstruck2.shp
 		Length: *
 	poison1:

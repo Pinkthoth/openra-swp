@@ -2680,6 +2680,7 @@
 		Condition: goingtodie
 		RequiresCondition: deployed
 		MaxCharge: 75
+		ShowSelectionBarWhenEmpty: False
 	GrantConditionOnDeploy:
 		DeployedCondition: deployed
 		SkipMakeAnimation: True
@@ -2700,12 +2701,24 @@
 		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration
 		RequiresCondition: !being-warped
 	InfiltrateForDecoration:
-		Types: SpyInfiltrate, SaboteurInfiltration
+		Types: SpyInfiltrate, SaboteurInfiltration, MatahariInfiltrate
 		Position: Top
 		Margin: 0, 4
 		RequiresSelection: true
 		Image: pips
 		Sequence: tag-fake
+
+^InfiltratableTrap:
+	Targetable:
+		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate, SaboteurInfiltration
+		RequiresCondition: !being-warped
+	InfiltrateForDecoration:
+		Types: SpyInfiltrate, SaboteurInfiltration, MatahariInfiltrate
+		Position: Top
+		Margin: 0, 4
+		RequiresSelection: true
+		Image: pips
+		Sequence: tag-trap
 
 ^AmmoBox:
 	Inherits: ^TechBuilding

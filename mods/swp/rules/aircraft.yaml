@@ -1100,6 +1100,86 @@ MIG:
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
 
+ELECTRICLIGHTNING:
+	Inherits: ^Plane
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMovePlusBombers
+	Buildable:
+		Queue: Aircraft
+		BuildAtProductionType: Plane
+		BuildPaletteOrder: 799
+		Prerequisites: ~afld, atek, ~aircraft.electriclightning, ~techlevel.high
+		Description: Fast general purpose a plane.
+	TooltipExtras:
+		Strengths: + Strong vs Vehicles, Aircraft.
+		Weaknesses: - Weak vs Infantry.
+	Valued:
+		Cost: 1800
+	Tooltip:
+		Name: Lightning
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 9000
+	RevealsShroud:
+		MinRange: 11c0
+		Range: 13c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 11c0
+		Type: GroundPosition
+	Armament@PRIMARY:
+		Weapon: SturmvogelAA
+		LocalOffset: 0,-213,-85, 0,213,-85
+		PauseOnCondition: !ammo || !airborne
+	AttackAircraft:
+		Armaments: primary
+		FacingTolerance: 80
+		PersistentTargeting: false
+		OpportunityFire: False
+	Aircraft:
+		TurnSpeed: 16
+		Speed: 170
+		RepulsionSpeed: 40
+		MaximumPitch: 56
+	AutoTarget:
+		InitialStance: HoldFire
+		InitialStanceAI: HoldFire
+	AmmoPool:
+		Ammo: 6
+		AmmoCondition: ammo
+	Selectable:
+		Bounds: 1406, 1406, 0, 120
+		DecorationBounds: 1406, 1406, 0, 60
+	Contrail:
+		Offset: -853,0,20
+	Contrail@2:
+		Offset: -853,0,-20
+	SpawnActorOnDeath:
+		Actor: MIG.Husk
+	LeavesTrails:
+		Offsets: -853,0,171
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+		RequiresCondition: enable-smoke
+	ProducibleWithLevel:
+		Prerequisites: aircraft.upgraded
+	Rearmable:
+		RearmActors: afld, sport, afld.raj
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		Margin: 4, 3
+		PipCount: 3
+		RequiresSelection: true
+		EmptySequence: pip-emptyammo
+		FullSequence: pip-missile
+	GrantConditionOnDamageState@SmokeTrail:
+		Condition: enable-smoke
+
 TESLAPLANE:
 	Inherits: ^Plane
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMovePlusBombers
@@ -5058,7 +5138,7 @@ ZEPPELIN:
 		ChargeDelay: 375
 		Cooldown: 75
 		HasDistanceLimit: true
-		MaxDistance: 48
+		MaxDistance: 20
 		MaxInstantDistance: 12
 		PreChargeTicksPerCell: 7
 		MaxPreChargeTicks: 250

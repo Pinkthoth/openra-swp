@@ -476,10 +476,8 @@ MIG.Husk:
 	Inherits: ^PlaneHusk
 	Tooltip:
 		Name: MiG Attack Plane
-	Contrail@1:
-		Offset: -598,-683,0
-	Contrail@2:
-		Offset: -598,683,0
+	Contrail:
+		Offset: -853,0,0
 	Aircraft:
 		TurnSpeed: 20
 		Speed: 186
@@ -501,6 +499,36 @@ MIG.Husk:
 		Type: GroundPosition
 	RenderSprites:
 		Image: mig
+
+ELECTRICLIGHTNING.Husk:
+	Inherits: ^PlaneHusk
+	Tooltip:
+		Name: Lightning
+	Contrail:
+		Offset: -853,0,20
+	Contrail@2:
+		Offset: -853,0,-20
+	Aircraft:
+		TurnSpeed: 20
+		Speed: 186
+	LeavesTrails:
+		Offsets: -853,0,171
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+	RevealsShroud:
+		MinRange: 11c0
+		Range: 13c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 11c0
+		Type: GroundPosition
+	RenderSprites:
+		Image: electriclightning
 
 TESLAPLANE.Husk:
 	Inherits: ^PlaneHusk
